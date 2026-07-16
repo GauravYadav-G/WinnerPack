@@ -1,0 +1,43 @@
+{
+  "name": "react-vite-tailwind",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.6.1",
+    "@tailwindcss/postcss": "^4.3.2",
+    "@tiptap/extension-image": "^3.27.4",
+    "@tiptap/extension-table": "^3.27.4",
+    "@tiptap/extension-table-cell": "^3.27.4",
+    "@tiptap/extension-table-header": "^3.27.4",
+    "@tiptap/extension-table-row": "^3.27.4",
+    "@tiptap/react": "^3.27.4",
+    "@tiptap/starter-kit": "^3.27.4",
+    "clsx": "2.1.1",
+    "framer-motion": "^12.42.2",
+    "lucide-react": "^1.24.0",
+    "marked": "^18.0.6",
+    "mongoose": "^9.7.4",
+    "next": "^16.2.10",
+    "postcss": "^8.5.16",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "tailwind-merge": "3.4.0",
+    "three": "^0.185.1",
+    "turndown": "^7.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.17",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "@types/three": "^0.185.1",
+    "@types/turndown": "^5.0.6",
+    "tailwindcss": "4.1.17",
+    "typescript": "5.9.3"
+  }
+}
