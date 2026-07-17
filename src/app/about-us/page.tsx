@@ -4,7 +4,7 @@ import { IMAGES } from "@/lib/mock-data";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Section, Container, Eyebrow } from "@/components/ui/primitives";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/motion";
-import { Icon } from "@/components/ui/Icon";
+import { Gauge, ShieldCheck, Truck } from "lucide-react";
 import CtaBanner from "@/components/CTABanner";
 import DiscoverCompany from "@/components/DiscoverCompany";
 
@@ -19,17 +19,17 @@ import PageWrapper from "@/components/PageWrapper";
 
 const VALUES = [
   {
-    icon: "Gauge",
+    icon: Gauge,
     title: "Precision over compromise",
     text: "We specify to the exact gauge, width and grade your line needs — not the nearest catalogue match.",
   },
   {
-    icon: "ShieldCheck",
+    icon: ShieldCheck,
     title: "Partnership, not transactions",
     text: "We sit on the same side of the table as your operations team — and we stay engaged long after the purchase order is signed.",
   },
   {
-    icon: "Truck",
+    icon: Truck,
     title: "Reliability that ships",
     text: "Consistent stock and a Ghaziabad dispatch base mean your dock date is a commitment we plan around, not a best guess.",
   },
@@ -118,17 +118,20 @@ export default function AboutUs() {
               Three principles behind every roll, coil and case we ship
             </h2>
             <Stagger className="mt-6 md:mt-10 grid gap-4 md:gap-5 md:grid-cols-3">
-              {VALUES.map((v) => (
-                <StaggerItem key={v.title} className="h-full">
-                  <div className="flex h-full flex-col rounded-2xl border border-[var(--color-line)] bg-white/70 backdrop-blur-sm p-5 md:p-7">
-                    <span className="grid h-10 w-10 md:h-12 md:w-12 place-items-center rounded-xl bg-[var(--color-blue-deep)] text-[var(--color-amber)]">
-                      <Icon name={v.icon} className="h-5 w-5 md:h-6 md:w-6" />
-                    </span>
-                    <h3 className="mt-4 md:mt-5 text-base md:text-lg font-semibold text-[var(--color-ink)] font-display">{v.title}</h3>
-                    <p className="mt-1.5 md:mt-2 text-xs md:text-sm leading-relaxed text-[var(--color-mute)]">{v.text}</p>
-                  </div>
-                </StaggerItem>
-              ))}
+              {VALUES.map((v) => {
+                const ValueIcon = v.icon;
+                return (
+                  <StaggerItem key={v.title} className="h-full">
+                    <div className="flex h-full flex-col rounded-2xl border border-[var(--color-line)] bg-white/70 backdrop-blur-sm p-5 md:p-7">
+                      <span className="grid h-10 w-10 md:h-12 md:w-12 place-items-center rounded-xl bg-[var(--color-blue-deep)] text-[var(--color-amber)]">
+                        <ValueIcon className="h-5 w-5 md:h-6 md:w-6" />
+                      </span>
+                      <h3 className="mt-4 md:mt-5 text-base md:text-lg font-semibold text-[var(--color-ink)] font-display">{v.title}</h3>
+                      <p className="mt-1.5 md:mt-2 text-xs md:text-sm leading-relaxed text-[var(--color-mute)]">{v.text}</p>
+                    </div>
+                  </StaggerItem>
+                );
+              })}
             </Stagger>
           </Container>
         </Section>

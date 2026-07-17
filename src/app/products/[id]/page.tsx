@@ -2,13 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronRight, Check, ArrowLeft } from "lucide-react";
+import { ChevronRight, Check, ArrowLeft, ArrowRight } from "lucide-react";
 import { productCategories } from "../../../data";
 import { COMPANY } from "../../../lib/mock-data";
 import { Container, Section, Eyebrow } from "@/components/ui/primitives";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/motion";
 import { Button } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/Icon";
 import { ProductCard } from "@/components/ProductCard";
 import CTABanner from "@/components/CTABanner";
 
@@ -299,7 +298,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                         key={a}
                         className="inline-flex items-center gap-1 rounded-full bg-white border border-[var(--color-line)] px-2.5 py-1 text-[10px] md:text-xs font-semibold text-[var(--color-ink)] shadow-sm"
                       >
-                        <Icon name="ArrowRight" className="h-3 w-3 md:h-3.5 md:w-3.5 text-[var(--color-amber-dark)]" />
+                        <ArrowRight className="h-3 w-3 md:h-3.5 md:w-3.5 text-[var(--color-amber-dark)]" />
                         {a}
                       </span>
                     ))}

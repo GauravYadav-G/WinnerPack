@@ -9,7 +9,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@react-three/fiber": "^9.6.1",
     "@tailwindcss/postcss": "^4.3.2",
     "@tiptap/extension-image": "^3.27.4",
     "@tiptap/extension-table": "^3.27.4",
@@ -28,14 +27,12 @@
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "tailwind-merge": "3.4.0",
-    "three": "^0.185.1",
     "turndown": "^7.2.4"
   },
   "devDependencies": {
     "@types/node": "22.19.17",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
-    "@types/three": "^0.185.1",
     "@types/turndown": "^5.0.6",
     "tailwindcss": "4.1.17",
     "typescript": "5.9.3"

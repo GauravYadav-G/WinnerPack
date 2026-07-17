@@ -1,6 +1,3 @@
-"use client";
-
-
 
 const industriesList = [
   { name: "Pharma", image: "/images/desktop/industries/pharma_industry.png" },
