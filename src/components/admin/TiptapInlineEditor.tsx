@@ -65,6 +65,7 @@ interface TiptapInlineEditorProps {
 export default function TiptapInlineEditor({ value, onChange }: TiptapInlineEditorProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = React.useState(false);
+  const lastEmittedValue = useRef(value);
 
   const editor = useEditor({
     extensions: [
@@ -78,23 +79,25 @@ export default function TiptapInlineEditor({ value, onChange }: TiptapInlineEdit
     content: markdownToHtml(value || ""),
     editorProps: {
       attributes: {
-        class: "focus:outline-none min-h-[160px] max-h-[300px] overflow-y-auto p-4 w-full bg-[#0F1117] border border-white/10 rounded-b border-t-0 text-slate-100 prose prose-invert max-w-none text-xs leading-relaxed",
+        class: "focus:outline-none min-h-[240px] max-h-[500px] overflow-y-auto p-4 w-full bg-white border border-slate-200 rounded-b border-t-0 text-slate-800 prose max-w-none text-sm leading-relaxed",
       },
     },
     onUpdate: ({ editor: currentEditor }) => {
       const htmlContent = currentEditor.getHTML();
       const markdownContent = turndownService.turndown(htmlContent);
+      lastEmittedValue.current = markdownContent;
       onChange(markdownContent);
     }
   });
 
   // Keep content synced on load/change
   useEffect(() => {
-    if (editor && value !== undefined) {
+    if (editor && value !== undefined && value !== lastEmittedValue.current) {
       const htmlContent = markdownToHtml(value || "");
       if (editor.getHTML() !== htmlContent) {
         editor.commands.setContent(htmlContent);
       }
+      lastEmittedValue.current = value;
     }
   }, [value, editor]);
 
@@ -144,14 +147,14 @@ export default function TiptapInlineEditor({ value, onChange }: TiptapInlineEdit
   return (
     <div className="flex flex-col w-full">
       {/* Editor Toolbar */}
-      <div className="flex flex-wrap items-center gap-1.5 bg-[#161923] border border-white/10 rounded-t p-2 select-none">
+      <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 border border-slate-200 rounded-t p-2 select-none">
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBold().run()}
           className={`p-1.5 rounded transition text-xs ${
             editor.isActive("bold")
-              ? "bg-cyan-500 text-black font-bold"
-              : "bg-[#0F1117] border border-white/5 hover:bg-white/5 text-slate-400"
+              ? "bg-indigo-600 text-white font-bold"
+              : "bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 shadow-sm"
           }`}
           title="Bold"
         >
@@ -162,8 +165,8 @@ export default function TiptapInlineEditor({ value, onChange }: TiptapInlineEdit
           onClick={() => editor.chain().focus().toggleItalic().run()}
           className={`p-1.5 rounded transition text-xs ${
             editor.isActive("italic")
-              ? "bg-cyan-500 text-black font-bold"
-              : "bg-[#0F1117] border border-white/5 hover:bg-white/5 text-slate-400"
+              ? "bg-indigo-600 text-white font-bold"
+              : "bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 shadow-sm"
           }`}
           title="Italic"
         >
@@ -174,23 +177,23 @@ export default function TiptapInlineEditor({ value, onChange }: TiptapInlineEdit
           onClick={() => editor.chain().focus().toggleStrike().run()}
           className={`p-1.5 rounded transition text-xs ${
             editor.isActive("strike")
-              ? "bg-cyan-500 text-black font-bold"
-              : "bg-[#0F1117] border border-white/5 hover:bg-white/5 text-slate-400"
+              ? "bg-indigo-600 text-white font-bold"
+              : "bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 shadow-sm"
           }`}
           title="Strikethrough"
         >
           <Strikethrough size={13} />
         </button>
 
-        <div className="h-4 w-px bg-white/10 mx-1" />
+        <div className="h-4 w-px bg-slate-200 mx-1" />
 
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
           className={`p-1.5 px-2 rounded text-[10px] font-bold transition ${
             editor.isActive("heading", { level: 2 })
-              ? "bg-cyan-500 text-black"
-              : "bg-[#0F1117] border border-white/5 hover:bg-white/5 text-slate-400"
+              ? "bg-indigo-600 text-white"
+              : "bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 shadow-sm"
           }`}
           title="Heading 2"
         >
@@ -201,23 +204,23 @@ export default function TiptapInlineEditor({ value, onChange }: TiptapInlineEdit
           onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
           className={`p-1.5 px-2 rounded text-[10px] font-bold transition ${
             editor.isActive("heading", { level: 3 })
-              ? "bg-cyan-500 text-black"
-              : "bg-[#0F1117] border border-white/5 hover:bg-white/5 text-slate-400"
+              ? "bg-indigo-600 text-white"
+              : "bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 shadow-sm"
           }`}
           title="Heading 3"
         >
           H3
         </button>
 
-        <div className="h-4 w-px bg-white/10 mx-1" />
+        <div className="h-4 w-px bg-slate-200 mx-1" />
 
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={`p-1.5 rounded transition text-xs ${
             editor.isActive("bulletList")
-              ? "bg-cyan-500 text-black font-bold"
-              : "bg-[#0F1117] border border-white/5 hover:bg-white/5 text-slate-400"
+              ? "bg-indigo-600 text-white font-bold"
+              : "bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 shadow-sm"
           }`}
           title="Bullet List"
         >
@@ -228,8 +231,8 @@ export default function TiptapInlineEditor({ value, onChange }: TiptapInlineEdit
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={`p-1.5 rounded transition text-xs ${
             editor.isActive("orderedList")
-              ? "bg-cyan-500 text-black font-bold"
-              : "bg-[#0F1117] border border-white/5 hover:bg-white/5 text-slate-400"
+              ? "bg-indigo-600 text-white font-bold"
+              : "bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 shadow-sm"
           }`}
           title="Ordered List"
         >
@@ -240,15 +243,15 @@ export default function TiptapInlineEditor({ value, onChange }: TiptapInlineEdit
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
           className={`p-1.5 rounded transition text-xs ${
             editor.isActive("blockquote")
-              ? "bg-cyan-500 text-black font-bold"
-              : "bg-[#0F1117] border border-white/5 hover:bg-white/5 text-slate-400"
+              ? "bg-indigo-600 text-white font-bold"
+              : "bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 shadow-sm"
           }`}
           title="Blockquote"
         >
           <Quote size={13} />
         </button>
 
-        <div className="h-4 w-px bg-white/10 mx-1" />
+        <div className="h-4 w-px bg-slate-200 mx-1" />
 
         <input
           type="file"
@@ -261,15 +264,15 @@ export default function TiptapInlineEditor({ value, onChange }: TiptapInlineEdit
           type="button"
           onClick={handleInsertImage}
           disabled={uploading}
-          className="p-1.5 bg-[#0F1117] border border-white/5 hover:bg-white/5 text-slate-400 rounded transition flex items-center justify-center"
+          className="p-1.5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 shadow-sm rounded transition flex items-center justify-center"
           title="Insert Image File"
         >
-          {uploading ? <Loader2 size={13} className="animate-spin text-cyan-400" /> : <ImageIcon size={13} />}
+          {uploading ? <Loader2 size={13} className="animate-spin text-indigo-600" /> : <ImageIcon size={13} />}
         </button>
         <button
           type="button"
           onClick={handleInsertTable}
-          className="p-1.5 bg-[#0F1117] border border-white/5 hover:bg-white/5 text-slate-400 rounded transition"
+          className="p-1.5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 shadow-sm rounded transition"
           title="Insert Table"
         >
           <TableIcon size={13} />

@@ -15,7 +15,6 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Cursor from "../../components/Cursor";
 import ScrollProgress from "../../components/ScrollProgress";
-import ScrollToTop from "../../components/ScrollToTop";
 import PageWrapper from "../../components/PageWrapper";
 
 export default function ContactPage() {
@@ -79,7 +78,7 @@ export default function ContactPage() {
       <Cursor />
       <ScrollProgress />
       <Navbar />
-      <ScrollToTop />
+
 
       <PageWrapper className="relative pt-12 pb-16">
         <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-8">
@@ -318,7 +317,7 @@ export default function ContactPage() {
               <Reveal delay={0.16}>
                 <div className="overflow-hidden rounded-3xl border border-[var(--color-line)] shadow-sm bg-white p-1">
                   <iframe
-                    title="Winner Pack Technologies Ghaziabad location"
+                    title="Winner Pack Technologies Pvt. Ltd. Ghaziabad location"
                     src="https://maps.google.com/maps?q=Plot%20No.%208,%20B.S.T.%20Industrial%20Park,%20Dasna,%20Ghaziabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     className="h-64 w-full rounded-2xl grayscale-[0.2]"
                     loading="lazy"

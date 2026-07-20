@@ -1,8 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { fetchContent } from "@/lib/content-cache";
 
-const steps = [
+const defaultSteps = [
   {
     n: "01",
     phase: "Discovery",
@@ -54,7 +55,7 @@ const steps = [
 ];
 
 interface StepCardProps {
-  s: typeof steps[0];
+  s: typeof defaultSteps[0];
   scrollYProgress: any;
   isMobile: boolean;
   startProgress: number;
@@ -127,6 +128,7 @@ function StepCard({ s, scrollYProgress, isMobile, startProgress, endProgress }: 
 export default function Journey() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
+  const [stepsList, setStepsList] = useState<any[]>(defaultSteps);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -134,6 +136,16 @@ export default function Journey() {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    fetchContent("homepage")
+      .then((data) => {
+        if (data.steps && data.steps.length > 0) {
+          setStepsList(data.steps);
+        }
+      })
+      .catch((err) => console.error("Failed to load journey steps:", err));
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -161,7 +173,7 @@ export default function Journey() {
           </div>
           <div className="md:col-span-5 md:pl-8">
             <p className="text-base leading-relaxed text-white/65 md:text-lg">
-              Winner Pack Technologies has followed the same process since 2018 —
+              Winner Pack Technologies Pvt. Ltd. has followed the same process since 2018 —
               from a first sample to repeat supply — for strap rolls, shrink films
               and packaging machines out of our Ghaziabad, UP base.
             </p>
@@ -184,9 +196,9 @@ export default function Journey() {
             </div>
           </div>
 
-          <div className="journey-track mt-16 -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-6 md:grid md:grid-cols-6 md:gap-3 md:overflow-visible md:px-0 md:pb-0">
-            {steps.map((s, i) => {
-              const targetCenter = i / 5;
+          <div className={`journey-track mt-16 -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-6 md:grid md:gap-3 md:overflow-visible md:px-0 md:pb-0`} style={{ gridTemplateColumns: `repeat(${stepsList.length}, minmax(0, 1fr))` }}>
+            {stepsList.map((s, i) => {
+              const targetCenter = i / (stepsList.length - 1 || 1);
               const startProgress = Math.max(0, targetCenter - 0.08);
               const endProgress = Math.min(1.0, targetCenter + 0.08);
               return (

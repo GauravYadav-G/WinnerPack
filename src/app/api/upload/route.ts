@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
 import { writeFile, mkdir } from "fs/promises";
 import { join } from "path";
+import { isAuthorized } from "@/utils/auth";
 
 export async function POST(request: Request) {
   try {
+    if (!(await isAuthorized())) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const data = await request.formData();
     const file: File | null = data.get("file") as unknown as File;
 

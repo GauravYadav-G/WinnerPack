@@ -1,12 +1,17 @@
 import { NextResponse } from "next/server";
-import { connectDB } from "../../../../utils/db";
-import { Inquiry } from "../../../../utils/models";
+import { connectDB } from "@/backend/db";
+import { Inquiry } from "@/backend/models";
+import { isAuthorized } from "@/utils/auth";
+
 
 export async function PATCH(
   req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    if (!(await isAuthorized())) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
     await connectDB();
     const { id } = await params;
     const body = await req.json();
@@ -24,6 +29,9 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    if (!(await isAuthorized())) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
     await connectDB();
     const { id } = await params;
     await Inquiry.findByIdAndDelete(id);

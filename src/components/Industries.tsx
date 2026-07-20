@@ -1,6 +1,11 @@
 
-const industriesList = [
-  { name: "Pharma", image: "/images/desktop/industries/pharma_industry.png" },
+"use client";
+
+import { useState, useEffect } from "react";
+import { fetchContent } from "@/lib/content-cache";
+
+const defaultIndustriesList = [
+  { name: "Electronics", image: "/images/desktop/industries/electronics_industry.png" },
   { name: "Cosmetics", image: "/images/desktop/industries/cosmetics_industry.png" },
   { name: "Food & FMCG", image: "/images/desktop/industries/food_fmcg_industry.png" },
   { name: "Stationery", image: "/images/desktop/industries/stationery_industry.png" },
@@ -8,6 +13,22 @@ const industriesList = [
 ];
 
 export default function Industries() {
+  const [industriesList, setIndustriesList] = useState<any[]>(defaultIndustriesList);
+
+  useEffect(() => {
+    fetchContent("homepage")
+      .then((data) => {
+        if (data.industries && data.industries.length > 0) {
+          setUpdatedList(data.industries);
+        }
+      })
+      .catch((err) => console.error("Failed to load industries:", err));
+  }, []);
+
+  function setUpdatedList(list: any[]) {
+    setIndustriesList(list);
+  }
+
   return (
     <section id="industries" className="relative overflow-hidden bg-white py-10 md:py-16">
       {/* Background accents */}

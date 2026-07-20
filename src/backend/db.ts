@@ -18,13 +18,18 @@ if (!cached) {
 }
 
 export async function connectDB() {
+  console.log("connectDB() called, URI =", MONGODB_URI);
   if (cached!.conn) {
+    console.log("connectDB() returning cached connection");
     return cached!.conn;
   }
 
   if (!cached!.promise) {
+    console.log("connectDB() initiating new connection promise");
     const opts = {
       bufferCommands: false,
+      serverSelectionTimeoutMS: 3000, // Timeout after 3s if DB is unreachable
+      connectTimeoutMS: 3000,         // Timeout after 3s during initial connection
     };
 
     cached!.promise = mongoose.connect(MONGODB_URI, opts).then((mongooseInstance) => {

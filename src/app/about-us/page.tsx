@@ -13,7 +13,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
-import ScrollToTop from "@/components/ScrollToTop";
 import { useRevealOnScroll } from "@/hooks";
 import PageWrapper from "@/components/PageWrapper";
 
@@ -43,7 +42,7 @@ export default function AboutUs() {
       <Cursor />
       <ScrollProgress />
       <Navbar />
-      <ScrollToTop />
+
 
       <PageWrapper className="relative">
         <PageHeader
@@ -72,7 +71,7 @@ export default function AboutUs() {
                 </h2>
                 <div className="mt-4 space-y-3.5 text-xs md:text-base leading-relaxed text-[var(--color-mute)] text-pretty font-normal">
                   <p>
-                    Winner Pack Technologies started in 2018 as a distributor and
+                    Winner Pack Technologies Pvt. Ltd. started in 2018 as a distributor and
                     trader of strapping and stretch films, serving businesses in the
                     Ghaziabad region. Within two years we formally incorporated as a
                     Private Limited company.
@@ -92,7 +91,7 @@ export default function AboutUs() {
                       confirm this isn't a stock/placeholder image before shipping */}
                   <img
                     src={IMAGES.aboutFactory}
-                    alt="Winner Pack Technologies, Ghaziabad"
+                    alt="Winner Pack Technologies Pvt. Ltd., Ghaziabad"
                     loading="lazy"
                     className="aspect-[16/10] sm:aspect-[4/3] w-full object-cover"
                   />

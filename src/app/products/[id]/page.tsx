@@ -16,7 +16,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
-import ScrollToTop from "@/components/ScrollToTop";
 import PageWrapper from "@/components/PageWrapper";
 
 import { Loader2 } from "lucide-react";
@@ -69,7 +68,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         <Cursor />
         <ScrollProgress />
         <Navbar />
-        <ScrollToTop />
+
         <PageWrapper>
           <section className="grid min-h-[70vh] place-items-center bg-[var(--color-blue-deep)] px-6 pt-20 text-center">
             <div className="flex flex-col items-center justify-center gap-3">
@@ -89,7 +88,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         <Cursor />
         <ScrollProgress />
         <Navbar />
-        <ScrollToTop />
+
         <PageWrapper>
           <section className="grid min-h-[70vh] place-items-center bg-[var(--color-blue-deep)] px-6 pt-20 text-center">
             <div>
@@ -134,7 +133,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       <Cursor />
       <ScrollProgress />
       <Navbar />
-      <ScrollToTop />
+
 
       <PageWrapper>
         {/* Dark detail header */}

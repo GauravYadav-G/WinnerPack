@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
+import { fetchContent } from "@/lib/content-cache";
 
 type Slide = {
   id: string;
@@ -11,9 +12,10 @@ type Slide = {
   description: string;
   desktopMediaUrl: string;
   mobileMediaUrl: string;
+  image?: string;
 };
 
-const slides: Slide[] = [
+const defaultSlides: Slide[] = [
   {
     id: "capacity",
     tag: "01 / CAPACITY",
@@ -41,17 +43,24 @@ const slides: Slide[] = [
   {
     id: "ad",
     tag: "04 / INFRASTRUCTURE",
-    heading: "End-to-End Automation",
+    heading: "Tailored Specs. Direct Dispatch.",
     description: "Syncing strapping, wrapping and taping machines to maximize line efficiency and lower total cost-per-pallet.",
     desktopMediaUrl: "/images/desktop/hero-slider/slide-4.png",
     mobileMediaUrl: "/images/mobile/hero-slider/slide-4.png",
   },
 ];
 
+const DEFAULT_DESKTOP_BANNER = "/images/desktop/hero-slider/right-banner.png";
+const DEFAULT_MOBILE_BANNER = "/images/mobile/hero-slider/right-banner.png";
+
 export default function HeroSlider() {
+  const [slides, setSlides] = useState<any[]>(defaultSlides);
+  const [desktopRightBanner, setDesktopRightBanner] = useState<string>(DEFAULT_DESKTOP_BANNER);
+  const [mobileRightBanner, setMobileRightBanner] = useState<string>(DEFAULT_MOBILE_BANNER);
   const [current, setCurrent] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Track viewport
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -61,20 +70,50 @@ export default function HeroSlider() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Fetch dynamic content from API (shared cache — deduplicated with sibling components)
   useEffect(() => {
+    fetchContent("homepage")
+      .then((data) => {
+        if (data.slides && data.slides.length > 0) {
+          setSlides(data.slides);
+        }
+        if (data.rightBanner) {
+          setDesktopRightBanner(data.rightBanner);
+        }
+        if (data.mobileRightBanner) {
+          setMobileRightBanner(data.mobileRightBanner);
+        }
+      })
+      .catch((err) => console.error("Failed to load dynamic hero content:", err));
+  }, []);
+
+
+  // Auto-advance slides
+  useEffect(() => {
+    if (slides.length === 0) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides]);
 
   const handlePrev = () => {
+    if (slides.length === 0) return;
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   const handleNext = () => {
+    if (slides.length === 0) return;
     setCurrent((prev) => (prev + 1) % slides.length);
   };
+
+  // Pick the correct slide image based on viewport
+  const currentSlideImage = isMobile
+    ? (slides[current]?.mobileMediaUrl || slides[current]?.image || "")
+    : (slides[current]?.desktopMediaUrl || slides[current]?.image || "");
+
+  // Pick the correct right banner based on viewport
+  const currentRightBanner = isMobile ? mobileRightBanner : desktopRightBanner;
 
   return (
     <section className="relative h-[55dvh] md:h-[72vh] w-full overflow-hidden bg-[var(--color-ink)] text-white">
@@ -85,7 +124,7 @@ export default function HeroSlider() {
       {/* 70/30 Split Layout */}
       <div className="absolute inset-x-0 bottom-0 top-0 h-full z-0 flex gap-0">
 
-        {/* Left Side: Animated Slider (70% width) */}
+        {/* Left Side: Animated Slider (70% width on desktop, 70% on mobile too) */}
         <div className="relative w-[70%] h-full overflow-hidden border-r border-white/10">
           <AnimatePresence mode="wait">
             <motion.div
@@ -98,12 +137,12 @@ export default function HeroSlider() {
             >
               <div
                 className="absolute inset-0 bg-[length:100%_100%] bg-center bg-no-repeat"
-                style={{ backgroundImage: `url('${isMobile ? slides[current].mobileMediaUrl : slides[current].desktopMediaUrl}')` }}
+                style={{ backgroundImage: `url('${currentSlideImage}')` }}
               />
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation Arrows - Left (Middle of left side) */}
+          {/* Navigation Arrows */}
           <button
             onClick={handlePrev}
             className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white transition hover:bg-white hover:text-black focus:outline-none"
@@ -112,7 +151,6 @@ export default function HeroSlider() {
             <ArrowLeft className="h-4 w-4" />
           </button>
 
-          {/* Navigation Arrows - Right (Middle of right side of the main slider) */}
           <button
             onClick={handleNext}
             className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white transition hover:bg-white hover:text-black focus:outline-none"
@@ -120,27 +158,27 @@ export default function HeroSlider() {
           >
             <ArrowRight className="h-4 w-4" />
           </button>
-
         </div>
 
-        {/* Right Side: Static Banner (30% width) */}
+        {/* Right Side: Static Banner (30% width, visible on all screens) */}
         <div className="relative w-[30%] h-full overflow-hidden bg-[var(--color-ink)] group">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 group-hover:scale-105"
-            style={{ backgroundImage: "url('/images/desktop/hero-slider/right-banner.png')" }}
+            style={{ backgroundImage: `url('${currentRightBanner}')` }}
           />
         </div>
 
       </div>
 
-      {/* Slide Indicators (Left corner of the left slider) */}
+      {/* Slide Indicators */}
       <div className="absolute bottom-6 left-5 z-20 flex gap-2 md:left-8">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? "w-8 bg-[var(--color-amber)]" : "w-2 bg-white/40"
-              }`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === current ? "w-8 bg-[var(--color-amber)]" : "w-2 bg-white/40"
+            }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}

@@ -15,7 +15,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
-import ScrollToTop from "@/components/ScrollToTop";
 import PageWrapper from "../../../components/PageWrapper";
 import { useRevealOnScroll } from "@/hooks";
 
@@ -31,7 +30,7 @@ export default function BlogPost() {
         <Cursor />
         <ScrollProgress />
         <Navbar />
-        <ScrollToTop />
+
         <PageWrapper>
           <section className="grid min-h-[70vh] place-items-center bg-[var(--color-blue-deep)] px-6 pt-20 text-center">
             <div>
@@ -57,7 +56,7 @@ export default function BlogPost() {
       <Cursor />
       <ScrollProgress />
       <Navbar />
-      <ScrollToTop />
+
 
       <PageWrapper className="relative">
         {/* Header */}

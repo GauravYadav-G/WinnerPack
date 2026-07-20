@@ -14,7 +14,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
-import ScrollToTop from "@/components/ScrollToTop";
 import { useRevealOnScroll } from "@/hooks";
 import PageWrapper from "../../components/PageWrapper";
 
@@ -29,7 +28,7 @@ export default function Blog() {
       <Cursor />
       <ScrollProgress />
       <Navbar />
-      <ScrollToTop />
+
 
       <PageWrapper className="relative">
         <PageHeader

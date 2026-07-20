@@ -2,7 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Inbox, FileText, LogOut, ChevronRight, Package, Wrench } from "lucide-react";
+import {
+  LayoutDashboard,
+  Inbox,
+  FileText,
+  LogOut,
+  ChevronRight,
+  Package,
+  Wrench,
+  Image as ImageIcon,
+  Info,
+  CheckCircle,
+  Users,
+  Route
+} from "lucide-react";
 import Link from "next/link";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -47,7 +60,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   if (checkingAuth) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#0F1117] text-xs font-mono uppercase tracking-[0.2em] text-cyan-400">
+      <div className="flex min-h-screen items-center justify-center bg-slate-50 text-xs font-mono uppercase tracking-[0.2em] text-indigo-600">
         <span className="animate-pulse">Authorizing operations...</span>
       </div>
     );
@@ -60,40 +73,43 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const navItems = [
     { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
+    { label: "Hero & Slides", href: "/admin/hero", icon: ImageIcon },
+    { label: "About & Stats", href: "/admin/about", icon: Info },
+    { label: "Six Reasons", href: "/admin/reasons", icon: CheckCircle },
+    { label: "Partners & Industries", href: "/admin/partners", icon: Users },
+    { label: "Buyer Journey", href: "/admin/journey", icon: Route },
     { label: "Products", href: "/admin/products", icon: Package },
     { label: "Machines", href: "/admin/machines", icon: Wrench },
     { label: "Inquiries", href: "/admin/inquiries", icon: Inbox },
-    { label: "Articles", href: "/admin/articles", icon: FileText },
+    { label: "Blogs", href: "/admin/blogs", icon: FileText },
   ];
 
   return (
-    <div className="flex min-h-screen bg-[#0F1117] text-white">
+    <div className="flex h-screen overflow-hidden bg-[var(--color-bone)] text-[var(--color-text)]">
       {/* Admin Sidebar */}
-      <aside className="w-64 border-r border-white/5 bg-[#161923] flex flex-col flex-shrink-0">
-        <div className="p-6 border-b border-white/5 flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded bg-cyan-500 text-black shadow-sm font-bold">
-            WP
-          </div>
+      <aside className="w-64 border-r border-slate-800 bg-[var(--color-ink-2)] flex flex-col flex-shrink-0 text-slate-300">
+        <div className="p-6 border-b border-slate-800 flex items-center gap-3">
+          <img src="/logo.png" alt="Winner Pack Logo" className="h-8 w-auto object-contain" />
           <div>
-            <div className="font-sans text-sm font-bold tracking-tight text-white">
-              Operations Control
+            <div className="font-display text-base font-bold tracking-tight text-white">
+              Admin Control
             </div>
-            <div className="font-mono text-[8px] font-bold uppercase tracking-[0.2em] text-cyan-400">
-              Admin Shield
+            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-amber)]">
+              Operations Center
             </div>
           </div>
         </div>
 
-        <nav className="flex-1 p-4 space-y-1">
+        <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link
                 key={item.label}
                 href={item.href}
-                className={`flex items-center justify-between rounded-lg px-4 py-3 text-sm font-medium transition-all ${
+                className={`flex items-center justify-between rounded-lg px-4 py-2.5 text-sm font-semibold transition-all ${
                   isActive
-                    ? "bg-cyan-500/10 text-cyan-400 border-l-2 border-cyan-400"
+                    ? "bg-white/5 text-[var(--color-amber)] border-l-2 border-[var(--color-amber)]"
                     : "text-slate-400 hover:bg-white/5 hover:text-white"
                 }`}
               >
@@ -101,17 +117,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   <item.icon className="h-4 w-4" />
                   <span>{item.label}</span>
                 </div>
-                <ChevronRight className={`h-3 w-3 transition-transform ${isActive ? "opacity-100" : "opacity-0"}`} />
+                <ChevronRight className={`h-4 w-4 transition-transform ${isActive ? "opacity-100" : "opacity-0"}`} />
               </Link>
             );
           })}
         </nav>
 
         {/* User Footer / Logout */}
-        <div className="p-4 border-t border-white/5">
+        <div className="p-4 border-t border-slate-800">
           <button
             onClick={handleLogout}
-            className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-red-400 hover:bg-red-500/10 hover:text-red-300 transition"
+            className="flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-bold text-red-400 hover:bg-red-950/20 hover:text-red-300 transition"
           >
             <LogOut className="h-4 w-4" />
             <span>Terminate Session</span>
@@ -121,16 +137,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       {/* Main Panel Content Area */}
       <div className="flex-1 flex flex-col overflow-y-auto">
-        <header className="h-16 border-b border-white/5 bg-[#161923]/50 backdrop-blur px-8 flex items-center justify-between">
-          <div className="text-xs font-mono uppercase tracking-widest text-slate-500">
-            System Live status: <span className="text-emerald-500">Online</span>
+        <header className="h-16 border-b border-slate-200 bg-white/70 backdrop-blur px-8 flex items-center justify-between">
+          <div className="text-xs font-mono uppercase tracking-widest text-slate-400">
+            System Live status: <span className="text-emerald-600 font-bold">Online</span>
           </div>
           <a
             href="/"
             target="_blank"
-            className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition"
+            className="text-sm font-semibold text-[var(--color-amber)] hover:text-[var(--color-amber-dark)] transition"
           >
-            Open Live Site →
+            Open Live Site &rarr;
           </a>
         </header>
         <main className="p-8">

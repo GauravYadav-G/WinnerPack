@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { useInView } from "framer-motion";
+import { fetchContent } from "@/lib/content-cache";
 
 function StatBox({ value, label }: { value: string; label: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -52,6 +53,28 @@ function StatBox({ value, label }: { value: string; label: string }) {
 }
 
 export default function AboutStrip() {
+  const [about, setAbout] = useState({
+    tagline: "Pioneering Industrial Packaging & Labeling Solutions",
+    para1: "Winner Pack Technologies Pvt. Ltd. supplies environment-friendly secondary and tertiary packaging materials and machinery. Guided by our motto \"We Serve To Deserve\", we supply premium quality solutions tailored to your operational needs.",
+    para2: "From Ghaziabad, UP, we specialize in high-cling BOPP tapes, strapping rolls, POF/PVC shrink films, protective packaging, and industrial machinery, serving the pharmaceutical, cosmetics, food/FMCG, and stationery industries.",
+    stats: [
+      { value: "8+", label: "Years in business" },
+      { value: "6", label: "Product categories" },
+      { value: "20+", label: "Product lines" },
+      { value: "100%", label: "Customer commitment" }
+    ]
+  });
+
+  useEffect(() => {
+    fetchContent("homepage")
+      .then((data) => {
+        if (data.about) {
+          setAbout(data.about);
+        }
+      })
+      .catch((err) => console.error("Failed to load about data:", err));
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-[var(--color-blue-deep)] py-16 lg:py-20 text-white z-10">
       {/* Background decorations */}
@@ -75,16 +98,12 @@ export default function AboutStrip() {
             </span>
 
             <h2 className="font-display mt-6 text-2xl font-bold leading-[1.1] tracking-tight text-white sm:text-3xl md:text-5xl text-balance">
-              Pioneering Industrial Packaging &amp; Labeling Solutions
+              {about.tagline}
             </h2>
 
             <div className="mt-6 space-y-4 text-sm leading-relaxed text-white/70 md:text-base">
-              <p>
-                Winner Pack Technologies supplies environment-friendly secondary and tertiary packaging materials and machinery. Guided by our motto <strong>&ldquo;We Serve To Deserve&rdquo;</strong>, we supply premium quality solutions tailored to your operational needs.
-              </p>
-              <p>
-                From Ghaziabad, UP, we specialize in high-cling BOPP tapes, strapping rolls, POF/PVC shrink films, protective packaging, and industrial machinery, serving the pharmaceutical, cosmetics, food/FMCG, and stationery industries.
-              </p>
+              {about.para1 && <p>{about.para1}</p>}
+              {about.para2 && <p>{about.para2}</p>}
             </div>
 
             <Link
@@ -98,10 +117,9 @@ export default function AboutStrip() {
 
           {/* Right Column: 2x2 Stats Grid */}
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
-            <StatBox value="8+" label="Years in business" />
-            <StatBox value="6" label="Product categories" />
-            <StatBox value="20+" label="Product lines" />
-            <StatBox value="100%" label="Customer commitment" />
+            {about.stats && about.stats.map((s) => (
+              <StatBox key={s.label} value={s.value} label={s.label} />
+            ))}
           </div>
         </div>
       </div>

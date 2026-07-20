@@ -1,7 +1,33 @@
-import { usps } from "../data";
-import { Plus } from "lucide-react";
+"use client";
+
+import { useState, useEffect } from "react";
+import { fallbackData } from "@/backend/fallback-data";
+import { fetchContent } from "@/lib/content-cache";
+
+import { Tag, Layers, Disc3, Shield, Leaf, Globe2, Plus } from "lucide-react";
+
+const iconMap: Record<string, any> = {
+  Tag,
+  Layers,
+  Disc3,
+  Shield,
+  Leaf,
+  Globe2
+};
 
 export default function WhyChooseUs() {
+  const [uspsList, setUspsList] = useState<any[]>(fallbackData.usps);
+
+  useEffect(() => {
+    fetchContent("homepage")
+      .then((data) => {
+        if (data.usps && data.usps.length > 0) {
+          setUspsList(data.usps);
+        }
+      })
+      .catch((err) => console.error("Failed to load usps content:", err));
+  }, []);
+
   return (
     <section id="why" className="relative overflow-hidden bg-[var(--color-bone)] py-10 md:py-16">
       <div className="absolute inset-0 bg-stripes opacity-60" />
@@ -16,40 +42,43 @@ export default function WhyChooseUs() {
         </div>
 
         <div className="grid gap-px overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-line)] grid-cols-2 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
-          {usps.map((u, i) => (
-            <div
-              key={u.title}
-              className="group relative overflow-hidden bg-white p-4 sm:p-5 md:p-8 lg:p-10 transition-colors duration-500 hover:bg-[var(--color-blue-deep)]"
-              data-hover
-            >
-              {/* Background reveal on hover */}
-              <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+          {uspsList.map((u, i) => {
+            const IconComponent = iconMap[u.icon] || Tag;
+            return (
+              <div
+                key={u.title}
+                className="group relative overflow-hidden bg-white p-4 sm:p-5 md:p-8 lg:p-10 transition-colors duration-500 hover:bg-[var(--color-blue-deep)]"
+                data-hover
+              >
+                {/* Background reveal on hover */}
+                <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
 
-              <Plus className="absolute right-4 top-4 md:right-7 md:top-7 h-4 w-4 md:h-5 md:w-5 text-[var(--color-line-2)] transition-all duration-500 group-hover:rotate-45 group-hover:text-[var(--color-blue-3)]" />
+                <Plus className="absolute right-4 top-4 md:right-7 md:top-7 h-4 w-4 md:h-5 md:w-5 text-[var(--color-line-2)] transition-all duration-500 group-hover:rotate-45 group-hover:text-[var(--color-blue-3)]" />
 
-              <div className="relative mb-4 md:mb-7 flex items-center gap-3 md:gap-4">
-                <div className="font-mono text-[9px] md:text-[10px] font-bold text-[var(--color-line-2)] transition-colors group-hover:text-[var(--color-blue-3)]">
-                  0{i + 1}
+                <div className="relative mb-4 md:mb-7 flex items-center gap-3 md:gap-4">
+                  <div className="font-mono text-[9px] md:text-[10px] font-bold text-[var(--color-line-2)] transition-colors group-hover:text-[var(--color-blue-3)]">
+                    0{i + 1}
+                  </div>
+                  <div className="h-px flex-1 bg-[var(--color-line-2)] transition-colors group-hover:bg-white/20" />
+                  <div className="flex h-9 w-9 md:h-12 md:w-12 items-center justify-center rounded-md bg-[var(--color-blue-soft)] text-[var(--color-blue)] transition-all duration-500 group-hover:rotate-[20deg] group-hover:scale-110 group-hover:bg-[var(--color-blue)] group-hover:text-white">
+                    <IconComponent className="h-4.5 w-4.5 md:h-5 md:w-5" strokeWidth={1.75} />
+                  </div>
                 </div>
-                <div className="h-px flex-1 bg-[var(--color-line-2)] transition-colors group-hover:bg-white/20" />
-                <div className="flex h-9 w-9 md:h-12 md:w-12 items-center justify-center rounded-md bg-[var(--color-blue-soft)] text-[var(--color-blue)] transition-all duration-500 group-hover:rotate-[20deg] group-hover:scale-110 group-hover:bg-[var(--color-blue)] group-hover:text-white">
-                  <u.icon className="h-4.5 w-4.5 md:h-5 md:w-5" strokeWidth={1.75} />
+
+                <h3 className="font-display text-sm sm:text-base md:text-xl lg:text-2xl font-bold leading-tight text-[var(--color-ink)] transition-colors group-hover:text-white">
+                  {u.title}
+                </h3>
+                <p className="mt-2 md:mt-3 text-[11px] sm:text-xs md:text-sm leading-snug sm:leading-relaxed text-[var(--color-mute)] transition-colors group-hover:text-white/75 line-clamp-4">
+                  {u.text}
+                </p>
+
+                <div className="mt-4 md:mt-7 flex items-center gap-1.5 md:gap-2 font-mono text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-[var(--color-blue)] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  Learn more
+                  <span className="h-px w-4 md:w-6 bg-[var(--color-blue-3)]" />
                 </div>
               </div>
-
-              <h3 className="font-display text-sm sm:text-base md:text-xl lg:text-2xl font-bold leading-tight text-[var(--color-ink)] transition-colors group-hover:text-white">
-                {u.title}
-              </h3>
-              <p className="mt-2 md:mt-3 text-[11px] sm:text-xs md:text-sm leading-snug sm:leading-relaxed text-[var(--color-mute)] transition-colors group-hover:text-white/75 line-clamp-4">
-                {u.text}
-              </p>
-
-              <div className="mt-4 md:mt-7 flex items-center gap-1.5 md:gap-2 font-mono text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-[var(--color-blue)] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                Learn more
-                <span className="h-px w-4 md:w-6 bg-[var(--color-blue-3)]" />
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

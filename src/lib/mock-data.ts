@@ -52,11 +52,8 @@ export const IMAGES = {
  * tonnage/client/delivery figures become available later, these can be
  * swapped back in.
  */
-export const STATS = [
-  { value: "8+", label: "Years in business", sub: "since 2018" }, // VERIFIED (founding year only)
-  { value: "6", label: "Product categories", sub: "Labels to pallet wrapping" }, // VERIFIED — matches winnerpack.in nav (Labels, Films/Bags/Tubes, Strapping, Protective Packaging, Tapes, Pallet Wrapping)
-  { value: "20+", label: "Product lines", sub: "consumables & machines" }, // VERIFIED — counted from footerCols: 11 consumable lines + 4 machine categories + variants (plain/printed/coloured strap & tape)
-];
+
+
 
 export const TIMELINE = [
   {
@@ -65,7 +62,7 @@ export const TIMELINE = [
     // VERIFIED — winnerpack.in/about/ confirms founding year and name;
     // the specific "focused distributor and trader for Ghaziabad-region
     // manufacturers" framing is embellishment, trimmed to what's stated.
-    text: "Winner Pack Technologies was established in 2018, based in Ghaziabad, supplying packaging materials and machines."
+    text: "Winner Pack Technologies Pvt. Ltd. was established in 2018, based in Ghaziabad, supplying packaging materials and machines."
   },
   {
     year: "2020",
@@ -75,7 +72,7 @@ export const TIMELINE = [
     // at that time. Note: per the company's own recent statement, current
     // operations are now at B.S.T. Industrial Park, Dasna — see COMPANY
     // object below.
-    text: "Winner Pack Technologies Private Limited was formally incorporated in June 2020."
+    text: "Winner Pack Technologies Pvt. Ltd. was formally incorporated in June 2020."
   },
   {
     year: "2022",

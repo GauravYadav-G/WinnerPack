@@ -1,53 +1,18 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
+import { fetchContent } from "@/lib/content-cache";
 
 interface Brand {
   name: string;
-  logo: React.ReactNode;
+  logo: string;
 }
 
-const clients: Brand[] = [
-  {
-    name: "Lava",
-    logo: (
-      <img
-        src="/Brand_logo/lava.png"
-        alt="Lava"
-        className="h-8 md:h-12 w-auto max-w-[110px] md:max-w-[160px] object-contain opacity-90 hover:opacity-100 transition-all duration-300 invert mix-blend-screen"
-      />
-    )
-  },
-  {
-    name: "Vivo",
-    logo: (
-      <img
-        src="/Brand_logo/vivo.png"
-        alt="Vivo"
-        className="h-14 md:h-16 w-auto max-w-[150px] md:max-w-[180px] object-contain opacity-90 hover:opacity-100 transition-all duration-300 invert mix-blend-screen"
-      />
-    )
-  },
-  {
-    name: "Noise",
-    logo: (
-      <img
-        src="/Brand_logo/noise.png"
-        alt="Noise"
-        className="h-14 md:h-16 w-auto max-w-[150px] md:max-w-[180px] object-contain opacity-90 hover:opacity-100 transition-all duration-300 invert mix-blend-screen"
-      />
-    )
-  },
-  {
-    name: "Fire-Boltt",
-    logo: (
-      <img
-        src="/Brand_logo/firebolt.png"
-        alt="Fire-Boltt"
-        className="h-14 md:h-16 w-auto max-w-[150px] md:max-w-[180px] object-contain opacity-90 hover:opacity-100 transition-all duration-300 invert mix-blend-screen"
-      />
-    )
-  }
+const defaultClients: Brand[] = [
+  { name: "Lava", logo: "/Brand_logo/lava.png" },
+  { name: "Vivo", logo: "/Brand_logo/vivo.png" },
+  { name: "Noise", logo: "/Brand_logo/noise.png" },
+  { name: "Fire-Boltt", logo: "/Brand_logo/firebolt.png" }
 ];
 
 const LogoCard: React.FC<{ brand: Brand; floatDir: "up" | "down"; index: number }> = ({
@@ -101,7 +66,11 @@ const LogoCard: React.FC<{ brand: Brand; floatDir: "up" | "down"; index: number 
 
       {/* Logo content */}
       <div className="relative z-10 text-white transition-all duration-500 flex items-center justify-center">
-        {brand.logo}
+        <img
+          src={brand.logo}
+          alt={brand.name}
+          className="h-10 md:h-16 w-auto max-w-[130px] md:max-w-[190px] object-contain opacity-90 hover:opacity-100 transition-all duration-300 invert mix-blend-screen"
+        />
       </div>
 
       {/* Tooltip */}
@@ -112,13 +81,24 @@ const LogoCard: React.FC<{ brand: Brand; floatDir: "up" | "down"; index: number 
 
 export default function ClientLogoStrip() {
   const scrollerRef = useRef<HTMLUListElement>(null);
+  const [clients, setClients] = useState<Brand[]>(defaultClients);
   const [ready, setReady] = useState(false);
   const speed = 35;
   const direction = "left";
   const floatDirection = "up";
 
   useEffect(() => {
-    if (!scrollerRef.current) return;
+    fetchContent("homepage")
+      .then((data) => {
+        if (data.clients && data.clients.length > 0) {
+          setClients(data.clients);
+        }
+      })
+      .catch((err) => console.error("Failed to load clients data:", err));
+  }, []);
+
+  useEffect(() => {
+    if (!scrollerRef.current || clients.length === 0) return;
     const scroller = scrollerRef.current;
 
     // Clear existing cloned nodes to prevent accumulation on hot reload
@@ -140,7 +120,7 @@ export default function ClientLogoStrip() {
     );
 
     setReady(true);
-  }, [direction, speed]);
+  }, [clients, direction, speed]);
 
   return (
     <section className="relative overflow-hidden bg-[var(--color-ink)] py-8 md:py-16 text-white">
@@ -150,7 +130,7 @@ export default function ClientLogoStrip() {
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-          <div className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-white/50">
+          <div className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white">
             Trusted Partners
           </div>
         </div>

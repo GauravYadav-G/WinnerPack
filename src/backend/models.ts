@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const InquirySchema = new Schema(
   {
@@ -24,6 +24,7 @@ const ArticleSchema = new Schema(
     excerpt: { type: String },
     body: { type: String, required: true },
     slug: { type: String, required: true, unique: true },
+    image: { type: String, default: "" },
   },
   { timestamps: true }
 );
@@ -72,7 +73,16 @@ const MachineSchema = new Schema(
   { timestamps: true }
 );
 
-export const Inquiry = models.Inquiry || model("Inquiry", InquirySchema);
-export const Article = models.Article || model("Article", ArticleSchema);
-export const Product = models.Product || model("Product", ProductSchema);
-export const Machine = models.Machine || model("Machine", MachineSchema);
+const ContentSchema = new Schema(
+  {
+    key: { type: String, required: true, unique: true },
+    data: { type: Schema.Types.Mixed, required: true },
+  },
+  { timestamps: true }
+);
+
+export const Inquiry = mongoose.models.Inquiry || mongoose.model("Inquiry", InquirySchema);
+export const Article = mongoose.models.Article || mongoose.model("Article", ArticleSchema);
+export const Product = mongoose.models.Product || mongoose.model("Product", ProductSchema);
+export const Machine = mongoose.models.Machine || mongoose.model("Machine", MachineSchema);
+export const Content = mongoose.models.Content || mongoose.model("Content", ContentSchema);

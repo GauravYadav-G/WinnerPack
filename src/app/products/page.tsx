@@ -18,7 +18,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
-import ScrollToTop from "@/components/ScrollToTop";
 import PageWrapper from "@/components/PageWrapper";
 
 const TABS = [
@@ -76,7 +75,7 @@ function ProductsContent() {
       <Cursor />
       <ScrollProgress />
       <Navbar />
-      <ScrollToTop />
+
 
       <PageWrapper>
         <PageHeader

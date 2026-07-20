@@ -24,6 +24,7 @@ export default function AdminMachinesPage() {
   const [machines, setMachines] = useState<Machine[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingModel, setEditingModel] = useState<string | null>(null);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -82,6 +83,7 @@ export default function AdminMachinesPage() {
       alert("Error uploading file: " + err.message);
     } finally {
       setUploading(false);
+      if (fileInputRef.current) fileInputRef.current.value = "";
     }
   };
 
@@ -120,11 +122,13 @@ export default function AdminMachinesPage() {
       specsText: specsToText(mach.specs),
       highlightsText: mach.highlights?.join(", ") || "",
     });
+    setIsFormOpen(true);
   };
 
   const handleCancelEdit = () => {
     setEditingModel(null);
     clearForm();
+    setIsFormOpen(false);
   };
 
   const clearForm = () => {
@@ -198,239 +202,259 @@ export default function AdminMachinesPage() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between border-b border-white/5 pb-4">
-        <div>
-          <h1 className="text-xl font-bold tracking-tight text-white">Machinery Catalog Management</h1>
-          <p className="text-xs text-slate-400 mt-0.5">Manage the end-of-line packaging machines catalog and specs</p>
-        </div>
-        <button
-          onClick={fetchMachines}
-          disabled={loading}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-[#161923] hover:bg-white/5 transition"
-        >
-          <RefreshCw className={`h-4 w-4 text-slate-400 ${loading ? "animate-spin" : ""}`} />
-        </button>
-      </div>
-
-      <div className="grid gap-8 lg:grid-cols-12">
-        {/* Machinery Table List */}
-        <div className="lg:col-span-8 rounded-xl border border-white/5 bg-[#161923] p-6 space-y-6">
-          <h3 className="text-sm font-mono uppercase tracking-wider text-white">Catalog Machines</h3>
-
-          {loading ? (
-            <div className="py-24 text-center text-xs font-mono uppercase tracking-widest text-slate-500">
-              Syncing Machinery Database...
-            </div>
-          ) : machines.length === 0 ? (
-            <div className="py-24 text-center text-xs font-mono uppercase tracking-widest text-slate-500 flex flex-col items-center justify-center gap-2">
-              <AlertCircle className="h-6 w-6 text-slate-600" />
-              <span>No machines in database</span>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-left text-xs text-slate-300">
-                <thead>
-                  <tr className="border-b border-white/5 font-mono text-[9px] uppercase tracking-wider text-slate-400">
-                    <th className="py-3 pr-4">Image</th>
-                    <th className="py-3 px-4">Model Code</th>
-                    <th className="py-3 px-4">Name</th>
-                    <th className="py-3 px-4">Tagline</th>
-                    <th className="py-3 pl-4 text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-white/5">
-                  {machines.map((mach) => (
-                    <tr key={mach.model} className="hover:bg-white/[0.01] transition-colors">
-                      <td className="py-3 pr-4">
-                        <div className="h-10 w-12 rounded bg-[#0F1117] border border-white/10 overflow-hidden flex items-center justify-center">
-                          {mach.image ? (
-                            <img src={mach.image} alt={mach.name} className="h-full w-full object-cover" />
-                          ) : (
-                            <span className="text-[8px] text-slate-600 font-mono">NO IMG</span>
-                          )}
-                        </div>
-                      </td>
-                      <td className="py-3 px-4 font-mono font-bold text-cyan-400">{mach.model}</td>
-                      <td className="py-3 px-4 font-semibold text-white">{mach.name}</td>
-                      <td className="py-3 px-4 text-slate-400 truncate max-w-xs">{mach.tagline || "N/A"}</td>
-                      <td className="py-3 pl-4 text-right">
-                        <div className="flex items-center justify-end gap-2">
-                          <button
-                            onClick={() => handleEditInit(mach)}
-                            className="flex h-7 w-7 items-center justify-center rounded border border-white/10 bg-[#0F1117] hover:bg-cyan-500/10 hover:text-cyan-400 transition"
-                            title="Edit Machine"
-                          >
-                            <Edit2 className="h-3.5 w-3.5" />
-                          </button>
-                          <button
-                            onClick={() => handleDelete(mach.model)}
-                            className="flex h-7 w-7 items-center justify-center rounded border border-white/10 bg-[#0F1117] hover:bg-red-500/10 hover:text-red-400 transition"
-                            title="Delete Machine"
-                          >
-                            <Trash2 className="h-3.5 w-3.5" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </div>
-
-        {/* Creator / Editor Form */}
-        <div className="lg:col-span-4">
-          <div className="rounded-xl border border-white/5 bg-[#161923] p-6 space-y-4">
-            <h3 className="text-sm font-mono uppercase tracking-wider text-white flex items-center gap-2">
-              <PlusCircle className="h-5 w-5 text-cyan-400" />
-              {editingModel ? "Edit Machine" : "Add New Machine"}
+      {isFormOpen ? (
+        /* Full-Width Inline Editor Form */
+        <div className="rounded-xl border border-slate-200 bg-white p-6 space-y-4 shadow-sm">
+          <div className="flex items-center justify-between border-b pb-3 mb-4">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <PlusCircle className="h-5 w-5 text-[var(--color-amber)]" />
+              {editingModel ? "Edit Machine Specs" : "Add New Machine"}
             </h3>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block font-mono text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                    Model Code
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    disabled={!!editingModel}
-                    placeholder="e.g. WP-S500"
-                    value={formData.model}
-                    onChange={(e) => setFormData({ ...formData, model: e.target.value })}
-                    className="w-full rounded border border-white/10 bg-[#0F1117] px-3 py-2 text-xs font-mono font-bold text-white focus:outline-none focus:border-cyan-400 disabled:opacity-50"
-                  />
-                </div>
-                <div>
-                  <label className="block font-mono text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                    Machine Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Case Taping Machine"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full rounded border border-white/10 bg-[#0F1117] px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:border-cyan-400"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block font-mono text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                  Tagline / Hook
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. High-speed automatic strapping head"
-                  value={formData.tagline}
-                  onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
-                  className="w-full rounded border border-white/10 bg-[#0F1117] px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:border-cyan-400"
-                />
-              </div>
-
-              <div>
-                <label className="block font-mono text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                  Description (Rich Text Editor)
-                </label>
-                <TiptapInlineEditor
-                  value={formData.desc}
-                  onChange={(val) => setFormData({ ...formData, desc: val })}
-                />
-              </div>
-
-              {/* Image upload handler */}
-              <div>
-                <label className="block font-mono text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                  Machine Image
-                </label>
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    placeholder="/images/example.jpg"
-                    value={formData.image}
-                    onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                    className="flex-1 rounded border border-white/10 bg-[#0F1117] px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:border-cyan-400"
-                  />
-                  <input
-                    type="file"
-                    ref={fileInputRef}
-                    onChange={handleImageUpload}
-                    accept="image/*"
-                    className="hidden"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    disabled={uploading}
-                    className="flex h-9 w-9 items-center justify-center rounded border border-white/10 bg-[#161923] hover:bg-white/5 text-slate-400 transition"
-                  >
-                    {uploading ? (
-                      <Loader2 className="h-4 w-4 animate-spin text-cyan-400" />
-                    ) : (
-                      <Upload className="h-4 w-4" />
-                    )}
-                  </button>
-                </div>
-                {formData.image && (
-                  <div className="mt-2 h-20 w-32 border border-white/10 rounded overflow-hidden">
-                    <img src={formData.image} alt="Preview" className="h-full w-full object-cover" />
-                  </div>
-                )}
-              </div>
-
-              <div>
-                <label className="block font-mono text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                  Technical Specifications (Label: Value lines)
-                </label>
-                <textarea
-                  rows={4}
-                  placeholder="Throughput Speed: 35 packs/min&#10;Max Sealer Size: 500 x 400 mm&#10;Electrical Load: 3.8 kW, 3-Phase"
-                  value={formData.specsText}
-                  onChange={(e) => setFormData({ ...formData, specsText: e.target.value })}
-                  className="w-full rounded border border-white/10 bg-[#0F1117] px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-cyan-400"
-                />
-              </div>
-
-              <div>
-                <label className="block font-mono text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                  Highlights (Comma separated list)
-                </label>
-                <input
-                  type="text"
-                  placeholder="Conveyor integrated, PLC Touchscreen, CE Certified"
-                  value={formData.highlightsText}
-                  onChange={(e) => setFormData({ ...formData, highlightsText: e.target.value })}
-                  className="w-full rounded border border-white/10 bg-[#0F1117] px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:border-cyan-400"
-                />
-              </div>
-
-              <div className="flex gap-2 pt-2">
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="flex-1 flex justify-center items-center gap-1.5 rounded bg-cyan-500 py-2.5 text-xs font-bold text-black hover:bg-cyan-400 transition"
-                >
-                  {submitting && <Loader2 className="h-3 w-3 animate-spin" />}
-                  {editingModel ? "Save Changes" : "Publish Machine"}
-                </button>
-                {editingModel && (
-                  <button
-                    type="button"
-                    onClick={handleCancelEdit}
-                    className="rounded border border-white/10 bg-[#0F1117] px-3 py-2.5 text-xs font-bold text-slate-400 hover:text-white transition"
-                  >
-                    Cancel
-                  </button>
-                )}
-              </div>
-            </form>
+            <button
+              onClick={handleCancelEdit}
+              className="text-sm text-[var(--color-amber)] hover:text-[var(--color-amber-dark)] font-semibold transition"
+            >
+              &larr; Back to Catalog List
+            </button>
           </div>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1">
+                  Model Code
+                </label>
+                <input
+                  type="text"
+                  required
+                  disabled={!!editingModel}
+                  placeholder="e.g. WP-S500"
+                  value={formData.model}
+                  onChange={(e) => setFormData({ ...formData, model: e.target.value })}
+                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-mono font-bold text-slate-800 focus:outline-none focus:border-[var(--color-amber)] disabled:opacity-50"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1">
+                  Machine Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Case Taping Machine"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-1">
+                Tagline / Hook
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. High-speed automatic strapping head"
+                value={formData.tagline}
+                onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
+                className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-1">
+                Description (Tiptap Block Editor)
+              </label>
+              <TiptapInlineEditor
+                value={formData.desc}
+                onChange={(val) => setFormData({ ...formData, desc: val })}
+              />
+            </div>
+
+            {/* Image upload handler */}
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-1">
+                Machine Image
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="/images/example.jpg"
+                  value={formData.image}
+                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                  className="flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
+                />
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleImageUpload}
+                  accept="image/*"
+                  className="hidden"
+                />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={uploading}
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-500 transition shadow-sm"
+                >
+                  {uploading ? (
+                    <Loader2 className="h-4 w-4 animate-spin text-[var(--color-amber)]" />
+                  ) : (
+                    <Upload className="h-4 w-4" />
+                  )}
+                </button>
+              </div>
+              {formData.image && (
+                <div className="mt-2 h-20 w-32 border border-slate-200 rounded overflow-hidden shadow-sm">
+                  <img src={formData.image} alt="Preview" className="h-full w-full object-cover" />
+                </div>
+              )}
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-1">
+                Technical Specifications (Label: Value lines)
+              </label>
+              <textarea
+                rows={4}
+                placeholder="Throughput Speed: 35 packs/min&#10;Max Sealer Size: 500 x 400 mm&#10;Electrical Load: 3.8 kW, 3-Phase"
+                value={formData.specsText}
+                onChange={(e) => setFormData({ ...formData, specsText: e.target.value })}
+                className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-mono text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-1">
+                Highlights (Comma separated list)
+              </label>
+              <input
+                type="text"
+                placeholder="Conveyor integrated, PLC Touchscreen, CE Certified"
+                value={formData.highlightsText}
+                onChange={(e) => setFormData({ ...formData, highlightsText: e.target.value })}
+                className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
+              />
+            </div>
+
+            <div className="flex gap-2 pt-2 justify-end border-t border-slate-100 pt-4 mt-6">
+              <button
+                type="button"
+                onClick={handleCancelEdit}
+                className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-500 hover:bg-slate-50 transition"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="flex justify-center items-center gap-1.5 rounded-lg bg-[var(--color-amber)] hover:bg-[var(--color-amber-dark)] px-6 py-2 text-sm font-bold text-white shadow-sm transition disabled:opacity-50"
+              >
+                {submitting && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
+                {editingModel ? "Save Changes" : "Publish Machine"}
+              </button>
+            </div>
+          </form>
         </div>
-      </div>
+      ) : (
+        /* List View */
+        <>
+          {/* Header */}
+          <div className="flex items-center justify-between border-b border-slate-200 pb-4 bg-white p-6 rounded-2xl border shadow-sm">
+            <div>
+              <h1 className="text-xl font-bold tracking-tight text-slate-900">Machinery Catalog Management</h1>
+              <p className="text-xs text-slate-500 mt-0.5">Manage the end-of-line packaging machines catalog and specs</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => {
+                  setEditingModel(null);
+                  clearForm();
+                  setIsFormOpen(true);
+                }}
+                className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[var(--color-amber)] hover:bg-[var(--color-amber-dark)] text-white font-semibold text-sm transition shadow-sm"
+              >
+                <PlusCircle className="h-4 w-4" />
+                <span>Add New Machine</span>
+              </button>
+              <button
+                onClick={fetchMachines}
+                disabled={loading}
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-500 transition shadow-sm"
+              >
+                <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
+              </button>
+            </div>
+          </div>
+
+          {/* Machinery Table List */}
+          <div className="w-full rounded-xl border border-slate-200 bg-white p-6 space-y-6 shadow-sm">
+            <h3 className="text-base font-bold text-slate-900 border-b pb-2">Catalog Machines</h3>
+
+            {loading ? (
+              <div className="py-24 text-center text-xs font-mono uppercase tracking-widest text-slate-400">
+                Syncing Machinery Database...
+              </div>
+            ) : machines.length === 0 ? (
+              <div className="py-24 text-center text-xs font-mono uppercase tracking-widest text-slate-400 flex flex-col items-center justify-center gap-2">
+                <AlertCircle className="h-6 w-6 text-slate-300" />
+                <span>No machines in database</span>
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse text-left text-sm text-slate-800">
+                  <thead>
+                    <tr className="border-b border-slate-200 font-mono text-xs uppercase tracking-wider text-slate-400">
+                      <th className="py-3 pr-4">Image</th>
+                      <th className="py-3 px-4">Model Code</th>
+                      <th className="py-3 px-4">Name</th>
+                      <th className="py-3 px-4">Tagline</th>
+                      <th className="py-3 pl-4 text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {machines.map((mach) => (
+                      <tr key={mach.model} className="hover:bg-slate-50 transition-colors">
+                        <td className="py-3 pr-4">
+                          <div className="h-10 w-12 rounded bg-slate-50 border border-slate-200 overflow-hidden flex items-center justify-center">
+                            {mach.image ? (
+                              <img src={mach.image} alt={mach.name} className="h-full w-full object-cover" />
+                            ) : (
+                              <span className="text-[8px] text-slate-400 font-mono">NO IMG</span>
+                            )}
+                          </div>
+                        </td>
+                        <td className="py-3 px-4 font-mono font-bold text-[var(--color-amber-dark)]">{mach.model}</td>
+                        <td className="py-3 px-4 font-semibold text-slate-900">{mach.name}</td>
+                        <td className="py-3 px-4 text-slate-500 truncate max-w-xs">{mach.tagline || "N/A"}</td>
+                        <td className="py-3 pl-4 text-right">
+                          <div className="flex items-center justify-end gap-2">
+                            <button
+                              onClick={() => handleEditInit(mach)}
+                              className="flex h-7 w-7 items-center justify-center rounded border border-slate-200 bg-white hover:bg-[var(--color-amber)]/10 hover:text-[var(--color-amber-dark)] text-slate-500 transition shadow-sm"
+                              title="Edit Machine"
+                            >
+                              <Edit2 className="h-3.5 w-3.5" />
+                            </button>
+                            <button
+                              onClick={() => handleDelete(mach.model)}
+                              className="flex h-7 w-7 items-center justify-center rounded border border-slate-200 bg-white hover:bg-red-50 hover:text-red-600 text-slate-500 transition shadow-sm"
+                              title="Delete Machine"
+                            >
+                              <Trash2 className="h-3.5 w-3.5" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 }

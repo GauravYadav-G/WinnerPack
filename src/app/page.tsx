@@ -13,7 +13,6 @@ import FAQSection from "../components/FAQSection";
 import Footer from "../components/Footer";
 import Cursor from "../components/Cursor";
 import ScrollProgress from "../components/ScrollProgress";
-import ScrollToTop from "../components/ScrollToTop";
 import { useRevealOnScroll } from "../hooks";
 import PageWrapper from "../components/PageWrapper";
 import FloatingWidgets from "../components/FloatingWidgets";
@@ -29,7 +28,7 @@ export default function Page() {
       {/* 1 & 2. Top utility bar + Main navigation */}
       <Navbar />
       
-      <ScrollToTop />
+
       
       <PageWrapper>
         {/* 3. Hero slider */}
