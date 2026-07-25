@@ -39,7 +39,11 @@ export default function CategoryClient({
         return res.json();
       })
       .then((data) => {
-        setProductsList(data || []);
+        if (!data || data.length === 0) {
+          setProductsList(initialProducts as any);
+        } else {
+          setProductsList(data);
+        }
         setLoading(false);
       })
       .catch((err) => {
@@ -49,8 +53,20 @@ export default function CategoryClient({
       });
   }, []);
 
-  // Filter products for this specific category
-  const categoryProducts = productsList.filter((p) => p.category === currentCategory.id);
+  // Filter products for this specific category (matching fallback-data and DB categories)
+  const categoryProducts = productsList.filter((p) => {
+    const catId = p.category;
+    if (currentCategory.id === "film-products") {
+      return catId === "films" || catId === "film-products" || catId === "film";
+    }
+    if (currentCategory.id === "label-sticker-products") {
+      return catId === "labels" || catId === "label-sticker-products" || catId === "label";
+    }
+    if (currentCategory.id === "other-products") {
+      return catId === "other" || catId === "other-products" || catId === "strapping" || catId === "protective" || catId === "tapes";
+    }
+    return catId === currentCategory.id;
+  });
 
   return (
     <div className="min-h-screen bg-[var(--color-bone)] text-[var(--color-text)]">
