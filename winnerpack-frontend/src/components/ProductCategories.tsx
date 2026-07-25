@@ -35,39 +35,26 @@ export default function ProductCategories() {
               transition={{ duration: 0.45, delay: i * 0.05, ease: "easeOut" }}
               className="group relative flex flex-col overflow-hidden rounded-xl border border-[var(--color-line)] bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-[0.99] sm:active:scale-100"
             >
-              {/* Category Link (Image section only) */}
-              <Link href={`/product-category/${cat.id}`} className="block relative aspect-square w-full overflow-hidden bg-[var(--color-bone)] border-b border-[var(--color-line)]">
-                <img
-                  src={cat.image}
-                  alt={cat.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
-              </Link>
+              {/* Links directly to the separate category page */}
+              <Link href={`/product-category/${cat.id}`} className="block h-full w-full">
+                {/* Square Shape Aspect Ratio for Image */}
+                <div className="relative aspect-square w-full overflow-hidden bg-[var(--color-bone)]">
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
+                </div>
 
-              {/* Title & Listed Products inside Card */}
-              <div className="p-4 bg-white flex flex-col flex-1">
-                <Link href={`/product-category/${cat.id}`} className="block text-center mb-3">
-                  <h3 className="font-display text-sm sm:text-base font-bold tracking-tight text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-blue)] leading-tight">
+                {/* Product/Category Title at Bottom */}
+                <div className="py-2.5 sm:py-3.5 px-3 sm:px-4 text-center border-t border-[var(--color-line)] bg-white flex items-center justify-center min-h-[44px] sm:min-h-[56px]">
+                  <h3 className="font-display text-xs sm:text-sm font-semibold tracking-tight text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-blue)] leading-tight line-clamp-2">
                     {cat.title}
                   </h3>
-                </Link>
-
-                {/* 2-Column Product List */}
-                <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 mt-auto pt-3 border-t border-slate-100">
-                  {cat.items.map((item) => (
-                    <Link
-                      key={item}
-                      href={`/products/${getItemSlug(item)}`}
-                      className="text-[11px] text-slate-600 hover:text-[var(--color-blue)] hover:underline truncate transition-colors leading-tight"
-                      title={item}
-                    >
-                      • {item}
-                    </Link>
-                  ))}
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -90,11 +77,4 @@ export default function ProductCategories() {
   );
 }
 
-// Local helper to convert product name to slug
-const getItemSlug = (name: string) => {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)+/g, "");
-};
 
