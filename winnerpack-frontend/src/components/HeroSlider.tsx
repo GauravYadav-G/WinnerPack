@@ -102,11 +102,11 @@ export default function HeroSlider() {
       <div className="absolute inset-0 bg-grid-dark opacity-35 z-10 pointer-events-none" />
       <div className="absolute inset-0 bg-noise opacity-20 z-10 pointer-events-none" />
 
-      {/* Split Layout (Desktop: 70/30, Mobile: 100% width) */}
+      {/* Split Layout (Desktop: 70/30, Mobile & Tablet/iPad: 100% slider width) */}
       <div className="absolute inset-x-0 bottom-0 top-0 h-full z-0 flex gap-0">
 
-        {/* Left Side: Animated Slider (70% width on desktop, 100% on mobile) */}
-        <div className="relative w-full md:w-[70%] h-full overflow-hidden md:border-r md:border-white/10">
+        {/* Left Side: Animated Slider (100% width on Mobile/Tablet/iPad, 70% width on Desktop lg+) */}
+        <div className="relative w-full lg:w-[70%] h-full overflow-hidden lg:border-r lg:border-white/10">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -141,10 +141,10 @@ export default function HeroSlider() {
           </button>
         </div>
 
-        {/* Right Side: Static Banner (30% width, hidden on mobile) */}
-        <div className="relative hidden md:block md:w-[30%] h-full overflow-hidden bg-[var(--color-ink)] group">
+        {/* Right Side: Static Banner (30% width on Desktop lg+, hidden on mobile/tablet/iPad) */}
+        <div className="relative hidden lg:block lg:w-[30%] h-full overflow-hidden bg-[var(--color-ink)] group">
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 group-hover:scale-105"
+            className="absolute inset-0 bg-[length:100%_100%] bg-center bg-no-repeat transition-all duration-700 group-hover:scale-105"
             style={{ backgroundImage: `url('${currentRightBanner}')` }}
           />
         </div>

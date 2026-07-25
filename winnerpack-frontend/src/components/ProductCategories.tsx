@@ -24,8 +24,8 @@ export default function ProductCategories() {
           <div className="mt-3 h-0.5 w-14 bg-[var(--color-amber)]" />
         </div>
 
-        {/* 3 CATEGORY CARDS — Exact same card layout, aspect ratio (19/16), size & styling as before */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto" data-reveal>
+        {/* 3 CATEGORY CARDS — Compact & Reduced Sizing on Mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto" data-reveal>
           {productCategories.map((cat, i) => (
             <motion.div
               key={cat.id}
@@ -33,24 +33,23 @@ export default function ProductCategories() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.05, ease: "easeOut" }}
-              className="group relative flex flex-col overflow-hidden rounded-xl border border-[var(--color-line)] bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+              className="group relative flex flex-col overflow-hidden rounded-xl border border-[var(--color-line)] bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-[0.99] sm:active:scale-100"
             >
               {/* Links directly to the separate category page */}
               <Link href={`/product-category/${cat.id}`} className="block h-full w-full">
-                {/* Aspect Ratio 19/16 for Image */}
-                <div className="relative aspect-[19/16] w-full overflow-hidden bg-[var(--color-bone)]">
+                {/* Square Shape Aspect Ratio for Image */}
+                <div className="relative aspect-square w-full overflow-hidden bg-[var(--color-bone)]">
                   <img
                     src={cat.image}
                     alt={cat.title}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  {/* Subtle overlay to enhance contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 {/* Product/Category Title at Bottom */}
-                <div className="py-3.5 px-3 text-center border-t border-[var(--color-line)] flex items-center justify-center min-h-[56px]">
+                <div className="py-2.5 sm:py-3.5 px-3 sm:px-4 text-center border-t border-[var(--color-line)] bg-white flex items-center justify-center min-h-[44px] sm:min-h-[56px]">
                   <h3 className="font-display text-xs sm:text-sm font-semibold tracking-tight text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-blue)] leading-tight line-clamp-2">
                     {cat.title}
                   </h3>
