@@ -5,20 +5,21 @@
   --font-sans: var(--font-sans), system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
 
-  /* Brand — Banner & Logo Theme (Navy #110b3c + Warm Orange #e6863c) */
-  --color-ink: #090620;
-  --color-ink-2: #0f0a35;
-  --color-ink-3: #110b3c;
-  --color-steel: #1b125e;
-  --color-steel-2: #271b87;
-  --color-blue: #3c2ebd;
-  --color-blue-2: #6253eb;
-  --color-blue-3: #8a7efa;
-  --color-blue-deep: #110b3c;
-  --color-blue-soft: #f0eeff;
+  /* Brand — Industrial Navy & Warm Safety Orange Theme */
+  --color-ink: #0a1324;
+  --color-ink-2: #0f172a;
+  --color-ink-3: #16243f;
+  --color-steel: #1e293b;
+  --color-steel-2: #334155;
+  --color-blue: #1d4ed8;
+  --color-blue-2: #2563eb;
+  --color-blue-3: #3b82f6;
+  --color-blue-deep: #0f172a;
+  --color-blue-soft: #eff6ff;
   --color-amber: #e6863c;
-  --color-amber-2: #ffa257;
-  --color-amber-dark: #bf6928;
+  --color-amber-2: #f97316;
+  --color-amber-dark: #c2410c;
+  --color-amber-soft: #fff7ed;
   --color-bone: #f8f7f4;
   --color-bone-2: #f0ebe0;
   --color-fog: #e7e1d5;

@@ -9,7 +9,6 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import ClientLogoStrip from "../components/ClientLogoStrip";
 import Certifications from "../components/Certifications";
 import Journey from "../components/Journey";
-import ProductInquiryForm from "../components/ProductInquiryForm";
 import CTABanner from "../components/CTABanner";
 import Footer from "../components/Footer";
 import Cursor from "../components/Cursor";
@@ -53,9 +52,6 @@ export default function Page() {
 
         {/* Certifications Section */}
         <Certifications />
-
-        {/* Detailed Product Inquiry Form Section */}
-        <ProductInquiryForm />
 
         {/* 13. Enquiry CTA band */}
         <CTABanner />
