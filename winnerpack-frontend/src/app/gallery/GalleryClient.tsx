@@ -8,7 +8,7 @@ import PageWrapper from "@/components/PageWrapper";
 import CTABanner from "@/components/CTABanner";
 import FloatingWidgets from "@/components/FloatingWidgets";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Maximize2, X, Building2 } from "lucide-react";
+import { ChevronRight, Maximize2, X, Sparkles } from "lucide-react";
 
 interface GalleryItem {
   id: number;
@@ -22,109 +22,107 @@ interface GalleryItem {
 const galleryItems: GalleryItem[] = [
   {
     id: 1,
-    title: "Ghaziabad Manufacturing Plant & Extrusion Lines",
-    category: "plant",
-    tag: "Manufacturing Plant",
+    title: "Annual Team Outing & Retreat",
+    category: "trips",
+    tag: "Team Trips",
     image: "/images/desktop/industries/electronics_industry.png",
-    description: "State-of-the-art continuous co-extrusion infrastructure at our Ghaziabad, UP industrial unit.",
+    description: "Our annual team retreat in the hills, celebrating team bonding and collaborative milestones.",
   },
   {
     id: 2,
-    title: "QMS Tensile & Elongation Testing Lab",
-    category: "quality",
-    tag: "Quality & Testing Lab",
+    title: "Diwali Celebrations at Head Office",
+    category: "events",
+    tag: "Events & Functions",
     image: "/images/desktop/industries/cosmetics_industry.png",
-    description: "Precision load testing equipment enforcing strict tensile strength and elongation QMS standards.",
+    description: "Office decorated with lights and Rangoli, with our team celebrating together in ethnic wear.",
   },
   {
     id: 3,
-    title: "Central Warehouse & Buffer Stock Facility",
-    category: "warehouse",
-    tag: "Warehouse & Logistics",
+    title: "Daily Collaborative Office Life",
+    category: "office",
+    tag: "Office Environment",
     image: "/images/desktop/industries/food_fmcg_industry.png",
-    description: "Spacious warehouse facility maintaining annual buffer stock for rapid same-day dispatches.",
+    description: "Daily work culture, engineering discussions, and team alignment inside our modern Ghaziabad office.",
   },
   {
     id: 4,
-    title: "Corporate Engineering & Key Account Team",
-    category: "team",
-    tag: "Corporate Office & Team",
+    title: "Annual Excellence Awards Ceremony",
+    category: "events",
+    tag: "Events & Functions",
     image: "/images/desktop/industries/stationery_industry.png",
-    description: "Our dedicated technical engineering and client support specialists available 24x7.",
+    description: "Recognizing outstanding performances across our production, sales, and supply chain teams.",
   },
   {
     id: 5,
-    title: "Adhesive Micron & Thickness Inspection Station",
-    category: "quality",
-    tag: "Quality & Testing Lab",
+    title: "Weekend Trekking Expedition",
+    category: "trips",
+    tag: "Team Trips",
     image: "/images/desktop/industries/ecommerce_logistics_industry.png",
-    description: "Advanced optical gauge stations verifying micron adhesive uniform application and coat weight.",
+    description: "Building trust and shared experiences during our annual mountain trek and rafting trip.",
   },
   {
     id: 6,
-    title: "Rooftop Solar Energy & Eco Management",
-    category: "sustainability",
-    tag: "Sustainability & ESG",
+    title: "Independence Day Celebration",
+    category: "events",
+    tag: "Events & Functions",
     image: "/images/desktop/industries/electronics_industry.png",
-    description: "Rooftop solar energy infrastructure powering manufacturing plant operations sustainably.",
+    description: "Flag hoisting and office celebration, marking values of national pride and unity.",
   },
   {
     id: 7,
-    title: "Fleet Loading Bays & Dispatch Docks",
-    category: "warehouse",
-    tag: "Warehouse & Logistics",
+    title: "Sustainable Product Brainstorming Session",
+    category: "office",
+    tag: "Office Environment",
     image: "/images/desktop/industries/ecommerce_logistics_industry.png",
-    description: "Multi-dock loading bay handling daily scheduled dispatches to 1,200+ pin codes nationwide.",
+    description: "Our engineering and customer success teams collaborating on new green packaging initiatives.",
   },
   {
     id: 8,
-    title: "High-Precision Slitting & Rewinding Floor",
-    category: "plant",
-    tag: "Manufacturing Plant",
+    title: "New Year Office Party & Cake Cutting",
+    category: "events",
+    tag: "Events & Functions",
     image: "/images/desktop/industries/food_fmcg_industry.png",
-    description: "Computerized slitting units ensuring precise core winding tension and clean roll edges.",
+    description: "Welcoming the new year with fun team building games, music, and corporate celebrations.",
   },
   {
     id: 9,
-    title: "Sample Trial & Client Qualification Center",
-    category: "team",
-    tag: "Corporate Office & Team",
+    title: "Winner Pack Premier League Cricket Match",
+    category: "trips",
+    tag: "Team Trips",
     image: "/images/desktop/industries/cosmetics_industry.png",
-    description: "On-site sample testing facility for validating material specifications prior to bulk orders.",
+    description: "A friendly weekend cricket tournament organized for physical wellness and team spirit.",
   },
   {
     id: 10,
-    title: "ISO 9001:2015 Audit & Compliance Office",
-    category: "quality",
-    tag: "Quality & Testing Lab",
+    title: "Headquarters Recreation & Break Room",
+    category: "office",
+    tag: "Office Environment",
     image: "/images/desktop/industries/stationery_industry.png",
-    description: "Dedicated quality management compliance office maintaining batch traceability records.",
+    description: "Modern recreational space designed for relaxation and informal discussions.",
   },
   {
     id: 11,
-    title: "In-House Zero-Waste Recycling Unit",
-    category: "sustainability",
-    tag: "Sustainability & ESG",
+    title: "Monthly Team Birthday Celebrations",
+    category: "events",
+    tag: "Events & Functions",
     image: "/images/desktop/industries/electronics_industry.png",
-    description: "Closed-loop recycling system reprocessing edge trims into reusable production materials.",
+    description: "Monthly cake-cutting celebrations to keep our office environment lively and cheerful.",
   },
   {
     id: 12,
-    title: "B.S.T. Industrial Park Headquarters",
-    category: "plant",
-    tag: "Manufacturing Plant",
+    title: "Cultural Day Trip to Agra",
+    category: "trips",
+    tag: "Team Trips",
     image: "/images/desktop/industries/ecommerce_logistics_industry.png",
-    description: "Winner Pack Technologies corporate facility located in Dasna, Ghaziabad, Uttar Pradesh.",
+    description: "A memorable cultural outing to the Taj Mahal with the entire sales and operations divisions.",
   },
 ];
 
 const categories = [
-  { id: "all", name: "All Highlights" },
-  { id: "plant", name: "Manufacturing Plant" },
-  { id: "quality", name: "Quality & Testing Lab" },
-  { id: "warehouse", name: "Warehouse & Logistics" },
-  { id: "team", name: "Corporate Office & Team" },
-  { id: "sustainability", name: "Sustainability & ESG" },
+  { id: "all", name: "All Memories" },
+  { id: "office", name: "Office Environment" },
+  { id: "trips", name: "Team Trips & Outings" },
+  { id: "events", name: "Events & Celebrations" },
 ];
 
 export default function GalleryClient() {
@@ -150,14 +148,14 @@ export default function GalleryClient() {
             <nav className="flex items-center gap-2 text-xs font-medium text-white/60 mb-4">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="h-3.5 w-3.5" />
-              <span className="text-white">Organization Gallery</span>
+              <span className="text-white">Life at Winner Pack</span>
             </nav>
 
             <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
-              Organization & Infrastructure Gallery
+              Life at Winner Pack
             </h1>
             <p className="mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed">
-              Discover Winner Pack Technologies' manufacturing plant in Ghaziabad, state-of-the-art QMS testing labs, warehouse hub, corporate team, and sustainable ESG practices.
+              Explore our office environment, team trips, festive events, and celebrations that make our work culture vibrant and collaborative.
             </p>
           </div>
         </section>
@@ -217,7 +215,7 @@ export default function GalleryClient() {
 
                       {/* Category Tag Badge */}
                       <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-blue)]/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wider">
-                        <Building2 className="h-3 w-3" />
+                        <Sparkles className="h-3 w-3" />
                         {item.tag}
                       </div>
                     </div>
