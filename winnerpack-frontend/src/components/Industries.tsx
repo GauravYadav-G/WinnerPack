@@ -42,7 +42,7 @@ export default function Industries() {
       {/* Background accents */}
       <div className="absolute inset-0 bg-grid-fine opacity-20 pointer-events-none" aria-hidden />
       
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
+      <div className="mx-auto max-w-[1536px] px-5 md:px-8">
         <div className="mb-10">
           <h2 className="font-display text-2xl font-bold leading-[1.1] tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-5xl text-balance">
             Industries We Serve
