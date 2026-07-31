@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageWrapper from "@/components/PageWrapper";
 import CTABanner from "@/components/CTABanner";
 import FloatingWidgets from "@/components/FloatingWidgets";
+import { PageHeader } from "@/components/ui/PageHeader";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Plus, X, ArrowUpRight } from "lucide-react";
+import { Plus, X, ArrowUpRight } from "lucide-react";
 
 interface GalleryItem {
   id: number;
@@ -113,27 +113,12 @@ export default function GalleryClient() {
       <Navbar />
 
       <PageWrapper>
-        {/* Figma Style Header Section */}
-        <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-24 text-white">
-          <div className="absolute inset-0 bg-stripes opacity-15 pointer-events-none" />
-          <div className="absolute inset-0 bg-grid-dark opacity-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-[var(--color-blue)]/20 blur-3xl pointer-events-none" />
-
-          <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-            <nav className="flex items-center gap-2 text-xs font-semibold text-white/50 mb-4 tracking-wider uppercase">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <ChevronRight className="h-3.5 w-3.5" />
-              <span className="text-white">Life at Winner Pack</span>
-            </nav>
-
-            <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
-              Life at Winner Pack
-            </h1>
-            <p className="mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/60 leading-relaxed font-normal">
-              A glimpse into our vibrant work culture, team journeys, office environment, and corporate milestones.
-            </p>
-          </div>
-        </section>
+        <PageHeader
+          eyebrow="Gallery"
+          title="Gallery"
+          intro="A glimpse into our vibrant work culture, team journeys, office environment, and corporate milestones."
+          crumbs={[{ label: "Home", to: "/" }, { label: "Gallery" }]}
+        />
 
         {/* Dynamic Visual Gallery Section */}
         <section className="py-16 md:py-24 bg-white">
