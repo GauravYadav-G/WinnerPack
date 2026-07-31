@@ -25,7 +25,7 @@ export default function Footer() {
             </div>
             
             <p className="mt-5 text-xs sm:text-sm leading-relaxed text-white/60 text-justify">
-              Winner Pack Technologies Pvt. Ltd. is one of the leading manufacturers and suppliers of environment-friendly secondary and tertiary packaging materials and machinery. Guided by our motto "We Serve To Deserve", we supply high-quality stretch films, strapping rolls, shrink films, and packaging machinery from our Ghaziabad, UP base, dispatched across India and to global export markets.
+              Winner Pack Technologies Pvt. Ltd. is one of the leading manufacturers and suppliers of environment-friendly secondary and tertiary packaging materials. Guided by our motto "We Serve To Deserve", we supply high-quality stretch films, strapping rolls, shrink films, and protective packaging solutions from our Ghaziabad, UP base, dispatched across India and to global export markets.
             </p>
             
             {/* Social Icons */}
@@ -88,7 +88,7 @@ export default function Footer() {
                   { label: "Home", href: "/" },
                   { label: "About Us", href: "/about-us" },
                   { label: "Products", href: "/products" },
-                  { label: "Machinery", href: "/machinery" },
+                  { label: "Gallery", href: "/gallery" },
                   { label: "Contact Us", href: "/contact" }
                 ].map((link) => (
                   <li key={link.label}>

@@ -340,7 +340,7 @@ export default function ContactPage() {
                 </h2>
                 <p className="mt-4 max-w-sm leading-relaxed text-[var(--color-mute)] text-pretty">
                   Quick answers on manufacturing, MOQs, lead times, sustainability
-                  and machinery. Don't see your question? Just ask us directly.
+                  and quality standards. Don't see your question? Just ask us directly.
                 </p>
                 <div className="mt-7">
                   <Button to={`mailto:${COMPANY.email}`} variant="secondary" iconRight>

@@ -53,7 +53,7 @@ export default function AboutUs() {
               industry together.
             </>
           }
-          intro="Since 2018 we have supplied and manufactured the packaging materials and machinery that keep Indian industry moving — strapping, films, tapes and the machines to apply them."
+          intro="Since 2018 we have supplied and manufactured the packaging materials that keep Indian industry moving — strapping rolls, films, tapes, and protective packaging solutions."
           crumbs={[{ label: "Home", to: "/" }, { label: "About us" }]}
         />
 
@@ -78,10 +78,9 @@ export default function AboutUs() {
                   </p>
                   <p>
                     Today we supply and manufacture strapping, shrink and stretch
-                    films, tapes, corrugated packaging, courier bags and labels — and
-                    supply the machinery to apply them. We&apos;re registered under
-                    GSTIN 09AACCW6640F1Z8 and CIN U51909UP2020PTC129759, and we still
-                    answer the phone ourselves.
+                    films, tapes, corrugated packaging, courier bags and labels across India.
+                    We&apos;re registered under GSTIN 09AACCW6640F1Z8 and CIN U51909UP2020PTC129759,
+                    and we still answer the phone ourselves.
                   </p>
                 </div>
               </Reveal>

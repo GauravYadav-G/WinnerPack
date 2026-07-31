@@ -1,4 +1,5 @@
-import Client from "./MachineryClient";
-export default function Page() {
-  return <Client />;
+import { redirect } from "next/navigation";
+
+export default function MachineryPage() {
+  redirect("/gallery");
 }

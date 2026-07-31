@@ -11,7 +11,7 @@ const links = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
   { label: "Products", href: "/products", hasMegaMenu: true },
-  { label: "Machinery", href: "/machinery" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" }
 ];
 

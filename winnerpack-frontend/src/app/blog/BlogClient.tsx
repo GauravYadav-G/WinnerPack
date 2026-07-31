@@ -81,7 +81,7 @@ export default function Blog() {
               packaging floor.
             </>
           }
-          intro="Practical engineering notes on materials, machinery, sustainability and the economics of industrial packaging — written by the people who make it."
+          intro="Practical engineering notes on materials, quality standards, sustainability and the economics of industrial packaging — written by the people who make it."
           crumbs={[{ label: "Home", to: "/" }, { label: "Blog" }]}
         />
 

@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Winner Pack Technologies Pvt. Ltd. — Engineered Packaging, Built in India",
-  description: "Winner Pack Technologies Pvt. Ltd. — Industrial packaging materials & machinery. Manufactured in Ghaziabad, dispatched to 1,200+ pin codes.",
+  description: "Winner Pack Technologies Pvt. Ltd. — Industrial packaging materials & solutions. Manufactured in Ghaziabad, dispatched to 1,200+ pin codes.",
 };
 
 export default function RootLayout({
