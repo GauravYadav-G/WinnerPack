@@ -187,88 +187,87 @@ export default function GalleryClient() {
 
           </div>
         </section>
-
-        {/* Immersive awards.com / Figma Style Lightbox Modal */}
-        <AnimatePresence>
-          {selectedImage && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedImage(null)}
-              className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-slate-950/95 backdrop-blur-xl"
-            >
-              <motion.div
-                initial={{ scale: 0.96, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.96, opacity: 0 }}
-                onClick={(e) => e.stopPropagation()}
-                className="relative max-w-6xl w-full h-[85vh] sm:h-[80vh] bg-[#0c1322] rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col md:flex-row"
-              >
-                
-                {/* Left Section: Visual Image Viewer (65% width) */}
-                <div className="relative flex-1 bg-slate-950 flex items-center justify-center overflow-hidden h-[50%] md:h-full">
-                  <img
-                    src={selectedImage.image}
-                    alt={selectedImage.title}
-                    className="max-h-full max-w-full object-contain p-4 md:p-6"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent pointer-events-none" />
-                </div>
-
-                {/* Right Section: Premium Metadata details panel (35% width) */}
-                <div className="w-full md:w-[360px] lg:w-[400px] bg-[#070d19] border-t md:border-t-0 md:border-l border-white/5 p-6 sm:p-8 flex flex-col justify-between h-[50%] md:h-full">
-                  
-                  {/* Top Bar */}
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--color-blue)]">
-                        LIFE AT WINNER PACK
-                      </span>
-                      <button
-                        onClick={() => setSelectedImage(null)}
-                        className="h-8 w-8 rounded-full bg-white/5 text-white/70 flex items-center justify-center hover:bg-white/15 hover:text-white transition-colors"
-                      >
-                        <X className="h-4.5 w-4.5" />
-                      </button>
-                    </div>
-
-                    {/* Center Details */}
-                    <div className="space-y-4">
-                      <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-tight">
-                        {selectedImage.title}
-                      </h3>
-                      <div className="h-0.5 w-12 bg-[var(--color-amber)] rounded-full" />
-                      <p className="text-xs sm:text-sm leading-relaxed text-slate-400 font-normal">
-                        {selectedImage.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Bottom Panel Branding */}
-                  <div className="border-t border-white/5 pt-6 flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">
-                      WPT © {new Date().getFullYear()}
-                    </span>
-                    <a
-                      href="#contact"
-                      onClick={() => setSelectedImage(null)}
-                      className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[var(--color-amber)] hover:text-white transition-colors"
-                    >
-                      Join our team
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </a>
-                  </div>
-
-                </div>
-
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
         <CTABanner />
       </PageWrapper>
+
+      {/* Immersive awards.com / Figma Style Lightbox Modal (Rendered outside PageWrapper to prevent transform coordinate limits) */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-slate-950/95 backdrop-blur-xl"
+          >
+            <motion.div
+              initial={{ scale: 0.96, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.96, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-6xl w-full h-[85vh] sm:h-[80vh] bg-[#0c1322] rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col md:flex-row"
+            >
+              
+              {/* Left Section: Visual Image Viewer (65% width) */}
+              <div className="relative flex-1 bg-slate-950 flex items-center justify-center overflow-hidden h-[50%] md:h-full">
+                <img
+                  src={selectedImage.image}
+                  alt={selectedImage.title}
+                  className="max-h-full max-w-full object-contain p-4 md:p-6"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent pointer-events-none" />
+              </div>
+
+              {/* Right Section: Premium Metadata details panel (35% width) */}
+              <div className="w-full md:w-[360px] lg:w-[400px] bg-[#070d19] border-t md:border-t-0 md:border-l border-white/5 p-6 sm:p-8 flex flex-col justify-between h-[50%] md:h-full">
+                
+                {/* Top Bar */}
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--color-blue)]">
+                      LIFE AT WINNER PACK
+                    </span>
+                    <button
+                      onClick={() => setSelectedImage(null)}
+                      className="h-8 w-8 rounded-full bg-white/5 text-white/70 flex items-center justify-center hover:bg-white/15 hover:text-white transition-colors"
+                    >
+                      <X className="h-4.5 w-4.5" />
+                    </button>
+                  </div>
+
+                  {/* Center Details */}
+                  <div className="space-y-4">
+                    <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-tight">
+                      {selectedImage.title}
+                    </h3>
+                    <div className="h-0.5 w-12 bg-[var(--color-amber)] rounded-full" />
+                    <p className="text-xs sm:text-sm leading-relaxed text-slate-400 font-normal">
+                      {selectedImage.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Bottom Panel Branding */}
+                <div className="border-t border-white/5 pt-6 flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">
+                    WPT © {new Date().getFullYear()}
+                  </span>
+                  <a
+                    href="#contact"
+                    onClick={() => setSelectedImage(null)}
+                    className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[var(--color-amber)] hover:text-white transition-colors"
+                  >
+                    Join our team
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+
+              </div>
+
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
       <FloatingWidgets />
