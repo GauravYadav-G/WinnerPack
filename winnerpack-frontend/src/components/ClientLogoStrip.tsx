@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Globe, ShieldCheck, Award } from "lucide-react";
 
 interface ClientBrand {
@@ -9,6 +8,31 @@ interface ClientBrand {
 }
 
 const clientBrands: ClientBrand[] = [
+  // Original Brand Logo Assets
+  {
+    name: "Lava",
+    renderLogo: () => (
+      <img src="/Brand_logo/lava.png" alt="Lava" className="h-10 sm:h-12 w-auto object-contain" />
+    ),
+  },
+  {
+    name: "Vivo",
+    renderLogo: () => (
+      <img src="/Brand_logo/vivo.png" alt="Vivo" className="h-10 sm:h-12 w-auto object-contain" />
+    ),
+  },
+  {
+    name: "Noise",
+    renderLogo: () => (
+      <img src="/Brand_logo/noise.png" alt="Noise" className="h-10 sm:h-12 w-auto object-contain" />
+    ),
+  },
+  {
+    name: "Fire-Boltt",
+    renderLogo: () => (
+      <img src="/Brand_logo/firebolt.png" alt="Fire-Boltt" className="h-10 sm:h-12 w-auto object-contain" />
+    ),
+  },
   // Row 1
   {
     name: "Adani",
@@ -368,25 +392,15 @@ export default function ClientLogoStrip() {
 
         </div>
 
-        {/* Premium Light Brand Logo Grid (Clean Cards) */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-5 items-center justify-items-center">
-          {clientBrands.map((brand, idx) => (
-            <motion.div
+        {/* Seamless 8-Column Brand Logos Grid (No boxes, full color, blending directly with section background) */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-8 sm:gap-10 items-center justify-items-center">
+          {clientBrands.map((brand) => (
+            <div
               key={brand.name}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: (idx % 8) * 0.03 }}
-              className="group relative w-full h-24 rounded-2xl bg-white border border-[var(--color-line)] hover:border-[var(--color-blue)]/40 transition-all duration-500 flex items-center justify-center p-3 cursor-pointer overflow-hidden shadow-xs hover:shadow-xl"
+              className="flex items-center justify-center w-full h-16 sm:h-20"
             >
-              {/* Subtle light card gradient glow on hover */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-blue-soft)]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Logo Render Container */}
-              <div className="relative z-10 opacity-75 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-                {brand.renderLogo()}
-              </div>
-            </motion.div>
+              {brand.renderLogo()}
+            </div>
           ))}
         </div>
 
