@@ -8,6 +8,7 @@ const defaultIndustriesList = [
   { name: "Electronics", image: "/images/desktop/industries/electronics_industry.png" },
   { name: "Cosmetics", image: "/images/desktop/industries/cosmetics_industry.png" },
   { name: "Food & FMCG", image: "/images/desktop/industries/food_fmcg_industry.png" },
+  { name: "Automobile", image: "/images/desktop/industries/automobile_industry.png" },
   { name: "Stationery", image: "/images/desktop/industries/stationery_industry.png" },
   { name: "E-commerce & Logistics", image: "/images/desktop/industries/ecommerce_logistics_industry.png" },
 ];
@@ -32,7 +33,7 @@ export default function Industries() {
   return (
     <section id="industries" className="relative overflow-hidden bg-white py-10 md:py-16">
       {/* Background accents */}
-      <div className="absolute inset-0 bg-grid-fine opacity-20 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-fine opacity-20 pointer-events-none" aria-hidden />
       
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="mb-10">
@@ -41,7 +42,7 @@ export default function Industries() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-5" data-reveal>
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-6" data-reveal>
           {industriesList.map((ind, i) => {
             return (
               <div
