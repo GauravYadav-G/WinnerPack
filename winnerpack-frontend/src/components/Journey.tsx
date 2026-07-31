@@ -9,8 +9,7 @@ import {
   Truck, 
   Tag, 
   RefreshCw, 
-  Ruler, 
-  ArrowUpRight 
+  Ruler 
 } from "lucide-react";
 
 const solutionsData = [
@@ -115,19 +114,6 @@ export default function Journey() {
             );
           })}
         </div>
-
-        {/* Bottom CTA Button */}
-        <div className="mt-14 md:mt-20 flex justify-center border-t border-[var(--color-line)] pt-10">
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-[var(--color-ink)] px-8 py-4 text-sm sm:text-base font-bold text-white shadow-xl transition-all duration-300 hover:bg-[var(--color-blue-deep)] hover:shadow-2xl hover:scale-105"
-            data-hover
-          >
-            Start your journey
-            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 text-[var(--color-amber)]" />
-          </a>
-        </div>
-
       </div>
     </section>
   );
