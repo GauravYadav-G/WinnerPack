@@ -9,12 +9,16 @@ export default function Certifications() {
       className="relative overflow-hidden bg-[var(--color-bone)] py-20 sm:py-28 md:py-32 border-b border-[var(--color-line)]"
     >
       {/* Background Atmosphere */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-[var(--color-blue)]/5 blur-3xl pointer-events-none" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         
         {/* Header Section */}
         <div className="mb-14 md:mb-20 max-w-4xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-amber-soft)] border border-[var(--color-amber)]/20 text-[var(--color-amber-dark)] text-xs font-bold uppercase tracking-widest mb-4">
+            QUALITY STANDARDS
+          </div>
+
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-ink)] text-balance mb-6">
             Engineered & Certified for Global Compliance
           </h2>
