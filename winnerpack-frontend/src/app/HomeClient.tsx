@@ -51,9 +51,7 @@ export default function Page() {
         {/* Certifications Section */}
         <Certifications />
 
-
-
-        {/* 12. Quality process section (+ Customer Journey) */}
+        {/* Engineered Solutions Section */}
         <Journey />
 
 
