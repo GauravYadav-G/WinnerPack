@@ -42,7 +42,7 @@ export default function Industries() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-6" data-reveal>
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-5" data-reveal>
           {industriesList.map((ind, i) => {
             return (
               <div
