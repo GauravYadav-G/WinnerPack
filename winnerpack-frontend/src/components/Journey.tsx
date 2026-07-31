@@ -90,7 +90,7 @@ export default function Journey() {
               >
                 <div>
                   {/* Light-Themed SVG Icon Badge */}
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-blue-soft)] border border-[var(--color-blue)]/15 text-[var(--color-blue)] transition-all duration-300 group-hover:border-[var(--color-blue)]/30 group-hover:scale-110">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-amber-soft)] border border-[var(--color-amber)]/20 text-[var(--color-amber-dark)] transition-all duration-300 group-hover:scale-110 group-hover:bg-[var(--color-amber)] group-hover:text-white">
                     <IconComponent className="h-6 w-6 stroke-[1.75]" />
                   </div>
 
@@ -100,7 +100,7 @@ export default function Journey() {
                   </div>
 
                   {/* Horizontal Divider Line */}
-                  <div className="my-4 h-px w-full bg-[var(--color-line)] transition-colors group-hover:bg-[var(--color-blue)]/30" />
+                  <div className="my-4 h-px w-full bg-[var(--color-line)] transition-colors group-hover:bg-[var(--color-amber)]/40" />
 
                   {/* Solution Answer (Below Line) */}
                   <h3 className="font-display text-sm sm:text-base font-bold text-[var(--color-ink)] leading-snug">

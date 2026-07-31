@@ -39,40 +39,43 @@ export default function Industries() {
 
   return (
     <section id="industries" className="relative overflow-hidden bg-[var(--color-bone)] py-16 md:py-24 border-b border-[var(--color-line)]">
-      {/* Background accents */}
-      <div className="absolute inset-0 bg-grid-fine opacity-20 pointer-events-none" aria-hidden />
+      {/* Background Atmosphere */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
       
       <div className="mx-auto max-w-[1536px] px-5 md:px-8">
-        <div className="mb-10 max-w-7xl mx-auto pl-2 sm:pl-6 md:pl-10">
-          <h2 className="font-display text-2xl font-bold leading-[1.1] tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-5xl text-balance">
+        <div className="mb-12 max-w-7xl mx-auto pl-2 sm:pl-6 md:pl-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-amber-soft)] border border-[var(--color-amber)]/20 text-[var(--color-amber-dark)] text-xs font-bold uppercase tracking-widest mb-3">
+            SECTOR CAPABILITIES
+          </div>
+          <h2 className="font-display text-2xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-5xl text-balance">
             Industries We Serve
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-6" data-reveal>
+        <div className="grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-6" data-reveal>
           {industriesList.map((ind) => {
             return (
               <div
                 key={ind.name}
-                className="group relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-slate-900 aspect-[16/11] md:aspect-[4/5] shadow-sm hover:shadow-md transition-all duration-500"
+                className="group relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-slate-900 aspect-[16/11] md:aspect-[4/5] shadow-md transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
                 data-hover
               >
                 {/* Background Image */}
                 <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
                   style={{ backgroundImage: `url('${ind.image}')` }}
                 />
                 
                 {/* Dark Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/15 transition-opacity duration-500 group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-500 group-hover:opacity-95" />
 
                 {/* Card Content */}
                 <div className="absolute inset-0 p-4 md:p-5 flex flex-col justify-end z-10 text-white">
                   <div>
-                    <h3 className="font-display text-sm md:text-lg leading-tight font-bold tracking-tight text-white group-hover:text-[var(--color-amber)] transition-colors">
+                    <h3 className="font-display text-sm md:text-lg leading-tight font-bold tracking-tight text-white group-hover:text-[var(--color-amber)] transition-colors duration-300">
                       {ind.name}
                     </h3>
-                    <div className="h-0.5 w-6 bg-white/30 mt-2 md:mt-3 transition-all duration-500 group-hover:w-12 group-hover:bg-[var(--color-amber)]" />
+                    <div className="h-1 w-6 bg-white/30 mt-2.5 transition-all duration-500 group-hover:w-12 group-hover:bg-[var(--color-amber)] rounded-full" />
                   </div>
                 </div>
               </div>

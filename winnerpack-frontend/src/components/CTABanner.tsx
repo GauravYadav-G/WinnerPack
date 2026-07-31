@@ -17,7 +17,7 @@ export default function CTABanner() {
             transition={{ duration: 0.45 }}
             className="lg:col-span-7 space-y-4"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-blue-soft)] border border-[var(--color-blue)]/15 text-[var(--color-blue)] text-xs font-bold uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-amber-soft)] border border-[var(--color-amber)]/20 text-[var(--color-amber-dark)] text-xs font-bold uppercase tracking-widest">
               <span>GET IN TOUCH</span>
             </div>
 
@@ -44,46 +44,46 @@ export default function CTABanner() {
             {/* Email Sales Card */}
             <a
               href="mailto:sales@winnerpack.in"
-              className="group flex items-center justify-between gap-3 rounded-2xl bg-white border border-[var(--color-line)] px-5 py-4 sm:px-6 sm:py-5 text-[var(--color-ink)] shadow-xs transition hover:shadow-md hover:border-[var(--color-blue)]/40"
+              className="group flex items-center justify-between gap-3 rounded-2xl bg-white border border-[var(--color-line)] px-5 py-4 sm:px-6 sm:py-5 text-[var(--color-ink)] shadow-xs transition hover:shadow-xl hover:border-[var(--color-amber)]/40 hover:-translate-y-0.5 duration-300"
               data-hover
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-blue-soft)] text-[var(--color-blue)] group-hover:bg-[var(--color-blue)] group-hover:text-white transition-colors">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)] group-hover:bg-[var(--color-amber)] group-hover:text-white transition-all duration-300">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div className="text-left">
-                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--color-mute)] group-hover:text-[var(--color-blue)] transition-colors">
+                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--color-mute)] group-hover:text-[var(--color-amber-dark)] transition-colors">
                     Email sales desk
                   </div>
                   <div className="font-display text-sm sm:text-base font-bold">sales@winnerpack.in</div>
                 </div>
               </div>
-              <ArrowRight className="h-5 w-5 text-[var(--color-blue)] transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="h-5 w-5 text-[var(--color-amber-dark)] transition-transform group-hover:translate-x-1" />
             </a>
 
             {/* Call Engineering Card */}
             <a
               href="tel:+918595072187"
-              className="group flex items-center justify-between gap-3 rounded-2xl bg-white border border-[var(--color-line)] px-5 py-4 sm:px-6 sm:py-5 text-[var(--color-ink)] shadow-xs transition hover:shadow-md hover:border-[var(--color-blue)]/40"
+              className="group flex items-center justify-between gap-3 rounded-2xl bg-white border border-[var(--color-line)] px-5 py-4 sm:px-6 sm:py-5 text-[var(--color-ink)] shadow-xs transition hover:shadow-xl hover:border-[var(--color-amber)]/40 hover:-translate-y-0.5 duration-300"
               data-hover
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-blue-soft)] text-[var(--color-blue)] group-hover:bg-[var(--color-blue)] group-hover:text-white transition-colors">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)] group-hover:bg-[var(--color-amber)] group-hover:text-white transition-all duration-300">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div className="text-left">
-                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--color-mute)] group-hover:text-[var(--color-blue)] transition-colors">
+                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--color-mute)] group-hover:text-[var(--color-amber-dark)] transition-colors">
                     Call engineering
                   </div>
                   <div className="font-display text-xs sm:text-sm font-bold">+91 85950 72187 / +91 74287 70999</div>
                 </div>
               </div>
-              <Phone className="h-5 w-5 text-[var(--color-mute)] group-hover:text-[var(--color-blue)] transition-transform group-hover:rotate-12" />
+              <Phone className="h-5 w-5 text-[var(--color-mute)] group-hover:text-[var(--color-amber)] transition-transform group-hover:rotate-12" />
             </a>
 
             {/* Visit Plant Block */}
             <div className="flex items-start gap-3.5 rounded-2xl bg-white border border-[var(--color-line)] p-4 text-[var(--color-ink)] shadow-xs">
-              <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--color-blue)]" />
+              <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--color-amber)]" />
               <div className="text-xs sm:text-sm">
                 <div className="font-bold text-[var(--color-ink)] font-display">Manufacturing Plant</div>
                 <div className="text-[var(--color-mute)] mt-0.5 leading-relaxed">
