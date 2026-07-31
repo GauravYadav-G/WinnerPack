@@ -7,25 +7,25 @@ import { ArrowRight } from "lucide-react";
 
 export default function ProductCategories() {
   return (
-    <section id="products" className="relative overflow-hidden bg-white py-12 md:py-16">
+    <section id="products" className="relative overflow-hidden bg-white py-16 md:py-24 border-b border-[var(--color-line)]">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-grid-fine opacity-10 pointer-events-none" aria-hidden />
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         
-        {/* Centered Heading */}
-        <div className="text-center mb-10 flex flex-col items-center">
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--color-blue)] font-bold">
-            Explore Range
+        {/* Centered Executive Header */}
+        <div className="text-center mb-14 flex flex-col items-center">
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-blue)] mb-2">
+            CATALOG SHOWCASE
           </span>
-          <h2 className="font-display mt-2 text-2xl font-bold leading-[1.1] tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-5xl text-balance">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-tight text-balance">
             Product Gallery
           </h2>
-          <div className="mt-3 h-0.5 w-14 bg-[var(--color-amber)]" />
+          <div className="mt-4 h-1 w-16 bg-[var(--color-amber)] rounded-full" />
         </div>
 
         {/* 3 CATEGORY CARDS — Square Shape Aspect Ratio with Products Listed Inside */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
           {productCategories.map((cat, i) => (
             <motion.div
               key={cat.id}
@@ -33,7 +33,7 @@ export default function ProductCategories() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.05, ease: "easeOut" }}
-              className="group relative flex flex-col overflow-hidden rounded-xl border border-[var(--color-line)] bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-[0.99] sm:active:scale-100"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
             >
               {/* Links directly to the separate category page */}
               <Link href={`/product-category/${cat.id}`} className="block h-full w-full">
@@ -43,14 +43,20 @@ export default function ProductCategories() {
                     src={cat.image}
                     alt={cat.title}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                  {/* Floating Action Pill on Hover */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-[var(--color-ink)] text-xs font-bold shadow-lg flex items-center gap-1.5 whitespace-nowrap">
+                    <span>Explore Range</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-[var(--color-blue)]" />
+                  </div>
                 </div>
 
                 {/* Product/Category Title at Bottom */}
-                <div className="py-2.5 sm:py-3.5 px-3 sm:px-4 text-center border-t border-[var(--color-line)] bg-white flex items-center justify-center min-h-[44px] sm:min-h-[56px]">
-                  <h3 className="font-display text-xs sm:text-sm font-semibold tracking-tight text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-blue)] leading-tight line-clamp-2">
+                <div className="py-4 px-5 text-center border-t border-[var(--color-line)] bg-white flex items-center justify-center min-h-[64px]">
+                  <h3 className="font-display text-sm sm:text-base font-bold tracking-tight text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-blue)] leading-tight">
                     {cat.title}
                   </h3>
                 </div>
@@ -60,15 +66,14 @@ export default function ProductCategories() {
         </div>
 
         {/* Center Button to View All Products */}
-        <div className="mt-12 flex justify-center">
+        <div className="mt-14 flex justify-center">
           <Link
             href="/products"
-            className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-blue)] px-6 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-[var(--color-blue)]/30 transition hover:bg-[var(--color-blue-deep)]"
+            className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-blue)] px-7 py-4 text-xs sm:text-sm font-bold text-white shadow-xl shadow-[var(--color-blue)]/20 transition-all duration-300 hover:bg-[var(--color-blue-deep)] hover:shadow-2xl hover:scale-105"
             data-hover
           >
             <span className="relative z-10">View All Products Catalog</span>
             <ArrowRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           </Link>
         </div>
 
