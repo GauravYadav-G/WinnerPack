@@ -57,7 +57,7 @@ const solutionsData = [
 
 export default function Journey() {
   return (
-    <section id="solutions" className="relative overflow-hidden bg-[var(--color-bone)] py-20 sm:py-28 border-t border-b border-[var(--color-line)]">
+    <section id="solutions" className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[var(--color-line)]">
       {/* Background Atmosphere */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[var(--color-blue)]/5 blur-3xl pointer-events-none" />
 

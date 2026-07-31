@@ -48,11 +48,11 @@ export default function Page() {
         {/* 10. Trusted Partners / Clients logo strip */}
         <ClientLogoStrip />
 
-        {/* Certifications Section */}
-        <Certifications />
-
         {/* Engineered Solutions Section */}
         <Journey />
+
+        {/* Certifications Section */}
+        <Certifications />
 
 
 

@@ -6,7 +6,7 @@ export default function Certifications() {
   return (
     <section 
       id="certifications" 
-      className="relative overflow-hidden bg-white py-20 sm:py-28 md:py-32 border-b border-[var(--color-line)]"
+      className="relative overflow-hidden bg-[var(--color-bone)] py-20 sm:py-28 md:py-32 border-b border-[var(--color-line)]"
     >
       {/* Background Atmosphere */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-[var(--color-blue)]/5 blur-3xl pointer-events-none" />
