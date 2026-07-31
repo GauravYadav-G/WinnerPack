@@ -137,11 +137,16 @@ export default function Footer() {
                   Winner Pack Technologies Pvt. Ltd. Plot No. 8, B.S.T. Industrial Park, Village Dasna, Ghaziabad, Uttar Pradesh, 201015
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-4.5 w-4.5 flex-shrink-0 text-[var(--color-blue-3)]" />
-                <a href="tel:+911204107800" className="hover:text-white transition-colors" data-hover>
-                  +91 120 410 7800
-                </a>
+              <li className="flex items-start gap-3">
+                <Phone className="h-4.5 w-4.5 flex-shrink-0 text-[var(--color-blue-3)] mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a href="tel:+918595072187" className="hover:text-white transition-colors" data-hover>
+                    +91 85950 72187
+                  </a>
+                  <a href="tel:+917428770999" className="hover:text-white transition-colors" data-hover>
+                    +91 74287 70999
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4.5 w-4.5 flex-shrink-0 text-[var(--color-blue-3)]" />

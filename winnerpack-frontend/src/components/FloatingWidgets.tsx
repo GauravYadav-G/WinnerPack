@@ -109,7 +109,7 @@ export default function FloatingWidgets() {
 
       <div className="fixed bottom-5 right-4 z-50 flex flex-col items-end gap-3 md:bottom-8 md:right-7">
         <ActionButton
-          href="https://wa.me/911204107800"
+          href="https://wa.me/918595072187"
           label="WhatsApp Support"
           from="#2DDB6E"
           to="#0F9D6E"

@@ -86,9 +86,13 @@ export default function Navbar() {
               <Mail className="h-3.5 w-3.5 text-[var(--color-amber)]" />
               <span>sales@winnerpack.in</span>
             </a>
-            <a href="tel:+911204107800" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
+            <a href="tel:+918595072187" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
               <Phone className="h-3.5 w-3.5 text-[var(--color-amber)]" />
-              <span className="font-mono">+91 120 410 7800</span>
+              <span className="font-mono">+91 85950 72187</span>
+            </a>
+            <a href="tel:+917428770999" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
+              <Phone className="h-3.5 w-3.5 text-[var(--color-amber)]" />
+              <span className="font-mono">+91 74287 70999</span>
             </a>
           </div>
           

@@ -111,11 +111,14 @@ export const TIMELINE = [
  */
 export const COMPANY = {
   address: "Winner Pack Technologies Pvt. Ltd. Plot No. 8, B.S.T. Industrial Park (Bhoor Garhi), Khasra No. 2667, Village Dasna, Ghaziabad, Uttar Pradesh, 201015",
-  phone: "+91 120 410 7800", // TODO: CONFLICTS with live site's published +91-8595072187 — confirm before publishing
-  phoneHref: "911204107800",
-  email: "sales@winnerpack.in", // TODO: CONFLICTS with live site's published info@winnerpack.in — confirm before publishing
-  whatsapp: "911204107800",
-  hours: "Mon - Sat: 9:00 AM - 6:00 PM" // TODO: UNVERIFIED — not published anywhere
+  phone: "+91 85950 72187",
+  phone2: "+91 74287 70999",
+  phoneDisplay: "+91 85950 72187 / +91 74287 70999",
+  phoneHref: "918595072187",
+  phone2Href: "917428770999",
+  email: "sales@winnerpack.in",
+  whatsapp: "918595072187",
+  hours: "Mon - Sat: 9:00 AM - 6:00 PM"
 };
 
 /**

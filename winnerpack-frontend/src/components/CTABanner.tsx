@@ -54,9 +54,8 @@ export default function CTABanner() {
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </a>
 
-            {/* Phone Card */}
             <a
-              href="tel:+911204107800"
+              href="tel:+918595072187"
               className="group flex items-center justify-between gap-3 rounded-xl bg-white border border-[var(--color-line)] px-4 py-4 sm:px-6 sm:py-5 text-[var(--color-ink)] shadow-sm transition hover:shadow-md hover:border-[var(--color-blue)]"
               data-hover
             >
@@ -68,7 +67,7 @@ export default function CTABanner() {
                   <div className="font-mono text-[10px] font-semibold uppercase tracking-widest text-[var(--color-mute)] group-hover:text-[var(--color-blue)] transition-colors">
                     Call engineering
                   </div>
-                  <div className="font-display text-sm font-bold sm:text-lg">+91 120 410 7800</div>
+                  <div className="font-display text-xs font-bold sm:text-base">+91 85950 72187 / +91 74287 70999</div>
                 </div>
               </div>
               <Phone className="h-5 w-5 text-[var(--color-mute)] group-hover:text-[var(--color-blue)] transition-transform group-hover:rotate-12" />
