@@ -15,9 +15,9 @@ export default function ProductCategories() {
         
         {/* Centered Executive Header */}
         <div className="text-center mb-14 flex flex-col items-center">
-          <span className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-blue)] mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-amber-soft)] border border-[var(--color-amber)]/20 text-[var(--color-amber-dark)] text-xs font-bold uppercase tracking-widest mb-3">
             CATALOG SHOWCASE
-          </span>
+          </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-tight text-balance">
             Product Gallery
           </h2>
@@ -69,7 +69,7 @@ export default function ProductCategories() {
         <div className="mt-14 flex justify-center">
           <Link
             href="/products"
-            className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-blue)] px-7 py-4 text-xs sm:text-sm font-bold text-white shadow-xl shadow-[var(--color-blue)]/20 transition-all duration-300 hover:bg-[var(--color-blue-deep)] hover:shadow-2xl hover:scale-105"
+            className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-amber)] px-8 py-4 text-xs sm:text-sm font-bold text-white shadow-xl shadow-[var(--color-amber)]/25 transition-all duration-300 hover:bg-[var(--color-amber-dark)] hover:shadow-2xl hover:scale-105"
             data-hover
           >
             <span className="relative z-10">View All Products Catalog</span>

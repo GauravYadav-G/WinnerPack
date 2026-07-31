@@ -251,7 +251,7 @@ export default function ProductInquiryForm() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-4 px-6 rounded-xl bg-[var(--color-blue)] text-white text-sm font-extrabold uppercase tracking-wider shadow-xl shadow-[var(--color-blue)]/20 hover:bg-[var(--color-blue-deep)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-4 px-6 rounded-xl bg-[var(--color-amber)] text-white text-sm font-extrabold uppercase tracking-wider shadow-xl shadow-[var(--color-amber)]/25 hover:bg-[var(--color-amber-dark)] transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {loading ? (
                       <span>Submitting Inquiry...</span>
