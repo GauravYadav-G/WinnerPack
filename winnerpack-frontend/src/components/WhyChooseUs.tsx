@@ -17,32 +17,38 @@ const defaultUsps = [
   {
     title: "Zero catalog forcing",
     text: "We specify to the exact width, gauge, and formulation your line speed needs — not the nearest match we have in stock.",
-    icon: "Tag"
+    icon: "Tag",
+    bgImage: "/images/products/pp-strap/image.png",
   },
   {
     title: "Guaranteed tracking",
     text: "Our strap rolls are extruded to maintain straightness, eliminating feed jams in automated high-speed strapping machines.",
-    icon: "Layers"
+    icon: "Layers",
+    bgImage: "/images/desktop/journey/solution_precision_gauge.png",
   },
   {
     title: "High-cling formulation",
     text: "WPT stretch films use premium linear low-density polyethylene for maximum load-holding force with minimal wrap layers.",
-    icon: "Disc3"
+    icon: "Disc3",
+    bgImage: "/images/desktop/journey/solution_pallet_wrapping.png",
   },
   {
     title: "In-house quality check",
     text: "Every batch of BOPP tape and shrink rolls goes through rigorous elongation, tensile strength, and adhesive testing.",
-    icon: "Shield"
+    icon: "Shield",
+    bgImage: "/images/desktop/journey/solution_quality_testing.png",
   },
   {
     title: "Eco-friendly options",
     text: "FSC certified recyclable paper mailers and biodegradable films to help your plant meet compliance and ESG mandates.",
-    icon: "Leaf"
+    icon: "Leaf",
+    bgImage: "/images/desktop/journey/solution_pcr_eco_film.png",
   },
   {
     title: "Direct from Ghaziabad",
     text: "No distributor markups. We manufacture, warehouse, and dispatch directly to save your operations 12-18% annually.",
-    icon: "Globe2"
+    icon: "Globe2",
+    bgImage: "/images/desktop/journey/solution_buffer_stock.png",
   }
 ];
 
@@ -53,7 +59,12 @@ export default function WhyChooseUs() {
     fetchContent("homepage")
       .then((data) => {
         if (data.usps && data.usps.length > 0) {
-          setUspsList(data.usps);
+          // Merge bgImages from defaultUsps into fetched data
+          const merged = data.usps.map((u: any, i: number) => ({
+            ...u,
+            bgImage: defaultUsps[i]?.bgImage || "",
+          }));
+          setUspsList(merged);
         }
       })
       .catch((err) => console.error("Failed to load usps content:", err));
@@ -79,10 +90,26 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={u.title}
-                className="group relative overflow-hidden bg-white p-5 sm:p-7 md:p-9 lg:p-10 transition-all duration-500 hover:bg-[var(--color-ink-2)]"
+                className="group relative overflow-hidden bg-white p-5 sm:p-7 md:p-9 lg:p-10 transition-all duration-500 hover:bg-[var(--color-ink-2)] min-h-[220px]"
                 data-hover
               >
-                {/* Background reveal on hover */}
+                {/* Hover-Reveal Contextual Background Image */}
+                {u.bgImage && (
+                  <div
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                    aria-hidden
+                  >
+                    <img
+                      src={u.bgImage}
+                      alt=""
+                      className="h-full w-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
+                    />
+                    {/* Layered dark overlay so text stays readable */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-ink-2)]/90 via-[var(--color-ink-2)]/80 to-black/75" />
+                  </div>
+                )}
+
+                {/* Shimmer sweep */}
                 <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
 
                 <Plus className="absolute right-4 top-4 md:right-7 md:top-7 h-4 w-4 md:h-5 md:w-5 text-[var(--color-line-2)] transition-all duration-500 group-hover:rotate-45 group-hover:text-[var(--color-amber)]" />
@@ -97,14 +124,14 @@ export default function WhyChooseUs() {
                   </div>
                 </div>
 
-                <h3 className="font-display text-sm sm:text-base md:text-xl lg:text-2xl font-bold leading-tight text-[var(--color-ink)] transition-colors group-hover:text-white">
+                <h3 className="relative font-display text-sm sm:text-base md:text-xl lg:text-2xl font-bold leading-tight text-[var(--color-ink)] transition-colors group-hover:text-white">
                   {u.title}
                 </h3>
-                <p className="mt-2 md:mt-3 text-[11px] sm:text-xs md:text-sm leading-snug sm:leading-relaxed text-[var(--color-mute)] transition-colors group-hover:text-white/80 line-clamp-4">
+                <p className="relative mt-2 md:mt-3 text-[11px] sm:text-xs md:text-sm leading-snug sm:leading-relaxed text-[var(--color-mute)] transition-colors group-hover:text-white/80 line-clamp-4">
                   {u.text}
                 </p>
 
-                <div className="mt-4 md:mt-7 flex items-center gap-1.5 md:gap-2 font-mono text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-[var(--color-amber)] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <div className="relative mt-4 md:mt-7 flex items-center gap-1.5 md:gap-2 font-mono text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-[var(--color-amber)] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                   Verified Spec
                   <span className="h-px w-4 md:w-6 bg-[var(--color-amber)]" />
                 </div>
