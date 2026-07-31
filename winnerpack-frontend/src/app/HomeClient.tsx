@@ -10,7 +10,6 @@ import ClientLogoStrip from "../components/ClientLogoStrip";
 import Certifications from "../components/Certifications";
 import Journey from "../components/Journey";
 import CTABanner from "../components/CTABanner";
-import FAQSection from "../components/FAQSection";
 import Footer from "../components/Footer";
 import Cursor from "../components/Cursor";
 import ScrollProgress from "../components/ScrollProgress";
@@ -54,16 +53,7 @@ export default function Page() {
         {/* Certifications Section */}
         <Certifications />
 
-
-
-        {/* 16. FAQ accordion */}
-        <FAQSection />
-
-
-
-
-
-        {/* 13. Enquiry CTA band */}
+        {/* 13. Enquiry CTA band & Detailed Product Inquiry Form */}
         <CTABanner />
       </PageWrapper>
 
