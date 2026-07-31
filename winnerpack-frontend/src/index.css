@@ -1209,3 +1209,11 @@ body::-webkit-scrollbar {
 .prose em {
   font-style: italic;
 }
+/* ── Mobile horizontal snap-scroll: hide scrollbar ── */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

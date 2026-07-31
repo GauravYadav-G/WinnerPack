@@ -50,7 +50,28 @@ export default function Industries() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-6" data-reveal>
+        {/* Mobile: horizontal snap-scroll | Desktop: grid */}
+        {/* Mobile strip */}
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 sm:hidden scrollbar-none">
+          {industriesList.map((ind) => (
+            <div
+              key={ind.name}
+              className="group relative flex-shrink-0 w-[70vw] max-w-[260px] snap-start overflow-hidden rounded-2xl border border-[var(--color-line)] bg-slate-900 aspect-[4/5] shadow-md"
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
+                style={{ backgroundImage: `url('${ind.image}')` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h3 className="font-display text-base font-bold text-white leading-tight">{ind.name}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop grid */}
+        <div className="hidden sm:grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-6" data-reveal>
           {industriesList.map((ind) => {
             return (
               <div

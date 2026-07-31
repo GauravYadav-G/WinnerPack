@@ -84,8 +84,33 @@ export default function Journey() {
           </p>
         </div>
 
-        {/* IMAGE-FIRST Full-Bleed Cards — Content slides up on hover */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        {/* Mobile: horizontal snap-scroll | Desktop: grid */}
+        {/* Mobile strip */}
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 sm:hidden scrollbar-none">
+          {solutionsData.map((item, index) => {
+            const IconComponent = item.icon;
+            return (
+              <div
+                key={index}
+                className="group relative flex-shrink-0 w-[72vw] max-w-[280px] snap-start overflow-hidden rounded-2xl shadow-md h-[300px]"
+              >
+                <img src={item.appImage} alt={item.solution} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/5" />
+                <div className="absolute top-3 left-3 flex h-8 w-8 items-center justify-center rounded-lg bg-white/20 backdrop-blur-md text-white border border-white/20">
+                  <IconComponent className="h-4 w-4" />
+                </div>
+                <div className="absolute top-3 right-3 font-mono text-[9px] font-bold text-white/50">0{index + 1}</div>
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="font-display text-sm font-bold text-white leading-snug">{item.solution}</h3>
+                  <p className="mt-1.5 text-[10px] text-white/60 uppercase tracking-wider leading-relaxed line-clamp-2">{item.question}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop grid */}
+        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {solutionsData.map((item, index) => {
             const IconComponent = item.icon;
             return (

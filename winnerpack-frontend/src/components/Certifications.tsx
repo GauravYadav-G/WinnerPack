@@ -157,8 +157,28 @@ export default function Certifications() {
           </p>
         </div>
 
-        {/* 10 Blended Glassmorphism Certification Emblems Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6">
+        {/* Mobile: horizontal snap-scroll | Desktop: grid */}
+        {/* Mobile strip */}
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 sm:hidden scrollbar-none">
+          {certificationsList.map((item) => (
+            <div
+              key={item.id}
+              className="flex-shrink-0 w-[62vw] max-w-[220px] snap-start flex flex-col items-center justify-between rounded-2xl bg-white/60 backdrop-blur-md border border-white/60 shadow-sm p-4 min-h-[180px]"
+            >
+              <div className="flex-1 flex items-center justify-center my-2">{item.renderLogo()}</div>
+              <div className="w-full text-center pt-3 border-t border-[var(--color-line)]/40">
+                <h3 className="font-display text-xs font-bold text-[var(--color-ink)] leading-tight">{item.name}</h3>
+                <div className="flex items-center justify-center gap-1 mt-1 text-[9px] text-[var(--color-mute)] font-medium">
+                  <CheckCircle className="h-3 w-3 text-[var(--color-amber)]" />
+                  <span>{item.tagline}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop grid */}
+        <div className="hidden sm:grid grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6">
           {certificationsList.map((item, index) => (
             <motion.div 
               key={item.id}
