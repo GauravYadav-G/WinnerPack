@@ -14,7 +14,7 @@ interface PageHeaderProps {
   theme?: "dark" | "light";
 }
 
-export function PageHeader({ eyebrow, title, intro, crumbs, theme = "dark" }: PageHeaderProps) {
+export function PageHeader({ eyebrow, title, intro, crumbs, theme = "light" }: PageHeaderProps) {
   const isLight = theme === "light";
 
   return (
