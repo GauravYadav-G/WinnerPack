@@ -86,54 +86,60 @@ export default function Journey() {
           </p>
         </div>
 
-        {/* 4x2 Executive Solutions Cards Grid with Industrial Application Media Headers */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+        {/* IMAGE-FIRST Full-Bleed Cards — Content slides up on hover */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {solutionsData.map((item, index) => {
             const IconComponent = item.icon;
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                whileHover={{ y: -6 }}
-                className="group flex flex-col justify-between rounded-2xl border border-[var(--color-line)] bg-white overflow-hidden shadow-xs transition-all duration-500 hover:border-[var(--color-amber)]/40 hover:shadow-2xl"
+                transition={{ duration: 0.45, delay: index * 0.06 }}
+                className="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer h-[320px] sm:h-[360px]"
               >
-                {/* Application Reference Image Header */}
-                <div className="relative h-40 w-full overflow-hidden bg-slate-100">
-                  <img
-                    src={item.appImage}
-                    alt={item.solution}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  
-                  {/* Floating Icon Badge Over Image */}
-                  <div className="absolute bottom-3 left-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/90 backdrop-blur-md text-[var(--color-amber-dark)] shadow-md transition-all duration-300 group-hover:bg-[var(--color-amber)] group-hover:text-white">
-                    <IconComponent className="h-5 w-5 stroke-[2]" />
-                  </div>
+                {/* Full-Bleed Background Image */}
+                <img
+                  src={item.appImage}
+                  alt={item.solution}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  loading="lazy"
+                />
+
+                {/* Persistent dark gradient — bottom 60% */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/5" />
+
+                {/* Hover overlay tint — deepens on hover */}
+                <div className="absolute inset-0 bg-black/0 transition-all duration-500 group-hover:bg-black/30" />
+
+                {/* Icon Badge — top left, always visible */}
+                <div className="absolute top-4 left-4 flex h-9 w-9 items-center justify-center rounded-xl bg-white/20 backdrop-blur-md text-white border border-white/20 transition-all duration-300 group-hover:bg-[var(--color-amber)] group-hover:border-[var(--color-amber)]">
+                  <IconComponent className="h-4 w-4 stroke-[2]" />
                 </div>
 
-                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    {/* Problem Question (Above Line) */}
-                    <div className="text-xs font-semibold text-[var(--color-mute)] uppercase tracking-wider leading-relaxed min-h-[38px]">
+                {/* Card index — top right */}
+                <div className="absolute top-4 right-4 font-mono text-[10px] font-bold text-white/50 tracking-widest">
+                  0{index + 1}
+                </div>
+
+                {/* Content — slides up on hover */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-0 transition-transform duration-500">
+                  
+                  {/* Solution Title — always visible */}
+                  <h3 className="font-display text-base sm:text-lg font-bold text-white leading-snug mb-2">
+                    {item.solution}
+                  </h3>
+
+                  {/* Problem Question — hidden by default, slides in on hover */}
+                  <div className="overflow-hidden max-h-0 group-hover:max-h-24 transition-all duration-500 ease-out">
+                    <div className="pt-2 border-t border-white/20 text-[11px] text-white/70 uppercase tracking-wider leading-relaxed">
                       {item.question}
                     </div>
-
-                    {/* Horizontal Divider Line */}
-                    <div className="my-3.5 h-px w-full bg-[var(--color-line)] transition-colors group-hover:bg-[var(--color-amber)]/40" />
-
-                    {/* Solution Answer (Below Line) */}
-                    <h3 className="font-display text-sm sm:text-base font-bold text-[var(--color-ink)] leading-snug">
-                      {item.solution}
-                    </h3>
                   </div>
 
-                  {/* Subtle bottom line accent */}
-                  <div className="mt-5 h-0.5 w-0 bg-[var(--color-amber)] transition-all duration-500 group-hover:w-12 rounded-full" />
+                  {/* Orange accent line */}
+                  <div className="mt-3 h-0.5 w-0 bg-[var(--color-amber)] transition-all duration-500 group-hover:w-10 rounded-full" />
                 </div>
               </motion.div>
             );
