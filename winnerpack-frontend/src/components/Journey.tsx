@@ -66,10 +66,6 @@ export default function Journey() {
         
         {/* Section Header */}
         <div className="mb-14 md:mb-20 max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-blue-soft)] border border-[var(--color-blue)]/15 text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mb-4">
-            COMMITTED TO PACKAGING EXCELLENCE
-          </div>
-
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-ink)] text-balance">
             Industrial Packaging Challenges, Engineered Solutions
           </h2>
@@ -94,9 +90,9 @@ export default function Journey() {
                 className="group flex flex-col justify-between rounded-2xl border border-[var(--color-line)] bg-white p-6 sm:p-7 shadow-xs transition-all duration-500 hover:border-[var(--color-blue)]/40 hover:shadow-2xl"
               >
                 <div>
-                  {/* Icon Badge */}
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-blue-soft)] text-[var(--color-blue)] transition-all duration-300 group-hover:bg-[var(--color-blue)] group-hover:text-white group-hover:scale-110">
-                    <IconComponent className="h-6 w-6" />
+                  {/* Light-Themed SVG Icon Badge */}
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-blue-soft)] border border-[var(--color-blue)]/15 text-[var(--color-blue)] transition-all duration-300 group-hover:border-[var(--color-blue)]/30 group-hover:scale-110">
+                    <IconComponent className="h-6 w-6 stroke-[1.75]" />
                   </div>
 
                   {/* Problem Question (Above Line) */}
