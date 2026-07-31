@@ -49,8 +49,8 @@ export default function Industries() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-5" data-reveal>
-          {industriesList.map((ind, i) => {
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-6" data-reveal>
+          {industriesList.map((ind) => {
             return (
               <div
                 key={ind.name}
@@ -67,13 +67,9 @@ export default function Industries() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/15 transition-opacity duration-500 group-hover:opacity-90" />
 
                 {/* Card Content */}
-                <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-between z-10 text-white">
-                  <div className="font-mono text-[9px] md:text-xs font-bold text-white/50 group-hover:text-[var(--color-amber)] transition-colors">
-                    0{i + 1}
-                  </div>
-                  
+                <div className="absolute inset-0 p-4 md:p-5 flex flex-col justify-end z-10 text-white">
                   <div>
-                    <h3 className="font-display text-sm md:text-xl leading-tight font-bold tracking-tight text-white group-hover:text-[var(--color-amber)] transition-colors">
+                    <h3 className="font-display text-sm md:text-lg leading-tight font-bold tracking-tight text-white group-hover:text-[var(--color-amber)] transition-colors">
                       {ind.name}
                     </h3>
                     <div className="h-0.5 w-6 bg-white/30 mt-2 md:mt-3 transition-all duration-500 group-hover:w-12 group-hover:bg-[var(--color-amber)]" />
