@@ -15,10 +15,6 @@ export default function Certifications() {
         
         {/* Header Section */}
         <div className="mb-14 md:mb-20 max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-blue-soft)] border border-[var(--color-blue)]/15 text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mb-4">
-            GLOBAL ACCREDITATIONS & QUALITY ASSURANCE
-          </div>
-
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-ink)] text-balance mb-6">
             Engineered & Certified for Global Compliance
           </h2>
