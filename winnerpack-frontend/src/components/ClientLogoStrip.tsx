@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Globe, ShieldCheck, Award } from "lucide-react";
 
 interface ClientBrand {
   name: string;
@@ -103,18 +104,8 @@ const clientBrands: ClientBrand[] = [
     name: "Emami",
     renderLogo: () => (
       <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl text-[#0072ce] tracking-tight">
-          emami<span className="text-[#f37021] text-lg font-bold">*</span>
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Ferrero Rocher",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-sm sm:text-base text-[#8b5a2b] font-serif tracking-widest uppercase">
-          FERRERO ROCHER
+        <span className="font-black text-2xl sm:text-3xl text-[#e3000f] tracking-tight">
+          emami
         </span>
       </div>
     ),
@@ -123,64 +114,75 @@ const clientBrands: ClientBrand[] = [
     name: "Godrej",
     renderLogo: () => (
       <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl text-[#e30045] italic font-serif">
+        <span className="font-black text-2xl sm:text-3xl text-[#00529b] tracking-tighter font-serif italic">
           Godrej
         </span>
       </div>
     ),
   },
   {
-    name: "GSK",
+    name: "Haldiram's",
     renderLogo: () => (
-      <div className="flex items-center gap-1.5 text-[#f36f21]">
-        <div className="w-7 h-7 rounded-full bg-[#f36f21] text-white flex items-center justify-center text-[10px] font-black">gsk</div>
-        <span className="text-[8px] font-bold text-slate-600 uppercase">GlaxoSmithKline</span>
+      <div className="bg-[#e31e24] text-white px-3 py-1 rounded-md text-center shadow-xs">
+        <span className="font-bold text-sm sm:text-base tracking-wide italic">Haldiram's</span>
       </div>
     ),
   },
   {
-    name: "Heinz",
+    name: "Hindustan Unilever",
     renderLogo: () => (
-      <div className="bg-[#e31837] text-white px-4 py-1 rounded font-black text-base sm:text-lg tracking-wider font-serif uppercase text-center shadow-xs">
-        HEINZ
-      </div>
-    ),
-  },
-  {
-    name: "Hershey's",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-base sm:text-lg text-[#3c1053] tracking-widest uppercase">
-          HERSHEY'S
-        </span>
+      <div className="flex items-center gap-1 text-[#1428a0]">
+        <span className="font-black text-lg sm:text-xl font-serif">HUL</span>
       </div>
     ),
   },
   {
     name: "ITC Limited",
     renderLogo: () => (
-      <div className="flex flex-col items-center text-[#003366]">
-        <span className="font-black text-2xl sm:text-3xl tracking-tighter">ITC</span>
-        <span className="text-[7px] font-bold uppercase tracking-widest">ITC Limited</span>
+      <div className="flex items-center justify-center">
+        <span className="font-black text-2xl sm:text-3xl text-[#003366] tracking-widest">
+          ITC
+        </span>
+      </div>
+    ),
+  },
+  {
+    name: "Jindal Steel",
+    renderLogo: () => (
+      <div className="flex items-center justify-center">
+        <span className="font-black text-lg sm:text-xl text-[#005a9c] uppercase tracking-wider">
+          JINDAL
+        </span>
+      </div>
+    ),
+  },
+  {
+    name: "L'Oréal",
+    renderLogo: () => (
+      <div className="flex items-center justify-center">
+        <span className="font-bold text-xl sm:text-2xl text-slate-900 tracking-widest uppercase">
+          L'ORÉAL
+        </span>
       </div>
     ),
   },
 
   // Row 3
   {
-    name: "Frito-Lay",
+    name: "Lupin",
     renderLogo: () => (
-      <div className="bg-[#e31837] text-[#ffcb05] px-3.5 py-1 rounded-full font-black text-xs sm:text-sm tracking-tight text-center border border-[#ffcb05] shadow-xs">
-        Frito Lay
+      <div className="flex items-center justify-center">
+        <span className="font-black text-xl sm:text-2xl text-[#0072ce] tracking-wide uppercase">
+          LUPIN
+        </span>
       </div>
     ),
   },
   {
-    name: "Mondelēz",
+    name: "Mother Dairy",
     renderLogo: () => (
-      <div className="flex flex-col text-[#4b286d]">
-        <span className="font-black text-xl sm:text-2xl tracking-tight leading-none">Mondelēz</span>
-        <span className="text-[6px] font-semibold tracking-widest uppercase opacity-75">International</span>
+      <div className="bg-[#007b43] text-white px-3 py-1 rounded text-center">
+        <span className="font-black text-xs sm:text-sm uppercase tracking-tight">MOTHER DAIRY</span>
       </div>
     ),
   },
@@ -188,7 +190,7 @@ const clientBrands: ClientBrand[] = [
     name: "Nestlé",
     renderLogo: () => (
       <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl text-[#185a9d] font-serif">
+        <span className="font-extrabold text-2xl sm:text-3xl text-[#7b512c] font-serif">
           Nestlé
         </span>
       </div>
@@ -198,7 +200,7 @@ const clientBrands: ClientBrand[] = [
     name: "P&G",
     renderLogo: () => (
       <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl text-[#00205b] italic font-serif">
+        <span className="font-black text-2xl sm:text-3xl text-[#00205b] font-serif italic">
           P&G
         </span>
       </div>
@@ -208,7 +210,7 @@ const clientBrands: ClientBrand[] = [
     name: "Patanjali",
     renderLogo: () => (
       <div className="flex items-center justify-center">
-        <span className="font-bold text-lg sm:text-xl text-[#006837] tracking-tight">
+        <span className="font-black text-xl sm:text-2xl text-[#006837] tracking-tight">
           PATANJALI
         </span>
       </div>
@@ -217,26 +219,29 @@ const clientBrands: ClientBrand[] = [
   {
     name: "PepsiCo",
     renderLogo: () => (
-      <div className="flex items-center gap-1.5 text-[#0055a5]">
-        <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#e31837] via-white to-[#0055a5] border border-slate-300" />
-        <span className="font-black text-base sm:text-lg uppercase tracking-wider">PEPSICO</span>
+      <div className="flex items-center justify-center">
+        <span className="font-black text-2xl sm:text-3xl text-[#002d62]">
+          pepsi
+        </span>
       </div>
     ),
   },
   {
-    name: "Tata",
-    renderLogo: () => (
-      <div className="flex flex-col items-center text-[#00529b]">
-        <span className="font-black text-2xl sm:text-3xl tracking-widest uppercase">TATA</span>
-      </div>
-    ),
-  },
-  {
-    name: "Tropicana",
+    name: "PIDILITE",
     renderLogo: () => (
       <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl text-[#008752]">
-          Tropicana
+        <span className="font-black text-xl sm:text-2xl text-[#003882] tracking-wider uppercase">
+          PIDILITE
+        </span>
+      </div>
+    ),
+  },
+  {
+    name: "Radico Khaitan",
+    renderLogo: () => (
+      <div className="flex items-center justify-center">
+        <span className="font-bold text-lg sm:text-xl text-[#8b1538] font-serif">
+          RADICO
         </span>
       </div>
     ),
@@ -246,7 +251,7 @@ const clientBrands: ClientBrand[] = [
   {
     name: "Pfizer",
     renderLogo: () => (
-      <div className="bg-[#0093d0] text-white px-3.5 py-1 rounded-full font-black text-base sm:text-lg italic text-center shadow-xs">
+      <div className="font-black text-2xl sm:text-3xl text-[#0093d0] font-serif italic">
         Pfizer
       </div>
     ),
@@ -320,44 +325,72 @@ const clientBrands: ClientBrand[] = [
 
 export default function ClientLogoStrip() {
   return (
-    <section id="clients" className="relative overflow-hidden bg-[var(--color-bone)] py-16 sm:py-24 border-t border-b border-[var(--color-line)]">
-      {/* Background accents matching website theme */}
-      <div className="absolute inset-0 bg-stripes opacity-30 pointer-events-none" />
-      <div className="absolute left-1/2 top-0 -translate-x-1/2 h-96 w-[800px] rounded-full bg-[var(--color-blue)]/5 blur-3xl pointer-events-none" />
+    <section id="clients" className="relative overflow-hidden bg-slate-950 py-20 sm:py-28 text-white border-t border-b border-white/10">
+      {/* Background accents matching awwwards.com high-end dark design */}
+      <div className="absolute inset-0 bg-stripes opacity-15 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-dark opacity-20 pointer-events-none" />
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 h-96 w-[900px] rounded-full bg-[var(--color-blue)]/15 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         
-        {/* Header Section matching screenshot layout */}
-        <div className="mb-12 md:mb-16">
-          {/* Eyebrow with top line matching the screenshot */}
-          <div className="pt-6 border-t border-[var(--color-line)] w-full mb-4">
-            <span className="font-mono text-xs sm:text-sm font-bold tracking-widest text-[var(--color-blue)] uppercase">
+        {/* Awwwards.com Editorial Split Header Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 md:mb-20 pb-10 border-b border-white/10">
+          
+          {/* Left Column: Eyebrow + Big Bold Title */}
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[var(--color-amber)] text-xs font-semibold uppercase tracking-widest mb-6">
+              <div className="h-1.5 w-1.5 rounded-full bg-[var(--color-amber)] animate-pulse" />
               OUR CLIENT PORTFOLIO
-            </span>
+            </div>
+
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.08] text-balance">
+              Brands from all over the world love us!
+            </h2>
           </div>
 
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-ink)] leading-[1.15] text-balance mb-4">
-            Brands from all over the world love us!
-          </h2>
+          {/* Right Column: Detailed Narrative Subtitle + Proof Badges */}
+          <div className="lg:col-span-5 space-y-6">
+            <p className="text-sm sm:text-base text-white/70 leading-relaxed font-normal">
+              From renowned brands across the globe, our client portfolio showcases the trust and satisfaction of brands, reflecting our commitment to excellence and customer satisfaction.
+            </p>
 
-          <p className="max-w-4xl text-sm sm:text-base md:text-lg text-[var(--color-mute)] leading-relaxed font-normal">
-            From renowned brands across the globe, our client portfolio showcases the trust and satisfaction of brands, reflecting our commitment to excellence and customer satisfaction.
-          </p>
+            {/* Quick Proof Metrics Strip */}
+            <div className="grid grid-cols-3 gap-3 pt-4 border-t border-white/5">
+              <div className="flex items-center gap-2">
+                <Globe className="h-4 w-4 text-[var(--color-amber)]" />
+                <span className="text-xs font-semibold text-white/80">32+ Global Brands</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4 text-[var(--color-amber)]" />
+                <span className="text-xs font-semibold text-white/80">100% Quality QC</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Award className="h-4 w-4 text-[var(--color-amber)]" />
+                <span className="text-xs font-semibold text-white/80">ISO Certified</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        {/* Seamless 8-Column Brand Logos Grid (NO background boxes, logos blend directly into section background) */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-8 sm:gap-10 items-center justify-items-center">
+        {/* High-End Interactive Logo Grid (Awwwards / Figma Cards) */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-5 items-center justify-items-center">
           {clientBrands.map((brand, idx) => (
             <motion.div
               key={brand.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: (idx % 8) * 0.03 }}
-              whileHover={{ scale: 1.15 }}
-              className="flex items-center justify-center w-full h-16 sm:h-20 transition-transform cursor-pointer"
+              transition={{ duration: 0.4, delay: (idx % 8) * 0.03 }}
+              className="group relative w-full h-24 rounded-2xl bg-white/5 border border-white/10 hover:border-[var(--color-amber)]/50 hover:bg-white/10 transition-all duration-500 backdrop-blur-xs flex items-center justify-center p-3 cursor-pointer overflow-hidden shadow-sm hover:shadow-xl"
             >
-              {brand.renderLogo()}
+              {/* Subtle card glow on hover */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-amber)]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Logo Render Container */}
+              <div className="relative z-10 opacity-70 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                {brand.renderLogo()}
+              </div>
             </motion.div>
           ))}
         </div>
