@@ -8,39 +8,36 @@ export default function Certifications() {
       id="certifications" 
       className="relative overflow-hidden bg-white py-20 sm:py-28 md:py-32 border-b border-[var(--color-line)]"
     >
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 bg-stripes opacity-30 pointer-events-none" />
+      {/* Background Atmosphere */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-[var(--color-blue)]/5 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         
-        {/* Header Section with Original Bespoke Copy */}
-        <div className="mb-12 md:mb-20">
-          <div className="pt-6 border-t border-[var(--color-line)] w-full mb-4">
-            <div className="font-mono text-xs sm:text-sm font-bold uppercase tracking-widest text-[var(--color-blue)]">
-              GLOBAL ACCREDITATIONS & QUALITY ASSURANCE
-            </div>
+        {/* Header Section */}
+        <div className="mb-14 md:mb-20 max-w-4xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-blue-soft)] border border-[var(--color-blue)]/15 text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mb-4">
+            GLOBAL ACCREDITATIONS & QUALITY ASSURANCE
           </div>
 
-          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight text-[var(--color-ink)] text-balance mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-ink)] text-balance mb-6">
             Engineered & Certified for Global Compliance
           </h2>
 
-          <p className="max-w-4xl text-sm sm:text-base md:text-lg leading-relaxed text-[var(--color-mute)] font-normal">
+          <p className="text-sm sm:text-base md:text-lg leading-relaxed text-[var(--color-mute)] font-normal">
             Our industrial packaging solutions undergo rigorous international testing and compliance protocols. From sustainable forestry to food-grade safety and ISO quality management, we deliver certified reliability across every shipment.
           </p>
         </div>
 
-        {/* Seamless Certifications Grid (No background boxes, larger icons blending into section background) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 sm:gap-10 md:gap-12 items-center justify-items-center">
+        {/* 10 High-End Accreditations Vector Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 md:gap-12 items-center justify-items-center">
           
           {/* 1. FSC Logo */}
           <motion.div 
-            whileHover={{ scale: 1.12 }}
+            whileHover={{ scale: 1.12, y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="group flex flex-col items-center justify-center cursor-pointer"
           >
-            <div className="bg-[#004d25] text-white p-3 rounded-xl flex flex-col items-center justify-center w-28 h-28 text-center shadow-md transition-shadow group-hover:shadow-xl">
+            <div className="bg-[#004d25] text-white p-3 rounded-2xl flex flex-col items-center justify-center w-28 h-28 text-center shadow-md transition-shadow group-hover:shadow-xl">
               <svg className="w-8 h-8 mb-1 text-white fill-current" viewBox="0 0 24 24">
                 <path d="M12 2L6 10h4v6H6l-2 3h16l-2-3h-4v-6h4L12 2z" />
               </svg>
@@ -52,155 +49,127 @@ export default function Certifications() {
 
           {/* 2. ISO 22000:2018 */}
           <motion.div 
-            whileHover={{ scale: 1.12 }}
+            whileHover={{ scale: 1.12, y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="group flex flex-col items-center justify-center cursor-pointer"
           >
-            <div className="relative w-26 h-26 rounded-full border-2 border-[#1e539d] p-1 flex flex-col items-center justify-center text-center text-[#1e539d] transition-colors group-hover:bg-white/40">
+            <div className="relative w-26 h-26 rounded-full border-2 border-[#1e539d] p-1 flex flex-col items-center justify-center text-center text-[#1e539d] transition-colors group-hover:bg-blue-50/50">
               <div className="w-full h-full rounded-full border border-dashed border-[#1e539d]/70 flex flex-col items-center justify-center p-1">
-                <span className="text-[7px] font-bold uppercase tracking-tighter">CERTIFIED</span>
-                <span className="text-sm font-black leading-tight my-0.5">ISO</span>
-                <span className="text-[8px] font-extrabold leading-none">22000:2018</span>
-                <span className="text-[6px] font-semibold uppercase mt-0.5">COMPANY</span>
+                <span className="font-black text-xl leading-none">ISO</span>
+                <span className="text-[10px] font-bold tracking-tighter">22000:2018</span>
+                <span className="text-[7px] uppercase tracking-widest font-semibold mt-0.5">COMPANY</span>
               </div>
             </div>
           </motion.div>
 
           {/* 3. BRCGS Packaging Materials */}
           <motion.div 
-            whileHover={{ scale: 1.12 }}
+            whileHover={{ scale: 1.12, y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="group flex flex-col items-center justify-center cursor-pointer"
           >
-            <div className="flex flex-col items-center justify-center text-center">
-              <div className="flex items-center gap-1 mb-1">
-                <span className="text-2xl font-black text-[#0066b2] tracking-tighter">BRC</span>
-                <span className="text-2xl font-black text-[#00a8b5] tracking-tighter">GS</span>
-              </div>
-              <span className="text-[10px] font-semibold text-slate-800 leading-tight">Packaging Materials</span>
-              <span className="mt-1.5 text-[8px] font-bold bg-[#0066b2] text-white px-2.5 py-0.5 rounded uppercase tracking-wider shadow-sm">
-                CERTIFICATED
-              </span>
+            <div className="bg-[#002f6c] text-white p-3 rounded-2xl flex flex-col items-center justify-center w-28 h-28 text-center shadow-md transition-shadow group-hover:shadow-xl">
+              <span className="font-black text-lg tracking-tight leading-none mb-0.5 text-[#ffc72c]">BRCGS</span>
+              <span className="text-[9px] font-semibold leading-tight">Packaging Materials</span>
+              <span className="text-[8px] uppercase tracking-widest text-[#ffc72c] font-bold mt-1">CERTIFICATED</span>
             </div>
           </motion.div>
 
-          {/* 4. Sedex */}
+          {/* 4. Sedex APPROVED */}
           <motion.div 
-            whileHover={{ scale: 1.12 }}
+            whileHover={{ scale: 1.12, y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="group flex flex-col items-center justify-center cursor-pointer"
           >
-            <div className="w-24 h-24 rounded-full bg-[#e30045] flex items-center justify-center text-white font-extrabold text-base tracking-tight shadow-md transition-shadow group-hover:shadow-xl">
-              Sedex<span className="text-[9px] align-super">®</span>
+            <div className="relative w-28 h-28 rounded-2xl border-2 border-[#009b84] bg-[#009b84]/5 p-2 flex flex-col items-center justify-center text-center text-[#009b84]">
+              <span className="font-black text-2xl tracking-tighter leading-none">Sedex<span className="text-xs font-normal">®</span></span>
+              <span className="text-[9px] uppercase tracking-widest font-bold mt-1 text-[#006837]">APPROVED</span>
             </div>
           </motion.div>
 
-          {/* 5. FDA Approved */}
+          {/* 5. FDA APPROVED */}
           <motion.div 
-            whileHover={{ scale: 1.12 }}
+            whileHover={{ scale: 1.12, y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="group flex flex-col items-center justify-center cursor-pointer"
           >
-            <div className="relative w-26 h-26 rounded-full border-2 border-[#104085] p-1 flex flex-col items-center justify-center text-center text-[#104085] transition-colors group-hover:bg-white/40">
-              <div className="w-full h-full rounded-full border border-[#104085] flex flex-col items-center justify-center">
-                <span className="text-[6px] font-bold tracking-widest uppercase">APPROVED</span>
-                <span className="text-sm font-black tracking-tight leading-none my-0.5">FDA</span>
-                <span className="text-[6px] font-bold tracking-widest uppercase">APPROVED</span>
-              </div>
+            <div className="w-28 h-28 rounded-2xl bg-[#003366] text-white p-3 flex flex-col items-center justify-center text-center shadow-md">
+              <span className="font-black text-3xl tracking-tighter leading-none mb-1 text-[#66c2ff]">FDA</span>
+              <span className="text-[8px] uppercase tracking-widest font-bold text-white/90">APPROVED</span>
             </div>
           </motion.div>
 
           {/* 6. DIN Geprüft */}
           <motion.div 
-            whileHover={{ scale: 1.12 }}
+            whileHover={{ scale: 1.12, y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="group flex flex-col items-center justify-center cursor-pointer"
           >
-            <div className="flex items-center gap-2 text-[#0066b2]">
-              <div className="w-14 h-14 rounded-full border-2 border-[#0066b2] flex items-center justify-center relative">
-                <span className="font-black text-sm tracking-tighter">DIN</span>
-                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-1.5 bg-[#ce2127] rounded-full" />
-              </div>
-              <span className="text-sm font-bold text-[#0066b2]">Geprüft</span>
+            <div className="w-26 h-26 rounded-full border-2 border-slate-800 p-1 flex flex-col items-center justify-center text-center text-slate-800">
+              <span className="font-black text-2xl tracking-tighter leading-none">DIN</span>
+              <span className="text-[9px] uppercase tracking-wider font-semibold">Geprüft</span>
             </div>
           </motion.div>
 
-          {/* 7. BRC Packaging Certificated */}
+          {/* 7. BRC PACKAGING */}
           <motion.div 
-            whileHover={{ scale: 1.12 }}
+            whileHover={{ scale: 1.12, y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="group flex flex-col items-center justify-center cursor-pointer"
           >
-            <div className="bg-[#008ac9] text-white p-2.5 rounded-xl flex flex-col items-center justify-center text-center w-26 h-26 shadow-md transition-shadow group-hover:shadow-xl">
-              <svg className="w-5 h-5 mb-0.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-              </svg>
-              <span className="text-xs font-black leading-tight">BRC</span>
-              <span className="text-[7px] font-semibold uppercase tracking-tight">PACKAGING</span>
-              <span className="text-[6px] opacity-85 uppercase">CERTIFICATED</span>
+            <div className="w-28 h-28 rounded-2xl bg-[#a51c30] text-white p-3 flex flex-col items-center justify-center text-center shadow-md">
+              <span className="font-black text-xl leading-none mb-0.5">BRC</span>
+              <span className="text-[8px] uppercase font-bold tracking-tight">PACKAGING</span>
+              <span className="text-[7px] uppercase tracking-widest text-[#ffc72c] font-semibold mt-1">CERTIFICATED</span>
             </div>
           </motion.div>
 
-          {/* 8. AENOR */}
+          {/* 8. AENOR REACH */}
           <motion.div 
-            whileHover={{ scale: 1.12 }}
+            whileHover={{ scale: 1.12, y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="group flex flex-col items-center justify-center cursor-pointer"
           >
-            <div className="flex flex-col items-center justify-center text-center">
-              <span className="text-2xl font-black tracking-widest text-[var(--color-ink)] font-serif">AENOR</span>
-              <div className="w-10 h-0.5 bg-[var(--color-blue)] mt-1 rounded-full" />
+            <div className="w-28 h-28 rounded-2xl border-2 border-[#0060a8] bg-[#0060a8]/5 p-2 flex flex-col items-center justify-center text-center text-[#0060a8]">
+              <span className="font-black text-sm uppercase tracking-wider leading-none">AENOR</span>
+              <span className="font-bold text-xs mt-0.5">REACH</span>
+              <span className="text-[8px] text-[var(--color-amber)] my-0.5">★ ★ ★</span>
+              <span className="text-[7px] uppercase tracking-widest font-bold text-slate-700">COMPLIANCE</span>
             </div>
           </motion.div>
 
-          {/* 9. REACH Compliance */}
+          {/* 9. ISO 14001:2015 */}
           <motion.div 
-            whileHover={{ scale: 1.12 }}
+            whileHover={{ scale: 1.12, y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="group flex flex-col items-center justify-center cursor-pointer"
           >
-            <div className="bg-[#0b2368] text-white p-2.5 rounded-xl flex flex-col items-center justify-center text-center w-26 h-26 relative shadow-md transition-shadow group-hover:shadow-xl">
-              <span className="text-[7px] font-bold text-amber-400 uppercase tracking-wider mb-0.5">REACH</span>
-              <div className="w-9 h-9 rounded-full border border-amber-400/60 flex items-center justify-center text-amber-300 text-[10px]">
-                ★ ★ ★
-              </div>
-              <span className="text-[6px] font-semibold uppercase tracking-widest mt-0.5">COMPLIANCE</span>
-            </div>
-          </motion.div>
-
-          {/* 10. ISO 14001:2015 */}
-          <motion.div 
-            whileHover={{ scale: 1.12 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="group flex flex-col items-center justify-center cursor-pointer"
-          >
-            <div className="relative w-26 h-26 rounded-full border-2 border-[#1e539d] p-1 flex flex-col items-center justify-center text-center text-[#1e539d] transition-colors group-hover:bg-white/40">
-              <div className="w-full h-full rounded-full border border-dashed border-[#1e539d]/70 flex flex-col items-center justify-center p-1">
-                <span className="text-[7px] font-bold uppercase tracking-tighter">CERTIFIED</span>
-                <span className="text-sm font-black leading-tight my-0.5">ISO</span>
-                <span className="text-[8px] font-extrabold leading-none">14001:2015</span>
-                <span className="text-[6px] font-semibold uppercase mt-0.5">COMPANY</span>
+            <div className="w-26 h-26 rounded-full border-2 border-[#007a3d] p-1 flex flex-col items-center justify-center text-center text-[#007a3d]">
+              <div className="w-full h-full rounded-full border border-dashed border-[#007a3d]/70 flex flex-col items-center justify-center p-1">
+                <span className="font-black text-xl leading-none">ISO</span>
+                <span className="text-[10px] font-bold tracking-tighter">14001:2015</span>
+                <span className="text-[7px] uppercase tracking-widest font-semibold mt-0.5">COMPANY</span>
               </div>
             </div>
           </motion.div>
 
-          {/* 11. ISO 9001:2015 */}
+          {/* 10. ISO 9001:2015 */}
           <motion.div 
-            whileHover={{ scale: 1.12 }}
+            whileHover={{ scale: 1.12, y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="group flex flex-col items-center justify-center cursor-pointer"
           >
-            <div className="relative w-26 h-26 rounded-full border-2 border-[#1e539d] p-1 flex flex-col items-center justify-center text-center text-[#1e539d] transition-colors group-hover:bg-white/40">
-              <div className="w-full h-full rounded-full border border-dashed border-[#1e539d]/70 flex flex-col items-center justify-center p-1">
-                <span className="text-[7px] font-bold uppercase tracking-tighter">CERTIFIED</span>
-                <span className="text-sm font-black leading-tight my-0.5">ISO</span>
-                <span className="text-[8px] font-extrabold leading-none">9001:2015</span>
-                <span className="text-[6px] font-semibold uppercase mt-0.5">COMPANY</span>
+            <div className="w-26 h-26 rounded-full border-2 border-[#003882] p-1 flex flex-col items-center justify-center text-center text-[#003882]">
+              <div className="w-full h-full rounded-full border border-dashed border-[#003882]/70 flex flex-col items-center justify-center p-1">
+                <span className="font-black text-xl leading-none">ISO</span>
+                <span className="text-[10px] font-bold tracking-tighter">9001:2015</span>
+                <span className="text-[7px] uppercase tracking-widest font-semibold mt-0.5">COMPANY</span>
               </div>
             </div>
           </motion.div>
 
         </div>
+
       </div>
     </section>
   );
