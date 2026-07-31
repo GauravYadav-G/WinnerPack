@@ -44,10 +44,8 @@ export default function Industries() {
       
       <div className="mx-auto max-w-[1536px] px-5 md:px-8">
         <div className="mb-12 max-w-7xl mx-auto pl-2 sm:pl-6 md:pl-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-amber-soft)] border border-[var(--color-amber)]/20 text-[var(--color-amber-dark)] text-xs font-bold uppercase tracking-widest mb-3">
-            SECTOR CAPABILITIES
-          </div>
-          <h2 className="font-display text-2xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-5xl text-balance">
+
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-ink)] text-balance">
             Industries We Serve
           </h2>
         </div>

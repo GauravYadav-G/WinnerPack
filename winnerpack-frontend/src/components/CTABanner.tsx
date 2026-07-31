@@ -17,9 +17,7 @@ export default function CTABanner() {
             transition={{ duration: 0.45 }}
             className="lg:col-span-7 space-y-4"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-amber-soft)] border border-[var(--color-amber)]/20 text-[var(--color-amber-dark)] text-xs font-bold uppercase tracking-widest">
-              <span>GET IN TOUCH</span>
-            </div>
+
 
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] tracking-tight text-[var(--color-ink)] text-balance">
               Tell us your line speed. <br />

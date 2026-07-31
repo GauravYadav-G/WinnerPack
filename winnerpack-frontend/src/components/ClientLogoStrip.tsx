@@ -362,10 +362,8 @@ export default function ClientLogoStrip() {
           
           {/* Left Column: Big Bold Title */}
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-amber-soft)] border border-[var(--color-amber)]/20 text-[var(--color-amber-dark)] text-xs font-bold uppercase tracking-widest mb-4">
-              CLIENT PORTFOLIO
-            </div>
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.08] text-balance">
+
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.1] text-balance">
               Brands from all over the world love us!
             </h2>
           </div>

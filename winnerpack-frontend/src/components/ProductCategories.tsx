@@ -15,10 +15,8 @@ export default function ProductCategories() {
         
         {/* Centered Executive Header */}
         <div className="text-center mb-14 flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-amber-soft)] border border-[var(--color-amber)]/20 text-[var(--color-amber-dark)] text-xs font-bold uppercase tracking-widest mb-3">
-            CATALOG SHOWCASE
-          </div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-tight text-balance">
+
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-tight text-balance">
             Product Gallery
           </h2>
           <div className="mt-4 h-1 w-16 bg-[var(--color-amber)] rounded-full" />

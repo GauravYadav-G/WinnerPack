@@ -60,7 +60,7 @@ export default function ProductInquiryForm() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-5 space-y-6"
           >
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.12]">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.12]">
               Request Custom Technical Spec Sheet & Quote
             </h2>
 

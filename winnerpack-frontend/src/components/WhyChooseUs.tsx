@@ -76,9 +76,7 @@ export default function WhyChooseUs() {
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         <div className="mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-amber-soft)] border border-[var(--color-amber)]/20 text-[var(--color-amber-dark)] text-xs font-bold uppercase tracking-widest mb-4">
-            PROVEN VALUE PROPOSITION
-          </div>
+
           <h2 className="font-display text-2xl font-extrabold leading-[1.15] tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-5xl text-balance">
             Six reasons procurement teams renew our contract every year.
           </h2>
