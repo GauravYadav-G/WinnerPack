@@ -12,25 +12,25 @@ const clientBrands: ClientBrand[] = [
   {
     name: "Lava",
     renderLogo: () => (
-      <img src="/Brand_logo/lava.png" alt="Lava" className="h-10 sm:h-12 w-auto object-contain" />
+      <img src="/Brand_logo/lava.png" alt="Lava" className="max-h-8 sm:max-h-10 max-w-[120px] sm:max-w-[130px] w-auto h-auto object-contain" />
     ),
   },
   {
     name: "Vivo",
     renderLogo: () => (
-      <img src="/Brand_logo/vivo.png" alt="Vivo" className="h-10 sm:h-12 w-auto object-contain" />
+      <img src="/Brand_logo/vivo.png" alt="Vivo" className="max-h-8 sm:max-h-10 max-w-[120px] sm:max-w-[130px] w-auto h-auto object-contain" />
     ),
   },
   {
     name: "Noise",
     renderLogo: () => (
-      <img src="/Brand_logo/noise.png" alt="Noise" className="h-10 sm:h-12 w-auto object-contain" />
+      <img src="/Brand_logo/noise.png" alt="Noise" className="max-h-8 sm:max-h-10 max-w-[120px] sm:max-w-[130px] w-auto h-auto object-contain" />
     ),
   },
   {
     name: "Fire-Boltt",
     renderLogo: () => (
-      <img src="/Brand_logo/firebolt.png" alt="Fire-Boltt" className="h-10 sm:h-12 w-auto object-contain" />
+      <img src="/Brand_logo/firebolt.png" alt="Fire-Boltt" className="max-h-8 sm:max-h-10 max-w-[120px] sm:max-w-[130px] w-auto h-auto object-contain" />
     ),
   },
   // Row 1
@@ -395,12 +395,12 @@ export default function ClientLogoStrip() {
 
         </div>
 
-        {/* Seamless 8-Column Brand Logos Grid (No boxes, full color, weightless hover lift) */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-8 sm:gap-10 items-center justify-items-center">
+        {/* Symmetric 6-Column Brand Logos Grid (Symmetric bounding spaces) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 items-center justify-items-center">
           {clientBrands.map((brand) => (
             <div
               key={brand.name}
-              className="flex items-center justify-center w-full h-16 sm:h-20 transition-all duration-500 hover:scale-110 hover:-translate-y-1 cursor-pointer"
+              className="flex items-center justify-center w-full h-16 sm:h-20 px-3 py-2 transition-all duration-500 hover:scale-108 hover:-translate-y-1 cursor-pointer select-none"
             >
               {brand.renderLogo()}
             </div>
