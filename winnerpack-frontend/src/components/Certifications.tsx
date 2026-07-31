@@ -159,7 +159,7 @@ export default function Certifications() {
           </p>
         </div>
 
-        {/* 10 Glassmorphism Certification Cards Grid */}
+        {/* 10 Blended Glassmorphism Certification Emblems Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6">
           {certificationsList.map((item, index) => (
             <motion.div 
@@ -168,15 +168,15 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.04 }}
-              className="group flex flex-col items-center justify-between rounded-2xl bg-white/80 backdrop-blur-md border border-white/80 shadow-md shadow-black/5 p-5 transition-all duration-500 hover:bg-white hover:shadow-2xl hover:border-[var(--color-amber)]/40 hover:-translate-y-2 min-h-[210px] cursor-pointer"
+              className="group flex flex-col items-center justify-between rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 shadow-xs p-5 transition-all duration-500 hover:bg-white/80 hover:shadow-xl hover:border-[var(--color-amber)]/30 hover:-translate-y-1.5 min-h-[200px] cursor-pointer"
             >
               {/* Emblem Container */}
-              <div className="flex-1 flex items-center justify-center my-2 group-hover:scale-105 transition-transform duration-500">
+              <div className="flex-1 flex items-center justify-center my-2 group-hover:scale-108 transition-transform duration-500">
                 {item.renderLogo()}
               </div>
 
               {/* Title & Status */}
-              <div className="w-full text-center pt-3 border-t border-[var(--color-line)]/60">
+              <div className="w-full text-center pt-3 border-t border-[var(--color-line)]/40">
                 <h3 className="font-display text-xs sm:text-sm font-bold text-[var(--color-ink)] leading-tight group-hover:text-[var(--color-amber-dark)] transition-colors">
                   {item.name}
                 </h3>
