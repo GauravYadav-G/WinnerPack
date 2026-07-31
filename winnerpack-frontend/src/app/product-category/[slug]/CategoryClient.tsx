@@ -56,21 +56,14 @@ export default function CategoryClient({
   // Filter products for this specific category (matching fallback-data and DB categories)
   const categoryProducts = productsList.filter((p) => {
     const catId = p.category;
-    const prodId = p.id;
     if (currentCategory.id === "film-products") {
-      if (["poly-courier-bags", "paper-courier-bags", "pallet-cover", "pallet-liner"].includes(prodId)) {
-        return false;
-      }
-      return catId === "films-bags-tubes" || catId === "pallet-wrapping" || catId === "films" || catId === "film-products" || catId === "film";
+      return catId === "films" || catId === "film-products" || catId === "film";
     }
     if (currentCategory.id === "label-sticker-products") {
       return catId === "labels" || catId === "label-sticker-products" || catId === "label";
     }
     if (currentCategory.id === "other-products") {
-      if (["poly-courier-bags", "paper-courier-bags", "pallet-cover", "pallet-liner"].includes(prodId)) {
-        return true;
-      }
-      return catId === "strapping" || catId === "protective" || catId === "tapes" || catId === "other-products" || catId === "other";
+      return catId === "other" || catId === "other-products" || catId === "strapping" || catId === "protective" || catId === "tapes";
     }
     return catId === currentCategory.id;
   });

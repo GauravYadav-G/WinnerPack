@@ -7,6 +7,7 @@ import Industries from "../components/Industries";
 import ProductCategories from "../components/ProductCategories";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ClientLogoStrip from "../components/ClientLogoStrip";
+import Certifications from "../components/Certifications";
 import Journey from "../components/Journey";
 import CTABanner from "../components/CTABanner";
 import FAQSection from "../components/FAQSection";
@@ -46,6 +47,9 @@ export default function Page() {
 
         {/* 10. Trusted Partners / Clients logo strip */}
         <ClientLogoStrip />
+
+        {/* Certifications Section */}
+        <Certifications />
 
 
 
