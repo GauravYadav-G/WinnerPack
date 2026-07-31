@@ -8,14 +8,14 @@ import PageWrapper from "@/components/PageWrapper";
 import CTABanner from "@/components/CTABanner";
 import FloatingWidgets from "@/components/FloatingWidgets";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Plus, X } from "lucide-react";
+import { ChevronRight, Plus, X, ArrowUpRight } from "lucide-react";
 
 interface GalleryItem {
   id: number;
   title: string;
   image: string;
   description: string;
-  aspectRatio: string; // Dynamic aspect ratio for a premium masonry look
+  aspectRatio: string;
 }
 
 const galleryItems: GalleryItem[] = [
@@ -23,14 +23,14 @@ const galleryItems: GalleryItem[] = [
     id: 1,
     title: "Annual Team Outing & Retreat",
     image: "/images/gallery/team_trek.png",
-    description: "Annual mountain retreat celebrating teamwork, shared milestones, and collaboration.",
+    description: "Annual mountain retreat celebrating teamwork, shared milestones, and collaborative growth.",
     aspectRatio: "aspect-[4/3]",
   },
   {
     id: 2,
     title: "Diwali Celebrations at Head Office",
     image: "/images/gallery/diwali_party.png",
-    description: "Traditional lamps, beautiful Rangoli, and festive lunch with the team.",
+    description: "Traditional lamps, beautiful Rangoli, and festive lunch with the team at Ghaziabad.",
     aspectRatio: "aspect-square",
   },
   {
@@ -188,7 +188,7 @@ export default function GalleryClient() {
           </div>
         </section>
 
-        {/* Lightbox Modal */}
+        {/* Immersive awards.com / Figma Style Lightbox Modal */}
         <AnimatePresence>
           {selectedImage && (
             <motion.div
@@ -196,41 +196,72 @@ export default function GalleryClient() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedImage(null)}
-              className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-950/95 backdrop-blur-md"
+              className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-slate-950/95 backdrop-blur-xl"
             >
               <motion.div
-                initial={{ scale: 0.95, opacity: 0 }}
+                initial={{ scale: 0.96, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.95, opacity: 0 }}
+                exit={{ scale: 0.96, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
-                className="relative max-w-4xl w-full bg-slate-950 rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+                className="relative max-w-6xl w-full h-[85vh] sm:h-[80vh] bg-[#0c1322] rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col md:flex-row"
               >
-                {/* Close Button */}
-                <button
-                  onClick={() => setSelectedImage(null)}
-                  className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/90 transition-colors"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-
-                {/* Main image container */}
-                <div className="relative w-full aspect-video md:aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden">
+                
+                {/* Left Section: Visual Image Viewer (65% width) */}
+                <div className="relative flex-1 bg-slate-950 flex items-center justify-center overflow-hidden h-[50%] md:h-full">
                   <img
                     src={selectedImage.image}
                     alt={selectedImage.title}
-                    className="max-h-[70vh] max-w-full object-contain"
+                    className="max-h-full max-w-full object-contain p-4 md:p-6"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent pointer-events-none" />
                 </div>
 
-                {/* Text Description Box in Lightbox */}
-                <div className="p-6 sm:p-8 bg-slate-900 text-white">
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
-                    {selectedImage.title}
-                  </h3>
-                  <p className="mt-2 text-xs sm:text-sm text-white/60 leading-relaxed">
-                    {selectedImage.description}
-                  </p>
+                {/* Right Section: Premium Metadata details panel (35% width) */}
+                <div className="w-full md:w-[360px] lg:w-[400px] bg-[#070d19] border-t md:border-t-0 md:border-l border-white/5 p-6 sm:p-8 flex flex-col justify-between h-[50%] md:h-full">
+                  
+                  {/* Top Bar */}
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--color-blue)]">
+                        LIFE AT WINNER PACK
+                      </span>
+                      <button
+                        onClick={() => setSelectedImage(null)}
+                        className="h-8 w-8 rounded-full bg-white/5 text-white/70 flex items-center justify-center hover:bg-white/15 hover:text-white transition-colors"
+                      >
+                        <X className="h-4.5 w-4.5" />
+                      </button>
+                    </div>
+
+                    {/* Center Details */}
+                    <div className="space-y-4">
+                      <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-tight">
+                        {selectedImage.title}
+                      </h3>
+                      <div className="h-0.5 w-12 bg-[var(--color-amber)] rounded-full" />
+                      <p className="text-xs sm:text-sm leading-relaxed text-slate-400 font-normal">
+                        {selectedImage.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Bottom Panel Branding */}
+                  <div className="border-t border-white/5 pt-6 flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">
+                      WPT © {new Date().getFullYear()}
+                    </span>
+                    <a
+                      href="#contact"
+                      onClick={() => setSelectedImage(null)}
+                      className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[var(--color-amber)] hover:text-white transition-colors"
+                    >
+                      Join our team
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
+                  </div>
+
                 </div>
+
               </motion.div>
             </motion.div>
           )}
