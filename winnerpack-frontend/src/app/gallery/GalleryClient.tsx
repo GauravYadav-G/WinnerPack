@@ -196,34 +196,34 @@ export default function GalleryClient() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedImage(null)}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md"
+              className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-950/95 backdrop-blur-md"
             >
               <motion.div
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.95, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
-                className="relative max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+                className="relative max-w-4xl w-full bg-slate-950 rounded-3xl overflow-hidden shadow-2xl border border-white/10"
               >
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full bg-slate-950/70 text-white flex items-center justify-center hover:bg-slate-950 transition-colors"
+                  className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/90 transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
 
                 {/* Main image container */}
-                <div className="relative h-80 sm:h-[480px] w-full bg-slate-950">
+                <div className="relative w-full aspect-video md:aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden">
                   <img
                     src={selectedImage.image}
                     alt={selectedImage.title}
-                    className="h-full w-full object-contain"
+                    className="max-h-[70vh] max-w-full object-contain"
                   />
                 </div>
 
                 {/* Text Description Box in Lightbox */}
-                <div className="p-6 sm:p-8 bg-slate-950 border-t border-white/5 text-white">
+                <div className="p-6 sm:p-8 bg-slate-900 text-white">
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
                     {selectedImage.title}
                   </h3>
