@@ -362,6 +362,9 @@ export default function ClientLogoStrip() {
           
           {/* Left Column: Big Bold Title */}
           <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-amber-soft)] border border-[var(--color-amber)]/20 text-[var(--color-amber-dark)] text-xs font-bold uppercase tracking-widest mb-4">
+              CLIENT PORTFOLIO
+            </div>
             <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.08] text-balance">
               Brands from all over the world love us!
             </h2>
@@ -376,15 +379,15 @@ export default function ClientLogoStrip() {
             {/* Quick Proof Metrics Strip */}
             <div className="grid grid-cols-3 gap-3 pt-4 border-t border-[var(--color-line)]">
               <div className="flex items-center gap-2">
-                <Globe className="h-4 w-4 text-[var(--color-blue)]" />
+                <Globe className="h-4 w-4 text-[var(--color-amber)]" />
                 <span className="text-xs font-semibold text-[var(--color-ink)]">32+ Global Brands</span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-[var(--color-blue)]" />
+                <ShieldCheck className="h-4 w-4 text-[var(--color-amber)]" />
                 <span className="text-xs font-semibold text-[var(--color-ink)]">100% Quality QC</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award className="h-4 w-4 text-[var(--color-blue)]" />
+                <Award className="h-4 w-4 text-[var(--color-amber)]" />
                 <span className="text-xs font-semibold text-[var(--color-ink)]">ISO Certified</span>
               </div>
             </div>
@@ -392,12 +395,12 @@ export default function ClientLogoStrip() {
 
         </div>
 
-        {/* Seamless 8-Column Brand Logos Grid (No boxes, full color, blending directly with section background) */}
+        {/* Seamless 8-Column Brand Logos Grid (No boxes, full color, weightless hover lift) */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-8 sm:gap-10 items-center justify-items-center">
           {clientBrands.map((brand) => (
             <div
               key={brand.name}
-              className="flex items-center justify-center w-full h-16 sm:h-20"
+              className="flex items-center justify-center w-full h-16 sm:h-20 transition-all duration-500 hover:scale-110 hover:-translate-y-1 cursor-pointer"
             >
               {brand.renderLogo()}
             </div>
