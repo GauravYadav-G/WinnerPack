@@ -336,13 +336,8 @@ export default function ClientLogoStrip() {
         {/* Editorial Light Split Header Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 md:mb-20 pb-10 border-b border-[var(--color-line)]">
           
-          {/* Left Column: Eyebrow + Big Bold Title */}
+          {/* Left Column: Big Bold Title */}
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-blue-soft)] border border-[var(--color-blue)]/15 text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mb-6">
-              <div className="h-1.5 w-1.5 rounded-full bg-[var(--color-blue)] animate-pulse" />
-              OUR CLIENT PORTFOLIO
-            </div>
-
             <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.08] text-balance">
               Brands from all over the world love us!
             </h2>
