@@ -8,7 +8,7 @@ import PageWrapper from "@/components/PageWrapper";
 import CTABanner from "@/components/CTABanner";
 import FloatingWidgets from "@/components/FloatingWidgets";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Maximize2, X, Tag } from "lucide-react";
+import { ChevronRight, Maximize2, X, Building2 } from "lucide-react";
 
 interface GalleryItem {
   id: number;
@@ -22,110 +22,109 @@ interface GalleryItem {
 const galleryItems: GalleryItem[] = [
   {
     id: 1,
-    title: "High-Tensile PET Strapping Rolls",
-    category: "strapping",
-    tag: "Strapping Rolls",
-    image: "/images/desktop/strapping_rolls/pet_strap.png",
-    description: "Embossed and smooth PET strap rolls engineered for heavy payload palletization and high breaking strength.",
+    title: "Ghaziabad Manufacturing Plant & Extrusion Lines",
+    category: "plant",
+    tag: "Manufacturing Plant",
+    image: "/images/desktop/industries/electronics_industry.png",
+    description: "State-of-the-art continuous co-extrusion infrastructure at our Ghaziabad, UP industrial unit.",
   },
   {
     id: 2,
-    title: "Polypropylene (PP) Strap Rolls",
-    category: "strapping",
-    tag: "Strapping Rolls",
-    image: "/images/desktop/strapping_rolls/pp_strap.png",
-    description: "Virgin PP strapping rolls designed for automatic strapping lines with zero feed jam maintenance.",
+    title: "QMS Tensile & Elongation Testing Lab",
+    category: "quality",
+    tag: "Quality & Testing Lab",
+    image: "/images/desktop/industries/cosmetics_industry.png",
+    description: "Precision load testing equipment enforcing strict tensile strength and elongation QMS standards.",
   },
   {
     id: 3,
-    title: "High-Cling LLDPE Stretch Film Rolls",
-    category: "films",
-    tag: "Stretch & Shrink Films",
-    image: "/images/desktop/stretch_films/cast_stretch.png",
-    description: "Multi-layer cast LLDPE stretch wrap with up to 300% pre-stretch capability for load stabilization.",
+    title: "Central Warehouse & Buffer Stock Facility",
+    category: "warehouse",
+    tag: "Warehouse & Logistics",
+    image: "/images/desktop/industries/food_fmcg_industry.png",
+    description: "Spacious warehouse facility maintaining annual buffer stock for rapid same-day dispatches.",
   },
   {
     id: 4,
-    title: "BOPP Self-Adhesive Packing Tapes",
-    category: "tapes",
-    tag: "BOPP Tapes",
-    image: "/images/desktop/bopp_tapes/transparent_bopp.png",
-    description: "High-micron acrylic adhesive BOPP sealing tapes available in transparent, brown, and custom printed variants.",
+    title: "Corporate Engineering & Key Account Team",
+    category: "team",
+    tag: "Corporate Office & Team",
+    image: "/images/desktop/industries/stationery_industry.png",
+    description: "Our dedicated technical engineering and client support specialists available 24x7.",
   },
   {
     id: 5,
-    title: "Polyolefin (POF) Shrink Film",
-    category: "films",
-    tag: "Stretch & Shrink Films",
-    image: "/images/desktop/shrink_films/pof_shrink.png",
-    description: "Crystal-clear 5-layer POF shrink film for retail presentation and moisture-proof bundling.",
+    title: "Adhesive Micron & Thickness Inspection Station",
+    category: "quality",
+    tag: "Quality & Testing Lab",
+    image: "/images/desktop/industries/ecommerce_logistics_industry.png",
+    description: "Advanced optical gauge stations verifying micron adhesive uniform application and coat weight.",
   },
   {
     id: 6,
-    title: "Air Bubble Wrap Protective Rolls",
-    category: "protective",
-    tag: "Protective Packaging",
-    image: "/images/desktop/protective/air_bubble.png",
-    description: "Shock-absorbing polyethylene air bubble rolls engineered for fragile e-commerce cushioning.",
+    title: "Rooftop Solar Energy & Eco Management",
+    category: "sustainability",
+    tag: "Sustainability & ESG",
+    image: "/images/desktop/industries/electronics_industry.png",
+    description: "Rooftop solar energy infrastructure powering manufacturing plant operations sustainably.",
   },
   {
     id: 7,
-    title: "Ghaziabad Plant Extrusion Facility",
-    category: "plant",
-    tag: "Plant & Production",
+    title: "Fleet Loading Bays & Dispatch Docks",
+    category: "warehouse",
+    tag: "Warehouse & Logistics",
     image: "/images/desktop/industries/ecommerce_logistics_industry.png",
-    description: "State-of-the-art continuous co-extrusion lines operating in Ghaziabad, UP.",
+    description: "Multi-dock loading bay handling daily scheduled dispatches to 1,200+ pin codes nationwide.",
   },
   {
     id: 8,
-    title: "Batch Tensile & Elongation Testing",
-    category: "quality",
-    tag: "Quality Testing",
-    image: "/images/desktop/industries/electronics_industry.png",
-    description: "Rigorous QMS tensile load and adhesive micron checks performed before dispatch.",
+    title: "High-Precision Slitting & Rewinding Floor",
+    category: "plant",
+    tag: "Manufacturing Plant",
+    image: "/images/desktop/industries/food_fmcg_industry.png",
+    description: "Computerized slitting units ensuring precise core winding tension and clean roll edges.",
   },
   {
     id: 9,
-    title: "Custom Printed Logo BOPP Tapes",
-    category: "tapes",
-    tag: "BOPP Tapes",
-    image: "/images/desktop/bopp_tapes/printed_bopp.png",
-    description: "Brand-customized rotogravure printed sealing tapes for tamper-evident shipping.",
+    title: "Sample Trial & Client Qualification Center",
+    category: "team",
+    tag: "Corporate Office & Team",
+    image: "/images/desktop/industries/cosmetics_industry.png",
+    description: "On-site sample testing facility for validating material specifications prior to bulk orders.",
   },
   {
     id: 10,
-    title: "Heavy-Duty Pallet Wrap Machine Rolls",
-    category: "films",
-    tag: "Stretch & Shrink Films",
-    image: "/images/desktop/stretch_films/machine_stretch.png",
-    description: "Puncture-resistant machine-grade stretch film rolls for high-speed automated turntable wrappers.",
+    title: "ISO 9001:2015 Audit & Compliance Office",
+    category: "quality",
+    tag: "Quality & Testing Lab",
+    image: "/images/desktop/industries/stationery_industry.png",
+    description: "Dedicated quality management compliance office maintaining batch traceability records.",
   },
   {
     id: 11,
-    title: "Biodegradable & Recyclable Mailer Bags",
-    category: "protective",
-    tag: "Protective Packaging",
-    image: "/images/desktop/protective/courier_bags.png",
-    description: "Eco-friendly courier envelopes and bubble mailers compliant with ESG mandates.",
+    title: "In-House Zero-Waste Recycling Unit",
+    category: "sustainability",
+    tag: "Sustainability & ESG",
+    image: "/images/desktop/industries/electronics_industry.png",
+    description: "Closed-loop recycling system reprocessing edge trims into reusable production materials.",
   },
   {
     id: 12,
-    title: "Dispatch & Warehouse Storage Hub",
+    title: "B.S.T. Industrial Park Headquarters",
     category: "plant",
-    tag: "Plant & Production",
-    image: "/images/desktop/industries/food_fmcg_industry.png",
-    description: "Surplus annual inventory facility ensuring same-day dispatch across 1,200+ pin codes.",
+    tag: "Manufacturing Plant",
+    image: "/images/desktop/industries/ecommerce_logistics_industry.png",
+    description: "Winner Pack Technologies corporate facility located in Dasna, Ghaziabad, Uttar Pradesh.",
   },
 ];
 
 const categories = [
-  { id: "all", name: "All Showcase" },
-  { id: "strapping", name: "Strapping Rolls" },
-  { id: "films", name: "Stretch & Shrink Films" },
-  { id: "tapes", name: "BOPP Tapes" },
-  { id: "protective", name: "Protective Packaging" },
-  { id: "plant", name: "Plant & Operations" },
-  { id: "quality", name: "Quality Testing" },
+  { id: "all", name: "All Highlights" },
+  { id: "plant", name: "Manufacturing Plant" },
+  { id: "quality", name: "Quality & Testing Lab" },
+  { id: "warehouse", name: "Warehouse & Logistics" },
+  { id: "team", name: "Corporate Office & Team" },
+  { id: "sustainability", name: "Sustainability & ESG" },
 ];
 
 export default function GalleryClient() {
@@ -151,14 +150,14 @@ export default function GalleryClient() {
             <nav className="flex items-center gap-2 text-xs font-medium text-white/60 mb-4">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="h-3.5 w-3.5" />
-              <span className="text-white">Gallery</span>
+              <span className="text-white">Organization Gallery</span>
             </nav>
 
             <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
-              Packaging & Plant Gallery
+              Organization & Infrastructure Gallery
             </h1>
             <p className="mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed">
-              Explore our comprehensive portfolio of high-tensile strapping rolls, stretch films, BOPP tapes, and state-of-the-art Ghaziabad manufacturing operations.
+              Discover Winner Pack Technologies' manufacturing plant in Ghaziabad, state-of-the-art QMS testing labs, warehouse hub, corporate team, and sustainable ESG practices.
             </p>
           </div>
         </section>
@@ -202,7 +201,7 @@ export default function GalleryClient() {
                     onClick={() => setSelectedImage(item)}
                     className="group relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[var(--color-blue)] cursor-pointer"
                   >
-                    {/* Image */}
+                    {/* Image Container */}
                     <div className="relative h-60 sm:h-64 w-full bg-slate-100 overflow-hidden">
                       <img
                         src={item.image}
@@ -216,14 +215,14 @@ export default function GalleryClient() {
                         <Maximize2 className="h-4 w-4" />
                       </div>
 
-                      {/* Tag Badge */}
-                      <div className="absolute top-4 left-4 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[var(--color-blue)]/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wider">
-                        <Tag className="h-3 w-3" />
+                      {/* Category Tag Badge */}
+                      <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-blue)]/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wider">
+                        <Building2 className="h-3 w-3" />
                         {item.tag}
                       </div>
                     </div>
 
-                    {/* Info Body */}
+                    {/* Card Content */}
                     <div className="p-5">
                       <h3 className="font-display text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-blue)] transition-colors">
                         {item.title}
