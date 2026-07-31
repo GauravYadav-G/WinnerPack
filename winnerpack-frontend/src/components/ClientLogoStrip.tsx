@@ -43,7 +43,7 @@ const clientBrands: ClientBrand[] = [
   {
     name: "Britannia",
     renderLogo: () => (
-      <div className="border-2 border-[#d32f2f] px-3 py-1 rounded bg-white/80 text-center shadow-xs">
+      <div className="border-2 border-[#d32f2f] px-3 py-1 rounded bg-white text-center shadow-xs">
         <span className="font-black text-lg sm:text-xl text-[#d32f2f] uppercase tracking-wider block leading-none">
           BRITANNIA
         </span>
@@ -325,55 +325,55 @@ const clientBrands: ClientBrand[] = [
 
 export default function ClientLogoStrip() {
   return (
-    <section id="clients" className="relative overflow-hidden bg-slate-950 py-20 sm:py-28 text-white border-t border-b border-white/10">
-      {/* Background accents matching awwwards.com high-end dark design */}
-      <div className="absolute inset-0 bg-stripes opacity-15 pointer-events-none" />
-      <div className="absolute inset-0 bg-grid-dark opacity-20 pointer-events-none" />
-      <div className="absolute left-1/2 top-0 -translate-x-1/2 h-96 w-[900px] rounded-full bg-[var(--color-blue)]/15 blur-3xl pointer-events-none" />
+    <section id="clients" className="relative overflow-hidden bg-[var(--color-bone)] py-20 sm:py-28 border-t border-b border-[var(--color-line)]">
+      {/* Subtle Light Theme Background Accents */}
+      <div className="absolute inset-0 bg-stripes opacity-20 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-fine opacity-20 pointer-events-none" />
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 h-96 w-[900px] rounded-full bg-[var(--color-blue)]/5 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         
-        {/* Awwwards.com Editorial Split Header Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 md:mb-20 pb-10 border-b border-white/10">
+        {/* Editorial Light Split Header Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 md:mb-20 pb-10 border-b border-[var(--color-line)]">
           
           {/* Left Column: Eyebrow + Big Bold Title */}
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[var(--color-amber)] text-xs font-semibold uppercase tracking-widest mb-6">
-              <div className="h-1.5 w-1.5 rounded-full bg-[var(--color-amber)] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-blue-soft)] border border-[var(--color-blue)]/15 text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mb-6">
+              <div className="h-1.5 w-1.5 rounded-full bg-[var(--color-blue)] animate-pulse" />
               OUR CLIENT PORTFOLIO
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.08] text-balance">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.08] text-balance">
               Brands from all over the world love us!
             </h2>
           </div>
 
           {/* Right Column: Detailed Narrative Subtitle + Proof Badges */}
           <div className="lg:col-span-5 space-y-6">
-            <p className="text-sm sm:text-base text-white/70 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-[var(--color-mute)] leading-relaxed font-normal">
               From renowned brands across the globe, our client portfolio showcases the trust and satisfaction of brands, reflecting our commitment to excellence and customer satisfaction.
             </p>
 
             {/* Quick Proof Metrics Strip */}
-            <div className="grid grid-cols-3 gap-3 pt-4 border-t border-white/5">
+            <div className="grid grid-cols-3 gap-3 pt-4 border-t border-[var(--color-line)]">
               <div className="flex items-center gap-2">
-                <Globe className="h-4 w-4 text-[var(--color-amber)]" />
-                <span className="text-xs font-semibold text-white/80">32+ Global Brands</span>
+                <Globe className="h-4 w-4 text-[var(--color-blue)]" />
+                <span className="text-xs font-semibold text-[var(--color-ink)]">32+ Global Brands</span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-[var(--color-amber)]" />
-                <span className="text-xs font-semibold text-white/80">100% Quality QC</span>
+                <ShieldCheck className="h-4 w-4 text-[var(--color-blue)]" />
+                <span className="text-xs font-semibold text-[var(--color-ink)]">100% Quality QC</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award className="h-4 w-4 text-[var(--color-amber)]" />
-                <span className="text-xs font-semibold text-white/80">ISO Certified</span>
+                <Award className="h-4 w-4 text-[var(--color-blue)]" />
+                <span className="text-xs font-semibold text-[var(--color-ink)]">ISO Certified</span>
               </div>
             </div>
           </div>
 
         </div>
 
-        {/* High-End Interactive Logo Grid (Awwwards / Figma Cards) */}
+        {/* Premium Light Brand Logo Grid (Clean Cards) */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-5 items-center justify-items-center">
           {clientBrands.map((brand, idx) => (
             <motion.div
@@ -382,13 +382,13 @@ export default function ClientLogoStrip() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: (idx % 8) * 0.03 }}
-              className="group relative w-full h-24 rounded-2xl bg-white/5 border border-white/10 hover:border-[var(--color-amber)]/50 hover:bg-white/10 transition-all duration-500 backdrop-blur-xs flex items-center justify-center p-3 cursor-pointer overflow-hidden shadow-sm hover:shadow-xl"
+              className="group relative w-full h-24 rounded-2xl bg-white border border-[var(--color-line)] hover:border-[var(--color-blue)]/40 transition-all duration-500 flex items-center justify-center p-3 cursor-pointer overflow-hidden shadow-xs hover:shadow-xl"
             >
-              {/* Subtle card glow on hover */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-amber)]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Subtle light card gradient glow on hover */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-blue-soft)]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Logo Render Container */}
-              <div className="relative z-10 opacity-70 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+              <div className="relative z-10 opacity-75 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
                 {brand.renderLogo()}
               </div>
             </motion.div>
