@@ -159,8 +159,8 @@ export default function Certifications() {
           </p>
         </div>
 
-        {/* 10 High-End Executive Circular Certification Badges Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 items-center justify-items-center">
+        {/* 10 Glassmorphism Certification Cards Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6">
           {certificationsList.map((item, index) => (
             <motion.div 
               key={item.id}
@@ -168,21 +168,21 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.04 }}
-              className="group flex flex-col items-center justify-center rounded-full border-2 border-[var(--color-line)] bg-white w-40 h-40 sm:w-48 sm:h-48 p-4 shadow-sm transition-all duration-500 hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-2 cursor-pointer relative overflow-hidden"
+              className="group flex flex-col items-center justify-between rounded-2xl bg-white/80 backdrop-blur-md border border-white/80 shadow-md shadow-black/5 p-5 transition-all duration-500 hover:bg-white hover:shadow-2xl hover:border-[var(--color-amber)]/40 hover:-translate-y-2 min-h-[210px] cursor-pointer"
             >
               {/* Emblem Container */}
-              <div className="flex-1 flex items-center justify-center scale-90 group-hover:scale-100 transition-transform duration-500">
+              <div className="flex-1 flex items-center justify-center my-2 group-hover:scale-105 transition-transform duration-500">
                 {item.renderLogo()}
               </div>
 
               {/* Title & Status */}
-              <div className="w-full text-center pb-2">
-                <h3 className="font-display text-[11px] sm:text-xs font-bold text-[var(--color-ink)] leading-tight group-hover:text-[var(--color-amber-dark)] transition-colors line-clamp-1">
+              <div className="w-full text-center pt-3 border-t border-[var(--color-line)]/60">
+                <h3 className="font-display text-xs sm:text-sm font-bold text-[var(--color-ink)] leading-tight group-hover:text-[var(--color-amber-dark)] transition-colors">
                   {item.name}
                 </h3>
-                <div className="flex items-center justify-center gap-1 mt-0.5 text-[9px] text-[var(--color-mute)] font-medium">
-                  <CheckCircle className="h-2.5 w-2.5 text-[var(--color-amber)]" />
-                  <span className="line-clamp-1">{item.tagline}</span>
+                <div className="flex items-center justify-center gap-1 mt-1 text-[10px] text-[var(--color-mute)] font-medium">
+                  <CheckCircle className="h-3 w-3 text-[var(--color-amber)] opacity-90" />
+                  <span>{item.tagline}</span>
                 </div>
               </div>
             </motion.div>
