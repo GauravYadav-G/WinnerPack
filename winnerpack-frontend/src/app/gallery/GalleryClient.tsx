@@ -8,7 +8,7 @@ import PageWrapper from "@/components/PageWrapper";
 import CTABanner from "@/components/CTABanner";
 import FloatingWidgets from "@/components/FloatingWidgets";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Maximize2, X, Sparkles } from "lucide-react";
+import { ChevronRight, Plus, X } from "lucide-react";
 
 interface GalleryItem {
   id: number;
@@ -17,111 +17,124 @@ interface GalleryItem {
   tag: string;
   image: string;
   description: string;
+  aspectRatio: string; // Dynamic aspect ratio for a premium masonry look
 }
 
 const galleryItems: GalleryItem[] = [
   {
     id: 1,
-    title: "Annual Team Outing & Retreat",
+    title: "Annual Team Retreat & Outing",
     category: "trips",
-    tag: "Team Trips",
+    tag: "Team Outings",
     image: "/images/desktop/industries/electronics_industry.png",
-    description: "Our annual team retreat in the hills, celebrating team bonding and collaborative milestones.",
+    description: "Annual mountain retreat celebrating teamwork, shared milestones, and collaboration.",
+    aspectRatio: "aspect-[4/3]",
   },
   {
     id: 2,
     title: "Diwali Celebrations at Head Office",
     category: "events",
-    tag: "Events & Functions",
+    tag: "Celebrations",
     image: "/images/desktop/industries/cosmetics_industry.png",
-    description: "Office decorated with lights and Rangoli, with our team celebrating together in ethnic wear.",
+    description: "Traditional lamps, beautiful Rangoli, and festive lunch with the team.",
+    aspectRatio: "aspect-square",
   },
   {
     id: 3,
-    title: "Daily Collaborative Office Life",
+    title: "Collaborative Open Office Workspace",
     category: "office",
-    tag: "Office Environment",
+    tag: "Office Life",
     image: "/images/desktop/industries/food_fmcg_industry.png",
-    description: "Daily work culture, engineering discussions, and team alignment inside our modern Ghaziabad office.",
+    description: "Our modern collaborative engineering and operations workspace in Ghaziabad.",
+    aspectRatio: "aspect-video",
   },
   {
     id: 4,
     title: "Annual Excellence Awards Ceremony",
     category: "events",
-    tag: "Events & Functions",
+    tag: "Celebrations",
     image: "/images/desktop/industries/stationery_industry.png",
-    description: "Recognizing outstanding performances across our production, sales, and supply chain teams.",
+    description: "Honoring outstanding performance milestones across our production and supply chain.",
+    aspectRatio: "aspect-[3/4]",
   },
   {
     id: 5,
-    title: "Weekend Trekking Expedition",
+    title: "Weekend Team Trekking Expedition",
     category: "trips",
-    tag: "Team Trips",
+    tag: "Team Outings",
     image: "/images/desktop/industries/ecommerce_logistics_industry.png",
-    description: "Building trust and shared experiences during our annual mountain trek and rafting trip.",
+    description: "Building trust and resilience during our weekend hiking and rafting trip.",
+    aspectRatio: "aspect-video",
   },
   {
     id: 6,
-    title: "Independence Day Celebration",
+    title: "Independence Day Flag Hoisting",
     category: "events",
-    tag: "Events & Functions",
+    tag: "Celebrations",
     image: "/images/desktop/industries/electronics_industry.png",
-    description: "Flag hoisting and office celebration, marking values of national pride and unity.",
+    description: "A proud gathering of our staff to celebrate national pride and corporate values.",
+    aspectRatio: "aspect-square",
   },
   {
     id: 7,
-    title: "Sustainable Product Brainstorming Session",
+    title: "Product Design & ESG Brainstorming",
     category: "office",
-    tag: "Office Environment",
+    tag: "Office Life",
     image: "/images/desktop/industries/ecommerce_logistics_industry.png",
-    description: "Our engineering and customer success teams collaborating on new green packaging initiatives.",
+    description: "Cross-functional teams collaborating on eco-friendly packaging materials.",
+    aspectRatio: "aspect-[4/3]",
   },
   {
     id: 8,
-    title: "New Year Office Party & Cake Cutting",
+    title: "New Year Celebration & Cake Cutting",
     category: "events",
-    tag: "Events & Functions",
+    tag: "Celebrations",
     image: "/images/desktop/industries/food_fmcg_industry.png",
-    description: "Welcoming the new year with fun team building games, music, and corporate celebrations.",
+    description: "Welcoming the year with music, team activities, and resolutions.",
+    aspectRatio: "aspect-video",
   },
   {
     id: 9,
-    title: "Winner Pack Premier League Cricket Match",
+    title: "Winner Pack Premier League Cricket",
     category: "trips",
-    tag: "Team Trips",
+    tag: "Team Outings",
     image: "/images/desktop/industries/cosmetics_industry.png",
-    description: "A friendly weekend cricket tournament organized for physical wellness and team spirit.",
+    description: "Friendly match bringing together sales, engineering, and logistics teams.",
+    aspectRatio: "aspect-square",
   },
   {
     id: 10,
-    title: "Headquarters Recreation & Break Room",
+    title: "Office Chill & Recreation Zone",
     category: "office",
-    tag: "Office Environment",
+    tag: "Office Life",
     image: "/images/desktop/industries/stationery_industry.png",
-    description: "Modern recreational space designed for relaxation and informal discussions.",
+    description: "A relaxed corner designed for breaks, conversations, and fresh thinking.",
+    aspectRatio: "aspect-[3/4]",
   },
   {
     id: 11,
-    title: "Monthly Team Birthday Celebrations",
+    title: "Monthly Milestone Celebrations",
     category: "events",
-    tag: "Events & Functions",
+    tag: "Celebrations",
     image: "/images/desktop/industries/electronics_industry.png",
-    description: "Monthly cake-cutting celebrations to keep our office environment lively and cheerful.",
+    description: "Celebrating team birthdays and project deliveries together.",
+    aspectRatio: "aspect-[4/3]",
   },
   {
     id: 12,
-    title: "Cultural Day Trip to Agra",
+    title: "Cultural Team Trip to Taj Mahal",
     category: "trips",
-    tag: "Team Trips",
+    tag: "Team Outings",
     image: "/images/desktop/industries/ecommerce_logistics_industry.png",
-    description: "A memorable cultural outing to the Taj Mahal with the entire sales and operations divisions.",
+    description: "A memorable heritage trip with the entire operations and customer success teams.",
+    aspectRatio: "aspect-video",
   },
 ];
 
 const categories = [
   { id: "all", name: "All Memories" },
   { id: "office", name: "Office Environment" },
-  { id: "trips", name: "Team Trips & Outings" },
+  { id: "trips", name: "Team Outings & Trips" },
   { id: "events", name: "Events & Celebrations" },
 ];
 
@@ -134,46 +147,46 @@ export default function GalleryClient() {
     : galleryItems.filter(item => item.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-[var(--color-bone)] text-[var(--color-text)]">
+    <div className="min-h-screen bg-[#fafafb] text-[var(--color-text)]">
       <Navbar />
 
       <PageWrapper>
-        {/* Breadcrumb Header */}
-        <section className="relative overflow-hidden bg-[var(--color-ink)] py-12 md:py-20 text-white">
-          <div className="bg-noise absolute inset-0 pointer-events-none" />
-          <div className="absolute inset-0 bg-grid-dark opacity-30 pointer-events-none" />
-          <div className="absolute left-1/4 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-[var(--color-blue)]/15 blur-3xl pointer-events-none" />
+        {/* Figma Style Header Section */}
+        <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-24 text-white">
+          <div className="absolute inset-0 bg-stripes opacity-15 pointer-events-none" />
+          <div className="absolute inset-0 bg-grid-dark opacity-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-[var(--color-blue)]/20 blur-3xl pointer-events-none" />
 
           <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-            <nav className="flex items-center gap-2 text-xs font-medium text-white/60 mb-4">
+            <nav className="flex items-center gap-2 text-xs font-semibold text-white/50 mb-4 tracking-wider uppercase">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="h-3.5 w-3.5" />
               <span className="text-white">Life at Winner Pack</span>
             </nav>
 
-            <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
+            <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
               Life at Winner Pack
             </h1>
-            <p className="mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed">
-              Explore our office environment, team trips, festive events, and celebrations that make our work culture vibrant and collaborative.
+            <p className="mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/60 leading-relaxed font-normal">
+              A glimpse into our vibrant work culture, team journeys, office environment, and corporate milestones.
             </p>
           </div>
         </section>
 
-        {/* Gallery Content Section */}
-        <section className="py-12 md:py-20">
+        {/* Dynamic Visual Gallery Section */}
+        <section className="py-16 md:py-24 bg-white">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             
-            {/* Filter Tabs */}
-            <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-10 no-scrollbar">
+            {/* Minimalist Filter Navigation */}
+            <div className="flex flex-wrap items-center gap-3 pb-6 border-b border-slate-100 mb-12">
               {categories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
+                  className={`px-5 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all ${
                     activeCategory === cat.id
-                      ? "bg-[var(--color-blue)] text-white shadow-md"
-                      : "bg-white text-[var(--color-mute)] hover:bg-slate-100 border border-[var(--color-line)]"
+                      ? "bg-[var(--color-blue)] text-white shadow-sm"
+                      : "bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-800"
                   }`}
                 >
                   {cat.name}
@@ -181,53 +194,49 @@ export default function GalleryClient() {
               ))}
             </div>
 
-            {/* Gallery Grid */}
+            {/* Visual-First Masonry-Style Photo Grid */}
             <motion.div 
-              layout
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              layout 
+              className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"
             >
-              <AnimatePresence>
+              <AnimatePresence mode="popLayout">
                 {filteredItems.map((item) => (
                   <motion.div
                     key={item.id}
                     layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.3 }}
-                    whileHover={{ y: -6 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.4 }}
                     onClick={() => setSelectedImage(item)}
-                    className="group relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[var(--color-blue)] cursor-pointer"
+                    className={`group relative overflow-hidden rounded-2xl bg-slate-900 cursor-pointer break-inside-avoid w-full ${item.aspectRatio}`}
                   >
-                    {/* Image Container */}
-                    <div className="relative h-60 sm:h-64 w-full bg-slate-100 overflow-hidden">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                      
-                      {/* Zoom Icon Button */}
-                      <div className="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm text-[var(--color-ink)] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md">
-                        <Maximize2 className="h-4 w-4" />
-                      </div>
+                    {/* Visual Image */}
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
 
-                      {/* Category Tag Badge */}
-                      <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-blue)]/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wider">
-                        <Sparkles className="h-3 w-3" />
+                    {/* Premium Subtle Shadow Gradient (Hidden by default, fades in on hover) */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6" />
+
+                    {/* Content overlay visible on hover */}
+                    <div className="absolute inset-0 flex flex-col justify-end p-6 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-amber)] mb-1">
                         {item.tag}
-                      </div>
-                    </div>
-
-                    {/* Card Content */}
-                    <div className="p-5">
-                      <h3 className="font-display text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-blue)] transition-colors">
+                      </span>
+                      <h3 className="font-display text-lg font-bold leading-tight">
                         {item.title}
                       </h3>
-                      <p className="mt-2 text-xs sm:text-sm text-[var(--color-mute)] leading-relaxed line-clamp-2">
+                      <p className="mt-2 text-xs text-white/70 leading-relaxed font-normal">
                         {item.description}
                       </p>
+                    </div>
+
+                    {/* Center Hover Action Icon */}
+                    <div className="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <Plus className="h-5 w-5" />
                     </div>
                   </motion.div>
                 ))}
@@ -245,38 +254,41 @@ export default function GalleryClient() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedImage(null)}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md"
             >
               <motion.div
-                initial={{ scale: 0.9 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.9 }}
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
-                className="relative max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl border border-white/20"
+                className="relative max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10"
               >
+                {/* Close Button */}
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full bg-slate-900/70 text-white flex items-center justify-center hover:bg-slate-900 transition-colors"
+                  className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full bg-slate-950/70 text-white flex items-center justify-center hover:bg-slate-950 transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
 
-                <div className="relative h-80 sm:h-[450px] w-full bg-slate-100">
+                {/* Main image container */}
+                <div className="relative h-80 sm:h-[480px] w-full bg-slate-950">
                   <img
                     src={selectedImage.image}
                     alt={selectedImage.title}
-                    className="h-full w-full object-contain bg-slate-900"
+                    className="h-full w-full object-contain"
                   />
                 </div>
 
-                <div className="p-6 sm:p-8 bg-white">
-                  <span className="inline-block px-3 py-1 rounded-full bg-[var(--color-blue-soft)] text-[var(--color-blue)] text-xs font-bold uppercase tracking-wider mb-2">
+                {/* Text Description Box in Lightbox */}
+                <div className="p-6 sm:p-8 bg-slate-950 border-t border-white/5 text-white">
+                  <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-[var(--color-amber)] text-[10px] font-bold uppercase tracking-widest mb-2">
                     {selectedImage.tag}
                   </span>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-[var(--color-ink)]">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
                     {selectedImage.title}
                   </h3>
-                  <p className="mt-2 text-sm text-[var(--color-mute)] leading-relaxed">
+                  <p className="mt-2 text-xs sm:text-sm text-white/60 leading-relaxed">
                     {selectedImage.description}
                   </p>
                 </div>
