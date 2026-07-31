@@ -6,7 +6,7 @@ export default function Certifications() {
   return (
     <section 
       id="certifications" 
-      className="relative overflow-hidden bg-[var(--color-bone)] py-20 sm:py-28 md:py-36 border-t border-b border-[var(--color-line)]"
+      className="relative overflow-hidden bg-white py-20 sm:py-28 md:py-32 border-b border-[var(--color-line)]"
     >
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 bg-stripes opacity-30 pointer-events-none" />

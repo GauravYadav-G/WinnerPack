@@ -38,7 +38,7 @@ export default function Industries() {
   }
 
   return (
-    <section id="industries" className="relative overflow-hidden bg-white py-10 md:py-16">
+    <section id="industries" className="relative overflow-hidden bg-[var(--color-bone)] py-16 md:py-24 border-b border-[var(--color-line)]">
       {/* Background accents */}
       <div className="absolute inset-0 bg-grid-fine opacity-20 pointer-events-none" aria-hidden />
       
