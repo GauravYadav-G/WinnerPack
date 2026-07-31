@@ -115,12 +115,36 @@ export default function AboutStrip() {
             </Link>
           </motion.div>
 
-          {/* Right Column: 2x2 Stats Grid */}
-          <div className="grid grid-cols-2 gap-4 sm:gap-6">
-            {about.stats && about.stats.map((s) => (
-              <StatBox key={s.label} value={s.value} label={s.label} />
-            ))}
-          </div>
+          {/* Right Column: Plant Facility Showcase + 2x2 Stats Grid */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="space-y-6"
+          >
+            {/* Real-World Manufacturing Plant Facility Reference Image (SKN Industries Style) */}
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 shadow-2xl aspect-[16/9] group">
+              <img
+                src="/images/gallery/office_life.png"
+                alt="WinnerPack Ghaziabad Extrusion Plant"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white/90">
+                <span className="font-mono font-bold uppercase tracking-wider text-[var(--color-amber)]">Ghaziabad Extrusion Plant</span>
+                <span className="bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-semibold">10,000 MT/Yr Capacity</span>
+              </div>
+            </div>
+
+            {/* 2x2 Stats Grid */}
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+              {about.stats && about.stats.map((s) => (
+                <StatBox key={s.label} value={s.value} label={s.label} />
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
