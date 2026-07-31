@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle2, Clock, ShieldCheck, FileText } from "lucide-react";
+import { Send, CheckCircle2, Clock, ShieldCheck } from "lucide-react";
 
 export default function ProductInquiryForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -60,11 +60,6 @@ export default function ProductInquiryForm() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-5 space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-blue-soft)] border border-[var(--color-blue)]/15 text-[var(--color-blue)] text-xs font-bold uppercase tracking-widest">
-              <FileText className="h-3.5 w-3.5" />
-              <span>DETAILED PRODUCT INQUIRY</span>
-            </div>
-
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.12]">
               Request Custom Technical Spec Sheet & Quote
             </h2>
