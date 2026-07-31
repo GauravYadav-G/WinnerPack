@@ -27,7 +27,14 @@ export default function Industries() {
   }, []);
 
   function setUpdatedList(list: any[]) {
-    setIndustriesList(list);
+    const hasAutomobile = list.some((item) => item.name?.toLowerCase().includes("automobile"));
+    if (!hasAutomobile) {
+      const newList = [...list];
+      newList.splice(3, 0, { name: "Automobile", image: "/images/desktop/industries/automobile_industry.png" });
+      setIndustriesList(newList);
+    } else {
+      setIndustriesList(list);
+    }
   }
 
   return (

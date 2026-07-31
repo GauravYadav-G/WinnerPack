@@ -962,6 +962,7 @@ const defaultIndustries = [
   { name: "Electronics", image: "/images/desktop/industries/electronics_industry.png" },
   { name: "Cosmetics", image: "/images/desktop/industries/cosmetics_industry.png" },
   { name: "Food & FMCG", image: "/images/desktop/industries/food_fmcg_industry.png" },
+  { name: "Automobile", image: "/images/desktop/industries/automobile_industry.png" },
   { name: "Stationery", image: "/images/desktop/industries/stationery_industry.png" },
   { name: "E-commerce & Logistics", image: "/images/desktop/industries/ecommerce_logistics_industry.png" }
 ];
