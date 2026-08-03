@@ -25,9 +25,9 @@ export default function ProductCategories() {
   const categoryShowcase = [
     // 0: Film Products
     {
-      slot1: "/images/desktop/portfolio/gallery_pof_ldpe_shrink.png",
-      slot2: "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png",
-      slot3: "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
+      slot1: "/images/desktop/portfolio/film_showcase_pallet_wrap.jpg",
+      slot2: "/images/desktop/portfolio/film_showcase_extrusion_line.jpg",
+      slot3: "/images/desktop/portfolio/gallery_pof_ldpe_shrink.png",
       slot4: "/images/desktop/about/blown_film_tower.png",
       label: "Film Products Showcase"
     },
