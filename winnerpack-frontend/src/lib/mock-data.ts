@@ -62,7 +62,7 @@ export const TIMELINE = [
     // VERIFIED — winnerpack.in/about/ confirms founding year and name;
     // the specific "focused distributor and trader for Ghaziabad-region
     // manufacturers" framing is embellishment, trimmed to what's stated.
-    text: "Winner Pack Technologies Pvt. Ltd. was established in 2018, based in Ghaziabad, supplying premium B2B industrial packaging materials."
+    text: "Winner Pack Technologies Pvt. Ltd. was established to supply quality B2B industrial packaging materials across key sectors."
   },
   {
     year: "2020",

@@ -30,14 +30,14 @@ const galleryItems: GalleryItem[] = [
     id: 2,
     title: "Diwali Celebrations at Head Office",
     image: "/images/gallery/diwali_party.png",
-    description: "Traditional lamps, beautiful Rangoli, and festive lunch with the team at Ghaziabad.",
+    description: "Traditional lamps, beautiful Rangoli, and festive celebrations with the team.",
     aspectRatio: "aspect-square",
   },
   {
     id: 3,
     title: "Collaborative Open Office Workspace",
     image: "/images/gallery/office_life.png",
-    description: "Our modern collaborative engineering and operations workspace in Ghaziabad.",
+    description: "Our modern collaborative engineering and operations workspace.",
     aspectRatio: "aspect-video",
   },
   {

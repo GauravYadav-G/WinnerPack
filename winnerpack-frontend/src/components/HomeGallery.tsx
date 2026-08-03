@@ -17,12 +17,12 @@ const slot1Items: GallerySlotItem[] = [
   },
   {
     image: "/images/desktop/journey/solution_scheduled_dispatch.png",
-    title: "Ghaziabad Logistics Dispatch Hub",
+    title: "Logistics Dispatch Operations",
     category: "DISPATCH KITS",
   },
   {
     image: "/images/desktop/journey/solution_buffer_stock.png",
-    title: "10,000 MT Surplus Buffer Inventory",
+    title: "Buffer Inventory Management",
     category: "PLANT CAPACITY",
   },
 ];
@@ -41,7 +41,7 @@ const slot2Items: GallerySlotItem[] = [
   {
     image: "/images/gallery/office_life.png",
     title: "Extrusion Plant Infrastructure",
-    category: "GHAZIABAD PLANT",
+    category: "MANUFACTURING PLANT",
   },
 ];
 

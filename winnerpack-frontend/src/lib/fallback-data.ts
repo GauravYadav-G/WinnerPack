@@ -2015,8 +2015,8 @@ const defaultSteps = [
   {
     n: "05",
     phase: "Dispatch",
-    title: "Delivered from Ghaziabad.",
-    body: "Orders are dispatched from our Ghaziabad, UP base and delivered to your site as per the scheduled timeframe.",
+    title: "Scheduled delivery.",
+    body: "Orders are dispatched from our manufacturing facility and delivered to your site as per the agreed timeframe.",
     deliverable: "Scheduled delivery"
   },
   {

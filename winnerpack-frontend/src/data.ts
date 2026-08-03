@@ -120,13 +120,13 @@ export const industryVerticals: IndustryVertical[] = [
   {
     id: "ecommerce-logistics",
     name: "E-Commerce & Express Logistics",
-    tagline: "High-Volume Sealing & Tamper-Proof Parcel Security",
-    heroHeadline: "High-Speed Fulfillment Packaging That Eliminates Return Losses & Damage",
-    packagingChallenge: "High-throughput fulfillment centers face frequent tape peeling, package tampering, and moisture damage during multi-city transit.",
+    tagline: "High-Volume Sealing & Secure Parcel Packaging",
+    heroHeadline: "Reliable Packaging Solutions for High-Speed Fulfillment Operations",
+    packagingChallenge: "High-throughput fulfillment centers require reliable sealing, tamper-resistant closures, and moisture protection during multi-city transit.",
     buyerOutcomes: [
-      { title: "Zero Tamper Theft", desc: "High-tack acrylic BOPP tapes & tamper-evident poly courier bags with permanent adhesive closure." },
-      { title: "Optimized Material Cost", desc: "High-yield stretch films & lightweight mailers optimized for dimensional weight charges." },
-      { title: "Fast Line Speed", desc: "Smooth-unwind tapes compatible with automatic carton sealing lines." }
+      { title: "Tamper-Resistant Closures", desc: "BOPP tapes and poly courier bags with strong adhesive closure for reliable parcel security." },
+      { title: "Optimized Material Cost", desc: "High-yield stretch films and lightweight mailers optimized for dimensional weight efficiency." },
+      { title: "Compatible with Automated Lines", desc: "Smooth-unwind tapes and films designed for compatibility with carton sealing lines." }
     ],
     recommendedProductIds: ["bopp-tapes", "poly-courier-bags", "manual-stretch-film", "corrugated-boxes"],
     image: "/images/desktop/industries/ecommerce_logistics_industry.png"
@@ -134,13 +134,13 @@ export const industryVerticals: IndustryVertical[] = [
   {
     id: "automotive-engineering",
     name: "Automotive & Heavy Engineering",
-    tagline: "Heavy Metal & Component Export Unitization",
+    tagline: "Heavy Cargo & Component Export Unitization",
     heroHeadline: "High-Tensile Strapping & Protection for Heavy Industrial Cargo",
-    packagingChallenge: "Heavy engine components, metal coils, and spare parts risk strap snapping, corrosion, and pallet shifting over ocean & road freight.",
+    packagingChallenge: "Heavy engine components, metal coils, and spare parts require strong strapping, surface protection, and pallet stability over long-distance freight.",
     buyerOutcomes: [
-      { title: "High Breaking Strength", desc: "Friction-weld PET & PP straps extruded for heavy load retention and zero elongation." },
-      { title: "Zero Surface Scratches", desc: "Heavy-gauge EPE foam rolls & edge protectors absorbing shocks on export crates." },
-      { title: "ISO Batch Traceability", desc: "Batch-tested tensile strength with Certificate of Analysis (COA) per dispatch." }
+      { title: "High Load Retention", desc: "PET and PP straps manufactured for heavy load retention and reliable performance in export conditions." },
+      { title: "Surface Protection", desc: "EPE foam rolls and edge protectors providing cushioning and surface protection on export crates." },
+      { title: "Batch Traceability", desc: "Batch-tested tensile strength with Certificate of Analysis (COA) per dispatch." }
     ],
     recommendedProductIds: ["pet-strap", "pp-strap", "epe-foam-rolls", "edge-protector"],
     image: "/images/desktop/automobile_industry.png"
@@ -148,13 +148,13 @@ export const industryVerticals: IndustryVertical[] = [
   {
     id: "food-fmcg",
     name: "Food, Beverage & FMCG",
-    tagline: "Hygiene, Moisture Barrier & Multi-Pack Heat Shrink",
-    heroHeadline: "360° Clean Multi-Pack Bundling & Moisture-Proof Primary Seals",
-    packagingChallenge: "High-speed bottling and food lines require crystal-clear shrink bundling with zero burn-through and FDA food-grade compliance.",
+    tagline: "Hygiene, Moisture Barrier & Multi-Pack Shrink Solutions",
+    heroHeadline: "Multi-Pack Bundling & Moisture-Resistant Packaging for Food Lines",
+    packagingChallenge: "High-speed food and beverage lines require clear shrink bundling with consistent sealing and food-safe material compliance.",
     buyerOutcomes: [
-      { title: "FDA Grade Compliance", desc: "Non-toxic, odor-free POF & LDPE shrink rolls manufactured under strict ISO controls." },
-      { title: "High Optical Clarity", desc: "360-degree glass-clear product display with high shrink retention force." },
-      { title: "Zero Pallet Shift", desc: "Machine stretch film with high power pre-stretch yield securing heavy beverage crates." }
+      { title: "Food-Safe Materials", desc: "Non-toxic, odor-free POF and LDPE shrink rolls manufactured under controlled quality conditions." },
+      { title: "High Optical Clarity", desc: "Clear product display with strong shrink retention across a range of packaging formats." },
+      { title: "Pallet Load Stability", desc: "Machine stretch film delivering reliable load containment for palletised beverage and FMCG products." }
     ],
     recommendedProductIds: ["pof-shrink-rolls", "ldpe-shrink-rolls", "machine-stretch-film", "printed-bopp-tapes"],
     image: "/images/desktop/industries/food_fmcg_industry.png"
@@ -162,13 +162,13 @@ export const industryVerticals: IndustryVertical[] = [
   {
     id: "pharma-healthcare",
     name: "Pharmaceuticals & Healthcare",
-    tagline: "Cleanroom Compliance, Lot Traceability & Barrier Protection",
-    heroHeadline: "Precision Heat Shrink & Direct Thermal Lot Barcode Labels",
-    packagingChallenge: "Strict regulatory audits demand cleanroom-grade shrink wrapping, moisture-proof barrier pouches, and barcode label legibility.",
+    tagline: "Quality Compliance, Lot Traceability & Barrier Protection",
+    heroHeadline: "Heat Shrink & Direct Thermal Labels for Pharmaceutical Packaging",
+    packagingChallenge: "Regulatory audits demand precise shrink wrapping, moisture-resistant barrier pouches, and legible barcode labels for pharmaceutical products.",
     buyerOutcomes: [
-      { title: "High Barcode Legibility", desc: "Direct thermal & self-adhesive labels tested against smudging and chemical exposure." },
-      { title: "Tamper-Evident Security", desc: "PVC shrink sleeves & POF pouches providing visible anti-tamper seals on medicine bottles." },
-      { title: "Cleanroom Safe", desc: "Dust-free, medical-grade film extrusion adhering to WHO-GMP standards." }
+      { title: "High Barcode Legibility", desc: "Direct thermal and self-adhesive labels tested for durability against smudging and chemical exposure." },
+      { title: "Tamper-Evident Packaging", desc: "PVC shrink sleeves and POF pouches providing visible tamper-evident seals on medicine bottles." },
+      { title: "Hygiene-Safe Materials", desc: "Packaging materials manufactured under controlled, dust-free production conditions." }
     ],
     recommendedProductIds: ["thermal-labels", "barcode-labels", "pvc-shrink-rolls", "specialty-pouches"],
     image: "/images/desktop/industries/pharma_industry.png"
@@ -176,13 +176,13 @@ export const industryVerticals: IndustryVertical[] = [
   {
     id: "electronics-electricals",
     name: "Electronics & Electrical Appliances",
-    tagline: "Anti-Static Cushioning & Surface Scratch Protection",
-    heroHeadline: "ESD Protective Packaging & Impact-Absorbing Cushioning",
-    packagingChallenge: "Sensitive PCBs, home appliances, and LED panels require electro-static discharge (ESD) safety and shock absorption.",
+    tagline: "Anti-Static Protection & Surface Scratch Prevention",
+    heroHeadline: "Protective Packaging & Cushioning for Electronics & Appliances",
+    packagingChallenge: "Sensitive PCBs, home appliances, and LED panels require electrostatic discharge protection and adequate shock absorption during transit.",
     buyerOutcomes: [
-      { title: "Anti-Static ESD Shielding", desc: "Specialty ESD barrier pouches protecting micro-electronics from static charge." },
-      { title: "Impact Cushioning", desc: "Multi-layer bubble rolls & corrugated edge protectors absorbing transit drops." },
-      { title: "High-Cling Pallet Wrap", desc: "Cast & blown stretch films locking heavy appliance pallets without shifting." }
+      { title: "Anti-Static Protection", desc: "Specialty barrier pouches protecting electronics from electrostatic discharge during storage and transit." },
+      { title: "Impact Cushioning", desc: "Bubble rolls and corrugated edge protectors providing shock absorption for fragile goods." },
+      { title: "Secure Pallet Wrap", desc: "Cast and blown stretch films providing reliable load containment for heavy appliance pallets." }
     ],
     recommendedProductIds: ["specialty-pouches", "bubble-roll", "edge-protector", "machine-stretch-film"],
     image: "/images/desktop/industries/electronics_industry.png"
