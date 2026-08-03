@@ -24,7 +24,7 @@ import { initialProducts } from "@/lib/fallback-data";
 
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
-  
+
   const [product, setProduct] = useState<any>(null);
   const [related, setRelated] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -40,7 +40,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       .then((data) => {
         setProduct(data);
         setImg(data.gallery?.[0] || data.image || "");
-        
+
         apiFetch("/api/products")
           .then((res) => res.json())
           .then((allProds) => {
@@ -124,7 +124,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
   // 5-Photo Gallery Collage Setup: Slot 0 = Featured Product Image; Slots 1-4 = Product's Dedicated Real-Life Application Folder Images
   const productAppDir = `/images/products/${product.id}/applications`;
-  
+
   const displayGallery = [
     product.image || `${productAppDir}/app-1.png`,
     `${productAppDir}/app-1.png`,
@@ -166,9 +166,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               <div className="hidden md:flex md:col-span-3 flex-col gap-3 sm:gap-4">
                 <div
                   onClick={() => setImg(displayGallery[1])}
-                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${
-                    (img || displayGallery[0]) === displayGallery[1] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
-                  }`}
+                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[1] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
+                    }`}
                 >
                   <img
                     src={displayGallery[1]}
@@ -178,9 +177,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 </div>
                 <div
                   onClick={() => setImg(displayGallery[2])}
-                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${
-                    (img || displayGallery[0]) === displayGallery[2] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
-                  }`}
+                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[2] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
+                    }`}
                 >
                   <img
                     src={displayGallery[2]}
@@ -205,9 +203,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               <div className="hidden md:flex md:col-span-3 flex-col gap-3 sm:gap-4">
                 <div
                   onClick={() => setImg(displayGallery[3])}
-                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${
-                    (img || displayGallery[0]) === displayGallery[3] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
-                  }`}
+                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[3] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
+                    }`}
                 >
                   <img
                     src={displayGallery[3]}
@@ -217,9 +214,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 </div>
                 <div
                   onClick={() => setImg(displayGallery[4])}
-                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${
-                    (img || displayGallery[0]) === displayGallery[4] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
-                  }`}
+                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[4] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
+                    }`}
                 >
                   <img
                     src={displayGallery[4]}
@@ -237,11 +233,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   key={pIdx}
                   type="button"
                   onClick={() => setImg(photo)}
-                  className={`relative shrink-0 h-12 w-16 overflow-hidden rounded-lg border-2 transition-all duration-200 bg-slate-950 ${
-                    (img || displayGallery[0]) === photo
+                  className={`relative shrink-0 h-12 w-16 overflow-hidden rounded-lg border-2 transition-all duration-200 bg-slate-950 ${(img || displayGallery[0]) === photo
                       ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/40 scale-95"
                       : "border-white/50 opacity-80"
-                  }`}
+                    }`}
                 >
                   <img src={photo} alt="" className="h-full w-full object-cover" />
                 </button>
@@ -254,10 +249,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         <section className="bg-white py-4 sm:py-8 border-b border-[var(--color-line)] font-sans">
           <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-10 items-start">
-              
+
               {/* LEFT COLUMN: Main Info, Quick Stats, Overview & Features */}
               <div className="lg:col-span-7 space-y-3.5 sm:space-y-6">
-                
+
                 {/* Header Title & Tag */}
                 <div className="space-y-1 sm:space-y-1.5">
                   <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 font-mono text-[11px] sm:text-sm font-bold uppercase tracking-wider text-[var(--color-mute)]">
@@ -284,7 +279,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Dispatch</div>
                     <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">24-48 HR</div>
                   </div>
-                  
+
                   <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
                     <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-blue-deep)]" />
                     <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">QC</div>
@@ -356,7 +351,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               {/* RIGHT COLUMN: Sticky Product Specification Table Card */}
               <div className="lg:col-span-5 lg:sticky lg:top-24 font-sans">
                 <div className="rounded-xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-3.5 sm:p-6 lg:p-7 shadow-md sm:shadow-lg lg:shadow-xl space-y-2.5 md:space-y-5">
-                  
+
                   {/* Card Header & Badge */}
                   <div className="flex items-center justify-between border-b border-[var(--color-line)] pb-2 md:pb-4">
                     <div>
@@ -390,9 +385,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                           {specs.map((s: any, idx: number) => (
                             <tr
                               key={s.label}
-                              className={`border-b border-[var(--color-line)] last:border-b-0 transition-colors ${
-                                idx % 2 === 1 ? "bg-white/70" : "bg-transparent"
-                              }`}
+                              className={`border-b border-[var(--color-line)] last:border-b-0 transition-colors ${idx % 2 === 1 ? "bg-white/70" : "bg-transparent"
+                                }`}
                             >
                               <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
                                 {s.label}
@@ -462,9 +456,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                             {product.thicknessLengthMatrix.map((row: any, idx: number) => (
                               <tr
                                 key={idx}
-                                className={`border-b border-[var(--color-line)] last:border-b-0 font-mono text-[11px] sm:text-xs ${
-                                  idx % 2 === 1 ? "bg-[var(--color-mist)]/50" : "bg-white"
-                                }`}
+                                className={`border-b border-[var(--color-line)] last:border-b-0 font-mono text-[11px] sm:text-xs ${idx % 2 === 1 ? "bg-[var(--color-mist)]/50" : "bg-white"
+                                  }`}
                               >
                                 <td className="px-1.5 md:px-3 py-0.5 md:py-2 font-extrabold text-[var(--color-amber-dark)] border-r border-[var(--color-line)]">{row.micron}</td>
                                 <td className="px-1.5 md:px-3 py-0.5 md:py-2 text-[var(--color-mute)] border-r border-[var(--color-line)]">{row.gauge}</td>
@@ -543,9 +536,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                               {Object.entries(sub.specs).slice(0, 4).map(([lbl, val]: any, sIdx: number) => (
                                 <tr
                                   key={lbl}
-                                  className={`border-b border-[var(--color-line)] last:border-b-0 ${
-                                    sIdx % 2 === 1 ? "bg-white/60" : "bg-transparent"
-                                  }`}
+                                  className={`border-b border-[var(--color-line)] last:border-b-0 ${sIdx % 2 === 1 ? "bg-white/60" : "bg-transparent"
+                                    }`}
                                 >
                                   <td className="px-2 py-1 font-mono font-bold uppercase text-[var(--color-mute)] w-2/5 text-[10px] sm:text-xs align-top">
                                     {lbl}
