@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { productCategories } from "../data";
 import Link from "next/link";
@@ -8,6 +8,18 @@ import { ArrowRight } from "lucide-react";
 
 export default function ProductCategories() {
   const [activeCatIndex, setActiveCatIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // 5-second automatic rotation loop across product categories
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveCatIndex((prevIndex) => (prevIndex + 1) % productCategories.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   // Category showcase data mapping for the 4 bento grid slots - matched 100% to category products
   const categoryShowcase = [
@@ -77,7 +89,11 @@ export default function ProductCategories() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.05, ease: "easeOut" }}
-                onMouseEnter={() => setActiveCatIndex(i)}
+                onMouseEnter={() => {
+                  setActiveCatIndex(i);
+                  setIsPaused(true);
+                }}
+                onMouseLeave={() => setIsPaused(false)}
                 onClick={() => setActiveCatIndex(i)}
                 className={`group relative flex flex-col overflow-hidden rounded-xl sm:rounded-2xl border transition-all duration-300 cursor-pointer select-none ${
                   isActive
