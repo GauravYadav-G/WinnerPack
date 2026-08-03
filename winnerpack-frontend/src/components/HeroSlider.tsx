@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { fetchContent } from "@/lib/content-cache";
@@ -89,6 +89,9 @@ export default function HeroSlider() {
   const [desktopRightBanner, setDesktopRightBanner] = useState<string>(DEFAULT_DESKTOP_BANNER);
   const [current, setCurrent] = useState(0);
 
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
   // Fetch dynamic content from API
   useEffect(() => {
     fetchContent("homepage")
@@ -122,11 +125,37 @@ export default function HeroSlider() {
     setCurrent((prev) => (prev + 1) % slides.length);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const diffX = touchStartX.current - e.changedTouches[0].clientX;
+    const diffY = touchStartY.current - e.changedTouches[0].clientY;
+
+    // Check if horizontal movement is dominant and exceeds threshold
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+      if (diffX > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
   const currentSlideImage = slides[current]?.desktopMediaUrl || slides[current]?.image || "";
   const currentRightBanner = desktopRightBanner;
 
   return (
-    <section className="relative h-[25vh] md:h-[72vh] w-full overflow-hidden bg-black text-white select-none">
+    <section
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      className="relative h-[25vh] md:h-[72vh] w-full overflow-hidden bg-black text-white select-none"
+    >
       {/* Split Layout */}
       <div className="absolute inset-x-0 bottom-0 top-0 h-full z-0 flex gap-0">
 
