@@ -11,8 +11,8 @@ export const initialProducts = [
     image: "/images/products/plain-labels/image.png",
     gallery: [
       "/images/products/plain-labels/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
-      "/images/desktop/portfolio/gallery_labels_stickers.png"
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
+      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
     ],
     specs: {
       "Material Type": "Premium Chromo / Art Paper / Thermal Stock",
@@ -79,8 +79,8 @@ export const initialProducts = [
     image: "/images/products/printed-labels/image.png",
     gallery: [
       "/images/products/printed-labels/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
-      "/images/desktop/portfolio/gallery_labels_stickers.png"
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
+      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
     ],
     specs: {
       "Print Methods": "Digital / Flexographic / Wide Format Printing",
@@ -147,8 +147,8 @@ export const initialProducts = [
     image: "/images/products/barcode-labels/image.png",
     gallery: [
       "/images/products/barcode-labels/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
-      "/images/desktop/portfolio/gallery_labels_stickers.png"
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
+      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
     ],
     specs: {
       "Barcode Standards": "EAN-13, Code 128, QR Code, Data Matrix, GS1-128",
@@ -215,8 +215,8 @@ export const initialProducts = [
     image: "/images/products/product-labels/image.png",
     gallery: [
       "/images/products/product-labels/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
-      "/images/desktop/portfolio/gallery_labels_stickers.png"
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
+      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
     ],
     specs: {
       "Substrates Available": "Clear BOPP / White PP Film / Metallic PET / Chromo Paper",
@@ -283,8 +283,8 @@ export const initialProducts = [
     image: "/images/products/self-adhesive-labels/image.png",
     gallery: [
       "/images/products/self-adhesive-labels/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
-      "/images/desktop/portfolio/gallery_labels_stickers.png"
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
+      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
     ],
     specs: {
       "Structure": "3-Layer Sandwich (Face Material + Adhesive + Release Liner)",
@@ -351,8 +351,8 @@ export const initialProducts = [
     image: "/images/products/thermal-labels/image.png",
     gallery: [
       "/images/products/thermal-labels/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
-      "/images/desktop/portfolio/gallery_labels_stickers.png"
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
+      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
     ],
     specs: {
       "Printing Processes": "Direct Thermal (Ribbonless) / Thermal Transfer (Ribbon Required)",
@@ -505,7 +505,7 @@ export const initialProducts = [
     gallery: [
       "/images/products/pof-shrink-rolls/image.png",
       "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/journey/solution_pcr_eco_film.png"
     ],
     specs: {
@@ -586,12 +586,13 @@ export const initialProducts = [
     blurb: "High-visibility tint-coloured and opaque specialty PE/CPE plastic films and pre-formed pouches engineered for UV barrier protection, garment packaging, privacy shipping, and color-coded inventory tracking.",
     longDesc: "Coloured Films & Pouches are manufactured from high-grade polyethylene (PE) and cast polyethylene (CPE) resins blended with food-safe masterbatch pigments. Available in semi-transparent frosted finishes, vibrant color tints, and 100% opaque milky white shades. Designed to protect light-sensitive goods, conceal package contents for secure logistics, provide silky soft-touch garment protection, and enable instant warehouse color-code sorting.\n\n### Key Product Features:\n- **Food-Safe Masterbatch Pigments**: Formulated with REACH & FDA-compliant color concentrates.\n- **Superior UV & Light Barrier**: Protects light-sensitive contents from photo-degradation and fading.\n- **Silky Soft-Touch CPE Texture**: CPE film provides a smooth, elegant frosted surface that prevents scratch marks on premium apparel.\n- **High Opacity & Privacy Protection**: Opaque milky white and black films ensure total privacy during parcel transit.\n- **High Tensile & Tear Strength**: Co-extruded structure delivers excellent puncture resistance across sharp edges.\n- **Versatile Sealing Formats**: Compatible with automatic impulse sealers, zip-lock sliders, and self-adhesive sealing strips.",
     basePrice: "₹210 / kg",
-    image: "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
+    image: "/images/products/coloured-films-pouches/image.png",
     gallery: [
-      "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
-      "/images/products/ldpe-shrink-rolls/image.png",
-      "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/about/film_slitting_machine.png"
+      "/images/products/coloured-films-pouches/image.png",
+      "/images/products/coloured-films-pouches/applications/app-1.png",
+      "/images/products/coloured-films-pouches/applications/app-2.png",
+      "/images/products/coloured-films-pouches/applications/app-3.png",
+      "/images/products/coloured-films-pouches/applications/app-4.png"
     ],
     specs: {
       "Material Base": "Cast Polyethylene (CPE) / LDPE / LLDPE",
@@ -661,7 +662,7 @@ export const initialProducts = [
     gallery: [
       "/images/products/printed-bopp-tapes/image.png",
       "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
     ],
     specs: {
@@ -732,7 +733,7 @@ export const initialProducts = [
     gallery: [
       "/images/products/pvc-shrink-rolls/image.png",
       "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png"
     ],
     specs: {
@@ -875,7 +876,7 @@ export const initialProducts = [
     gallery: [
       "/images/products/specialty-pouches/image.png",
       "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
     ],
     specs: {
@@ -946,7 +947,7 @@ export const initialProducts = [
     gallery: [
       "/images/desktop/journey/solution_pcr_eco_film.png",
       "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png"
     ],
     specs: {
@@ -1018,7 +1019,7 @@ export const initialProducts = [
     image: "/images/products/pp-strap/image.png",
     gallery: [
       "/images/products/pp-strap/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/gallery_pp_strapping.png"
     ],
     specs: {
@@ -1086,7 +1087,7 @@ export const initialProducts = [
     image: "/images/products/printed-pp-strap/image.png",
     gallery: [
       "/images/products/printed-pp-strap/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/gallery_pp_strapping.png"
     ],
     specs: {
@@ -1153,7 +1154,7 @@ export const initialProducts = [
     image: "/images/products/colored-pp-strap/image.png",
     gallery: [
       "/images/products/colored-pp-strap/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/gallery_pp_strapping.png"
     ],
     specs: {
@@ -1221,7 +1222,7 @@ export const initialProducts = [
     image: "/images/products/pet-strap/image.png",
     gallery: [
       "/images/products/pet-strap/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/gallery_pp_strapping.png"
     ],
     specs: {
@@ -1437,7 +1438,7 @@ export const initialProducts = [
     image: "/images/products/bopp-tapes/image.png",
     gallery: [
       "/images/products/bopp-tapes/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
     ],
     specs: {
@@ -1505,7 +1506,7 @@ export const initialProducts = [
     image: "/images/products/printed-bopp-tapes/image.png",
     gallery: [
       "/images/products/printed-bopp-tapes/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
     ],
     specs: {
@@ -1573,7 +1574,7 @@ export const initialProducts = [
     image: "/images/products/coloured-bopp-tapes/image.png",
     gallery: [
       "/images/products/coloured-bopp-tapes/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
     ],
     specs: {
@@ -1641,7 +1642,7 @@ export const initialProducts = [
     image: "/images/products/silicon-tapes/image.png",
     gallery: [
       "/images/products/silicon-tapes/image.png",
-      "/images/desktop/about/film_slitting_machine.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
       "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
     ],
     specs: {
@@ -1970,7 +1971,7 @@ const defaultUsps = [
   },
   {
     title: "Direct from Ghaziabad",
-    text: "No distributor markups. We manufacture, warehouse, and dispatch directly to save your operations 12-18% annually.",
+    text: "No distributor markups. We manufacture, warehouse, and dispatch directly to optimize operations and reduce procurement costs.",
     icon: "Globe2"
   }
 ];

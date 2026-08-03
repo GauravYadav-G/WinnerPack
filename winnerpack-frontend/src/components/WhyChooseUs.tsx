@@ -46,7 +46,7 @@ const defaultUsps = [
   },
   {
     title: "Direct from Ghaziabad",
-    text: "No distributor markups. We manufacture, warehouse, and dispatch directly to save your operations 12-18% annually.",
+    text: "No distributor markups. We manufacture, warehouse, and dispatch directly to optimize operations and reduce procurement costs.",
     icon: "Globe2",
     bgImage: "/images/desktop/journey/solution_buffer_stock.png",
   }

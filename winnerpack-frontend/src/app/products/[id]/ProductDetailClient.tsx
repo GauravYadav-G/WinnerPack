@@ -122,21 +122,15 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   })) : [];
 
 
-  // 5-Photo Gallery Collage Setup (always fills 5 slots with clean industrial imagery)
-  const baseGallery = product.gallery && product.gallery.length ? product.gallery : [product.image];
-  const defaultShowcasePhotos = [
-    "/images/desktop/about/blown_film_tower.png",
-    "/images/desktop/about/film_slitting_machine.png",
-    "/images/desktop/about/about_hero_panoramic_sharp.png",
-    "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png",
-    "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
-  ];
+  // 5-Photo Gallery Collage Setup: Slot 0 = Featured Product Image; Slots 1-4 = Product's Dedicated Real-Life Application Folder Images
+  const productAppDir = `/images/products/${product.id}/applications`;
+  
   const displayGallery = [
-    baseGallery[0] || product.image,
-    baseGallery[1] || defaultShowcasePhotos[0],
-    baseGallery[2] || defaultShowcasePhotos[1],
-    baseGallery[3] || defaultShowcasePhotos[2],
-    baseGallery[4] || defaultShowcasePhotos[3],
+    product.image || `${productAppDir}/app-1.png`,
+    `${productAppDir}/app-1.png`,
+    `${productAppDir}/app-2.png`,
+    `${productAppDir}/app-3.png`,
+    `${productAppDir}/app-4.png`,
   ];
 
   return (

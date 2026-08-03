@@ -125,7 +125,7 @@ export const industryVerticals: IndustryVertical[] = [
     packagingChallenge: "High-throughput fulfillment centers face frequent tape peeling, package tampering, and moisture damage during multi-city transit.",
     buyerOutcomes: [
       { title: "Zero Tamper Theft", desc: "High-tack acrylic BOPP tapes & tamper-evident poly courier bags with permanent adhesive closure." },
-      { title: "18% Lower Material Cost", desc: "High-yield stretch films & lightweight mailers optimized for dimensional weight charges." },
+      { title: "Optimized Material Cost", desc: "High-yield stretch films & lightweight mailers optimized for dimensional weight charges." },
       { title: "Fast Line Speed", desc: "Smooth-unwind tapes compatible with automatic carton sealing lines." }
     ],
     recommendedProductIds: ["bopp-tapes", "poly-courier-bags", "manual-stretch-film", "corrugated-boxes"],
@@ -140,10 +140,10 @@ export const industryVerticals: IndustryVertical[] = [
     buyerOutcomes: [
       { title: "High Breaking Strength", desc: "Friction-weld PET & PP straps extruded for heavy load retention and zero elongation." },
       { title: "Zero Surface Scratches", desc: "Heavy-gauge EPE foam rolls & edge protectors absorbing shocks on export crates." },
-      { title: "ISO Batch Traceability", desc: "100% batch-tested tensile strength with Certificate of Analysis (COA) per dispatch." }
+      { title: "ISO Batch Traceability", desc: "Batch-tested tensile strength with Certificate of Analysis (COA) per dispatch." }
     ],
     recommendedProductIds: ["pet-strap", "pp-strap", "epe-foam-rolls", "edge-protector"],
-    image: "/images/desktop/industries/automobile_industry.png"
+    image: "/images/desktop/automobile_industry.png"
   },
   {
     id: "food-fmcg",
@@ -154,7 +154,7 @@ export const industryVerticals: IndustryVertical[] = [
     buyerOutcomes: [
       { title: "FDA Grade Compliance", desc: "Non-toxic, odor-free POF & LDPE shrink rolls manufactured under strict ISO controls." },
       { title: "High Optical Clarity", desc: "360-degree glass-clear product display with high shrink retention force." },
-      { title: "Zero Pallet Shift", desc: "Machine stretch film with 300% pre-stretch yield securing heavy beverage crates." }
+      { title: "Zero Pallet Shift", desc: "Machine stretch film with high power pre-stretch yield securing heavy beverage crates." }
     ],
     recommendedProductIds: ["pof-shrink-rolls", "ldpe-shrink-rolls", "machine-stretch-film", "printed-bopp-tapes"],
     image: "/images/desktop/industries/food_fmcg_industry.png"
@@ -166,7 +166,7 @@ export const industryVerticals: IndustryVertical[] = [
     heroHeadline: "Precision Heat Shrink & Direct Thermal Lot Barcode Labels",
     packagingChallenge: "Strict regulatory audits demand cleanroom-grade shrink wrapping, moisture-proof barrier pouches, and barcode label legibility.",
     buyerOutcomes: [
-      { title: "100% Barcode Legibility", desc: "Direct thermal & self-adhesive labels tested against smudging and chemical exposure." },
+      { title: "High Barcode Legibility", desc: "Direct thermal & self-adhesive labels tested against smudging and chemical exposure." },
       { title: "Tamper-Evident Security", desc: "PVC shrink sleeves & POF pouches providing visible anti-tamper seals on medicine bottles." },
       { title: "Cleanroom Safe", desc: "Dust-free, medical-grade film extrusion adhering to WHO-GMP standards." }
     ],
