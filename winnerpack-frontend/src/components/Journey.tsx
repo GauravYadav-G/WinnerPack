@@ -15,54 +15,54 @@ import {
 const solutionsData = [
   {
     icon: UserCheck,
-    question: "Constantly chasing suppliers for urgent plant deliveries?",
-    solution: "Dedicated 24×7 Key Account Manager for seamless dispatch coordination.",
+    question: "Need a responsive point of contact for plant supply coordination?",
+    solution: "Dedicated Key Account Manager for seamless order and dispatch coordination.",
     appImage: "/images/desktop/journey/solution_dispatch_manager.png",
   },
   {
     icon: Boxes,
-    question: "Experiencing line downtime due to film & strap stockouts?",
-    solution: "Surplus buffer stock maintained at our Ghaziabad plant for rapid dispatch.",
+    question: "Concerned about production line stoppages due to packaging stockouts?",
+    solution: "Buffer stock maintained at our plant for quick and reliable dispatch.",
     appImage: "/images/desktop/journey/solution_buffer_stock.png",
   },
   {
     icon: ShieldCheck,
-    question: "Facing customer complaints from strap snap or tape failure?",
-    solution: "Strict batch-level elongation, tensile & micron adhesive testing.",
+    question: "Facing quality issues with strapping or tape performance in the field?",
+    solution: "Rigorous batch-level elongation, tensile and adhesive testing on every dispatch.",
     appImage: "/images/desktop/journey/solution_quality_testing.png",
   },
   {
     icon: TrendingUp,
-    question: "Struggling with shrinking margins from rising material costs?",
-    solution: "High-yield stretch films & optimized gauges that reduce cost-per-pack.",
+    question: "Looking to improve cost efficiency in packaging material consumption?",
+    solution: "Optimized film gauges and high-yield formats that reduce cost per pack.",
     appImage: "/images/desktop/journey/solution_pallet_wrapping.png",
   },
   {
     icon: Truck,
-    question: "Irregular dispatch schedules hurting your plant cash flows?",
-    solution: "Guaranteed scheduled dispatches ensuring steady supply chain velocity.",
+    question: "Facing inconsistent delivery schedules from your current supplier?",
+    solution: "Reliable scheduled dispatches to support steady supply chain continuity.",
     appImage: "/images/desktop/journey/solution_scheduled_dispatch.png",
   },
   {
     icon: Tag,
-    question: "Unpredictable price hikes with zero market justification?",
-    solution: "Transparent contract pricing with zero hidden surcharges year-round.",
+    question: "Dealing with unexpected price changes and unclear billing from suppliers?",
+    solution: "Transparent contract pricing with no hidden surcharges or surprise escalations.",
     appImage: "/images/desktop/journey/solution_contract_pricing.png",
   },
   {
     icon: RefreshCw,
-    question: "Using outdated packaging materials that increase waste?",
-    solution: "Next-gen PCR eco-films & ultra-thin high-retention stretch technology.",
+    question: "Looking for sustainable packaging alternatives to reduce material waste?",
+    solution: "Eco-friendly film options and optimized stretch technology for reduced material use.",
     appImage: "/images/desktop/journey/solution_pcr_eco_film.png",
   },
   {
     icon: Ruler,
-    question: "Inconsistent roll widths, core sizes, or gauge tolerances?",
-    solution: "Guaranteed 100% accurate gauge, width, and length specifications.",
+    question: "Struggling with roll width, core size, or gauge inconsistencies?",
+    solution: "Precise gauge, width, and length specifications maintained across every production batch.",
     appImage: "/images/desktop/journey/solution_precision_gauge.png",
     impact: "PRECISION",
-    spec: "100% Spec Accurate",
-    challenge: "Guarantee consistency with zero-tolerance variance."
+    spec: "Spec Accurate",
+    challenge: "Consistent specifications across every batch."
   },
 ];
 
@@ -85,7 +85,7 @@ export default function Journey() {
           <div className="mt-3 sm:mt-4 h-1 sm:h-1.5 w-12 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
 
           <p className="mt-3 sm:mt-5 text-xs sm:text-base md:text-lg text-[var(--color-mute)] leading-relaxed font-normal">
-            We eliminate supply chain bottlenecks, quality mismatches, and cost inflation through guaranteed buffer inventory, dedicated technical support, and precision-extruded specifications.
+            We support seamless supply chain operations through consistent material supply, quality verification, and spec-accurate product manufacturing.
           </p>
         </div>
 

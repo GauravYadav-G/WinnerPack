@@ -78,7 +78,7 @@ export default function AboutUs() {
               </h1>
 
               <p className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed max-w-xl mx-auto">
-                Since 2018 we have supplied and manufactured the packaging materials that keep Indian industry moving — strapping rolls, films, tapes, and protective packaging solutions.
+                We supply and manufacture quality packaging materials including strapping rolls, films, tapes, and protective packaging solutions designed for operational efficiency.
               </p>
 
               <div>
@@ -117,7 +117,7 @@ export default function AboutUs() {
                   <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[var(--color-amber-dark)]">Mission</span>
                 </div>
                 <p className="font-display text-base sm:text-2xl md:text-3xl font-bold text-[var(--color-ink)] leading-snug">
-                  To deliver certified, high-cling, and precision-manufactured packaging materials backed by transparent technical specs and 1-business-day response SLAs.
+                  To deliver certified, precision-manufactured packaging materials backed by transparent technical specifications and responsive customer support.
                 </p>
               </div>
 
@@ -127,7 +127,7 @@ export default function AboutUs() {
                   <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[var(--color-amber-dark)]">Vision</span>
                 </div>
                 <p className="font-display text-base sm:text-2xl md:text-3xl font-bold text-[var(--color-ink)] leading-snug">
-                  To lead the B2B industrial packaging sector by pioneering eco-friendly, high-tensile solutions that empower zero-breakage supply chains across India and beyond.
+                  To be a trusted partner in the B2B industrial packaging sector by offering sustainable, high-performance solutions that help businesses build efficient and reliable supply chains.
                 </p>
               </div>
 
@@ -155,10 +155,10 @@ export default function AboutUs() {
 
               <div className="space-y-3 sm:space-y-4 text-xs sm:text-base text-[var(--color-mute)] leading-relaxed">
                 <p>
-                  Since 2018, Winner Pack Technologies Pvt. Ltd., founded in Ghaziabad, UP, has been dedicated to driving industrial growth through innovative packaging solutions. We focus on creating value and continuously evolving to help businesses succeed.
+                  Winner Pack Technologies Pvt. Ltd. has been dedicated to driving industrial growth through innovative packaging solutions. We focus on creating value and continuously evolving to help businesses succeed.
                 </p>
                 <p>
-                  Registered under GSTIN 09AACCW6640F1Z8 and CIN U51909UP2020PTC129759, we supply and manufacture strapping, shrink and stretch films, tapes, corrugated packaging, courier bags and labels across India — and we still answer the phone ourselves.
+                  We supply and manufacture strapping rolls, shrink and stretch films, tapes, corrugated packaging, courier bags and labels, serving industrial businesses across diverse sectors.
                 </p>
               </div>
             </div>
@@ -263,7 +263,7 @@ export default function AboutUs() {
 
               <div className="space-y-4 sm:space-y-8">
                 <p className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed">
-                  Partnering with visionary businesses to transform ideas into impactful success stories — driving process, co-extrusion innovation, and creating better outcomes in a competitive market.
+                  Partnering with businesses to deliver packaging solutions that enhance operational efficiency, support co-extrusion innovation, and create better outcomes in a competitive market.
                 </p>
 
                 {/* 2-Column Metrics Grid on Mobile */}

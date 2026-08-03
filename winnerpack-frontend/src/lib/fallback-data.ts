@@ -1945,32 +1945,32 @@ const defaultAbout = {
 
 const defaultUsps = [
   {
-    title: "Zero catalog forcing",
-    text: "We specify to the exact width, gauge, and formulation your line speed needs — not the nearest match we have in stock.",
+    title: "Custom specifications",
+    text: "We manufacture to your exact width, gauge, and formulation requirements — ensuring the right fit for your production line.",
     icon: "Tag"
   },
   {
-    title: "Guaranteed tracking",
-    text: "Our strap rolls are extruded to maintain straightness, eliminating feed jams in automated high-speed strapping machines.",
+    title: "Consistent roll quality",
+    text: "Our strapping rolls are manufactured to maintain uniform straightness and tension, enabling smooth operation on automated packaging lines.",
     icon: "Layers"
   },
   {
-    title: "High-cling formulation",
-    text: "WPT stretch films use premium linear low-density polyethylene for maximum load-holding force with minimal wrap layers.",
+    title: "Superior film performance",
+    text: "Our stretch films are formulated for maximum load-holding force and cling retention with optimized material usage per pallet.",
     icon: "Disc3"
   },
   {
-    title: "In-house quality check",
-    text: "Every batch of BOPP tape and shrink rolls goes through rigorous elongation, tensile strength, and adhesive testing.",
+    title: "In-house quality testing",
+    text: "Every batch undergoes rigorous elongation, tensile strength, and adhesive performance testing before dispatch.",
     icon: "Shield"
   },
   {
     title: "Eco-friendly options",
-    text: "FSC certified recyclable paper mailers and biodegradable films to help your plant meet compliance and ESG mandates.",
+    text: "We offer recyclable and biodegradable packaging alternatives to support your sustainability and compliance goals.",
     icon: "Leaf"
   },
   {
-    title: "Direct from Ghaziabad",
+    title: "Direct manufacturer supply",
     text: "No distributor markups. We manufacture, warehouse, and dispatch directly to optimize operations and reduce procurement costs.",
     icon: "Globe2"
   }
