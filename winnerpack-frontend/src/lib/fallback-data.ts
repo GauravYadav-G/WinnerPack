@@ -1934,7 +1934,7 @@ const defaultMobileRightBanner = "/images/mobile/hero-slider/right-banner.png";
 const defaultAbout = {
   tagline: "Pioneering B2B Industrial Packaging & Labeling Solutions",
   para1: "Winner Pack Technologies Pvt. Ltd. supplies environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply premium quality solutions tailored to your operational needs.",
-  para2: "From Ghaziabad, UP, we specialize in high-cling BOPP tapes, strapping rolls, POF/PVC shrink films, and protective packaging, serving the pharmaceutical, cosmetics, food/FMCG, and stationery industries.",
+  para2: "We specialize in BOPP tapes, strapping rolls, shrink films, and protective packaging, serving various key industrial sectors including food, cosmetics, pharmaceuticals, and retail logistics.",
   stats: [
     { value: "8+", label: "Years in business" },
     { value: "4", label: "Product categories" },
