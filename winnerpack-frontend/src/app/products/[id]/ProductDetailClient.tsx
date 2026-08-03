@@ -237,7 +237,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             </div>
 
             {/* Mobile-Only Horizontal Thumbnail Strip (Enables instant 1-tap view switching without long scrolling) */}
-            <div className="flex md:hidden items-center gap-2 overflow-x-auto pt-2.5 pb-0.5 scrollbar-none touch-pan-x">
+            <div className="flex md:hidden items-center gap-2 overflow-x-auto pt-2.5 pb-0.5 scrollbar-none">
               {displayGallery.slice(0, 5).map((photo: string, pIdx: number) => (
                 <button
                   key={pIdx}
@@ -380,7 +380,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                   {/* Product Specifications Table */}
                   {specs.length > 0 ? (
-                    <div className="overflow-x-auto scrollbar-none rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] touch-pan-x">
+                    <div className="overflow-x-auto scrollbar-none rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)]">
                       <table className="w-full text-left border-collapse min-w-[240px] font-sans">
                         <thead>
                           <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)]">
@@ -450,7 +450,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                         <span>Standard Roll Yield Matrix</span>
                         <span className="text-[var(--color-amber-dark)] text-[10px] sm:text-xs">Micron → Length</span>
                       </div>
-                      <div className="overflow-x-auto rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-white shadow-2xs md:shadow-xs touch-pan-x">
+                      <div className="overflow-x-auto scrollbar-none rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-white shadow-2xs md:shadow-xs">
                         <table className="w-full text-center border-collapse text-[11px] sm:text-xs min-w-[220px]">
                           <thead>
                             <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)] font-mono text-[10px] sm:text-xs font-extrabold uppercase text-[var(--color-ink)]">
