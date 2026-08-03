@@ -119,14 +119,14 @@ export default function Navbar() {
           <div className="max-w-[1536px] mx-auto px-2 sm:px-3 md:px-4 h-full flex items-center justify-between">
             
             {/* Logo & Brand */}
-            <Link href="/" className="flex items-center gap-3.5 -ml-1 sm:-ml-3 md:-ml-4 lg:-ml-5 group" data-hover>
+            <Link href="/" className="flex items-center gap-3 sm:gap-3.5 -ml-1 sm:-ml-3 md:-ml-4 lg:-ml-5 group" data-hover>
               <img src="/logo.png" alt="Winner Pack Logo" className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
-              <div className="leading-tight">
-                <div className="font-display text-base sm:text-lg lg:text-xl font-extrabold tracking-tight text-[var(--color-ink)] leading-none">
+              <div className="leading-tight flex flex-col">
+                <div className="font-display text-lg sm:text-xl lg:text-2xl font-black tracking-tight text-[var(--color-ink)] leading-none">
                   Winner Pack
                 </div>
-                <div className="font-mono text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.15em] text-[var(--color-blue)] mt-1">
-                  Technologies Pvt. Ltd.
+                <div className="font-mono text-[9px] sm:text-[10px] font-extrabold uppercase tracking-[0.14em] text-[var(--color-blue)] mt-1 text-right">
+                  Technologies Pvt Ltd
                 </div>
               </div>
             </Link>

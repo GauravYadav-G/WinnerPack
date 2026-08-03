@@ -17,36 +17,68 @@ type Slide = {
 
 const defaultSlides: Slide[] = [
   {
-    id: "capacity",
-    tag: "01 / CAPACITY",
-    heading: "12,000+ Tons Annually",
-    description: "Dual-plant automated capacity ensures consistent thickness and high-speed delivery for heavy industrial loads.",
+    id: "ad",
+    tag: "01 / INFRASTRUCTURE",
+    heading: "Tailored Specs. Direct Dispatch.",
+    description: "Precision-extruded packaging materials designed for maximum load retention and line throughput.",
     desktopMediaUrl: "/images/desktop/hero-slider/slide-1.png",
     mobileMediaUrl: "/images/mobile/hero-slider/slide-1.png",
   },
   {
-    id: "quality",
-    tag: "02 / QUALITY",
-    heading: "ISO 9001:2015 Standards",
-    description: "Process-controlled extrusion runs with strict tensile testing and batch traceability on every dispatch.",
+    id: "capacity",
+    tag: "02 / CAPACITY",
+    heading: "12,000+ Tons Annually",
+    description: "Dual-plant automated capacity ensures consistent thickness and high-speed delivery for heavy industrial loads.",
     desktopMediaUrl: "/images/desktop/hero-slider/slide-2.png",
     mobileMediaUrl: "/images/mobile/hero-slider/slide-2.png",
   },
   {
-    id: "automation",
-    tag: "03 / PERFORMANCE",
-    heading: "End-to-End Solutions",
-    description: "Syncing high-tensile strapping, stretch wrap, and tapes to maximize line efficiency and lower total cost-per-pallet.",
+    id: "quality",
+    tag: "03 / QUALITY",
+    heading: "ISO 9001:2015 Standards",
+    description: "Process-controlled extrusion runs with strict tensile testing and batch traceability on every dispatch.",
     desktopMediaUrl: "/images/desktop/hero-slider/slide-3.png",
     mobileMediaUrl: "/images/mobile/hero-slider/slide-3.png",
   },
   {
-    id: "ad",
-    tag: "04 / INFRASTRUCTURE",
-    heading: "Tailored Specs. Direct Dispatch.",
-    description: "Precision-extruded packaging materials designed for maximum load retention and line throughput.",
+    id: "automation",
+    tag: "04 / PERFORMANCE",
+    heading: "End-to-End Solutions",
+    description: "Syncing high-tensile strapping, stretch wrap, and tapes to maximize line efficiency and lower total cost-per-pallet.",
     desktopMediaUrl: "/images/desktop/hero-slider/slide-4.png",
     mobileMediaUrl: "/images/mobile/hero-slider/slide-4.png",
+  },
+  {
+    id: "labels-stickers",
+    tag: "05 / LABELS & STICKERS",
+    heading: "Best Quality Labels & Stickers",
+    description: "High Performance. Superior Strength. Maximum Protection for Product & Self-Adhesive Labels.",
+    desktopMediaUrl: "/images/desktop/hero-slider/slide-5.png",
+    mobileMediaUrl: "/images/mobile/hero-slider/slide-5.png",
+  },
+  {
+    id: "tapes",
+    tag: "06 / TAPES",
+    heading: "Best Quality Tapes",
+    description: "High Performance. Superior Strength. Maximum Protection for BOPP & Custom Printed BOPP Tapes.",
+    desktopMediaUrl: "/images/desktop/hero-slider/slide-6.png",
+    mobileMediaUrl: "/images/mobile/hero-slider/slide-6.png",
+  },
+  {
+    id: "coloured-silicone-tapes",
+    tag: "07 / SPECIALTY TAPES",
+    heading: "Best Quality Coloured & Silicone Tapes",
+    description: "High Performance. Superior Strength. Maximum Protection for Coloured BOPP & Self-Fusing Silicone Tapes.",
+    desktopMediaUrl: "/images/desktop/hero-slider/slide-7.png",
+    mobileMediaUrl: "/images/mobile/hero-slider/slide-7.png",
+  },
+  {
+    id: "pp-printed-strap",
+    tag: "08 / PP & PRINTED STRAP",
+    heading: "Best Quality PP & Printed Strap",
+    description: "High Performance. Superior Strength. Maximum Protection for Plain & Custom Printed PP Strapping Rolls.",
+    desktopMediaUrl: "/images/desktop/hero-slider/slide-8.png",
+    mobileMediaUrl: "/images/mobile/hero-slider/slide-8.png",
   },
 ];
 
@@ -98,22 +130,18 @@ export default function HeroSlider() {
       {/* Split Layout */}
       <div className="absolute inset-x-0 bottom-0 top-0 h-full z-0 flex gap-0">
 
-        {/* Left Side: Animated Slider */}
+        {/* Left Side: Slider Image */}
         <div className="relative w-full lg:w-[70%] h-full overflow-hidden bg-black">
           <AnimatePresence>
             <motion.div
               key={current}
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0.1 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute inset-0 h-full w-full"
-            >
-              <div
-                className="absolute inset-0 bg-[length:100%_100%] bg-center bg-no-repeat"
-                style={{ backgroundImage: `url('${currentSlideImage}')` }}
-              />
-            </motion.div>
+              exit={{ opacity: 0.1 }}
+              transition={{ duration: 0.35, ease: "easeInOut" }}
+              className="absolute inset-0 h-full w-full bg-[length:100%_100%] bg-center bg-no-repeat"
+              style={{ backgroundImage: `url('${currentSlideImage}')` }}
+            />
           </AnimatePresence>
 
           {/* Navigation Arrows */}
@@ -145,13 +173,13 @@ export default function HeroSlider() {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-6 left-5 z-20 flex gap-2 md:left-8">
+      <div className="absolute bottom-2 sm:bottom-4 md:bottom-6 left-3 sm:left-5 md:left-8 z-20 flex items-center gap-1.5 sm:gap-2">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-              i === current ? "w-8 bg-[var(--color-amber)]" : "w-2 bg-white/40"
+            className={`h-1 md:h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+              i === current ? "w-5 md:w-8 bg-[var(--color-amber)]" : "w-1.5 md:w-2 bg-white/40"
             }`}
             aria-label={`Go to slide ${i + 1}`}
           />

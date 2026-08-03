@@ -198,7 +198,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
               {/* Center Column: 1 Large Hero Featured Image */}
               <div className="md:col-span-6">
-                <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/11] w-full h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-slate-950 shadow-lg group">
+                <div className="relative aspect-[16/10] sm:aspect-[16/10] md:aspect-[16/11] w-full h-full overflow-hidden rounded-xl sm:rounded-3xl border border-[var(--color-line)] bg-slate-950 shadow-md sm:shadow-lg group">
                   <img
                     src={img || displayGallery[0]}
                     alt={product.title}
@@ -237,13 +237,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             </div>
 
             {/* Mobile-Only Horizontal Thumbnail Strip (Enables instant 1-tap view switching without long scrolling) */}
-            <div className="flex md:hidden items-center gap-2.5 overflow-x-auto pt-3 pb-1 scrollbar-none touch-pan-x">
+            <div className="flex md:hidden items-center gap-2 overflow-x-auto pt-2.5 pb-0.5 scrollbar-none touch-pan-x">
               {displayGallery.slice(0, 5).map((photo: string, pIdx: number) => (
                 <button
                   key={pIdx}
                   type="button"
                   onClick={() => setImg(photo)}
-                  className={`relative shrink-0 h-16 w-20 overflow-hidden rounded-xl border-2 transition-all duration-200 bg-slate-950 ${
+                  className={`relative shrink-0 h-12 w-16 overflow-hidden rounded-lg border-2 transition-all duration-200 bg-slate-950 ${
                     (img || displayGallery[0]) === photo
                       ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/40 scale-95"
                       : "border-white/50 opacity-80"
@@ -262,94 +262,94 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-10 items-start">
               
               {/* LEFT COLUMN: Main Info, Quick Stats, Overview & Features */}
-              <div className="lg:col-span-7 space-y-4 sm:space-y-6">
+              <div className="lg:col-span-7 space-y-3.5 sm:space-y-6">
                 
                 {/* Header Title & Tag */}
-                <div className="space-y-1.5">
-                  <div className="flex flex-wrap items-center gap-2 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-[var(--color-mute)]">
-                    <span className="rounded-md bg-[var(--color-bone)] border border-[var(--color-line)] px-2.5 py-0.5 text-xs">
+                <div className="space-y-1 sm:space-y-1.5">
+                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 font-mono text-[11px] sm:text-sm font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    <span className="rounded-md bg-[var(--color-bone)] border border-[var(--color-line)] px-2 py-0.5 text-[10px] sm:text-xs">
                       {product.tag || category}
                     </span>
                     <span>•</span>
                     <span>SKU: WP-{product.id.toUpperCase()}</span>
                   </div>
 
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[var(--color-ink)] font-display leading-tight">
+                  <h1 className="text-xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[var(--color-ink)] font-display leading-tight">
                     {product.title}
                   </h1>
 
-                  <p className="text-sm sm:text-base text-[var(--color-mute)] leading-relaxed font-normal font-sans">
+                  <p className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal font-sans">
                     {product.blurb}
                   </p>
                 </div>
 
-                {/* Horizontal Quick Stats Bar (4 Icons Grid) */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-0.5">
-                  <div className="rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-2.5 text-center space-y-0.5">
-                    <Zap className="h-4 w-4 mx-auto text-[var(--color-amber-dark)]" />
-                    <div className="text-[10px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Dispatch</div>
-                    <div className="text-xs sm:text-sm font-extrabold text-[var(--color-ink)] font-sans">24-48 HR Lead</div>
+                {/* Horizontal Quick Stats Bar (4-Column Grid on Mobile & Desktop) */}
+                <div className="grid grid-cols-4 sm:grid-cols-4 gap-1.5 sm:gap-2 pt-0.5">
+                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
+                    <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-amber-dark)]" />
+                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Dispatch</div>
+                    <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">24-48 HR</div>
                   </div>
                   
-                  <div className="rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-2.5 text-center space-y-0.5">
-                    <ShieldCheck className="h-4 w-4 mx-auto text-[var(--color-blue-deep)]" />
-                    <div className="text-[10px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Compliance</div>
-                    <div className="text-xs sm:text-sm font-extrabold text-[var(--color-ink)] font-sans">ISO 9001:2015</div>
+                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
+                    <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-blue-deep)]" />
+                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">QC</div>
+                    <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">ISO 9001</div>
                   </div>
 
-                  <div className="rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-2.5 text-center space-y-0.5">
-                    <Factory className="h-4 w-4 mx-auto text-[var(--color-amber-dark)]" />
-                    <div className="text-[10px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Extrusion</div>
-                    <div className="text-xs sm:text-sm font-extrabold text-[var(--color-ink)] font-sans">100% In-House</div>
+                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
+                    <Factory className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-amber-dark)]" />
+                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Plant</div>
+                    <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">100% In-House</div>
                   </div>
 
-                  <div className="rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-2.5 text-center space-y-0.5">
-                    <CheckCircle2 className="h-4 w-4 mx-auto text-[var(--color-blue-deep)]" />
-                    <div className="text-[10px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Traceability</div>
-                    <div className="text-xs sm:text-sm font-extrabold text-[var(--color-ink)] font-sans">COA Per Batch</div>
+                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
+                    <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-blue-deep)]" />
+                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Batch</div>
+                    <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">COA Batch</div>
                   </div>
                 </div>
 
                 {/* Product Overview Section */}
-                <div className="space-y-2 pt-2 border-t border-[var(--color-line)]">
-                  <h2 className="text-lg sm:text-xl font-extrabold text-[var(--color-ink)] font-display">
+                <div className="space-y-1.5 pt-2 border-t border-[var(--color-line)]">
+                  <h2 className="text-base sm:text-xl font-extrabold text-[var(--color-ink)] font-display">
                     Product Overview
                   </h2>
                   {product.longDesc && (
                     <div
-                      className="text-xs sm:text-sm text-[var(--color-text)]/90 leading-relaxed font-sans prose prose-slate max-w-none space-y-2"
+                      className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal font-sans space-y-2 [&_p]:text-xs [&_p]:sm:text-base [&_p]:text-[var(--color-mute)] [&_p]:leading-relaxed [&_p]:font-sans [&_p]:font-normal [&_li]:text-xs [&_li]:sm:text-base [&_li]:text-[var(--color-mute)] [&_li]:font-sans [&_h1]:font-display [&_h1]:text-base [&_h1]:sm:text-lg [&_h1]:font-bold [&_h1]:text-[var(--color-ink)] [&_h2]:font-display [&_h2]:text-base [&_h2]:sm:text-lg [&_h2]:font-bold [&_h2]:text-[var(--color-ink)] [&_h3]:font-display [&_h3]:text-sm [&_h3]:sm:text-base [&_h3]:font-bold [&_h3]:text-[var(--color-ink)] max-w-none"
                       dangerouslySetInnerHTML={{ __html: marked.parse(product.longDesc) as string }}
                     />
                   )}
                 </div>
 
-                {/* What's Included / Key Features Section */}
-                <div className="space-y-2.5 pt-2 border-t border-[var(--color-line)]">
+                {/* What's Included / Key Features Section (2 Columns on Mobile & Desktop) */}
+                <div className="space-y-2 pt-2 border-t border-[var(--color-line)]">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-lg sm:text-xl font-extrabold text-[var(--color-ink)] font-display">
+                    <h2 className="text-base sm:text-xl font-extrabold text-[var(--color-ink)] font-display">
                       What's Included & Quality Guarantees
                     </h2>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-amber)]/20 border border-[var(--color-amber)]/40 px-2.5 py-0.5 text-xs font-mono font-bold text-[var(--color-amber-dark)]">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-amber)]/20 border border-[var(--color-amber)]/40 px-2 py-0.5 text-[10px] sm:text-xs font-mono font-bold text-[var(--color-amber-dark)]">
                       ISO Verified
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-1.5 sm:gap-2">
                     {[
-                      { title: "FDA & WHO-GMP Compliant Polymers", icon: ShieldCheck },
-                      { title: "Zero Downtime Tolerance on Auto Lines", icon: Zap },
-                      { title: "Full Batch Traceability Certificate (COA)", icon: CheckCircle2 },
-                      { title: "High Tensile & Tear Strength Guarantee", icon: Factory },
-                      { title: "Custom Roll Widths & Gauge Options", icon: CheckCircle2 },
-                      { title: "Dedicated Packaging Engineer Support", icon: Zap },
+                      { title: "FDA & WHO-GMP Compliant", icon: ShieldCheck },
+                      { title: "Zero Downtime Tolerance", icon: Zap },
+                      { title: "Full Traceability COA", icon: CheckCircle2 },
+                      { title: "High Tensile Guarantee", icon: Factory },
+                      { title: "Custom Gauge Options", icon: CheckCircle2 },
+                      { title: "Engineering Support", icon: Zap },
                     ].map((item) => {
                       const IconComp = item.icon;
                       return (
                         <div
                           key={item.title}
-                          className="flex items-center gap-2.5 rounded-xl border border-[var(--color-line)] bg-white px-3 py-2 text-xs sm:text-sm font-bold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber-dark)]/40 transition-colors"
+                          className="flex items-center gap-1.5 sm:gap-2.5 rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber-dark)]/40 transition-colors"
                         >
-                          <IconComp className="h-4 w-4 text-[var(--color-amber-dark)] shrink-0" />
+                          <IconComp className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[var(--color-amber-dark)] shrink-0" />
                           <span className="truncate">{item.title}</span>
                         </div>
                       );
@@ -359,35 +359,35 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
               </div>
 
-              {/* RIGHT COLUMN: Sticky Product Specification Table Card (Spacious on Desktop, Compact on Mobile) */}
+              {/* RIGHT COLUMN: Sticky Product Specification Table Card */}
               <div className="lg:col-span-5 lg:sticky lg:top-24 font-sans">
-                <div className="rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-4 sm:p-6 lg:p-7 shadow-lg lg:shadow-xl space-y-3.5 md:space-y-5">
+                <div className="rounded-xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-3.5 sm:p-6 lg:p-7 shadow-md sm:shadow-lg lg:shadow-xl space-y-2.5 md:space-y-5">
                   
                   {/* Card Header & Badge */}
-                  <div className="flex items-center justify-between border-b border-[var(--color-line)] pb-2.5 md:pb-4">
+                  <div className="flex items-center justify-between border-b border-[var(--color-line)] pb-2 md:pb-4">
                     <div>
-                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
+                      <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
                         Technical Specifications
                       </span>
-                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-[var(--color-ink)] font-display mt-0.5">
+                      <h3 className="text-sm sm:text-lg md:text-xl font-bold text-[var(--color-ink)] font-display mt-0.5">
                         {product.title}
                       </h3>
                     </div>
-                    <span className="rounded-full bg-slate-900 px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs font-mono font-bold uppercase text-amber-400 border border-amber-500/30">
+                    <span className="rounded-full bg-slate-900 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-mono font-bold uppercase text-amber-400 border border-amber-500/30">
                       ISO 9001
                     </span>
                   </div>
 
                   {/* Product Specifications Table */}
                   {specs.length > 0 ? (
-                    <div className="overflow-x-auto rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] touch-pan-x">
-                      <table className="w-full text-left border-collapse min-w-[250px] font-sans">
+                    <div className="overflow-x-auto scrollbar-none rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] touch-pan-x">
+                      <table className="w-full text-left border-collapse min-w-[240px] font-sans">
                         <thead>
                           <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)]">
-                            <th className="px-3 md:px-3.5 py-1.5 md:py-2.5 font-display text-xs sm:text-sm font-extrabold uppercase text-[var(--color-ink)] w-1/2">
+                            <th className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-display text-[11px] sm:text-sm font-extrabold uppercase text-[var(--color-ink)] w-1/2">
                               Specification
                             </th>
-                            <th className="px-3 md:px-3.5 py-1.5 md:py-2.5 font-display text-xs sm:text-sm font-extrabold uppercase text-[var(--color-ink)] w-1/2">
+                            <th className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-display text-[11px] sm:text-sm font-extrabold uppercase text-[var(--color-ink)] w-1/2">
                               Value
                             </th>
                           </tr>
@@ -400,40 +400,40 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                 idx % 2 === 1 ? "bg-white/70" : "bg-transparent"
                               }`}
                             >
-                              <td className="px-3 md:px-3.5 py-1.5 md:py-2.5 font-mono text-xs font-bold uppercase text-[var(--color-mute)]">
+                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
                                 {s.label}
                               </td>
-                              <td className="px-3 md:px-3.5 py-1.5 md:py-2.5 text-xs sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
+                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
                                 {s.value}
                               </td>
                             </tr>
                           ))}
                           {product.options?.widths && (
                             <tr className="border-b border-[var(--color-line)] bg-white/70">
-                              <td className="px-3 md:px-3.5 py-1.5 md:py-2.5 font-mono text-xs font-bold uppercase text-[var(--color-mute)]">
+                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
                                 Widths
                               </td>
-                              <td className="px-3 md:px-3.5 py-1.5 md:py-2.5 text-xs sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
+                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
                                 {product.options.widths.join(" · ")}
                               </td>
                             </tr>
                           )}
                           {product.options?.thicknesses && (
                             <tr className="border-b border-[var(--color-line)]">
-                              <td className="px-3 md:px-3.5 py-1.5 md:py-2.5 font-mono text-xs font-bold uppercase text-[var(--color-mute)]">
+                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
                                 Thickness
                               </td>
-                              <td className="px-3 md:px-3.5 py-1.5 md:py-2.5 text-xs sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
+                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
                                 {product.options.thicknesses.join(" · ")}
                               </td>
                             </tr>
                           )}
                           {product.options?.colors && (
                             <tr className="border-b-0 bg-white/70">
-                              <td className="px-3 md:px-3.5 py-1.5 md:py-2.5 font-mono text-xs font-bold uppercase text-[var(--color-mute)]">
+                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
                                 Colors
                               </td>
-                              <td className="px-3 md:px-3.5 py-1.5 md:py-2.5 text-xs sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
+                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
                                 {product.options.colors.join(" · ")}
                               </td>
                             </tr>
@@ -445,37 +445,37 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                   {/* Thickness & Length Standard Roll Matrix Table */}
                   {product.thicknessLengthMatrix && (
-                    <div className="space-y-1.5 md:space-y-2 pt-1 md:pt-2">
-                      <div className="flex items-center justify-between text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">
+                    <div className="space-y-1 md:space-y-2 pt-1 md:pt-2">
+                      <div className="flex items-center justify-between text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">
                         <span>Standard Roll Yield Matrix</span>
-                        <span className="text-[var(--color-amber-dark)] text-xs">Micron → Length</span>
+                        <span className="text-[var(--color-amber-dark)] text-[10px] sm:text-xs">Micron → Length</span>
                       </div>
-                      <div className="overflow-x-auto rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-white shadow-2xs md:shadow-xs touch-pan-x">
-                        <table className="w-full text-center border-collapse text-xs min-w-[240px]">
+                      <div className="overflow-x-auto rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-white shadow-2xs md:shadow-xs touch-pan-x">
+                        <table className="w-full text-center border-collapse text-[11px] sm:text-xs min-w-[220px]">
                           <thead>
-                            <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)] font-mono text-xs font-extrabold uppercase text-[var(--color-ink)]">
-                              <th colSpan={2} className="px-2 md:px-3 py-1 md:py-2 border-r border-[var(--color-line)] bg-[var(--color-amber)]/10 text-[var(--color-amber-dark)]">THICKNESS</th>
-                              <th colSpan={2} className="px-2 md:px-3 py-1 md:py-2 bg-[var(--color-blue-deep)]/10 text-[var(--color-blue-deep)]">LENGTH YIELD</th>
+                            <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)] font-mono text-[10px] sm:text-xs font-extrabold uppercase text-[var(--color-ink)]">
+                              <th colSpan={2} className="px-1.5 md:px-3 py-1 md:py-2 border-r border-[var(--color-line)] bg-[var(--color-amber)]/10 text-[var(--color-amber-dark)]">THICKNESS</th>
+                              <th colSpan={2} className="px-1.5 md:px-3 py-1 md:py-2 bg-[var(--color-blue-deep)]/10 text-[var(--color-blue-deep)]">LENGTH YIELD</th>
                             </tr>
-                            <tr className="border-b border-[var(--color-line)] bg-[var(--color-mist)] font-mono text-xs font-bold text-[var(--color-mute)]">
-                              <th className="px-2 md:px-2.5 py-1 border-r border-[var(--color-line)]">µm</th>
-                              <th className="px-2 md:px-2.5 py-1 border-r border-[var(--color-line)]">Gauge</th>
-                              <th className="px-2 md:px-2.5 py-1 border-r border-[var(--color-line)]">Meters</th>
-                              <th className="px-2 md:px-2.5 py-1">Feet</th>
+                            <tr className="border-b border-[var(--color-line)] bg-[var(--color-mist)] font-mono text-[10px] sm:text-xs font-bold text-[var(--color-mute)]">
+                              <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1 border-r border-[var(--color-line)]">µm</th>
+                              <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1 border-r border-[var(--color-line)]">Gauge</th>
+                              <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1 border-r border-[var(--color-line)]">Meters</th>
+                              <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1">Feet</th>
                             </tr>
                           </thead>
                           <tbody>
                             {product.thicknessLengthMatrix.map((row: any, idx: number) => (
                               <tr
                                 key={idx}
-                                className={`border-b border-[var(--color-line)] last:border-b-0 font-mono text-xs ${
+                                className={`border-b border-[var(--color-line)] last:border-b-0 font-mono text-[11px] sm:text-xs ${
                                   idx % 2 === 1 ? "bg-[var(--color-mist)]/50" : "bg-white"
                                 }`}
                               >
-                                <td className="px-2 md:px-3 py-1 md:py-2 font-extrabold text-[var(--color-amber-dark)] border-r border-[var(--color-line)]">{row.micron}</td>
-                                <td className="px-2 md:px-3 py-1 md:py-2 text-[var(--color-mute)] border-r border-[var(--color-line)]">{row.gauge}</td>
-                                <td className="px-2 md:px-3 py-1 md:py-2 font-extrabold text-[var(--color-blue-deep)] border-r border-[var(--color-line)]">{row.meters}</td>
-                                <td className="px-2 md:px-3 py-1 md:py-2 text-[var(--color-mute)]">{row.feet}</td>
+                                <td className="px-1.5 md:px-3 py-0.5 md:py-2 font-extrabold text-[var(--color-amber-dark)] border-r border-[var(--color-line)]">{row.micron}</td>
+                                <td className="px-1.5 md:px-3 py-0.5 md:py-2 text-[var(--color-mute)] border-r border-[var(--color-line)]">{row.gauge}</td>
+                                <td className="px-1.5 md:px-3 py-0.5 md:py-2 font-extrabold text-[var(--color-blue-deep)] border-r border-[var(--color-line)]">{row.meters}</td>
+                                <td className="px-1.5 md:px-3 py-0.5 md:py-2 text-[var(--color-mute)]">{row.feet}</td>
                               </tr>
                             ))}
                           </tbody>
@@ -485,11 +485,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   )}
 
                   {/* Action Buttons */}
-                  <div className="pt-1 md:pt-2 space-y-2 md:space-y-3 font-sans">
-                    <Button to={`/contact?sku=${product.id}`} className="w-full justify-center min-h-[40px] md:min-h-[48px] py-2.5 md:py-3.5 text-xs sm:text-sm font-bold shadow-xs md:shadow-md touch-manipulation font-sans">
+                  <div className="pt-1 md:pt-2 space-y-1.5 md:space-y-3 font-sans">
+                    <Button to={`/contact?sku=${product.id}&title=${encodeURIComponent(product.title)}`} className="w-full justify-center min-h-[36px] md:min-h-[48px] py-2 md:py-3.5 text-xs sm:text-sm font-bold shadow-xs md:shadow-md touch-manipulation font-sans">
                       Request Instant Custom Quote
                     </Button>
-                    <Button to={`tel:${COMPANY.phoneHref}`} variant="outline" className="w-full justify-center min-h-[36px] md:min-h-[40px] py-2 md:py-2.5 text-xs font-bold touch-manipulation font-sans">
+                    <Button to={`tel:${COMPANY.phoneHref}`} variant="outline" className="w-full justify-center min-h-[32px] md:min-h-[40px] py-1.5 md:py-2.5 text-xs font-bold touch-manipulation font-sans">
                       Call Sales: {COMPANY.phoneDisplay}
                     </Button>
                   </div>
@@ -501,27 +501,27 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           </Container>
         </section>
 
-        {/* ── SUB-CATEGORIES SECTION (Side-by-Side 2-Column Cards) ── */}
+        {/* ── SUB-CATEGORIES SECTION (Compact Side-by-Side Cards) ── */}
         {product.subCategories && product.subCategories.length > 0 && (
-          <Section className="bg-[var(--color-mist)] border-b border-[var(--color-line)] py-6 sm:py-10 font-sans">
+          <Section className="bg-[var(--color-mist)] border-b border-[var(--color-line)] py-5 sm:py-10 font-sans">
             <Container>
-              <div className="max-w-2xl mb-4 sm:mb-6">
+              <div className="max-w-2xl mb-3 sm:mb-6">
                 <Eyebrow>Product Sub-Categories</Eyebrow>
-                <h2 className="mt-1 text-lg sm:text-2xl font-extrabold tracking-tight text-[var(--color-ink)] font-display">
+                <h2 className="mt-0.5 text-base sm:text-2xl font-extrabold tracking-tight text-[var(--color-ink)] font-display">
                   {product.title} Sub-Categories
                 </h2>
               </div>
 
-              {/* Side-by-side 2-Column Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              {/* Side-by-side Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
                 {product.subCategories.map((sub: any) => (
                   <div
                     key={sub.id}
-                    className="rounded-2xl border border-[var(--color-line)] bg-white p-4 shadow-sm flex flex-col justify-between space-y-3 font-sans"
+                    className="rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-white p-3 sm:p-4 shadow-sm flex flex-col justify-between space-y-2.5 font-sans"
                   >
-                    <div className="space-y-3">
+                    <div className="space-y-2 sm:space-y-3">
                       {/* Compact Image */}
-                      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-[var(--color-line)] bg-slate-950 shadow-inner group">
+                      <div className="relative aspect-[2/1] sm:aspect-[16/9] w-full overflow-hidden rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-slate-950 shadow-inner group">
                         <img
                           src={sub.image}
                           alt={sub.title}
@@ -530,21 +530,21 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       </div>
 
                       <div>
-                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
+                        <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
                           {sub.subtitle}
                         </span>
-                        <h3 className="text-base sm:text-lg font-extrabold text-[var(--color-ink)] font-display mt-0.5">
+                        <h3 className="text-sm sm:text-lg font-extrabold text-[var(--color-ink)] font-display mt-0.5">
                           {sub.title}
                         </h3>
-                        <p className="text-xs sm:text-sm text-[var(--color-mute)] leading-relaxed mt-1 line-clamp-2 font-sans">
+                        <p className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed mt-0.5 sm:mt-1 line-clamp-2 font-sans font-normal">
                           {sub.blurb}
                         </p>
                       </div>
 
                       {/* Specs Table */}
                       {sub.specs && (
-                        <div className="overflow-x-auto rounded-lg border border-[var(--color-line)] bg-[var(--color-mist)] touch-pan-x">
-                          <table className="w-full text-left border-collapse text-xs">
+                        <div className="overflow-hidden scrollbar-none rounded-lg border border-[var(--color-line)] bg-[var(--color-mist)]">
+                          <table className="w-full text-left border-collapse text-[11px] sm:text-xs font-sans table-fixed">
                             <tbody>
                               {Object.entries(sub.specs).slice(0, 4).map(([lbl, val]: any, sIdx: number) => (
                                 <tr
@@ -553,10 +553,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                     sIdx % 2 === 1 ? "bg-white/60" : "bg-transparent"
                                   }`}
                                 >
-                                  <td className="px-2.5 py-1 font-mono font-bold uppercase text-[var(--color-mute)] w-1/3">
+                                  <td className="px-2 py-1 font-mono font-bold uppercase text-[var(--color-mute)] w-2/5 text-[10px] sm:text-xs align-top">
                                     {lbl}
                                   </td>
-                                  <td className="px-2.5 py-1 font-semibold text-[var(--color-ink)] w-2/3 truncate font-sans">
+                                  <td className="px-2 py-1 font-semibold text-[var(--color-ink)] w-3/5 break-words whitespace-normal font-sans text-[11px] sm:text-xs align-top">
                                     {val}
                                   </td>
                                 </tr>
@@ -572,9 +572,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                           {sub.applications.slice(0, 3).map((app: string) => (
                             <span
                               key={app}
-                              className="inline-flex items-center gap-1 rounded-md bg-[var(--color-bone)] border border-[var(--color-line)] px-2 py-0.5 text-xs font-bold text-[var(--color-ink)] font-sans"
+                              className="inline-flex items-center gap-1 rounded-md bg-[var(--color-bone)] border border-[var(--color-line)] px-1.5 py-0.5 text-[10px] sm:text-xs font-bold text-[var(--color-ink)] font-sans"
                             >
-                              <CheckCircle2 className="h-3 w-3 text-[var(--color-amber-dark)] shrink-0" />
+                              <CheckCircle2 className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-[var(--color-amber-dark)] shrink-0" />
                               <span className="truncate">{app}</span>
                             </span>
                           ))}
@@ -583,7 +583,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     </div>
 
                     <div className="pt-1">
-                      <Button to={`/contact?sku=${product.id}&grade=${sub.id}`} className="w-full justify-center py-2 text-xs font-bold font-sans">
+                      <Button to={`/contact?sku=${product.id}&title=${encodeURIComponent(product.title)}&grade=${encodeURIComponent(sub.title)}`} className="w-full justify-center py-1.5 sm:py-2 text-xs font-bold font-sans">
                         Request Quote for {sub.title}
                       </Button>
                     </div>

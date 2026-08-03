@@ -15,11 +15,13 @@ export default function Footer() {
           {/* Column 1: Logo & Company Description (col-md-4 -> lg:col-span-4) */}
           <div className="lg:col-span-4 flex flex-col">
             <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="Winner Pack Logo" className="h-10 w-auto object-contain" />
-              <div className="leading-tight">
-                <div className="font-display text-base font-bold tracking-tight">Winner Pack</div>
-                <div className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-white/50">
-                  WPT · Technologies
+              <img src="/logo.png" alt="Winner Pack Logo" className="h-12 w-auto object-contain" />
+              <div className="leading-tight flex flex-col">
+                <div className="font-display text-lg sm:text-xl font-black tracking-tight text-white leading-none">
+                  Winner Pack
+                </div>
+                <div className="font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-amber)] mt-1 text-right">
+                  Technologies Pvt Ltd
                 </div>
               </div>
             </div>

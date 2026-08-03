@@ -51,8 +51,8 @@ function ProductsContent() {
               <div className="mt-3 h-0.5 w-14 bg-[var(--color-amber)]" />
             </div>
 
-            {/* 3 CATEGORY CARDS — Square Shape Aspect Ratio with Products Listed Inside */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+            {/* 4 CATEGORY CARDS — Square Shape Aspect Ratio in a Single Row */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
               {productCategories.map((cat, i) => (
                 <motion.div
                   key={cat.id}

@@ -116,7 +116,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
           <Link
-            href={`/contact?sku=${slug}`}
+            href={`/contact?sku=${slug}&title=${encodeURIComponent(name)}`}
             className="inline-flex items-center gap-1 rounded-full bg-[var(--color-blue-soft)] px-3 py-1.5 md:px-4 md:py-2 text-[10px] sm:text-xs font-semibold text-[var(--color-blue)] transition-colors hover:bg-[var(--color-amber)] hover:text-[var(--color-blue-deep)]"
           >
             Quote
