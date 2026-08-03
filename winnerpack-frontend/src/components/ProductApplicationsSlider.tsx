@@ -110,7 +110,7 @@ export default function ProductApplicationsSlider() {
           <div className="mt-4 h-1.5 w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
 
           {/* Centered Controls */}
-          <div className="flex items-center gap-3 mt-6">
+          <div className="hidden sm:flex items-center gap-3 mt-6">
             <button
               onClick={prevSlide}
               aria-label="Previous Slide"
