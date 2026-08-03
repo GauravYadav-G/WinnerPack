@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageWrapper from "@/components/PageWrapper";
@@ -8,7 +8,7 @@ import CTABanner from "@/components/CTABanner";
 import FloatingWidgets from "@/components/FloatingWidgets";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, X, ArrowUpRight } from "lucide-react";
+import { X } from "lucide-react";
 
 interface GalleryItem {
   id: number;
@@ -108,6 +108,18 @@ const galleryItems: GalleryItem[] = [
 export default function GalleryClient() {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
+  // Auto-close image preview modal on page scroll
+  useEffect(() => {
+    if (!selectedImage) return;
+
+    const handleScroll = () => {
+      setSelectedImage(null);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [selectedImage]);
+
   return (
     <div className="min-h-screen bg-[#fafafb] text-[var(--color-text)]">
       <Navbar />
@@ -139,31 +151,22 @@ export default function GalleryClient() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4 }}
                     onClick={() => setSelectedImage(item)}
-                    className={`group relative overflow-hidden rounded-2xl bg-slate-900 cursor-pointer break-inside-avoid w-full ${item.aspectRatio}`}
+                    className="group relative overflow-hidden rounded-2xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer break-inside-avoid w-full flex flex-col mb-6 select-none"
                   >
-                    {/* Visual Image */}
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-
-                    {/* Premium Subtle Shadow Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6" />
-
-                    {/* Content overlay visible on hover */}
-                    <div className="absolute inset-0 flex flex-col justify-end p-6 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                      <h3 className="font-display text-lg font-bold leading-tight">
+                    {/* Centered Heading Above Image */}
+                    <div className="py-3.5 px-4 text-center bg-white group-hover:bg-[var(--color-mist)] border-b border-[var(--color-line)] transition-colors duration-300">
+                      <h3 className="font-display text-xs sm:text-sm font-bold text-[var(--color-ink)] leading-snug group-hover:text-[var(--color-amber-dark)] transition-colors duration-300">
                         {item.title}
                       </h3>
-                      <p className="mt-2 text-xs text-white/70 leading-relaxed font-normal">
-                        {item.description}
-                      </p>
                     </div>
 
-                    {/* Center Hover Action Icon */}
-                    <div className="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <Plus className="h-5 w-5" />
+                    {/* Crisp Visual Image Container */}
+                    <div className={`relative w-full overflow-hidden bg-[var(--color-bone)] ${item.aspectRatio}`}>
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
                     </div>
                   </motion.div>
                 ))}
@@ -175,7 +178,7 @@ export default function GalleryClient() {
         <CTABanner />
       </PageWrapper>
 
-      {/* Immersive awards.com / Figma Style Lightbox Modal (Rendered outside PageWrapper to prevent transform coordinate limits) */}
+      {/* Ultra-Premium Glassmorphic Lightbox Modal */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
@@ -183,70 +186,45 @@ export default function GalleryClient() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-slate-950/95 backdrop-blur-xl"
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-[#0a0624]/80 backdrop-blur-2xl"
           >
             <motion.div
-              initial={{ scale: 0.96, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.96, opacity: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-6xl w-full h-[85vh] sm:h-[80vh] bg-[#0c1322] rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col md:flex-row"
+              className="relative max-w-5xl w-full max-h-[90vh] bg-[#0c072c] border border-white/15 rounded-3xl p-5 sm:p-7 lg:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col text-white"
             >
-              
-              {/* Left Section: Visual Image Viewer (65% width) */}
-              <div className="relative flex-1 bg-slate-950 flex items-center justify-center overflow-hidden h-[50%] md:h-full">
+              {/* Subtle Luxury Ambient Glow */}
+              <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--color-amber)]/10 rounded-full blur-3xl pointer-events-none" />
+
+              {/* Top Header Bar: Centered Glass Pill Heading */}
+              <div className="relative px-4 py-2 flex items-center justify-between border-b border-white/10 pb-4">
+                <div className="w-9" /> {/* Spacer */}
+                
+                <div className="px-6 py-2 rounded-full bg-white/[0.06] border border-white/12 backdrop-blur-md shadow-md text-center max-w-xl">
+                  <h3 className="font-display text-xs sm:text-sm md:text-base font-extrabold text-white tracking-tight leading-tight">
+                    {selectedImage.title}
+                  </h3>
+                </div>
+
+                <button
+                  onClick={() => setSelectedImage(null)}
+                  className="h-9 w-9 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-[var(--color-amber)] hover:border-[var(--color-amber)] transition-all duration-300 shadow-md cursor-pointer shrink-0"
+                  aria-label="Close modal"
+                >
+                  <X className="h-4.5 w-4.5" />
+                </button>
+              </div>
+
+              {/* Ultra-Clean Framed Image Viewer */}
+              <div className="relative flex-1 bg-black/40 rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden p-6 sm:p-8 md:p-10 min-h-[340px] max-h-[70vh] shadow-inner mt-4">
                 <img
                   src={selectedImage.image}
                   alt={selectedImage.title}
-                  className="max-h-full max-w-full object-contain p-4 md:p-6"
+                  className="max-h-full max-w-full object-contain rounded-xl shadow-2xl border border-white/15 bg-white/5 p-2 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent pointer-events-none" />
-              </div>
-
-              {/* Right Section: Premium Metadata details panel (35% width) */}
-              <div className="w-full md:w-[360px] lg:w-[400px] bg-[#070d19] border-t md:border-t-0 md:border-l border-white/5 p-6 sm:p-8 flex flex-col justify-between h-[50%] md:h-full">
-                
-                {/* Top Bar */}
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--color-blue)]">
-                      LIFE AT WINNER PACK
-                    </span>
-                    <button
-                      onClick={() => setSelectedImage(null)}
-                      className="h-8 w-8 rounded-full bg-white/5 text-white/70 flex items-center justify-center hover:bg-white/15 hover:text-white transition-colors"
-                    >
-                      <X className="h-4.5 w-4.5" />
-                    </button>
-                  </div>
-
-                  {/* Center Details */}
-                  <div className="space-y-4">
-                    <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-tight">
-                      {selectedImage.title}
-                    </h3>
-                    <div className="h-0.5 w-12 bg-[var(--color-amber)] rounded-full" />
-                    <p className="text-xs sm:text-sm leading-relaxed text-slate-400 font-normal">
-                      {selectedImage.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Bottom Panel Branding */}
-                <div className="border-t border-white/5 pt-6 flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">
-                    WPT © {new Date().getFullYear()}
-                  </span>
-                  <a
-                    href="#contact"
-                    onClick={() => setSelectedImage(null)}
-                    className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[var(--color-amber)] hover:text-white transition-colors"
-                  >
-                    Join our team
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </a>
-                </div>
-
               </div>
 
             </motion.div>

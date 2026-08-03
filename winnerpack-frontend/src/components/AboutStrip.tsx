@@ -1,65 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, Zap } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
-import { useInView } from "framer-motion";
+import { useEffect, useState } from "react";
 import { fetchContent } from "@/lib/content-cache";
-
-function StatBox({ value, label }: { value: string; label: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-  const [displayValue, setDisplayValue] = useState(0);
-
-  const numeric = parseFloat(value.replace(/[^0-9.]/g, ""));
-  const prefix = value.match(/^[^\d]*/)?.[0] ?? "";
-  const suffix = value.match(/[+\-%]$/)?.[0] ?? "";
-
-  useEffect(() => {
-    if (!inView || isNaN(numeric)) return;
-    const duration = 1500;
-    const start = performance.now();
-    let raf = 0;
-    const step = (t: number) => {
-      const p = Math.min((t - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setDisplayValue(eased * numeric);
-      if (p < 1) raf = requestAnimationFrame(step);
-    };
-    raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, numeric]);
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="bg-white/[0.04] border border-white/10 rounded-xl p-6 text-center transition-all duration-300 hover:border-[var(--color-amber)]/30 hover:bg-white/[0.07] flex flex-col justify-center items-center group/box"
-    >
-      <span className="font-display text-4xl font-extrabold tracking-tight text-[var(--color-amber)] lg:text-5xl transition-transform duration-300 group-hover/box:scale-105">
-        {prefix}
-        {isNaN(numeric) ? value : Math.floor(displayValue)}
-        {suffix}
-      </span>
-      <span className="mt-2 text-[10px] font-bold tracking-wider uppercase text-[var(--color-blue-3)] group-hover/box:text-white transition-colors duration-300">
-        {label}
-      </span>
-    </motion.div>
-  );
-}
 
 export default function AboutStrip() {
   const [about, setAbout] = useState({
-    tagline: "Pioneering Industrial Packaging & Labeling Solutions",
+    tagline: "Pioneering B2B Industrial Packaging & Labeling Solutions",
     para1: "Winner Pack Technologies Pvt. Ltd. supplies environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply premium quality solutions tailored to your operational needs.",
     para2: "From Ghaziabad, UP, we specialize in high-cling BOPP tapes, strapping rolls, POF/PVC shrink films, and protective packaging, serving the pharmaceutical, cosmetics, food/FMCG, and stationery industries.",
     stats: [
       { value: "8+", label: "Years in business" },
-      { value: "6", label: "Product categories" },
+      { value: "4", label: "Product categories" },
       { value: "20+", label: "Product lines" },
       { value: "100%", label: "Customer commitment" }
     ]
@@ -76,75 +30,119 @@ export default function AboutStrip() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[var(--color-blue-deep)] py-16 lg:py-20 text-white z-10">
-      {/* Background decorations */}
-      <div className="absolute inset-0 bg-grid opacity-35 pointer-events-none" aria-hidden />
-      <div className="bg-noise absolute inset-0 opacity-15 pointer-events-none" />
-      <div className="absolute -left-32 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-[var(--color-blue)]/15 blur-3xl pointer-events-none" />
+    <section id="about" className="relative overflow-hidden bg-[var(--color-bone)] py-16 sm:py-24 border-b border-[var(--color-line)]">
+      {/* Background Atmosphere */}
+      <div className="absolute inset-0 bg-grid-fine opacity-15 pointer-events-none" />
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          {/* Left Column: About content */}
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-12 lg:items-start">
+          
+          {/* LEFT COLUMN: Larger Rectangular Image Cards */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col items-start"
+            className="lg:col-span-6 flex flex-col items-center sm:items-start justify-start gap-5 sm:gap-6"
           >
-            <span className="relative inline-block pl-8 text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-amber)]">
-              <span className="absolute left-0 top-1/2 h-0.5 w-6 -translate-y-1/2 bg-[var(--color-amber)]" />
-              About Winner Pack
-            </span>
-
-            <h2 className="font-display mt-6 text-2xl font-bold leading-[1.1] tracking-tight text-white sm:text-3xl md:text-5xl text-balance">
-              {about.tagline}
-            </h2>
-
-            <div className="mt-6 space-y-4 text-sm leading-relaxed text-white/70 md:text-base">
-              {about.para1 && <p>{about.para1}</p>}
-              {about.para2 && <p>{about.para2}</p>}
+            {/* Top Rectangular Card */}
+            <div className="relative aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-3xl border border-[var(--color-line)] bg-slate-950 shadow-xl group">
+              <img
+                src="/images/desktop/about/blown_film_tower.png"
+                alt="5-Layer POF Blown Film Extrusion Tower"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
             </div>
 
-            <Link
-              href="/about-us"
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-bold text-[var(--color-amber)] hover:text-white transition-colors duration-300"
-            >
-              Explore our journey
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            {/* Bottom Rectangular Card */}
+            <div className="relative aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-3xl border border-[var(--color-line)] bg-slate-950 shadow-xl group">
+              <img
+                src="/images/desktop/about/film_slitting_machine.png"
+                alt="Automated High-Speed Film Slitting & Converting Line"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
           </motion.div>
 
-          {/* Right Column: Plant Facility Showcase + 2x2 Stats Grid */}
+          {/* RIGHT COLUMN: Natural Flow Content & Stats */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-6"
+            className="lg:col-span-6 space-y-6"
           >
-            {/* Real-World Manufacturing Plant Facility Reference Image (SKN Industries Style) */}
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 shadow-2xl aspect-[16/9] group">
-              <img
-                src="/images/gallery/office_life.png"
-                alt="WinnerPack Ghaziabad Extrusion Plant"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white/90">
-                <span className="font-mono font-bold uppercase tracking-wider text-[var(--color-amber)]">Ghaziabad Extrusion Plant</span>
-                <span className="bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-semibold">10,000 MT/Yr Capacity</span>
+            {/* Eyebrow Tag with Horizontal Accent Line */}
+            <div className="flex items-center gap-3">
+              <div className="h-0.5 w-8 bg-[var(--color-amber-dark)] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
+                About Winner Pack
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--color-ink)] leading-[1.15] text-balance">
+              {about.tagline}
+            </h2>
+
+            {/* Narrative Paragraphs */}
+            <div className="space-y-4 text-sm sm:text-base text-[var(--color-mute)] leading-relaxed font-normal">
+              {about.para1 && <p>{about.para1}</p>}
+              {about.para2 && <p>{about.para2}</p>}
+            </div>
+
+            {/* 2 Bottom Feature Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-[var(--color-line)]">
+              <div className="space-y-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)]">
+                  <ShieldCheck className="h-5 w-5" />
+                </div>
+                <h4 className="font-display text-base font-bold text-[var(--color-ink)]">
+                  &quot;We Serve To Deserve&quot;
+                </h4>
+                <p className="text-xs text-[var(--color-mute)] leading-relaxed">
+                  Environment-friendly secondary and tertiary solutions tailored to your operational specifications.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)]">
+                  <Zap className="h-5 w-5" />
+                </div>
+                <h4 className="font-display text-base font-bold text-[var(--color-ink)]">
+                  Engineered Reliability
+                </h4>
+                <p className="text-xs text-[var(--color-mute)] leading-relaxed">
+                  Specialized in high-cling BOPP tapes, strapping rolls, POF/PVC shrink films, and protective wrap.
+                </p>
               </div>
             </div>
 
-            {/* 2x2 Stats Grid */}
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+            {/* 4 Stats Metrics Row */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
               {about.stats && about.stats.map((s) => (
-                <StatBox key={s.label} value={s.value} label={s.label} />
+                <div key={s.label} className="p-4 sm:p-5 rounded-2xl bg-white border border-[var(--color-line)] text-center shadow-sm hover:border-[var(--color-amber)]/40 hover:shadow-md transition-all duration-300">
+                  <div className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--color-amber-dark)]">{s.value}</div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-[var(--color-mute)] mt-1.5">{s.label}</div>
+                </div>
               ))}
             </div>
+
+            {/* Link to Full About Us Page */}
+            <div className="pt-2">
+              <Link
+                href="/about-us"
+                className="group inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[var(--color-amber-dark)] hover:text-[var(--color-ink)] transition-colors duration-300"
+              >
+                <span>Explore our full manufacturing journey</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
           </motion.div>
+
         </div>
       </div>
     </section>

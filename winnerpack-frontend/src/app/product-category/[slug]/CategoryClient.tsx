@@ -55,17 +55,7 @@ export default function CategoryClient({
 
   // Filter products for this specific category (matching fallback-data and DB categories)
   const categoryProducts = productsList.filter((p) => {
-    const catId = p.category;
-    if (currentCategory.id === "film-products") {
-      return catId === "films" || catId === "film-products" || catId === "film";
-    }
-    if (currentCategory.id === "label-sticker-products") {
-      return catId === "labels" || catId === "label-sticker-products" || catId === "label";
-    }
-    if (currentCategory.id === "other-products") {
-      return catId === "other" || catId === "other-products" || catId === "strapping" || catId === "protective" || catId === "tapes";
-    }
-    return catId === currentCategory.id;
+    return p.category === currentCategory.id;
   });
 
   return (

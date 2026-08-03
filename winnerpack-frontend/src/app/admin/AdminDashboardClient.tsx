@@ -10,7 +10,6 @@ import {
   CheckCircle,
   RefreshCw,
   Package,
-  Wrench,
   FileText
 } from "lucide-react";
 
@@ -35,30 +34,26 @@ export default function AdminDashboardPage() {
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
   const [articles, setArticles] = useState<Article[]>([]);
   const [productsCount, setProductsCount] = useState(0);
-  const [machinesCount, setMachinesCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [inqRes, artRes, prodRes, machRes] = await Promise.all([
+      const [inqRes, artRes, prodRes] = await Promise.all([
         apiFetch("/api/inquiries"),
         apiFetch("/api/articles"),
         apiFetch("/api/products"),
-        apiFetch("/api/machines"),
       ]);
 
-      const [inqData, artData, prodData, machData] = await Promise.all([
+      const [inqData, artData, prodData] = await Promise.all([
         inqRes.json(),
         artRes.json(),
         prodRes.json(),
-        machRes.json(),
       ]);
 
       setInquiries(inqData || []);
       setArticles(artData || []);
       setProductsCount(prodData ? prodData.length : 0);
-      setMachinesCount(machData ? machData.length : 0);
     } catch (err) {
       console.error("Failed to fetch dashboard data:", err);
     } finally {
@@ -132,20 +127,13 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Catalog Info */}
-        <div className="grid gap-5 sm:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2">
           <div className="rounded-xl border border-slate-200 bg-white p-5 flex items-center justify-between shadow-sm">
             <div>
               <span className="text-xs font-bold text-slate-500">Catalog Products</span>
               <div className="mt-1 text-2xl font-extrabold text-slate-900">{productsCount}</div>
             </div>
             <Package className="h-8 w-8 text-indigo-500 opacity-60" />
-          </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-5 flex items-center justify-between shadow-sm">
-            <div>
-              <span className="text-xs font-bold text-slate-500">Active Machinery</span>
-              <div className="mt-1 text-2xl font-extrabold text-slate-900">{machinesCount}</div>
-            </div>
-            <Wrench className="h-8 w-8 text-indigo-500 opacity-60" />
           </div>
           <div className="rounded-xl border border-slate-200 bg-white p-5 flex items-center justify-between shadow-sm">
             <div>

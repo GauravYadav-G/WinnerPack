@@ -1,22 +1,92 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Send, CheckCircle2, Clock, ShieldCheck } from "lucide-react";
+import {
+  CheckCircle2,
+  ArrowRight,
+  Zap,
+  ShieldCheck,
+  ChevronDown,
+  Mail,
+  Phone
+} from "lucide-react";
+
+interface CategoryGroup {
+  id: string;
+  name: string;
+  badge: string;
+  items: string[];
+}
+
+const mainCategoryGroups: CategoryGroup[] = [
+  {
+    id: "film-products",
+    name: "Film Products",
+    badge: "LDPE · POF · Coloured · BOPP · PVC · Stretch Film · Lamination · Compostable",
+    items: [
+      "LDPE Films & Pouches",
+      "POF Films & Pouches",
+      "Coloured Films & Pouches",
+      "BOPP Films & Pouches",
+      "PVC Shrink Rolls & Pouches",
+      "Stretch Film",
+      "Lamination Films & Pouches",
+      "Compostable Films & Pouches",
+    ]
+  },
+  {
+    id: "label-sticker-products",
+    name: "Labels & Stickers",
+    badge: "Thermal · Adhesive · Printed · Barcode",
+    items: [
+      "Plain Labels",
+      "Printed Labels",
+      "Barcode Labels",
+      "Product Labels",
+      "Self Adhesive Labels",
+      "Thermal Labels"
+    ]
+  },
+  {
+    id: "tapes",
+    name: "Tapes",
+    badge: "BOPP Tapes · Custom Printed · Silicon Sealing",
+    items: [
+      "BOPP Tapes",
+      "Printed BOPP Tapes",
+      "Coloured BOPP Tapes",
+      "Silicon Tapes"
+    ]
+  },
+  {
+    id: "pp-strap",
+    name: "PP Strap",
+    badge: "PP Strapping · PET Strapping · Custom Printed",
+    items: [
+      "PP Strap",
+      "Printed PP Strap",
+      "Colored PP Strap",
+      "PET Strap"
+    ]
+  }
+];
 
 export default function ProductInquiryForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [activeCategoryId, setActiveCategoryId] = useState<string>("film-products");
 
   const [formData, setFormData] = useState({
     fullName: "",
     companyName: "",
     email: "",
     phone: "",
-    productInterest: "PP Strapping Rolls",
-    monthlyVolume: "500 kg - 2 Tons",
+    productInterest: "POF Shrink Rolls & Pouches",
+    monthlyVolume: "",
     notes: "",
   });
+
+  const activeGroup = mainCategoryGroups.find((g) => g.id === activeCategoryId) || mainCategoryGroups[0];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,231 +115,276 @@ export default function ProductInquiryForm() {
   };
 
   return (
-    <section id="inquiry-form" className="relative overflow-hidden bg-white py-16 sm:py-24 border-b border-[var(--color-line)]">
-      {/* Subtle Background Accent */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-[var(--color-blue)]/5 blur-3xl pointer-events-none" />
+    <section id="inquiry-form" className="relative overflow-hidden bg-[var(--color-bone)] py-16 sm:py-24 border-t border-b border-[var(--color-line)]">
+      {/* Background Atmosphere */}
+      <div className="absolute inset-0 bg-stripes opacity-20 pointer-events-none" />
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[900px] rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        
+        {/* Main Integrated Split Container matching WinnerPack UI/UX Design System */}
+        <div className="overflow-hidden rounded-3xl border border-[var(--color-line)] bg-white shadow-2xl grid grid-cols-1 lg:grid-cols-12">
           
-          {/* Left Column: Heading & Value Proposition */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-5 space-y-6"
-          >
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.12]">
-              Request Custom Technical Spec Sheet & Quote
-            </h2>
-
-            <p className="text-sm sm:text-base md:text-lg text-[var(--color-mute)] leading-relaxed font-normal">
-              Tell us your payload profile, line speed, and monthly volume. Our technical packaging engineers analyze your requirements and provide tailored spec sheets, cost-per-pack optimization, and samples within 24 hours.
-            </p>
-
-            {/* Feature Highlights */}
-            <div className="space-y-4 pt-4 border-t border-[var(--color-line)]">
-              <div className="flex items-start gap-3.5">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[var(--color-blue-soft)] text-[var(--color-blue)]">
-                  <Clock className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-[var(--color-ink)]">24-Hour Dispatch & Quote turn-around</h4>
-                  <p className="text-xs text-[var(--color-mute)] mt-0.5">Guaranteed prompt response from our Ghaziabad plant desk.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3.5">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[var(--color-blue-soft)] text-[var(--color-blue)]">
-                  <ShieldCheck className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-[var(--color-ink)]">Free Sample Testing Kit</h4>
-                  <p className="text-xs text-[var(--color-mute)] mt-0.5">Validate tensile strength, gauge tolerance, and adhesive cling on your line.</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column: Detailed Product Inquiry Form Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-7 w-full"
-          >
-            <div className="bg-[var(--color-bone)] border border-[var(--color-line)] rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl relative overflow-hidden">
+          {/* LEFT COLUMN: WinnerPack Light Top Narrative + WinnerPack Deep Navy Bottom Panel */}
+          <div className="lg:col-span-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--color-line)]">
+            
+            {/* Top Light Block */}
+            <div className="bg-[var(--color-bone)] p-8 sm:p-12 lg:p-14 space-y-4">
+              <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
+                Technical Specification & Quote
+              </span>
               
-              <div className="mb-6">
-                <h3 className="font-display text-xl sm:text-2xl font-bold text-[var(--color-ink)]">
-                  Product Inquiry Form
-                </h3>
-                <p className="text-xs sm:text-sm text-[var(--color-mute)] mt-1">
-                  Fill in your details below to receive a custom quote and material sample.
-                </p>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--color-ink)] leading-[1.15] text-balance">
+                Tell us your line speed. <br className="hidden sm:inline" />
+                We&apos;ll spec the right roll, film & strapping.
+              </h2>
+
+              <p className="text-sm sm:text-base text-[var(--color-mute)] leading-relaxed font-normal">
+                Share your SKU, payload profile and monthly volume. Our application team responds with a tailored spec sheet and indicative pricing within one business day.
+              </p>
+            </div>
+
+            {/* Bottom WinnerPack Deep Navy Block with 2 Service Highlights */}
+            <div className="bg-[var(--color-blue-deep)] p-8 sm:p-12 lg:p-14 text-white space-y-8 flex-1 flex flex-col justify-center">
+              
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-[var(--color-amber)] border border-white/15">
+                  <Zap className="h-6 w-6" />
+                </div>
+                <div>
+                  <h4 className="font-display text-base sm:text-lg font-bold text-white leading-snug">
+                    Direct Application Engineering Consultation
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed font-normal">
+                    Get personalized guidance on gauge thickness, elongation percentage, and load stabilization tailored to your plant lines.
+                  </p>
+                </div>
               </div>
 
-              {submitted ? (
-                <div className="py-10 text-center space-y-4">
-                  <div className="h-16 w-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="h-10 w-10" />
-                  </div>
-                  <h4 className="font-display text-2xl font-bold text-[var(--color-ink)]">Inquiry Received!</h4>
-                  <p className="max-w-md mx-auto text-sm text-[var(--color-mute)] leading-relaxed">
-                    Thank you for submitting your specifications. Our technical engineering team is reviewing your requirements and will reach out within 1 business day.
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="mt-4 px-6 py-2.5 rounded-full bg-[var(--color-blue)] text-white text-xs font-bold hover:bg-[var(--color-blue-deep)] transition-colors"
-                  >
-                    Submit Another Inquiry
-                  </button>
+              <div className="flex items-start gap-4 pt-6 border-t border-white/10">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-[var(--color-amber)] border border-white/15">
+                  <ShieldCheck className="h-6 w-6" />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                  
-                  {/* Name & Company */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--color-ink)] mb-1.5">
-                        Full Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Rajesh Sharma"
-                        value={formData.fullName}
-                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        className="w-full rounded-xl border border-[var(--color-line)] bg-white px-4 py-3 text-sm text-[var(--color-ink)] placeholder-slate-400 focus:border-[var(--color-blue)] focus:outline-none transition-colors"
-                      />
-                    </div>
+                <div>
+                  <h4 className="font-display text-base sm:text-lg font-bold text-white leading-snug">
+                    Free Material Sample Kit & Automated Line Testing
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed font-normal">
+                    We&apos;ll supply physical sample rolls and tapes to assess your packaging system and validate feed reliability on your automated machinery.
+                  </p>
+                </div>
+              </div>
 
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--color-ink)] mb-1.5">
-                        Company Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Winner Packaging Ltd"
-                        value={formData.companyName}
-                        onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                        className="w-full rounded-xl border border-[var(--color-line)] bg-white px-4 py-3 text-sm text-[var(--color-ink)] placeholder-slate-400 focus:border-[var(--color-blue)] focus:outline-none transition-colors"
-                      />
-                    </div>
-                  </div>
+              {/* Direct Quick Contact Bar */}
+              <div className="pt-6 border-t border-white/10 flex flex-wrap gap-4 text-xs font-medium text-slate-300">
+                <a href="mailto:sales@winnerpack.in" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
+                  <Mail className="h-4 w-4 text-[var(--color-amber)]" />
+                  <span>sales@winnerpack.in</span>
+                </a>
+                <a href="tel:+918595072187" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
+                  <Phone className="h-4 w-4 text-[var(--color-amber)]" />
+                  <span>+91 85950 72187</span>
+                </a>
+              </div>
 
-                  {/* Email & Phone */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--color-ink)] mb-1.5">
-                        Email Address <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="name@company.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full rounded-xl border border-[var(--color-line)] bg-white px-4 py-3 text-sm text-[var(--color-ink)] placeholder-slate-400 focus:border-[var(--color-blue)] focus:outline-none transition-colors"
-                      />
-                    </div>
+            </div>
 
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--color-ink)] mb-1.5">
-                        Phone / WhatsApp <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="+91 98765 43210"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full rounded-xl border border-[var(--color-line)] bg-white px-4 py-3 text-sm text-[var(--color-ink)] placeholder-slate-400 focus:border-[var(--color-blue)] focus:outline-none transition-colors"
-                      />
-                    </div>
-                  </div>
+          </div>
 
-                  {/* Product Interest & Monthly Requirement */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--color-ink)] mb-1.5">
-                        Product Interest <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        value={formData.productInterest}
-                        onChange={(e) => setFormData({ ...formData, productInterest: e.target.value })}
-                        className="w-full rounded-xl border border-[var(--color-line)] bg-white px-4 py-3 text-sm text-[var(--color-ink)] focus:border-[var(--color-blue)] focus:outline-none transition-colors"
-                      >
-                        <option value="PP Strapping Rolls">PP Strapping Rolls</option>
-                        <option value="PET Strapping Rolls">PET Strapping Rolls</option>
-                        <option value="POF Shrink Film">POF Shrink Film</option>
-                        <option value="PVC Shrink Rolls">PVC Shrink Rolls</option>
-                        <option value="BOPP Packaging Tapes">BOPP Packaging Tapes</option>
-                        <option value="Bubble Roll & EPE Foam">Bubble Roll & EPE Foam</option>
-                        <option value="Courier Bags & Poly Bags">Courier Bags & Poly Bags</option>
-                        <option value="Machine & Manual Stretch Film">Machine & Manual Stretch Film</option>
-                        <option value="Edge Protectors & Pallet Covers">Edge Protectors & Pallet Covers</option>
-                        <option value="Custom Industrial Machinery">Custom Industrial Machinery</option>
-                      </select>
-                    </div>
+          {/* RIGHT COLUMN: WinnerPack Modern Clean Form Card */}
+          <div className="lg:col-span-6 bg-white p-8 sm:p-12 lg:p-14 flex flex-col justify-center">
+            
+            <div className="mb-6 pb-4 border-b border-[var(--color-line)]">
+              <h3 className="font-display text-xl sm:text-2xl font-extrabold text-[var(--color-ink)]">
+                Request Spec Sheet & Free Quote
+              </h3>
+              <p className="text-xs sm:text-sm text-[var(--color-mute)] mt-1">
+                Select your product range and enter your payload requirements.
+              </p>
+            </div>
 
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--color-ink)] mb-1.5">
-                        Monthly Requirement <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        value={formData.monthlyVolume}
-                        onChange={(e) => setFormData({ ...formData, monthlyVolume: e.target.value })}
-                        className="w-full rounded-xl border border-[var(--color-line)] bg-white px-4 py-3 text-sm text-[var(--color-ink)] focus:border-[var(--color-blue)] focus:outline-none transition-colors"
-                      >
-                        <option value="Under 500 kg / Sample Request">Under 500 kg / Sample Request</option>
-                        <option value="500 kg - 2 Tons">500 kg - 2 Tons</option>
-                        <option value="2 Tons - 5 Tons">2 Tons - 5 Tons</option>
-                        <option value="5+ Tons / Container Load">5+ Tons / Container Load</option>
-                      </select>
-                    </div>
-                  </div>
+            {submitted ? (
+              <div className="py-12 text-center space-y-6">
+                <div className="h-16 w-16 bg-[var(--color-blue-deep)] text-white rounded-full flex items-center justify-center mx-auto shadow-md">
+                  <CheckCircle2 className="h-10 w-10 text-[var(--color-amber)]" />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-display text-2xl font-bold text-[var(--color-ink)]">Inquiry Received!</h4>
+                  <p className="max-w-md mx-auto text-xs sm:text-sm text-[var(--color-mute)] leading-relaxed">
+                    Thank you. Our technical application engineering team will send your customized spec sheet and indicative pricing within one business day.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="mt-4 px-8 py-3.5 rounded-full bg-[var(--color-amber)] text-white text-xs font-bold uppercase tracking-wider hover:bg-[var(--color-amber-dark)] transition-all cursor-pointer shadow-md"
+                >
+                  Submit Another Inquiry
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                
+                {/* Full Name */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. Rahul Sharma"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    className="w-full rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-5 py-3.5 text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs"
+                  />
+                </div>
 
-                  {/* Specifications & Notes */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[var(--color-ink)] mb-1.5">
-                      Specification Notes / Remarks
+                {/* Company Name & Email */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
+                      Company Name <span className="text-red-500">*</span>
                     </label>
-                    <textarea
-                      rows={3}
-                      placeholder="Specify required width (mm), gauge/microns, core size, color, or special handling..."
-                      value={formData.notes}
-                      onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full rounded-xl border border-[var(--color-line)] bg-white px-4 py-3 text-sm text-[var(--color-ink)] placeholder-slate-400 focus:border-[var(--color-blue)] focus:outline-none transition-colors resize-none"
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Winner Packaging Ltd"
+                      value={formData.companyName}
+                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                      className="w-full rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-5 py-3.5 text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs"
                     />
                   </div>
 
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full py-4 px-6 rounded-xl bg-[var(--color-amber)] text-white text-sm font-extrabold uppercase tracking-wider shadow-xl shadow-[var(--color-amber)]/25 hover:bg-[var(--color-amber-dark)] transition-all flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    {loading ? (
-                      <span>Submitting Inquiry...</span>
-                    ) : (
-                      <>
-                        <span>Request Instant Spec Sheet & Quote</span>
-                        <Send className="h-4 w-4" />
-                      </>
-                    )}
-                  </button>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="name@company.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-5 py-3.5 text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs"
+                    />
+                  </div>
+                </div>
 
-                </form>
-              )}
+                {/* Phone Number */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
+                    Phone / WhatsApp Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    placeholder="+91 98765 43210"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-5 py-3.5 text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs"
+                  />
+                </div>
 
-            </div>
-          </motion.div>
+                {/* Category & Product Select */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
+                    Product Interest & Specification <span className="text-red-500">*</span>
+                  </label>
+                  
+                  {/* Category Pills */}
+                  <div className="flex overflow-x-auto gap-2 pb-1 scrollbar-none mb-1.5">
+                    {mainCategoryGroups.map((group) => {
+                      const isActive = activeCategoryId === group.id;
+                      return (
+                        <button
+                          type="button"
+                          key={group.id}
+                          onClick={() => {
+                            setActiveCategoryId(group.id);
+                            setFormData((prev) => ({ ...prev, productInterest: group.items[0] }));
+                          }}
+                          className={`flex-none px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border cursor-pointer ${
+                            isActive
+                              ? "bg-[var(--color-blue-deep)] text-white border-[var(--color-blue-deep)] shadow-sm"
+                              : "bg-[var(--color-bone)] text-[var(--color-ink)] border-[var(--color-line)] hover:bg-white"
+                          }`}
+                        >
+                          {group.name}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  <div className="relative">
+                    <select
+                      value={formData.productInterest}
+                      onChange={(e) => setFormData({ ...formData, productInterest: e.target.value })}
+                      className="w-full rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-5 py-3.5 text-sm text-[var(--color-ink)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all appearance-none cursor-pointer pr-10 shadow-xs"
+                    >
+                      {activeGroup.items.map((item) => (
+                        <option key={item} value={item} className="bg-white text-slate-900 py-2">
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-5 text-[var(--color-mute)]">
+                      <ChevronDown className="h-4 w-4" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Monthly Volume */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
+                    Monthly Volume Requirement / Line Speed <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. 500 kg, 2 Tons/month, 100 rolls..."
+                    value={formData.monthlyVolume}
+                    onChange={(e) => setFormData({ ...formData, monthlyVolume: e.target.value })}
+                    className="w-full rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-5 py-3.5 text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs"
+                  />
+                </div>
+
+                {/* Additional Message / Requirements */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
+                    Message / Specific Requirements
+                  </label>
+                  <textarea
+                    rows={3}
+                    placeholder="Enter any specific roll widths, micron specs, core size, or machinery details..."
+                    value={formData.notes}
+                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                    className="w-full rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-5 py-3.5 text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs resize-none"
+                  />
+                </div>
+
+                {/* Submit CTA Button */}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-4 px-8 rounded-full bg-[var(--color-amber)] hover:bg-[var(--color-amber-dark)] text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-lg shadow-[var(--color-amber)]/25 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer mt-4 hover:scale-[1.02]"
+                >
+                  {loading ? (
+                    <span>Generating Spec Request...</span>
+                  ) : (
+                    <>
+                      <span>Request Spec Sheet & Quote</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </>
+                  )}
+                </button>
+
+              </form>
+            )}
+
+          </div>
 
         </div>
+
       </div>
     </section>
   );

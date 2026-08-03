@@ -57,7 +57,7 @@ export default function HeroSlider() {
   const [desktopRightBanner, setDesktopRightBanner] = useState<string>(DEFAULT_DESKTOP_BANNER);
   const [current, setCurrent] = useState(0);
 
-  // Fetch dynamic content from API (shared cache — deduplicated with sibling components)
+  // Fetch dynamic content from API
   useEffect(() => {
     fetchContent("homepage")
       .then((data) => {
@@ -90,30 +90,23 @@ export default function HeroSlider() {
     setCurrent((prev) => (prev + 1) % slides.length);
   };
 
-  // Pick the correct slide image based on viewport (always use desktop image path)
   const currentSlideImage = slides[current]?.desktopMediaUrl || slides[current]?.image || "";
-
-  // Pick the correct right banner (always use desktop banner path)
   const currentRightBanner = desktopRightBanner;
 
   return (
-    <section className="relative h-[25vh] md:h-[72vh] w-full overflow-hidden bg-[var(--color-ink)] text-white">
-      {/* Background patterns */}
-      <div className="absolute inset-0 bg-grid-dark opacity-35 z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-noise opacity-20 z-10 pointer-events-none" />
-
-      {/* Split Layout (Desktop: 70/30, Mobile & Tablet/iPad: 100% slider width) */}
+    <section className="relative h-[25vh] md:h-[72vh] w-full overflow-hidden bg-black text-white select-none">
+      {/* Split Layout */}
       <div className="absolute inset-x-0 bottom-0 top-0 h-full z-0 flex gap-0">
 
-        {/* Left Side: Animated Slider (100% width on Mobile/Tablet/iPad, 70% width on Desktop lg+) */}
-        <div className="relative w-full lg:w-[70%] h-full overflow-hidden lg:border-r lg:border-white/10">
-          <AnimatePresence mode="wait">
+        {/* Left Side: Animated Slider */}
+        <div className="relative w-full lg:w-[70%] h-full overflow-hidden bg-black">
+          <AnimatePresence>
             <motion.div
               key={current}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
               className="absolute inset-0 h-full w-full"
             >
               <div
@@ -126,7 +119,7 @@ export default function HeroSlider() {
           {/* Navigation Arrows */}
           <button
             onClick={handlePrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white transition hover:bg-white hover:text-black focus:outline-none"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white transition hover:bg-white hover:text-black focus:outline-none cursor-pointer"
             aria-label="Previous slide"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -134,17 +127,17 @@ export default function HeroSlider() {
 
           <button
             onClick={handleNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white transition hover:bg-white hover:text-black focus:outline-none"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white transition hover:bg-white hover:text-black focus:outline-none cursor-pointer"
             aria-label="Next slide"
           >
             <ArrowRight className="h-4 w-4" />
           </button>
         </div>
 
-        {/* Right Side: Static Banner (30% width on Desktop lg+, hidden on mobile/tablet/iPad) */}
-        <div className="relative hidden lg:block lg:w-[30%] h-full overflow-hidden bg-[var(--color-ink)] group">
+        {/* Right Side: Static Banner */}
+        <div className="relative hidden lg:block lg:w-[30%] h-full overflow-hidden bg-black">
           <div
-            className="absolute inset-0 bg-[length:100%_100%] bg-center bg-no-repeat transition-all duration-700 group-hover:scale-105"
+            className="absolute inset-0 bg-[length:100%_100%] bg-center bg-no-repeat"
             style={{ backgroundImage: `url('${currentRightBanner}')` }}
           />
         </div>
@@ -157,8 +150,9 @@ export default function HeroSlider() {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? "w-8 bg-[var(--color-amber)]" : "w-2 bg-white/40"
-              }`}
+            className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+              i === current ? "w-8 bg-[var(--color-amber)]" : "w-2 bg-white/40"
+            }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}

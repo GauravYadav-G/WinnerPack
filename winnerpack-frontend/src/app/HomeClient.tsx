@@ -6,11 +6,11 @@ import AboutStrip from "../components/AboutStrip";
 import Industries from "../components/Industries";
 import ProductCategories from "../components/ProductCategories";
 import WhyChooseUs from "../components/WhyChooseUs";
+import ProductApplicationsSlider from "../components/ProductApplicationsSlider";
 import ClientLogoStrip from "../components/ClientLogoStrip";
 import Certifications from "../components/Certifications";
 import Journey from "../components/Journey";
 import ProductInquiryForm from "../components/ProductInquiryForm";
-import CTABanner from "../components/CTABanner";
 import Footer from "../components/Footer";
 import Cursor from "../components/Cursor";
 import ScrollProgress from "../components/ScrollProgress";
@@ -28,9 +28,7 @@ export default function Page() {
       
       {/* 1 & 2. Top utility bar + Main navigation */}
       <Navbar />
-      
 
-      
       <PageWrapper>
         {/* 3. Hero slider */}
         <HeroSlider />
@@ -45,6 +43,9 @@ export default function Page() {
         {/* 8. USP + stats row (+ Scroll Ticker) */}
         <WhyChooseUs />
 
+        {/* Real-World Applications Horizontal Slider */}
+        <ProductApplicationsSlider />
+
         {/* 10. Trusted Partners / Clients logo strip */}
         <ClientLogoStrip />
 
@@ -56,15 +57,10 @@ export default function Page() {
 
         {/* Detailed Product Inquiry Form Section */}
         <ProductInquiryForm />
-
-        {/* 13. Enquiry CTA band */}
-        <CTABanner />
       </PageWrapper>
 
       {/* 20. Footer */}
       <Footer />
-
-      {/* 21. Floating elements */}
       <FloatingWidgets />
     </div>
   );

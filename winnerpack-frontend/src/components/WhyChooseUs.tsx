@@ -75,39 +75,17 @@ export default function WhyChooseUs() {
       <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-        <div className="mb-12 md:mb-16">
-
+        <div className="mb-12 md:mb-16 text-center max-w-4xl mx-auto flex flex-col items-center">
+          <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono mb-2">
+            Why WinnerPack
+          </span>
           <h2 className="font-display text-2xl font-extrabold leading-[1.15] tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-5xl text-balance">
-            Six reasons procurement teams renew our contract every year.
+            Six reasons procurement teams renew our contract every year
           </h2>
+          <div className="mt-4 h-1.5 w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
         </div>
 
-        {/* Mobile: horizontal snap-scroll | Desktop: grid */}
-        {/* Mobile strip */}
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 sm:hidden scrollbar-none">
-          {uspsList.map((u, i) => {
-            const IconComponent = iconMap[u.icon] || Tag;
-            return (
-              <div
-                key={u.title}
-                className="group relative flex-shrink-0 w-[72vw] max-w-[280px] snap-start overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white p-5 min-h-[200px] shadow-sm"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-mono text-[10px] font-bold text-[var(--color-line-2)]">0{i + 1}</span>
-                  <div className="h-px flex-1 bg-[var(--color-line)]" />
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)]">
-                    <IconComponent className="h-4 w-4" strokeWidth={2} />
-                  </div>
-                </div>
-                <h3 className="font-display text-base font-bold text-[var(--color-ink)] leading-tight mb-2">{u.title}</h3>
-                <p className="text-xs text-[var(--color-mute)] leading-relaxed line-clamp-4">{u.text}</p>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Desktop grid */}
-        <div className="hidden sm:grid gap-px overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-line)] grid-cols-2 lg:grid-cols-3 shadow-xl" data-reveal>
+        <div className="grid gap-px overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-line)] grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 shadow-xl" data-reveal>
           {uspsList.map((u, i) => {
             const IconComponent = iconMap[u.icon] || Tag;
             return (

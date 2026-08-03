@@ -62,7 +62,7 @@ export const TIMELINE = [
     // VERIFIED — winnerpack.in/about/ confirms founding year and name;
     // the specific "focused distributor and trader for Ghaziabad-region
     // manufacturers" framing is embellishment, trimmed to what's stated.
-    text: "Winner Pack Technologies Pvt. Ltd. was established in 2018, based in Ghaziabad, supplying packaging materials and machines."
+    text: "Winner Pack Technologies Pvt. Ltd. was established in 2018, based in Ghaziabad, supplying premium B2B industrial packaging materials."
   },
   {
     year: "2020",
@@ -86,11 +86,11 @@ export const TIMELINE = [
   },
   {
     year: "2024",
-    title: "Full Product & Machine Portfolio",
-    // Product/machine category breadth IS verified (matches site nav).
+    title: "Full Product Portfolio",
+    // Product/category breadth IS verified (matches site nav).
     // "600+ enterprise clients" is the same unverified figure as STATS —
     // removed rather than repeated.
-    text: "Expanded into shrink wrap, bundling, flow pack and vacuum packaging machinery alongside a complete range of films, labels, protective packaging and courier bags." // VERIFIED (category breadth only; client count removed — see STATS note)
+    text: "Expanded product portfolio across LDPE, POF, Coloured films & pouches, BOPP films & pouches, PVC shrink rolls & pouches, Stretch film, Lamination films & pouches, and Compostable films & pouches."
   }
 ];
 
@@ -142,9 +142,5 @@ export const FAQS = [
   {
     title: "Are your films and strapping recyclable?",
     content: "TODO: confirm recyclability claims and whether PCR (post-consumer recycled) content options actually exist before publishing — this wasn't found on the live site."
-  },
-  {
-    title: "Do you provide on-site machine servicing?",
-    content: "TODO: confirm actual service coverage/locations before publishing a specific city list — no evidence of a multi-city field service team was found."
   }
 ];

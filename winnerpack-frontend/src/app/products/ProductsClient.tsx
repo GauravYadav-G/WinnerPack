@@ -52,7 +52,7 @@ function ProductsContent() {
             </div>
 
             {/* 3 CATEGORY CARDS — Square Shape Aspect Ratio with Products Listed Inside */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
               {productCategories.map((cat, i) => (
                 <motion.div
                   key={cat.id}
@@ -63,7 +63,7 @@ function ProductsContent() {
                 >
                   <Link
                     href={`/product-category/${cat.id}`}
-                    className="group relative flex flex-col overflow-hidden rounded-xl border border-[var(--color-line)] bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-[0.99] sm:active:scale-100 block h-full"
+                    className="group relative flex flex-col overflow-hidden rounded-xl border border-[var(--color-line)] bg-white transition-all duration-500 hover:border-[var(--color-blue)]/20 hover:shadow-lift hover:-translate-y-1 active:scale-[0.99] sm:active:scale-100 block h-full"
                   >
                     {/* Square Shape Aspect Ratio for Image */}
                     <div className="relative aspect-square w-full overflow-hidden bg-[var(--color-bone)]">
@@ -71,14 +71,14 @@ function ProductsContent() {
                         src={cat.image}
                         alt={cat.title}
                         loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                     </div>
 
                     {/* Category Title at Bottom */}
-                    <div className="py-2.5 sm:py-3.5 px-3 sm:px-4 text-center border-t border-[var(--color-line)] bg-white flex items-center justify-center min-h-[44px] sm:min-h-[56px]">
-                      <h3 className="font-display text-xs sm:text-sm font-semibold tracking-tight text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-blue)] leading-tight line-clamp-2">
+                    <div className="py-4 px-4 text-center border-t border-[var(--color-line)] bg-white flex items-center justify-center min-h-[56px]">
+                      <h3 className="font-display text-sm sm:text-base font-semibold tracking-tight text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-blue)] leading-tight line-clamp-2">
                         {cat.title}
                       </h3>
                     </div>

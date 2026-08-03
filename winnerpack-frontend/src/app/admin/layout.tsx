@@ -9,7 +9,6 @@ import {
   LogOut,
   ChevronRight,
   Package,
-  Wrench,
   Image as ImageIcon,
   Info,
   CheckCircle,
@@ -121,7 +120,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { label: "Partners & Industries", href: "/admin/partners", icon: Users },
     { label: "Buyer Journey", href: "/admin/journey", icon: Route },
     { label: "Products", href: "/admin/products", icon: Package },
-    { label: "Machines", href: "/admin/machines", icon: Wrench },
     { label: "Inquiries", href: "/admin/inquiries", icon: Inbox },
     { label: "Blogs", href: "/admin/blogs", icon: FileText },
   ];

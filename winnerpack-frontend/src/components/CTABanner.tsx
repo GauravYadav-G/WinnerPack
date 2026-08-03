@@ -21,7 +21,7 @@ export default function CTABanner() {
 
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] tracking-tight text-[var(--color-ink)] text-balance">
               Tell us your line speed. <br />
-              We&apos;ll spec the right roll, film and machine.
+              We&apos;ll spec the right roll, film, and strapping roll.
             </h2>
             
             <p className="max-w-xl text-sm sm:text-base md:text-lg text-[var(--color-mute)] font-normal leading-relaxed">

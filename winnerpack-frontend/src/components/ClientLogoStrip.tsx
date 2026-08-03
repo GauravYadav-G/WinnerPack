@@ -7,349 +7,57 @@ interface ClientBrand {
   renderLogo: () => React.ReactNode;
 }
 
-const clientBrands: ClientBrand[] = [
-  // Original Brand Logo Assets
+const row1Brands: ClientBrand[] = [
   {
     name: "Lava",
     renderLogo: () => (
-      <img src="/Brand_logo/lava.png" alt="Lava" className="max-h-8 sm:max-h-10 max-w-[120px] sm:max-w-[130px] w-auto h-auto object-contain" />
+      <img src="/Brand_logo/lava.png" alt="Lava" className="max-h-12 sm:max-h-16 max-w-[160px] sm:max-w-[200px] w-auto h-auto object-contain drop-shadow-xs" />
     ),
   },
   {
     name: "Vivo",
     renderLogo: () => (
-      <img src="/Brand_logo/vivo.png" alt="Vivo" className="max-h-8 sm:max-h-10 max-w-[120px] sm:max-w-[130px] w-auto h-auto object-contain" />
+      <img src="/Brand_logo/vivo.png" alt="Vivo" className="max-h-12 sm:max-h-16 max-w-[160px] sm:max-w-[200px] w-auto h-auto object-contain drop-shadow-xs" />
     ),
   },
   {
     name: "Noise",
     renderLogo: () => (
-      <img src="/Brand_logo/noise.png" alt="Noise" className="max-h-8 sm:max-h-10 max-w-[120px] sm:max-w-[130px] w-auto h-auto object-contain" />
+      <img src="/Brand_logo/noise.png" alt="Noise" className="max-h-12 sm:max-h-16 max-w-[160px] sm:max-w-[200px] w-auto h-auto object-contain drop-shadow-xs" />
     ),
   },
   {
     name: "Fire-Boltt",
     renderLogo: () => (
-      <img src="/Brand_logo/firebolt.png" alt="Fire-Boltt" className="max-h-8 sm:max-h-10 max-w-[120px] sm:max-w-[130px] w-auto h-auto object-contain" />
+      <img src="/Brand_logo/firebolt.png" alt="Fire-Boltt" className="max-h-12 sm:max-h-16 max-w-[160px] sm:max-w-[200px] w-auto h-auto object-contain drop-shadow-xs" />
     ),
   },
-  // Row 1
-  {
-    name: "Adani",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-extrabold text-2xl sm:text-3xl tracking-tight text-[#0060a8]">
-          adani<span className="text-[#a51c30] text-xl font-normal">™</span>
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Amway",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl tracking-tight text-[#002f6c] italic font-serif">
-          Amway
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Bisleri",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl tracking-tight text-[#009b84] font-serif">
-          Bisleri<span className="text-xs font-sans align-top text-[#006837]">®</span>
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Britannia",
-    renderLogo: () => (
-      <div className="border-2 border-[#d32f2f] px-3 py-1 rounded bg-white text-center shadow-xs">
-        <span className="font-black text-lg sm:text-xl text-[#d32f2f] uppercase tracking-wider block leading-none">
-          BRITANNIA
-        </span>
-        <span className="text-[7px] text-[#006837] font-semibold block leading-tight">Eat Healthy, Think Better</span>
-      </div>
-    ),
-  },
-  {
-    name: "Coca-Cola",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-bold text-2xl sm:text-3xl text-[#e41e2b] italic font-serif tracking-tighter">
-          Coca-Cola
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Colgate-Palmolive",
-    renderLogo: () => (
-      <div className="flex items-center gap-1">
-        <span className="font-black text-sm sm:text-base text-[#004b87] uppercase tracking-tighter">COLGATE-PALMOLIVE</span>
-      </div>
-    ),
-  },
-  {
-    name: "Dabur",
-    renderLogo: () => (
-      <div className="flex items-center gap-1.5 text-[#00703c]">
-        <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24">
-          <path d="M12 2L4 12h5v10h6V12h5L12 2z" />
-        </svg>
-        <span className="font-bold text-2xl sm:text-3xl italic">Dabur</span>
-      </div>
-    ),
-  },
-  {
-    name: "Del Monte",
-    renderLogo: () => (
-      <div className="bg-[#005a36] border-2 border-[#d32f2f] px-3 py-1 rounded-full text-center shadow-xs">
-        <span className="font-black text-xs sm:text-sm text-[#ffcb05] uppercase tracking-tight block">Del Monte</span>
-        <span className="text-[6px] text-white font-bold block uppercase tracking-widest">Quality</span>
-      </div>
-    ),
-  },
+];
 
-  // Row 2
+const row2Brands: ClientBrand[] = [
   {
-    name: "Dr. Reddy's",
+    name: "Milton",
     renderLogo: () => (
-      <div className="flex items-center gap-1 text-[#3f2b96]">
-        <span className="font-extrabold text-xl sm:text-2xl">Dr.Reddy's</span>
-        <div className="w-3 h-3 rounded-full bg-[#e30045]" />
-      </div>
+      <img src="/Brand_logo/milton.png" alt="Milton" className="max-h-12 sm:max-h-16 max-w-[160px] sm:max-w-[200px] w-auto h-auto object-contain drop-shadow-xs" />
     ),
   },
   {
-    name: "Emami",
+    name: "Ai+",
     renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl text-[#e3000f] tracking-tight">
-          emami
-        </span>
-      </div>
+      <img src="/Brand_logo/aiplus.png" alt="Ai+" className="max-h-12 sm:max-h-16 max-w-[160px] sm:max-w-[200px] w-auto h-auto object-contain drop-shadow-xs" />
     ),
   },
   {
-    name: "Godrej",
+    name: "Bosch",
     renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl text-[#00529b] tracking-tighter font-serif italic">
-          Godrej
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Haldiram's",
-    renderLogo: () => (
-      <div className="bg-[#e31e24] text-white px-3 py-1 rounded-md text-center shadow-xs">
-        <span className="font-bold text-sm sm:text-base tracking-wide italic">Haldiram's</span>
-      </div>
-    ),
-  },
-  {
-    name: "Hindustan Unilever",
-    renderLogo: () => (
-      <div className="flex items-center gap-1 text-[#1428a0]">
-        <span className="font-black text-lg sm:text-xl font-serif">HUL</span>
-      </div>
-    ),
-  },
-  {
-    name: "ITC Limited",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl text-[#003366] tracking-widest">
-          ITC
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Jindal Steel",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-lg sm:text-xl text-[#005a9c] uppercase tracking-wider">
-          JINDAL
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "L'Oréal",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-bold text-xl sm:text-2xl text-slate-900 tracking-widest uppercase">
-          L'ORÉAL
-        </span>
-      </div>
-    ),
-  },
-
-  // Row 3
-  {
-    name: "Lupin",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-xl sm:text-2xl text-[#0072ce] tracking-wide uppercase">
-          LUPIN
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Mother Dairy",
-    renderLogo: () => (
-      <div className="bg-[#007b43] text-white px-3 py-1 rounded text-center">
-        <span className="font-black text-xs sm:text-sm uppercase tracking-tight">MOTHER DAIRY</span>
-      </div>
-    ),
-  },
-  {
-    name: "Nestlé",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-extrabold text-2xl sm:text-3xl text-[#7b512c] font-serif">
-          Nestlé
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "P&G",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl text-[#00205b] font-serif italic">
-          P&G
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Patanjali",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-xl sm:text-2xl text-[#006837] tracking-tight">
-          PATANJALI
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "PepsiCo",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-2xl sm:text-3xl text-[#002d62]">
-          pepsi
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "PIDILITE",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-xl sm:text-2xl text-[#003882] tracking-wider uppercase">
-          PIDILITE
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Radico Khaitan",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-bold text-lg sm:text-xl text-[#8b1538] font-serif">
-          RADICO
-        </span>
-      </div>
-    ),
-  },
-
-  // Row 4
-  {
-    name: "Pfizer",
-    renderLogo: () => (
-      <div className="font-black text-2xl sm:text-3xl text-[#0093d0] font-serif italic">
-        Pfizer
-      </div>
-    ),
-  },
-  {
-    name: "Reckitt Benckiser",
-    renderLogo: () => (
-      <div className="flex items-center gap-1 text-[#002f6c]">
-        <span className="font-black text-sm sm:text-base">Reckitt Benckiser</span>
-      </div>
-    ),
-  },
-  {
-    name: "Samsung",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-xl sm:text-2xl text-[#1428a0] tracking-widest uppercase">
-          SAMSUNG
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "SC Johnson",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-bold text-lg sm:text-xl text-[#d32f2f]">
-          sc<span className="font-black text-slate-900">johnson</span>
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Unilever",
-    renderLogo: () => (
-      <div className="flex flex-col items-center text-[#1f365d]">
-        <span className="font-black text-2xl sm:text-3xl font-serif">Unilever</span>
-      </div>
-    ),
-  },
-  {
-    name: "Wipro",
-    renderLogo: () => (
-      <div className="flex items-center gap-1.5 text-[#333]">
-        <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-blue-600" />
-        <span className="font-bold text-xl sm:text-2xl">wipro</span>
-      </div>
-    ),
-  },
-  {
-    name: "Diageo",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-xl sm:text-2xl text-[#9b2743] uppercase tracking-widest">
-          DIAGEO
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "Wrigley",
-    renderLogo: () => (
-      <div className="flex items-center justify-center">
-        <span className="font-black text-xl sm:text-2xl text-[#0080a4] uppercase tracking-wider">
-          WRIGLEY
-        </span>
-      </div>
+      <img src="/Brand_logo/bosch.svg" alt="Bosch" className="max-h-12 sm:max-h-16 max-w-[160px] sm:max-w-[200px] w-auto h-auto object-contain drop-shadow-xs" />
     ),
   },
 ];
 
 export default function ClientLogoStrip() {
   return (
-    <section id="clients" className="relative overflow-hidden bg-[var(--color-bone)] py-20 sm:py-28 border-t border-b border-[var(--color-line)]">
+    <section id="clients" className="relative overflow-hidden bg-[var(--color-bone)] py-16 sm:py-24 border-t border-b border-[var(--color-line)]">
       {/* Subtle Light Theme Background Accents */}
       <div className="absolute inset-0 bg-stripes opacity-20 pointer-events-none" />
       <div className="absolute inset-0 bg-grid-fine opacity-20 pointer-events-none" />
@@ -357,52 +65,62 @@ export default function ClientLogoStrip() {
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
 
-        {/* Editorial Light Split Header Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 md:mb-20 pb-10 border-b border-[var(--color-line)]">
+        {/* Centered Executive Header */}
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono mb-2">
+            Trusted Partners
+          </span>
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.15]">
+            Brands from all over the world love us!
+          </h2>
+          <div className="mt-4 h-1.5 w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
 
-          {/* Left Column: Big Bold Title */}
-          <div className="lg:col-span-7">
+          <p className="mt-4 text-sm sm:text-base text-[var(--color-mute)] leading-relaxed font-normal">
+            From renowned brands across the globe, our client portfolio showcases the trust and satisfaction of industry leaders, reflecting our commitment to excellence and customer satisfaction.
+          </p>
 
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.1] text-balance">
-              Brands from all over the world love us!
-            </h2>
-          </div>
-
-          {/* Right Column: Detailed Narrative Subtitle + Proof Badges */}
-          <div className="lg:col-span-5 space-y-6">
-            <p className="text-sm sm:text-base text-[var(--color-mute)] leading-relaxed font-normal">
-              From renowned brands across the globe, our client portfolio showcases the trust and satisfaction of brands, reflecting our commitment to excellence and customer satisfaction.
-            </p>
-
-            {/* Quick Proof Metrics Strip */}
-            <div className="grid grid-cols-3 gap-3 pt-4 border-t border-[var(--color-line)]">
-              <div className="flex items-center gap-2">
-                <Globe className="h-4 w-4 text-[var(--color-amber)]" />
-                <span className="text-xs font-semibold text-[var(--color-ink)]">32+ Global Brands</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-[var(--color-amber)]" />
-                <span className="text-xs font-semibold text-[var(--color-ink)]">100% Quality QC</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="h-4 w-4 text-[var(--color-amber)]" />
-                <span className="text-xs font-semibold text-[var(--color-ink)]">ISO Certified</span>
-              </div>
+          {/* Quick Proof Metrics Strip */}
+          <div className="flex flex-wrap items-center justify-center gap-6 pt-6 mt-6 border-t border-[var(--color-line)] w-full">
+            <div className="flex items-center gap-2">
+              <Globe className="h-4 w-4 text-[var(--color-amber)]" />
+              <span className="text-xs font-semibold text-[var(--color-ink)]">Global Brands</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 text-[var(--color-amber)]" />
+              <span className="text-xs font-semibold text-[var(--color-ink)]">100% Quality QC</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Award className="h-4 w-4 text-[var(--color-amber)]" />
+              <span className="text-xs font-semibold text-[var(--color-ink)]">ISO Certified</span>
             </div>
           </div>
-
         </div>
 
-        {/* Symmetric 6-Column Brand Logos Grid (Symmetric bounding spaces) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 items-center justify-items-center">
-          {clientBrands.map((brand) => (
-            <div
-              key={brand.name}
-              className="flex items-center justify-center w-full h-16 sm:h-20 px-3 py-2 transition-all duration-500 hover:scale-108 hover:-translate-y-1 cursor-pointer select-none"
-            >
-              {brand.renderLogo()}
-            </div>
-          ))}
+        {/* Brand Logos Container */}
+        <div className="space-y-6 sm:space-y-8">
+          {/* Row 1: 4 Main Brands (Lava, Vivo, Noise, Fire-Boltt) */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 items-center justify-items-center">
+            {row1Brands.map((brand) => (
+              <div
+                key={brand.name}
+                className="flex items-center justify-center w-full h-24 sm:h-28 px-4 py-3 bg-white/70 backdrop-blur-xs border border-[var(--color-line)]/60 rounded-xl shadow-2xs hover:shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer select-none"
+              >
+                {brand.renderLogo()}
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2: 3 New Brands (Milton, Ai+, Bosch) on Next Line */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto gap-4 sm:gap-6 items-center justify-items-center">
+            {row2Brands.map((brand) => (
+              <div
+                key={brand.name}
+                className="flex items-center justify-center w-full h-24 sm:h-28 px-4 py-3 bg-white/70 backdrop-blur-xs border border-[var(--color-line)]/60 rounded-xl shadow-2xs hover:shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer select-none"
+              >
+                {brand.renderLogo()}
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

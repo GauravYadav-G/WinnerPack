@@ -12,7 +12,7 @@ const links = [
   { label: "About Us", href: "/about-us" },
   { label: "Products", href: "/products", hasMegaMenu: true },
   { label: "Gallery", href: "/gallery" },
-  { label: "Contact", href: "/contact" }
+  { label: "Contact Us", href: "/contact" }
 ];
 
 // Helper to map item names to folder slugs
@@ -24,6 +24,14 @@ function getItemSlug(name: string): string {
     "Product Labels": "product-labels",
     "Self Adhesive Labels": "self-adhesive-labels",
     "Thermal Labels": "thermal-labels",
+    "LDPE Films & Pouches": "ldpe-films-pouches",
+    "POF Films & Pouches": "pof-films-pouches",
+    "Coloured Films & Pouches": "coloured-films-pouches",
+    "BOPP Films & Pouches": "bopp-films-pouches",
+    "PVC Shrink Rolls & Pouches": "pvc-shrink-rolls-pouches",
+    "Stretch Film": "stretch-film",
+    "Lamination Films & Pouches": "lamination-films-pouches",
+    "Compostable Films & Pouches": "compostable-films-pouches",
     "POF Shrink Rolls & Pouches": "pof-shrink-rolls",
     "LDPE Shrink Rolls & Pouches": "ldpe-shrink-rolls",
     "PVC Shrink Rolls, Pouches & Tubes": "pvc-shrink-rolls",
@@ -44,8 +52,6 @@ function getItemSlug(name: string): string {
     "Printed BOPP Tapes": "printed-bopp-tapes",
     "Coloured BOPP Tapes": "coloured-bopp-tapes",
     "Silicon Tapes": "silicon-tapes",
-    "Manual Stretch Film": "manual-stretch-film",
-    "Machine Stretch Film": "machine-stretch-film",
     "Pallet Cover": "pallet-cover",
     "Pallet Liner": "pallet-liner"
   };
@@ -79,9 +85,9 @@ export default function Navbar() {
     <>
       {/* ── TOP BAR (Sticwell Style) ── */}
       <div className="bg-[var(--color-ink)] text-white/70 text-[11px] sm:text-xs py-2 border-b border-white/5 relative z-50">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 flex justify-between items-center flex-wrap gap-2">
+        <div className="max-w-[1536px] mx-auto px-2 sm:px-3 md:px-4 flex justify-between items-center flex-wrap gap-2">
           {/* Left: Contact Info */}
-          <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
+          <div className="flex items-center gap-4 sm:gap-6 flex-wrap -ml-1 sm:-ml-3 md:-ml-4 lg:-ml-5">
             <a href="mailto:sales@winnerpack.in" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
               <Mail className="h-3.5 w-3.5 text-[var(--color-amber)]" />
               <span>sales@winnerpack.in</span>
@@ -105,20 +111,22 @@ export default function Navbar() {
       </div>
 
       {/* ── MAIN NAVBAR (Clean White Navbar with Deep Navy Mega Menu Preview) ── */}
-      <div className="h-[72px] relative z-40">
+      <div className="h-[80px] relative z-40">
         <nav className={cn(
-          "bg-white border-b border-[var(--color-line)] h-[72px] w-full transition-all duration-300 text-[var(--color-ink)]",
+          "bg-white border-b border-[var(--color-line)] h-[80px] w-full transition-all duration-300 text-[var(--color-ink)]",
           scrolled ? "fixed top-0 left-0 z-50 shadow-md bg-white/95 backdrop-blur-md" : "relative z-40"
         )}>
-          <div className="max-w-7xl mx-auto px-5 md:px-8 h-full flex items-center justify-between">
+          <div className="max-w-[1536px] mx-auto px-2 sm:px-3 md:px-4 h-full flex items-center justify-between">
             
             {/* Logo & Brand */}
-            <Link href="/" className="flex items-center gap-3" data-hover>
-              <img src="/logo.png" alt="Winner Pack Logo" className="h-10 w-auto object-contain" />
+            <Link href="/" className="flex items-center gap-3.5 -ml-1 sm:-ml-3 md:-ml-4 lg:-ml-5 group" data-hover>
+              <img src="/logo.png" alt="Winner Pack Logo" className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
               <div className="leading-tight">
-                <div className="font-display text-sm sm:text-base font-bold tracking-tight text-[var(--color-ink)]">Winner Pack</div>
-                <div className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-[var(--color-blue)]">
-                  Technologies
+                <div className="font-display text-base sm:text-lg lg:text-xl font-extrabold tracking-tight text-[var(--color-ink)] leading-none">
+                  Winner Pack
+                </div>
+                <div className="font-mono text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.15em] text-[var(--color-blue)] mt-1">
+                  Technologies Pvt. Ltd.
                 </div>
               </div>
             </Link>
@@ -153,7 +161,7 @@ export default function Navbar() {
                       {/* ── SINGHAL GLOBAL STYLE MEGA MENU DROPDOWN (Reduced Width with Natural Height Layout) ── */}
                       <div
                         className={cn(
-                          "absolute left-1/2 -translate-x-1/2 top-[56px] w-[90vw] max-w-4xl bg-[var(--color-ink)]/98 backdrop-blur-2xl text-white shadow-[0_20px_50px_rgba(0,0,0,0.6)] rounded-xl border border-white/10 p-6 md:p-7 transition-all duration-300 z-50 pointer-events-auto",
+                          "absolute left-1/2 -translate-x-1/2 top-[56px] w-[90vw] max-w-5xl bg-[var(--color-ink)]/98 backdrop-blur-2xl text-white shadow-[0_20px_50px_rgba(0,0,0,0.6)] rounded-xl border border-white/10 p-6 md:p-7 transition-all duration-300 z-50 pointer-events-auto",
                           isProductsHovered
                             ? "opacity-100 visible translate-y-0"
                             : "opacity-0 invisible -translate-y-2 pointer-events-none"
@@ -162,21 +170,21 @@ export default function Navbar() {
                         {/* Top Decorative Amber Line */}
                         <div className="absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r from-transparent via-[var(--color-amber)] to-transparent" />
 
-                        {/* Mega Menu Grid Layout (3 Vertical Category Columns - Width Reduced) */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                        {/* Mega Menu Grid Layout (4 Vertical Category Columns) */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                           {productCategories.map((category) => (
-                            <div key={category.id} className="flex flex-col gap-2.5">
+                            <div key={category.id} className="flex flex-col gap-3">
                               
                               {/* Category Header (Amber Title with Bullet) */}
                               <Link
                                 href={`/product-category/${category.id}`}
-                                className="group flex items-center justify-between border-b border-white/10 pb-2 text-xs font-bold uppercase tracking-wider text-[var(--color-amber)] hover:text-[var(--color-amber-2)] transition-colors"
+                                className="group flex items-center justify-between border-b border-white/10 pb-2 text-xs font-extrabold uppercase tracking-widest text-[var(--color-amber)] hover:text-[var(--color-amber-2)] transition-colors"
                               >
                                 <span>• {category.title}</span>
                               </Link>
 
                               {/* Products List under Category (Natural Vertical List) */}
-                              <ul className="flex flex-col gap-1.5">
+                              <ul className="flex flex-col gap-2">
                                 {category.items.map((item) => {
                                   const slug = getItemSlug(item);
                                   return (
@@ -185,7 +193,7 @@ export default function Navbar() {
                                         href={`/products/${slug}`}
                                         className="group flex items-center text-xs text-white/85 hover:text-[var(--color-amber)] transition-all duration-150 py-0.5"
                                       >
-                                        <span className="inline-block transition-transform duration-150 group-hover:translate-x-1">
+                                        <span className="inline-block transition-transform duration-150 group-hover:translate-x-1.5">
                                           {item}
                                         </span>
                                       </Link>

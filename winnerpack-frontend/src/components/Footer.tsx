@@ -107,13 +107,10 @@ export default function Footer() {
               </h5>
               <ul className="space-y-2.5 text-xs sm:text-sm text-white/60">
                 {[
-                  { label: "Plain & Barcode Labels", href: "/products?cat=labels" },
-                  { label: "POF Shrink Film", href: "/products/pof-shrink-rolls" },
-                  { label: "LDPE Shrink Film", href: "/products/ldpe-shrink-rolls" },
-                  { label: "PP & PET Straps", href: "/products?cat=strapping" },
-                  { label: "Manual & Machine Stretch Film", href: "/products?cat=pallet-wrapping" },
-                  { label: "Bubble Rolls & Pouches", href: "/products/bubble-wrap-rolls" },
-                  { label: "Silicon Tapes", href: "/products/silicon-tapes" }
+                  { label: "Film Products", href: "/product-category/film-products" },
+                  { label: "Labels & Stickers", href: "/product-category/label-sticker-products" },
+                  { label: "Tapes Catalog", href: "/product-category/tapes" },
+                  { label: "PP & PET Straps", href: "/product-category/pp-strap" }
                 ].map((link) => (
                   <li key={link.label}>
                     <Link href={link.href} className="hover:text-white transition-colors duration-200 block py-0.5" data-hover>

@@ -54,7 +54,6 @@ export function ProductCard({ product }: ProductCardProps) {
   const name = product.name || product.title;
   const slug = product.id || product.slug;
   const blurb = product.blurb;
-  const badge = product.badge || product.tag;
   const categoryName =
     product.categoryName ||
     productCategories.find((c) => c.id === product.category)?.title ||
@@ -93,11 +92,6 @@ export function ProductCard({ product }: ProductCardProps) {
             />
           )}
 
-          {badge && (
-            <span className="absolute left-4 top-4 rounded-full bg-[var(--color-amber)] px-3 py-1 font-mono text-[0.62rem] font-bold text-[var(--color-blue-deep)] uppercase tracking-wider">
-              {badge}
-            </span>
-          )}
 
           <span className="absolute bottom-4 left-4 font-mono text-[10px] font-bold uppercase tracking-wider text-white/85">
             {categoryName}
@@ -105,25 +99,25 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
       </Link>
 
-      <div className="flex flex-1 flex-col p-3.5 sm:p-4 md:p-5">
-        <h3 className="font-display text-xs sm:text-base md:text-lg font-bold tracking-tight text-[var(--color-ink)] group-hover:text-[var(--color-blue)] transition-colors duration-300 line-clamp-2 leading-tight">
+      <div className="flex flex-1 flex-col p-4 md:p-5">
+        <h3 className="font-display text-sm sm:text-base md:text-lg font-bold tracking-tight text-[var(--color-ink)] group-hover:text-[var(--color-blue)] transition-colors duration-300 line-clamp-2 leading-tight">
           {name}
         </h3>
-        <p className="mt-1 line-clamp-2 flex-1 text-[11px] sm:text-xs md:text-sm leading-relaxed text-[var(--color-mute)]">
+        <p className="mt-1 line-clamp-2 flex-1 text-xs md:text-sm leading-relaxed text-[var(--color-mute)]">
           {blurb}
         </p>
 
-        <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-between gap-1.5 border-t border-[var(--color-line)] pt-2.5 sm:pt-3">
+        <div className="mt-4 flex items-center justify-between gap-2 border-t border-[var(--color-line)] pt-3">
           <Link
             href={`/products/${slug}`}
-            className="link-underline inline-flex items-center gap-1 text-[11px] sm:text-xs md:text-sm font-semibold text-[var(--color-blue)]"
+            className="link-underline inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-[var(--color-blue)]"
           >
             <span>View</span>
-            <ArrowRight className="h-3 w-3 md:h-3.5 md:w-3.5" />
+            <ArrowRight className="h-3.5 w-3.5" />
           </Link>
           <Link
             href={`/contact?sku=${slug}`}
-            className="inline-flex items-center gap-1 rounded-full bg-[var(--color-blue-soft)] px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-[9px] sm:text-[10px] md:text-xs font-semibold text-[var(--color-blue)] transition-colors hover:bg-[var(--color-amber)] hover:text-[var(--color-blue-deep)]"
+            className="inline-flex items-center gap-1 rounded-full bg-[var(--color-blue-soft)] px-3 py-1.5 md:px-4 md:py-2 text-[10px] sm:text-xs font-semibold text-[var(--color-blue)] transition-colors hover:bg-[var(--color-amber)] hover:text-[var(--color-blue-deep)]"
           >
             Quote
           </Link>

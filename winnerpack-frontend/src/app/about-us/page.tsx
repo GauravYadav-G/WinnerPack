@@ -1,143 +1,326 @@
 "use client";
 
-import { IMAGES } from "@/lib/mock-data";
-import { PageHeader } from "@/components/ui/PageHeader";
-import { Section, Container, Eyebrow } from "@/components/ui/primitives";
-import { Reveal, Stagger, StaggerItem } from "@/components/ui/motion";
-import { Gauge, ShieldCheck, Truck } from "lucide-react";
-import CtaBanner from "@/components/CTABanner";
-import DiscoverCompany from "@/components/DiscoverCompany";
-
-// Layout components
+import { ArrowRight, CheckCircle2, Award } from "lucide-react";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
-import { useRevealOnScroll } from "@/hooks";
 import PageWrapper from "@/components/PageWrapper";
 
-const VALUES = [
+/* ─── DIRECTOR DATA ─────────────────────────────────────────────── */
+const DIRECTORS_TOP = [
   {
-    icon: Gauge,
-    title: "Precision over compromise",
-    text: "We specify to the exact gauge, width and grade your line needs — not the nearest catalogue match.",
+    id: "neeraj-yadav",
+    name: "Neeraj Yadav",
+    title: "Founder & Managing Director",
+    image: "/images/desktop/directors/director_md.png",
   },
   {
-    icon: ShieldCheck,
-    title: "Partnership, not transactions",
-    text: "We sit on the same side of the table as your operations team — and we stay engaged long after the purchase order is signed.",
-  },
-  {
-    icon: Truck,
-    title: "Reliability that ships",
-    text: "Consistent stock and a Ghaziabad dispatch base mean your dock date is a commitment we plan around, not a best guess.",
+    id: "board-cofounder",
+    name: "Board of Directors",
+    title: "Co-Founder & COO",
+    image: "/images/desktop/directors/director_coo.png",
   },
 ];
 
-export default function AboutUs() {
-  useRevealOnScroll();
+const DIRECTORS_BOTTOM = [
+  {
+    id: "dir-ops",
+    name: "Director — Operations",
+    title: "Plant & Dispatch Management",
+    image: "/images/desktop/directors/director_ops.png",
+  },
+  {
+    id: "dir-quality",
+    name: "Director — Quality & R&D",
+    title: "Polymer Science & Batch QC",
+    image: "/images/desktop/directors/director_quality.png",
+  },
+  {
+    id: "dir-supply",
+    name: "Director — Supply Chain",
+    title: "Inventory & Logistics SLAs",
+    image: "/images/desktop/directors/director_supply.png",
+  },
+];
 
+/* ─── PAGE ──────────────────────────────────────────────────────── */
+export default function AboutUs() {
   return (
     <div className="min-h-screen bg-[var(--color-bone)] text-[var(--color-text)]">
       <Cursor />
       <ScrollProgress />
       <Navbar />
 
-
       <PageWrapper className="relative">
-        <PageHeader
-          eyebrow="About us"
-          title={
-            <>
-              Built to hold <br />
-              industry together.
-            </>
-          }
-          intro="Since 2018 we have supplied and manufactured the packaging materials that keep Indian industry moving — strapping rolls, films, tapes, and protective packaging solutions."
-          crumbs={[{ label: "Home", to: "/" }, { label: "About us" }]}
-        />
 
-        {/* Background textures */}
-        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+        {/* ════════════════════════════════════════════════════════
+            1. HERO — centred headline + CTA + full-width photo
+            (Fixed navbar top padding gap)
+            ════════════════════════════════════════════════════════ */}
+        <section className="relative pt-2 md:pt-4 pb-8 overflow-hidden">
+          <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
 
-        {/* Story */}
-        <Section className="bg-transparent relative z-10 pt-8 pb-8 md:pt-16 md:pb-16">
-          <Container>
-            <div className="grid items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
-              <Reveal>
-                <Eyebrow>Our story</Eyebrow>
-                <h2 className="mt-3 md:mt-4 text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-[var(--color-ink)] font-display text-balance">
-                  From a strapping distributor to a full-line packaging supplier
-                </h2>
-                <div className="mt-4 space-y-3.5 text-xs md:text-base leading-relaxed text-[var(--color-mute)] text-pretty font-normal">
-                  <p>
-                    Winner Pack Technologies Pvt. Ltd. started in 2018 as a distributor and
-                    trader of strapping and stretch films, serving businesses in the
-                    Ghaziabad region. Within two years we formally incorporated as a
-                    Private Limited company.
-                  </p>
-                  <p>
-                    Today we supply and manufacture strapping, shrink and stretch
-                    films, tapes, corrugated packaging, courier bags and labels across India.
-                    We&apos;re registered under GSTIN 09AACCW6640F1Z8 and CIN U51909UP2020PTC129759,
-                    and we still answer the phone ourselves.
-                  </p>
+          <div className="relative mx-auto max-w-7xl px-5 md:px-8">
+
+            {/* Breadcrumb */}
+            <div className="flex items-center justify-center gap-2 text-xs font-mono font-bold text-[var(--color-mute)] uppercase tracking-widest mb-4">
+              <Link href="/" className="hover:text-[var(--color-ink)] transition-colors">Home</Link>
+              <span>/</span>
+              <span className="text-[var(--color-amber-dark)]">About Us</span>
+            </div>
+
+            {/* Centred headline */}
+            <div className="text-center max-w-3xl mx-auto space-y-4">
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--color-ink)] tracking-tight leading-[1.1]">
+                Built to hold <br />
+                industry together.
+              </h1>
+
+              <p className="text-sm sm:text-base text-[var(--color-mute)] leading-relaxed max-w-xl mx-auto">
+                Since 2018 we have supplied and manufactured the packaging materials that keep Indian industry moving — strapping rolls, films, tapes, and protective packaging solutions.
+              </p>
+
+              <div>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--color-ink)] text-white text-sm font-bold hover:bg-[var(--color-blue-deep)] transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+                >
+                  Talk to our experts
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Full-width 3:1 panoramic factory banner card */}
+            <div className="mt-6 md:mt-8 relative overflow-hidden rounded-3xl border border-[var(--color-line)] shadow-2xl aspect-[21/9] sm:aspect-[2.6/1] bg-slate-950 group">
+              <img
+                src="/images/desktop/about/hero_banner_panoramic_3to1.png"
+                alt="WinnerPack 5-Layer Blown Film Co-Extrusion Line"
+                className="h-full w-full object-cover object-[center_45%] transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none" />
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════════════
+            2. MISSION & VISION — two equal columns
+            ════════════════════════════════════════════════════════ */}
+        <section className="py-12 md:py-16 border-t border-[var(--color-line)]">
+          <div className="mx-auto max-w-7xl px-5 md:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[var(--color-amber-dark)]" />
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-[var(--color-amber-dark)]">Mission</span>
                 </div>
-              </Reveal>
-              <Reveal className="relative mt-2 md:mt-0">
-                <div className="overflow-hidden rounded-3xl border border-[var(--color-line)] shadow-lift">
-                  {/* TODO: swap in an actual Winner Pack site/product photo — 
-                      confirm this isn't a stock/placeholder image before shipping */}
+                <p className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-[var(--color-ink)] leading-snug">
+                  To deliver certified, high-cling, and precision-manufactured packaging materials backed by transparent technical specs and 1-business-day response SLAs.
+                </p>
+              </div>
+
+              <div className="space-y-4 md:border-l md:border-[var(--color-line)] md:pl-16">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[var(--color-amber-dark)]" />
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-[var(--color-amber-dark)]">Vision</span>
+                </div>
+                <p className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-[var(--color-ink)] leading-snug">
+                  To lead the B2B industrial packaging sector by pioneering eco-friendly, high-tensile solutions that empower zero-breakage supply chains across India and beyond.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════════════
+            3. "LET'S GET TO KNOW EACH OTHER" & BOARD OF DIRECTORS
+            (Merged into one unified section; color tints removed from photos)
+            ════════════════════════════════════════════════════════ */}
+        <section id="board-of-directors" className="py-14 md:py-20 border-t border-[var(--color-line)] bg-white">
+          <div className="mx-auto max-w-7xl px-5 md:px-8">
+            
+            {/* Top Row: Title Left + Story Paragraph Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-end mb-12 md:mb-16">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-widest text-[var(--color-amber-dark)] mb-2 block">
+                  Our Leadership & Story
+                </span>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-ink)] leading-tight tracking-tight">
+                  Let&apos;s get to <br />know each other
+                </h2>
+              </div>
+
+              <div className="space-y-4 text-sm sm:text-base text-[var(--color-mute)] leading-relaxed">
+                <p>
+                  Since 2018, Winner Pack Technologies Pvt. Ltd., founded in Ghaziabad, UP, has been dedicated to driving industrial growth through innovative packaging solutions. We focus on creating value and continuously evolving to help businesses succeed.
+                </p>
+                <p>
+                  Registered under GSTIN 09AACCW6640F1Z8 and CIN U51909UP2020PTC129759, we supply and manufacture strapping, shrink and stretch films, tapes, corrugated packaging, courier bags and labels across India — and we still answer the phone ourselves.
+                </p>
+              </div>
+            </div>
+
+            {/* Directors Card Grid (Untinted natural photos) */}
+
+            {/* TOP ROW — 2 large portrait cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+              {DIRECTORS_TOP.map((d) => (
+                <div
+                  key={d.id}
+                  className="relative overflow-hidden rounded-3xl bg-slate-900 shadow-2xl aspect-[4/3] group cursor-pointer border border-[var(--color-line)]"
+                >
+                  {/* Untinted natural image */}
                   <img
-                    src={IMAGES.aboutFactory}
-                    alt="Winner Pack Technologies Pvt. Ltd., Ghaziabad"
-                    loading="lazy"
-                    className="aspect-[16/10] sm:aspect-[4/3] w-full object-cover"
+                    src={d.image}
+                    alt={d.name}
+                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Clean bottom gradient for contrast */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
+
+                  {/* Name / title strip */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 flex items-end justify-between z-10">
+                    <div>
+                      <h3 className="font-display text-lg sm:text-xl font-extrabold text-white leading-tight">
+                        {d.name}
+                      </h3>
+                      <p className="text-[11px] sm:text-xs font-mono text-white/80 uppercase tracking-wider mt-0.5">
+                        {d.title}
+                      </p>
+                    </div>
+
+                    {/* Round "in" badge */}
+                    <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-white flex items-center justify-center shadow-md shrink-0">
+                      <span className="font-bold text-slate-800 text-xs leading-none">in</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* BOTTOM ROW — 3 smaller cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {DIRECTORS_BOTTOM.map((d) => (
+                <div
+                  key={d.id}
+                  className="relative overflow-hidden rounded-2xl bg-slate-900 shadow-xl aspect-[3/4] sm:aspect-[4/5] group cursor-pointer border border-[var(--color-line)]"
+                >
+                  {/* Untinted natural image */}
+                  <img
+                    src={d.image}
+                    alt={d.name}
+                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Clean bottom gradient for contrast */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
+
+                  <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between z-10">
+                    <div>
+                      <h3 className="font-display text-sm sm:text-base font-extrabold text-white leading-tight">
+                        {d.name}
+                      </h3>
+                      <p className="text-[10px] sm:text-[11px] font-mono text-white/75 uppercase tracking-wider mt-0.5">
+                        {d.title}
+                      </p>
+                    </div>
+
+                    <div className="h-8 w-8 rounded-full bg-white flex items-center justify-center shadow-md shrink-0">
+                      <span className="font-bold text-slate-800 text-[10px] leading-none">in</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════════════
+            4. TURNING AMBITIONS INTO RELIABLE OUTCOMES
+            photo left + metrics right
+            ════════════════════════════════════════════════════════ */}
+        <section className="py-14 md:py-20 border-t border-[var(--color-line)]">
+          <div className="mx-auto max-w-7xl px-5 md:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
+
+              <div className="space-y-6">
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-ink)] leading-tight tracking-tight">
+                  Turning ambitions into reliable outcomes
+                </h2>
+
+                <div className="relative overflow-hidden rounded-2xl border border-[var(--color-line)] shadow-xl aspect-[4/3] bg-slate-950 group">
+                  <img
+                    src="/images/desktop/about/film_slitting_machine.png"
+                    alt="Automated High-Speed Film Slitting & Converting Machinery"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="absolute -bottom-4 -left-2 rounded-xl border border-[var(--color-line)] bg-white px-4 py-3 shadow-lift sm:left-5">
-                  <p className="font-mono text-[9px] uppercase tracking-wider text-[var(--color-mute)]">
-                    Operating since
-                  </p>
-                  <p className="font-display text-xl font-bold text-[var(--color-ink)] mt-0.5">
-                    2018 <span className="text-[var(--color-amber)] text-sm">Ghaziabad, UP</span>
-                  </p>
+              </div>
+
+              <div className="space-y-8">
+                <p className="text-sm sm:text-base text-[var(--color-mute)] leading-relaxed">
+                  Partnering with visionary businesses to transform ideas into impactful success stories — driving process, co-extrusion innovation, and creating better outcomes in a competitive market.
+                </p>
+
+                <div className="border-t border-[var(--color-line)] pt-6 space-y-6">
+                  <div>
+                    <div className="font-display text-4xl sm:text-5xl font-extrabold text-[var(--color-amber-dark)]">20+</div>
+                    <p className="text-xs sm:text-sm text-[var(--color-mute)] mt-1.5 leading-relaxed">
+                      Specialized product lines — films, tapes, strapping rolls, protective packaging and labels.
+                    </p>
+                  </div>
+
+                  <div className="border-t border-[var(--color-line)] pt-6">
+                    <div className="font-display text-4xl sm:text-5xl font-extrabold text-[var(--color-ink)]">150+</div>
+                    <p className="text-xs sm:text-sm text-[var(--color-mute)] mt-1.5 leading-relaxed">
+                      Industrial client accounts we have served, shaped, optimized, and launched since 2018.
+                    </p>
+                  </div>
                 </div>
-              </Reveal>
+              </div>
+
             </div>
-          </Container>
-        </Section>
+          </div>
+        </section>
 
-        {/* Values */}
-        <Section className="bg-transparent pt-0 pb-8 md:pb-16 relative z-10">
-          <Container>
-            <Eyebrow>What we stand for</Eyebrow>
-            <h2 className="mt-3 md:mt-4 max-w-2xl text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-[var(--color-ink)] font-display text-balance">
-              Three principles behind every roll, coil and case we ship
-            </h2>
-            <Stagger className="mt-6 md:mt-10 grid gap-4 md:gap-5 md:grid-cols-3">
-              {VALUES.map((v) => {
-                const ValueIcon = v.icon;
-                return (
-                  <StaggerItem key={v.title} className="h-full">
-                    <div className="flex h-full flex-col rounded-2xl border border-[var(--color-line)] bg-white/70 backdrop-blur-sm p-5 md:p-7">
-                      <span className="grid h-10 w-10 md:h-12 md:w-12 place-items-center rounded-xl bg-[var(--color-blue-deep)] text-[var(--color-amber)]">
-                        <ValueIcon className="h-5 w-5 md:h-6 md:w-6" />
-                      </span>
-                      <h3 className="mt-4 md:mt-5 text-base md:text-lg font-semibold text-[var(--color-ink)] font-display">{v.title}</h3>
-                      <p className="mt-1.5 md:mt-2 text-xs md:text-sm leading-relaxed text-[var(--color-mute)]">{v.text}</p>
-                    </div>
-                  </StaggerItem>
-                );
-              })}
-            </Stagger>
-          </Container>
-        </Section>
+        {/* ════════════════════════════════════════════════════════
+            5. CTA BANNER — dark rounded card
+            ════════════════════════════════════════════════════════ */}
+        <section className="py-12 md:py-16 border-t border-[var(--color-line)]">
+          <div className="mx-auto max-w-7xl px-5 md:px-8">
+            <div className="relative overflow-hidden rounded-3xl bg-[var(--color-blue-deep)] p-10 sm:p-14 md:p-20 text-center shadow-2xl">
+              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[var(--color-amber)]/15 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[var(--color-amber)]/10 blur-3xl pointer-events-none" />
 
+              <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
+                <div className="flex items-center justify-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-[var(--color-amber)] border border-white/15">
+                    <Award className="h-6 w-6" />
+                  </div>
+                </div>
 
-        <DiscoverCompany />
+                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
+                  Get a reliable partner that provides solutions to your packaging challenges
+                </h2>
 
-        <CtaBanner />
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[var(--color-ink)] text-sm font-bold hover:bg-[var(--color-amber)] hover:text-white transition-all duration-300 shadow-lg"
+                >
+                  Talk to our engineers
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </PageWrapper>
 
       <Footer />

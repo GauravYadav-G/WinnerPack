@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" fill="none">
+  <circle cx="70" cy="60" r="48" stroke="#0284c7" stroke-width="6" fill="none"/>
+  <text x="70" y="68" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#0284c7" text-anchor="middle">DIN</text>
+  <path d="M45 80 L75 115 L125 40" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="70" y="132" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#1e293b" text-anchor="middle">Geprüft</text>
+</svg>
