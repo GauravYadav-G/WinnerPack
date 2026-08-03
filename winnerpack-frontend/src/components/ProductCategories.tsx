@@ -9,9 +9,9 @@ import { ArrowRight } from "lucide-react";
 export default function ProductCategories() {
   const [activeCatIndex, setActiveCatIndex] = useState(0);
 
-  // Category showcase data mapping for the 4 bento grid slots
+  // Category showcase data mapping for the 4 bento grid slots - matched 100% to category products
   const categoryShowcase = [
-    // 0: Film Products (DEFAULT)
+    // 0: Film Products
     {
       slot1: "/images/desktop/portfolio/gallery_pof_ldpe_shrink.png",
       slot2: "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png",
@@ -21,26 +21,26 @@ export default function ProductCategories() {
     },
     // 1: Labels & Stickers
     {
-      slot1: "/images/desktop/portfolio/gallery_labels_stickers.png",
-      slot2: "/images/desktop/hero-slider/slide-5.png",
-      slot3: "/images/desktop/about/about_hero_panoramic_sharp.png",
-      slot4: "/images/desktop/about/hero_banner_panoramic_3to1.png",
+      slot1: "/images/products/printed-labels/image.png",
+      slot2: "/images/products/barcode-labels/image.png",
+      slot3: "/images/products/product-labels/image.png",
+      slot4: "/images/products/thermal-labels/image.png",
       label: "Labels & Stickers Showcase"
     },
     // 2: Tapes Division
     {
-      slot1: "/images/desktop/portfolio/gallery_bopp_tapes.png",
-      slot2: "/images/desktop/portfolio/showcase_printed_custom_tapes.png",
-      slot3: "/images/desktop/hero-slider/slide-6.png",
-      slot4: "/images/desktop/hero-slider/slide-7.png",
+      slot1: "/images/products/bopp-tapes/image.png",
+      slot2: "/images/products/printed-bopp-tapes/image.png",
+      slot3: "/images/products/coloured-bopp-tapes/image.png",
+      slot4: "/images/products/silicon-tapes/image.png",
       label: "Tapes Division Showcase"
     },
     // 3: PP & PET Strapping
     {
-      slot1: "/images/desktop/portfolio/gallery_pp_strapping.png",
-      slot2: "/images/desktop/about/about_hero_factory_new.png",
-      slot3: "/images/desktop/about/film_slitting_machine.png",
-      slot4: "/images/desktop/about/about_hero_factory.png",
+      slot1: "/images/products/pp-strap/image.png",
+      slot2: "/images/products/pet-strap/image.png",
+      slot3: "/images/products/printed-pp-strap/image.png",
+      slot4: "/images/products/colored-pp-strap/image.png",
       label: "PP & PET Strapping Showcase"
     }
   ];
