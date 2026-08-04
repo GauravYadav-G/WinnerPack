@@ -15,12 +15,24 @@ const applicationSlides: ApplicationImageSlide[] = [
     image: "/images/desktop/portfolio/action_die_ring_bubble.jpg",
   },
   {
+    id: "stretch-pallet-wrapping",
+    image: "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png",
+  },
+  {
     id: "action-polymer-granules-hopper",
     image: "/images/desktop/portfolio/action_polymer_granules_hopper.jpg",
   },
   {
+    id: "pp-strapping-action",
+    image: "/images/desktop/portfolio/gallery_pp_strapping.png",
+  },
+  {
     id: "action-factory-plant-overview",
     image: "/images/desktop/portfolio/action_factory_plant_overview.jpg",
+  },
+  {
+    id: "heavy-ldpe-bags",
+    image: "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
   },
   {
     id: "action-extrusion-tower-blue",
@@ -29,18 +41,6 @@ const applicationSlides: ApplicationImageSlide[] = [
   {
     id: "action-roll-rewinding-slitting",
     image: "/images/desktop/portfolio/action_roll_rewinding_slitting.jpg",
-  },
-  {
-    id: "stretch-pallet-wrapping",
-    image: "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png",
-  },
-  {
-    id: "pp-strapping-action",
-    image: "/images/desktop/portfolio/gallery_pp_strapping.png",
-  },
-  {
-    id: "heavy-ldpe-bags",
-    image: "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
   },
 ];
 
