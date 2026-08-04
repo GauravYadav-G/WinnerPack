@@ -46,21 +46,21 @@ export default function AboutStrip() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 grid grid-cols-2 lg:flex lg:flex-col items-center sm:items-start justify-start gap-3 sm:gap-6"
           >
-            {/* Top Rectangular Card */}
+            {/* Top Rectangular Card: Main Blown Film Plant & Converting Line */}
             <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
               <img
-                src="/images/desktop/about/blown_film_tower.png"
-                alt="5-Layer POF Blown Film Extrusion Tower"
+                src="/images/desktop/about/plant_blown_film_line.jpg"
+                alt="High-Speed Blown Film Extrusion & Winding Line"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
             </div>
 
-            {/* Bottom Rectangular Card */}
+            {/* Bottom Rectangular Card: Blown Film Extrusion Tower */}
             <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
               <img
-                src="/images/desktop/about/film_slitting_machine.png"
-                alt="Automated High-Speed Film Slitting & Converting Line"
+                src="/images/desktop/about/plant_extrusion_tower.jpg"
+                alt="Multilayer Blown Film Extrusion Tower"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
