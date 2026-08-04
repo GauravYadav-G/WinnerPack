@@ -13,14 +13,14 @@ import { X } from "lucide-react";
 interface GalleryItem {
   id: number;
   image: string;
-  aspectRatio?: string;
 }
 
-const galleryItems: GalleryItem[] = [
-  {
-    id: 1,
-    image: "/images/gallery/team_office_celebration.jpg",
-  },
+const mainHeaderImage: GalleryItem = {
+  id: 1,
+  image: "/images/gallery/team_office_celebration.jpg",
+};
+
+const secondaryImages: GalleryItem[] = [
   {
     id: 2,
     image: "/images/gallery/team_rafting_expedition.jpg",
@@ -60,37 +60,46 @@ export default function GalleryClient() {
 
         {/* Dynamic Visual Gallery Section */}
         <section className="py-12 md:py-20 bg-white">
-          <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <div className="mx-auto max-w-7xl px-5 md:px-8 space-y-8 md:space-y-10">
             
-            {/* Visual-First Equal-Height Large Photo Grid */}
-            <motion.div 
-              layout 
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch"
+            {/* ROW 1: Full-Width Uncropped First Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              onClick={() => setSelectedImage(mainHeaderImage)}
+              className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 transition-all duration-500 cursor-pointer w-full select-none"
             >
-              <AnimatePresence mode="popLayout">
-                {galleryItems.map((item) => (
-                  <motion.div
-                    key={item.id}
-                    layout
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4 }}
-                    onClick={() => setSelectedImage(item)}
-                    className="group relative overflow-hidden rounded-2xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none"
-                  >
-                    {/* Large Uniform Aspect-Ratio Image Container */}
-                    <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] overflow-hidden bg-[var(--color-bone)]">
-                      <img
-                        src={item.image}
-                        alt="Gallery Image"
-                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] overflow-hidden bg-[var(--color-bone)] flex items-center justify-center">
+                <img
+                  src={mainHeaderImage.image}
+                  alt="Winner Pack Team Celebration"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </div>
             </motion.div>
+
+            {/* ROW 2: Next 2 Portrait Images Side-by-Side in Next Line */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+              {secondaryImages.map((item, idx) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * (idx + 1) }}
+                  onClick={() => setSelectedImage(item)}
+                  className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full select-none"
+                >
+                  <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] overflow-hidden bg-[var(--color-bone)]">
+                    <img
+                      src={item.image}
+                      alt="Winner Pack Team Event"
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
           </div>
         </section>
