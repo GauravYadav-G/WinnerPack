@@ -113,25 +113,25 @@ function ContactFormInner() {
   const displayBannerTitle = titleParam || (sku && initialProducts.find((p) => p.id === sku)?.title) || (sku && sku.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()));
 
   return (
-    <div className="grid gap-6 sm:gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-12 mb-10 sm:mb-20 w-full max-w-full overflow-x-hidden">
+    <div className="grid gap-6 sm:gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-12 mb-10 sm:mb-20">
       {/* Form */}
       <Reveal>
-        <div className="rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-3.5 sm:p-8 shadow-sm max-w-full overflow-hidden">
+        <div className="rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-4 sm:p-8 shadow-sm">
           <Eyebrow>Request a quote</Eyebrow>
           <h2 className="mt-1.5 sm:mt-3 text-lg sm:text-2xl font-semibold tracking-tight text-[var(--color-ink)] font-display">
             Tell us what you need
           </h2>
           <p className="mt-1 text-[11px] sm:text-xs text-[var(--color-mute)]">Fields marked * are required.</p>
 
-          {/* Prominent Selected Product Info Badge Banner (Responsive Wrap for 360px Screens) */}
+          {/* Prominent Selected Product Info Badge Banner */}
           {(sku || titleParam || displayBannerTitle) && (
-            <div className="mt-3.5 mb-2 rounded-xl border border-[var(--color-amber-dark)]/30 bg-[var(--color-amber-soft)] p-2.5 sm:p-3.5 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2.5 sm:gap-3 shadow-2xs max-w-full overflow-hidden">
-              <div className="flex items-center gap-2.5 min-w-0 flex-1">
+            <div className="mt-3.5 mb-2 rounded-xl border border-[var(--color-amber-dark)]/30 bg-[var(--color-amber-soft)] p-2.5 sm:p-3.5 flex items-center justify-between gap-3 shadow-2xs">
+              <div className="flex items-center gap-2.5 min-w-0">
                 <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-[var(--color-amber)] text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs">
                   <Tag className="h-4 w-4" />
                 </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] truncate">
+                <div className="min-w-0">
+                  <p className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
                     Selected Product Quote Item
                   </p>
                   <p className="text-xs sm:text-sm font-extrabold text-[var(--color-ink)] font-display truncate">
@@ -139,7 +139,7 @@ function ContactFormInner() {
                   </p>
                 </div>
               </div>
-              <span className="shrink-0 text-[9px] sm:text-[10px] font-mono font-bold bg-white px-2 py-0.5 rounded-md border border-[var(--color-line)] text-[var(--color-ink)] shadow-2xs max-w-full truncate">
+              <span className="shrink-0 text-[9px] sm:text-[10px] font-mono font-bold bg-white px-2 py-0.5 rounded-md border border-[var(--color-line)] text-[var(--color-ink)] shadow-2xs">
                 WP-{(sku || "CUSTOM").toUpperCase()}
               </span>
             </div>
@@ -149,7 +149,7 @@ function ContactFormInner() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mt-6 flex flex-col items-center justify-center rounded-2xl border border-dashed border-[var(--color-line)] bg-white p-6 sm:p-12 text-center max-w-full"
+              className="mt-6 flex flex-col items-center justify-center rounded-2xl border border-dashed border-[var(--color-line)] bg-white p-8 sm:p-12 text-center"
             >
               <CheckCircle2 className="h-12 w-12 sm:h-16 sm:w-16 text-emerald-500 mb-4 sm:mb-6" />
               <h3 className="font-display text-lg sm:text-2xl font-bold text-[var(--color-ink)]">
@@ -167,11 +167,10 @@ function ContactFormInner() {
               </button>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="mt-4 sm:mt-6 space-y-4 sm:space-y-6 w-full max-w-full">
-              {/* Stack 1 Column on Mobile, 2 Columns on Desktop */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6 w-full">
-                <div className="w-full min-w-0">
-                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
+            <form onSubmit={handleSubmit} className="mt-4 sm:mt-6 space-y-3 sm:space-y-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
+                <div>
+                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Your Name *
                   </label>
                   <input
@@ -179,12 +178,12 @@ function ContactFormInner() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation box-border"
+                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="Rajesh Kumar"
                   />
                 </div>
-                <div className="w-full min-w-0">
-                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
+                <div>
+                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Company Name *
                   </label>
                   <input
@@ -192,16 +191,15 @@ function ContactFormInner() {
                     required
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation box-border"
+                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="Winner Pack Ltd."
                   />
                 </div>
               </div>
 
-              {/* Stack 1 Column on Mobile, 2 Columns on Desktop */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6 w-full">
-                <div className="w-full min-w-0">
-                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
+                <div>
+                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Email Address *
                   </label>
                   <input
@@ -209,12 +207,12 @@ function ContactFormInner() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation box-border"
+                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="procurement@co.com"
                   />
                 </div>
-                <div className="w-full min-w-0">
-                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
+                <div>
+                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Phone / WhatsApp *
                   </label>
                   <input
@@ -222,49 +220,48 @@ function ContactFormInner() {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation box-border"
+                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="+91 98765 43210"
                   />
                 </div>
               </div>
 
-              {/* Stack 1 Column on Mobile, 2 Columns on Desktop */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6 w-full">
-                <div className="w-full min-w-0">
-                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
+                <div>
+                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     SKU / Product Profile
                   </label>
                   <input
                     type="text"
                     value={formData.skuProfile}
                     onChange={(e) => setFormData({ ...formData, skuProfile: e.target.value })}
-                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-amber-dark)]/40 bg-[var(--color-amber-soft)]/50 px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-bold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation box-border"
+                    className="w-full rounded-lg border border-[var(--color-amber-dark)]/40 bg-[var(--color-amber-soft)]/50 px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-bold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="PET Strap 12mm"
                   />
                 </div>
-                <div className="w-full min-w-0">
-                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
+                <div>
+                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Line / Monthly Vol
                   </label>
                   <input
                     type="text"
                     value={formData.lineSpeed}
                     onChange={(e) => setFormData({ ...formData, lineSpeed: e.target.value })}
-                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation box-border"
+                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="80 rolls/mo"
                   />
                 </div>
               </div>
 
-              <div className="w-full min-w-0">
-                <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
+              <div>
+                <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                   Message / Special Requirements
                 </label>
                 <textarea
                   rows={3}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full min-h-[96px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation resize-y box-border"
+                  className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                   placeholder="Specify core size, customized logo print colors..."
                 />
               </div>
@@ -272,10 +269,10 @@ function ContactFormInner() {
               <button
                 type="submit"
                 disabled={loading}
-                className="group relative flex w-full min-h-[48px] items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-blue)] px-6 py-3.5 sm:px-6 sm:py-4 text-sm sm:text-sm font-bold text-white shadow-lg shadow-[var(--color-blue)]/30 transition hover:bg-[var(--color-blue-deep)] active:scale-[0.98] disabled:opacity-50 touch-manipulation cursor-pointer box-border"
+                className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-blue)] px-5 py-3 sm:px-6 sm:py-4 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-[var(--color-blue)]/30 transition hover:bg-[var(--color-blue-deep)] disabled:opacity-50"
               >
                 {loading ? "Submitting..." : "Submit Quote Request"}
-                <ArrowRight className="h-4 w-4 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
               </button>
             </form>
           )}
@@ -283,17 +280,17 @@ function ContactFormInner() {
       </Reveal>
 
       {/* Details + map */}
-      <div className="space-y-4 sm:space-y-6 w-full max-w-full overflow-hidden">
+      <div className="space-y-4 sm:space-y-6">
         <Reveal delay={0.08}>
-          <div className="rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-3.5 sm:p-8 shadow-sm max-w-full overflow-hidden">
+          <div className="rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-4 sm:p-8 shadow-sm">
             <Eyebrow>Reach us directly</Eyebrow>
-            <ul className="mt-3 sm:mt-5 space-y-3.5 sm:space-y-5 w-full">
+            <ul className="mt-3 sm:mt-5 space-y-3.5 sm:space-y-5">
               {details.map((d) => (
-                <li key={d.label} className="flex gap-3 sm:gap-4 min-w-0">
+                <li key={d.label} className="flex gap-3 sm:gap-4">
                   <span className="grid h-8 w-8 sm:h-10 sm:w-10 shrink-0 place-items-center rounded-lg sm:rounded-xl bg-[var(--color-blue-soft)] text-[var(--color-blue)]">
                     <d.icon className="h-4 w-4 sm:h-5 sm:w-5" />
                   </span>
-                  <div className="min-w-0 flex-1">
+                  <div>
                     <p className="font-mono text-[9px] sm:text-[0.62rem] uppercase tracking-wider text-[var(--color-mute)]">
                       {d.label}
                     </p>
@@ -302,28 +299,28 @@ function ContactFormInner() {
                         href={d.href}
                         target={d.href.startsWith("http") ? "_blank" : undefined}
                         rel="noreferrer"
-                        className="text-xs sm:text-sm font-semibold text-[var(--color-ink)] transition-colors hover:text-[var(--color-blue)] break-words block min-w-0"
+                        className="text-xs sm:text-sm font-semibold text-[var(--color-ink)] transition-colors hover:text-[var(--color-blue)]"
                       >
                         {d.value}
                       </a>
                     ) : (
-                      <p className="text-xs sm:text-sm font-semibold text-[var(--color-ink)] break-words min-w-0">{d.value}</p>
+                      <p className="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">{d.value}</p>
                     )}
                   </div>
                 </li>
               ))}
             </ul>
-            <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-2.5 sm:gap-3 w-full">
+            <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-2.5 sm:gap-3">
               <Button
                 to={`https://wa.me/${COMPANY.whatsapp}`}
                 variant="secondary"
                 className="w-full py-2 text-xs"
               >
-                <MessageCircle className="h-3.5 w-3.5 mr-1.5 shrink-0" />
+                <MessageCircle className="h-3.5 w-3.5 mr-1.5" />
                 WhatsApp
               </Button>
               <Button to={`tel:${COMPANY.phoneHref}`} variant="secondary" className="w-full py-2 text-xs">
-                <Phone className="h-3.5 w-3.5 mr-1.5 shrink-0" />
+                <Phone className="h-3.5 w-3.5 mr-1.5" />
                 Call now
               </Button>
             </div>
@@ -331,7 +328,7 @@ function ContactFormInner() {
         </Reveal>
 
         <Reveal delay={0.16}>
-          <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] shadow-sm bg-white p-1 max-w-full">
+          <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] shadow-sm bg-white p-1">
             <iframe
               title="Winner Pack Technologies Pvt. Ltd. Ghaziabad location"
               src="https://maps.google.com/maps?q=Plot%20No.%208,%20B.S.T.%20Industrial%20Park,%20Dasna,%20Ghaziabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
@@ -348,15 +345,15 @@ function ContactFormInner() {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white text-[var(--color-text)] overflow-x-hidden">
+    <div className="min-h-screen bg-white text-[var(--color-text)]">
       <Cursor />
       <ScrollProgress />
       <Navbar />
 
-      <PageWrapper className="relative pt-4 sm:pt-12 pb-10 sm:pb-16 overflow-x-hidden">
-        <div className="relative z-10 mx-auto max-w-7xl px-3.5 sm:px-6 md:px-8 max-w-full overflow-x-hidden">
+      <PageWrapper className="relative pt-4 sm:pt-12 pb-10 sm:pb-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
           {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6 max-w-full">
+          <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6">
             <ol className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-[var(--color-mute)]">
               <li>
                 <Link href="/" className="hover:text-[var(--color-blue)] transition-colors">
@@ -381,12 +378,12 @@ export default function ContactPage() {
           </nav>
 
           {/* Header */}
-          <div className="mb-6 sm:mb-10 max-w-full">
+          <div className="mb-6 sm:mb-10">
             <span className="inline-block rounded-full bg-[var(--color-blue)]/10 px-2.5 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-semibold uppercase tracking-wider text-[var(--color-blue)] mb-2 sm:mb-3">
               Contact
             </span>
             <h1 className="font-display text-2xl sm:text-4xl md:text-6xl font-bold leading-snug sm:leading-[1.05] tracking-tight text-[var(--color-ink)] text-balance">
-              Request specifications & <br className="hidden sm:inline" />
+              Request specifications & <br />
               indicative pricing.
             </h1>
             <p className="mt-2 sm:mt-4 max-w-2xl text-xs sm:text-base text-[var(--color-mute)] md:text-lg leading-relaxed">
