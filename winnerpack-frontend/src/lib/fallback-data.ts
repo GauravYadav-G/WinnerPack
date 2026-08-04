@@ -421,9 +421,10 @@ export const initialProducts = [
     image: "/images/products/ldpe-shrink-rolls/image.png",
     gallery: [
       "/images/products/ldpe-shrink-rolls/image.png",
-      "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
-      "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/about/film_slitting_machine.png"
+      "/images/products/ldpe-films-pouches/applications/app-1.png",
+      "/images/products/ldpe-films-pouches/applications/app-2.png",
+      "/images/products/ldpe-films-pouches/applications/app-3.png",
+      "/images/products/ldpe-films-pouches/applications/app-4.png"
     ],
     specs: {
       "Thickness Range": "30 Micron to 200 Micron",
