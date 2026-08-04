@@ -13,6 +13,7 @@ import { X } from "lucide-react";
 interface GalleryItem {
   id: number;
   image: string;
+  aspectRatio?: string;
 }
 
 const mainHeaderImage: GalleryItem = {
@@ -23,11 +24,38 @@ const mainHeaderImage: GalleryItem = {
 const secondaryImages: GalleryItem[] = [
   {
     id: 2,
-    image: "/images/gallery/team_rafting_expedition.jpg",
+    image: "/images/gallery/gallery_office_reception.jpg",
+    aspectRatio: "aspect-[16/10]",
   },
   {
     id: 3,
+    image: "/images/gallery/gallery_plant_converting.jpg",
+    aspectRatio: "aspect-[16/10]",
+  },
+  {
+    id: 4,
+    image: "/images/gallery/gallery_extrusion_tower.jpg",
+    aspectRatio: "aspect-[16/10]",
+  },
+  {
+    id: 5,
+    image: "/images/gallery/gallery_factory_hall.jpg",
+    aspectRatio: "aspect-[16/10]",
+  },
+  {
+    id: 6,
+    image: "/images/gallery/gallery_slitting_machine.jpg",
+    aspectRatio: "aspect-[16/10]",
+  },
+  {
+    id: 7,
+    image: "/images/gallery/team_rafting_expedition.jpg",
+    aspectRatio: "aspect-[4/5]",
+  },
+  {
+    id: 8,
     image: "/images/gallery/team_river_beach.jpg",
+    aspectRatio: "aspect-[4/5]",
   },
 ];
 
@@ -54,7 +82,7 @@ export default function GalleryClient() {
         <PageHeader
           eyebrow="Gallery"
           title="Gallery"
-          intro="A glimpse into our work culture, team activities, and corporate environment."
+          intro="A glimpse into our work culture, manufacturing environment, and team activities."
           crumbs={[{ label: "Home", to: "/" }, { label: "Gallery" }]}
         />
 
@@ -62,7 +90,7 @@ export default function GalleryClient() {
         <section className="py-12 md:py-20 bg-white">
           <div className="mx-auto max-w-7xl px-5 md:px-8 space-y-8 md:space-y-10">
             
-            {/* ROW 1: Full-Width Uncropped First Image */}
+            {/* ROW 1: Full-Width Uncropped Main Office Team Photo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -79,21 +107,21 @@ export default function GalleryClient() {
               </div>
             </motion.div>
 
-            {/* ROW 2: Next 2 Portrait Images Side-by-Side in Next Line */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+            {/* ROW 2: Authentic Corporate & Factory Plant Photo Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
               {secondaryImages.map((item, idx) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 * (idx + 1) }}
+                  transition={{ duration: 0.5, delay: 0.08 * (idx + 1) }}
                   onClick={() => setSelectedImage(item)}
-                  className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full select-none"
+                  className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none"
                 >
-                  <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] overflow-hidden bg-[var(--color-bone)]">
+                  <div className={`relative w-full ${item.aspectRatio || "aspect-[4/3]"} overflow-hidden bg-[var(--color-bone)]`}>
                     <img
                       src={item.image}
-                      alt="Winner Pack Team Event"
+                      alt="Winner Pack Gallery Photo"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   </div>
