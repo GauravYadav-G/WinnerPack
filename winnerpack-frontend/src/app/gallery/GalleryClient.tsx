@@ -25,37 +25,37 @@ const secondaryImages: GalleryItem[] = [
   {
     id: 2,
     image: "/images/gallery/gallery_office_reception.jpg",
-    aspectRatio: "aspect-[4/3]",
+    aspectRatio: "aspect-[16/10]",
   },
   {
     id: 3,
-    image: "/images/gallery/gallery_plant_converting.jpg",
-    aspectRatio: "aspect-[4/3]",
-  },
-  {
-    id: 4,
-    image: "/images/gallery/gallery_extrusion_tower.jpg",
-    aspectRatio: "aspect-[4/3]",
-  },
-  {
-    id: 5,
-    image: "/images/gallery/gallery_factory_hall.jpg",
-    aspectRatio: "aspect-[4/3]",
-  },
-  {
-    id: 6,
-    image: "/images/gallery/gallery_slitting_machine.jpg",
-    aspectRatio: "aspect-[4/3]",
-  },
-  {
-    id: 7,
     image: "/images/gallery/team_rafting_expedition.jpg",
     aspectRatio: "aspect-[3/4]",
   },
   {
-    id: 8,
+    id: 4,
+    image: "/images/gallery/gallery_plant_converting.jpg",
+    aspectRatio: "aspect-[16/10]",
+  },
+  {
+    id: 5,
+    image: "/images/gallery/gallery_extrusion_tower.jpg",
+    aspectRatio: "aspect-[16/10]",
+  },
+  {
+    id: 6,
     image: "/images/gallery/team_river_beach.jpg",
     aspectRatio: "aspect-[3/4]",
+  },
+  {
+    id: 7,
+    image: "/images/gallery/gallery_factory_hall.jpg",
+    aspectRatio: "aspect-[16/10]",
+  },
+  {
+    id: 8,
+    image: "/images/gallery/gallery_slitting_machine.jpg",
+    aspectRatio: "aspect-[16/10]",
   },
 ];
 
@@ -107,8 +107,8 @@ export default function GalleryClient() {
               </div>
             </motion.div>
 
-            {/* ROW 2: Authentic Corporate & Factory Plant Photo Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
+            {/* ROW 2: Seamless Masonry Photo Flow — Zero Empty Gaps */}
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
               {secondaryImages.map((item, idx) => (
                 <motion.div
                   key={item.id}
@@ -116,9 +116,9 @@ export default function GalleryClient() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.08 * (idx + 1) }}
                   onClick={() => setSelectedImage(item)}
-                  className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none"
+                  className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col break-inside-avoid select-none"
                 >
-                  <div className={`relative w-full ${item.aspectRatio || "aspect-[4/3]"} overflow-hidden bg-[var(--color-bone)]`}>
+                  <div className={`relative w-full ${item.aspectRatio || "aspect-[16/10]"} overflow-hidden bg-[var(--color-bone)]`}>
                     <img
                       src={item.image}
                       alt="Winner Pack Gallery Photo"
