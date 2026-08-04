@@ -13,24 +13,21 @@ import { X } from "lucide-react";
 interface GalleryItem {
   id: number;
   image: string;
-  aspectRatio: string;
+  aspectRatio?: string;
 }
 
 const galleryItems: GalleryItem[] = [
   {
     id: 1,
     image: "/images/gallery/team_office_celebration.jpg",
-    aspectRatio: "aspect-[4/3]",
   },
   {
     id: 2,
     image: "/images/gallery/team_rafting_expedition.jpg",
-    aspectRatio: "aspect-[9/16]",
   },
   {
     id: 3,
     image: "/images/gallery/team_river_beach.jpg",
-    aspectRatio: "aspect-[9/16]",
   },
 ];
 
@@ -65,10 +62,10 @@ export default function GalleryClient() {
         <section className="py-12 md:py-20 bg-white">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             
-            {/* Visual-First Photo Grid */}
+            {/* Visual-First Equal-Height Large Photo Grid */}
             <motion.div 
               layout 
-              className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch"
             >
               <AnimatePresence mode="popLayout">
                 {galleryItems.map((item) => (
@@ -80,10 +77,10 @@ export default function GalleryClient() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4 }}
                     onClick={() => setSelectedImage(item)}
-                    className="group relative overflow-hidden rounded-2xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer break-inside-avoid w-full flex flex-col mb-6 select-none"
+                    className="group relative overflow-hidden rounded-2xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none"
                   >
-                    {/* Crisp Visual Image Container */}
-                    <div className={`relative w-full overflow-hidden bg-[var(--color-bone)] ${item.aspectRatio}`}>
+                    {/* Large Uniform Aspect-Ratio Image Container */}
+                    <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] overflow-hidden bg-[var(--color-bone)]">
                       <img
                         src={item.image}
                         alt="Gallery Image"
