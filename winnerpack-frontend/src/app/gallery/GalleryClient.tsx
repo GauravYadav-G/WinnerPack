@@ -178,7 +178,7 @@ export default function GalleryClient() {
         <CTABanner />
       </PageWrapper>
 
-      {/* Ultra-Premium Glassmorphic Lightbox Modal */}
+      {/* Lightbox Modal — White Theme */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
@@ -186,7 +186,7 @@ export default function GalleryClient() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-[#0a0624]/80 backdrop-blur-2xl"
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-slate-900/50 backdrop-blur-md"
           >
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
@@ -194,24 +194,21 @@ export default function GalleryClient() {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-5xl w-full max-h-[90vh] bg-[#0c072c] border border-white/15 rounded-3xl p-5 sm:p-7 lg:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col text-white"
+              className="relative max-w-5xl w-full max-h-[90vh] bg-white border border-[var(--color-line)] rounded-3xl p-4 sm:p-6 lg:p-7 shadow-2xl overflow-hidden flex flex-col text-[var(--color-ink)]"
             >
-              {/* Subtle Luxury Ambient Glow */}
-              <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--color-amber)]/10 rounded-full blur-3xl pointer-events-none" />
-
               {/* Top Header Bar: Centered Glass Pill Heading */}
-              <div className="relative px-4 py-2 flex items-center justify-between border-b border-white/10 pb-4">
+              <div className="relative px-2 sm:px-4 py-2 flex items-center justify-between border-b border-[var(--color-line)] pb-4">
                 <div className="w-9" /> {/* Spacer */}
                 
-                <div className="px-6 py-2 rounded-full bg-white/[0.06] border border-white/12 backdrop-blur-md shadow-md text-center max-w-xl">
-                  <h3 className="font-display text-xs sm:text-sm md:text-base font-extrabold text-white tracking-tight leading-tight">
+                <div className="px-5 py-2 rounded-full bg-[var(--color-bone)] border border-[var(--color-line)] shadow-2xs text-center max-w-xl">
+                  <h3 className="font-display text-xs sm:text-sm md:text-base font-extrabold text-[var(--color-ink)] tracking-tight leading-tight">
                     {selectedImage.title}
                   </h3>
                 </div>
 
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="h-9 w-9 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-[var(--color-amber)] hover:border-[var(--color-amber)] transition-all duration-300 shadow-md cursor-pointer shrink-0"
+                  className="h-9 w-9 rounded-full bg-[var(--color-bone)] border border-[var(--color-line)] text-[var(--color-ink)] flex items-center justify-center hover:bg-[var(--color-amber)] hover:border-[var(--color-amber)] hover:text-white transition-all duration-300 shadow-2xs cursor-pointer shrink-0"
                   aria-label="Close modal"
                 >
                   <X className="h-4.5 w-4.5" />
@@ -219,11 +216,11 @@ export default function GalleryClient() {
               </div>
 
               {/* Ultra-Clean Framed Image Viewer */}
-              <div className="relative flex-1 bg-black/40 rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden p-6 sm:p-8 md:p-10 min-h-[340px] max-h-[70vh] shadow-inner mt-4">
+              <div className="relative flex-1 bg-[var(--color-bone)] rounded-2xl border border-[var(--color-line)] flex items-center justify-center overflow-hidden p-4 sm:p-6 md:p-8 min-h-[340px] max-h-[70vh] shadow-inner mt-4">
                 <img
                   src={selectedImage.image}
                   alt={selectedImage.title}
-                  className="max-h-full max-w-full object-contain rounded-xl shadow-2xl border border-white/15 bg-white/5 p-2 transition-transform duration-300"
+                  className="max-h-full max-w-full object-contain rounded-xl shadow-md border border-[var(--color-line)] bg-white p-2 transition-transform duration-300"
                 />
               </div>
 
