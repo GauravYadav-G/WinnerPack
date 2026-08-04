@@ -732,9 +732,9 @@ export const initialProducts = [
     image: "/images/products/pvc-shrink-rolls/image.png",
     gallery: [
       "/images/products/pvc-shrink-rolls/image.png",
-      "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png"
+      "/images/products/pvc-shrink-rolls-pouches/applications/app-1.png",
+      "/images/products/pvc-shrink-rolls-pouches/applications/app-2.png",
+      "/images/products/pvc-shrink-rolls-pouches/applications/app-1.png"
     ],
     specs: {
       "Material Structure": "Polyvinyl Chloride (PVC) Shrink Formulation",
