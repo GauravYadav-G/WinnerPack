@@ -113,10 +113,10 @@ function ContactFormInner() {
   const displayBannerTitle = titleParam || (sku && initialProducts.find((p) => p.id === sku)?.title) || (sku && sku.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()));
 
   return (
-    <div className="grid gap-6 sm:gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-12 mb-10 sm:mb-20">
+    <div className="grid gap-6 sm:gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-12 mb-10 sm:mb-20 w-full min-w-0">
       {/* Form */}
       <Reveal>
-        <div className="rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-4 sm:p-8 shadow-sm">
+        <div className="rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-4 sm:p-8 shadow-sm overflow-hidden w-full min-w-0">
           <Eyebrow>Request a quote</Eyebrow>
           <h2 className="mt-1.5 sm:mt-3 text-lg sm:text-2xl font-semibold tracking-tight text-[var(--color-ink)] font-display">
             Tell us what you need
@@ -125,21 +125,21 @@ function ContactFormInner() {
 
           {/* Prominent Selected Product Info Badge Banner */}
           {(sku || titleParam || displayBannerTitle) && (
-            <div className="mt-3.5 mb-2 rounded-xl border border-[var(--color-amber-dark)]/30 bg-[var(--color-amber-soft)] p-2.5 sm:p-3.5 flex items-center justify-between gap-3 shadow-2xs">
-              <div className="flex items-center gap-2.5 min-w-0">
-                <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-[var(--color-amber)] text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs">
-                  <Tag className="h-4 w-4" />
+            <div className="mt-3.5 mb-2 rounded-xl border border-[var(--color-amber-dark)]/30 bg-[var(--color-amber-soft)] p-2.5 sm:p-3.5 flex items-center gap-2 overflow-hidden shadow-2xs">
+              <div className="flex items-center gap-2 min-w-0 flex-1">
+                <div className="h-7 w-7 sm:h-8 sm:w-8 rounded-lg bg-[var(--color-amber)] text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs">
+                  <Tag className="h-3.5 w-3.5" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
-                    Selected Product Quote Item
+                  <p className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] truncate">
+                    Selected Product Quote
                   </p>
                   <p className="text-xs sm:text-sm font-extrabold text-[var(--color-ink)] font-display truncate">
                     {displayBannerTitle} {gradeParam ? `— ${gradeParam}` : ""}
                   </p>
                 </div>
               </div>
-              <span className="shrink-0 text-[9px] sm:text-[10px] font-mono font-bold bg-white px-2 py-0.5 rounded-md border border-[var(--color-line)] text-[var(--color-ink)] shadow-2xs">
+              <span className="shrink-0 text-[9px] font-mono font-bold bg-white px-1.5 py-0.5 rounded-md border border-[var(--color-line)] text-[var(--color-ink)] truncate max-w-[38%]">
                 WP-{(sku || "CUSTOM").toUpperCase()}
               </span>
             </div>
@@ -169,7 +169,7 @@ function ContactFormInner() {
           ) : (
             <form onSubmit={handleSubmit} className="mt-4 sm:mt-6 space-y-3 sm:space-y-6">
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
-                <div>
+                <div className="min-w-0">
                   <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Your Name *
                   </label>
@@ -178,11 +178,11 @@ function ContactFormInner() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="Rajesh Kumar"
                   />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Company Name *
                   </label>
@@ -191,14 +191,14 @@ function ContactFormInner() {
                     required
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="Winner Pack Ltd."
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
-                <div>
+                <div className="min-w-0">
                   <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Email Address *
                   </label>
@@ -207,11 +207,11 @@ function ContactFormInner() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="procurement@co.com"
                   />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Phone / WhatsApp *
                   </label>
@@ -220,14 +220,14 @@ function ContactFormInner() {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="+91 98765 43210"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
-                <div>
+                <div className="min-w-0">
                   <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     SKU / Product Profile
                   </label>
@@ -235,11 +235,11 @@ function ContactFormInner() {
                     type="text"
                     value={formData.skuProfile}
                     onChange={(e) => setFormData({ ...formData, skuProfile: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-amber-dark)]/40 bg-[var(--color-amber-soft)]/50 px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-bold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-amber-dark)]/40 bg-[var(--color-amber-soft)]/50 px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-bold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="PET Strap 12mm"
                   />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Line / Monthly Vol
                   </label>
@@ -247,7 +247,7 @@ function ContactFormInner() {
                     type="text"
                     value={formData.lineSpeed}
                     onChange={(e) => setFormData({ ...formData, lineSpeed: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="80 rolls/mo"
                   />
                 </div>
@@ -280,7 +280,7 @@ function ContactFormInner() {
       </Reveal>
 
       {/* Details + map */}
-      <div className="space-y-4 sm:space-y-6">
+      <div className="space-y-4 sm:space-y-6 min-w-0 w-full overflow-hidden">
         <Reveal delay={0.08}>
           <div className="rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-4 sm:p-8 shadow-sm">
             <Eyebrow>Reach us directly</Eyebrow>
