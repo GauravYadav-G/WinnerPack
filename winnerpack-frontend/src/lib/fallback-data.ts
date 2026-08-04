@@ -504,9 +504,10 @@ export const initialProducts = [
     image: "/images/products/pof-shrink-rolls/image.png",
     gallery: [
       "/images/products/pof-shrink-rolls/image.png",
-      "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/journey/solution_pcr_eco_film.png"
+      "/images/products/pof-films-pouches/applications/app-1.png",
+      "/images/products/pof-films-pouches/applications/app-2.png",
+      "/images/products/pof-films-pouches/applications/app-3.png",
+      "/images/products/pof-films-pouches/applications/app-4.png"
     ],
     specs: {
       "Material Structure": "5-Layer Co-extruded Polyolefin (POF)",
