@@ -18,37 +18,37 @@ const defaultUsps = [
     title: "Custom specifications",
     text: "We manufacture to your exact width, gauge, and formulation requirements — ensuring the right fit for your production line.",
     icon: "Tag",
-    bgImage: "/images/products/pp-strap/image.png",
+    bgImage: "/images/products/bopp-films-pouches/image.png",
   },
   {
     title: "Consistent roll quality",
     text: "Our strapping rolls are manufactured to maintain uniform straightness and tension, enabling smooth operation on automated packaging lines.",
     icon: "Layers",
-    bgImage: "/images/desktop/journey/solution_precision_gauge.png",
+    bgImage: "/images/products/pp-strap/applications/app-1.png",
   },
   {
     title: "Superior film performance",
     text: "Our stretch films are formulated for maximum load-holding force and cling retention with optimized material usage per pallet.",
     icon: "Disc3",
-    bgImage: "/images/desktop/journey/solution_pallet_wrapping.png",
+    bgImage: "/images/products/stretch-film/applications/app-1.png",
   },
   {
     title: "In-house quality testing",
     text: "Every batch undergoes rigorous elongation, tensile strength, and adhesive performance testing before dispatch.",
     icon: "Shield",
-    bgImage: "/images/desktop/journey/solution_quality_testing.png",
+    bgImage: "/images/products/coloured-bopp-tapes/applications/app-4.png",
   },
   {
     title: "Eco-friendly options",
     text: "We offer recyclable and biodegradable packaging alternatives to support your sustainability and compliance goals.",
     icon: "Leaf",
-    bgImage: "/images/desktop/journey/solution_pcr_eco_film.png",
+    bgImage: "/images/products/coloured-films-pouches/applications/app-3.png",
   },
   {
     title: "Direct manufacturer supply",
     text: "No distributor markups. We manufacture, warehouse, and dispatch directly to optimize operations and reduce procurement costs.",
     icon: "Globe2",
-    bgImage: "/images/desktop/journey/solution_buffer_stock.png",
+    bgImage: "/images/products/stretch-film/applications/app-4.png",
   }
 ];
 
