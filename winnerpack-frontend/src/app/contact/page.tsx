@@ -167,10 +167,11 @@ function ContactFormInner() {
               </button>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="mt-4 sm:mt-6 space-y-3 sm:space-y-6">
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
+            <form onSubmit={handleSubmit} className="mt-4 sm:mt-6 space-y-4 sm:space-y-6">
+              {/* Stack 1 Column on Mobile, 2 Columns on Desktop */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6">
                 <div>
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
                     Your Name *
                   </label>
                   <input
@@ -178,12 +179,12 @@ function ContactFormInner() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation"
                     placeholder="Rajesh Kumar"
                   />
                 </div>
                 <div>
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
                     Company Name *
                   </label>
                   <input
@@ -191,15 +192,16 @@ function ContactFormInner() {
                     required
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation"
                     placeholder="Winner Pack Ltd."
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
+              {/* Stack 1 Column on Mobile, 2 Columns on Desktop */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6">
                 <div>
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
                     Email Address *
                   </label>
                   <input
@@ -207,12 +209,12 @@ function ContactFormInner() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation"
                     placeholder="procurement@co.com"
                   />
                 </div>
                 <div>
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
                     Phone / WhatsApp *
                   </label>
                   <input
@@ -220,48 +222,49 @@ function ContactFormInner() {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation"
                     placeholder="+91 98765 43210"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
+              {/* Stack 1 Column on Mobile, 2 Columns on Desktop */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6">
                 <div>
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
                     SKU / Product Profile
                   </label>
                   <input
                     type="text"
                     value={formData.skuProfile}
                     onChange={(e) => setFormData({ ...formData, skuProfile: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-amber-dark)]/40 bg-[var(--color-amber-soft)]/50 px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-bold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-amber-dark)]/40 bg-[var(--color-amber-soft)]/50 px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-bold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation"
                     placeholder="PET Strap 12mm"
                   />
                 </div>
                 <div>
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
                     Line / Monthly Vol
                   </label>
                   <input
                     type="text"
                     value={formData.lineSpeed}
                     onChange={(e) => setFormData({ ...formData, lineSpeed: e.target.value })}
-                    className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-h-[44px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation"
                     placeholder="80 rolls/mo"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                <label className="block font-mono text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1.5 sm:mb-2">
                   Message / Special Requirements
                 </label>
                 <textarea
                   rows={3}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                  className="w-full min-h-[96px] rounded-xl sm:rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)] focus:ring-2 focus:ring-[var(--color-blue)]/20 transition-all touch-manipulation resize-y"
                   placeholder="Specify core size, customized logo print colors..."
                 />
               </div>
@@ -269,10 +272,10 @@ function ContactFormInner() {
               <button
                 type="submit"
                 disabled={loading}
-                className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-blue)] px-5 py-3 sm:px-6 sm:py-4 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-[var(--color-blue)]/30 transition hover:bg-[var(--color-blue-deep)] disabled:opacity-50"
+                className="group relative flex w-full min-h-[48px] items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-blue)] px-6 py-3.5 sm:px-6 sm:py-4 text-sm sm:text-sm font-bold text-white shadow-lg shadow-[var(--color-blue)]/30 transition hover:bg-[var(--color-blue-deep)] active:scale-[0.98] disabled:opacity-50 touch-manipulation cursor-pointer"
               >
                 {loading ? "Submitting..." : "Submit Quote Request"}
-                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-4 w-4 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
               </button>
             </form>
           )}
