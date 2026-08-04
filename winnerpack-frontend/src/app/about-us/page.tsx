@@ -92,14 +92,14 @@ export default function AboutUs() {
               </div>
             </div>
 
-            {/* Full-width factory banner card */}
-            <div className="mt-5 sm:mt-8 relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] shadow-xl sm:shadow-2xl aspect-[16/9] sm:aspect-[2.6/1] bg-slate-950 group">
+            {/* Full-width office hero banner card */}
+            <div className="mt-5 sm:mt-8 relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] shadow-xl sm:shadow-2xl aspect-[16/9] sm:aspect-[2.2/1] bg-slate-950 group">
               <img
-                src="/images/desktop/about/hero_banner_panoramic_3to1.png"
-                alt="WinnerPack 5-Layer Blown Film Co-Extrusion Line"
-                className="h-full w-full object-cover object-[center_45%] transition-transform duration-700 group-hover:scale-105"
+                src="/images/desktop/about/about_office_hero.jpg"
+                alt="Winner Pack Technologies Corporate Headquarters & Conference Suite"
+                className="h-full w-full object-cover object-[center_50%] transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
         </section>
