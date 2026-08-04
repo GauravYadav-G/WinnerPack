@@ -46,11 +46,11 @@ export default function AboutStrip() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 grid grid-cols-2 lg:flex lg:flex-col items-center sm:items-start justify-start gap-3 sm:gap-6"
           >
-            {/* Top Rectangular Card: Blown Film Die Ring & Bubble Extrusion */}
+            {/* Top Rectangular Card: Automated High-Speed Film Slitting Line */}
             <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
               <img
-                src="/images/desktop/about/plant_film_die_ring.jpg"
-                alt="Precision Blown Film Extrusion Die Ring & Air Collar"
+                src="/images/desktop/about/plant_film_slitting_machine.jpg"
+                alt="High-Speed Servo-Driven Film Slitting & Converting Machine"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
