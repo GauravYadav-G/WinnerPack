@@ -658,12 +658,12 @@ export const initialProducts = [
     blurb: "Biaxially Oriented Polypropylene (BOPP) crystal-clear packaging film rolls and self-adhesive pre-cut pouches engineered for superior moisture barrier, food grade protection, and high-speed flow wrap packaging.",
     longDesc: "BOPP (Biaxially Oriented Polypropylene) Films & Pouches are manufactured by stretching polypropylene film in both machine direction (MD) and transverse direction (TD). This bi-axial orientation provides outstanding mechanical strength, glass-like optical clarity, excellent moisture barrier, and high dimensional stability. Widely used for food packaging (bakery, snacks, confectionery), garment display pouches, flower wrapping, cigarette packs, and high-resolution gravure printed laminations.\n\n### Key Product Features:\n- **Crystal Clear Transparency & High Gloss**: Enhances retail shelf appeal with 95%+ optical clarity.\n- **Superior Moisture & Aroma Barrier**: Keeps food items crisp and aromatic by preventing moisture ingress.\n- **Excellent Tensile Strength**: High tensile modulus prevents stretching during high-speed VFFS/HFFS flow wrapping.\n- **Printable Surface Finish**: Excellent ink adhesion for up to 10-color flexographic and rotogravure printing.\n- **Heat Sealable Grades**: Available in heat-sealable co-extruded structures for airtight pouch welds.\n- **Variety of Finishes**: Plain transparent, matte finish, metallized barrier, and pearlized white options.",
     basePrice: "₹245 / kg",
-    image: "/images/products/printed-bopp-tapes/image.png",
+    image: "/images/products/bopp-films-pouches/image.png",
     gallery: [
-      "/images/products/printed-bopp-tapes/image.png",
-      "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
+      "/images/products/bopp-films-pouches/image.png",
+      "/images/products/bopp-films-pouches/applications/app-1.png",
+      "/images/products/bopp-films-pouches/applications/app-2.png",
+      "/images/products/bopp-films-pouches/applications/app-3.png"
     ],
     specs: {
       "Film Structure": "Biaxially Oriented Polypropylene (BOPP)",
@@ -687,7 +687,7 @@ export const initialProducts = [
         title: "BOPP Film Rolls (Plain, Printed & Metallized)",
         subtitle: "High-Speed Flow Wrap Rolls, Lamination Sheeting & Thermal Rolls",
         blurb: "Continuous BOPP film rolls available in single wound (SW) and centerfolded (CF) formats. Offered in crystal clear, metallized barrier, matte finish, and custom rotogravure printed options for automated VFFS and HFFS packaging machinery.",
-        image: "/images/products/printed-bopp-tapes/image.png",
+        image: "/images/products/bopp-films-pouches/image.png",
         specs: {
           "Format Types": "Single Wound (SW) / Centerfolded (CF) Slit Rolls",
           "Machine Speed Compatibility": "High Speed VFFS / HFFS Packaging Lines",
