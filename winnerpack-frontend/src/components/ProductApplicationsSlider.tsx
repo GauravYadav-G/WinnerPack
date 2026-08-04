@@ -15,6 +15,10 @@ const applicationSlides: ApplicationImageSlide[] = [
     image: "/images/desktop/portfolio/action_die_ring_bubble.jpg",
   },
   {
+    id: "action-polymer-granules-hopper",
+    image: "/images/desktop/portfolio/action_polymer_granules_hopper.jpg",
+  },
+  {
     id: "action-factory-plant-overview",
     image: "/images/desktop/portfolio/action_factory_plant_overview.jpg",
   },
