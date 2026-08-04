@@ -50,7 +50,7 @@ export const initialProducts = [
         title: "Plain Thermal Transfer Labels",
         subtitle: "Ribbon-Compatible White Transfer Stickers for Barcode Printers",
         blurb: "Smooth surface white paper labels optimized for wax and wax-resin thermal ribbon printing. Delivers sharp barcode print edges and durable text readability.",
-        image: "/images/desktop/portfolio/gallery_labels_stickers.png",
+        image: "/images/products/plain-labels/applications/app-1.png",
         specs: {
           "Face Stock": "Premium Thermal Transfer Paper",
           "Ribbon Match": "Wax / Wax-Resin Thermal Ribbon",
@@ -118,7 +118,7 @@ export const initialProducts = [
         title: "Wide Format & Promotional Labels",
         subtitle: "Large Format Vinyl Stickers & High-Impact Promotional Labels",
         blurb: "Large format printed labels produced on wide-format inkjet presses. Ideal for equipment rating plates, promotional window graphics, drum labels, and outdoor weatherproof branding stickers.",
-        image: "/images/desktop/portfolio/gallery_labels_stickers.png",
+        image: "/images/products/printed-labels/applications/app-1.png",
         specs: {
           "Printing Process": "Eco-Solvent / UV Wide Format Printing",
           "Substrate": "Heavy-Duty Vinyl / Polypropylene (PP)",
@@ -186,7 +186,7 @@ export const initialProducts = [
         title: "GS1 & Data Matrix Barcode Labels",
         subtitle: "Regulatory Traceability & Serialization Stickers for Pharma & Retail",
         blurb: "High-resolution pre-printed or blank barcode labels formatted to strict GS1-128 and 2D Data Matrix serialization standards. Provides complete batch traceability, expiration date tracking, and quality control auditing.",
-        image: "/images/desktop/portfolio/gallery_labels_stickers.png",
+        image: "/images/products/barcode-labels/applications/app-1.png",
         specs: {
           "Symbology": "GS1 DataMatrix / QR Code / Code 39 / EAN-13",
           "Verification Standard": "ISO/IEC 15415 Grade A Verification",
@@ -254,7 +254,7 @@ export const initialProducts = [
         title: "Jar & Bottle Product Labels",
         subtitle: "Waterproof & Oil-Resistant Labels for Food, Beverage & Pharma Containers",
         blurb: "Waterproof and oil-resistant product labels engineered for glass, PET, and HDPE bottles. Withstands cold storage condensation, grease, and rough handling without peeling or color fading.",
-        image: "/images/desktop/portfolio/gallery_labels_stickers.png",
+        image: "/images/products/product-labels/applications/app-1.png",
         specs: {
           "Substrate": "Synthetic White PP / Water-Resistant Art Paper",
           "Oil Barrier": "Special oil and chemical resistant top-coat",
@@ -322,7 +322,7 @@ export const initialProducts = [
         title: "Film Self-Adhesive Labels",
         subtitle: "Waterproof Polypropylene & Vinyl Pressure-Sensitive Stickers",
         blurb: "Heavy-duty synthetic film self-adhesive labels (BOPP, PE, Vinyl) engineered for extreme weather, moisture, oil, and outdoor UV exposure without peeling or tearing.",
-        image: "/images/desktop/portfolio/gallery_labels_stickers.png",
+        image: "/images/products/self-adhesive-labels/applications/app-1.png",
         specs: {
           "Face Stock": "60 Micron White / Clear Polypropylene Film",
           "Adhesive": "Waterproof Permanent Acrylic Emulsion Glue",
@@ -390,7 +390,7 @@ export const initialProducts = [
         title: "Thermal Transfer Labels",
         subtitle: "Wax/Resin Ribbon-Printed Long-Life Barcode & Inventory Labels",
         blurb: "Smooth surface thermal transfer paper label rolls designed for thermal transfer printers using wax or wax-resin ribbons. Produces ultra-durable, smudge-proof barcodes and text for long-term warehouse storage.",
-        image: "/images/desktop/portfolio/gallery_labels_stickers.png",
+        image: "/images/products/thermal-labels/applications/app-3.png",
         specs: {
           "Printing Tech": "Thermal Transfer (Requires Wax/Resin Ribbon)",
           "Face Paper": "Premium Matte/Semi-Gloss Chromo Paper",
@@ -462,7 +462,7 @@ export const initialProducts = [
         title: "Standard Normal LDPE Film",
         subtitle: "High-Gloss Protective Sheeting & Packaging Rolls",
         blurb: "Standard non-shrink LDPE tubing and sheeting rolls used for general protective wrapping, paper towel overwrap, furniture covers, and industrial liner applications with high clarity and fast line speed.",
-        image: "/images/desktop/about/blown_film_tower.png",
+        image: "/images/products/ldpe-films-pouches/applications/app-1.png",
         specs: {
           "Format Types": "Tubing / Single Wound Sheeting / Centerfolded",
           "Thickness Range": "30 Micron to 100 Micron",
@@ -476,7 +476,7 @@ export const initialProducts = [
         title: "LDPE Pouches & Bags",
         subtitle: "Heavy-Duty Shipping Sacks & Pre-Cut Industrial Bags",
         blurb: "Custom size LDPE gusseted pouches, bread bags, heavy-duty shipping sacks, and industrial trash liners fabricated with high bottom seal integrity and impact tear resistance.",
-        image: "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
         specs: {
           "Format Availability": "Gusseted Bags / Flat Pouches / Perforated Roll Bags",
           "Bottom Seal": "High Thermal Impulse Weld Strength",
@@ -531,7 +531,7 @@ export const initialProducts = [
         title: "Cross-Linked POF Shrink Film",
         subtitle: "High Tensile Irradiated Polyolefin for Heavy & Sharp Edged Products",
         blurb: "Irradiated cross-linked POF film engineered with enhanced polymer chain bonds. Delivers superior puncture resistance, ultra-strong seal wire welds, zero burn-through, and exceptional performance on high-speed automatic L-sealers.",
-        image: "/images/desktop/about/blown_film_tower.png",
+        image: "/images/products/pof-shrink-rolls/image.png",
         specs: {
           "Polymer Link": "Irradiated Cross-Linked Structure",
           "Puncture Resistance": "Superior Puncture & Tear Resistance",
@@ -561,7 +561,7 @@ export const initialProducts = [
         title: "POF Shrink Pouches",
         subtitle: "Pre-Cut Sealed Shrink Bags & Envelopes for Fast Manual & Semi-Auto Packaging",
         blurb: "Pre-cut three-side sealed POF shrink pouches and bags ready for instant item insertion. Eliminates film slitting waste, speeds up manual packing, and provides a tight, wrinkle-free shrink finish around individual products.",
-        image: "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
+        image: "/images/products/pof-films-pouches/applications/app-4.png",
         specs: {
           "Format Style": "Pre-Cut 3-Side Sealed Pouches / Bags",
           "Sealing Convenience": "Instant Manual / Impulse Bar Sealing",
@@ -618,7 +618,7 @@ export const initialProducts = [
         title: "CPE Pouches (Cast Polyethylene)",
         subtitle: "Silky Soft-Touch Frosted Zipper & Flap Pouches for Apparel & Accessories",
         blurb: "Cast Polyethylene (CPE) pouches featuring a signature silky soft-touch frosted surface, zip-lock slider closures, and high tear resistance. Ideal for packaging luxury garments, mobile accessories, cosmetics, and electronics without scratching delicate surfaces.",
-        image: "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
+        image: "/images/products/coloured-films-pouches/applications/app-1.png",
         specs: {
           "Material Type": "100% Cast Polyethylene (CPE)",
           "Surface Finish": "Silky Soft-Touch Semi-Transparent Frosted",
@@ -705,7 +705,7 @@ export const initialProducts = [
         title: "BOPP Pouches & Bags (Self-Adhesive & Header)",
         subtitle: "Pre-Cut Glass-Clear Display Bags with Peel & Seal Tape Strip",
         blurb: "Pre-formed BOPP bags featuring peel-and-seal self-adhesive tape strips, header punch holes for retail hanger displays, and side gussets. Provides crystal-clear product visibility for garments, stationery, cards, and bakery items.",
-        image: "/images/desktop/portfolio/showcase_printed_custom_tapes.png",
+        image: "/images/products/bopp-films-pouches/applications/app-3.png",
         specs: {
           "Bag Formats": "Self-Adhesive Tape Bags / Euro Slot Header Pouches / Flap Bags",
           "Sealing Method": "Peel & Seal Resealable / Permanent Adhesive Strip",
@@ -776,7 +776,7 @@ export const initialProducts = [
         title: "PVC Shrink Pouches & Pre-Cut Sleeves",
         subtitle: "Pre-Cut Neck Bands, Cap Seals & Tamper-Evident Shrink Bags",
         blurb: "Custom pre-cut bottom-sealed PVC pouches, tamper-evident neck bands, and printed full-body shrink sleeve labels. Designed for instant manual application over bottle caps, jars, pharmaceutical containers, and retail boxes.",
-        image: "/images/desktop/about/blown_film_tower.png",
+        image: "/images/products/pvc-shrink-rolls/applications/app-1.png",
         specs: {
           "Bag Formats": "Pre-Cut 3-Side Sealed Bags / Tubular Cut Sleeves / Perforated Bands",
           "Tamper Proofing": "Tamper-Evident Cap & Neck Perforation Lines",
@@ -921,7 +921,7 @@ export const initialProducts = [
         title: "Laminated Barrier Pouches",
         subtitle: "Stand-Up Zipper, 3-Side Seal & Quad-Seal Pre-Cut Bags",
         blurb: "Pre-formed laminated barrier pouches with press-to-close zippers, tear notches, degassing aroma valves, and bottom gussets. Provides premium retail shelf presence and extended freshness for coffee, spices, nuts, and pet food.",
-        image: "/images/desktop/portfolio/showcase_printed_custom_tapes.png",
+        image: "/images/products/specialty-pouches/applications/app-1.png",
         specs: {
           "Pouch Styles": "Doypack Stand-Up Zipper / 3-Side Seal / K-Seal Bottom / Box Pouch",
           "Closure Systems": "Resealable Zip-Lock / Tear Notch / Degassing Aroma Valve",
@@ -992,7 +992,7 @@ export const initialProducts = [
         title: "Compostable Pouches & Bags",
         subtitle: "100% Home & Industrial Biodegradable Courier & Retail Bags",
         blurb: "Pre-formed bio compostable bags featuring self-adhesive permanent seal mailer flaps, D-cut handles, and zipper closures. Designed for sustainable e-commerce shipping, retail apparel packaging, and organic waste collection.",
-        image: "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
+        image: "/images/products/coloured-films-pouches/applications/app-3.png",
         specs: {
           "Bag Styles": "Self-Adhesive Courier Mailers / D-Cut Carry Bags / Garment Bags",
           "Sealing Strip": "High Tack Permanent Eco Adhesive Flap Tape",
@@ -1063,7 +1063,7 @@ export const initialProducts = [
         title: "Manual & Semi-Auto PP Strap Rolls",
         subtitle: "Hand Tool & Semi-Automatic Friction Weld Strap Rolls",
         blurb: "Versatile PP strapping rolls formulated for manual hand tensioners, battery friction-weld tools, and tabletop semi-automatic strapping machines. Provides economic box reinforcement.",
-        image: "/images/desktop/portfolio/gallery_pp_strapping.png",
+        image: "/images/products/pp-strap/applications/app-1.png",
         specs: {
           "Format": "200mm Cardboard Core Hand Coil",
           "Sealing Method": "Metal Clip / Heat Seal / Friction Weld",
@@ -1130,7 +1130,7 @@ export const initialProducts = [
         title: "Security & Warning Printed PP Strap",
         subtitle: "Pre-Printed Anti-Pilferage & Tamper Caution Strapping Rolls",
         blurb: "Pre-printed with high-visibility security warnings (e.g. 'SECURITY SEAL - DO NOT ACCEPT IF BROKEN'). Prevents theft and tampering in high-risk transit routes.",
-        image: "/images/desktop/portfolio/gallery_pp_strapping.png",
+        image: "/images/products/printed-pp-strap/applications/app-1.png",
         specs: {
           "Pre-Printed Text": "'SECURITY SEAL' / 'FRAGILE' / 'CHECK WEIGHT'",
           "Base Colors": "Safety Yellow / Signal Red",
@@ -1198,7 +1198,7 @@ export const initialProducts = [
         title: "Heavy-Duty Colored Packaging Straps",
         subtitle: "15mm & 19mm Heavy Masterbatch Strapping Rolls for Heavy Pallets",
         blurb: "Heavy-gauge colored PP strapping formulated with extra thickness (0.80mm to 0.90mm) for heavy industrial box and pallet unitization.",
-        image: "/images/desktop/portfolio/gallery_pp_strapping.png",
+        image: "/images/products/colored-pp-strap/applications/app-2.png",
         specs: {
           "Colors Available": "Grass Green, Jet Black, Industrial Orange",
           "Widths": "15mm, 19mm",
@@ -1266,7 +1266,7 @@ export const initialProducts = [
         title: "Extra Heavy Export PET Strap",
         subtitle: "16mm, 19mm & 25mm High-Tensile PET Strapping for Metals & Lumber",
         blurb: "Heavy-gauge high-tensile PET strapping bands designed to replace 19mm and 32mm steel straps on heavy timber, steel coils, concrete blocks, and export cargo sea containers.",
-        image: "/images/desktop/portfolio/gallery_pp_strapping.png",
+        image: "/images/products/pet-strap/applications/app-1.png",
         specs: {
           "Width Options": "16mm, 19mm, 25mm",
           "Thickness": "0.80mm to 1.20mm Heavy",
@@ -1482,7 +1482,7 @@ export const initialProducts = [
         title: "Automated Machine-Roll BOPP Tapes",
         subtitle: "48mm / 72mm x 650m / 1000m Industrial Sealing Machine Rolls",
         blurb: "Heavy-duty continuous long-length BOPP tape rolls engineered for fully automated top-and-bottom carton sealing machines. Reduces roll changeover downtime on high-volume conveyor lines.",
-        image: "/images/desktop/portfolio/showcase_printed_custom_tapes.png",
+        image: "/images/products/bopp-tapes/applications/app-1.png",
         specs: {
           "Widths Available": "48mm (2 Inch), 72mm (3 Inch)",
           "Roll Lengths": "650m, 1000m Industrial Machine Rolls",
@@ -1550,7 +1550,7 @@ export const initialProducts = [
         title: "Pre-Printed Warning & Security Tapes",
         subtitle: "Tamper-Evident Fragile & Security Caution Packaging Tapes",
         blurb: "Pre-printed with high-visibility warning text (e.g. 'FRAGILE - HANDLE WITH CARE', 'STOP IF SEAL IS BROKEN'). Prevents damage and theft during transit.",
-        image: "/images/desktop/portfolio/showcase_printed_custom_tapes.png",
+        image: "/images/products/printed-bopp-tapes/applications/app-1.png",
         specs: {
           "Text Options": "'FRAGILE' / 'SECURITY SEAL' / 'HANDLE WITH CARE'",
           "Color Combination": "Red Text on White Base / Black Text on Yellow Base",
@@ -1618,7 +1618,7 @@ export const initialProducts = [
         title: "Secondary & Security Colored Tapes",
         subtitle: "Grass Green, Industrial Orange & Jet Black Tapes",
         blurb: "Solid secondary colored BOPP self-adhesive tapes for special inventory categorization, quality inspection marking, and confidential parcel sealing.",
-        image: "/images/desktop/portfolio/showcase_printed_custom_tapes.png",
+        image: "/images/products/coloured-bopp-tapes/applications/app-2.png",
         specs: {
           "Colors": "Grass Green, Industrial Orange, Jet Black",
           "Widths": "48mm (2 Inch), 72mm (3 Inch)",
@@ -1686,7 +1686,7 @@ export const initialProducts = [
         title: "Silicone Bag Sealing Tapes",
         subtitle: "Peel-and-Seal Reusable Bag Closure Tapes",
         blurb: "Polyester-backed silicone release liner tapes designed for sealing plastic mailers, OPP bags, and courier pouches with reusable peel-and-seal functionality.",
-        image: "/images/desktop/portfolio/showcase_printed_custom_tapes.png",
+        image: "/images/products/silicon-tapes/applications/app-1.png",
         specs: {
           "Substrate": "Mylar / PET film with silicone release coating",
           "Adhesive": "Solvent acrylic / Synthetic rubber glue",
