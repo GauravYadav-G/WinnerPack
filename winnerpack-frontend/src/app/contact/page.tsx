@@ -115,7 +115,7 @@ function ContactFormInner() {
   return (
     <div className="grid gap-6 sm:gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-12 mb-10 sm:mb-20 w-full min-w-0">
       {/* Form */}
-      <Reveal>
+      <Reveal className="min-w-0 overflow-hidden">
         <div className="rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-4 sm:p-8 shadow-sm overflow-hidden w-full min-w-0">
           <Eyebrow>Request a quote</Eyebrow>
           <h2 className="mt-1.5 sm:mt-3 text-lg sm:text-2xl font-semibold tracking-tight text-[var(--color-ink)] font-display">
@@ -167,7 +167,7 @@ function ContactFormInner() {
               </button>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="mt-4 sm:mt-6 space-y-3 sm:space-y-6">
+            <form onSubmit={handleSubmit} className="mt-4 sm:mt-6 space-y-3 sm:space-y-6 w-full min-w-0">
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
                 <div className="min-w-0">
                   <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
@@ -281,8 +281,8 @@ function ContactFormInner() {
 
       {/* Details + map */}
       <div className="space-y-4 sm:space-y-6 min-w-0 w-full overflow-hidden">
-        <Reveal delay={0.08}>
-          <div className="rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-4 sm:p-8 shadow-sm">
+        <Reveal delay={0.08} className="min-w-0 overflow-hidden">
+          <div className="rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-4 sm:p-8 shadow-sm max-w-full overflow-hidden">
             <Eyebrow>Reach us directly</Eyebrow>
             <ul className="mt-3 sm:mt-5 space-y-3.5 sm:space-y-5">
               {details.map((d) => (
@@ -327,7 +327,7 @@ function ContactFormInner() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.16}>
+        <Reveal delay={0.16} className="min-w-0 overflow-hidden">
           <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] shadow-sm bg-white p-1">
             <iframe
               title="Winner Pack Technologies Pvt. Ltd. Ghaziabad location"
@@ -345,13 +345,13 @@ function ContactFormInner() {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white text-[var(--color-text)]">
+    <div className="min-h-screen bg-white text-[var(--color-text)] overflow-x-hidden">
       <Cursor />
       <ScrollProgress />
       <Navbar />
 
-      <PageWrapper className="relative pt-4 sm:pt-12 pb-10 sm:pb-16">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+      <PageWrapper className="relative pt-4 sm:pt-12 pb-10 sm:pb-16 overflow-x-hidden">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8 overflow-hidden">
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6">
             <ol className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-[var(--color-mute)]">
