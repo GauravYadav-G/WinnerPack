@@ -801,11 +801,13 @@ export const initialProducts = [
     blurb: "High-cling LLDPE pallet stretch wrap available in dedicated Manual Grade (Hand Wrap) and Machine Grade (Power Pre-Stretch) configurations.",
     longDesc: "5-layer cast LLDPE stretch film engineered for maximum load containment, puncture resistance, and zero-residue cling. Available in both **Manual Grade** (lightweight hand rolls with 3-inch cores) and **Machine Grade** (heavy-duty 15 kg machine rolls supporting up to 300% power pre-stretch on automated turntable and orbital wrappers).\n\n### Key Product Features:\n- **5-Layer Cast Co-Extrusion**: Formulated with 100% prime LLDPE resins for high tensile strength and puncture resistance.\n- **High Cling & Zero Residue**: Formulated with 1-side tackiness that clings tightly to itself without leaving sticky residue on cargo.\n- **Up to 300% Power Pre-Stretch**: Machine grade rolls stretch up to 300% on automated machinery, reducing per-pallet wrapping costs.\n- **Puncture & Tear Resistant**: Protects palletized loads from sharp carton corners, timber splinters, and transit vibration.\n- **Superior Load Retention & Holding Force**: Holds heavy multi-tiered pallets intact during multi-city freight transport.\n- **Manual & Machine Formats**: Available in lightweight 2.4 kg hand rolls and 15 kg heavy machine wrapping rolls.",
     basePrice: "₹175 / kg",
-    image: "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png",
+    image: "/images/products/stretch-film/image.png",
     gallery: [
-      "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png",
-      "/images/products/manual-stretch-film/image.png",
-      "/images/products/machine-stretch-film/image.png"
+      "/images/products/stretch-film/image.png",
+      "/images/products/stretch-film/applications/app-1.png",
+      "/images/products/stretch-film/applications/app-2.png",
+      "/images/products/stretch-film/applications/app-3.png",
+      "/images/products/stretch-film/applications/app-4.png"
     ],
     specs: {
       "Primary Polymer": "5-Layer Co-extruded LLDPE",
@@ -1711,7 +1713,13 @@ export const initialProducts = [
     longDesc: "Pre-stretched and standard hand-wrapping stretch films. High puncture resistance prevents tearing on box corners. Lightweight roll profile reduces worker fatigue during manual pallet wrapping.",
     basePrice: "₹850 / Roll",
     image: "/images/products/manual-stretch-film/image.png",
-    gallery: ["/images/products/manual-stretch-film/image.png"],
+    gallery: [
+      "/images/products/manual-stretch-film/image.png",
+      "/images/products/manual-stretch-film/applications/app-1.png",
+      "/images/products/manual-stretch-film/applications/app-2.png",
+      "/images/products/manual-stretch-film/applications/app-3.png",
+      "/images/products/manual-stretch-film/applications/app-4.png"
+    ],
     specs: {
       "Stretch Ratio": "Up to 150% manual limit",
       "Cling index": "One-sided tackiness (leaves no residue)",
@@ -1735,7 +1743,13 @@ export const initialProducts = [
     longDesc: "Cast co-extruded machine stretch film rolls. Designed to stretch up to 300% on automatic powered pre-stretch turntable wrappers. Low noise unwind and high puncture resistance.",
     basePrice: "₹170 / kg",
     image: "/images/products/machine-stretch-film/image.png",
-    gallery: ["/images/products/machine-stretch-film/image.png"],
+    gallery: [
+      "/images/products/machine-stretch-film/image.png",
+      "/images/products/machine-stretch-film/applications/app-1.png",
+      "/images/products/machine-stretch-film/applications/app-2.png",
+      "/images/products/machine-stretch-film/applications/app-3.png",
+      "/images/products/machine-stretch-film/applications/app-4.png"
+    ],
     specs: {
       "Stretch Capability": "250% - 300% power stretch",
       "Roll Weight": "15 kg standard machine roll",
