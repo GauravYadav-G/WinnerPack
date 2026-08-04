@@ -11,12 +11,24 @@ interface ApplicationImageSlide {
 
 const applicationSlides: ApplicationImageSlide[] = [
   {
-    id: "stretch-pallet-wrapping",
-    image: "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png",
+    id: "action-die-ring-bubble",
+    image: "/images/desktop/portfolio/action_die_ring_bubble.jpg",
   },
   {
-    id: "blown-film-tower",
-    image: "/images/desktop/about/blown_film_tower.png",
+    id: "action-factory-plant-overview",
+    image: "/images/desktop/portfolio/action_factory_plant_overview.jpg",
+  },
+  {
+    id: "action-extrusion-tower-blue",
+    image: "/images/desktop/portfolio/action_extrusion_tower_blue.jpg",
+  },
+  {
+    id: "action-roll-rewinding-slitting",
+    image: "/images/desktop/portfolio/action_roll_rewinding_slitting.jpg",
+  },
+  {
+    id: "stretch-pallet-wrapping",
+    image: "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png",
   },
   {
     id: "pp-strapping-action",
@@ -25,14 +37,6 @@ const applicationSlides: ApplicationImageSlide[] = [
   {
     id: "heavy-ldpe-bags",
     image: "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
-  },
-  {
-    id: "film-slitting-machine",
-    image: "/images/desktop/about/film_slitting_machine.png",
-  },
-  {
-    id: "panoramic-extrusion-plant",
-    image: "/images/desktop/about/about_hero_panoramic_sharp.png",
   },
 ];
 
