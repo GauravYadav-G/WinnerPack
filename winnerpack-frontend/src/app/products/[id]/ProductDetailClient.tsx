@@ -488,27 +488,27 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           </Container>
         </section>
 
-        {/* ── SUB-CATEGORIES SECTION (Compact Side-by-Side Cards) ── */}
+        {/* ── SUB-CATEGORIES SECTION (Spacious Un-congested Desktop Cards) ── */}
         {product.subCategories && product.subCategories.length > 0 && (
-          <Section className="bg-[var(--color-mist)] border-b border-[var(--color-line)] py-5 sm:py-10 font-sans">
+          <Section className="bg-[var(--color-mist)] border-b border-[var(--color-line)] py-5 sm:py-10 lg:py-16 font-sans">
             <Container>
-              <div className="max-w-2xl mb-3 sm:mb-6">
+              <div className="max-w-2xl mb-3 sm:mb-6 lg:mb-10">
                 <Eyebrow>Product Sub-Categories</Eyebrow>
-                <h2 className="mt-0.5 text-base sm:text-2xl font-extrabold tracking-tight text-[var(--color-ink)] font-display">
+                <h2 className="mt-0.5 text-base sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-[var(--color-ink)] font-display">
                   {product.title} Sub-Categories
                 </h2>
               </div>
 
               {/* Side-by-side Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 lg:gap-8 xl:gap-10">
                 {product.subCategories.map((sub: any) => (
                   <div
                     key={sub.id}
-                    className="rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-white p-3 sm:p-4 shadow-sm flex flex-col justify-between space-y-2.5 font-sans"
+                    className="rounded-xl sm:rounded-2xl lg:rounded-3xl border border-[var(--color-line)] bg-white p-3 sm:p-5 lg:p-7 xl:p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-3 sm:space-y-4 lg:space-y-6 font-sans"
                   >
-                    <div className="space-y-2 sm:space-y-3">
+                    <div className="space-y-2.5 sm:space-y-4 lg:space-y-5">
                       {/* Compact Image */}
-                      <div className="relative aspect-[2/1] sm:aspect-[16/9] w-full overflow-hidden rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-slate-950 shadow-inner group">
+                      <div className="relative aspect-[2/1] sm:aspect-[16/9] w-full overflow-hidden rounded-lg sm:rounded-xl lg:rounded-2xl border border-[var(--color-line)] bg-slate-950 shadow-inner group">
                         <img
                           src={sub.image}
                           alt={sub.title}
@@ -516,22 +516,22 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                         />
                       </div>
 
-                      <div>
-                        <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
+                      <div className="space-y-1 sm:space-y-1.5 lg:space-y-2">
+                        <span className="text-[10px] sm:text-xs lg:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
                           {sub.subtitle}
                         </span>
-                        <h3 className="text-sm sm:text-lg font-extrabold text-[var(--color-ink)] font-display mt-0.5">
+                        <h3 className="text-sm sm:text-lg lg:text-xl xl:text-2xl font-extrabold text-[var(--color-ink)] font-display mt-0.5 lg:mt-1">
                           {sub.title}
                         </h3>
-                        <p className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed mt-0.5 sm:mt-1 line-clamp-2 font-sans font-normal">
+                        <p className="text-xs sm:text-base lg:text-base text-[var(--color-mute)] leading-relaxed lg:leading-relaxed mt-0.5 sm:mt-1 lg:mt-2 line-clamp-2 lg:line-clamp-none font-sans font-normal">
                           {sub.blurb}
                         </p>
                       </div>
 
                       {/* Specs Table */}
                       {sub.specs && (
-                        <div className="overflow-hidden scrollbar-none rounded-lg border border-[var(--color-line)] bg-[var(--color-mist)]">
-                          <table className="w-full text-left border-collapse text-[11px] sm:text-xs font-sans table-fixed">
+                        <div className="overflow-hidden scrollbar-none rounded-lg lg:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] my-1 lg:my-2">
+                          <table className="w-full text-left border-collapse text-[11px] sm:text-xs lg:text-sm font-sans table-fixed">
                             <tbody>
                               {Object.entries(sub.specs).slice(0, 4).map(([lbl, val]: any, sIdx: number) => (
                                 <tr
@@ -539,10 +539,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                   className={`border-b border-[var(--color-line)] last:border-b-0 ${sIdx % 2 === 1 ? "bg-white/60" : "bg-transparent"
                                     }`}
                                 >
-                                  <td className="px-2 py-1 font-mono font-bold uppercase text-[var(--color-mute)] w-2/5 text-[10px] sm:text-xs align-top">
+                                  <td className="px-2 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2.5 font-mono font-bold uppercase text-[var(--color-mute)] w-2/5 text-[10px] sm:text-xs lg:text-xs align-top">
                                     {lbl}
                                   </td>
-                                  <td className="px-2 py-1 font-semibold text-[var(--color-ink)] w-3/5 break-words whitespace-normal font-sans text-[11px] sm:text-xs align-top">
+                                  <td className="px-2 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2.5 font-semibold text-[var(--color-ink)] w-3/5 break-words whitespace-normal font-sans text-[11px] sm:text-xs lg:text-sm align-top">
                                     {val}
                                   </td>
                                 </tr>
@@ -554,13 +554,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                       {/* Compact Application tags */}
                       {sub.applications && (
-                        <div className="flex flex-wrap gap-1 pt-0.5">
+                        <div className="flex flex-wrap gap-1 sm:gap-1.5 lg:gap-2 pt-0.5 lg:pt-1">
                           {sub.applications.slice(0, 3).map((app: string) => (
                             <span
                               key={app}
-                              className="inline-flex items-center gap-1 rounded-md bg-[var(--color-bone)] border border-[var(--color-line)] px-1.5 py-0.5 text-[10px] sm:text-xs font-bold text-[var(--color-ink)] font-sans"
+                              className="inline-flex items-center gap-1 rounded-md bg-[var(--color-bone)] border border-[var(--color-line)] px-1.5 py-0.5 sm:px-2 sm:py-1 lg:px-2.5 lg:py-1.5 text-[10px] sm:text-xs lg:text-xs font-bold text-[var(--color-ink)] font-sans"
                             >
-                              <CheckCircle2 className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-[var(--color-amber-dark)] shrink-0" />
+                              <CheckCircle2 className="h-2.5 w-2.5 sm:h-3 sm:w-3 lg:h-3.5 lg:w-3.5 text-[var(--color-amber-dark)] shrink-0" />
                               <span className="truncate">{app}</span>
                             </span>
                           ))}
@@ -568,8 +568,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       )}
                     </div>
 
-                    <div className="pt-1">
-                      <Button to={`/contact?sku=${product.id}&title=${encodeURIComponent(product.title)}&grade=${encodeURIComponent(sub.title)}`} className="w-full justify-center py-1.5 sm:py-2 text-xs font-bold font-sans">
+                    <div className="pt-1.5 sm:pt-2 lg:pt-4">
+                      <Button to={`/contact?sku=${product.id}&title=${encodeURIComponent(product.title)}&grade=${encodeURIComponent(sub.title)}`} className="w-full justify-center py-1.5 sm:py-2.5 lg:py-3.5 text-xs sm:text-sm font-bold font-sans">
                         Request Quote for {sub.title}
                       </Button>
                     </div>
