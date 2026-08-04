@@ -109,11 +109,11 @@ export default function GalleryClient() {
               onClick={() => setSelectedImage(mainHeroImage)}
               className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 transition-all duration-500 cursor-pointer w-full select-none"
             >
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] overflow-hidden bg-[var(--color-bone)] flex items-center justify-center">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9.5] overflow-hidden bg-[var(--color-bone)] flex items-center justify-center">
                 <img
                   src={mainHeroImage.image}
                   alt={mainHeroImage.title}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="h-full w-full object-cover object-[center_35%] transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
             </motion.div>
