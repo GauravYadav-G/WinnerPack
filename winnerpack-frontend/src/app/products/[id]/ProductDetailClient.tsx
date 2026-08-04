@@ -272,30 +272,30 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   </p>
                 </div>
 
-                {/* Horizontal Quick Stats Bar (Spacious Desktop Padding & Rounded Corners) */}
-                <div className="grid grid-cols-4 sm:grid-cols-4 gap-1.5 sm:gap-3 lg:gap-4 pt-1 lg:pt-2">
-                  <div className="rounded-lg sm:rounded-xl lg:rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-3 lg:p-4 text-center space-y-0.5 lg:space-y-1">
-                    <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 lg:h-5 lg:w-5 mx-auto text-[var(--color-amber-dark)]" />
-                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Dispatch</div>
-                    <div className="text-[10px] sm:text-sm lg:text-base font-extrabold text-[var(--color-ink)] font-sans truncate">24-48 HR</div>
+                {/* Horizontal Quick Stats Bar (Sleek, Compact Cards Reduced by 2-4 points) */}
+                <div className="grid grid-cols-4 sm:grid-cols-4 gap-1.5 sm:gap-2.5 lg:gap-3 pt-0.5 sm:pt-1">
+                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2 lg:p-2.5 text-center space-y-0.5">
+                    <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-amber-dark)]" />
+                    <div className="text-[9px] sm:text-[10px] lg:text-[11px] font-mono font-bold uppercase text-[var(--color-mute)]">Dispatch</div>
+                    <div className="text-[10px] sm:text-xs lg:text-xs font-bold text-[var(--color-ink)] font-sans truncate">24-48 HR</div>
                   </div>
 
-                  <div className="rounded-lg sm:rounded-xl lg:rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-3 lg:p-4 text-center space-y-0.5 lg:space-y-1">
-                    <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 lg:h-5 lg:w-5 mx-auto text-[var(--color-blue-deep)]" />
-                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">QC</div>
-                    <div className="text-[10px] sm:text-sm lg:text-base font-extrabold text-[var(--color-ink)] font-sans truncate">ISO 9001</div>
+                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2 lg:p-2.5 text-center space-y-0.5">
+                    <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-blue-deep)]" />
+                    <div className="text-[9px] sm:text-[10px] lg:text-[11px] font-mono font-bold uppercase text-[var(--color-mute)]">QC</div>
+                    <div className="text-[10px] sm:text-xs lg:text-xs font-bold text-[var(--color-ink)] font-sans truncate">ISO 9001</div>
                   </div>
 
-                  <div className="rounded-lg sm:rounded-xl lg:rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-3 lg:p-4 text-center space-y-0.5 lg:space-y-1">
-                    <Factory className="h-3.5 w-3.5 sm:h-4 sm:w-4 lg:h-5 lg:w-5 mx-auto text-[var(--color-amber-dark)]" />
-                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Plant</div>
-                    <div className="text-[10px] sm:text-sm lg:text-base font-extrabold text-[var(--color-ink)] font-sans truncate">100% In-House</div>
+                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2 lg:p-2.5 text-center space-y-0.5">
+                    <Factory className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-amber-dark)]" />
+                    <div className="text-[9px] sm:text-[10px] lg:text-[11px] font-mono font-bold uppercase text-[var(--color-mute)]">Plant</div>
+                    <div className="text-[10px] sm:text-xs lg:text-xs font-bold text-[var(--color-ink)] font-sans truncate">100% In-House</div>
                   </div>
 
-                  <div className="rounded-lg sm:rounded-xl lg:rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-3 lg:p-4 text-center space-y-0.5 lg:space-y-1">
-                    <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 lg:h-5 lg:w-5 mx-auto text-[var(--color-blue-deep)]" />
-                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Batch</div>
-                    <div className="text-[10px] sm:text-sm lg:text-base font-extrabold text-[var(--color-ink)] font-sans truncate">COA Batch</div>
+                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2 lg:p-2.5 text-center space-y-0.5">
+                    <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-blue-deep)]" />
+                    <div className="text-[9px] sm:text-[10px] lg:text-[11px] font-mono font-bold uppercase text-[var(--color-mute)]">Batch</div>
+                    <div className="text-[10px] sm:text-xs lg:text-xs font-bold text-[var(--color-ink)] font-sans truncate">COA Batch</div>
                   </div>
                 </div>
 
