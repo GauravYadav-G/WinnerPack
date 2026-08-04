@@ -25,37 +25,37 @@ const secondaryImages: GalleryItem[] = [
   {
     id: 2,
     image: "/images/gallery/gallery_office_reception.jpg",
-    aspectRatio: "aspect-[16/10]",
+    aspectRatio: "aspect-[4/3]",
   },
   {
     id: 3,
     image: "/images/gallery/gallery_plant_converting.jpg",
-    aspectRatio: "aspect-[16/10]",
+    aspectRatio: "aspect-[4/3]",
   },
   {
     id: 4,
     image: "/images/gallery/gallery_extrusion_tower.jpg",
-    aspectRatio: "aspect-[16/10]",
+    aspectRatio: "aspect-[4/3]",
   },
   {
     id: 5,
     image: "/images/gallery/gallery_factory_hall.jpg",
-    aspectRatio: "aspect-[16/10]",
+    aspectRatio: "aspect-[4/3]",
   },
   {
     id: 6,
     image: "/images/gallery/gallery_slitting_machine.jpg",
-    aspectRatio: "aspect-[16/10]",
+    aspectRatio: "aspect-[4/3]",
   },
   {
     id: 7,
     image: "/images/gallery/team_rafting_expedition.jpg",
-    aspectRatio: "aspect-[4/5]",
+    aspectRatio: "aspect-[3/4]",
   },
   {
     id: 8,
     image: "/images/gallery/team_river_beach.jpg",
-    aspectRatio: "aspect-[4/5]",
+    aspectRatio: "aspect-[3/4]",
   },
 ];
 
@@ -108,7 +108,7 @@ export default function GalleryClient() {
             </motion.div>
 
             {/* ROW 2: Authentic Corporate & Factory Plant Photo Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
               {secondaryImages.map((item, idx) => (
                 <motion.div
                   key={item.id}
