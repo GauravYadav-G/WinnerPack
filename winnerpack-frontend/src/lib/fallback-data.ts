@@ -663,7 +663,8 @@ export const initialProducts = [
       "/images/products/bopp-films-pouches/image.png",
       "/images/products/bopp-films-pouches/applications/app-1.png",
       "/images/products/bopp-films-pouches/applications/app-2.png",
-      "/images/products/bopp-films-pouches/applications/app-3.png"
+      "/images/products/bopp-films-pouches/applications/app-3.png",
+      "/images/products/bopp-films-pouches/applications/app-4.png"
     ],
     specs: {
       "Film Structure": "Biaxially Oriented Polypropylene (BOPP)",
