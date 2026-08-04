@@ -21,38 +21,38 @@ export default function ProductCategories() {
     return () => clearInterval(timer);
   }, [isPaused]);
 
-  // Category showcase data mapping for the 4 bento grid slots - matched 100% to category products
+  // Category showcase data mapping for the 4 bento grid slots - 100% unique product & application images
   const categoryShowcase = [
-    // 0: Film Products
+    // 0: Film Products (BOPP Slitter, Stretch Extrusion, Coloured Flexo Line, POF L-Sealer App)
     {
-      slot1: "/images/desktop/portfolio/gallery_pof_ldpe_shrink.png",
-      slot2: "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png",
-      slot3: "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
-      slot4: "/images/desktop/about/blown_film_tower.png",
+      slot1: "/images/products/bopp-films-pouches/image.png",
+      slot2: "/images/products/stretch-film/image.png",
+      slot3: "/images/products/coloured-films-pouches/image.png",
+      slot4: "/images/products/pof-films-pouches/applications/app-1.png",
       label: "Film Products Showcase"
     },
-    // 1: Labels & Stickers
+    // 1: Labels & Stickers (Printed Bottle, Barcode Inventory, Cosmetic Product, Thermal Scale)
     {
-      slot1: "/images/products/printed-labels/image.png",
-      slot2: "/images/products/barcode-labels/image.png",
-      slot3: "/images/products/product-labels/image.png",
-      slot4: "/images/products/thermal-labels/image.png",
+      slot1: "/images/products/printed-labels/applications/app-1.png",
+      slot2: "/images/products/barcode-labels/applications/app-1.png",
+      slot3: "/images/products/product-labels/applications/app-1.png",
+      slot4: "/images/products/thermal-labels/applications/app-3.png",
       label: "Labels & Stickers Showcase"
     },
-    // 2: Tapes Division
+    // 2: Tapes Division (Clear BOPP Box, Printed Brand Tape, Coloured Conveyor Tape, Silicon Engine Tape)
     {
-      slot1: "/images/products/bopp-tapes/image.png",
-      slot2: "/images/products/printed-bopp-tapes/image.png",
-      slot3: "/images/products/coloured-bopp-tapes/image.png",
-      slot4: "/images/products/silicon-tapes/image.png",
+      slot1: "/images/products/bopp-tapes/applications/app-1.png",
+      slot2: "/images/products/printed-bopp-tapes/applications/app-1.png",
+      slot3: "/images/products/coloured-bopp-tapes/applications/app-2.png",
+      slot4: "/images/products/silicon-tapes/applications/app-1.png",
       label: "Tapes Division Showcase"
     },
-    // 3: PP & PET Strapping
+    // 3: PP & PET Strapping (Blue PP Pallet Strap, PET Strap Spool, Yellow Printed Strap, Red Colored Strap)
     {
-      slot1: "/images/products/pp-strap/image.png",
+      slot1: "/images/products/pp-strap/applications/app-1.png",
       slot2: "/images/products/pet-strap/image.png",
-      slot3: "/images/products/printed-pp-strap/image.png",
-      slot4: "/images/products/colored-pp-strap/image.png",
+      slot3: "/images/products/printed-pp-strap/applications/app-1.png",
+      slot4: "/images/products/colored-pp-strap/applications/app-2.png",
       label: "PP & PET Strapping Showcase"
     }
   ];

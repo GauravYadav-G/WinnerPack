@@ -73,7 +73,7 @@ export const productCategories: ProductCategory[] = [
     icon: Layers,
     tag: "Virgin PP Strap · PET Strapping · Custom Printed Strap",
     gradient: "from-violet-400/20 to-purple-500/10",
-    image: "/images/products/pp-strap/image.png",
+    image: "/images/products/pp-strap/applications/app-1.png",
     items: [
       "PP Strap",
       "Printed PP Strap",

@@ -34,7 +34,7 @@ const slot2Items: GallerySlotItem[] = [
     category: "PP & PET STRAP",
   },
   {
-    image: "/images/products/printed-bopp-tapes/image.png",
+    image: "/images/products/printed-bopp-tapes/applications/app-1.png",
     title: "Custom Brand Logo Printed BOPP Tapes",
     category: "SECURITY TAPES",
   },
@@ -70,7 +70,7 @@ const slot4Items: GallerySlotItem[] = [
     category: "LAB QUALIFICATION",
   },
   {
-    image: "/images/products/printed-bopp-tapes/image.png",
+    image: "/images/products/bopp-tapes/applications/app-1.png",
     title: "High-Tack Acrylic Emulsion Sealing",
     category: "BOPP TAPES",
   },
