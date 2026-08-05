@@ -881,7 +881,7 @@ export const initialProducts = [
     gallery: [
       "/images/products/specialty-pouches/image.png",
       "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
+      "/images/products/lamination-films-pouches/applications/app-3.png",
       "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
     ],
     specs: {
@@ -921,7 +921,7 @@ export const initialProducts = [
         title: "Laminated Barrier Pouches",
         subtitle: "Stand-Up Zipper, 3-Side Seal & Quad-Seal Pre-Cut Bags",
         blurb: "Pre-formed laminated barrier pouches with press-to-close zippers, tear notches, degassing aroma valves, and bottom gussets. Provides premium retail shelf presence and extended freshness for coffee, spices, nuts, and pet food.",
-        image: "/images/products/specialty-pouches/applications/app-1.png",
+        image: "/images/products/lamination-films-pouches/applications/app-3.png",
         specs: {
           "Pouch Styles": "Doypack Stand-Up Zipper / 3-Side Seal / K-Seal Bottom / Box Pouch",
           "Closure Systems": "Resealable Zip-Lock / Tear Notch / Degassing Aroma Valve",
@@ -953,7 +953,7 @@ export const initialProducts = [
       "/images/desktop/journey/solution_pcr_eco_film.png",
       "/images/desktop/about/blown_film_tower.png",
       "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png"
+      "/images/products/compostable-films-pouches/applications/app-4.png"
     ],
     specs: {
       "Bio Polymer Resin": "PBAT + PLA + Cornstarch Blend",
@@ -992,7 +992,7 @@ export const initialProducts = [
         title: "Compostable Pouches & Bags",
         subtitle: "100% Home & Industrial Biodegradable Courier & Retail Bags",
         blurb: "Pre-formed bio compostable bags featuring self-adhesive permanent seal mailer flaps, D-cut handles, and zipper closures. Designed for sustainable e-commerce shipping, retail apparel packaging, and organic waste collection.",
-        image: "/images/products/coloured-films-pouches/applications/app-3.png",
+        image: "/images/products/compostable-films-pouches/applications/app-4.png",
         specs: {
           "Bag Styles": "Self-Adhesive Courier Mailers / D-Cut Carry Bags / Garment Bags",
           "Sealing Strip": "High Tack Permanent Eco Adhesive Flap Tape",
