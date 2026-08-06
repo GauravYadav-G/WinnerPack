@@ -1,592 +1,515 @@
 "use client";
+
 import { apiFetch } from "@/lib/api";
-import { useEffect, useState, useRef } from "react";
-import { PlusCircle, AlertCircle, RefreshCw, Trash2, Edit2, Upload, Loader2 } from "lucide-react";
-import { triggerRevalidate } from "@/lib/revalidate";
+import Link from "next/link";
+import { useEffect, useState, useMemo } from "react";
+import {
+  Package,
+  Plus,
+  Search,
+  Edit,
+  Trash2,
+  X,
+  LayoutGrid,
+  List
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-import TiptapInlineEditor from "@/components/admin/TiptapInlineEditor";
-
-type Product = {
+interface Product {
   _id?: string;
   id: string;
   title: string;
   category: string;
   tag: string;
-  blurb: string;
+  blurb?: string;
   longDesc?: string;
-  basePrice?: string;
   image?: string;
   gallery?: string[];
   specs?: Record<string, string>;
-  options?: {
-    widths: string[];
-    thicknesses: string[];
-    colors: string[];
-  };
   applications?: string[];
-  visualGradients?: string;
-};
+}
 
-const CATEGORIES = [
-  { id: "labels", title: "Labels" },
-  { id: "films-bags-tubes", title: "Films, Bags & Tubes" },
-  { id: "strapping", title: "Strapping" },
-  { id: "protective", title: "Protective Packaging" },
-  { id: "tapes", title: "Tapes" },
-  { id: "pallet-wrapping", title: "Pallet Wrapping" }
-];
-
-export default function AdminProductsPage() {
+export default function ProductsClient() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [editingId, setEditingId] = useState<string | null>(null);
-  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
+
+  // Modal / Drawer state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
   // Form State
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Partial<Product>>({
     title: "",
-    category: "labels",
+    category: "film-products",
     tag: "",
     blurb: "",
-    longDesc: "",
-    basePrice: "",
     image: "",
-    specsText: "", // Key: Value lines
-    widthsText: "", // Comma separated
-    thicknessesText: "", // Comma separated
-    colorsText: "", // Comma separated
-    applicationsText: "", // Comma separated
-    visualGradients: "from-emerald-400 to-teal-500",
+    longDesc: "",
   });
 
-  const [submitting, setSubmitting] = useState(false);
-  const [uploading, setUploading] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const primaryCategories = [
+    { id: "all", label: "All Catalog" },
+    { id: "film-products", label: "Film Products" },
+    { id: "label-sticker-products", label: "Labels & Stickers" },
+    { id: "tapes", label: "Industrial Tapes" },
+    { id: "pp-strap", label: "PP & PET Strap" },
+  ];
 
-  const fetchProducts = () => {
+  // Dynamically compute all categories including any arriving from DB
+  const categories = useMemo(() => {
+    const existingCatIds = new Set(primaryCategories.map((c) => c.id));
+    const extraCats: { id: string; label: string }[] = [];
+
+    products.forEach((p) => {
+      if (p.category && !existingCatIds.has(p.category)) {
+        existingCatIds.add(p.category);
+        extraCats.push({
+          id: p.category,
+          label: p.category.replace(/-/g, " ").toUpperCase(),
+        });
+      }
+    });
+
+    return [...primaryCategories, ...extraCats];
+  }, [products]);
+
+  const fetchProducts = async () => {
     setLoading(true);
-    apiFetch("/api/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data || []);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
+    try {
+      const res = await apiFetch("/api/products");
+      if (res.ok) {
+        const data = await res.json();
+        setProducts(data);
+      }
+    } catch (err) {
+      console.error("Failed to load products:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
     fetchProducts();
   }, []);
 
-  // Handle Image Upload
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    setUploading(true);
-    const body = new FormData();
-    body.append("file", file);
-
-    try {
-      const res = await apiFetch("/api/upload", {
-        method: "POST",
-        body,
-      });
-      const data = await res.json();
-      if (data.success) {
-        setFormData((prev) => ({ ...prev, image: data.url }));
-      } else {
-        alert("Upload failed: " + data.error);
-      }
-    } catch (err: any) {
-      alert("Upload error: " + err.message);
-    } finally {
-      setUploading(false);
-      if (fileInputRef.current) fileInputRef.current.value = "";
-    }
-  };
-
-  const handleEditInit = (prod: Product) => {
-    setEditingId(prod.id);
-
-    // Convert specs object back to line text
-    let specsText = "";
-    if (prod.specs) {
-      specsText = Object.entries(prod.specs)
-        .map(([k, v]) => `${k}: ${v}`)
-        .join("\n");
-    }
-
-    setFormData({
-      title: prod.title || "",
-      category: prod.category || "labels",
-      tag: prod.tag || "",
-      blurb: prod.blurb || "",
-      longDesc: prod.longDesc || "",
-      basePrice: prod.basePrice || "",
-      image: prod.image || "",
-      specsText,
-      widthsText: prod.options?.widths?.join(", ") || "",
-      thicknessesText: prod.options?.thicknesses?.join(", ") || "",
-      colorsText: prod.options?.colors?.join(", ") || "",
-      applicationsText: prod.applications?.join(", ") || "",
-      visualGradients: prod.visualGradients || "from-emerald-400 to-teal-500",
-    });
-    setIsFormOpen(true);
-  };
-
-  const handleCancelEdit = () => {
-    setEditingId(null);
+  const handleOpenCreate = () => {
+    setEditingProduct(null);
     setFormData({
       title: "",
-      category: "labels",
-      tag: "",
+      category: "film-products",
+      tag: "Standard",
       blurb: "",
+      image: "/images/products/pof-shrink-rolls/image.png",
       longDesc: "",
-      basePrice: "",
-      image: "",
-      specsText: "",
-      widthsText: "",
-      thicknessesText: "",
-      colorsText: "",
-      applicationsText: "",
-      visualGradients: "from-emerald-400 to-teal-500",
     });
-    setIsFormOpen(false);
+    setIsModalOpen(true);
+  };
+
+  const handleOpenEdit = (prod: Product) => {
+    setEditingProduct(prod);
+    setFormData({ ...prod });
+    setIsModalOpen(true);
+  };
+
+  const handleDelete = async (prod: Product) => {
+    if (!confirm(`Are you sure you want to delete "${prod.title}"?`)) return;
+    try {
+      const res = await apiFetch(`/api/products/${prod.id}`, { method: "DELETE" });
+      if (res.ok) {
+        setProducts((prev) => prev.filter((p) => p.id !== prod.id));
+      } else {
+        alert("Failed to delete product");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-
-    // Parse specsText
-    const specs: Record<string, string> = {};
-    if (formData.specsText.trim()) {
-      formData.specsText.split("\n").forEach((line) => {
-        const idx = line.indexOf(":");
-        if (idx !== -1) {
-          const k = line.substring(0, idx).trim();
-          const v = line.substring(idx + 1).trim();
-          if (k && v) specs[k] = v;
-        }
-      });
-    }
-
-    const payload = {
-      title: formData.title,
-      category: formData.category,
-      tag: formData.tag,
-      blurb: formData.blurb,
-      longDesc: formData.longDesc,
-      basePrice: formData.basePrice,
-      image: formData.image,
-      gallery: formData.image ? [formData.image] : [],
-      specs,
-      options: {
-        widths: formData.widthsText.split(",").map((s) => s.trim()).filter(Boolean),
-        thicknesses: formData.thicknessesText.split(",").map((s) => s.trim()).filter(Boolean),
-        colors: formData.colorsText.split(",").map((s) => s.trim()).filter(Boolean),
-      },
-      applications: formData.applicationsText.split(",").map((s) => s.trim()).filter(Boolean),
-      visualGradients: formData.visualGradients,
-    };
-
     try {
-      const url = editingId ? `/api/products/${editingId}` : "/api/products";
-      const method = editingId ? "PUT" : "POST";
-
-      const res = await apiFetch(url, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (res.ok) {
-        // Trigger on-demand revalidation
-        const slug = editingId || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
-        await Promise.all([
-          triggerRevalidate("/"),
-          triggerRevalidate("/products"),
-          slug ? triggerRevalidate(`/products/${slug}`) : Promise.resolve()
-        ]);
-
-        alert(editingId ? "Product updated successfully!" : "Product created successfully!");
-        handleCancelEdit();
-        fetchProducts();
+      if (editingProduct) {
+        const res = await apiFetch(`/api/products/${editingProduct.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        if (res.ok) {
+          const updated = await res.json();
+          setProducts((prev) => prev.map((p) => (p.id === editingProduct.id ? updated : p)));
+          setIsModalOpen(false);
+        }
       } else {
-        const errorData = await res.json();
-        alert("Failed to save product: " + errorData.error);
+        const res = await apiFetch("/api/products", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        if (res.ok) {
+          const created = await res.json();
+          setProducts((prev) => [created, ...prev]);
+          setIsModalOpen(false);
+        }
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
-      alert("Failed to save product: " + err.message);
+      alert("An error occurred while saving.");
     } finally {
       setSubmitting(false);
     }
   };
 
-  const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this product?")) return;
+  const filteredProducts = products.filter((p) => {
+    const matchesSearch =
+      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.tag?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.blurb?.toLowerCase().includes(searchQuery.toLowerCase());
 
-    try {
-      const res = await apiFetch(`/api/products/${id}`, { method: "DELETE" });
-      if (res.ok) {
-        // Trigger on-demand revalidation
-        await Promise.all([
-          triggerRevalidate("/"),
-          triggerRevalidate("/products"),
-          id ? triggerRevalidate(`/products/${id}`) : Promise.resolve()
-        ]);
+    const matchesCategory = selectedCategory === "all" || p.category === selectedCategory;
 
-        alert("Product deleted successfully!");
-        fetchProducts();
-        if (editingId === id) handleCancelEdit();
-      } else {
-        alert("Failed to delete product.");
-      }
-    } catch (err: any) {
-      alert("Error deleting product: " + err.message);
-    }
-  };
+    return matchesSearch && matchesCategory;
+  });
 
   return (
-    <div className="space-y-6">
-      {isFormOpen ? (
-        /* Full-Width Inline Editor Form */
-        <div className="rounded-xl border border-slate-200 bg-white p-6 space-y-4 shadow-sm">
-          <div className="flex items-center justify-between border-b pb-3 mb-4">
-            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-              <PlusCircle className="h-5 w-5 text-[var(--color-amber)]" />
-              {editingId ? "Edit Product Details" : "Add New Product"}
-            </h3>
+    <div className="space-y-5 w-full font-sans overflow-x-hidden">
+
+      {/* Search & Filter Toolbar */}
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-white p-6 rounded-[28px] border border-[#e5dfd2] shadow-xs">
+
+        {/* Category Tabs (Hides Horizontal Scrollbar) */}
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+          {categories.map((cat) => {
+            const count = cat.id === "all" ? products.length : products.filter((p) => p.category === cat.id).length;
+            const isActive = selectedCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-extrabold transition shrink-0 cursor-pointer ${isActive
+                    ? "bg-[#120a3b] text-white shadow-xs"
+                    : "bg-[#f8f7f4] text-[#5A6473] border border-[#e5dfd2] hover:bg-[#fff5eb] hover:text-[#fe8220]"
+                  }`}
+              >
+                <span>{cat.label}</span>
+                <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${isActive ? "bg-[#fe8220] text-white" : "bg-white text-slate-600"}`}>
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Search Bar, Action Button & View Mode Toggle */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleOpenCreate}
+            className="flex items-center gap-2 rounded-full bg-[#fe8220] px-4 py-2 text-xs font-extrabold text-white shadow-xs hover:bg-[#d4630a] transition cursor-pointer"
+          >
+            <Plus className="h-4 w-4 text-white" />
+            <span>Add Product</span>
+          </button>
+
+          <div className="relative flex-1 sm:w-64">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search products..."
+              className="w-full rounded-2xl border border-[#e5dfd2] bg-[#f8f7f4] pl-10 pr-4 py-2 text-xs font-medium text-slate-900 placeholder-slate-400 focus:border-[#fe8220] focus:bg-white focus:outline-none"
+            />
+          </div>
+
+          <div className="flex items-center gap-1 rounded-2xl border border-[#e5dfd2] bg-[#f8f7f4] p-1">
             <button
-              onClick={handleCancelEdit}
-              className="text-sm text-[var(--color-amber)] hover:text-[var(--color-amber-dark)] font-semibold transition"
+              onClick={() => setViewMode("grid")}
+              className={`p-1.5 rounded-xl text-xs font-bold transition ${viewMode === "grid" ? "bg-[#120a3b] text-white" : "text-slate-500 hover:text-slate-900"}`}
+              title="Grid View"
             >
-              &larr; Back to Catalog List
+              <LayoutGrid className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => setViewMode("table")}
+              className={`p-1.5 rounded-xl text-xs font-bold transition ${viewMode === "table" ? "bg-[#120a3b] text-white" : "text-slate-500 hover:text-slate-900"}`}
+              title="Table View"
+            >
+              <List className="h-4 w-4" />
             </button>
           </div>
+        </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1">
-                Product Title
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="e.g. Polypropylene Strap Rolls"
-                value={formData.title}
-                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
-              />
-            </div>
+      </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1">
-                  Category
-                </label>
-                <select
-                  value={formData.category}
-                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
-                >
-                  {CATEGORIES.map((cat) => (
-                    <option key={cat.id} value={cat.id}>
-                      {cat.title}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1">
-                  Tag / Material
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. PET, PP, Acrylic"
-                  value={formData.tag}
-                  onChange={(e) => setFormData({ ...formData, tag: e.target.value })}
-                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
+      {/* Catalog Listing */}
+      {loading ? (
+        <div className="py-20 text-center text-xs font-mono uppercase tracking-widest text-slate-400">
+          Loading Catalog Items...
+        </div>
+      ) : filteredProducts.length === 0 ? (
+        <div className="py-16 text-center rounded-[28px] border border-[#e5dfd2] bg-white p-8 space-y-3">
+          <Package className="h-10 w-10 text-slate-300 mx-auto" />
+          <p className="text-sm font-bold text-slate-800">No Products Matching Criteria</p>
+        </div>
+      ) : viewMode === "grid" ? (
+        /* WIDE GRID VIEW */
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredProducts.map((prod) => (
+            <motion.div
+              key={prod.id}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="group relative flex flex-col overflow-hidden rounded-[28px] border border-[#e5dfd2] bg-white shadow-xs hover:shadow-md hover:border-[#fe8220] transition-all duration-300"
+            >
+              {/* Product Thumbnail */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#f8f7f4] border-b border-[#e5dfd2]/60 flex items-center justify-center p-4">
+                <img
+                  src={prod.image || "/images/products/pof-shrink-rolls/image.png"}
+                  alt={prod.title}
+                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                 />
+                <span className="absolute top-3 right-3 text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#fff5eb] text-[#fe8220] border border-[#fe8220]/30 shadow-2xs">
+                  {prod.tag || "Standard"}
+                </span>
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1">
-                Short Blurb
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="One sentence product hook description"
-                value={formData.blurb}
-                onChange={(e) => setFormData({ ...formData, blurb: e.target.value })}
-                className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1">
-                Long Description (Tiptap Block Editor)
-              </label>
-              <TiptapInlineEditor
-                value={formData.longDesc}
-                onChange={(val) => setFormData({ ...formData, longDesc: val })}
-              />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1">
-                  Base Price (Text)
-                </label>
-                <input
-                  type="text"
-                  placeholder="₹2,450 / Roll"
-                  value={formData.basePrice}
-                  onChange={(e) => setFormData({ ...formData, basePrice: e.target.value })}
-                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1">
-                  Color Theme Gradient
-                </label>
-                <input
-                  type="text"
-                  placeholder="from-emerald-400 to-teal-500"
-                  value={formData.visualGradients}
-                  onChange={(e) => setFormData({ ...formData, visualGradients: e.target.value })}
-                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
-                />
-              </div>
-            </div>
-
-            {/* Image upload handler */}
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1">
-                Product Image
-              </label>
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  placeholder="/images/example.jpg"
-                  value={formData.image}
-                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                  className="flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
-                />
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleImageUpload}
-                  accept="image/*"
-                  className="hidden"
-                />
-                <button
-                  type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  disabled={uploading}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-500 transition shadow-sm"
-                >
-                  {uploading ? (
-                    <Loader2 className="h-4 w-4 animate-spin text-[var(--color-amber)]" />
-                  ) : (
-                    <Upload className="h-4 w-4" />
-                  )}
-                </button>
-              </div>
-              {formData.image && (
-                <div className="mt-2 h-20 w-32 border border-slate-200 rounded overflow-hidden shadow-sm">
-                  <img src={formData.image} alt="Preview" className="h-full w-full object-cover" />
+              {/* Info Body */}
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#482dbf]">
+                    {prod.category}
+                  </div>
+                  <h3 className="text-base font-bold text-[#120a3b] font-display mt-0.5 line-clamp-1">
+                    {prod.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+                    {prod.blurb}
+                  </p>
                 </div>
-              )}
-            </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1">
-                Technical Specifications (Key: Value lines)
-              </label>
-              <textarea
-                rows={4}
-                placeholder="Tensile Strength: 460 kg average&#10;Elongation Rate: 12% - 18%&#10;Core Size: 406mm ID x 150mm Width"
-                value={formData.specsText}
-                onChange={(e) => setFormData({ ...formData, specsText: e.target.value })}
-                className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-mono text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1">
-                Applications (Comma separated)
-              </label>
-              <input
-                type="text"
-                placeholder="Pallet stabilization, Export packing"
-                value={formData.applicationsText}
-                onChange={(e) => setFormData({ ...formData, applicationsText: e.target.value })}
-                className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)]"
-              />
-            </div>
-
-            <div className="space-y-2 pt-2 border-t border-slate-100">
-              <span className="block text-xs font-bold uppercase tracking-wider text-slate-500">
-                Customization Options
-              </span>
-              <div className="space-y-2">
-                <input
-                  type="text"
-                  placeholder="Widths (e.g. 12 mm, 15 mm)"
-                  value={formData.widthsText}
-                  onChange={(e) => setFormData({ ...formData, widthsText: e.target.value })}
-                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)] shadow-sm"
-                />
-                <input
-                  type="text"
-                  placeholder="Thicknesses (e.g. 0.6 mm, 0.8 mm)"
-                  value={formData.thicknessesText}
-                  onChange={(e) => setFormData({ ...formData, thicknessesText: e.target.value })}
-                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)] shadow-sm"
-                />
-                <input
-                  type="text"
-                  placeholder="Colors (e.g. Emerald Green, Jet Black)"
-                  value={formData.colorsText}
-                  onChange={(e) => setFormData({ ...formData, colorsText: e.target.value })}
-                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-semibold text-slate-800 focus:outline-none focus:border-[var(--color-amber)] shadow-sm"
-                />
+                <div className="pt-3 border-t border-[#e5dfd2]/60 flex items-center justify-between">
+                  <div className="text-xs font-mono font-bold text-slate-500">
+                    ID: {prod.id}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Link
+                      href={`/admin/products/${prod.id}`}
+                      className="p-2 rounded-xl border border-[#e5dfd2] bg-[#f8f7f4] text-slate-700 hover:border-[#fe8220] hover:text-[#fe8220] transition cursor-pointer"
+                      title="Edit Full Product Detail & Applications"
+                    >
+                      <Edit className="h-3.5 w-3.5" />
+                    </Link>
+                    <button
+                      onClick={() => handleDelete(prod)}
+                      className="p-2 rounded-xl border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 transition cursor-pointer"
+                      title="Delete Product"
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div className="flex gap-2 pt-4 border-t border-slate-100 mt-6 justify-end">
-              <button
-                type="button"
-                onClick={handleCancelEdit}
-                className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-500 hover:bg-slate-50 transition"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                disabled={submitting}
-                className="flex justify-center items-center gap-1.5 rounded-lg bg-[var(--color-amber)] hover:bg-[var(--color-amber-dark)] px-6 py-2.5 text-sm font-bold text-white shadow-sm transition disabled:opacity-50"
-              >
-                {submitting && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
-                {editingId ? "Save Changes" : "Publish Product"}
-              </button>
-            </div>
-          </form>
+            </motion.div>
+          ))}
         </div>
       ) : (
-        /* List View */
-        <>
-          {/* Header */}
-          <div className="flex items-center justify-between border-b border-slate-200 pb-4 bg-white p-6 rounded-2xl border shadow-sm">
-            <div>
-              <h1 className="text-xl font-bold tracking-tight text-slate-900">Product Catalog Management</h1>
-              <p className="text-xs text-slate-500 mt-0.5">Add, edit, or remove packaging materials from the live catalog</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => {
-                  setEditingId(null);
-                  handleCancelEdit();
-                  setIsFormOpen(true);
-                }}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[var(--color-amber)] hover:bg-[var(--color-amber-dark)] text-white font-semibold text-sm transition shadow-sm"
-              >
-                <PlusCircle className="h-4 w-4" />
-                <span>Add New Product</span>
-              </button>
-              <button
-                onClick={fetchProducts}
-                disabled={loading}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-500 transition shadow-sm"
-              >
-                <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
-              </button>
-            </div>
-          </div>
-
-          {/* Products Table List */}
-          <div className="w-full rounded-xl border border-slate-200 bg-white p-6 space-y-6 shadow-sm">
-            <h3 className="text-base font-bold text-slate-900 border-b pb-2">Catalog Products</h3>
-
-            {loading ? (
-              <div className="py-24 text-center text-xs font-mono uppercase tracking-widest text-slate-400">
-                Syncing Catalog Database...
-              </div>
-            ) : products.length === 0 ? (
-              <div className="py-24 text-center text-xs font-mono uppercase tracking-widest text-slate-400 flex flex-col items-center justify-center gap-2">
-                <AlertCircle className="h-6 w-6 text-slate-300" />
-                <span>No products in database</span>
-              </div>
-            ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse text-left text-sm text-slate-800">
-                  <thead>
-                    <tr className="border-b border-slate-200 font-mono text-xs uppercase tracking-wider text-slate-400">
-                      <th className="py-3 pr-4">Image</th>
-                      <th className="py-3 px-4">Title</th>
-                      <th className="py-3 px-4">Category</th>
-                      <th className="py-3 px-4">Base Price</th>
-                      <th className="py-3 pl-4 text-right">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100">
-                    {products.map((prod) => (
-                      <tr key={prod.id} className="hover:bg-slate-50 transition-colors">
-                        <td className="py-3 pr-4">
-                          <div className="h-10 w-12 rounded bg-slate-50 border border-slate-200 overflow-hidden flex items-center justify-center">
-                            {prod.image ? (
-                              <img src={prod.image} alt={prod.title} className="h-full w-full object-cover" />
-                            ) : (
-                              <span className="text-[8px] text-slate-400 font-mono">NO IMG</span>
-                            )}
-                          </div>
-                        </td>
-                        <td className="py-3 px-4">
-                          <div className="font-bold text-slate-900">{prod.title}</div>
-                          <div className="text-xs font-mono text-[var(--color-amber-dark)] font-bold mt-0.5">{prod.tag}</div>
-                        </td>
-                        <td className="py-3 px-4">
-                          <span className="rounded bg-[var(--color-amber)]/10 border border-[var(--color-amber)]/20 px-2 py-0.5 font-mono text-xs text-[var(--color-amber-dark)] uppercase">
-                            {prod.category}
-                          </span>
-                        </td>
-                        <td className="py-3 px-4 font-mono font-semibold text-slate-600">{prod.basePrice || "N/A"}</td>
-                        <td className="py-3 pl-4 text-right">
-                          <div className="flex items-center justify-end gap-2">
-                            <button
-                              onClick={() => handleEditInit(prod)}
-                              className="flex h-7 w-7 items-center justify-center rounded border border-slate-200 bg-white hover:bg-[var(--color-amber)]/10 hover:text-[var(--color-amber-dark)] text-slate-500 transition shadow-sm"
-                              title="Edit Product"
-                            >
-                              <Edit2 className="h-3.5 w-3.5" />
-                            </button>
-                            <button
-                              onClick={() => handleDelete(prod.id)}
-                              className="flex h-7 w-7 items-center justify-center rounded border border-slate-200 bg-white hover:bg-red-50 hover:text-red-600 text-slate-500 transition shadow-sm"
-                              title="Delete Product"
-                            >
-                              <Trash2 className="h-3.5 w-3.5" />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
-        </>
+        /* TABLE VIEW */
+        <div className="rounded-[28px] border border-[#e5dfd2] bg-white overflow-hidden shadow-xs">
+          <table className="w-full text-left text-xs">
+            <thead>
+              <tr className="border-b border-[#e5dfd2] bg-[#f8f7f4] font-mono uppercase tracking-wider text-[#5A6473] text-[10px]">
+                <th className="p-4 font-bold">Product</th>
+                <th className="p-4 font-bold">Category</th>
+                <th className="p-4 font-bold">Tag</th>
+                <th className="p-4 font-bold text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 font-medium">
+              {filteredProducts.map((prod) => (
+                <tr key={prod.id} className="hover:bg-[#fff5eb]/40 transition">
+                  <td className="p-4 font-bold text-[#120a3b] flex items-center gap-3">
+                    <img src={prod.image || "/images/products/pof-shrink-rolls/image.png"} className="h-9 w-9 rounded-lg border border-[#e5dfd2] object-contain bg-[#f8f7f4] p-1" />
+                    <div>
+                      <div>{prod.title}</div>
+                      <div className="text-[10px] text-slate-400 font-mono font-normal">ID: {prod.id}</div>
+                    </div>
+                  </td>
+                  <td className="p-4 text-slate-600 font-mono text-[11px]">{prod.category}</td>
+                  <td className="p-4">
+                    <span className="text-[10px] font-mono font-bold bg-[#fff5eb] text-[#fe8220] border border-[#fe8220]/30 px-2 py-0.5 rounded-full">
+                      {prod.tag}
+                    </span>
+                  </td>
+                  <td className="p-4 text-right">
+                    <div className="flex items-center justify-end gap-2">
+                      <button
+                        onClick={() => handleOpenEdit(prod)}
+                        className="p-1.5 rounded-lg border border-[#e5dfd2] bg-[#f8f7f4] text-slate-700 hover:border-[#fe8220] cursor-pointer"
+                      >
+                        <Edit className="h-3.5 w-3.5" />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(prod)}
+                        className="p-1.5 rounded-lg border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 cursor-pointer"
+                      >
+                        <Trash2 className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
+
+      {/* Editor Modal / Drawer */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsModalOpen(false)}
+            className="fixed inset-0 z-50 flex items-center justify-end bg-slate-950/60 backdrop-blur-xs p-4 sm:p-6 text-slate-900"
+          >
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-xl bg-white border border-[#e5dfd2] rounded-[32px] h-full max-h-[92vh] shadow-2xl flex flex-col overflow-hidden"
+            >
+              <div className="p-6 border-b border-[#e5dfd2] flex items-center justify-between bg-[#f8f7f4]">
+                <div>
+                  <h2 className="text-lg font-bold text-[#120a3b] font-display">
+                    {editingProduct ? "Edit Product" : "Create New Product"}
+                  </h2>
+                  <p className="text-xs text-slate-500">
+                    {editingProduct ? `Updating SKU ID: ${editingProduct.id}` : "Add a new product listing to catalog"}
+                  </p>
+                </div>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="p-2 rounded-full border border-[#e5dfd2] bg-white text-slate-500 hover:text-slate-900"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+
+              <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6 space-y-4 no-scrollbar">
+                <div>
+                  <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
+                    Product Title *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.title || ""}
+                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                    placeholder="e.g. POF Shrink Film Rolls"
+                    className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
+                      Category *
+                    </label>
+                    <select
+                      value={formData.category || "film-products"}
+                      onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                      className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                    >
+                      <option value="film-products">Film Products</option>
+                      <option value="label-sticker-products">Labels & Stickers</option>
+                      <option value="tapes">Industrial Tapes</option>
+                      <option value="pp-strap">PP & PET Strap</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
+                      Tag / Grade
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.tag || ""}
+                      onChange={(e) => setFormData({ ...formData, tag: e.target.value })}
+                      placeholder="e.g. High Cling"
+                      className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
+                    Image URL
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.image || ""}
+                    onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                    placeholder="/images/products/pof-shrink-rolls/image.png"
+                    className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-mono text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
+                    Short Blurb / Summary *
+                  </label>
+                  <textarea
+                    rows={2}
+                    required
+                    value={formData.blurb || ""}
+                    onChange={(e) => setFormData({ ...formData, blurb: e.target.value })}
+                    placeholder="Brief description of product features..."
+                    className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-medium text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
+                    Long Detailed Description (Markdown Supported)
+                  </label>
+                  <textarea
+                    rows={4}
+                    value={formData.longDesc || ""}
+                    onChange={(e) => setFormData({ ...formData, longDesc: e.target.value })}
+                    placeholder="Detailed specifications, features, and applications..."
+                    className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-mono text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                  />
+                </div>
+
+                <div className="pt-4 border-t border-[#e5dfd2] flex items-center justify-end gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setIsModalOpen(false)}
+                    className="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="px-6 py-3 rounded-full bg-[#fe8220] text-white font-extrabold text-xs shadow-md hover:bg-[#d4630a]"
+                  >
+                    {submitting ? "Saving..." : editingProduct ? "Update Product" : "Create Product"}
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </div>
   );
 }

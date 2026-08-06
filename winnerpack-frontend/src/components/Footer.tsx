@@ -1,7 +1,42 @@
+"use client";
+
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const defaultFooterData = {
+  name: "Winner Pack Technologies",
+  legalName: "Winner Pack Technologies Pvt. Ltd.",
+  phone: "+91 85950 72187",
+  phone2: "+91 74287 70999",
+  email: "sales@winnerpack.in",
+  address: "Winner Pack Technologies Pvt. Ltd. Plot No. 8, B.S.T. Industrial Park, Village Dasna, Ghaziabad, Uttar Pradesh, 201015",
+  description: "Winner Pack Technologies Pvt. Ltd. is a manufacturer and supplier of environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply quality stretch films, strapping rolls, shrink films, and protective packaging solutions to industrial businesses across diverse sectors.",
+  linkedin: "https://linkedin.com",
+  youtube: "https://youtube.com",
+  instagram: "https://instagram.com",
+};
 
 export default function Footer() {
+  const [footerData, setFooterData] = useState(defaultFooterData);
+
+  useEffect(() => {
+    async function loadFooterData() {
+      try {
+        const res = await fetch("/api/content?key=footer");
+        if (res.ok) {
+          const result = await res.json();
+          if (result?.data) {
+            setFooterData((prev) => ({ ...prev, ...result.data }));
+          }
+        }
+      } catch (err) {
+        console.warn("Could not load footer from DB, using defaults:", err);
+      }
+    }
+    loadFooterData();
+  }, []);
+
   return (
     <footer className="relative overflow-hidden bg-[var(--color-ink)] text-white pt-16 pb-8 border-t border-[var(--color-line)]/10">
       {/* Noise and Grid Overlays */}
@@ -12,7 +47,7 @@ export default function Footer() {
         {/* Main Columns Container */}
         <div className="grid gap-10 lg:grid-cols-12">
           
-          {/* Column 1: Logo & Company Description (col-md-4 -> lg:col-span-4) */}
+          {/* Column 1: Logo & Company Description */}
           <div className="lg:col-span-4 flex flex-col">
             <div className="flex items-center gap-3">
               <img src="/logo.png" alt="Winner Pack Logo" className="h-12 w-auto object-contain" />
@@ -27,7 +62,7 @@ export default function Footer() {
             </div>
             
             <p className="mt-5 text-xs sm:text-sm leading-relaxed text-white/60 text-justify">
-              Winner Pack Technologies Pvt. Ltd. is a manufacturer and supplier of environment-friendly secondary and tertiary packaging materials. Guided by our motto "We Serve To Deserve", we supply quality stretch films, strapping rolls, shrink films, and protective packaging solutions to industrial businesses across diverse sectors.
+              {footerData.description}
             </p>
             
             {/* Social Icons */}
@@ -35,7 +70,7 @@ export default function Footer() {
               {[
                 {
                   label: "LinkedIn",
-                  href: "https://linkedin.com",
+                  href: footerData.linkedin || "https://linkedin.com",
                   svg: (
                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -44,7 +79,7 @@ export default function Footer() {
                 },
                 {
                   label: "YouTube",
-                  href: "https://youtube.com",
+                  href: footerData.youtube || "https://youtube.com",
                   svg: (
                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.528 3.545 12 3.545 12 3.545s-7.528 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.022 0 12 0 12s0 3.978.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.86.508 9.388.508 9.388.508s7.528 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.978 24 12 24 12s0-3.978-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
@@ -53,7 +88,7 @@ export default function Footer() {
                 },
                 {
                   label: "Instagram",
-                  href: "https://instagram.com",
+                  href: footerData.instagram || "https://instagram.com",
                   svg: (
                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -78,9 +113,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Group wrapper for Quick Navigation and Our Products to display side-by-side on mobile */}
+          {/* Quick Navigation + Products */}
           <div className="grid grid-cols-2 gap-5 sm:gap-10 lg:col-span-5 lg:grid-cols-5 md:col-span-8">
-            {/* Column 2: Quick Navigation */}
+            {/* Quick Navigation */}
             <div className="lg:col-span-2">
               <h5 className="font-display text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2 mb-4">
                 Quick Navigation
@@ -102,7 +137,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Column 3: Our Products */}
+            {/* Our Products */}
             <div className="lg:col-span-3">
               <h5 className="font-display text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2 mb-4">
                 Our Products
@@ -124,7 +159,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 4: Contact (col-md-3 -> lg:col-span-3) */}
+          {/* Contact Column */}
           <div className="lg:col-span-3 md:col-span-4">
             <h5 className="font-display text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2 mb-4">
               Contact
@@ -133,24 +168,28 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 flex-shrink-0 text-[var(--color-blue-3)] mt-0.5" />
                 <span className="leading-relaxed">
-                  Winner Pack Technologies Pvt. Ltd. Plot No. 8, B.S.T. Industrial Park, Village Dasna, Ghaziabad, Uttar Pradesh, 201015
+                  {footerData.address}
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="h-4.5 w-4.5 flex-shrink-0 text-[var(--color-blue-3)] mt-0.5" />
                 <div className="flex flex-col gap-1">
-                  <a href="tel:+918595072187" className="hover:text-white transition-colors" data-hover>
-                    +91 85950 72187
-                  </a>
-                  <a href="tel:+917428770999" className="hover:text-white transition-colors" data-hover>
-                    +91 74287 70999
-                  </a>
+                  {footerData.phone && (
+                    <a href={`tel:${footerData.phone.replace(/\s+/g, "")}`} className="hover:text-white transition-colors" data-hover>
+                      {footerData.phone}
+                    </a>
+                  )}
+                  {footerData.phone2 && (
+                    <a href={`tel:${footerData.phone2.replace(/\s+/g, "")}`} className="hover:text-white transition-colors" data-hover>
+                      {footerData.phone2}
+                    </a>
+                  )}
                 </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4.5 w-4.5 flex-shrink-0 text-[var(--color-blue-3)]" />
-                <a href="mailto:sales@winnerpack.in" className="hover:text-white transition-colors" data-hover>
-                  sales@winnerpack.in
+                <a href={`mailto:${footerData.email}`} className="hover:text-white transition-colors" data-hover>
+                  {footerData.email}
                 </a>
               </li>
             </ul>
@@ -158,13 +197,13 @@ export default function Footer() {
 
         </div>
 
-        {/* Footer End (Copyright and Developer info) */}
+        {/* Footer End */}
         <div className="relative mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] sm:text-xs text-white/40 tracking-wider">
           <div className="text-center md:text-left">
-            © 2026 All Rights Reserved · Winner Pack Technologies Pvt. Ltd.
+            © {new Date().getFullYear()} All Rights Reserved · {footerData.legalName}
           </div>
           <div className="flex items-center gap-1.5 text-center md:text-right">
-            <span>Designed & Developed By</span>
+            <span>Designed &amp; Developed By</span>
             <a
               href="https://www.jaikviktechnology.com/"
               target="_blank"

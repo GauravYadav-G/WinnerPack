@@ -81,7 +81,7 @@ export default function Certifications() {
       <div className="absolute left-1/2 top-0 -translate-x-1/2 h-96 w-[900px] rounded-full bg-[var(--color-blue)]/5 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-        
+
         {/* Centered Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-6 sm:mb-12 md:mb-16">
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2">
@@ -99,7 +99,7 @@ export default function Certifications() {
 
         {/* 2-Row Certification Logos Grid with Uniform Cards */}
         <div className="space-y-3.5 sm:space-y-10 md:space-y-14">
-          
+
           {/* Row 1 (6 Badges: 2 Columns on Mobile, 6 Columns on Desktop) */}
           <div className="grid grid-cols-2 sm:grid-cols-6 gap-3 sm:gap-6 md:gap-8 items-center justify-items-center">
             {row1Certifications.map((item, index) => (

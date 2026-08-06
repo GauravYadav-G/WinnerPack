@@ -25,8 +25,11 @@ const ArticleSchema = new Schema(
     body: { type: String, required: true },
     slug: { type: String, required: true, unique: true },
     image: { type: String, default: "" },
+    canonicalUrl: { type: String, default: "" },
+    metaKeywords: { type: String, default: "" },
+    metaDescription: { type: String, default: "" },
   },
-  { timestamps: true }
+  { timestamps: true, strict: false }
 );
 
 const ProductSchema = new Schema(
@@ -37,41 +40,21 @@ const ProductSchema = new Schema(
     tag: { type: String, required: true },
     blurb: { type: String, required: true },
     longDesc: { type: String },
-    basePrice: { type: String },
     image: { type: String },
     gallery: { type: [String], default: [] },
     specs: { type: Schema.Types.Mixed, default: {} },
-    options: {
-      widths: { type: [String], default: [] },
-      thicknesses: { type: [String], default: [] },
-      colors: { type: [String], default: [] },
-    },
-    applications: { type: [String], default: [] },
+    options: { type: Schema.Types.Mixed, default: {} },
+    applications: { type: Schema.Types.Mixed, default: [] },
+    applicationSlots: { type: Schema.Types.Mixed, default: [] },
+    subCategories: { type: Schema.Types.Mixed, default: [] },
+    whatsIncluded: { type: [String], default: [] },
+    features: { type: [String], default: [] },
     visualGradients: { type: String },
   },
-  { timestamps: true }
+  { timestamps: true, strict: false }
 );
 
-const MachineSchema = new Schema(
-  {
-    model: { type: String, required: true, unique: true },
-    name: { type: String, required: true },
-    tagline: { type: String },
-    desc: { type: String },
-    image: { type: String },
-    specs: {
-      type: [
-        {
-          label: { type: String, required: true },
-          value: { type: String, required: true },
-        }
-      ],
-      default: []
-    },
-    highlights: { type: [String], default: [] },
-  },
-  { timestamps: true }
-);
+// Machine section removed — no longer used
 
 const ContentSchema = new Schema(
   {
@@ -84,5 +67,4 @@ const ContentSchema = new Schema(
 export const Inquiry = mongoose.models.Inquiry || mongoose.model("Inquiry", InquirySchema);
 export const Article = mongoose.models.Article || mongoose.model("Article", ArticleSchema);
 export const Product = mongoose.models.Product || mongoose.model("Product", ProductSchema);
-export const Machine = mongoose.models.Machine || mongoose.model("Machine", MachineSchema);
 export const Content = mongoose.models.Content || mongoose.model("Content", ContentSchema);

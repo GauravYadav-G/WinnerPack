@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
   UserCheck,
   Boxes,
@@ -12,61 +13,41 @@ import {
   Ruler
 } from "lucide-react";
 
-const solutionsData = [
-  {
-    icon: UserCheck,
-    question: "Need a responsive point of contact for plant supply coordination?",
-    solution: "Dedicated Key Account Manager for seamless order and dispatch coordination.",
-    appImage: "/images/desktop/journey/solution_dispatch_manager.png",
-  },
-  {
-    icon: Boxes,
-    question: "Concerned about production line stoppages due to packaging stockouts?",
-    solution: "Buffer stock maintained at our plant for quick and reliable dispatch.",
-    appImage: "/images/desktop/journey/solution_buffer_stock.png",
-  },
-  {
-    icon: ShieldCheck,
-    question: "Facing quality issues with strapping or tape performance in the field?",
-    solution: "Rigorous batch-level elongation, tensile and adhesive testing on every dispatch.",
-    appImage: "/images/desktop/journey/solution_quality_testing.png",
-  },
-  {
-    icon: TrendingUp,
-    question: "Looking to improve cost efficiency in packaging material consumption?",
-    solution: "Optimized film gauges and high-yield formats that reduce cost per pack.",
-    appImage: "/images/desktop/journey/solution_pallet_wrapping.png",
-  },
-  {
-    icon: Truck,
-    question: "Facing inconsistent delivery schedules from your current supplier?",
-    solution: "Reliable scheduled dispatches to support steady supply chain continuity.",
-    appImage: "/images/desktop/journey/solution_scheduled_dispatch.png",
-  },
-  {
-    icon: Tag,
-    question: "Dealing with unexpected price changes and unclear billing from suppliers?",
-    solution: "Transparent contract pricing with no hidden surcharges or surprise escalations.",
-    appImage: "/images/desktop/journey/solution_contract_pricing.png",
-  },
-  {
-    icon: RefreshCw,
-    question: "Looking for sustainable packaging alternatives to reduce material waste?",
-    solution: "Eco-friendly film options and optimized stretch technology for reduced material use.",
-    appImage: "/images/desktop/journey/solution_pcr_eco_film.png",
-  },
-  {
-    icon: Ruler,
-    question: "Struggling with roll width, core size, or gauge inconsistencies?",
-    solution: "Precise gauge, width, and length specifications maintained across every production batch.",
-    appImage: "/images/desktop/journey/solution_precision_gauge.png",
-    impact: "PRECISION",
-    spec: "Spec Accurate",
-    challenge: "Consistent specifications across every batch."
-  },
+const iconComponents: any[] = [UserCheck, Boxes, ShieldCheck, TrendingUp, Truck, Tag, RefreshCw, Ruler];
+
+const defaultSolutionsData = [
+  { slot: "01", question: "Need a responsive point of contact for plant supply coordination?", solution: "Dedicated Key Account Manager for seamless order and dispatch coordination.", appImage: "/images/desktop/journey/solution_dispatch_manager.png", impact: "ACCOUNT MANAGEMENT", spec: "Single Point Contact", challenge: "Dedicated key account manager coordinates all plant orders and dispatches." },
+  { slot: "02", question: "Concerned about production line stoppages due to packaging stockouts?", solution: "Buffer stock maintained at our plant for quick and reliable dispatch.", appImage: "/images/desktop/journey/solution_buffer_stock.png", impact: "STOCK SECURITY", spec: "Zero Downtime", challenge: "Buffer stock stored locally at our plant for immediate dispatch." },
+  { slot: "03", question: "Facing quality issues with strapping or tape performance in the field?", solution: "Rigorous batch-level elongation, tensile and adhesive testing on every dispatch.", appImage: "/images/desktop/journey/solution_quality_testing.png", impact: "QUALITY CONTROL", spec: "Lab Verified", challenge: "Batch-level elongation, tensile, and adhesive testing on every dispatch." },
+  { slot: "04", question: "Looking to improve cost efficiency in packaging material consumption?", solution: "Optimized film gauges and high-yield formats that reduce cost per pack.", appImage: "/images/desktop/journey/solution_pallet_wrapping.png", impact: "COST YIELD", spec: "High Pre-Stretch", challenge: "Optimized film gauges and high-yield formats reduce total packaging cost." },
+  { slot: "05", question: "Facing inconsistent delivery schedules from your current supplier?", solution: "Reliable scheduled dispatches to support steady supply chain continuity.", appImage: "/images/desktop/journey/solution_scheduled_dispatch.png", impact: "LOGISTICS", spec: "On-Time Supply", challenge: "Scheduled, reliable dispatches ensure steady supply chain continuity." },
+  { slot: "06", question: "Dealing with unexpected price changes and unclear billing from suppliers?", solution: "Transparent contract pricing with no hidden surcharges or surprise escalations.", appImage: "/images/desktop/journey/solution_contract_pricing.png", impact: "TRANSPARENCY", spec: "Contract Fixed", challenge: "Fixed contract pricing with zero hidden surcharges or price jumps." },
+  { slot: "07", question: "Looking for sustainable packaging alternatives to reduce material waste?", solution: "Eco-friendly film options and optimized stretch technology for reduced material use.", appImage: "/images/desktop/journey/solution_pcr_eco_film.png", impact: "SUSTAINABILITY", spec: "Eco Friendly", challenge: "Recyclable and compostable film options for lower carbon footprint." },
+  { slot: "08", question: "Struggling with roll width, core size, or gauge inconsistencies?", solution: "Precise gauge, width, and length specifications maintained across every production batch.", appImage: "/images/desktop/journey/solution_precision_gauge.png", impact: "PRECISION", spec: "Spec Accurate", challenge: "Consistent specifications maintained across every single production batch." },
 ];
 
 export default function Journey() {
+  const [solutionsList, setSolutionsList] = useState<any[]>(defaultSolutionsData);
+
+  useEffect(() => {
+    async function loadSolutionsData() {
+      try {
+        const res = await fetch("/api/content?key=homepage");
+        if (res.ok) {
+          const result = await res.json();
+          // Support both { data: { solutionsData } } and direct { solutionsData }
+          const content = result?.data || result;
+          if (Array.isArray(content?.solutionsData) && content.solutionsData.length > 0) {
+            setSolutionsList(content.solutionsData);
+          }
+        }
+      } catch (err) {
+        console.warn("Could not load solutions from DB, using defaults:", err);
+      }
+    }
+    loadSolutionsData();
+  }, []);
+
   return (
     <section id="solutions" className="relative overflow-hidden bg-white py-10 sm:py-20 lg:py-28 border-b border-[var(--color-line)]">
       {/* Background Atmosphere */}
@@ -91,8 +72,8 @@ export default function Journey() {
 
         {/* IMAGE-FIRST Full-Bleed Cards — 2x2 Grid on Mobile, 4 Columns on Desktop */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
-          {solutionsData.map((item, index) => {
-            const IconComponent = item.icon;
+          {solutionsList.map((item, index) => {
+            const IconComponent = iconComponents[index % iconComponents.length];
             return (
               <motion.div
                 key={index}
@@ -110,31 +91,28 @@ export default function Journey() {
                   loading="lazy"
                 />
 
-                {/* Persistent dark gradient — bottom 60% */}
+                {/* Persistent dark gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />
 
-                {/* Hover overlay tint — deepens on hover */}
+                {/* Hover overlay */}
                 <div className="absolute inset-0 bg-black/0 transition-all duration-500 group-hover:bg-black/30" />
 
-                {/* Icon Badge — top left, always visible */}
+                {/* Icon Badge */}
                 <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-lg sm:rounded-xl bg-white/20 backdrop-blur-md text-white border border-white/20 transition-all duration-300 group-hover:bg-[var(--color-amber)] group-hover:border-[var(--color-amber)]">
                   <IconComponent className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[2]" />
                 </div>
 
-                {/* Card index — top right */}
+                {/* Card index */}
                 <div className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 font-mono text-[9px] sm:text-[10px] font-bold text-white/60 tracking-widest">
-                  0{index + 1}
+                  {item.slot || `0${index + 1}`}
                 </div>
 
                 {/* Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-5 translate-y-0 transition-transform duration-500">
-
-                  {/* Solution Title — always visible */}
                   <h3 className="font-display text-xs sm:text-lg font-bold text-white leading-snug mb-1 sm:mb-2">
                     {item.solution}
                   </h3>
 
-                  {/* Impact pill & Material Spec */}
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2 mb-1 sm:mb-3">
                     <span className="inline-flex items-center gap-1 px-1.5 sm:px-2 py-0.5 rounded-full bg-[var(--color-amber)]/20 border border-[var(--color-amber)]/30 text-[9px] sm:text-xs font-mono font-bold text-[var(--color-amber)]">
                       {item.impact}
@@ -144,7 +122,6 @@ export default function Journey() {
                     </span>
                   </div>
 
-                  {/* Challenge details */}
                   <p className="hidden sm:block text-xs text-white/75 leading-relaxed line-clamp-2">
                     {item.challenge}
                   </p>

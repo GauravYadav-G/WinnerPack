@@ -7,7 +7,6 @@ export const initialProducts = [
     tag: "Plain",
     blurb: "Paper labels which can be affixed to containers or products for clear item information. Available in custom colors and specifications.",
     longDesc: "We provide paper labels which can be affixed to a container or products, on which information about the product or items is mentioned. Available in colours, these paper labels can also be customized as per the requirement.\n\n### Key Product Features:\n- **Versatile Substrates**: Premium Chromo paper, art paper, and direct thermal paper grades.\n- **Custom Color Options**: Available in vibrant solid colors for inventory tint coding and identification.\n- **High Tack Permanent Adhesive**: Formulated with hot-melt pressure-sensitive adhesive that bonds to corrugated, plastic, glass, and wood.\n- **Printer Compatibility**: Works seamlessly with thermal transfer and flexographic desktop barcode printers.\n- **Custom Sizing & Die-Cutting**: Custom roll widths, core sizes (1-inch & 3-inch), and die-cut shapes on demand.",
-    basePrice: "₹180 / Roll",
     image: "/images/products/plain-labels/image.png",
     gallery: [
       "/images/products/plain-labels/image.png",
@@ -75,7 +74,6 @@ export const initialProducts = [
     tag: "Printed",
     blurb: "Printed labels are custom labels made as per customer requirements using digital, flexographic, and wide format printing.",
     longDesc: "Printed labels are custom labels which are made as per customer requirements. And are printed through various methods like digital printing, flexographic printing, and wide format printing. All these have different results of printing.\n\n### Key Product Features:\n- **Multi-Method High-Resolution Printing**: Printed using digital printing for short runs, flexographic printing for high volumes, and wide format printing for large labels.\n- **Custom Branding & Graphics**: Up to 8-color UV ink printing with crisp typography, QR codes, and photo-realistic graphics.\n- **Surface Protective Coatings**: Glossy UV lamination, matte top-coat, and scratch-resistant varnishes.\n- **Food & Pharma Grade Inks**: Non-toxic, low-odor inks compliant with FDA indirect food contact guidelines.\n- **Automatic Applicator Ready**: Precision gap die-cutting and winding directions for high-speed automatic label application machines.",
-    basePrice: "₹0.50 / Sticker",
     image: "/images/products/printed-labels/image.png",
     gallery: [
       "/images/products/printed-labels/image.png",
@@ -143,7 +141,6 @@ export const initialProducts = [
     tag: "Barcode",
     blurb: "Barcode labels provide regulatory information on product tracking, order delivery, transport details, and quality control across all manufacture and distribution phases.",
     longDesc: "Barcode labels are those which provide regulatory information on product tracking and identification, such as order, delivery and transport details, are an essential feature of our product tracking and management systems; they provide for the scanning of incoming and outgoing products and quality control across all phases of manufacture and distribution providing full supply chain visibility when used in conjunction with all stakeholders.\n\n### Key Product Features:\n- **Full Supply Chain Visibility**: Enables instant 1D/2D scanning of incoming and outgoing freight, batch tracking, and quality control.\n- **High Scannability Rate**: Crisp edge definition ensures 99.9%+ read rates under 1D laser and 2D matrix optical scanners.\n- **Extreme Durability**: Resistant to smudge, friction, chemical solvents, and logistics transit abrasion.\n- **Regulatory Compliance**: Meets GS1, ISO/IEC 15416, and global logistics transport labeling standards.\n- **Universal Printer Compatibility**: Works with Zebra, TSC, Honeywell, SATO, and Citizen thermal transfer printers.",
-    basePrice: "₹210 / Roll",
     image: "/images/products/barcode-labels/image.png",
     gallery: [
       "/images/products/barcode-labels/image.png",
@@ -211,7 +208,6 @@ export const initialProducts = [
     tag: "Product",
     blurb: "Product labels are any material attached to a product or container to identify contents, brand, manufacturer, and distributor information.",
     longDesc: "Product labels are any piece of material attached to a product to identify it, or to a container to identify its contents. Information that is directly written on a product can also be considered a label. Product labels don’t necessarily contain information on the item, and may also include other information, including but not limited to the brand, manufacturer, and distributor.\n\n### Key Product Features:\n- **Comprehensive Product Identification**: Displays brand logo, ingredient list, usage directions, manufacturer, and distributor details.\n- **Premium Substrate Options**: Clear PP film, white BOPP, metallic foil paper, and textured craft paper.\n- **Moisture & Oil Resistance**: Formulated to withstand condensation, oils, and refrigeration without peeling or smudging.\n- **Custom Die-Cut Shapes**: Circle, oval, rectangular, and intricate custom contour die-cuts for retail jars and bottles.\n- **Strong Adhesive Bonding**: Pressure-sensitive adhesive engineered for permanent bonding to glass, plastic, metal, and cardboard.",
-    basePrice: "₹0.75 / Sticker",
     image: "/images/products/product-labels/image.png",
     gallery: [
       "/images/products/product-labels/image.png",
@@ -279,7 +275,6 @@ export const initialProducts = [
     tag: "Self Adhesive",
     blurb: "Pressure sensitive labels made of three layers: release liner, adhesive layer, and face material. Sticks without wetting or glue application.",
     longDesc: "Self-adhesive labels (also known as pressure sensitive labels) are made by printing onto construction of three layers: a release liner (backing paper), a layer of adhesive and the face material. A self-adhesive label is a small piece of paper designed to be affixed to any surface such as paper, plastic, wood, glass or metal typically by the action of layer of adhesive on the front or back of the label. It sticks without wetting or application of glue to the product.\n\n### Key Product Features:\n- **3-Layer Sandwich Structure**: Face material, pressure-sensitive adhesive layer, and siliconized release liner.\n- **Instant Pressure Bonding**: Sticks instantly upon light contact without heat, water activation, or glue application.\n- **Universal Surface Adhesion**: Bonds securely to paper, plastic, wood, glass, polished metal, and textured cardboard.\n- **High Tack & Shear Strength**: Formulated with permanent acrylic or hot-melt adhesive that resists environmental peeling.\n- **Automatic Machine Dispensing**: Precision die-cut with consistent gap spacing for high-speed automatic labeling equipment.",
-    basePrice: "₹190 / Roll",
     image: "/images/products/self-adhesive-labels/image.png",
     gallery: [
       "/images/products/self-adhesive-labels/image.png",
@@ -347,7 +342,6 @@ export const initialProducts = [
     tag: "Thermal",
     blurb: "Thermal labels printed via direct thermal or thermal transfer heat processes to apply imagery or writing to specially-treated surfaces.",
     longDesc: "Thermal labels can refer to labels printed via one of two processes that use heat to apply imagery or writing to specially-treated surfaces. Direct thermal labels utilize heat-sensitive chemical coatings that react directly with thermal printheads without ink ribbons, while thermal transfer labels use heat to melt wax or resin ribbon ink onto label stock for long-lasting readability.\n\n### Key Product Features:\n- **Dual Thermal Printing Compatibility**: Available in Direct Thermal (ribbonless) and Thermal Transfer (ribbon-required) grades.\n- **Ribbonless Cost Efficiency**: Direct thermal labels eliminate ribbon costs for high-volume shipping, courier, and weight scale printing.\n- **High Heat Sensitivity**: Coated with high-sensitivity thermographic chemical layer for sharp, high-contrast text and barcodes.\n- **Moisture & Scratch Top-Coat**: Top-coated direct thermal paper shields prints from moisture, mild friction, and light grease.\n- **Core Options**: Standard 1-inch and 3-inch cardboard cores compatible with desktop and industrial thermal printers.",
-    basePrice: "₹160 / Roll",
     image: "/images/products/thermal-labels/image.png",
     gallery: [
       "/images/products/thermal-labels/image.png",
@@ -412,12 +406,11 @@ export const initialProducts = [
   // --- FILMS, BAGS & TUBES (EXCLUSIVELY THE 8 SPECIFIED SUB-PRODUCTS) ---
   {
     id: "ldpe-films-pouches",
-    title: "LDPE Shrink Rolls & Pouches",
+    title: "LDPE Films & Pouches",
     category: "film-products",
     tag: "LDPE Film",
     blurb: "LDPE film (Low Density Polyethylene) engineered in customized resin blends for specific industrial and retail packaging applications, featuring high holding force, fast packaging speed, and superior impact strength.",
     longDesc: "LDPE film is an abbreviation for Low Density Polyethylene film. There are a variety of this type of film to cater to different applications in the market. What works for one application will not work for others. A few examples of resins which work only for specific LDPE plastic film applications are – dry cleaner bags, bread bags, paper towel overwrap, and shipping sacks.\n\n### Key Product Features:\n- **Broad Thickness Range**: Thickness available ranging from 30 Micron to 200 Micron.\n- **Customizable Widths**: Width can be customized ranging from 200 mm to 48 inches (1220 mm).\n- **High Holding Force**: Delivers high load containment and pallet/bundle stabilization.\n- **Fast Packaging Speed**: High melt strength and good drawdown ability for high-speed automated lines.\n- **High Tensile & Impact Strength**: Superior resistance against heavy impact drops and sharp puncture risks.\n- **Good Tear Resistance**: Prevents tear propagation during multi-city transit and warehouse handling.\n- **Enhanced Visual Appearance**: High-gloss surface finish and great optical transparency for retail presentation.",
-    basePrice: "₹185 / kg",
     image: "/images/products/ldpe-shrink-rolls/image.png",
     gallery: [
       "/images/products/ldpe-shrink-rolls/image.png",
@@ -496,12 +489,11 @@ export const initialProducts = [
   },
   {
     id: "pof-films-pouches",
-    title: "POF Shrink Rolls & Pouches",
+    title: "POF Films & Pouches",
     category: "film-products",
     tag: "POF Shrink",
     blurb: "POF Shrink Rolls/Pouch shrink film is a polymer plastic film that shrinks tightly over covered products when heat is applied. Ideal for wrapping food, gift baskets, boxes, toys, books, and retail multipacks.",
     longDesc: "POF (Polyolefin) Shrink Rolls & Pouches are manufactured from multi-layer co-extruded polymer plastic film. When heat is applied, it shrinks tightly and uniformly over whatever item it covers. Common applications include wrapping food products, gift baskets, retail product boxes, toys, books, stationery, and pharmaceuticals.\n\n### Key Material Features:\n- **Excellent Transparency & Gloss**: Enhances shelf appeal with 93%+ crystal-clear optical reflection.\n- **Superior Heat Resistance**: Resists burn-through on high-speed L-sealers and shrink tunnels.\n- **Good Stiffness & Dimensional Stability**: Maintains tight pack structure without tearing or slacking over time.\n- **Balanced MD/TD Shrink Properties**: Uniform bi-axial shrinkage preventing product distortion.\n- **Extremely Strong Sealing**: High seal wire strength preventing seal ruptures during rough transit.\n- **Wide Temperature Range Performance**: Functions flawlessly in freezing cold storage and hot warehouse environments.\n- **NO 'Dog Ears'**: Smooth, tight corner shrinkage eliminating excess loose film corners.\n- **Non-Stick Sealing**: Clean release from sealing wires and L-bar cutter blades with zero residue buildup.",
-    basePrice: "₹3,800 / Roll",
     image: "/images/products/pof-shrink-rolls/image.png",
     gallery: [
       "/images/products/pof-shrink-rolls/image.png",
@@ -587,7 +579,6 @@ export const initialProducts = [
     tag: "Coloured Film",
     blurb: "High-visibility tint-coloured and opaque specialty PE/CPE plastic films and pre-formed pouches engineered for UV barrier protection, garment packaging, privacy shipping, and color-coded inventory tracking.",
     longDesc: "Coloured Films & Pouches are manufactured from high-grade polyethylene (PE) and cast polyethylene (CPE) resins blended with food-safe masterbatch pigments. Available in semi-transparent frosted finishes, vibrant color tints, and 100% opaque milky white shades. Designed to protect light-sensitive goods, conceal package contents for secure logistics, provide silky soft-touch garment protection, and enable instant warehouse color-code sorting.\n\n### Key Product Features:\n- **Food-Safe Masterbatch Pigments**: Formulated with REACH & FDA-compliant color concentrates.\n- **Superior UV & Light Barrier**: Protects light-sensitive contents from photo-degradation and fading.\n- **Silky Soft-Touch CPE Texture**: CPE film provides a smooth, elegant frosted surface that prevents scratch marks on premium apparel.\n- **High Opacity & Privacy Protection**: Opaque milky white and black films ensure total privacy during parcel transit.\n- **High Tensile & Tear Strength**: Co-extruded structure delivers excellent puncture resistance across sharp edges.\n- **Versatile Sealing Formats**: Compatible with automatic impulse sealers, zip-lock sliders, and self-adhesive sealing strips.",
-    basePrice: "₹210 / kg",
     image: "/images/products/coloured-films-pouches/image.png",
     gallery: [
       "/images/products/coloured-films-pouches/image.png",
@@ -659,7 +650,6 @@ export const initialProducts = [
     tag: "BOPP Film",
     blurb: "Biaxially Oriented Polypropylene (BOPP) crystal-clear packaging film rolls and self-adhesive pre-cut pouches engineered for superior moisture barrier, food grade protection, and high-speed flow wrap packaging.",
     longDesc: "BOPP (Biaxially Oriented Polypropylene) Films & Pouches are manufactured by stretching polypropylene film in both machine direction (MD) and transverse direction (TD). This bi-axial orientation provides outstanding mechanical strength, glass-like optical clarity, excellent moisture barrier, and high dimensional stability. Widely used for food packaging (bakery, snacks, confectionery), garment display pouches, flower wrapping, cigarette packs, and high-resolution gravure printed laminations.\n\n### Key Product Features:\n- **Crystal Clear Transparency & High Gloss**: Enhances retail shelf appeal with 95%+ optical clarity.\n- **Superior Moisture & Aroma Barrier**: Keeps food items crisp and aromatic by preventing moisture ingress.\n- **Excellent Tensile Strength**: High tensile modulus prevents stretching during high-speed VFFS/HFFS flow wrapping.\n- **Printable Surface Finish**: Excellent ink adhesion for up to 10-color flexographic and rotogravure printing.\n- **Heat Sealable Grades**: Available in heat-sealable co-extruded structures for airtight pouch welds.\n- **Variety of Finishes**: Plain transparent, matte finish, metallized barrier, and pearlized white options.",
-    basePrice: "₹245 / kg",
     image: "/images/products/bopp-films-pouches/image.png",
     gallery: [
       "/images/products/bopp-films-pouches/image.png",
@@ -731,7 +721,6 @@ export const initialProducts = [
     tag: "PVC Shrink",
     blurb: "Low-temperature heat shrink PVC tubular rolls, custom pre-cut pouches, tamper-evident neck bands, and full-body shrink sleeve packaging engineered for tight contour fitting and high gloss clarity.",
     longDesc: "PVC (Polyvinyl Chloride) Shrink Rolls & Pouches offer exceptional clarity, high gloss, and low-temperature shrink activation (80°C to 120°C). Unlike other polymer shrink films, PVC shrinks smoothly around irregular shapes and sharp bottle contours without burning or slacking over time. Widely specified for jar cap tamper-evident neck bands, promotional duo-pack bundling, beverage bottle shrink sleeve labels, and pre-cut box packaging pouches.\n\n### Key Product Features:\n- **Low Temperature Shrink Activation**: Activates at lower tunnel temperatures (80°C–120°C), saving energy and protecting heat-sensitive products.\n- **Controlled Bi-Axial & Transverse Shrinkage**: High TD shrink (up to 55%) ensures snug, wrinkle-free fitting over contoured bottles and jars.\n- **High Gloss Glass-Like Transparency**: Delivers premium retail presentation and vibrant graphic display.\n- **Tamper-Evident Safety Protection**: Ideal for neck bands and cap seals that provide clear visual evidence of product opening.\n- **High Film Stiffness & Durability**: Maintains rigid shape memory and protective barrier against dust, moisture, and handling scratches.\n- **Seamless Tubular & Pouch Formats**: Available in continuous seamless tubing rolls, centerfolded rolls, and pre-cut bottom-sealed pouches.",
-    basePrice: "₹240 / kg",
     image: "/images/products/pvc-shrink-rolls/image.png",
     gallery: [
       "/images/products/pvc-shrink-rolls/image.png",
@@ -802,7 +791,6 @@ export const initialProducts = [
     tag: "Stretch Film",
     blurb: "High-cling LLDPE pallet stretch wrap available in dedicated Manual Grade (Hand Wrap) and Machine Grade (Power Pre-Stretch) configurations.",
     longDesc: "5-layer cast LLDPE stretch film engineered for maximum load containment, puncture resistance, and zero-residue cling. Available in both **Manual Grade** (lightweight hand rolls with 3-inch cores) and **Machine Grade** (heavy-duty 15 kg machine rolls supporting up to 300% power pre-stretch on automated turntable and orbital wrappers).\n\n### Key Product Features:\n- **5-Layer Cast Co-Extrusion**: Formulated with 100% prime LLDPE resins for high tensile strength and puncture resistance.\n- **High Cling & Zero Residue**: Formulated with 1-side tackiness that clings tightly to itself without leaving sticky residue on cargo.\n- **Up to 300% Power Pre-Stretch**: Machine grade rolls stretch up to 300% on automated machinery, reducing per-pallet wrapping costs.\n- **Puncture & Tear Resistant**: Protects palletized loads from sharp carton corners, timber splinters, and transit vibration.\n- **Superior Load Retention & Holding Force**: Holds heavy multi-tiered pallets intact during multi-city freight transport.\n- **Manual & Machine Formats**: Available in lightweight 2.4 kg hand rolls and 15 kg heavy machine wrapping rolls.",
-    basePrice: "₹175 / kg",
     image: "/images/products/stretch-film/image.png",
     gallery: [
       "/images/products/stretch-film/image.png",
@@ -876,7 +864,6 @@ export const initialProducts = [
     tag: "Lamination",
     blurb: "Multi-layer thermal, dry, and extrusion barrier lamination films and pre-formed stand-up zipper pouches engineered for zero oxygen transmission, light barrier, and extended food shelf life.",
     longDesc: "Lamination Films & Pouches are engineered by bonding two or more flexible substrate layers (PET, Foil, MET-PET, BOPP, Nylon, and LLDPE) using solventless adhesive extrusion or thermal bonding. This multi-layer barrier composite delivers absolute zero oxygen transmission rates (OTR) and water vapor transmission rates (WVTR). Specified for gourmet coffee, dry fruits, spices, pharmaceuticals, chemical powders, and retort food packaging.\n\n### Key Product Features:\n- **Multi-Layer High Barrier Composite**: Combines PET, Aluminum Foil, and Polyethylene for absolute light, oxygen, and moisture protection.\n- **Zero Transmission Rates (OTR & WVTR)**: Prevents oxidation, rancidity, and moisture degradation for long shelf-life foods.\n- **High Hermetic Seal Integrity**: Strong heat-sealed seams withstand hot filling, vacuum sealing, and high-pressure retort sterilization.\n- **Rich Rotogravure Graphics**: Enables up to 10-color reverse printing with metallic, glossy, or soft-touch matte finishes.\n- **Pouch Formats**: Stand-up pouches with press-to-close zippers, tear notches, valve degassing, 3-side seal, and side gusset bags.\n- **Thermal & Extrusion Roll Availability**: Offered in continuous lamination film rolls for high-speed form-fill-seal (FFS) pouch machines.",
-    basePrice: "₹290 / kg",
     image: "/images/products/specialty-pouches/image.png",
     gallery: [
       "/images/products/specialty-pouches/image.png",
@@ -947,7 +934,6 @@ export const initialProducts = [
     tag: "Compostable",
     blurb: "Certified 100% biodegradable and home-compostable PLA and PBAT bio-resin packaging films, carry bags, and eco-friendly security courier mailer pouches.",
     longDesc: "Compostable Films & Pouches are manufactured from renewable plant starch, PLA (Polylactic Acid), and PBAT (Polybutyrate Adipate Terephthalate) bio-polymers. Certified under EN 13432 and ISO 17088 standards, these eco-friendly films completely disintegrate into organic natural humus, CO₂, and water within 90 to 180 days under composting conditions, leaving zero microplastics, heavy metals, or toxic residues.\n\n### Key Product Features:\n- **100% Certified Biodegradable & Compostable**: Complies with EN 13432, ASTM D6400, and ISO 17088 standards.\n- **Zero Microplastics & Toxic Residue**: Breaks down entirely into natural organic soil nutrients.\n- **High Tensile & Tear Strength**: PBAT blending provides flexibility and drop impact strength comparable to traditional LDPE.\n- **Eco-Friendly Water-Based Inks**: Printable using non-toxic water-based eco inks for green brand messaging.\n- **Excellent Shelf Life Integrity**: Maintains full physical strength for up to 12 months under dry indoor warehouse storage.\n- **Rolls & Pouch Formats**: Available in continuous bio-extrusion rolls, D-cut carry bags, garment bags, and self-adhesive courier mailers.",
-    basePrice: "₹340 / kg",
     image: "/images/desktop/journey/solution_pcr_eco_film.png",
     gallery: [
       "/images/desktop/journey/solution_pcr_eco_film.png",
@@ -1020,7 +1006,6 @@ export const initialProducts = [
     tag: "PP STRAP",
     blurb: "High-tensile virgin polypropylene (PP) strapping rolls engineered for automated, semi-automated, and manual carton reinforcement and light bundle tying.",
     longDesc: "Polypropylene (PP) Strapping is manufactured from 100% virgin PP resin extruded with a diamond-embossed surface texture. Engineered for high friction weld joint efficiency (up to 80%) on automatic and semi-automatic strapping machines, it provides reliable carton reinforcement, pallet binding, and bundle unitization without producing dust on welding heads.\n\n### Key Product Features:\n- **High Friction-Weld Joint Strength**: Delivers up to 80% joint strength on heat-sealing and friction-weld strapping tools.\n- **Smooth Machine Runnability**: Precision camber control ensures jam-free feeding in high-speed automatic arch machines.\n- **Embossed Surface Grip**: Diamond knurled embossing enhances strap stiffness and seal clip grip.\n- **Split & Crack Resistant**: Formulated to withstand sharp carton edges without splitting longitudinal fibers.\n- **Lightweight & Recyclable**: 100% recyclable thermoplastic material designed for economic B2B packaging.",
-    basePrice: "₹1,600 / Roll",
     image: "/images/products/pp-strap/image.png",
     gallery: [
       "/images/products/pp-strap/image.png",
@@ -1088,7 +1073,6 @@ export const initialProducts = [
     tag: "PRINTED PP",
     blurb: "Custom corporate logo printed polypropylene strapping rolls for brand promotion, dispatch security, and pilferage prevention.",
     longDesc: "Printed PP Strap combines structural box reinforcement with custom corporate logo branding. Printed with high-bonding UV inks, it acts as a tamper-evident security seal on shipping cartons and pallet lots, preventing unauthorized box tampering and theft during logistics transport.\n\n### Key Product Features:\n- **Custom Corporate Logo Printing**: Crisp 1-color or 2-color ink printing of brand name, website, or security warning.\n- **Anti-Pilferage Security Seal**: Instant visual indication if strapping band is cut or tampered with during freight transit.\n- **High-Bonding Ink**: UV cured inks resist friction rub-off and machine roller wear.\n- **Virgin PP Durability**: High tensile break strength with 80% friction weld joint efficiency.\n- **Custom Print Repetition**: Standard 300mm to 500mm logo print repeat cycle.",
-    basePrice: "₹1,850 / Roll",
     image: "/images/products/printed-pp-strap/image.png",
     gallery: [
       "/images/products/printed-pp-strap/image.png",
@@ -1155,7 +1139,6 @@ export const initialProducts = [
     tag: "COLORED PP",
     blurb: "High-opacity vibrant colored polypropylene strapping rolls for instant warehouse lot identification, destination color-coding, and cargo sorting.",
     longDesc: "Colored PP Strap is extruded using high-opacity masterbatch color pigments in red, yellow, blue, green, and black shades. Designed for large distribution centers and export hubs to enable instant visual color-code sorting, pallet batch grouping, and dispatch routing while providing high-tensile box reinforcement.\n\n### Key Product Features:\n- **Vibrant Color Masterbatch Pigments**: Color-fast opaque masterbatch resists UV fading and warehouse handling friction.\n- **Instant Visual Logistics Sorting**: Speeds up cargo dispatch categorization and inventory lot identification.\n- **Consistent Width & Thickness**: Strict tolerance (+/- 0.05 mm) prevents machine jamming during packaging runs.\n- **High Breaking Strength**: Formulated to hold up to 200 kg tensile load per strap band.\n- **Eco-Friendly Recyclable PP**: Fully recyclable polypropylene resin matching green supply chain standards.",
-    basePrice: "₹1,750 / Roll",
     image: "/images/products/colored-pp-strap/image.png",
     gallery: [
       "/images/products/colored-pp-strap/image.png",
@@ -1223,7 +1206,6 @@ export const initialProducts = [
     tag: "PET STRAP",
     blurb: "Heavy-duty extruded polyester (PET) strapping bands engineered to replace steel strapping for high-tension pallet stabilization, timber, metals, and export shipping.",
     longDesc: "Polyester (PET) Strapping is the heavy-duty industrial alternative to steel strapping. Manufactured from high-density polyethylene terephthalate, PET strap offers extreme tensile strength (up to 900 kg break load), superior tension retention over long transits, high elastic shock recovery, and 100% rust-free safety. Ideal for securing heavy metal coils, timber lumber, brick kilns, and export palletized cargo.\n\n### Key Product Features:\n- **Steel Strap Alternative**: Matches steel strap break strength while being 80% lighter and safer to handle without sharp edges.\n- **Superior Retention Tension**: Retains structural tension over long transit times and temperature fluctuations without slacking.\n- **Elastic Shock Recovery**: Absorbs heavy impact drops and cargo settling during multi-modal sea freight.\n- **100% Weather & Rust Proof**: Eliminates rust stains on timber, stone, and metal products stored outdoors.\n- **Friction & Battery Tool Compatible**: Formulated for seamless operation with battery-powered pneumatic and manual tensioning tools.",
-    basePrice: "₹2,500 / Roll",
     image: "/images/products/pet-strap/image.png",
     gallery: [
       "/images/products/pet-strap/image.png",
@@ -1293,7 +1275,6 @@ export const initialProducts = [
     tag: "Bubble",
     blurb: "Used to cushion fragile glassware, electronics, and precision components. Air-bubble protective wrapping rolls.",
     longDesc: "Cushioning bubble wrap rolls made from 100% virgin LDPE. Designed with heavy air sealing to prevent air leak. Ideal for fragile glassware, artwork, instruments, and electronics protection.",
-    basePrice: "₹1,150 / Roll",
     image: "/images/products/bubble-roll/image.png",
     gallery: ["/images/products/bubble-roll/image.png"],
     specs: {
@@ -1317,7 +1298,6 @@ export const initialProducts = [
     tag: "EPE Foam",
     blurb: "Used to shield painted metal parts and glass plates from surface scratches. Closed-cell polyethylene cushioning sheets.",
     longDesc: "Non-crosslinked, closed-cell EPE foam sheets providing premium cushioning and shock absorption. Prevents scratch marks on painted surfaces, sheet metal components, electronics, and glass plates.",
-    basePrice: "₹1,250 / Roll",
     image: "/images/products/epe-foam-rolls/image.png",
     gallery: ["/images/products/epe-foam-rolls/image.png"],
     specs: {
@@ -1341,7 +1321,6 @@ export const initialProducts = [
     tag: "Air Bag",
     blurb: "Used to fill voids and brace pallets inside shipping containers to prevent cargo shifting. Inflatable container dunnage bags.",
     longDesc: "Heavy-duty inflatable dunnage air bags designed to brace cargo inside shipping containers. Prevents shifts and collisions during sea and rail transits, filling lateral voids between pallets.",
-    basePrice: "₹450 / Piece",
     image: "/images/products/air-bags/image.png",
     gallery: ["/images/products/air-bags/image.png"],
     specs: {
@@ -1365,7 +1344,6 @@ export const initialProducts = [
     tag: "Box",
     blurb: "Used to pack e-commerce parcels and stack warehouse stock securely. 3-ply, 5-ply, and 7-ply kraft board boxes.",
     longDesc: "High compression strength corrugated shipping boxes. Custom engineered flute patterns offer extreme load resistance under stacking storage. Clean printing finish for warehouse tracking codes.",
-    basePrice: "₹85 / Box",
     image: "/images/products/corrugated-boxes/image.png",
     gallery: ["/images/products/corrugated-boxes/image.png"],
     specs: {
@@ -1389,7 +1367,6 @@ export const initialProducts = [
     tag: "Roll",
     blurb: "Used to wrap metal pipes, furniture parts, and large machinery columns. Flexible single-face paper rolls.",
     longDesc: "Single face corrugated wrapping paper in rolls. Highly flexible structure allows wrapping around irregular shape industrial parts, furniture legs, and metallic items to protect them from dents.",
-    basePrice: "₹1,850 / Roll",
     image: "/images/products/corrugated-rolls/image.png",
     gallery: ["/images/products/corrugated-rolls/image.png"],
     specs: {
@@ -1413,7 +1390,6 @@ export const initialProducts = [
     tag: "Edge",
     blurb: "Used to reinforce vertical pallet corners and prevent straps from cutting into boxes. Laminated paperboard corner boards.",
     longDesc: "L-shaped laminated paperboard edge protectors. Reinforces pallet vertical stack integrity, prevents strap cutting damage on carton corners, and locks columns of boxes during strapping.",
-    basePrice: "₹35 / Piece",
     image: "/images/products/edge-protector/image.png",
     gallery: ["/images/products/edge-protector/image.png"],
     specs: {
@@ -1439,7 +1415,6 @@ export const initialProducts = [
     tag: "BOPP",
     blurb: "High-tack Biaxially Oriented Polypropylene (BOPP) self-adhesive carton sealing tapes engineered for manual handheld dispensers and automated box sealing machines.",
     longDesc: "BOPP Tapes are manufactured from high-tensile Biaxially Oriented Polypropylene film coated with water-based pressure-sensitive acrylic adhesive. Extruded under strict caliper control, these tapes provide instant tack, high shear strength, and split resistance over corrugated carton flaps, preventing box opening failures during transit.\n\n### Key Product Features:\n- **High Tack Pressure-Sensitive Adhesive**: Water-based acrylic adhesive bonds instantly to recycled and kraft cardboard.\n- **High Tensile Base Film**: Bi-axial film orientation prevents snapping under high manual or automated tensioning.\n- **Moisture & Temperature Resistance**: Resists aging, yellowing, UV light exposure, and humidity fluctuations.\n- **Manual & Machine Roll Lengths**: Available in 50m/100m manual hand rolls and 650m/1000m industrial machine rolls.\n- **Smooth & Low-Noise Unwind**: Formulated for quiet, smooth unwinding on high-speed conveyor sealing lines.",
-    basePrice: "₹45 / Roll",
     image: "/images/products/bopp-tapes/image.png",
     gallery: [
       "/images/products/bopp-tapes/image.png",
@@ -1507,7 +1482,6 @@ export const initialProducts = [
     tag: "Printed",
     blurb: "Custom corporate logo printed BOPP packaging tapes engineered for brand identification, tamper-evident security sealing, and anti-pilferage dispatch protection.",
     longDesc: "Printed BOPP Tapes feature custom corporate logos, brand names, handling instructions, or tamper-evident security warnings printed underneath or over high-tack acrylic adhesive BOPP film. Serves as a dual-purpose solution that secures shipping cartons while building brand recognition and acting as a visible indicator against unauthorized box opening.\n\n### Key Product Features:\n- **High-Resolution Custom Branding**: Printed with up to 4-color UV-resistant inks with sharp logo reproduction.\n- **Anti-Pilferage Security Protection**: Instant visual evidence if carton tape is cut or replaced during transit.\n- **High Bond Strength**: Premium acrylic glue bonds permanently to corrugated paper, preventing tape lift-off.\n- **Abrasion & Rub-Off Resistant**: Printed inks are sealed under protective release top-coats to prevent ink smudging.\n- **Custom Warning Prints**: Pre-printed messages available (e.g. 'FRAGILE', 'HANDLE WITH CARE', 'DO NOT ACCEPT IF SEAL BROKEN').",
-    basePrice: "₹75 / Roll",
     image: "/images/products/printed-bopp-tapes/image.png",
     gallery: [
       "/images/products/printed-bopp-tapes/image.png",
@@ -1575,7 +1549,6 @@ export const initialProducts = [
     tag: "Coloured",
     blurb: "Bright opaque colored BOPP self-adhesive packaging tapes engineered for inventory color classification, cargo batch sorting, and high-visibility parcel marking.",
     longDesc: "Coloured BOPP Tapes are manufactured by blending solid masterbatch color pigments into BOPP backing film, coated with high-tack acrylic adhesive. Designed for large distribution centers, fulfillment warehouses, and export logistics hubs to enable instant visual color-code sorting, cargo batching, and inventory routing.\n\n### Key Product Features:\n- **High Opacity Solid Masterbatch Colors**: Red, Yellow, Blue, Green, Orange, Black, and White solid colors.\n- **Instant Visual Inventory Sorting**: Speeds up warehouse parcel classification and cargo routing.\n- **High Tack Acrylic Bonding**: Adheres firmly to corrugated paper and stretch film without peeling.\n- **UV & Moisture Resistant**: Pigments and adhesives resist fading under warehouse lighting and moisture exposure.\n- **Standard Hand & Machine Roll Formats**: Available in 48mm x 65m hand rolls and long-length machine rolls.",
-    basePrice: "₹55 / Roll",
     image: "/images/products/coloured-bopp-tapes/image.png",
     gallery: [
       "/images/products/coloured-bopp-tapes/image.png",
@@ -1643,7 +1616,6 @@ export const initialProducts = [
     tag: "Silicon",
     blurb: "Self-fusing silicone rubber sealing tapes and release-liner bag sealing tapes engineered for high-temperature pipe leak repair, electrical insulation, and reusable bag closures.",
     longDesc: "Silicon Sealing Tapes encompass self-fusing silicone rubber wrapping tapes and silicone release bag sealing tapes. Self-fusing silicone tapes fuse to themselves under tension without adhesive, forming an airtight, 100% waterproof seal capable of withstanding extreme temperatures (-50°C to +260°C) and high electrical voltage insulation.\n\n### Key Product Features:\n- **Self-Fusing Adhesive-Free Action**: Fuses permanently to itself within 24 hours under tension without sticky residues.\n- **Extreme Temperature Resistance**: Operates continuously from -50°C to +260°C without melting or hardening.\n- **High Electrical Dielectric Insulation**: Withstands up to 8,000 Volts per layer for electrical cable splicing.\n- **100% Waterproof & Pressure Tight**: Instantly seals leaking water pipes, hose connections, and air ducts under pressure.\n- **Weather & Chemical Proof**: Resistant to UV radiation, ozone, salt water, fuel, and industrial hydraulic fluids.",
-    basePrice: "₹450 / Roll",
     image: "/images/products/silicon-tapes/image.png",
     gallery: [
       "/images/products/silicon-tapes/image.png",
@@ -1713,7 +1685,6 @@ export const initialProducts = [
     tag: "Manual",
     blurb: "Used to wrap cargo pallets manually by warehouse staff. Pre-stretched high-cling hand wrap rolls.",
     longDesc: "Pre-stretched and standard hand-wrapping stretch films. High puncture resistance prevents tearing on box corners. Lightweight roll profile reduces worker fatigue during manual pallet wrapping.",
-    basePrice: "₹850 / Roll",
     image: "/images/products/manual-stretch-film/image.png",
     gallery: [
       "/images/products/manual-stretch-film/image.png",
@@ -1743,7 +1714,6 @@ export const initialProducts = [
     tag: "Machine",
     blurb: "Used to wrap heavy pallet loads on automated pre-stretch turntable wrappers. High-performance machine stretch wrap.",
     longDesc: "Cast co-extruded machine stretch film rolls. Designed to stretch up to 300% on automatic powered pre-stretch turntable wrappers. Low noise unwind and high puncture resistance.",
-    basePrice: "₹170 / kg",
     image: "/images/products/machine-stretch-film/image.png",
     gallery: [
       "/images/products/machine-stretch-film/image.png",
@@ -1773,7 +1743,6 @@ export const initialProducts = [
     tag: "Pallet Cover",
     blurb: "Used to protect stacked pallets from dust, moisture, and rain. Heavy-gauge LDPE pallet hood covers.",
     longDesc: "Gusseted LDPE pallet bags. Slipped over stacked pallets before stretch wrapping to provide complete 5-side moisture, dust, and rain protection for outdoor warehousing.",
-    basePrice: "₹240 / kg",
     image: "/images/products/pallet-cover/image.png",
     gallery: ["/images/products/pallet-cover/image.png"],
     specs: {
@@ -1797,7 +1766,6 @@ export const initialProducts = [
     tag: "Pallet Liner",
     blurb: "Used to protect bottom box layers from pallet nail punctures and rising moisture. Anti-slip bottom liner sheets.",
     longDesc: "Placed on the wooden pallet base before stacking cartons. Protects bottom carton layers from nail punctures, splinters, moisture rising from wet wooden blocks, and slippage during cargo transit.",
-    basePrice: "₹18 / Sheet",
     image: "/images/products/pallet-liner/image.png",
     gallery: ["/images/products/pallet-liner/image.png"],
     specs: {

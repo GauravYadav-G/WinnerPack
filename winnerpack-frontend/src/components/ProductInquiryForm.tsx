@@ -121,19 +121,19 @@ export default function ProductInquiryForm() {
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[900px] rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-        
+
         {/* Main Integrated Split Container matching WinnerPack UI/UX Design System */}
         <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-xl sm:shadow-2xl grid grid-cols-1 lg:grid-cols-12">
-          
+
           {/* LEFT COLUMN: WinnerPack Light Top Narrative + WinnerPack Deep Navy Bottom Panel */}
           <div className="lg:col-span-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--color-line)]">
-            
+
             {/* Top Light Block */}
             <div className="bg-[var(--color-bone)] p-4 sm:p-8 lg:p-14 space-y-2 sm:space-y-4">
               <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
                 Technical Specification & Quote
               </span>
-              
+
               <h2 className="font-display text-lg sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--color-ink)] leading-snug sm:leading-[1.15] text-balance">
                 Tell us your line speed. <br className="hidden sm:inline" />
                 We&apos;ll spec the right roll, film & strapping.
@@ -159,7 +159,7 @@ export default function ProductInquiryForm() {
 
             {/* Bottom WinnerPack Deep Navy Block (Shown on Desktop & Tablet, Hidden on Mobile for Maximum Compactness) */}
             <div className="hidden lg:flex bg-[var(--color-blue-deep)] p-8 lg:p-14 text-white space-y-8 flex-1 flex-col justify-center">
-              
+
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-[var(--color-amber)] border border-white/15">
                   <Zap className="h-6 w-6" />
@@ -206,7 +206,7 @@ export default function ProductInquiryForm() {
 
           {/* RIGHT COLUMN: WinnerPack Modern Clean Form Card */}
           <div className="lg:col-span-6 bg-white p-4 sm:p-8 lg:p-14 flex flex-col justify-center">
-            
+
             <div className="mb-3 sm:mb-6 pb-2.5 sm:pb-4 border-b border-[var(--color-line)]">
               <h3 className="font-display text-base sm:text-2xl font-extrabold text-[var(--color-ink)]">
                 Request Spec Sheet & Free Quote
@@ -236,7 +236,7 @@ export default function ProductInquiryForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-4">
-                
+
                 {/* 2-Column Inputs Grid on Mobile & Tablet: Name + Company */}
                 <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                   <div className="space-y-1">
@@ -304,7 +304,7 @@ export default function ProductInquiryForm() {
                   <label className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
                     Product Interest & Specification <span className="text-red-500">*</span>
                   </label>
-                  
+
                   {/* Category Pills */}
                   <div className="flex overflow-x-auto gap-1.5 sm:gap-2 pb-0.5 scrollbar-none mb-1">
                     {mainCategoryGroups.map((group) => {
@@ -317,11 +317,10 @@ export default function ProductInquiryForm() {
                             setActiveCategoryId(group.id);
                             setFormData((prev) => ({ ...prev, productInterest: group.items[0] }));
                           }}
-                          className={`flex-none px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold transition-all border cursor-pointer ${
-                            isActive
+                          className={`flex-none px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold transition-all border cursor-pointer ${isActive
                               ? "bg-[var(--color-blue-deep)] text-white border-[var(--color-blue-deep)] shadow-sm"
                               : "bg-[var(--color-bone)] text-[var(--color-ink)] border-[var(--color-line)] hover:bg-white"
-                          }`}
+                            }`}
                         >
                           {group.name}
                         </button>

@@ -7,7 +7,6 @@ import authRouter from "./routes/auth";
 import articlesRouter from "./routes/articles";
 import contentRouter from "./routes/content";
 import inquiriesRouter from "./routes/inquiries";
-import machinesRouter from "./routes/machines";
 import productsRouter from "./routes/products";
 import uploadRouter from "./routes/upload";
 
@@ -38,7 +37,6 @@ app.use("/api/admin/auth", authRouter);
 app.use("/api/articles", articlesRouter);
 app.use("/api/content", contentRouter);
 app.use("/api/inquiries", inquiriesRouter);
-app.use("/api/machines", machinesRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/upload", uploadRouter);
 

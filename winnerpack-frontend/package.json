@@ -26,14 +26,17 @@
     "marked": "^18.0.6",
     "mongoose": "^9.7.4",
     "next": "^16.2.10",
+    "nodemailer": "^9.0.4",
     "postcss": "^8.5.16",
     "react": "19.2.6",
     "react-dom": "19.2.6",
+    "sharp": "^0.35.3",
     "tailwind-merge": "3.4.0",
     "turndown": "^7.2.4"
   },
   "devDependencies": {
     "@types/node": "22.19.17",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "@types/turndown": "^5.0.6",

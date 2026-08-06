@@ -11,6 +11,8 @@ export default function AboutStrip() {
     tagline: "Pioneering B2B Industrial Packaging & Labeling Solutions",
     para1: "Winner Pack Technologies Pvt. Ltd. supplies environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply premium quality solutions tailored to your operational needs.",
     para2: "We specialize in BOPP tapes, strapping rolls, shrink films, and protective packaging, serving various key industrial sectors including food, cosmetics, pharmaceuticals, and retail logistics.",
+    image1: "/images/desktop/about/plant_film_slitting_machine.jpg",
+    image2: "/images/desktop/about/plant_extrusion_tower.jpg",
     stats: [
       { value: "8+", label: "Years in business" },
       { value: "4", label: "Product categories" },
@@ -26,7 +28,9 @@ export default function AboutStrip() {
           setAbout(data.about);
         }
       })
-      .catch((err) => console.error("Failed to load about data:", err));
+      .catch(() => {
+        // Backend offline — fall back gracefully to default about data
+      });
   }, []);
 
   return (
@@ -49,7 +53,7 @@ export default function AboutStrip() {
             {/* Top Rectangular Card: Automated High-Speed Film Slitting Line */}
             <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
               <img
-                src="/images/desktop/about/plant_film_slitting_machine.jpg"
+                src={(about as any).image1 || "/images/desktop/about/plant_film_slitting_machine.jpg"}
                 alt="High-Speed Servo-Driven Film Slitting & Converting Machine"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
@@ -59,7 +63,7 @@ export default function AboutStrip() {
             {/* Bottom Rectangular Card: Blown Film Extrusion Tower */}
             <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
               <img
-                src="/images/desktop/about/plant_extrusion_tower.jpg"
+                src={(about as any).image2 || "/images/desktop/about/plant_extrusion_tower.jpg"}
                 alt="Multilayer Blown Film Extrusion Tower"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"

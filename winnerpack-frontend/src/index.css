@@ -64,6 +64,16 @@ html {
   max-width: 100vw;
 }
 
+/* Hide scrollbars while preserving scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* ─── Ultra High-Resolution 4K & 8K Responsive Scaling ─── */
 @media (min-width: 2560px) {
   html {
@@ -1147,7 +1157,10 @@ body::-webkit-scrollbar {
   font-size: 1rem;
 }
 
-.prose h1, .prose h2, .prose h3, .prose h4 {
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
   color: var(--color-ink);
   font-family: var(--font-display);
   font-weight: 700;
@@ -1156,10 +1169,23 @@ body::-webkit-scrollbar {
   line-height: 1.3;
 }
 
-.prose h1 { font-size: 2rem; }
-.prose h2 { font-size: 1.625rem; border-b: 1px solid var(--color-line); padding-bottom: 0.35rem; }
-.prose h3 { font-size: 1.375rem; }
-.prose h4 { font-size: 1.15rem; }
+.prose h1 {
+  font-size: 2rem;
+}
+
+.prose h2 {
+  font-size: 1.625rem;
+  border-b: 1px solid var(--color-line);
+  padding-bottom: 0.35rem;
+}
+
+.prose h3 {
+  font-size: 1.375rem;
+}
+
+.prose h4 {
+  font-size: 1.15rem;
+}
 
 .prose p {
   margin-bottom: 1.5rem;
@@ -1192,7 +1218,7 @@ body::-webkit-scrollbar {
   font-style: italic;
   color: var(--color-ink-2);
   border-radius: 0 1rem 1rem 0;
-  box-shadow: inset 2px 0 0 rgba(0,0,0,0.02);
+  box-shadow: inset 2px 0 0 rgba(0, 0, 0, 0.02);
 }
 
 .prose table {
@@ -1205,7 +1231,8 @@ body::-webkit-scrollbar {
   overflow: hidden;
 }
 
-.prose th, .prose td {
+.prose th,
+.prose td {
   border: 1px solid var(--color-line);
   padding: 0.85rem 1.15rem;
   text-align: left;
@@ -1244,11 +1271,29 @@ body::-webkit-scrollbar {
 .prose em {
   font-style: italic;
 }
+
 /* ── Mobile horizontal snap-scroll: hide scrollbar ── */
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .scrollbar-none::-webkit-scrollbar {
   display: none;
+}
+
+/* ── Admin Dashboard Glassmorphism Card Overrides ── */
+.admin-workspace-content .bg-white,
+.admin-workspace-content .bg-slate-50,
+.admin-workspace-content .bg-slate-50\/50 {
+  background-color: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(12px) !important;
+  border-color: rgba(229, 223, 210, 0.4) !important;
+}
+
+.admin-workspace-content input,
+.admin-workspace-content textarea,
+.admin-workspace-content select {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(6px) !important;
 }

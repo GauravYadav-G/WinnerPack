@@ -67,7 +67,9 @@ export default function WhyChooseUs() {
           setUspsList(merged);
         }
       })
-      .catch((err) => console.error("Failed to load usps content:", err));
+      .catch(() => {
+        // Backend offline — fall back gracefully to default usps content
+      });
   }, []);
 
   return (

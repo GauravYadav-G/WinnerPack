@@ -1,164 +1,166 @@
 "use client";
+
 import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
-import { Save, RefreshCw } from "lucide-react";
-import { triggerRevalidate } from "@/lib/revalidate";
+import { CheckCircle, Save, Check, RefreshCw, Plus, Trash2 } from "lucide-react";
 
-
-export default function AdminReasonsPage() {
-  const [usps, setUsps] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+export default function ReasonsClient() {
   const [saving, setSaving] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const fetchContent = async () => {
-    setLoading(true);
-    try {
-      const res = await apiFetch("/api/content?key=homepage");
-      const data = await res.json();
-      if (data) {
-        setUsps(data.usps || []);
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [reasons, setReasons] = useState([
+    { title: "Direct Factory Pricing", desc: "No middleman markups with direct plant dispatch." },
+    { title: "100% Batch Traceability", desc: "COA quality test certificates per dispatch batch." },
+    { title: "High-Yield Formats", desc: "Up to 300% pre-stretch yield lowering cost per pack." },
+    { title: "Buffer Stock Guarantee", desc: "Dedicated safety inventory maintained at our plant." },
+    { title: "Custom Gauge & Widths", desc: "Precision slitting and custom core dimensions." },
+    { title: "Dedicated KAM Support", desc: "Single point of contact for plant supply coordination." },
+  ]);
 
   useEffect(() => {
-    fetchContent();
+    async function loadReasons() {
+      try {
+        const res = await apiFetch("/api/content?key=reasons");
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.data && Array.isArray(data.data.reasons)) {
+            setReasons(data.data.reasons);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to load reasons content:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadReasons();
   }, []);
+
+  const handleAddReason = () => {
+    setReasons((prev) => [...prev, { title: "New Core Advantage", desc: "Description of corporate value proposition..." }]);
+  };
+
+  const handleDeleteReason = (idx: number) => {
+    if (confirm("Delete this USP reason?")) {
+      setReasons((prev) => prev.filter((_, i) => i !== idx));
+    }
+  };
 
   const handleSave = async () => {
     setSaving(true);
     try {
-      const fetchRes = await apiFetch("/api/content?key=homepage");
-      const current = await fetchRes.json();
-
-      const payload = {
-        key: "homepage",
-        data: {
-          ...current,
-          usps,
-        },
-      };
-
       const res = await apiFetch("/api/content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ key: "reasons", data: { reasons } })
       });
-
       if (res.ok) {
-        await triggerRevalidate("/");
-        alert("Six Reasons saved successfully!");
+        setSuccess(true);
+        setTimeout(() => setSuccess(false), 3000);
       } else {
-        alert("Failed to save configuration.");
+        alert("Failed to save core reasons.");
       }
     } catch (err) {
       console.error(err);
-      alert("Error saving configuration.");
+      alert("Error saving core reasons.");
     } finally {
       setSaving(false);
     }
   };
 
   if (loading) {
-    return <div className="py-24 text-center text-xs text-slate-400">Loading configurations...</div>;
+    return (
+      <div className="py-20 text-center text-xs font-mono uppercase tracking-widest text-slate-400">
+        Loading Core Reasons Data...
+      </div>
+    );
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+    <div className="space-y-5 w-full font-sans">
+
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-[28px] border border-slate-200 shadow-xs">
         <div>
-          <h1 className="text-xl font-bold tracking-tight text-slate-900">Six Reasons Settings</h1>
-          <p className="text-xs text-slate-500 mt-1">Configure title card details and choose icons for WPT procurement advantages</p>
+          <div className="flex items-center gap-2">
+            <span className="p-2 rounded-2xl bg-[#120a3b] text-amber-400">
+              <CheckCircle className="h-5 w-5" />
+            </span>
+            <h1 className="text-2xl font-black text-[#120a3b] font-display tracking-tight">
+              Engineered Solutions & Core Reasons (USP) Manager
+            </h1>
+          </div>
+          <p className="text-xs text-slate-500 mt-1 font-medium">
+            Manage corporate value propositions, competitive advantages, and core USP points.
+          </p>
         </div>
-        <div className="flex gap-2">
+
+        <div className="flex items-center gap-3 shrink-0">
+          <button
+            onClick={handleAddReason}
+            className="flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-bold text-[#120a3b] hover:bg-slate-100 transition cursor-pointer"
+          >
+            <Plus className="h-4 w-4 text-[#fe8220]" />
+            <span>Add USP Point</span>
+          </button>
+
           <button
             onClick={handleSave}
             disabled={saving}
-            className="flex items-center gap-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 text-sm font-bold shadow-sm transition disabled:opacity-50"
+            className="flex items-center justify-center gap-2 rounded-2xl bg-[#fe8220] px-6 py-2.5 text-xs font-bold text-white shadow-md hover:bg-[#d4630a] transition cursor-pointer"
           >
-            <Save className="h-4 w-4" />
-            {saving ? "Saving Changes..." : "Save Changes"}
-          </button>
-          <button
-            onClick={fetchContent}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-500 transition shadow-sm"
-          >
-            <RefreshCw className="h-4 w-4" />
+            {saving ? <RefreshCw className="h-4 w-4 animate-spin" /> : success ? <Check className="h-4 w-4" /> : <Save className="h-4 w-4" />}
+            <span>{saving ? "Saving Changes..." : success ? "Saved Successfully!" : "Save USP Points"}</span>
           </button>
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-6">
-        <div>
-          <h3 className="text-sm font-bold text-slate-900 border-b pb-2">Why Choose Us (Six Reasons)</h3>
-          <p className="text-xs text-slate-500 mt-1">Configure title card details and choose icons for our 6 procurement advantages.</p>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2">
-          {usps.map((usp, idx) => (
-            <div key={idx} className="p-4 border border-slate-200 bg-slate-50 rounded-xl space-y-3">
-              <div className="flex justify-between items-center border-b pb-1.5">
-                <span className="text-xs font-bold text-slate-700">Reason 0{idx + 1}</span>
-                <span className="text-[10px] font-mono text-indigo-600 font-bold bg-indigo-50 px-2 rounded">
-                  Icon: {usp.icon}
-                </span>
-              </div>
-
-              <div>
-                <label className="block text-[10px] font-semibold text-slate-600">Advantage Title</label>
-                <input
-                  type="text"
-                  value={usp.title || ""}
-                  onChange={(e) => {
-                    const updated = [...usps];
-                    updated[idx] = { ...updated[idx], title: e.target.value };
-                    setUsps(updated);
-                  }}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-800 focus:border-indigo-500 focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[10px] font-semibold text-slate-600">Description text</label>
-                <textarea
-                  value={usp.text || ""}
-                  onChange={(e) => {
-                    const updated = [...usps];
-                    updated[idx] = { ...updated[idx], text: e.target.value };
-                    setUsps(updated);
-                  }}
-                  rows={2}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 focus:border-indigo-500 focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[10px] font-semibold text-slate-600">Select Icon Theme</label>
-                <select
-                  value={usp.icon}
-                  onChange={(e) => {
-                    const updated = [...usps];
-                    updated[idx] = { ...updated[idx], icon: e.target.value };
-                    setUsps(updated);
-                  }}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 focus:border-indigo-500 focus:outline-none"
-                >
-                  <option value="Tag">Tag (Catalog forcing)</option>
-                  <option value="Layers">Layers (Strap straightness)</option>
-                  <option value="Disc3">Disc3 (High-cling stretch)</option>
-                  <option value="Shield">Shield (Quality checking)</option>
-                  <option value="Leaf">Leaf (Eco-friendly options)</option>
-                  <option value="Globe2">Globe2 (Direct dispatch)</option>
-                </select>
-              </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {reasons.map((r, idx) => (
+          <div key={idx} className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-xs space-y-4 hover:border-[#fe8220] transition duration-200">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span className="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-[#120a3b] text-amber-400">
+                USP #{idx + 1}
+              </span>
+              <button
+                onClick={() => handleDeleteReason(idx)}
+                className="p-1 text-red-500 hover:text-red-700"
+              >
+                <Trash2 className="h-4 w-4" />
+              </button>
             </div>
-          ))}
-        </div>
+
+            <div>
+              <label className="block text-[11px] font-mono font-bold text-slate-500 mb-1">Title</label>
+              <input
+                type="text"
+                value={r.title}
+                onChange={(e) => {
+                  const updated = [...reasons];
+                  updated[idx].title = e.target.value;
+                  setReasons(updated);
+                }}
+                className="w-full rounded-2xl border border-slate-200 px-3.5 py-2 text-xs font-bold text-[#120a3b]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-mono font-bold text-slate-500 mb-1">Description</label>
+              <textarea
+                rows={3}
+                value={r.desc}
+                onChange={(e) => {
+                  const updated = [...reasons];
+                  updated[idx].desc = e.target.value;
+                  setReasons(updated);
+                }}
+                className="w-full rounded-2xl border border-slate-200 px-3.5 py-2 text-xs font-medium text-slate-900"
+              />
+            </div>
+          </div>
+        ))}
       </div>
+
     </div>
   );
 }

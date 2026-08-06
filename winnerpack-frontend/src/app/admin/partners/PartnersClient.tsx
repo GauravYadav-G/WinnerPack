@@ -1,266 +1,344 @@
 "use client";
+
 import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
-import { Save, RefreshCw, Trash, Plus } from "lucide-react";
-import { triggerRevalidate } from "@/lib/revalidate";
+import { Users, Save, Check, RefreshCw, Plus, Trash2, Globe, ShieldCheck, Award, Image as ImageIcon } from "lucide-react";
 
+interface PartnerBrand {
+  id?: string;
+  name: string;
+  category?: string;
+  logo: string;
+  website?: string;
+}
 
-export default function AdminPartnersPage() {
-  const [clients, setClients] = useState<any[]>([]);
-  const [industries, setIndustries] = useState<any[]>([]);
+const DEFAULT_BRANDS: PartnerBrand[] = [
+  { id: "p_lava", name: "LAVA International", category: "Consumer Electronics & Mobile", logo: "/Brand_logo/lava.png", website: "https://lavamobiles.com" },
+  { id: "p_vivo", name: "Vivo Electronics", category: "Smartphones & Mobile Devices", logo: "/Brand_logo/vivo.png", website: "https://vivo.com" },
+  { id: "p_noise", name: "NOISE Wearables", category: "Smart Wearables & Audio", logo: "/Brand_logo/noise.png", website: "https://gonoise.com" },
+  { id: "p_firebolt", name: "FIRE-BOLTT", category: "Smartwatches & Wearable Tech", logo: "/Brand_logo/firebolt.png", website: "https://fireboltt.com" },
+  { id: "p_milton", name: "MILTON Houseware", category: "Consumer Products & Homeware", logo: "/Brand_logo/milton.png", website: "https://milton.in" },
+  { id: "p_aiplus", name: "Ai+ Smartphone", category: "Mobile & Smart Accessories", logo: "/Brand_logo/aiplus.png", website: "https://aiplus.com" },
+  { id: "p_bosch", name: "BOSCH Global Engineering", category: "Automotive & Industrial Tech", logo: "/Brand_logo/bosch.svg", website: "https://bosch.com" },
+];
+
+export default function PartnersClient() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-  const fetchContent = async () => {
-    setLoading(true);
-    try {
-      const res = await apiFetch("/api/content?key=homepage");
-      const data = await res.json();
-      if (data) {
-        setClients(data.clients || []);
-        setIndustries(data.industries || []);
+  const [headerData, setHeaderData] = useState({
+    tag: "TRUSTED PARTNERS",
+    title: "Brands from all over the world love us!",
+    description: "From renowned brands across the globe, our client portfolio showcases the trust and satisfaction of industry leaders, reflecting our commitment to excellence and customer satisfaction.",
+    badge1: "Global Brands",
+    badge2: "100% Quality QC",
+    badge3: "ISO Certified",
+  });
+
+  const [partners, setPartners] = useState<PartnerBrand[]>(DEFAULT_BRANDS);
+  const [fullDoc, setFullDoc] = useState<any>({});
+
+  // Fetch partners_materials_certs content key
+  useEffect(() => {
+    async function loadPartners() {
+      setLoading(true);
+      try {
+        const res = await apiFetch("/api/content?key=partners_materials_certs");
+        if (res.ok) {
+          const doc = await res.json();
+          setFullDoc(doc || {});
+          if (doc.partnerHeader) {
+            setHeaderData(doc.partnerHeader);
+          }
+          if (Array.isArray(doc.partners) && doc.partners.length > 0) {
+            setPartners(doc.partners);
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
       }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
     }
+    loadPartners();
+  }, []);
+
+  const handleAddPartner = () => {
+    const newBrand: PartnerBrand = {
+      id: `p_${Date.now()}`,
+      name: "New Partner Brand",
+      category: "Industrial Packaging",
+      logo: "/Brand_logo/lava.png",
+      website: "https://example.com"
+    };
+    setPartners((prev) => [...prev, newBrand]);
   };
 
-  useEffect(() => {
-    fetchContent();
-  }, []);
+  const handleDeletePartner = (index: number) => {
+    if (!confirm("Are you sure you want to remove this brand logo?")) return;
+    setPartners((prev) => prev.filter((_, i) => i !== index));
+  };
 
   const handleSave = async () => {
     setSaving(true);
     try {
-      const fetchRes = await apiFetch("/api/content?key=homepage");
-      const current = await fetchRes.json();
-
       const payload = {
-        key: "homepage",
-        data: {
-          ...current,
-          clients,
-          industries,
-        },
+        ...fullDoc,
+        partnerHeader: headerData,
+        partners: partners
       };
 
       const res = await apiFetch("/api/content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          key: "partners_materials_certs",
+          value: payload
+        }),
       });
 
       if (res.ok) {
-        await triggerRevalidate("/");
-        alert("Partners & Industries saved successfully!");
+        setSuccess(true);
+        setTimeout(() => setSuccess(false), 3000);
       } else {
-        alert("Failed to save configuration.");
+        alert("Failed to save partner logos.");
       }
     } catch (err) {
       console.error(err);
-      alert("Error saving configuration.");
+      alert("Error saving partner logos.");
     } finally {
       setSaving(false);
     }
   };
 
-  function ImageUploader({
-    value,
-    onChange,
-    label,
-  }: {
-    value: string;
-    onChange: (url: string) => void;
-    label?: string;
-  }) {
-    const [uploading, setUploading] = useState(false);
-
-    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-      const file = e.target.files?.[0];
-      if (!file) return;
-      setUploading(true);
-      try {
-        const formData = new FormData();
-        formData.append("file", file);
-        const res = await apiFetch("/api/upload", {
-          method: "POST",
-          body: formData,
-        });
-        const data = await res.json();
-        if (data.url) {
-          onChange(data.url);
-        } else {
-          alert("Upload failed: " + data.error);
-        }
-      } catch (err) {
-        console.error(err);
-        alert("Error uploading image");
-      } finally {
-        setUploading(false);
-      }
-    };
-
+  if (loading) {
     return (
-      <div className="space-y-1.5">
-        {label && <label className="block text-xs font-semibold text-slate-700">{label}</label>}
-        <div className="flex flex-wrap items-center gap-3">
-          {value && (
-            <img
-              src={value}
-              alt="Preview"
-              className="h-12 w-20 object-contain rounded border border-slate-200 bg-slate-50 shadow-sm"
-            />
-          )}
-          <div className="flex gap-2">
-            <input
-              type="text"
-              value={value}
-              onChange={(e) => onChange(e.target.value)}
-              className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-800 focus:border-indigo-500 focus:outline-none w-56"
-              placeholder="Image path or URL"
-            />
-            <label className="inline-flex cursor-pointer items-center justify-center rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-600 px-3 py-1.5 text-xs font-bold transition">
-              {uploading ? "Uploading..." : "Upload File"}
-              <input type="file" onChange={handleFileChange} className="hidden" accept="image/*" />
-            </label>
-          </div>
-        </div>
+      <div className="py-20 text-center text-xs font-mono uppercase tracking-widest text-slate-400">
+        Loading Partner & Client Brands Data...
       </div>
     );
   }
 
-  if (loading) {
-    return <div className="py-24 text-center text-xs text-slate-400">Loading configurations...</div>;
-  }
-
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+    <div className="space-y-5 w-full font-sans pb-16">
+      {/* Header Bar */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
         <div>
-          <h1 className="text-xl font-bold tracking-tight text-slate-900">Partners &amp; Industries</h1>
-          <p className="text-xs text-slate-500 mt-1">Configure client partner logos and industries served on WPT homepage</p>
+          <div className="flex items-center gap-2">
+            <span className="p-2 rounded-xl bg-purple-50 text-purple-600 border border-purple-200">
+              <Users className="h-5 w-5" />
+            </span>
+            <h1 className="text-2xl font-extrabold text-slate-900 font-display tracking-tight">
+              Partners & Client Logos Manager
+            </h1>
+          </div>
+          <p className="text-xs text-slate-500 mt-1 font-medium">
+            Manage corporate client logos, brand banners, and homepage trust badges (Lava, Vivo, Noise, Bosch, etc.).
+          </p>
         </div>
-        <div className="flex gap-2">
+
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleAddPartner}
+            className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition cursor-pointer"
+          >
+            <Plus className="h-4 w-4 text-[#fe8220]" />
+            <span>Add New Brand Logo</span>
+          </button>
+
           <button
             onClick={handleSave}
             disabled={saving}
-            className="flex items-center gap-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 text-sm font-bold shadow-sm transition disabled:opacity-50"
+            className="flex items-center justify-center gap-2 rounded-xl bg-[#fe8220] px-5 py-2.5 text-xs font-bold text-white shadow-md hover:bg-[#d4630a] transition cursor-pointer"
           >
-            <Save className="h-4 w-4" />
-            {saving ? "Saving Changes..." : "Save Changes"}
-          </button>
-          <button
-            onClick={fetchContent}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-500 transition shadow-sm"
-          >
-            <RefreshCw className="h-4 w-4" />
+            {saving ? <RefreshCw className="h-4 w-4 animate-spin" /> : success ? <Check className="h-4 w-4" /> : <Save className="h-4 w-4" />}
+            <span>{saving ? "Saving Changes..." : success ? "Saved Successfully!" : "Save Partner Logos"}</span>
           </button>
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-8">
-        <div>
-          <h3 className="text-sm font-bold text-slate-900 border-b pb-2">Trusted Partners (Brand Logos)</h3>
-          <p className="text-xs text-slate-500 mt-1">Manage brand names and logos shown in the rolling banner.</p>
+      {/* 1. Header & Text Content Box */}
+      <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4 shadow-xs">
+        <h2 className="text-xs font-mono uppercase tracking-wider font-bold text-slate-900 border-b border-slate-100 pb-2">
+          Homepage Section Header & Badges Text
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-xs font-mono font-bold uppercase text-slate-700 mb-1">
+              Section Subtitle Tag
+            </label>
+            <input
+              type="text"
+              value={headerData.tag}
+              onChange={(e) => setHeaderData({ ...headerData, tag: e.target.value })}
+              className="w-full rounded-xl border border-slate-200 px-3.5 py-2 text-xs font-semibold text-slate-900 focus:border-amber-500 focus:outline-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-mono font-bold uppercase text-slate-700 mb-1">
+              Main Section Headline
+            </label>
+            <input
+              type="text"
+              value={headerData.title}
+              onChange={(e) => setHeaderData({ ...headerData, title: e.target.value })}
+              className="w-full rounded-xl border border-slate-200 px-3.5 py-2 text-xs font-bold text-slate-900 focus:border-amber-500 focus:outline-none"
+            />
+          </div>
         </div>
-
-        <div className="grid gap-4 md:grid-cols-2">
-          {clients.map((client, idx) => (
-            <div key={idx} className="p-4 border border-slate-200 bg-slate-50 rounded-xl space-y-3 relative animate-fade-in">
-              <button
-                type="button"
-                onClick={() => setClients(clients.filter((_, i) => i !== idx))}
-                className="absolute top-4 right-4 text-red-500 hover:text-red-700 hover:bg-red-50 p-1 rounded"
-              >
-                <Trash className="h-4 w-4" />
-              </button>
-
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">Partner Brand Name</label>
-                <input
-                  type="text"
-                  value={client.name || ""}
-                  onChange={(e) => {
-                    const updated = [...clients];
-                    updated[idx] = { ...updated[idx], name: e.target.value };
-                    setClients(updated);
-                  }}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-800 focus:border-indigo-500 focus:outline-none"
-                />
-              </div>
-
-              <ImageUploader
-                value={client.logo || ""}
-                onChange={(url) => {
-                  const updated = [...clients];
-                  updated[idx] = { ...updated[idx], logo: url };
-                  setClients(updated);
-                }}
-                label="Brand Logo Asset"
-              />
-            </div>
-          ))}
-        </div>
-        <button
-          type="button"
-          onClick={() => setClients([...clients, { name: "New Client", logo: "" }])}
-          className="border border-dashed border-slate-200 rounded-lg py-2 flex items-center justify-center gap-1.5 text-xs text-slate-500 font-bold hover:border-indigo-600 hover:text-indigo-600 w-48 transition"
-        >
-          <Plus className="h-3.5 w-3.5" /> Add Partner Logo
-        </button>
 
         <div>
-          <h3 className="text-sm font-bold text-slate-900 border-b pb-2 mt-4">Industries Served</h3>
-          <p className="text-xs text-slate-500 mt-1">Configure industry segments and background imagery displayed on the homepage.</p>
+          <label className="block text-xs font-mono font-bold uppercase text-slate-700 mb-1">
+            Section Intro Paragraph
+          </label>
+          <textarea
+            rows={2}
+            value={headerData.description}
+            onChange={(e) => setHeaderData({ ...headerData, description: e.target.value })}
+            className="w-full rounded-xl border border-slate-200 px-3.5 py-2 text-xs font-medium text-slate-900 focus:border-amber-500 focus:outline-none"
+          />
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          {industries.map((ind, idx) => (
-            <div key={idx} className="p-4 border border-slate-200 bg-slate-50 rounded-xl space-y-3 relative animate-fade-in">
-              <button
-                type="button"
-                onClick={() => setIndustries(industries.filter((_, i) => i !== idx))}
-                className="absolute top-4 right-4 text-red-500 hover:text-red-700 hover:bg-red-50 p-1 rounded"
-              >
-                <Trash className="h-4 w-4" />
-              </button>
+        {/* 3 Proof Badges */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          <div>
+            <label className="block text-[10px] font-mono font-bold uppercase text-slate-600 mb-1 flex items-center gap-1">
+              <Globe className="h-3 w-3 text-amber-500" /> Proof Badge 1
+            </label>
+            <input
+              type="text"
+              value={headerData.badge1}
+              onChange={(e) => setHeaderData({ ...headerData, badge1: e.target.value })}
+              className="w-full rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-900"
+            />
+          </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">Industry Title</label>
-                <input
-                  type="text"
-                  value={ind.name || ""}
-                  onChange={(e) => {
-                    const updated = [...industries];
-                    updated[idx] = { ...updated[idx], name: e.target.value };
-                    setIndustries(updated);
-                  }}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-800 focus:border-indigo-500 focus:outline-none font-bold"
-                />
-              </div>
+          <div>
+            <label className="block text-[10px] font-mono font-bold uppercase text-slate-600 mb-1 flex items-center gap-1">
+              <ShieldCheck className="h-3 w-3 text-amber-500" /> Proof Badge 2
+            </label>
+            <input
+              type="text"
+              value={headerData.badge2}
+              onChange={(e) => setHeaderData({ ...headerData, badge2: e.target.value })}
+              className="w-full rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-900"
+            />
+          </div>
 
-              <ImageUploader
-                value={ind.image || ""}
-                onChange={(url) => {
-                  const updated = [...industries];
-                  updated[idx] = { ...updated[idx], image: url };
-                  setIndustries(updated);
-                }}
-                label="Segment Background Image"
-              />
-            </div>
-          ))}
+          <div>
+            <label className="block text-[10px] font-mono font-bold uppercase text-slate-600 mb-1 flex items-center gap-1">
+              <Award className="h-3 w-3 text-amber-500" /> Proof Badge 3
+            </label>
+            <input
+              type="text"
+              value={headerData.badge3}
+              onChange={(e) => setHeaderData({ ...headerData, badge3: e.target.value })}
+              className="w-full rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-900"
+            />
+          </div>
         </div>
-        <button
-          type="button"
-          onClick={() => setIndustries([...industries, { name: "New Industry", image: "" }])}
-          className="border border-dashed border-slate-200 rounded-lg py-2 flex items-center justify-center gap-1.5 text-xs text-slate-500 font-bold hover:border-indigo-600 hover:text-indigo-600 w-48 transition"
-        >
-          <Plus className="h-3.5 w-3.5" /> Add Industry served
-        </button>
       </div>
+
+      {/* 2. Client Brand Logos Grid */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xs font-mono uppercase tracking-wider font-bold text-slate-700">
+            Active Client Brand Logos ({partners.length})
+          </h2>
+          <span className="text-[11px] font-mono text-slate-400">
+            Rendered live in homepage brand marquee
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {partners.map((p, idx) => (
+            <div key={p.id || idx} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs space-y-3 relative group">
+              {/* Delete Button */}
+              <button
+                onClick={() => handleDeletePartner(idx)}
+                className="absolute top-3 right-3 p-1.5 rounded-lg border border-slate-200 bg-slate-50 text-red-600 hover:bg-red-50 hover:border-red-300 transition cursor-pointer"
+                title="Remove Brand Logo"
+              >
+                <Trash2 className="h-3.5 w-3.5" />
+              </button>
+
+              {/* Logo Preview Container */}
+              <div className="aspect-[16/9] bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center overflow-hidden p-4 relative">
+                {p.logo ? (
+                  <img
+                    src={p.logo}
+                    alt={p.name}
+                    className="max-h-16 max-w-full object-contain drop-shadow-xs"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = "none";
+                    }}
+                  />
+                ) : (
+                  <ImageIcon className="h-6 w-6 text-slate-300" />
+                )}
+              </div>
+
+              {/* Brand Name Input */}
+              <div>
+                <label className="block text-[10px] font-mono font-bold uppercase text-slate-600 mb-1">
+                  Brand Name
+                </label>
+                <input
+                  type="text"
+                  value={p.name}
+                  onChange={(e) => {
+                    const updated = [...partners];
+                    updated[idx].name = e.target.value;
+                    setPartners(updated);
+                  }}
+                  placeholder="Brand Name..."
+                  className="w-full rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-900 focus:border-amber-500 focus:outline-none"
+                />
+              </div>
+
+              {/* Logo Path Input */}
+              <div>
+                <label className="block text-[10px] font-mono font-bold uppercase text-slate-600 mb-1">
+                  Logo Asset Path
+                </label>
+                <input
+                  type="text"
+                  value={p.logo}
+                  onChange={(e) => {
+                    const updated = [...partners];
+                    updated[idx].logo = e.target.value;
+                    setPartners(updated);
+                  }}
+                  placeholder="/Brand_logo/logo.png"
+                  className="w-full rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-mono text-slate-800 focus:border-amber-500 focus:outline-none"
+                />
+              </div>
+
+              {/* Category / Website Input */}
+              <div>
+                <label className="block text-[10px] font-mono font-bold uppercase text-slate-600 mb-1">
+                  Industry / Category Tag
+                </label>
+                <input
+                  type="text"
+                  value={p.category || ""}
+                  onChange={(e) => {
+                    const updated = [...partners];
+                    updated[idx].category = e.target.value;
+                    setPartners(updated);
+                  }}
+                  placeholder="e.g. Consumer Electronics"
+                  className="w-full rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-800 focus:border-amber-500 focus:outline-none"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 }

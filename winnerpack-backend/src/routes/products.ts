@@ -16,13 +16,14 @@ router.get("/", async (req: Request, res: Response): Promise<void> => {
 
       if (reseed) {
         await Product.deleteMany({});
+        await Product.insertMany(initialProducts);
       }
 
-      let dbProducts = await Product.find({}).sort({ createdAt: -1 });
+      let dbProducts = await Product.find({}).sort({ createdAt: 1 });
 
       if (dbProducts.length === 0) {
         await Product.insertMany(initialProducts);
-        dbProducts = await Product.find({}).sort({ createdAt: -1 });
+        dbProducts = await Product.find({}).sort({ createdAt: 1 });
       }
 
       res.json(dbProducts);

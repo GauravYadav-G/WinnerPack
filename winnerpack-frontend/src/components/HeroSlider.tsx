@@ -103,7 +103,9 @@ export default function HeroSlider() {
           setDesktopRightBanner(data.rightBanner);
         }
       })
-      .catch((err) => console.error("Failed to load dynamic hero content:", err));
+      .catch(() => {
+        // Backend offline — fall back gracefully to default hero slides
+      });
   }, []);
 
   // Auto-advance slides

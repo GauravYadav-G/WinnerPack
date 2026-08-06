@@ -92,7 +92,6 @@ export interface Product {
   longDesc: string;
   image: string;
   gallery: string[];
-  basePrice: string;
   specs: Record<string, string>;
   options: {
     widths: string[];
@@ -143,7 +142,7 @@ export const industryVerticals: IndustryVertical[] = [
       { title: "Batch Traceability", desc: "Batch-tested tensile strength with Certificate of Analysis (COA) per dispatch." }
     ],
     recommendedProductIds: ["pet-strap", "pp-strap", "epe-foam-rolls", "edge-protector"],
-    image: "/images/desktop/automobile_industry.png"
+    image: "/images/desktop/industries/automobile_industry.png"
   },
   {
     id: "food-fmcg",

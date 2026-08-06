@@ -1,5 +1,4 @@
 "use client";
-import { apiFetch } from "@/lib/api";
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Mail, Phone, MapPin, CheckCircle2, ArrowRight, ChevronRight, Clock, MessageCircle, Tag } from "lucide-react";
@@ -70,7 +69,7 @@ function ContactFormInner() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await apiFetch("/api/inquiries", {
+      const res = await fetch("/api/inquiries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

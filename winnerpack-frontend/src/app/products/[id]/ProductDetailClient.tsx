@@ -51,7 +51,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               setRelated(matches);
             }
           })
-          .catch((err) => console.error("Failed to load related products:", err));
+          .catch(() => {
+            // Backend offline — fall back gracefully to local category related items
+          });
 
         setLoading(false);
       })
@@ -122,15 +124,24 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   })) : [];
 
 
-  // 5-Photo Gallery Collage Setup: Slot 0 = Featured Product Image; Slots 1-4 = Product's Dedicated Real-Life Application Folder Images
+  // 5-Photo Gallery Collage Setup: Slot 0 = Featured Hero Image; Slots 1-4 = Dedicated Product Application Folder Images
   const productAppDir = `/images/products/${product.id}/applications`;
 
+  const appSlotImages = Array.isArray(product.applicationSlots) && product.applicationSlots.length > 0
+    ? product.applicationSlots.map((s: any) => s.image).filter(Boolean)
+    : [
+        `${productAppDir}/app-1.png`,
+        `${productAppDir}/app-2.png`,
+        `${productAppDir}/app-3.png`,
+        `${productAppDir}/app-4.png`,
+      ];
+
   const displayGallery = [
-    product.image || `${productAppDir}/app-1.png`,
-    `${productAppDir}/app-1.png`,
-    `${productAppDir}/app-2.png`,
-    `${productAppDir}/app-3.png`,
-    `${productAppDir}/app-4.png`,
+    product.image || appSlotImages[0] || `${productAppDir}/app-1.png`,
+    appSlotImages[0] || `${productAppDir}/app-1.png`,
+    appSlotImages[1] || `${productAppDir}/app-2.png`,
+    appSlotImages[2] || `${productAppDir}/app-3.png`,
+    appSlotImages[3] || `${productAppDir}/app-4.png`,
   ];
 
   return (
@@ -324,25 +335,25 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-2 gap-1.5 sm:gap-2">
-                    {[
-                      { title: "FDA & WHO-GMP Compliant", icon: ShieldCheck },
-                      { title: "Zero Downtime Tolerance", icon: Zap },
-                      { title: "Full Traceability COA", icon: CheckCircle2 },
-                      { title: "High Tensile Guarantee", icon: Factory },
-                      { title: "Custom Gauge Options", icon: CheckCircle2 },
-                      { title: "Engineering Support", icon: Zap },
-                    ].map((item) => {
-                      const IconComp = item.icon;
-                      return (
-                        <div
-                          key={item.title}
-                          className="flex items-center gap-1.5 sm:gap-2.5 rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber-dark)]/40 transition-colors"
-                        >
-                          <IconComp className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[var(--color-amber-dark)] shrink-0" />
-                          <span className="truncate">{item.title}</span>
-                        </div>
-                      );
-                    })}
+                    {(product.whatsIncluded && product.whatsIncluded.length > 0
+                      ? product.whatsIncluded
+                      : [
+                          "FDA & WHO-GMP Compliant",
+                          "Zero Downtime Tolerance",
+                          "Full Traceability COA",
+                          "High Tensile Guarantee",
+                          "Custom Gauge Options",
+                          "Engineering Support"
+                        ]
+                    ).map((title: string) => (
+                      <div
+                        key={title}
+                        className="flex items-center gap-1.5 sm:gap-2.5 rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber-dark)]/40 transition-colors"
+                      >
+                        <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[var(--color-amber-dark)] shrink-0" />
+                        <span className="truncate">{title}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
