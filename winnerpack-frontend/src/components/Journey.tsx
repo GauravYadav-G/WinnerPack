@@ -114,9 +114,6 @@ export default function Journey() {
                   </h3>
 
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2 mb-1 sm:mb-3">
-                    <span className="inline-flex items-center gap-1 px-1.5 sm:px-2 py-0.5 rounded-full bg-[var(--color-amber)]/20 border border-[var(--color-amber)]/30 text-[9px] sm:text-xs font-mono font-bold text-[var(--color-amber)]">
-                      {item.impact}
-                    </span>
                     <span className="text-[9px] sm:text-xs font-mono text-white/60 truncate max-w-full">
                       {item.spec}
                     </span>
