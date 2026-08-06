@@ -4,6 +4,7 @@ import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { Compass, Save, Check, RefreshCw, Plus, Trash2 } from "lucide-react";
 import { industryVerticals as defaultIndustries } from "@/data";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function IndustryManagerClient() {
   const [saving, setSaving] = useState(false);
@@ -127,7 +128,11 @@ export default function IndustryManagerClient() {
           <div key={ind.id || idx} className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-xs space-y-4 hover:border-[#fe8220] transition duration-200">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-3">
-                <img src={ind.image} alt={ind.name} className="h-12 w-16 rounded-xl object-cover border border-slate-200 bg-slate-50" />
+                <OptimizedImage
+  src={ind.image}
+  alt={ind.name}
+  className="h-12 w-16 rounded-xl object-cover border border-slate-200 bg-slate-50"
+/>
                 <div>
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#fe8220]">
                     ID: {ind.id}

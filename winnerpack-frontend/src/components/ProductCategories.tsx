@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { productCategories } from "../data";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function ProductCategories() {
   const [activeCatIndex, setActiveCatIndex] = useState(0);
@@ -102,12 +103,11 @@ export default function ProductCategories() {
               >
                 <Link href={`/product-category/${cat.id}`} className="block h-full w-full">
                   <div className="relative aspect-[4/3] sm:aspect-square w-full overflow-hidden bg-[var(--color-bone)]">
-                    <img
-                      src={cat.image}
-                      alt={cat.title}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                    />
+                    <OptimizedImage
+  src={cat.image}
+  alt={cat.title}
+  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+/>
 
                     <div
                       className={`absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 transition-all duration-300 px-2.5 sm:px-4 py-1 sm:py-2 rounded-full bg-white/95 backdrop-blur-md text-[var(--color-ink)] text-[10px] sm:text-xs font-bold shadow-lg flex items-center gap-1 sm:gap-1.5 whitespace-nowrap border border-white/40 ${isActive
@@ -143,16 +143,20 @@ export default function ProductCategories() {
           {/* SLOT 1: Tall Left Poster Card (Spans 5 Columns on Desktop) */}
           <div className="lg:col-span-5 relative h-[220px] sm:h-[380px] lg:h-[640px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
             <AnimatePresence mode="wait">
-              <motion.img
+              <motion.div
                 key={`${activeCatIndex}-slot1`}
-                src={currentShowcase.slot1}
-                alt={currentShowcase.label}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
+                className="absolute inset-0"
+              >
+                <OptimizedImage
+                  src={currentShowcase.slot1}
+                  alt={currentShowcase.label}
+                  className="h-full w-full object-cover"
+                />
+              </motion.div>
             </AnimatePresence>
           </div>
 
@@ -162,16 +166,20 @@ export default function ProductCategories() {
             {/* SLOT 2: Top Wide Banner Card */}
             <div className="relative h-[160px] sm:h-[240px] lg:h-[304px] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
               <AnimatePresence mode="wait">
-                <motion.img
+                <motion.div
                   key={`${activeCatIndex}-slot2`}
-                  src={currentShowcase.slot2}
-                  alt={currentShowcase.label}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
+                  className="absolute inset-0"
+                >
+                  <OptimizedImage
+                    src={currentShowcase.slot2}
+                    alt={currentShowcase.label}
+                    className="h-full w-full object-cover"
+                  />
+                </motion.div>
               </AnimatePresence>
             </div>
 
@@ -181,32 +189,40 @@ export default function ProductCategories() {
               {/* SLOT 3: Bottom Left Card */}
               <div className="relative h-[140px] sm:h-[220px] lg:h-[304px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <motion.div
                     key={`${activeCatIndex}-slot3`}
-                    src={currentShowcase.slot3}
-                    alt={currentShowcase.label}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
+                    className="absolute inset-0"
+                  >
+                    <OptimizedImage
+                      src={currentShowcase.slot3}
+                      alt={currentShowcase.label}
+                      className="h-full w-full object-cover"
+                    />
+                  </motion.div>
                 </AnimatePresence>
               </div>
 
               {/* SLOT 4: Bottom Right Card */}
               <div className="relative h-[140px] sm:h-[220px] lg:h-[304px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <motion.div
                     key={`${activeCatIndex}-slot4`}
-                    src={currentShowcase.slot4}
-                    alt={currentShowcase.label}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
+                    className="absolute inset-0"
+                  >
+                    <OptimizedImage
+                      src={currentShowcase.slot4}
+                      alt={currentShowcase.label}
+                      className="h-full w-full object-cover"
+                    />
+                  </motion.div>
                 </AnimatePresence>
               </div>
 

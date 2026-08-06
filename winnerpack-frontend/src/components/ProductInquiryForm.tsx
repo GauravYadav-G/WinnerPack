@@ -165,9 +165,9 @@ export default function ProductInquiryForm() {
                   <Zap className="h-6 w-6" />
                 </div>
                 <div>
-                  <h4 className="font-display text-base sm:text-lg font-bold text-white leading-snug">
+                  <h3 className="font-display text-base sm:text-lg font-bold text-white leading-snug">
                     Direct Application Engineering Consultation
-                  </h4>
+                  </h3>
                   <p className="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed font-normal">
                     Get personalized guidance on gauge thickness, elongation percentage, and load stabilization tailored to your plant lines.
                   </p>
@@ -179,9 +179,9 @@ export default function ProductInquiryForm() {
                   <ShieldCheck className="h-6 w-6" />
                 </div>
                 <div>
-                  <h4 className="font-display text-base sm:text-lg font-bold text-white leading-snug">
+                  <h3 className="font-display text-base sm:text-lg font-bold text-white leading-snug">
                     Free Material Sample Kit & Automated Line Testing
-                  </h4>
+                  </h3>
                   <p className="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed font-normal">
                     We&apos;ll supply physical sample rolls and tapes to assess your packaging system and validate feed reliability on your automated machinery.
                   </p>
@@ -301,7 +301,7 @@ export default function ProductInquiryForm() {
 
                 {/* Category & Product Select */}
                 <div className="space-y-1">
-                  <label className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
+                  <label htmlFor="product-interest" className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
                     Product Interest & Specification <span className="text-red-500">*</span>
                   </label>
 
@@ -330,6 +330,7 @@ export default function ProductInquiryForm() {
 
                   <div className="relative">
                     <select
+                      id="product-interest"
                       value={formData.productInterest}
                       onChange={(e) => setFormData({ ...formData, productInterest: e.target.value })}
                       className="w-full rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all appearance-none cursor-pointer pr-8 sm:pr-10 shadow-xs"

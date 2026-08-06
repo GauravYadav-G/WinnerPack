@@ -21,6 +21,7 @@ import PageWrapper from "@/components/PageWrapper";
 import { apiFetch } from "@/lib/api";
 import { marked } from "marked";
 import { initialProducts } from "@/lib/fallback-data";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -180,33 +181,33 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[1] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
                     }`}
                 >
-                  <img
-                    src={displayGallery[1]}
-                    alt={`${product.title} view 1`}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  <OptimizedImage
+  src={displayGallery[1]}
+  alt={`${product.title} view 1`}
+  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+/>
                 </div>
                 <div
                   onClick={() => setImg(displayGallery[2])}
                   className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[2] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
                     }`}
                 >
-                  <img
-                    src={displayGallery[2]}
-                    alt={`${product.title} view 2`}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  <OptimizedImage
+  src={displayGallery[2]}
+  alt={`${product.title} view 2`}
+  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+/>
                 </div>
               </div>
 
               {/* Center Column: 1 Large Hero Featured Image */}
               <div className="md:col-span-6">
                 <div className="relative aspect-[16/10] sm:aspect-[16/10] md:aspect-[16/11] w-full h-full overflow-hidden rounded-xl sm:rounded-3xl border border-[var(--color-line)] bg-slate-950 shadow-md sm:shadow-lg group">
-                  <img
-                    src={img || displayGallery[0]}
-                    alt={product.title}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  <OptimizedImage
+  src={img || displayGallery[0]}
+  alt={product.title}
+  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+/>
                 </div>
               </div>
 
@@ -217,22 +218,22 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[3] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
                     }`}
                 >
-                  <img
-                    src={displayGallery[3]}
-                    alt={`${product.title} view 3`}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  <OptimizedImage
+  src={displayGallery[3]}
+  alt={`${product.title} view 3`}
+  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+/>
                 </div>
                 <div
                   onClick={() => setImg(displayGallery[4])}
                   className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[4] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
                     }`}
                 >
-                  <img
-                    src={displayGallery[4]}
-                    alt={`${product.title} view 4`}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  <OptimizedImage
+  src={displayGallery[4]}
+  alt={`${product.title} view 4`}
+  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+/>
                 </div>
               </div>
             </div>
@@ -249,7 +250,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       : "border-white/50 opacity-80"
                     }`}
                 >
-                  <img src={photo} alt="" className="h-full w-full object-cover" />
+                  <OptimizedImage
+  src={photo}
+  alt=""
+  className="h-full w-full object-cover"
+/>
                 </button>
               ))}
             </div>
@@ -520,11 +525,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     <div className="space-y-2.5 sm:space-y-4 lg:space-y-5">
                       {/* Compact Image */}
                       <div className="relative aspect-[2/1] sm:aspect-[16/9] w-full overflow-hidden rounded-lg sm:rounded-xl lg:rounded-2xl border border-[var(--color-line)] bg-slate-950 shadow-inner group">
-                        <img
-                          src={sub.image}
-                          alt={sub.title}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
+                        <OptimizedImage
+  src={sub.image}
+  alt={sub.title}
+  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+/>
                       </div>
 
                       <div className="space-y-1 sm:space-y-1.5 lg:space-y-2">

@@ -4,6 +4,7 @@ import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { Image as ImageIcon, Save, Check, RefreshCw, Plus, Trash2, Link as LinkIcon, Layout } from "lucide-react";
 import { motion } from "framer-motion";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function HeroClient() {
   const [slides, setSlides] = useState<any[]>([]);
@@ -146,11 +147,11 @@ export default function HeroClient() {
               {/* Preview */}
               <div className="md:col-span-4 aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 relative flex items-center justify-center p-2">
                 {rightBanner ? (
-                  <img
-                    src={rightBanner}
-                    alt="Right Hero Banner Preview"
-                    className="h-full w-full object-cover rounded-xl"
-                  />
+                  <OptimizedImage
+  src={rightBanner}
+  alt="Right Hero Banner Preview"
+  className="h-full w-full object-cover rounded-xl"
+/>
                 ) : (
                   <span className="text-xs text-slate-400 font-mono">No Image Provided</span>
                 )}
@@ -218,11 +219,11 @@ export default function HeroClient() {
                     {/* Media Preview (4 cols) */}
                     <div className="md:col-span-4 aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 relative flex items-center justify-center p-2">
                       {slide.desktopMediaUrl || slide.image ? (
-                        <img
-                          src={slide.desktopMediaUrl || slide.image}
-                          alt={slide.heading}
-                          className="h-full w-full object-cover rounded-xl"
-                        />
+                        <OptimizedImage
+  src={slide.desktopMediaUrl || slide.image}
+  alt={slide.heading}
+  className="h-full w-full object-cover rounded-xl"
+/>
                       ) : (
                         <span className="text-xs text-slate-400 font-mono">No Media Asset</span>
                       )}

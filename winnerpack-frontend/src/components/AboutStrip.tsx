@@ -5,6 +5,7 @@ import { ArrowRight, ShieldCheck, Zap } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { fetchContent } from "@/lib/content-cache";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function AboutStrip() {
   const [about, setAbout] = useState({
@@ -52,22 +53,20 @@ export default function AboutStrip() {
           >
             {/* Top Rectangular Card: Automated High-Speed Film Slitting Line */}
             <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
-              <img
-                src={(about as any).image1 || "/images/desktop/about/plant_film_slitting_machine.jpg"}
-                alt="High-Speed Servo-Driven Film Slitting & Converting Machine"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
+              <OptimizedImage
+  src={(about as any).image1 || "/images/desktop/about/plant_film_slitting_machine.jpg"}
+  alt="High-Speed Servo-Driven Film Slitting & Converting Machine"
+  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+/>
             </div>
 
             {/* Bottom Rectangular Card: Blown Film Extrusion Tower */}
             <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
-              <img
-                src={(about as any).image2 || "/images/desktop/about/plant_extrusion_tower.jpg"}
-                alt="Multilayer Blown Film Extrusion Tower"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
+              <OptimizedImage
+  src={(about as any).image2 || "/images/desktop/about/plant_extrusion_tower.jpg"}
+  alt="Multilayer Blown Film Extrusion Tower"
+  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+/>
             </div>
           </motion.div>
 
@@ -104,9 +103,9 @@ export default function AboutStrip() {
                 <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)]">
                   <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
-                <h4 className="font-display text-sm sm:text-base font-bold text-[var(--color-ink)]">
+                <p className="font-display text-sm sm:text-base font-bold text-[var(--color-ink)]">
                   &quot;We Serve To Deserve&quot;
-                </h4>
+                </p>
                 <p className="text-[11px] sm:text-xs text-[var(--color-mute)] leading-relaxed">
                   Environment-friendly secondary and tertiary solutions tailored to your operational specifications.
                 </p>
@@ -116,9 +115,9 @@ export default function AboutStrip() {
                 <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)]">
                   <Zap className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
-                <h4 className="font-display text-sm sm:text-base font-bold text-[var(--color-ink)]">
+                <p className="font-display text-sm sm:text-base font-bold text-[var(--color-ink)]">
                   Engineered Reliability
-                </h4>
+                </p>
                 <p className="text-[11px] sm:text-xs text-[var(--color-mute)] leading-relaxed">
                   Specialized in high-cling BOPP tapes, strapping rolls, POF/PVC shrink films, and protective wrap.
                 </p>

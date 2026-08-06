@@ -256,7 +256,7 @@ export default function TiptapInlineEditor({ value, onChange }: TiptapInlineEdit
           type="file"
           ref={fileInputRef}
           onChange={handleImageFileChange}
-          accept="image/*"
+          accept="image/jpeg,image/png,image/webp,image/avif"
           className="hidden"
         />
         <button

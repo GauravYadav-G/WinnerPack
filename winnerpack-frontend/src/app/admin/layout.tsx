@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import AdminBackgroundVanta from "@/components/AdminBackgroundVanta";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -117,7 +118,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="flex min-h-screen items-center justify-center bg-[#f8f7f4] text-slate-900 font-sans">
         <div className="flex flex-col items-center gap-4">
           <div className="relative h-14 w-14 flex items-center justify-center rounded-2xl bg-[#120a3b] shadow-xl p-2">
-            <img src="/logo.png" alt="Winner Pack Logo" className="h-full w-auto object-contain animate-pulse" />
+            <OptimizedImage
+  src={"/logo.png"}
+  alt="Winner Pack Logo"
+  className="h-full w-auto object-contain animate-pulse"
+/>
           </div>
           <div className="text-center space-y-1">
             <p className="text-sm font-extrabold tracking-wide text-[#120a3b] font-display">Winner Pack Operations Portal</p>
@@ -181,7 +186,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             className="h-13 w-13 rounded-2xl bg-white p-2 shadow-lg flex items-center justify-center hover:scale-105 transition-transform group"
             title="Winner Pack Operations Dashboard"
           >
-            <img src="/logo.png" alt="Winner Pack Logo" className="h-full w-auto object-contain" />
+            <OptimizedImage
+  src={"/logo.png"}
+  alt="Winner Pack Logo"
+  className="h-full w-auto object-contain"
+/>
           </Link>
 
           {/* Vertical Stack of Icon Navigation Buttons */}
@@ -229,7 +238,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* MERGED SINGLE TOP EXECUTIVE HEADER */}
         <header className="px-8 py-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 shrink-0 border-b border-[#e5dfd2]/80 bg-white/50 backdrop-blur-xl shadow-xs relative z-10">
           <div className="flex items-center gap-4">
-            <img src="/logo.png" alt="Winner Pack Logo" className="h-11 w-auto object-contain shrink-0" />
+            <OptimizedImage
+  src={"/logo.png"}
+  alt="Winner Pack Logo"
+  className="h-11 w-auto object-contain shrink-0"
+/>
             <div>
               <h1 className="text-2xl font-black tracking-tight font-display text-[#120a3b]">
                 Winner Pack

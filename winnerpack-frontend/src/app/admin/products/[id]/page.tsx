@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { initialProducts } from "@/lib/fallback-data";
 import TiptapEditor from "@/components/TiptapEditor";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function ProductDetailEditorPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -532,7 +533,11 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
 
                 <div className="relative aspect-[16/10] w-full rounded-2xl border border-[#e5dfd2] bg-[#f8f7f4] overflow-hidden p-3 flex items-center justify-center">
                   {formData.image ? (
-                    <img src={formData.image} alt="Thumbnail Preview" className="h-full w-full object-contain" />
+                    <OptimizedImage
+  src={formData.image}
+  alt="Thumbnail Preview"
+  className="h-full w-full object-contain"
+/>
                   ) : (
                     <span className="text-xs text-slate-400 font-mono">No Image Provided</span>
                   )}
@@ -642,7 +647,11 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
                   {/* Slot Image Preview */}
                   <div className="relative aspect-[16/9] w-full rounded-2xl border border-[#e5dfd2] bg-[#f8f7f4] overflow-hidden p-3 flex items-center justify-center">
                     {slot.image ? (
-                      <img src={slot.image} alt={slot.title} className="h-full w-full object-cover rounded-xl" />
+                      <OptimizedImage
+  src={slot.image}
+  alt={slot.title}
+  className="h-full w-full object-cover rounded-xl"
+/>
                     ) : (
                       <span className="text-xs text-slate-400 font-mono">No Slot Image</span>
                     )}
@@ -1118,11 +1127,11 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
                           </label>
                           <div className="relative aspect-[16/10] w-full rounded-2xl border border-[#e5dfd2] bg-slate-900 overflow-hidden shadow-xs group flex items-center justify-center">
                             {sub.image ? (
-                              <img
-                                src={sub.image}
-                                alt={sub.title || "Subcategory Preview"}
-                                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                              />
+                              <OptimizedImage
+  src={sub.image}
+  alt={sub.title || "Subcategory Preview"}
+  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+/>
                             ) : (
                               <span className="text-[10px] font-mono text-slate-400">No Image Provided</span>
                             )}
@@ -1429,7 +1438,11 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
                 </div>
                 <div className="aspect-[16/10] rounded-2xl border border-slate-200 bg-slate-900 overflow-hidden relative flex items-center justify-center">
                   {formData.image ? (
-                    <img src={formData.image} alt={formData.title} className="h-full w-full object-cover" />
+                    <OptimizedImage
+  src={formData.image}
+  alt={formData.title}
+  className="h-full w-full object-cover"
+/>
                   ) : (
                     <span className="text-xs font-mono text-slate-400">No Image</span>
                   )}
@@ -1534,7 +1547,11 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
                     <div key={idx} className="rounded-xl border border-slate-200 bg-white p-2 space-y-1">
                       <div className="aspect-[4/3] rounded-lg bg-slate-900 overflow-hidden">
                         {slot.image ? (
-                          <img src={slot.image} alt={slot.title} className="h-full w-full object-cover" />
+                          <OptimizedImage
+  src={slot.image}
+  alt={slot.title}
+  className="h-full w-full object-cover"
+/>
                         ) : (
                           <span className="text-[9px] font-mono text-slate-500 flex items-center justify-center h-full">No Slot</span>
                         )}

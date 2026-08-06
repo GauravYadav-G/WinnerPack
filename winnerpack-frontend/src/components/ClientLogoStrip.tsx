@@ -3,6 +3,7 @@
 import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { Globe, ShieldCheck, Award } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface BrandItem {
   name: string;
@@ -100,14 +101,11 @@ export default function ClientLogoStrip() {
               key={brand.name + idx}
               className="flex items-center justify-center w-full h-20 sm:h-28 px-4 py-3 bg-white/70 backdrop-blur-xs border border-[var(--color-line)]/60 rounded-xl shadow-2xs hover:shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer select-none"
             >
-              <img
-                src={brand.logo}
-                alt={brand.name}
-                className="max-h-10 sm:max-h-16 max-w-[130px] sm:max-w-[200px] w-auto h-auto object-contain drop-shadow-xs"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/Brand_logo/lava.png";
-                }}
-              />
+              <OptimizedImage
+  src={brand.logo}
+  alt={brand.name}
+  className="max-h-10 sm:max-h-16 max-w-[130px] sm:max-w-[200px] w-auto h-auto object-contain drop-shadow-xs"
+/>
             </div>
           ))}
         </div>

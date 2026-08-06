@@ -17,6 +17,7 @@ import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import { useRevealOnScroll } from "@/hooks";
 import PageWrapper from "../../components/PageWrapper";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function Blog() {
   useRevealOnScroll();
@@ -95,11 +96,11 @@ export default function Blog() {
               <div className="mb-14 overflow-hidden rounded-3xl border border-[var(--color-line)] bg-white shadow-sm transition-all duration-500 hover:shadow-md">
                 <div className="grid lg:grid-cols-12">
                   <div className="relative aspect-[16/10] overflow-hidden lg:col-span-7 lg:aspect-auto">
-                    <img
-                      src={featured.image}
-                      alt={featured.title}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                    />
+                    <OptimizedImage
+  src={featured.image}
+  alt={featured.title}
+  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+/>
                   </div>
                   <div className="flex flex-col justify-center p-8 sm:p-10 lg:col-span-5 lg:p-12">
                     <div className="flex items-center gap-3 text-xs font-mono text-[var(--color-blue)]">

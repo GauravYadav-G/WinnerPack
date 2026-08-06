@@ -3,6 +3,7 @@
 import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { Users, Save, Check, RefreshCw, Plus, Trash2, Globe, ShieldCheck, Award, Image as ImageIcon } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface PartnerBrand {
   id?: string;
@@ -268,14 +269,11 @@ export default function PartnersClient() {
               {/* Logo Preview Container */}
               <div className="aspect-[16/9] bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center overflow-hidden p-4 relative">
                 {p.logo ? (
-                  <img
-                    src={p.logo}
-                    alt={p.name}
-                    className="max-h-16 max-w-full object-contain drop-shadow-xs"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                    }}
-                  />
+                  <OptimizedImage
+  src={p.logo}
+  alt={p.name}
+  className="max-h-16 max-w-full object-contain drop-shadow-xs"
+/>
                 ) : (
                   <ImageIcon className="h-6 w-6 text-slate-300" />
                 )}

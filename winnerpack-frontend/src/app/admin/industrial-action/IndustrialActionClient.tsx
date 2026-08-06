@@ -3,6 +3,7 @@
 import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { Image as ImageIcon, Save, Check, RefreshCw, Plus, Trash2 } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 const defaultSlides = [
   { id: "action-die-ring-bubble", image: "/images/desktop/portfolio/action_die_ring_bubble.jpg", title: "" },
@@ -164,11 +165,11 @@ export default function IndustrialActionClient() {
             <div key={idx} className="rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden">
               {/* Image Preview */}
               <div className="relative aspect-video bg-slate-900">
-                <img
-                  src={slide.image}
-                  alt={slide.title || `Slide ${idx + 1}`}
-                  className="h-full w-full object-cover opacity-90"
-                />
+                <OptimizedImage
+  src={slide.image}
+  alt={slide.title || `Slide ${idx + 1}`}
+  className="h-full w-full object-cover opacity-90"
+/>
                 <button
                   onClick={() => handleDeleteSlide(idx)}
                   className="absolute top-2 right-2 p-1.5 bg-red-600/80 hover:bg-red-600 text-white rounded-lg transition cursor-pointer"

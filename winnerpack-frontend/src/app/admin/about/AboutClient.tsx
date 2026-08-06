@@ -3,6 +3,7 @@
 import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { Info, Save, Check, RefreshCw, Plus, Trash2 } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 const defaultAboutData = {
   tagline: "Pioneering B2B Industrial Packaging & Labeling Solutions",
@@ -192,11 +193,11 @@ export default function AboutClient() {
                 placeholder="/images/desktop/about/..."
               />
               {value && (
-                <img
-                  src={value}
-                  alt={label}
-                  className="mt-2 w-full max-h-32 object-cover rounded-xl border border-slate-200"
-                />
+                <OptimizedImage
+  src={value}
+  alt={label}
+  className="mt-2 w-full max-h-32 object-cover rounded-xl border border-slate-200"
+/>
               )}
             </div>
           ))}

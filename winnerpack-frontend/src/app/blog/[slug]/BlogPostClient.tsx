@@ -19,6 +19,7 @@ import PageWrapper from "../../../components/PageWrapper";
 import { useRevealOnScroll } from "@/hooks";
 import { markdownToHtml } from "@/utils/markdown";
 import { initialArticles } from "@/lib/fallback-data";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function BlogPost() {
   useRevealOnScroll();
@@ -180,11 +181,11 @@ export default function BlogPost() {
           <Container>
             <Reveal>
               <div className="overflow-hidden rounded-3xl border border-[var(--color-line)] shadow-lift">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="aspect-[16/9] w-full object-cover"
-                />
+                <OptimizedImage
+  src={post.image}
+  alt={post.title}
+  className="aspect-[16/9] w-full object-cover"
+/>
               </div>
             </Reveal>
           </Container>

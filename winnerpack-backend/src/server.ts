@@ -14,6 +14,9 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
 
+// Preserve the original HTTPS protocol when deployed behind a reverse proxy.
+app.set("trust proxy", 1);
+
 // ─── Middleware ────────────────────────────────────────────────────────────────
 
 // CORS: allow frontend origin with credentials so cross-origin cookies work
@@ -29,7 +32,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Serve uploaded files as static assets (so /uploads/<filename> works)
-app.use("/uploads", express.static(path.join(process.cwd(), "public", "uploads")));
+app.use(
+  "/uploads",
+  express.static(path.join(process.cwd(), "public", "uploads"), {
+    maxAge: "1y",
+    immutable: true,
+  })
+);
 
 // ─── Routes ───────────────────────────────────────────────────────────────────
 

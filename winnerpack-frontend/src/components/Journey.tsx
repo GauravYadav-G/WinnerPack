@@ -12,6 +12,7 @@ import {
   RefreshCw,
   Ruler
 } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 const iconComponents: any[] = [UserCheck, Boxes, ShieldCheck, TrendingUp, Truck, Tag, RefreshCw, Ruler];
 
@@ -84,12 +85,11 @@ export default function Journey() {
                 className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-md cursor-pointer h-[210px] sm:h-[360px]"
               >
                 {/* Full-Bleed Background Image */}
-                <img
-                  src={item.appImage}
-                  alt={item.solution}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                  loading="lazy"
-                />
+                <OptimizedImage
+  src={item.appImage}
+  alt={item.solution}
+  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+/>
 
                 {/* Persistent dark gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { TIMELINE } from "../lib/mock-data";
+import OptimizedImage from '@/components/OptimizedImage';
 
 const timelineImages = [
   "/images/desktop/journey/journey_trading_2018.png",
@@ -66,11 +67,11 @@ export default function DiscoverCompany() {
                     isEven ? "md:order-2" : "md:order-1"
                   }`}
                 >
-                  <img
-                    src={img}
-                    alt={item.title}
-                    className="aspect-[16/10] w-full object-cover transition-transform duration-700 hover:scale-105"
-                  />
+                  <OptimizedImage
+  src={img}
+  alt={item.title}
+  className="aspect-[16/10] w-full object-cover transition-transform duration-700 hover:scale-105"
+/>
                 </motion.div>
               </div>
             );

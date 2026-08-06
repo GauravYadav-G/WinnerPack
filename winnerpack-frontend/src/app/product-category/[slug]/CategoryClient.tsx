@@ -19,6 +19,7 @@ import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import PageWrapper from "@/components/PageWrapper";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function CategoryClient({
   params,
@@ -132,11 +133,11 @@ export default function CategoryClient({
                   </div>
                 </div>
                 <div className="relative aspect-[16/10] lg:aspect-auto lg:h-full lg:col-span-5 overflow-hidden bg-slate-100 border-t lg:border-t-0 lg:border-l border-[var(--color-line)]">
-                  <img
-                    src={currentCategory.image}
-                    alt={currentCategory.title}
-                    className="h-full w-full object-cover"
-                  />
+                  <OptimizedImage
+  src={currentCategory.image}
+  alt={currentCategory.title}
+  className="h-full w-full object-cover"
+/>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 </div>
               </div>

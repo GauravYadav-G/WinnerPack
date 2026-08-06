@@ -12,6 +12,7 @@ import {
 import { ArrowRight } from "lucide-react";
 import { useIsTouch } from "@/hooks";
 import { productCategories } from "../data";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface ProductCardProps {
   product: any;
@@ -77,12 +78,11 @@ export function ProductCard({ product }: ProductCardProps) {
         aria-label={`${name} — view details`}
       >
         <div className="relative aspect-[4/3] overflow-hidden">
-          <img
-            src={product.image}
-            alt={name}
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
-          />
+          <OptimizedImage
+  src={product.image}
+  alt={name}
+  className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+/>
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-blue-deep)]/80 via-[var(--color-blue-deep)]/10 to-transparent" />
           
           {!reduce && !touch && (

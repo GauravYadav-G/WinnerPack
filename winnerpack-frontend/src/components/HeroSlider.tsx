@@ -21,68 +21,76 @@ const defaultSlides: Slide[] = [
     tag: "01 / INFRASTRUCTURE",
     heading: "Tailored Specs. Direct Dispatch.",
     description: "Precision-extruded packaging materials designed for maximum load retention and line throughput.",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-1.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-1.png",
+    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-1.webp",
+    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-1.webp",
   },
   {
     id: "capacity",
     tag: "02 / CAPACITY",
     heading: "12,000+ Tons Annually",
     description: "Dual-plant automated capacity ensures consistent thickness and high-speed delivery for heavy industrial loads.",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-2.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-2.png",
+    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-2.webp",
+    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-2.webp",
   },
   {
     id: "quality",
     tag: "03 / QUALITY",
     heading: "ISO 9001:2015 Standards",
     description: "Process-controlled extrusion runs with strict tensile testing and batch traceability on every dispatch.",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-3.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-3.png",
+    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-3.webp",
+    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-3.webp",
   },
   {
     id: "automation",
     tag: "04 / PERFORMANCE",
     heading: "End-to-End Solutions",
     description: "Syncing high-tensile strapping, stretch wrap, and tapes to maximize line efficiency and lower total cost-per-pallet.",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-4.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-4.png",
+    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-4.webp",
+    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-4.webp",
   },
   {
     id: "labels-stickers",
     tag: "05 / LABELS & STICKERS",
     heading: "Best Quality Labels & Stickers",
     description: "High Performance. Superior Strength. Maximum Protection for Product & Self-Adhesive Labels.",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-5.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-5.png",
+    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-5.webp",
+    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-5.webp",
   },
   {
     id: "tapes",
     tag: "06 / TAPES",
     heading: "Best Quality Tapes",
     description: "High Performance. Superior Strength. Maximum Protection for BOPP & Custom Printed BOPP Tapes.",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-6.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-6.png",
+    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-6.webp",
+    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-6.webp",
   },
   {
     id: "coloured-silicone-tapes",
     tag: "07 / SPECIALTY TAPES",
     heading: "Best Quality Coloured & Silicone Tapes",
     description: "High Performance. Superior Strength. Maximum Protection for Coloured BOPP & Self-Fusing Silicone Tapes.",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-7.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-7.png",
+    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-7.webp",
+    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-7.webp",
   },
   {
     id: "pp-printed-strap",
     tag: "08 / PP & PRINTED STRAP",
     heading: "Best Quality PP & Printed Strap",
     description: "High Performance. Superior Strength. Maximum Protection for Plain & Custom Printed PP Strapping Rolls.",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-8.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-8.png",
+    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-8.webp",
+    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-8.webp",
   },
 ];
 
-const DEFAULT_DESKTOP_BANNER = "/images/desktop/hero-slider/right-banner.png";
+const DEFAULT_DESKTOP_BANNER = "/optimized/images/desktop/hero-slider/right-banner.webp";
+
+// CMS seed data still stores the original `/images/...` paths. The matching
+// WebP assets are generated at build time; user uploads use absolute URLs and
+// are intentionally left untouched.
+function getOptimizedStaticImage(src: string): string {
+  if (!src.startsWith("/images/")) return src;
+  return `/optimized${src.replace(/\.[^./?#]+(?=([?#]|$))/, ".webp")}`;
+}
 
 export default function HeroSlider() {
   const [slides, setSlides] = useState<any[]>(defaultSlides);
@@ -149,8 +157,10 @@ export default function HeroSlider() {
     touchStartY.current = null;
   };
 
-  const currentSlideImage = slides[current]?.desktopMediaUrl || slides[current]?.image || "";
-  const currentRightBanner = desktopRightBanner;
+  const currentSlideImage = getOptimizedStaticImage(
+    slides[current]?.desktopMediaUrl || slides[current]?.image || ""
+  );
+  const currentRightBanner = getOptimizedStaticImage(desktopRightBanner);
 
   return (
     <section
@@ -209,11 +219,15 @@ export default function HeroSlider() {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`h-1 md:h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-              i === current ? "w-5 md:w-8 bg-[var(--color-amber)]" : "w-1.5 md:w-2 bg-white/40"
-            }`}
+            className="-m-3 flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-amber)]"
             aria-label={`Go to slide ${i + 1}`}
-          />
+          >
+            <span
+              className={`block h-1 md:h-1.5 rounded-full transition-all duration-300 ${
+                i === current ? "w-5 md:w-8 bg-[var(--color-amber)]" : "w-1.5 md:w-2 bg-white/40"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </section>

@@ -4,6 +4,7 @@ import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { FileText, Plus, Search, Edit, Trash2, Globe, Calendar, Check, AlertCircle } from "lucide-react";
 import Link from "next/link";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface Article {
   _id?: string;
@@ -134,14 +135,11 @@ export default function BlogsClient() {
                     {/* Cover image thumbnail */}
                     <td className="py-4 px-6">
                       <div className="h-12 w-16 rounded-lg border border-slate-200 overflow-hidden bg-slate-100 flex-shrink-0">
-                        <img
-                          src={art.image || "/images/desktop/journey/solution_pallet_wrapping.png"}
-                          alt={art.title}
-                          className="h-full w-full object-cover"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = "/images/desktop/journey/solution_pallet_wrapping.png";
-                          }}
-                        />
+                        <OptimizedImage
+  src={art.image || "/images/desktop/journey/solution_pallet_wrapping.png"}
+  alt={art.title}
+  className="h-full w-full object-cover"
+/>
                       </div>
                     </td>
 

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { fetchContent } from "@/lib/content-cache";
 
 import { Tag, Layers, Disc3, Shield, Leaf, Globe2, Plus } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 const iconMap: Record<string, any> = {
   Tag,
@@ -102,11 +103,11 @@ export default function WhyChooseUs() {
                     className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                     aria-hidden
                   >
-                    <img
-                      src={u.bgImage}
-                      alt=""
-                      className="h-full w-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
-                    />
+                    <OptimizedImage
+  src={u.bgImage}
+  alt=""
+  className="h-full w-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
+/>
                     {/* Layered dark overlay so text stays readable */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-ink-2)]/90 via-[var(--color-ink-2)]/80 to-black/75" />
                   </div>

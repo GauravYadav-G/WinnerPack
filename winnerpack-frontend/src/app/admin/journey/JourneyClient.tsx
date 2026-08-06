@@ -4,6 +4,7 @@ import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { Route, Save, Check, RefreshCw, Plus, Trash2, Image as ImageIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import OptimizedImage from '@/components/OptimizedImage';
 
 const defaultJourneySolutions = [
   {
@@ -244,7 +245,11 @@ export default function JourneyClient() {
                 {/* Image Thumbnail */}
                 <div className="sm:col-span-4 aspect-[4/3] rounded-2xl bg-slate-900 border border-slate-800 relative overflow-hidden flex items-center justify-center p-1">
                   {item.appImage ? (
-                    <img src={item.appImage} alt={item.solution} className="h-full w-full object-cover rounded-xl" />
+                    <OptimizedImage
+  src={item.appImage}
+  alt={item.solution}
+  className="h-full w-full object-cover rounded-xl"
+/>
                   ) : (
                     <span className="text-xs font-mono text-slate-500">No Image</span>
                   )}

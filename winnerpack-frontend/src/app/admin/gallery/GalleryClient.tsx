@@ -3,6 +3,7 @@
 import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { Sliders, Save, Image as ImageIcon, Check, RefreshCw, Plus, Trash2 } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function GalleryClient() {
   const [saving, setSaving] = useState(false);
@@ -123,7 +124,11 @@ export default function GalleryClient() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           <div className="md:col-span-5 aspect-[16/9] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
-            <img src={mainHero.image} alt={mainHero.title} className="h-full w-full object-cover" />
+            <OptimizedImage
+  src={mainHero.image}
+  alt={mainHero.title}
+  className="h-full w-full object-cover"
+/>
           </div>
           <div className="md:col-span-7 space-y-3">
             <div>
@@ -185,7 +190,11 @@ export default function GalleryClient() {
               </div>
 
               <div className="aspect-[3/2] rounded-xl overflow-hidden border border-slate-200 bg-white">
-                <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                <OptimizedImage
+  src={item.image}
+  alt={item.title}
+  className="h-full w-full object-cover"
+/>
               </div>
 
               <div>
@@ -253,7 +262,11 @@ export default function GalleryClient() {
               </div>
 
               <div className="aspect-[16/10] rounded-xl overflow-hidden border border-slate-200 bg-white">
-                <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                <OptimizedImage
+  src={item.image}
+  alt={item.title}
+  className="h-full w-full object-cover"
+/>
               </div>
 
               <div>

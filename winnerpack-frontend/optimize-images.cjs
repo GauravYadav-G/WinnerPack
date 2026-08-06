@@ -38,10 +38,10 @@ const positional = args.filter((a) => !a.startsWith('--'));
 
 const inputDir = positional[0];
 const maxWidth = parseInt(positional[1]) || 1600;
-// Default 92 = "visually lossless" — no perceptible difference at normal
-// viewing distance/zoom, but still meaningfully smaller than the original.
+// Default 82 delivers high visual quality while substantially reducing the
+// transfer size of photography-heavy marketing pages.
 // Use --lossless for pixel-perfect (no data loss at all, smaller savings).
-const quality = parseInt(positional[2]) || 92;
+const quality = parseInt(positional[2]) || 82;
 
 if (!inputDir) {
   console.error('Usage: node optimize-images.js <folder> [maxWidthPx] [quality] [--lossless]');

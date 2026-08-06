@@ -13,6 +13,7 @@ import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import PageWrapper from "@/components/PageWrapper";
 import CTABanner from "@/components/CTABanner";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function IndustryDetailClient({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -91,11 +92,11 @@ export default function IndustryDetailClient({ params }: { params: Promise<{ id:
               {/* Right Column: In-Context Application Photo */}
               <div className="lg:col-span-5 relative">
                 <div className="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl aspect-[4/3] bg-slate-950">
-                  <img
-                    src={industry.image}
-                    alt={industry.name}
-                    className="h-full w-full object-cover"
-                  />
+                  <OptimizedImage
+  src={industry.image}
+  alt={industry.name}
+  className="h-full w-full object-cover"
+/>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 text-white">
                     <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber)] block">
@@ -180,11 +181,11 @@ export default function IndustryDetailClient({ params }: { params: Promise<{ id:
                 >
                   <div>
                     <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-[var(--color-bone)] mb-4">
-                      <img
-                        src={prod.image}
-                        alt={prod.title}
-                        className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                      <OptimizedImage
+  src={prod.image}
+  alt={prod.title}
+  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+/>
                     </div>
 
                     <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] block">

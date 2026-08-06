@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import PageWrapper from "@/components/PageWrapper";
+import OptimizedImage from '@/components/OptimizedImage';
 
 function ProductsContent() {
   return (
@@ -67,12 +68,11 @@ function ProductsContent() {
                   >
                     {/* Square Shape Aspect Ratio for Image */}
                     <div className="relative aspect-square w-full overflow-hidden bg-[var(--color-bone)]">
-                      <img
-                        src={cat.image}
-                        alt={cat.title}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                      />
+                      <OptimizedImage
+  src={cat.image}
+  alt={cat.title}
+  className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+/>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                     </div>
 

@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "../utils/cn";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface ApplicationImageSlide {
   id: string;
@@ -170,12 +171,11 @@ export default function ProductApplicationsSlider() {
                 }}
               >
                 {/* Borderless Full-Cover Image */}
-                <img
-                  src={slide.image}
-                  alt="Materials in Industrial Action"
-                  className="h-full w-full object-cover"
-                  loading="eager"
-                />
+                <OptimizedImage
+  src={slide.image}
+  alt="Materials in Industrial Action"
+  className="h-full w-full object-cover"
+/>
               </div>
             );
           })}

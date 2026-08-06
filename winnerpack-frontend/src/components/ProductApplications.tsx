@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Factory, PackageCheck } from "lucide-react";
 import Link from "next/link";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface ApplicationItem {
   id: string;
@@ -102,12 +103,11 @@ export default function ProductApplications() {
             >
               {/* Card Image Container */}
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-950">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
-                />
+                <OptimizedImage
+  src={item.image}
+  alt={item.title}
+  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+/>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090520] via-black/40 to-transparent" />
 
                 {/* Category Badge Top Left */}

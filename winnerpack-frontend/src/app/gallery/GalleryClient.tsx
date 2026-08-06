@@ -9,6 +9,7 @@ import FloatingWidgets from "@/components/FloatingWidgets";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface GalleryItem {
   id: number;
@@ -184,11 +185,11 @@ export default function GalleryClient() {
               className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 transition-all duration-500 cursor-pointer w-full select-none"
             >
               <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9.5] overflow-hidden bg-[var(--color-bone)] flex items-center justify-center">
-                <img
-                  src={mainHero.image}
-                  alt={mainHero.title}
-                  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${mainHero.position || "object-[center_35%]"}`}
-                />
+                <OptimizedImage
+  src={mainHero.image}
+  alt={mainHero.title ?? "Gallery image"}
+  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${mainHero.position || "object-[center_35%]"}`}
+/>
               </div>
             </motion.div>
 
@@ -204,11 +205,11 @@ export default function GalleryClient() {
                 className="lg:col-span-5 group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none h-full"
               >
                 <div className="relative w-full h-full min-h-[360px] sm:min-h-[460px] aspect-[3/4] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
-                  <img
-                    src={portrait1.image}
-                    alt={portrait1.title}
-                    className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${portrait1.position || "object-center"}`}
-                  />
+                  <OptimizedImage
+  src={portrait1.image}
+  alt={portrait1.title ?? "Gallery image"}
+  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${portrait1.position || "object-center"}`}
+/>
                 </div>
               </motion.div>
 
@@ -224,11 +225,11 @@ export default function GalleryClient() {
                     className="group relative flex-1 overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none"
                   >
                     <div className="relative w-full h-full min-h-[190px] sm:min-h-[220px] aspect-[16/10] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${item.position || "object-center"}`}
-                      />
+                      <OptimizedImage
+  src={item.image}
+  alt={item.title ?? "Gallery image"}
+  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${item.position || "object-center"}`}
+/>
                     </div>
                   </motion.div>
                 ))}
@@ -251,11 +252,11 @@ export default function GalleryClient() {
                     className="group relative flex-1 overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none"
                   >
                     <div className="relative w-full h-full min-h-[190px] sm:min-h-[220px] aspect-[16/10] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${item.position || "object-center"}`}
-                      />
+                      <OptimizedImage
+  src={item.image}
+  alt={item.title ?? "Gallery image"}
+  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${item.position || "object-center"}`}
+/>
                     </div>
                   </motion.div>
                 ))}
@@ -270,11 +271,11 @@ export default function GalleryClient() {
                 className="lg:col-span-5 group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none h-full order-1 lg:order-2"
               >
                 <div className="relative w-full h-full min-h-[360px] sm:min-h-[460px] aspect-[3/4] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
-                  <img
-                    src={portrait2.image}
-                    alt={portrait2.title}
-                    className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${portrait2.position || "object-center"}`}
-                  />
+                  <OptimizedImage
+  src={portrait2.image}
+  alt={portrait2.title ?? "Gallery image"}
+  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${portrait2.position || "object-center"}`}
+/>
                 </div>
               </motion.div>
 
@@ -292,11 +293,11 @@ export default function GalleryClient() {
                 className="lg:col-span-5 group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none h-full"
               >
                 <div className="relative w-full h-full min-h-[360px] sm:min-h-[460px] aspect-[3/4] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
-                  <img
-                    src={portrait3.image}
-                    alt={portrait3.title}
-                    className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${portrait3.position || "object-center"}`}
-                  />
+                  <OptimizedImage
+  src={portrait3.image}
+  alt={portrait3.title ?? "Gallery image"}
+  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${portrait3.position || "object-center"}`}
+/>
                 </div>
               </motion.div>
 
@@ -312,11 +313,11 @@ export default function GalleryClient() {
                     className="group relative flex-1 overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none"
                   >
                     <div className="relative w-full h-full min-h-[360px] sm:min-h-[460px] aspect-[16/10] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${item.position || "object-center"}`}
-                      />
+                      <OptimizedImage
+  src={item.image}
+  alt={item.title ?? "Gallery image"}
+  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${item.position || "object-center"}`}
+/>
                     </div>
                   </motion.div>
                 ))}
@@ -334,11 +335,11 @@ export default function GalleryClient() {
                 className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 transition-all duration-500 cursor-pointer w-full select-none"
               >
                 <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-[var(--color-bone)] flex items-center justify-center">
-                  <img
-                    src={bottomBanner.image}
-                    alt={bottomBanner.title}
-                    className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${bottomBanner.position || "object-center"}`}
-                  />
+                  <OptimizedImage
+  src={bottomBanner.image}
+  alt={bottomBanner.title ?? "Gallery image"}
+  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${bottomBanner.position || "object-center"}`}
+/>
                 </div>
               </motion.div>
 
@@ -350,11 +351,11 @@ export default function GalleryClient() {
                 className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 transition-all duration-500 cursor-pointer w-full select-none"
               >
                 <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-[var(--color-bone)] flex items-center justify-center">
-                  <img
-                    src={facadeBanner.image}
-                    alt={facadeBanner.title}
-                    className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${facadeBanner.position || "object-center"}`}
-                  />
+                  <OptimizedImage
+  src={facadeBanner.image}
+  alt={facadeBanner.title ?? "Gallery image"}
+  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${facadeBanner.position || "object-center"}`}
+/>
                 </div>
               </motion.div>
             </div>
@@ -393,11 +394,11 @@ export default function GalleryClient() {
 
               {/* Ultra-Clean Framed Image Viewer */}
               <div className="relative w-full flex-1 bg-[var(--color-bone)] rounded-2xl border border-[var(--color-line)] flex items-center justify-center overflow-hidden p-4 sm:p-6 md:p-8 min-h-[340px] max-h-[75vh] shadow-inner">
-                <img
-                  src={selectedImage.image}
-                  alt="Gallery Image Preview"
-                  className="max-h-full max-w-full object-contain rounded-xl shadow-md border border-[var(--color-line)] bg-white p-2 transition-transform duration-300"
-                />
+                <OptimizedImage
+  src={selectedImage.image}
+  alt="Gallery Image Preview"
+  className="max-h-full max-w-full object-contain rounded-xl shadow-md border border-[var(--color-line)] bg-white p-2 transition-transform duration-300"
+/>
               </div>
 
             </motion.div>

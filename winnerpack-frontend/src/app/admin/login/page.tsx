@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ShieldAlert, ArrowRight, Lock, Eye, EyeOff, Sparkles, KeyRound } from "lucide-react";
 import { motion } from "framer-motion";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
@@ -58,7 +59,11 @@ export default function AdminLoginPage() {
           
           {/* Official Website Logo */}
           <div className="mx-auto flex h-20 w-auto items-center justify-center p-2 mb-2">
-            <img src="/logo.png" alt="Winner Pack Official Logo" className="h-16 w-auto object-contain" />
+            <OptimizedImage
+  src={"/logo.png"}
+  alt="Winner Pack Official Logo"
+  className="h-16 w-auto object-contain"
+/>
           </div>
 
           <div className="space-y-1">

@@ -16,6 +16,7 @@ import {
   Info
 } from "lucide-react";
 import TiptapEditor from "@/components/TiptapEditor";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface Article {
   _id?: string;
@@ -499,14 +500,11 @@ export default function EditorClient() {
           </span>
           <div className="aspect-[21/9] w-full max-h-64 rounded-xl border border-slate-200 overflow-hidden bg-slate-50 flex items-center justify-center relative shadow-inner">
             {formData.image ? (
-              <img
-                src={formData.image}
-                alt="Cover Preview"
-                className="h-full w-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/images/desktop/journey/solution_pallet_wrapping.png";
-                }}
-              />
+              <OptimizedImage
+  src={formData.image}
+  alt="Cover Preview"
+  className="h-full w-full object-cover"
+/>
             ) : (
               <div className="flex flex-col items-center gap-1.5 text-slate-400 font-mono text-xs">
                 <ImageIcon className="h-6 w-6" />

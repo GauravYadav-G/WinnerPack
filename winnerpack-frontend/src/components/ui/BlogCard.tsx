@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Clock, ArrowRight } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 export interface BlogPostType {
   slug: string;
@@ -22,11 +23,11 @@ export function BlogCard({ post }: { post: BlogPostType }) {
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white transition-all duration-300 hover:shadow-lift"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-bone)]">
-        <img
-          src={post.image}
-          alt={post.title}
-          className="h-full w-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-105"
-        />
+        <OptimizedImage
+  src={post.image}
+  alt={post.title}
+  className="h-full w-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-105"
+/>
         <span className="absolute left-4 top-4 rounded-full bg-[var(--color-amber)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--color-blue-deep)]">
           {post.category}
         </span>

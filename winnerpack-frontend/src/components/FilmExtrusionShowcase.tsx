@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Layers, CheckCircle } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface FilmSpec {
   id: string;
@@ -107,11 +108,11 @@ export default function FilmExtrusionShowcase() {
         >
           {/* Film Photo with Live Specs Overlay */}
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 group">
-            <img
-              src={activeFilm.image}
-              alt={activeFilm.name}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+            <OptimizedImage
+  src={activeFilm.image}
+  alt={activeFilm.name}
+  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+/>
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
             
             <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">

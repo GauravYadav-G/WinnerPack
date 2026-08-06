@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import PageWrapper from "@/components/PageWrapper";
+import OptimizedImage from '@/components/OptimizedImage';
 
 /* ─── DIRECTOR DATA ─────────────────────────────────────────────── */
 const DIRECTORS_TOP = [
@@ -94,11 +95,11 @@ export default function AboutUs() {
 
             {/* Full-width office hero banner card */}
             <div className="mt-5 sm:mt-8 relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] shadow-xl sm:shadow-2xl aspect-[16/9] sm:aspect-[2.2/1] bg-slate-950 group">
-              <img
-                src="/images/desktop/about/about_office_hero.jpg"
-                alt="Winner Pack Technologies Corporate Headquarters & Conference Suite"
-                className="h-full w-full object-cover object-[center_50%] transition-transform duration-700 group-hover:scale-105"
-              />
+              <OptimizedImage
+  src={"/images/desktop/about/about_office_hero.jpg"}
+  alt="Winner Pack Technologies Corporate Headquarters & Conference Suite"
+  className="h-full w-full object-cover object-[center_50%] transition-transform duration-700 group-hover:scale-105"
+/>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
@@ -173,11 +174,11 @@ export default function AboutUs() {
                   className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-slate-900 shadow-xl sm:shadow-2xl aspect-[3/4] sm:aspect-[4/3] group cursor-pointer border border-[var(--color-line)]"
                 >
                   {/* Untinted natural image */}
-                  <img
-                    src={d.image}
-                    alt={d.name}
-                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  />
+                  <OptimizedImage
+  src={d.image}
+  alt={d.name}
+  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+/>
 
                   {/* Clean bottom gradient for contrast */}
                   <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
@@ -210,11 +211,11 @@ export default function AboutUs() {
                   className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-slate-900 shadow-lg sm:shadow-xl aspect-[3/4] sm:aspect-[4/5] group cursor-pointer border border-[var(--color-line)]"
                 >
                   {/* Untinted natural image */}
-                  <img
-                    src={d.image}
-                    alt={d.name}
-                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  />
+                  <OptimizedImage
+  src={d.image}
+  alt={d.name}
+  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+/>
 
                   {/* Clean bottom gradient for contrast */}
                   <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
@@ -253,11 +254,11 @@ export default function AboutUs() {
                 </h2>
 
                 <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-[var(--color-line)] shadow-lg sm:shadow-xl aspect-[16/9] sm:aspect-[4/3] bg-slate-950 group">
-                  <img
-                    src="/images/desktop/about/film_slitting_machine.png"
-                    alt="Automated High-Speed Film Slitting & Converting Machinery"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  <OptimizedImage
+  src={"/images/desktop/about/film_slitting_machine.png"}
+  alt="Automated High-Speed Film Slitting & Converting Machinery"
+  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+/>
                 </div>
               </div>
 

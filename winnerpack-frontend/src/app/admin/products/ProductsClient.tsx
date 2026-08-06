@@ -14,6 +14,7 @@ import {
   List
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface Product {
   _id?: string;
@@ -267,11 +268,11 @@ export default function ProductsClient() {
             >
               {/* Product Thumbnail */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#f8f7f4] border-b border-[#e5dfd2]/60 flex items-center justify-center p-4">
-                <img
-                  src={prod.image || "/images/products/pof-shrink-rolls/image.png"}
-                  alt={prod.title}
-                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                />
+                <OptimizedImage
+  src={prod.image || "/images/products/pof-shrink-rolls/image.png"}
+  alt={prod.title}
+  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+/>
                 <span className="absolute top-3 right-3 text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#fff5eb] text-[#fe8220] border border-[#fe8220]/30 shadow-2xs">
                   {prod.tag || "Standard"}
                 </span>
@@ -332,7 +333,11 @@ export default function ProductsClient() {
               {filteredProducts.map((prod) => (
                 <tr key={prod.id} className="hover:bg-[#fff5eb]/40 transition">
                   <td className="p-4 font-bold text-[#120a3b] flex items-center gap-3">
-                    <img src={prod.image || "/images/products/pof-shrink-rolls/image.png"} className="h-9 w-9 rounded-lg border border-[#e5dfd2] object-contain bg-[#f8f7f4] p-1" />
+                    <OptimizedImage
+  src={prod.image || "/images/products/pof-shrink-rolls/image.png"}
+  alt=""
+  className="h-9 w-9 rounded-lg border border-[#e5dfd2] object-contain bg-[#f8f7f4] p-1"
+/>
                     <div>
                       <div>{prod.title}</div>
                       <div className="text-[10px] text-slate-400 font-mono font-normal">ID: {prod.id}</div>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 const defaultFooterData = {
   name: "Winner Pack Technologies",
@@ -50,7 +51,11 @@ export default function Footer() {
           {/* Column 1: Logo & Company Description */}
           <div className="lg:col-span-4 flex flex-col">
             <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="Winner Pack Logo" className="h-12 w-auto object-contain" />
+              <OptimizedImage
+  src={"/logo.png"}
+  alt="Winner Pack Logo"
+  className="h-12 w-auto object-contain"
+/>
               <div className="leading-tight flex flex-col">
                 <div className="font-display text-lg sm:text-xl font-black tracking-tight text-white leading-none">
                   Winner Pack
@@ -117,9 +122,9 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-5 sm:gap-10 lg:col-span-5 lg:grid-cols-5 md:col-span-8">
             {/* Quick Navigation */}
             <div className="lg:col-span-2">
-              <h5 className="font-display text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2 mb-4">
+              <h2 className="font-display text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2 mb-4">
                 Quick Navigation
-              </h5>
+              </h2>
               <ul className="space-y-2.5 text-xs sm:text-sm text-white/60">
                 {[
                   { label: "Home", href: "/" },
@@ -139,9 +144,9 @@ export default function Footer() {
 
             {/* Our Products */}
             <div className="lg:col-span-3">
-              <h5 className="font-display text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2 mb-4">
+              <h2 className="font-display text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2 mb-4">
                 Our Products
-              </h5>
+              </h2>
               <ul className="space-y-2.5 text-xs sm:text-sm text-white/60">
                 {[
                   { label: "Film Products", href: "/product-category/film-products" },
@@ -161,9 +166,9 @@ export default function Footer() {
 
           {/* Contact Column */}
           <div className="lg:col-span-3 md:col-span-4">
-            <h5 className="font-display text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2 mb-4">
+            <h2 className="font-display text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2 mb-4">
               Contact
-            </h5>
+            </h2>
             <ul className="space-y-4 text-xs sm:text-sm text-white/60">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 flex-shrink-0 text-[var(--color-blue-3)] mt-0.5" />
