@@ -375,20 +375,22 @@ export default function ProductsClient() {
       {/* Editor Modal / Drawer */}
       <AnimatePresence>
         {isModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsModalOpen(false)}
-            className="fixed inset-0 z-50 flex items-center justify-end bg-slate-950/60 backdrop-blur-xs p-4 sm:p-6 text-slate-900"
-          >
+          <div className="fixed inset-0 z-50 flex items-center justify-end p-4 sm:p-6 text-slate-900">
+            {/* Sibling Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsModalOpen(false)}
+              className="absolute inset-0 bg-slate-950/60 backdrop-blur-xs z-0 cursor-pointer"
+            />
+            {/* Sibling Drawer Content */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-xl bg-white border border-[#e5dfd2] rounded-[32px] h-full max-h-[92vh] shadow-2xl flex flex-col overflow-hidden"
+              className="relative w-full max-w-xl bg-white border border-[#e5dfd2] rounded-[32px] h-full max-h-[92vh] shadow-2xl flex flex-col overflow-hidden z-10"
             >
               <div className="p-6 border-b border-[#e5dfd2] flex items-center justify-between bg-[#f8f7f4]">
                 <div>
@@ -410,7 +412,7 @@ export default function ProductsClient() {
               <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6 space-y-4 no-scrollbar">
                 <div>
                   <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
-                    Product Title *
+                    Product Title
                   </label>
                   <input
                     type="text"
@@ -425,23 +427,24 @@ export default function ProductsClient() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
-                      Category *
+                      Category Link Slug
                     </label>
                     <select
                       value={formData.category || "film-products"}
                       onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                       className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#fe8220] focus:outline-none"
                     >
-                      <option value="film-products">Film Products</option>
-                      <option value="label-sticker-products">Labels & Stickers</option>
-                      <option value="tapes">Industrial Tapes</option>
-                      <option value="pp-strap">PP & PET Strap</option>
+                      {categories.filter(c => c.id !== "all").map((cat) => (
+                        <option key={cat.id} value={cat.id}>
+                          {cat.label}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
-                      Tag / Grade
+                      Product Tag Line
                     </label>
                     <input
                       type="text"
@@ -468,21 +471,20 @@ export default function ProductsClient() {
 
                 <div>
                   <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
-                    Short Blurb / Summary *
+                    Brief Catchphrase (Blurb)
                   </label>
-                  <textarea
-                    rows={2}
-                    required
+                  <input
+                    type="text"
                     value={formData.blurb || ""}
                     onChange={(e) => setFormData({ ...formData, blurb: e.target.value })}
-                    placeholder="Brief description of product features..."
-                    className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-medium text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                    placeholder="Brief 1-sentence product summary description..."
+                    className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#fe8220] focus:outline-none"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
-                    Long Detailed Description (Markdown Supported)
+                    Long Detailed Description
                   </label>
                   <textarea
                     rows={4}
@@ -511,7 +513,7 @@ export default function ProductsClient() {
                 </div>
               </form>
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
 

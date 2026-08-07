@@ -656,14 +656,14 @@ export default function EditorClient() {
 
       {/* Real-time Google SEO Audit Modal */}
       {showSeoModal && (
-        <div
-          onClick={() => setShowSeoModal(false)}
-          className="fixed inset-0 z-[99999] bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-4"
-        >
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4">
+          {/* Sibling Backdrop Overlay */}
           <div
-            onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-3xl border border-slate-200 max-w-xl w-full p-6 space-y-5 shadow-2xl overflow-hidden"
-          >
+            onClick={() => setShowSeoModal(false)}
+            className="absolute inset-0 bg-slate-950/60 backdrop-blur-xs z-0 cursor-pointer"
+          />
+          {/* Sibling Dialog Content */}
+          <div className="relative bg-white rounded-3xl border border-slate-200 max-w-xl w-full p-6 space-y-5 shadow-2xl overflow-hidden z-10">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
                 <h3 className="text-base font-extrabold text-slate-900 font-display flex items-center gap-2">
@@ -715,18 +715,17 @@ export default function EditorClient() {
                       : "bg-rose-50/50 border-rose-200 text-rose-950"
                   }`}
                 >
-                  {check.status === "pass" ? (
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                  ) : check.status === "warn" ? (
-                    <AlertCircle className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
-                  ) : (
-                    <AlertCircle className="h-4 w-4 text-rose-600 shrink-0 mt-0.5" />
-                  )}
-
+                  <div className="mt-0.5 shrink-0">
+                    {check.status === "pass" ? (
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                    ) : (
+                      <AlertCircle className={`h-4 w-4 ${check.status === "warn" ? "text-amber-500" : "text-rose-600"}`} />
+                    )}
+                  </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold">{check.title}</span>
-                      <span className="font-mono text-[10px] font-bold opacity-80">
+                      <span className="font-extrabold uppercase font-mono tracking-wider text-[10px]">{check.title}</span>
+                      <span className="font-bold font-mono text-[10px]">
                         {check.score} / {check.max} pts
                       </span>
                     </div>

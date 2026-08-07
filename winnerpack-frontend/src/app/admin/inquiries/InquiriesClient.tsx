@@ -335,20 +335,22 @@ export default function InquiriesClient() {
       {/* Lead Detail Drawer / Modal */}
       <AnimatePresence>
         {selectedInquiry && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedInquiry(null)}
-            className="fixed inset-0 z-[9999] flex items-center justify-end bg-slate-950/60 backdrop-blur-xs p-4 sm:p-6 text-slate-900"
-          >
+          <div className="fixed inset-0 z-[9999] flex items-center justify-end p-4 sm:p-6 text-slate-900">
+            {/* Sibling Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedInquiry(null)}
+              className="absolute inset-0 bg-slate-950/60 backdrop-blur-xs z-0 cursor-pointer"
+            />
+            {/* Sibling Drawer Content */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-lg bg-white border border-slate-200 rounded-[32px] h-full max-h-[92vh] shadow-2xl flex flex-col overflow-hidden"
+              className="relative w-full max-w-lg bg-white border border-slate-200 rounded-[32px] h-full max-h-[92vh] shadow-2xl flex flex-col overflow-hidden z-10"
             >
               <div className="p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50">
                 <div>
@@ -436,7 +438,7 @@ export default function InquiriesClient() {
 
               </div>
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
 

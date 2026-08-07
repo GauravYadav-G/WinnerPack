@@ -177,7 +177,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <AdminBackgroundVanta />
 
       {/* Left Official Brand Royal Ink Sidebar (Floating with curves) */}
-      <aside className="w-20 my-4 ml-4 bg-[#120a3b]/85 backdrop-blur-xl flex flex-col items-center justify-between py-6 px-3 shrink-0 rounded-3xl border border-indigo-900/40 text-white z-40 no-scrollbar shadow-2xl">
+      <aside className="w-20 my-4 ml-4 bg-[#120a3b]/95 backdrop-blur-xs flex flex-col items-center justify-between py-6 px-3 shrink-0 rounded-3xl border border-indigo-900/40 text-white z-40 no-scrollbar shadow-2xl">
 
         {/* Top Brand Logo Badge */}
         <div className="flex flex-col items-center gap-6">
@@ -233,10 +233,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </aside>
 
       {/* Main Content Workspace Panel (Floating with rounded-3xl curves) */}
-      <div className="admin-workspace-content flex-1 flex flex-col min-w-0 h-[calc(100vh-32px)] my-4 mx-4 bg-[#f8f7f4]/55 backdrop-blur-xl rounded-3xl border border-[#e5dfd2]/80 overflow-hidden relative shadow-2xl z-10 no-scrollbar">
+      <div className="admin-workspace-content flex-1 flex flex-col min-w-0 h-[calc(100vh-32px)] my-4 mx-4 bg-[#f8f7f4]/95 backdrop-blur-xs rounded-3xl border border-[#e5dfd2]/80 overflow-hidden relative shadow-2xl z-10 no-scrollbar">
 
         {/* MERGED SINGLE TOP EXECUTIVE HEADER */}
-        <header className="px-8 py-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 shrink-0 border-b border-[#e5dfd2]/80 bg-white/50 backdrop-blur-xl shadow-xs relative z-10">
+        <header className="px-8 py-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 shrink-0 border-b border-[#e5dfd2]/80 bg-white/95 backdrop-blur-xs shadow-xs relative z-10">
           <div className="flex items-center gap-4">
             <OptimizedImage
   src={"/logo.png"}

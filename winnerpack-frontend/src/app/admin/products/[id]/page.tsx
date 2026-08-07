@@ -1348,15 +1348,15 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
 
       {/* ── FLOATING SLIDE-OVER SIDE WINDOW INSPECTOR ── */}
       {splitPreview && (
-        <>
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4">
           {/* Backdrop Overlay */}
           <div
             onClick={() => setSplitPreview(false)}
-            className="fixed inset-0 bg-slate-950/50 backdrop-blur-xs z-[99990] transition-opacity cursor-pointer"
+            className="absolute inset-0 bg-slate-950/50 backdrop-blur-xs z-0 cursor-pointer"
           />
 
-          {/* Floating Side Drawer Window */}
-          <div className="fixed right-0 top-0 bottom-0 w-full sm:w-[540px] md:w-[600px] bg-white border-l border-[#e5dfd2] shadow-2xl z-[99999] flex flex-col font-sans">
+          {/* Centered Modal Dialog Content Panel */}
+          <div className="relative w-full max-w-3xl bg-white border border-[#e5dfd2] rounded-[32px] h-full max-h-[85vh] shadow-2xl z-10 flex flex-col font-sans overflow-hidden">
             
             {/* Inspector Top Bar */}
             <div className="flex items-center justify-between border-b border-[#e5dfd2] p-5 bg-white shrink-0">
@@ -1456,7 +1456,7 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
                   <span className="text-[#fe8220]">LIVE HTML</span>
                 </div>
                 <div
-                  className="rounded-2xl border border-slate-200 bg-white p-4 text-xs text-slate-800 leading-relaxed space-y-2 max-h-60 overflow-y-auto [&_p]:text-xs [&_h1]:text-sm [&_h1]:font-bold [&_h2]:text-sm [&_h2]:font-bold [&_ul]:list-disc [&_ul]:pl-4"
+                  className="prose rounded-2xl border border-slate-200 bg-white p-4 max-h-60 overflow-y-auto w-full text-slate-800 text-xs leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: formData.longDesc || "<p class='text-slate-400 font-mono'>No overview text entered.</p>" }}
                 />
               </div>
@@ -1575,7 +1575,7 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
               </button>
             </div>
           </div>
-        </>
+        </div>
       )}
 
     </div>
