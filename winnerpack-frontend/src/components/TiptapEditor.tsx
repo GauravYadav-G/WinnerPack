@@ -127,10 +127,10 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
 
   return (
     <div
-      className={`rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-xs font-sans transition-all ${
+      className={`bg-white overflow-hidden shadow-xs font-sans transition-all ${
         isFullscreen
-          ? "fixed inset-4 z-[99999] max-w-none h-[calc(100vh-2rem)] flex flex-col shadow-2xl ring-1 ring-slate-900/10"
-          : "relative"
+          ? "fixed inset-0 z-[99999] max-w-none h-screen flex flex-col rounded-none border-none"
+          : "relative rounded-2xl border border-slate-200"
       }`}
     >
       {/* Tiptap Sticky Formatting Toolbar */}
