@@ -311,7 +311,7 @@ export default function Navbar() {
                       {isProductsHovered && (
                         <div className="absolute left-0 top-[56px] z-50 flex items-start pointer-events-auto">
                           
-                          {/* 1st Tier: Category Dropdown List */}
+                          {/* 1st Tier: Category Dropdown List (Main Menu) */}
                           <div className="w-64 lg:w-72 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 z-20">
                             {/* Top decorative accent bar */}
                             <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] to-[#ff9e43]" />
@@ -328,7 +328,7 @@ export default function Navbar() {
                                     <Link
                                       href={`/product-category/${category.catSlug}`}
                                       className={cn(
-                                        "w-full px-4 py-2.5 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer",
+                                        "w-full px-4 py-2.5 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer border-b border-white/5",
                                         isCurrentActive
                                           ? "bg-white text-[#120a3b] font-black shadow-sm border-l-4 border-l-[var(--color-amber)]"
                                           : "bg-[#120a3b] text-white/85 hover:bg-white/10 hover:text-[var(--color-amber)] font-medium"
@@ -348,7 +348,7 @@ export default function Navbar() {
                             </div>
                           </div>
 
-                          {/* 2nd Tier: Flyout Submenu Panel (Appears dynamically attached to the side only when hovering!) */}
+                          {/* 2nd Tier: Submenu (Styled Identically to Main Menu without Any Headings) */}
                           {(() => {
                             const currentCategory = extendedProductMenu.find((c) => c.id === activeCategoryTab);
                             if (!currentCategory || !currentCategory.items || currentCategory.items.length === 0) {
@@ -357,38 +357,25 @@ export default function Navbar() {
                             return (
                               <div
                                 onMouseEnter={() => setActiveCategoryTab(currentCategory.id)}
-                                className="w-80 lg:w-96 bg-[#0d072b] text-white shadow-2xl rounded-xl border border-white/10 p-4 ml-1 z-10 transition-all duration-150 animate-fade-in"
+                                className="w-64 lg:w-72 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 ml-1 z-10 transition-all duration-150 animate-fade-in"
                               >
-                                {/* Submenu Header */}
-                                <div className="border-b border-white/10 pb-2.5 mb-3 flex items-center justify-between">
-                                  <div>
-                                    <span className="text-[9px] font-mono uppercase tracking-widest text-[var(--color-amber)]">
-                                      {currentCategory.tag}
-                                    </span>
-                                    <h4 className="text-xs lg:text-sm font-extrabold text-white font-display mt-0.5 truncate">
-                                      {currentCategory.title}
-                                    </h4>
-                                  </div>
-                                  <Link
-                                    href={`/product-category/${currentCategory.catSlug}`}
-                                    onClick={() => setIsProductsHovered(false)}
-                                    className="text-[11px] font-bold text-white/60 hover:text-[var(--color-amber)] transition-colors shrink-0 ml-2"
-                                  >
-                                    View All →
-                                  </Link>
-                                </div>
+                                {/* Top decorative accent bar matching main menu */}
+                                <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] to-[#ff9e43]" />
 
-                                {/* Sub-Items Grid in 2 Columns */}
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                {/* Sub-Items List matching Main Menu structure */}
+                                <div className="divide-y divide-white/5 max-h-[75vh] overflow-y-auto no-scrollbar">
                                   {currentCategory.items.map((item) => (
                                     <Link
                                       key={item.name}
                                       href={`/products/${item.slug}`}
-                                      onClick={() => setIsProductsHovered(false)}
-                                      className="p-2.5 rounded-lg bg-[#1a114b] hover:bg-[#26186c] border border-white/5 hover:border-[var(--color-amber)]/40 transition-all flex items-center justify-between text-xs text-white/90 hover:text-[var(--color-amber)] font-medium shadow-xs"
+                                      onClick={() => {
+                                        setIsProductsHovered(false);
+                                        setActiveCategoryTab(null);
+                                      }}
+                                      className="w-full px-4 py-2.5 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer bg-[#120a3b] text-white/85 hover:bg-white hover:text-[#120a3b] hover:font-black hover:border-l-4 hover:border-l-[var(--color-amber)] border-b border-white/5 font-medium group"
                                     >
                                       <span className="truncate">{item.name}</span>
-                                      <ChevronRight className="h-3 w-3 text-[var(--color-amber)] opacity-60 shrink-0 ml-1" />
+                                      <ChevronRight className="h-3.5 w-3.5 text-white/30 group-hover:text-[var(--color-amber-dark)] shrink-0 ml-1 transition-transform group-hover:translate-x-0.5" />
                                     </Link>
                                   ))}
                                 </div>
