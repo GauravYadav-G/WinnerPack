@@ -403,7 +403,124 @@ export const initialProducts = [
     visualGradients: "from-amber-400 to-orange-500",
   },
 
-  // --- FILMS, BAGS & TUBES (EXCLUSIVELY THE 8 SPECIFIED SUB-PRODUCTS) ---
+  // --- FILMS, BAGS & TUBES (11 MAIN FILM CATEGORIES & SUB-PRODUCTS) ---
+  {
+    id: "packaging-films",
+    title: "Packaging Films",
+    category: "film-products",
+    tag: "Packaging Films",
+    blurb: "High-performance LDPE, LLDPE, and collation packaging films engineered for industrial bundling, pallet protection, and heavy-duty barrier containment.",
+    longDesc: `Packaging Films are versatile and indispensable components in the realm of modern industrial packaging. Engineered for exceptional clarity, tensile strength, holding force, and flexibility, these films are widely used across diverse industrial sectors to safeguard goods during handling, storage, and long-distance transport.
+
+### Introduction to Packaging Films
+Packaging films act as the primary protective layer for products ranging from bulk palletized goods to individual retail items. By combining prime virgin polyethylene resins with advanced multi-layer blown film extrusion technology, our packaging films deliver superior puncture resistance, tear propagation resistance, and uniform shrinkage.
+
+### Manufacturing & Polymer Engineering
+At WinnerPack, our packaging films are manufactured using advanced 3-layer and 5-layer co-extrusion blown film lines. We formulate specific polymer density blends (LDPE, LLDPE, mLLDPE) to provide:
+- **Optimal Drawdown Ability**: High melt strength for high-speed automated packaging lines.
+- **Superior Impact & Dart Drop Resistance**: Withstands heavy drops and rough logistics handling.
+- **Controlled Shrinkage & Elastic Memory**: Maintains high tension and load stability throughout transit.
+
+### Industrial Applications
+Packaging films serve vital roles across key industries:
+- **Beverage & Food Industry**: Secondary bundling of water bottles, canned beverages, and jars without carton trays.
+- **Warehousing & Logistics**: Pallet load containment, moisture protection, and dust barriers.
+- **Manufacturing & Construction**: Heavy component wrapping, building material protection, and chemical shipping sacks.
+
+### Key Packaging Film Features
+- Thickness range from 30 Micron to 200 Micron.
+- Widths customizable from 200 mm to 2.25 meters.
+- Available in high-gloss transparent, milky white opaque, and UV-stabilized grades.
+- 100% recyclable prime polymer resins.`,
+    image: "/images/products/ldpe-shrink-rolls/image.png",
+    gallery: [
+      "/images/products/ldpe-shrink-rolls/image.png",
+      "/images/products/ldpe-films-pouches/applications/app-1.png",
+      "/images/products/ldpe-films-pouches/applications/app-2.png",
+      "/images/products/ldpe-films-pouches/applications/app-3.png",
+    ],
+    specs: {
+      "Thickness Range": "30 Micron to 200 Micron",
+      "Width Customization": "200 mm to 2,250 mm",
+      "Polymer Density": "0.92 g/cm³ Pure Prime LDPE/LLDPE",
+      "Holding Force": "High Tension Load Containment",
+      "Impact Resistance": "High Dart Drop & Tensile Strength",
+      "Line Compatibility": "High-Speed Automated Packaging Lines",
+    },
+    thicknessLengthMatrix: [
+      { micron: "30", gauge: "120", meters: "1,000", feet: "3,280" },
+      { micron: "50", gauge: "200", meters: "600", feet: "1,968" },
+      { micron: "80", gauge: "320", meters: "375", feet: "1,230" },
+      { micron: "100", gauge: "400", meters: "300", feet: "984" },
+      { micron: "150", gauge: "600", meters: "200", feet: "656" },
+      { micron: "200", gauge: "800", meters: "150", feet: "492" },
+    ],
+    subCategories: [
+      {
+        id: "ldpe-shrink-film",
+        title: "LDPE Shrink Film",
+        subtitle: "Heavy-Duty Collation Shrink Rolls for Bottle & Can Bundling",
+        blurb: "Heavy-gauge LDPE collation shrink film engineered for heat-shrink bundling of beverage bottles, cans, glass jars, and heavy industrial products with high holding force and puncture resistance.",
+        image: "/images/products/ldpe-shrink-rolls/image.png",
+        specs: {
+          "Shrink Temperature": "160°C to 200°C Thermal Tunnel",
+          "Thickness Range": "50 Micron to 150 Micron",
+          "Holding Force": "High Load Bundling Stabilization",
+          "Tear Resistance": "High Longitudinal & Transverse Tear Strength",
+        },
+        applications: ["Mineral water & beverage bottle bundling", "Canned food collation packs", "Chemical container shrink wrapping"],
+      },
+      {
+        id: "pe-liners-garbage-bags",
+        title: "PE Liners And Garbage Bags",
+        subtitle: "Heavy-Duty Bin Liners & Industrial Drum Liners",
+        blurb: "Heavy-duty polyethylene bin liners, box liners, and industrial drum liners designed with reinforced bottom seals to prevent leaks and tears during waste and material disposal.",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        specs: {
+          "Format Types": "Flat Bags / Gusseted Liners / Star Seal Rolls",
+          "Thickness Range": "20 Micron to 100 Micron",
+          "Leak Resistance": "High Integrity Thermal Welded Bottom Seal",
+          "Material": "Prime Virgin LDPE / Heavy Duty Recycled PE",
+        },
+        applications: ["Industrial drum & box liners", "Commercial facility waste bins", "Healthcare & hospitality sanitation"],
+      },
+      {
+        id: "plastic-stretch-film",
+        title: "Plastic Stretch Film",
+        subtitle: "High Elastic Pallet Wrap & Bundling Film",
+        blurb: "Multi-layer co-extruded stretch wrap film providing high elongation and puncture resistance to securely bundle and wrap pallet loads during transit and storage.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Elongation Rate": "Up to 300% High Pre-Stretch Capacity",
+          "Cling Type": "One-Side / Differential Cling",
+          "Thickness Range": "12 Micron to 35 Micron",
+          "Core Standard": "3 Inch Standard Paper Core",
+        },
+        applications: ["Pallet unitization & wrapping", "Carton stabilization", "Moisture & dust barrier wrapping"],
+      },
+      {
+        id: "collation-shrink-film",
+        title: "Collation Shrink Film",
+        subtitle: "Multi-Pack Secondary Packaging Film for Bottles & Cans",
+        blurb: "Engineered collation shrink film designed specifically for secondary multi-pack bundling of beverages, dairy bottles, and retail canned products on high-speed continuous shrink wrappers.",
+        image: "/images/products/pof-shrink-rolls/image.png",
+        specs: {
+          "Shrink Ratio": "70% MD / 20% TD Controlled Shrink",
+          "Seal Strength": "High Hot-Tack Impulse Sealing",
+          "Clarity": "High Gloss Transparent Print-Ready Surface",
+          "Packaging Line Speed": "Up to 120 Packs Per Minute",
+        },
+        applications: ["Beverage multipack collation", "Dairy & juice bottle bundling", "Trayless can packaging"],
+      }
+    ],
+    options: {
+      widths: ["200 mm", "400 mm", "600 mm", "900 mm", "48 inches (1220 mm)"],
+      thicknesses: ["30 Micron", "50 Micron", "80 Micron", "120 Micron", "200 Micron"],
+      colors: ["High Gloss Clear", "Milky White", "Black UV Opaque"],
+    },
+    applications: ["Beverage bottle collation packaging", "Paper towel & textile overwrap", "Heavy industrial shipping sacks", "Bread & food pouches"],
+    visualGradients: "from-sky-400 to-blue-500",
+  },
   {
     id: "ldpe-films-pouches",
     title: "LDPE Films & Pouches",

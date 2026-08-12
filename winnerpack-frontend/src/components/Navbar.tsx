@@ -26,7 +26,7 @@ export const productHierarchy = [
       {
         id: "packaging-films",
         title: "Packaging Films",
-        slug: "ldpe-films-pouches",
+        slug: "packaging-films",
         items: [
           { name: "LDPE Shrink Film", slug: "ldpe-shrink-film" },
           { name: "PE Liners And Garbage Bags", slug: "pe-liners-garbage-bags" },
@@ -37,7 +37,7 @@ export const productHierarchy = [
       {
         id: "pof-shrink-film",
         title: "POF Shrink Film",
-        slug: "pof-films-pouches",
+        slug: "pof-shrink-film",
         items: [
           { name: "Cross-Linked POF Film", slug: "cross-linked-pof-film" },
           { name: "Non-Cross-Linked POF Film", slug: "non-cross-linked-pof-film" },
@@ -47,7 +47,7 @@ export const productHierarchy = [
       {
         id: "lamination-pe-film",
         title: "Lamination PE Film",
-        slug: "lamination-films-pouches",
+        slug: "lamination-pe-film",
         items: [
           { name: "Adhesive Lamination Film", slug: "adhesive-lamination-film" },
           { name: "Pharma Grade Poly", slug: "pharma-grade-poly" },
@@ -56,7 +56,7 @@ export const productHierarchy = [
       {
         id: "agricultural-films",
         title: "Agricultural Films",
-        slug: "compostable-films-pouches",
+        slug: "agricultural-films",
         items: [
           { name: "Plastic Mulching Film", slug: "plastic-mulching-film" },
           { name: "Greenhouse Film", slug: "greenhouse-film" },
@@ -67,7 +67,7 @@ export const productHierarchy = [
       {
         id: "biodegradable-films",
         title: "Biodegradble Films",
-        slug: "compostable-films-pouches",
+        slug: "biodegradable-films",
         items: [
           { name: "Bio Degradable Mulch Film", slug: "bio-degradable-mulch-film" },
           { name: "Biodegradable Shrink Film", slug: "biodegradable-shrink-film" },
@@ -78,7 +78,7 @@ export const productHierarchy = [
       {
         id: "flexible-laminate-rolls",
         title: "Flexible Laminate Rolls & Pouches",
-        slug: "lamination-films-pouches",
+        slug: "flexible-laminates",
         items: [
           { name: "Food Packaging Laminates", slug: "food-packaging-laminates" },
           { name: "Agro Chemical Laminates", slug: "agro-chemical-laminates" },
@@ -91,7 +91,7 @@ export const productHierarchy = [
       {
         id: "printed-pe-films",
         title: "Printed PE Films",
-        slug: "coloured-films-pouches",
+        slug: "printed-pe-films",
         items: [
           { name: "Milk Packaging Film", slug: "milk-packaging-film" },
           { name: "Ghee Packaging Film", slug: "ghee-packaging-film" },
@@ -113,7 +113,7 @@ export const productHierarchy = [
       {
         id: "ldpe-bags",
         title: "LDPE Bags",
-        slug: "ldpe-films-pouches",
+        slug: "ldpe-bags",
         items: [
           { name: "Standard Normal LDPE Film", slug: "standard-normal-ldpe-film" },
           { name: "LDPE Pouches & Bags", slug: "ldpe-pouches-bags" },
@@ -123,7 +123,7 @@ export const productHierarchy = [
       {
         id: "bopp-films",
         title: "BOPP FILMS",
-        slug: "bopp-films-pouches",
+        slug: "bopp-films",
         items: [
           { name: "BOPP Film Rolls", slug: "bopp-film-rolls" },
           { name: "BOPP Display Pouches", slug: "bopp-display-pouches" },
@@ -133,7 +133,7 @@ export const productHierarchy = [
       {
         id: "pvc-shrink-films",
         title: "PVC SHRINK FILMS",
-        slug: "pvc-shrink-rolls-pouches",
+        slug: "pvc-shrink-films",
         items: [
           { name: "PVC Heat Shrink Rolls", slug: "pvc-heat-shrink-rolls" },
           { name: "PVC Shrink Pouches & Sleeves", slug: "pvc-shrink-pouches-sleeves" },
