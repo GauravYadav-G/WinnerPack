@@ -3173,15 +3173,238 @@ Absolutely, PE Liners and Garbage Bags are versatile products suitable for a ran
     id: "plastic-stretch-film",
     title: "Plastic Stretch Film",
     category: "film-products",
-    tag: "Plastic Stretch",
-    blurb: "Multi-layer co-extruded LLDPE stretch wrap film providing up to 300% elongation and puncture resistance for pallet load unitization.",
-    longDesc: "Plastic Stretch Film wraps securely around stacked pallet loads, maintaining high elastic memory to prevent box shifting during long-distance truck transport.",
+    tag: "Stretch Film",
+    blurb: "WinnerPack manufactures a comprehensive range of high-performance plastic stretch films — from hand-applied mini rolls and machine-grade pallet wrap to specialty VCI, cling, silage, and eco-friendly biodegradable options.",
+    longDesc: `Plastic stretch film is an essential packaging material used across numerous industries to secure loads, protect products from dust and moisture, and maintain product integrity during transit and storage. WinnerPack is a leading stretch film manufacturer in India, providing a comprehensive range of high-quality plastic stretch film products designed to meet the diverse packaging needs of businesses worldwide.
+
+With decades of experience in the packaging industry, WinnerPack specializes in producing innovative stretch film rolls and customized packaging solutions that deliver superior performance, reliability, and cost savings. Whether you require hand-applied films or machine-grade stretch films, our products are engineered to protect your goods during shipping, storage, and distribution.
+
+### Key Advantages of Partnering with WinnerPack
+- **Wide Product Range**: A broad spectrum of plastic stretch film options, including cast and blown films, pre-stretched films, and custom formulations tailored to specific application requirements.
+- **Custom Packaging Solutions**: Custom stretch film rolls with special additives such as UV protection, antistatic agents, and VCI (Vapor Corrosion Inhibitor) to enhance product performance and durability.
+- **Sustainability Commitment**: Films that require less material without compromising strength, reducing your carbon footprint.
+- **Global Supply Chain**: Robust distribution network ensuring timely delivery and consistent supply to clients across India and international markets.
+- **Cost Savings and Efficiency**: High-performance films that help reduce material consumption and improve operational efficiency.
+
+### Why Choose WinnerPack as Your Stretch Film Manufacturer?
+WinnerPack is committed to delivering products that exceed industry standards. Our advanced manufacturing processes and state-of-the-art equipment enable us to produce stretch film rolls with excellent puncture resistance, optimal film stiffness, and enhanced load stability.
+
+### Applications of Plastic Stretch Film
+- **Manufacturing and Distribution**: Palletize and bundle products efficiently, providing reliable load containment that reduces product damage during transit.
+- **Food and Beverage Industry**: Hygienic, dust-resistant packaging solutions that maintain product freshness and comply with industry safety standards.
+- **Warehousing and Logistics**: Secure pallets for safe handling and stacking, reducing physical strain on workers and minimizing waste.
+- **Industrial Packaging**: Protect machinery components, metal products, and construction materials during long-distance shipment.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Plastic Stretch Film?
+Plastic stretch film is a highly stretchable polyethylene film used to wrap and secure pallet loads, bundles, and individual products during storage and transportation. Its elastic memory keeps loads tightly bound without adhesives.
+
+#### 2. What types of stretch film does WinnerPack offer?
+WinnerPack offers Mini Stretch Wrap Rolls, Manual Stretch Film, Machine Stretch Film, Cling Film, Silage Stretch Film & Bale Wrap, Pre Stretch Film, VCI Stretch Film, Oxy Fade Stretch Wrap, Coreless Stretch Film, Biodegradable Stretch Wrap, and Recycled Stretch Wrap.
+
+#### 3. What are the standard widths and thicknesses available?
+Standard widths include 50 mm / 100 mm / 150 mm / 200 mm / 300 mm / 450 mm / 500 mm / 600 mm (other widths up to 1.5 Meters available on request). Standard thicknesses are 12, 15, 18, 23, and 29 Micron (other thicknesses available on request).
+
+#### 4. What colors are available for stretch film?
+Standard colors include Natural (clear), Opaque White, Blue, and Black. Other colors are available on request to meet branding or identification needs.
+
+#### 5. What core sizes are available?
+Standard core IDs are 25 mm, 31 mm, and 76.2 mm. Custom core configurations are available based on your equipment requirements.
+
+#### 6. Can stretch film be used for food packaging?
+Yes, food-grade stretch film (such as cling film) is available. WinnerPack uses only virgin, food-grade raw material with special additives imported from Europe, compliant with international food safety standards.
+
+#### 7. What special additives are available for stretch film?
+WinnerPack can incorporate UV Protection, VCI (Vapor Corrosion Inhibitor) to protect metal from rust, and Antistatic additives to prevent static build-up during packaging.
+
+#### 8. What is the difference between manual and machine stretch film?
+Manual stretch film is designed for hand application, typically used in smaller operations. Machine stretch film is engineered for automated packaging lines, offering higher consistency, output speed, and load containment force on high-volume pallet wrapping systems.
+
+#### 9. Is VCI stretch film suitable for metal packaging?
+Yes, VCI Stretch Film releases Vapor Corrosion Inhibitor molecules that form a protective molecular layer on metal surfaces, preventing rust and corrosion during storage and transit — making it ideal for automotive parts, metal components, and machinery.
+
+#### 10. Does WinnerPack offer eco-friendly stretch film options?
+Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for reduced environmental impact), Coreless Stretch Film (eliminates paper core waste), and Recycled Stretch Wrap (40% Post Industrial / Post Consumer recycled content).`,
     image: "/images/products/stretch-film/image.png",
-    gallery: ["/images/products/stretch-film/image.png"],
-    specs: { "Pre-Stretch": "Up to 300% Elongation", "Cling Type": "Differential One-Side Cling", "Core": "3-Inch Heavy Duty Cardboard Core" },
-    thicknessLengthMatrix: [{ micron: "23", gauge: "92", meters: "300", feet: "984" }],
-    options: { widths: ["500mm (20 Inch)"], thicknesses: ["15 Micron", "20 Micron", "23 Micron", "29 Micron"], colors: ["Clear", "Black Opaque"] },
-    applications: ["Pallet load wrapping & containment", "Warehouse box unitization", "Moisture & dust protective wrap"],
+    gallery: [
+      "/images/products/stretch-film/image.png",
+      "/images/products/ldpe-films-pouches/applications/app-1.png",
+      "/images/products/ldpe-films-pouches/applications/app-2.png",
+    ],
+    specs: {
+      "Dust / Dirt Protection": "Yes",
+      "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
+      "Visual Inspection": "Helps for Visual Inspection",
+      "Cost Effectiveness": "More Cost effective compared to Straps / Shrink / Corrugation",
+      "Wrapping Options": "Available for Manual Wrapping / Machine Wrapping",
+      "Standard Widths": "50 mm / 100 mm / 150 mm / 200 mm / 300 mm / 450 mm / 500 mm / 600 mm (Max Width 1.5 Meters)",
+      "Standard Thickness": "12 Micron / 15 Micron / 18 Micron / 23 Micron / 29 Micron",
+      "Standard Colours": "Natural / Opaque White / Blue / Black",
+      "Standard Core ID": "25 mm / 31 mm / 76.2 mm",
+      "Special Additives": "UV Protection / VCI / Antistatic",
+    },
+    subCategories: [
+      {
+        id: "mini-stretch-wrap-rolls",
+        title: "Mini Stretch Wrap Rolls",
+        subtitle: "Compact bundling rolls for small items",
+        blurb: "Mini Stretch Wrap Films are ideal for wrapping small items that need to be kept handy. The compact size makes bundling and collating small items quick and easy.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Ideal For": "Bundling and collating small items",
+          "Format": "Compact Mini Rolls",
+          "Application": "Manual hand application",
+        },
+        applications: ["Small item bundling", "Retail collation packs", "Cable & wire bundling"],
+      },
+      {
+        id: "manual-stretch-film",
+        title: "Manual Stretch Film",
+        subtitle: "Hand-applied pallet and bundle wrap",
+        blurb: "Manual hand stretch film with excellent clarity for cost-effective pallet protection — more economical than straps and provides resistance to water and liquids.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Clarity": "Excellent",
+          "Cost vs Straps": "Lower cost of packing compared to straps",
+          "Liquid Resistance": "Helps in resistance to water or other liquids",
+          "Application": "Manual hand wrapping",
+        },
+        applications: ["Pallet hand wrapping", "Bundle stabilization", "Moisture protection"],
+      },
+      {
+        id: "machine-stretch-film",
+        title: "Machine Stretch Film",
+        subtitle: "High-speed automated pallet wrap",
+        blurb: "Machine grade stretch films designed for automated pallet wrapping. Available in widths from 150 mm to 1000 mm and thicknesses from 17 micron onwards, ideal for high-speed machines where film is pre-stretched before application.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Available Widths": "150 mm to 1000 mm",
+          "Starting Thickness": "17 Micron onwards",
+          "Application": "Automated machine wrapping",
+          "Process": "Pre-stretched before application",
+        },
+        applications: ["High-speed pallet wrapping", "Automated packaging lines", "Industrial load unitization"],
+      },
+      {
+        id: "cling-film",
+        title: "Cling Film",
+        subtitle: "Food-grade catering and food packaging film",
+        blurb: "Cling film is mainly used for packing food products and catering use, made from only virgin food-grade raw material with special additives imported from Europe. Available from 10 microns.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Material": "Virgin food-grade polyethylene",
+          "Additives Origin": "Imported from Europe",
+          "Starting Thickness": "10 Micron",
+          "Roll Length": "As per customer requirements",
+        },
+        applications: ["Food packaging & preservation", "Catering & hospitality", "Refrigerated product wrapping"],
+      },
+      {
+        id: "silage-stretch-film",
+        title: "Silage Stretch Film & Bale Wrap",
+        subtitle: "Agricultural bale wrap with UV protection",
+        blurb: "High-tack silage wrap with excellent mechanical properties including tensile strength and puncture resistance, stabilized against UV damage with low oxygen and water permeability.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Tensile Strength": "Good Mechanical Properties",
+          "Tack Level": "High level of tack",
+          "UV Protection": "Stabilized for UV light protection",
+          "Oxygen Permeability": "Low Oxygen and Water Permeability",
+        },
+        applications: ["Silage bale wrapping", "Hay bale protection", "Agricultural fodder preservation"],
+      },
+      {
+        id: "pre-stretch-film",
+        title: "Pre Stretch Film",
+        subtitle: "Pre-stretched for reduced film usage",
+        blurb: "Pre-stretch is the process that allows the stretch film to be stretched before (pre) being applied to a load. A multi-layer stretch film made to be thinner and stronger than standard stretch film.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Process": "Pre-stretched before application",
+          "Construction": "Multi-layer film",
+          "Strength": "Thinner and stronger than standard stretch film",
+          "Benefit": "Reduced film consumption per pallet",
+        },
+        applications: ["Pallet wrapping with less film", "High-volume distribution centers", "Cost-reduction packaging"],
+      },
+      {
+        id: "vci-stretch-film",
+        title: "VCI Stretch Film",
+        subtitle: "Rust and corrosion protection for metal",
+        blurb: "VCI Stretch Film helps in protection of metal objects from rust by releasing Vapor Corrosion Inhibitor molecules that form a protective molecular layer on metal surfaces.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Active Agent": "VCI — Vapor Corrosion Inhibitor",
+          "Protection": "Prevents rust and corrosion on metal surfaces",
+          "Application": "Wrap-applied, no adhesive required",
+          "Ideal For": "Metal parts, machinery, automotive components",
+        },
+        applications: ["Metal parts and component protection", "Automotive parts packaging", "Machinery & tools storage"],
+      },
+      {
+        id: "oxy-fade-stretch-wrap",
+        title: "Oxy Fade Stretch Wrap",
+        subtitle: "Reduced-plastic film with oxygen barrier",
+        blurb: "Oxy Fade Stretch Wrap delivers up to 50% less plastic waste with an oxygen barrier layer for protection against oxidation, durable construction, and multiple size options.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Plastic Waste Reduction": "Up to 50% less plastic waste",
+          "Barrier Layer": "Oxygen barrier against oxidation",
+          "Construction": "Durable for secure fit",
+          "Availability": "Multiple sizes for versatile packaging",
+        },
+        applications: ["Oxidation-sensitive product packaging", "Sustainable pallet wrap", "Perishable goods protection"],
+      },
+      {
+        id: "coreless-stretch-film",
+        title: "Coreless Stretch Film",
+        subtitle: "100% cost-used, zero-core waste film",
+        blurb: "Coreless stretch film is an economical and efficient way to secure heavy loads. With no added paper cores, you save on costs while reducing your carbon footprint. Pre-stretching increases film strength and reduces amount of film needed per load.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Core": "Coreless — No Paper Core Waste",
+          "Cost Efficiency": "100% of cost is used — no core disposal cost",
+          "Load Film Usage": "Reduced film per load through pre-stretching",
+          "Sustainability": "Lower carbon footprint",
+        },
+        applications: ["Heavy pallet load securing", "Eco-conscious warehousing", "High-volume industrial distribution"],
+      },
+      {
+        id: "biodegradable-stretch-wrap",
+        title: "Biodegradable Stretch Wrap",
+        subtitle: "Eco-friendly high-strength pallet film",
+        blurb: "Biodegradable stretch wrap minimizes environmental impact while ensuring optimal protection for your products. Guaranteed roll length, incredibly durable film construction, and secure wrapping.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Formula": "Biodegradable",
+          "Environmental Impact": "Minimized vs standard stretch film",
+          "Roll Length": "Guaranteed — no short-length rolls",
+          "Film Strength": "High-strength for secure wrapping",
+        },
+        applications: ["Eco-friendly pallet wrapping", "Sustainable supply chains", "Retail and food-grade packaging"],
+      },
+      {
+        id: "recycled-stretch-wrap",
+        title: "Recycled Stretch Wrap",
+        subtitle: "40% recycled content sustainable stretch film",
+        blurb: "Recycled Stretch Wrap is made with 40% Post Industrial / Post Consumer recycled content. High-performance, durable, easy to use, and secure fit — reducing environmental impact with sustainable packaging.",
+        image: "/images/products/stretch-film/image.png",
+        specs: {
+          "Recycled Content": "40% Post Industrial / Post Consumer",
+          "Performance": "High-performance and durable",
+          "Ease of Use": "Easy to use, secure fit",
+          "Sustainability": "Reduces environmental impact",
+        },
+        applications: ["Sustainable packaging operations", "Corporate ESG-driven supply chains", "Pallet wrap for eco-certified facilities"],
+      },
+    ],
+    options: {
+      widths: ["50 mm", "100 mm", "150 mm", "300 mm", "500 mm", "600 mm", "1000 mm"],
+      thicknesses: ["12 Micron", "15 Micron", "18 Micron", "23 Micron", "29 Micron"],
+      colors: ["Natural", "Opaque White", "Blue", "Black"],
+    },
+    applications: ["Pallet load wrapping & containment", "Warehouse box unitization", "Moisture & dust protective wrap", "Metal rust protection", "Agricultural bale wrapping"],
     visualGradients: "from-yellow-400 to-amber-500",
   },
   {
