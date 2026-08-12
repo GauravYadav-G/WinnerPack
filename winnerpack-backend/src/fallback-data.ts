@@ -5327,64 +5327,141 @@ WinnerPack manufactures and exports LDPE bags directly in bulk quantities, deliv
     title: "BOPP Films",
     category: "film-products",
     tag: "BOPP Film",
-    blurb: "Bi-axially Oriented Polypropylene (BOPP) plain, heat-sealable, and display pouches offering ultra-high clarity, moisture barrier, and dimensional stiffness.",
-    longDesc: `BOPP Films are bi-axially stretched polypropylene sheets known for their superior optics, high tensile strength, and excellent moisture barrier properties. Widely used for flower wrapping, food pouches, tape backing, and high-gloss retail display bags.`,
+    blurb: "Bi-Axially Oriented Polypropylene (BOPP) films in roll and pouch form — ultra-high clarity, excellent moisture barrier, and rigid dimensional stiffness for food, pharma, and retail packaging.",
+    longDesc: `WinnerPack is a manufacturer and supplier of high-quality **BOPP (Bi-Axially Oriented Polypropylene) Films** in both roll and pouch formats. BOPP films are produced by stretching polypropylene film in both the machine direction and transverse direction, resulting in a strong, stiff, optically clear film with excellent moisture barrier properties.
+
+Our BOPP films are widely used across the food, pharmaceutical, and retail industries for lamination, overwrapping, and premium display packaging.
+
+### Our BOPP Film Product Range
+- **BOPP Rolls**: Plain and corona-treated BOPP sheeting rolls for printing, lamination, and overwrapping applications.
+- **BOPP Pouches**: High-clarity BOPP pouches and display bags with self-adhesive or heat-seal closures for retail presentation.
+
+### Key Features
+- **Ultra-High Optical Clarity**: 95%+ light transmission for premium product visibility.
+- **Excellent Moisture Barrier**: Protects dry food and pharma products against humidity.
+- **High Tensile Strength**: Bi-axial orientation yields excellent stiffness and tear resistance in both directions.
+- **Printable Surface**: Corona-treated rolls accept high-speed flexographic and rotogravure inks.
+- **Versatile Sealing**: Available in plain (for lamination) and heat-sealable co-extruded versions.`,
     image: "/images/products/bopp-films-pouches/image.png",
     gallery: ["/images/products/bopp-films-pouches/image.png"],
-    specs: { "Stretching Tech": "Bi-Axial Orientation (BOPP)", "Clarity Index": "95%+ Ultra Clear Optical Transparency", "Barrier": "High Moisture Vapor Barrier" },
+    specs: {
+      "Film Technology": "Bi-Axial Orientation (Machine + Transverse Direction Stretch)",
+      "Optical Clarity": "95%+ Ultra Clear Transmission",
+      "Moisture Barrier": "Excellent MVTR Barrier for Dry Food & Pharma",
+      "Thickness Range": "15 Micron to 40 Micron",
+      "Surface Treatment": "Corona Treated 38–42 Dynes/cm for Ink Adhesion",
+    },
     thicknessLengthMatrix: [{ micron: "20", gauge: "80", meters: "2,000", feet: "6,560" }, { micron: "30", gauge: "120", meters: "1,500", feet: "4,920" }],
     subCategories: [
-      { id: "bopp-film-rolls", title: "BOPP Film Rolls", subtitle: "Plain & Corona Treated BOPP Sheeting", blurb: "High clarity plain and print-treated BOPP film rolls for lamination and overwrapping.", image: "/images/products/bopp-films-pouches/image.png" },
-      { id: "bopp-display-pouches", title: "BOPP Display Pouches", subtitle: "Header Card & Tape Seal Bags", blurb: "Self-adhesive tape seal BOPP pouches with Euro-hole punch headers for retail display.", image: "/images/products/bopp-films-pouches/image.png" },
-      { id: "heat-sealable-bopp-films", title: "Heat Sealable BOPP Films", subtitle: "Co-Extruded Sealable Overwrap Rolls", blurb: "Co-extruded heat-sealable BOPP rolls for automatic flow-wrap packaging machines.", image: "/images/products/bopp-films-pouches/image.png" },
+      {
+        id: "bopp-film-rolls",
+        title: "BOPP Rolls",
+        subtitle: "Plain & Heat-Sealable BOPP Sheeting Rolls",
+        blurb: "High-clarity plain and corona-treated BOPP film rolls for flexographic printing, thermal lamination, and food overwrapping applications.",
+        image: "/images/products/bopp-films-pouches/image.png",
+        specs: {
+          "Roll Formats": "Plain, Corona-Treated & Heat-Sealable Co-Extruded",
+          "Thickness Range": "15 Micron to 40 Micron",
+          "Corona Treatment": "38–42 Dynes/cm for High-Speed Printing",
+          "Key Applications": "Lamination, Overwrapping & Flow-Wrap Sealing",
+        },
+      },
+      {
+        id: "bopp-display-pouches",
+        title: "BOPP Pouches",
+        subtitle: "Clear Retail Display & Header Card Pouches",
+        blurb: "Glass-clear BOPP pouches with self-adhesive tape seal flaps or heat-sealed closures for high-visibility retail and garment display packaging.",
+        image: "/images/products/bopp-films-pouches/image.png",
+        specs: {
+          "Clarity": "Glass-Clear 95%+ Optical Transparency",
+          "Closure Types": "Self-Adhesive Tape Flap or Heat Seal",
+          "Header Option": "White Printed Header with Euro Slot Punch Hole",
+          "Key Applications": "Garments, Greeting Cards, Stationery & Hosiery",
+        },
+      },
     ],
     options: { widths: ["200mm to 1000mm"], thicknesses: ["15 Micron", "20 Micron", "25 Micron", "30 Micron"], colors: ["Ultra Clear Glass Finish", "Metalized Silver"] },
-    applications: ["Bakery & confectionery overwrapping", "Retail display tape-seal bags", "BOPP adhesive tape base film"],
+    applications: ["Bakery & confectionery overwrapping", "Retail display packaging pouches", "Thermal lamination on paperboard & labels"],
     visualGradients: "from-sky-400 to-blue-500",
   },
   {
     id: "bopp-film-rolls",
-    title: "BOPP Film Rolls",
+    title: "BOPP Rolls",
     category: "film-products",
     tag: "BOPP Rolls",
-    blurb: "High clarity plain and print-treated BOPP film rolls engineered for flexographic printing, thermal lamination, and food overwrapping.",
-    longDesc: "BOPP Film Rolls deliver outstanding stiffness and moisture barrier. Surface treated up to 40+ dynes for crisp ink adhesion during high-speed printing.",
+    blurb: "High-clarity plain, corona-treated, and heat-sealable BOPP sheeting rolls for printing, thermal lamination, and automatic flow-wrap packaging.",
+    longDesc: `WinnerPack manufactures **BOPP Rolls** — Bi-Axially Oriented Polypropylene film rolls produced by stretching polypropylene in both machine and transverse directions to deliver exceptional clarity, moisture resistance, and printability.
+
+Our BOPP rolls are available in three main formats to suit every packaging requirement:
+
+### BOPP Roll Types
+- **Plain BOPP Rolls**: Untreated sheeting for thermal lamination over paperboard boxes, cartons, and printed labels.
+- **Corona-Treated BOPP Rolls**: Surface-energized rolls (38–42 dynes/cm) for crisp ink adhesion on high-speed flexographic or rotogravure printing lines.
+- **Heat-Sealable BOPP Rolls**: Co-extruded BOPP sheeting with a sealable terpolymer outer layer for horizontal flow-wrap (HFFS) packaging machines — ideal for wrapping biscuits, confectionery, soap bars, and FMCG products.
+
+### Key Features & Specifications
+- **Ultra Clear Optics**: 95%+ optical light transmission for premium product visibility through the film.
+- **High Tensile Strength**: Bi-axial orientation provides excellent stiffness and tear resistance in both MD and TD directions.
+- **Moisture Barrier**: Excellent MVTR barrier protecting dry food, bakery, and pharmaceutical products from humidity.
+- **Thickness Range**: 15 Micron to 40 Micron in standard widths from 200mm to 1000mm.
+- **Consistent Gauge Tolerance**: Precision extrusion ensures uniform film thickness across the entire roll width.
+
+### Applications
+- Flexographic and rotogravure surface printing
+- Thermal lamination on paperboard cartons and labels
+- Horizontal flow-wrap (HFFS) automatic packaging
+- Bakery, biscuit, confectionery, and soap bar overwrapping
+- Tape base film for adhesive packaging tape`,
     image: "/images/products/bopp-films-pouches/image.png",
     gallery: ["/images/products/bopp-films-pouches/image.png"],
-    specs: { "Corona Energy": "38 - 42 Dynes/cm", "Tensile Strength": "High MD/TD Tensile Rating", "Thickness Range": "15 to 40 Micron" },
+    specs: {
+      "Roll Formats": "Plain, Corona-Treated & Heat-Sealable Co-Extruded",
+      "Thickness Range": "15 Micron to 40 Micron",
+      "Corona Treatment": "38–42 Dynes/cm for High-Speed Printing",
+      "Tensile Strength": "High MD & TD Tensile Rating (Bi-Axial Orientation)",
+      "Key Applications": "Lamination, Overwrapping & HFFS Flow-Wrap Sealing",
+    },
     thicknessLengthMatrix: [{ micron: "20", gauge: "80", meters: "2,000", feet: "6,560" }, { micron: "25", gauge: "100", meters: "1,600", feet: "5,248" }],
-    options: { widths: ["300mm", "500mm", "800mm"], thicknesses: ["15 Micron", "20 Micron", "25 Micron"], colors: ["Ultra Clear"] },
-    applications: ["Flexo & gravure reverse printing", "Paperboard thermal lamination", "Flower & gift overwrapping"],
+    options: { widths: ["200mm", "350mm", "500mm", "800mm", "1000mm"], thicknesses: ["15 Micron", "20 Micron", "25 Micron", "30 Micron", "40 Micron"], colors: ["Ultra Clear", "White Cavitated"] },
+    applications: ["Flexo & gravure surface printing", "Thermal lamination on paperboard & labels", "HFFS flow-wrap for biscuit & confectionery"],
     visualGradients: "from-sky-400 to-blue-500",
   },
   {
     id: "bopp-display-pouches",
-    title: "BOPP Display Pouches",
+    title: "BOPP Pouches",
     category: "film-products",
-    tag: "BOPP Bags",
-    blurb: "Glass-clear BOPP display pouches featuring resealable self-adhesive tape flaps and white header punch holes for retail peg display.",
-    longDesc: "BOPP Display Pouches present garments, greeting cards, hosiery, and stationery with 95%+ optical reflection while keeping items clean from dust.",
+    tag: "BOPP Pouches",
+    blurb: "Glass-clear BOPP pouches with self-adhesive tape seal or heat-seal closures and optional header card punch holes for premium retail display and garment packaging.",
+    longDesc: `WinnerPack manufactures **BOPP Pouches** — high-clarity polypropylene bags designed for clean, professional retail product presentation. BOPP pouches provide 95%+ optical transparency, allowing customers to view product contents clearly while maintaining a premium packaging appearance.
+
+Our BOPP pouches are available in two primary closure styles:
+- **Self-Adhesive Tape Seal Pouches**: Feature a resealable peel-and-seal adhesive strip for quick-close, tamper-evident packaging ideal for retail display.
+- **Heat-Sealed BOPP Pouches**: Sealed on automated machines for food-grade hygienic packaging of dry products, stationery, and confectionery.
+
+### Key Features & Specifications
+- **Ultra-High Clarity**: Glass-like 95%+ optical transparency for maximum product visibility on retail shelves.
+- **Rigid & Crisp Feel**: Bi-axial orientation gives pouches excellent body stiffness, maintaining shape in retail display.
+- **Euro Slot Header Punch Option**: White printed header card with standard Euro slot hole for peg hook display without additional tagging.
+- **Food-Grade Materials**: Manufactured from food-safe BOPP resin compliant with applicable food contact regulations.
+- **Custom Print Options**: Flexographic printing on the header or full surface for brand logos and product information.
+
+### Applications
+- Garment, hosiery, and apparel retail display bags
+- Greeting cards, stationery, albums, and gift packaging
+- Dry food, snack, and confectionery pouches
+- Pharmaceutical sample and over-the-counter product packaging`,
     image: "/images/products/bopp-films-pouches/image.png",
     gallery: ["/images/products/bopp-films-pouches/image.png"],
-    specs: { "Closure Type": "Resealable Self-Adhesive Flap Tape", "Header Punch": "White Printed Header with Euro Slot Hole", "Clarity": "Glass-Like Reflection" },
-    thicknessLengthMatrix: [{ micron: "25", gauge: "100", meters: "Custom", feet: "Custom" }],
-    options: { widths: ["4x6 inch", "6x9 inch", "9x12 inch"], thicknesses: ["25 Micron", "30 Micron"], colors: ["Clear"] },
-    applications: ["Garment & shirt display packaging", "Greeting cards, albums & stationery", "Socks & hosiery retail bags"],
-    visualGradients: "from-sky-400 to-blue-500",
-  },
-  {
-    id: "heat-sealable-bopp-films",
-    title: "Heat Sealable BOPP Films",
-    category: "film-products",
-    tag: "Sealable BOPP",
-    blurb: "Co-extruded heat-sealable BOPP rolls featuring low seal-initiation temperature (SIT) for high-speed automatic horizontal flow-wrap lines.",
-    longDesc: "Heat Sealable BOPP Films are manufactured with sealable terpolymer outer layers. Designed for wrapping chocolate bars, biscuits, and soap bars at speeds up to 400 packs/min.",
-    image: "/images/products/bopp-films-pouches/image.png",
-    gallery: ["/images/products/bopp-films-pouches/image.png"],
-    specs: { "Seal Initiation Temp": "105°C Low SIT", "Cof Friction": "Low Static Coefficient of Friction (<0.25)", "Format": "Single Wound Sheeting Rolls" },
-    thicknessLengthMatrix: [{ micron: "20", gauge: "80", meters: "2,000", feet: "6,560" }],
-    options: { widths: ["200mm", "350mm", "500mm"], thicknesses: ["20 Micron", "25 Micron", "30 Micron"], colors: ["Clear", "White Cavitated"] },
-    applications: ["Horizontal flow-wrap (HFFS) packaging", "Biscuit, wafer & confectionery overwrapping", "Soap bar wrapping"],
+    specs: {
+      "Optical Clarity": "95%+ Glass-Clear Transparency",
+      "Closure Options": "Self-Adhesive Tape Seal or Heat-Sealed",
+      "Header Option": "White Printed Header with Euro Slot Punch Hole",
+      "Material": "Food-Grade BOPP (Bi-Axially Oriented Polypropylene)",
+      "Available Sizes": "4×6 inch, 6×9 inch, 9×12 inch & Custom Dimensions",
+    },
+    thicknessLengthMatrix: [{ micron: "25", gauge: "100", meters: "Custom", feet: "Custom" }, { micron: "30", gauge: "120", meters: "Custom", feet: "Custom" }],
+    options: { widths: ["4x6 inch", "6x9 inch", "9x12 inch", "Custom"], thicknesses: ["20 Micron", "25 Micron", "30 Micron"], colors: ["Crystal Clear", "Frosted Matte"] },
+    applications: ["Garment, hosiery & apparel retail display", "Stationery, greeting cards & albums", "Dry food, confectionery & pharma sample pouches"],
     visualGradients: "from-sky-400 to-blue-500",
   },
   {
@@ -5392,49 +5469,136 @@ WinnerPack manufactures and exports LDPE bags directly in bulk quantities, deliv
     title: "PVC Shrink Films",
     category: "film-products",
     tag: "PVC Shrink",
-    blurb: "High-clarity PVC heat shrink rolls, pre-cut sleeves, and shrink tubing delivering rapid 40%+ transverse shrinkage at low tunnel temperatures.",
-    longDesc: `PVC Shrink Films provide quick, high-gloss shrink encapsulation at lower heating temperatures. Ideal for tamper-evident bottle neck caps, battery pack insulation sleeves, and box multi-packs.`,
+    blurb: "High-clarity PVC heat shrink films in roll and pouch form — delivering 40–50% transverse shrinkage at low tunnel temperatures for tamper-evident, multi-pack, and decorative packaging.",
+    longDesc: `WinnerPack is a manufacturer and supplier of premium **PVC Shrink Films** in both roll and pre-formed pouch formats. PVC (Polyvinyl Chloride) shrink film is characterized by its exceptional optical clarity, high gloss finish, and rapid heat activation at lower tunnel temperatures compared to other shrink film materials.
+
+Our PVC shrink films are widely used in the food and beverage, pharmaceutical, cosmetics, and consumer goods industries for tamper-evident sealing, group multipacking, and decorative product presentation.
+
+### Our PVC Shrink Film Product Range
+- **PVC Shrink Rolls**: Centerfolded or single-wound PVC rolls for use on L-bar sealers and heat shrink tunnels.
+- **PVC Shrink Pouches**: Pre-formed open-end PVC shrink pouches for products that require manual or semi-automatic loading before sealing and shrinking.
+
+### Key Features
+- **Rapid Shrink Activation**: 40%–50% Transverse Direction (TD) shrinkage at 100°C–130°C heat tunnel temperatures.
+- **High Gloss & Clarity**: Crystal-clear glossy finish enhances shelf appeal and product presentation.
+- **Excellent Printability**: Surface printable with standard flexographic inks for custom branding.
+- **Tamper Evidence**: Tight heat-shrunk seal immediately reveals any product tampering.
+- **Cost Effective**: Lower activation temperature saves energy on heat tunnel operations.`,
     image: "/images/products/pvc-shrink-rolls-pouches/image.png",
     gallery: ["/images/products/pvc-shrink-rolls-pouches/image.png"],
-    specs: { "Transverse Shrink": "45% to 50% TD Shrink Ratio", "Activation Temp": "100°C to 130°C Low Heat Tunnel", "Clarity": "High Gloss Rigid Clarity" },
+    specs: {
+      "Shrink Technology": "PVC Heat Shrink (40%–50% TD Shrink Ratio)",
+      "Activation Temperature": "100°C to 130°C Low-Temperature Heat Tunnel",
+      "Optical Finish": "High Gloss Crystal-Clear Clarity",
+      "Thickness Range": "30 Micron to 50 Micron",
+      "Film Formats": "Centerfolded Rolls & Pre-Formed Open-End Pouches",
+    },
     thicknessLengthMatrix: [{ micron: "30", gauge: "120", meters: "1,000", feet: "3,280" }, { micron: "40", gauge: "160", meters: "750", feet: "2,460" }],
     subCategories: [
-      { id: "pvc-heat-shrink-rolls", title: "PVC Heat Shrink Rolls", subtitle: "Centerfolded & Single Wound PVC Rolls", blurb: "High-gloss PVC shrink film rolls for L-sealers and thermal shrink tunnels.", image: "/images/products/pvc-shrink-rolls-pouches/image.png" },
-      { id: "pvc-shrink-pouches-sleeves", title: "PVC Shrink Sleeves", subtitle: "Tamper Evident Bottle Neck Bands", blurb: "Pre-cut perforated PVC shrink bands for tamper-proof bottle neck sealing.", image: "/images/products/pvc-shrink-rolls-pouches/image.png" },
-      { id: "pvc-heat-shrink-tubing", title: "PVC Heat Shrink Tubing", subtitle: "Industrial Continuous Layflat Tubing", blurb: "Continuous layflat PVC shrink tubing for battery pack insulation and cylinder wrapping.", image: "/images/products/pvc-shrink-rolls-pouches/image.png" },
+      {
+        id: "pvc-heat-shrink-rolls",
+        title: "PVC Shrink Rolls",
+        subtitle: "Centerfolded & Single-Wound PVC Shrink Rolls",
+        blurb: "High-gloss PVC shrink film rolls in centerfolded or single-wound formats for L-bar sealers and shrink tunnels.",
+        image: "/images/products/pvc-shrink-rolls-pouches/image.png",
+        specs: {
+          "Roll Formats": "Centerfolded (CF) & Single-Wound (SW) Layflat",
+          "Shrink Activation": "40–50% TD Shrink at 110°C–130°C",
+          "Thickness Range": "30 Micron to 50 Micron",
+          "Key Applications": "L-Bar Sealer & Heat Shrink Tunnel Wrapping",
+        },
+      },
+      {
+        id: "pvc-shrink-pouches-sleeves",
+        title: "PVC Shrink Pouches",
+        subtitle: "Pre-Formed Open-End PVC Shrink Pouches",
+        blurb: "Pre-formed open-end PVC shrink pouches for manual or semi-automatic product loading before heat tunnel sealing.",
+        image: "/images/products/pvc-shrink-rolls-pouches/image.png",
+        specs: {
+          "Pouch Format": "Pre-Formed Open-End for Manual/Semi-Auto Loading",
+          "Shrink Performance": "Tight Conforming Shrink on All Product Profiles",
+          "Visual Finish": "High Gloss Crystal-Clear Presentation",
+          "Key Applications": "Cosmetics, Pharma & Consumer Goods Multipacks",
+        },
+      },
     ],
     options: { widths: ["100mm to 600mm"], thicknesses: ["30 Micron", "40 Micron", "50 Micron"], colors: ["High Gloss Clear", "Custom Printed"] },
-    applications: ["Tamper-evident bottle neck sealing", "Pharmaceutical bottle multipacks", "Battery pack insulation sleeves"],
+    applications: ["Tamper-evident bottle & jar sealing", "Multipacking of cans, bottles & boxes", "Cosmetics & pharmaceutical product display"],
     visualGradients: "from-sky-400 to-blue-500",
   },
   {
     id: "pvc-heat-shrink-rolls",
-    title: "PVC Heat Shrink Rolls",
+    title: "PVC Shrink Rolls",
     category: "film-products",
     tag: "PVC Rolls",
-    blurb: "Centerfolded and single wound PVC shrink rolls providing crisp stiffness and quick low-temperature thermal tunnel shrinkage.",
-    longDesc: "PVC Heat Shrink Rolls shrink tightly around products at lower tunnel temperatures than PE or POF, saving energy on manual L-bar sealing lines.",
+    blurb: "High-gloss PVC shrink film rolls in centerfolded and single-wound formats for L-bar sealers and heat shrink tunnel packaging lines.",
+    longDesc: `WinnerPack manufactures **PVC Shrink Rolls** — centerfolded (CF) and single-wound polyvinyl chloride shrink film rolls engineered for use with L-bar sealing machines and heat shrink tunnels.
+
+PVC shrink rolls provide one of the crispest, highest-gloss finishes in the shrink film category, making them ideal for applications where premium visual presentation and tamper-evidence are required.
+
+### Key Features & Specifications
+- **Centerfolded (CF) Format**: Two-layer folded tubing ideal for L-bar sealers — the film wraps around the product from one roll.
+- **Single-Wound (SW) Format**: Single-layer roll for wrapping irregularly shaped or large products.
+- **40%–50% TD Shrinkage**: Aggressive transverse-direction shrink wraps tightly around any product profile at 110°C–130°C tunnel temperature.
+- **High Gloss & Crystal Clarity**: Premium visual finish enhances product shelf appeal.
+- **Thickness Range**: 30 Micron to 50 Micron in widths from 100mm to 600mm.
+- **Tamper Evidence**: Tight heat-shrunk seal provides immediate visual indication of tampering.
+
+### Applications
+- Cosmetics and perfume box wrapping
+- Multipacking bottles, cans, and boxes
+- Pharmaceutical and healthcare product sealing
+- Consumer goods display packaging
+- CD, DVD, and software box overwrapping`,
     image: "/images/products/pvc-shrink-rolls-pouches/image.png",
     gallery: ["/images/products/pvc-shrink-rolls-pouches/image.png"],
-    specs: { "Format": "Centerfolded (CF) / Layflat", "Shrink Temp": "110°C Low Heat Activation", "Stiffness": "High Crisp Film Memory" },
-    thicknessLengthMatrix: [{ micron: "35", gauge: "140", meters: "800", feet: "2,624" }],
-    options: { widths: ["200mm", "350mm", "500mm"], thicknesses: ["30 Micron", "35 Micron", "40 Micron"], colors: ["Glass Clear"] },
-    applications: ["Cosmetics & perfume box shrink wrap", "Software & CD/DVD multipacks", "Hardware tool display wrapping"],
+    specs: {
+      "Roll Formats": "Centerfolded (CF) & Single-Wound (SW) Layflat",
+      "Shrink Ratio": "40%–50% Transverse Direction (TD) Shrinkage",
+      "Activation Temperature": "110°C to 130°C Heat Tunnel",
+      "Thickness Range": "30 Micron to 50 Micron",
+      "Optical Finish": "High Gloss Crystal-Clear Surface",
+    },
+    thicknessLengthMatrix: [{ micron: "35", gauge: "140", meters: "800", feet: "2,624" }, { micron: "40", gauge: "160", meters: "750", feet: "2,460" }],
+    options: { widths: ["200mm", "350mm", "500mm", "600mm"], thicknesses: ["30 Micron", "35 Micron", "40 Micron", "50 Micron"], colors: ["Crystal Clear", "Custom Printed"] },
+    applications: ["Cosmetics & pharma box L-bar shrink wrapping", "Multipacking bottles & cans on shrink tunnels", "Consumer goods tamper-evident display packaging"],
     visualGradients: "from-sky-400 to-blue-500",
   },
   {
     id: "pvc-shrink-pouches-sleeves",
-    title: "PVC Shrink Sleeves",
+    title: "PVC Shrink Pouches",
     category: "film-products",
-    tag: "PVC Sleeves",
-    blurb: "Pre-cut perforated PVC shrink neck bands and body sleeves for tamper-evident bottle cap protection and 360-degree graphics.",
-    longDesc: "PVC Shrink Sleeves feature vertical tear perforations for easy customer opening while ensuring 100% tamper-evident security on sauce bottles and pharma jars.",
+    tag: "PVC Pouches",
+    blurb: "Pre-formed open-end PVC shrink pouches for manual or semi-automatic product loading — heat-activated for tight, high-gloss shrink conforming to any product shape.",
+    longDesc: `WinnerPack manufactures **PVC Shrink Pouches** — pre-formed open-end bags made from high-clarity PVC shrink film. Products are manually or semi-automatically loaded into the pouch, which is then passed through a heat tunnel to achieve a tight, conforming shrink wrap around the product.
+
+PVC shrink pouches are widely used in cosmetics, pharmaceuticals, and consumer goods for individual product overwrapping, small multipack bundling, and tamper-evident protection.
+
+### Key Features & Specifications
+- **Pre-Formed Open-End Design**: Products slide in easily — no additional sealing step required before the heat tunnel.
+- **40%–50% TD Shrinkage**: Shrinks tightly and evenly around the product on all four sides.
+- **Crystal-Clear High Gloss**: The finished pouch provides brilliant clarity for maximum shelf appeal.
+- **Printable Surface**: Custom flexographic branding and product information can be printed before bag conversion.
+- **Sizes on Request**: Available in a wide range of standard and custom dimensions to fit your product dimensions.
+
+### Applications
+- Cosmetics, personal care, and gift sets
+- Pharmaceutical over-the-counter product protection
+- Stationary, office supplies, and toys
+- Consumer electronics accessories
+- Food product small multipacks`,
     image: "/images/products/pvc-shrink-rolls-pouches/image.png",
     gallery: ["/images/products/pvc-shrink-rolls-pouches/image.png"],
-    specs: { "Perforation": "Vertical Easy-Tear Scored Line", "Shrink Ratio": "50% TD High Contour Conformity", "Format": "Pre-Cut Cut-Bands / Continuous Roll" },
-    thicknessLengthMatrix: [{ micron: "40", gauge: "160", meters: "Custom", feet: "Custom" }],
-    options: { widths: ["25mm Cap", "50mm Neck", "80mm Body"], thicknesses: ["40 Micron", "45 Micron", "50 Micron"], colors: ["Clear", "Printed Security Seal"] },
-    applications: ["Pharmaceutical bottle cap security seals", "Sauce & beverage bottle tamper bands", "LPG cylinder valve shrink caps"],
+    specs: {
+      "Pouch Format": "Pre-Formed Open-End for Manual/Semi-Auto Loading",
+      "Shrink Performance": "40%–50% TD Shrinkage — Tight Conforming Wrap",
+      "Optical Finish": "Crystal-Clear High Gloss Surface",
+      "Thickness Range": "30 Micron to 50 Micron",
+      "Key Applications": "Cosmetics, Pharma, Gifts & Consumer Goods",
+    },
+    thicknessLengthMatrix: [{ micron: "30", gauge: "120", meters: "Custom", feet: "Custom" }, { micron: "40", gauge: "160", meters: "Custom", feet: "Custom" }],
+    options: { widths: ["Custom width to fit product"], thicknesses: ["30 Micron", "40 Micron", "50 Micron"], colors: ["Crystal Clear", "Custom Printed"] },
+    applications: ["Cosmetics & personal care product wrapping", "Pharmaceutical over-the-counter packaging", "Gift sets, toys & consumer goods multipacks"],
     visualGradients: "from-sky-400 to-blue-500",
   },
   {

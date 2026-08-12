@@ -123,9 +123,8 @@ export const productHierarchy = [
         title: "BOPP FILMS",
         slug: "bopp-films",
         items: [
-          { name: "BOPP Film Rolls", slug: "bopp-film-rolls" },
-          { name: "BOPP Display Pouches", slug: "bopp-display-pouches" },
-          { name: "Heat Sealable BOPP Films", slug: "heat-sealable-bopp-films" },
+          { name: "BOPP Rolls", slug: "bopp-film-rolls" },
+          { name: "BOPP Pouches", slug: "bopp-display-pouches" },
         ]
       },
       {
@@ -133,9 +132,8 @@ export const productHierarchy = [
         title: "PVC SHRINK FILMS",
         slug: "pvc-shrink-films",
         items: [
-          { name: "PVC Heat Shrink Rolls", slug: "pvc-heat-shrink-rolls" },
-          { name: "PVC Shrink Pouches & Sleeves", slug: "pvc-shrink-pouches-sleeves" },
-          { name: "PVC Heat Shrink Tubing", slug: "pvc-heat-shrink-tubing" },
+          { name: "PVC Shrink Rolls", slug: "pvc-heat-shrink-rolls" },
+          { name: "PVC Shrink Pouches", slug: "pvc-shrink-pouches-sleeves" },
         ]
       },
     ]
