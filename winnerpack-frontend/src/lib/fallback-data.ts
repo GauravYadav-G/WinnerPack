@@ -3777,6 +3777,12 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         subtitle: "Pesticide & Chemical Foil Laminates",
         blurb: "100% Food Grade certified aluminum foil and polymer laminates engineered for chemical resistance against pesticides and liquid fertilizers.",
         image: "/images/products/specialty-pouches/image.png",
+        specs: {
+          "Raw Material": "100% Food Grade Certified Raw Material",
+          "Substrates": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
+          "Substrate Selection": "Done based on product to ensure required resistance",
+          "Supply Format": "Supplied in Roll Form as per customer requirement",
+        },
       },
       {
         id: "plain-standup-pouches",
@@ -3784,6 +3790,12 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         subtitle: "Premium Metallocene Sealing Pouches",
         blurb: "Suitable for 100g to 1kg pack sizes. Premium Metallocene Poly provides best sealing for pickles, Gulab Jamun, Mango Milk Shake, and dry fruits.",
         image: "/images/products/specialty-pouches/image.png",
+        specs: {
+          "Pack Sizes": "Suitable for Pack Sizes from 100 gm to 1 kg",
+          "Product Range": "Pack Pickle, Gulab Jamun, Mango Milk Shake, Dry Fruits",
+          "Sealing Poly": "Premium Grade Metallocene Based Poly for best quality sealing",
+          "Pouch Style": "Self-Standing Bottom Gusset Pouch Architecture",
+        },
       },
       {
         id: "lidding-foils-laminates",
@@ -3791,6 +3803,12 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         subtitle: "Universal Cup & Tray Lidding Foils",
         blurb: "100% Food Grade Foil + Poly or PET + Poly laminates engineered for universal sealing to PS, PP, PET, APET, CPET, and PVC containers.",
         image: "/images/products/specialty-pouches/image.png",
+        specs: {
+          "Raw Material": "Made from 100% Food Grade certified raw material",
+          "Laminate Structure": "Available in Foil + Poly or PET + Poly Laminates",
+          "Universal Sealing": "Poly seals to PS, PP, PET, APET, CPET, PVC containers",
+          "Supply Form": "Die-Cut Lids & Continuous Roll Stock",
+        },
       },
       {
         id: "wrap-around-labels",
@@ -3798,6 +3816,12 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         subtitle: "Automated Roll-Fed Bottle Labels",
         blurb: "38 to 50 Micron BOPP wrap-around labels replacing PVC shrink labels to save automation labor costs on beverage bottle lines.",
         image: "/images/products/specialty-pouches/image.png",
+        specs: {
+          "Replacement": "Used in replacement of PVC Shrink Labels",
+          "Labor Savings": "Labor Savings since process will be automated",
+          "Thickness Range": "Available in Thickness range of 38 – 50 Micron",
+          "Application Tech": "Roll-Fed Hot-Melt Automated Bottle Labeling",
+        },
       },
       {
         id: "laminated-pouch-india",
@@ -3805,6 +3829,12 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         subtitle: "Embossed & Matt Finish Barrier Bags",
         blurb: "Custom pre-formed barrier pouches available with Embossing and Matt Finish for premium shelf appeal.",
         image: "/images/products/specialty-pouches/image.png",
+        specs: {
+          "Finish Option 1": "Embossing (Tactile 3D textured finish)",
+          "Finish Option 2": "Matt Finish (Silky non-glare coating)",
+          "Quality Standard": "ISO 9001:2015 Certified Manufacturing",
+          "Pouch Styles": "3-Side Seal, Center Seal & Standup Pouches",
+        },
       },
       {
         id: "polyester-laminated-roll",
@@ -3812,6 +3842,12 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         subtitle: "HD Rotogravure Printed Polyester Rolls",
         blurb: "Polyester laminated rolls in various colors, thicknesses, and sizes with fine rotogravure printing finish.",
         image: "/images/products/specialty-pouches/image.png",
+        specs: {
+          "Customization": "Available in different colors, thickness, sizes & specs",
+          "Printing Process": "Rotogravure printing process for good finishing",
+          "Film Substrate": "Polyester (PET) High Tensile Laminated Film",
+          "Barrier Rating": "Superior Moisture & Gas Barrier Protection",
+        },
       },
       {
         id: "multi-coloured-laminated-roll",
@@ -3819,6 +3855,12 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         subtitle: "100% Food Grade Superior Printed Rolls",
         blurb: "High-definition multi-colored barrier laminate rolls made from 100% Food Grade materials at cost-effective prices.",
         image: "/images/products/specialty-pouches/image.png",
+        specs: {
+          "Raw Material": "100% Food Grade Material used",
+          "Quality Standard": "Superior quality at par with industry standards",
+          "Pricing": "Cost-Effective Prices",
+          "Printing": "HD Multi-Color Rotogravure Printing",
+        },
       },
       {
         id: "food-packaging-laminates",
@@ -3826,6 +3868,12 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         subtitle: "Multi-Substrate Food Barrier Packaging",
         blurb: "100% Food Grade certified roll stock and pre-formed pouches (Center Seal, 3-Side Seal, Standup, Zipper) using PET, Met PET, BOPP, Foil, and PE.",
         image: "/images/products/specialty-pouches/image.png",
+        specs: {
+          "Raw Material": "Made from 100% Food Grade certified raw material",
+          "Substrates": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
+          "Roll Supply": "Supplied in Roll Form as per customer requirement",
+          "Pouch Supply": "Supplied in Pouch Form (Center Seal, 3-Side Seal, Standup, Zipper)",
+        },
       },
     ],
     options: {
