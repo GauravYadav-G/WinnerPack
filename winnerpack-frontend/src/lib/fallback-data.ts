@@ -4067,6 +4067,95 @@ Regular stretch film provides physical protection against dust and scratches but
     visualGradients: "from-yellow-400 to-amber-500",
   },
   {
+    id: "oxy-fade-stretch-wrap",
+    title: "Oxy Fade Stretch Wrap",
+    category: "film-products",
+    tag: "Oxy Fade Wrap",
+    blurb: "Premium pallet wrapping film with high clarity and oxygen-barrier layer engineered to reduce oxidation, shield goods from contamination, and secure loads using less plastic per pallet.",
+    longDesc: `WinnerPack is a manufacturer and supplier of Oxy Fade Stretch Wrap, a premium pallet wrapping film engineered for businesses that need reliable load containment with superior clarity. Produced in-house through an advanced cast extrusion process, Oxy Fade is supplied directly to distributors, packers, exporters, and industrial buyers worldwide — with bulk pricing, custom specifications, and consistent roll-to-roll quality.
+
+As a direct manufacturer, we control the entire production process, which lets us offer competitive wholesale rates, reliable lead times, and made-to-order widths, thicknesses, and colours for B2B requirements of any volume.
+
+### Why B2B Buyers Choose WinnerPack Oxy Fade Stretch Wrap
+- **High Clarity Film**: Allows fast visual inspection of wrapped goods without unwrapping, ideal for warehousing and quality checks.
+- **Oxygen-Barrier Layer**: Helps reduce oxidation and protects sensitive products during extended transport and storage.
+- **Strong Load Retention**: High stretch and elastic recovery hold pallets tight with less film per load, lowering cost per pallet.
+- **Material-Efficient Design**: A specialised film blend delivers secure wrapping using significantly less plastic than conventional film.
+- **Dust, Dirt & Moisture Protection**: Shields products from contamination throughout the supply chain.
+- **Manual & Machine Grades**: Available for both hand application and automatic wrapping lines.
+
+### Applications
+Oxy Fade Stretch Wrap is widely used for securing palletised loads during transport and warehousing, unitising cartons and boxes, bundling irregular or heavy items, and protecting finished goods from dust and moisture. It is a practical choice for exporters, third-party logistics providers, food and FMCG packers, manufacturers, and distribution centres that wrap at scale.
+
+### Bulk Orders & Custom Specifications
+We supply Oxy Fade Stretch Wrap in bulk quantities with the flexibility B2B buyers need. Choose your required width, micron thickness, colour, and core size, and we will manufacture to your specification. For large or recurring orders, we offer volume-based pricing and dependable repeat supply.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Oxy Fade Stretch Wrap?
+Oxy Fade Stretch Wrap is a high-performance pallet wrap film engineered with high clarity and an oxygen-barrier layer. It is designed to secure palletized loads while protecting sensitive goods against oxidation, dust, and moisture during transport and storage.
+
+#### 2. How does the oxygen-barrier layer in Oxy Fade Stretch Wrap work?
+The oxygen-barrier layer reduces air and oxygen permeability through the wrapped film, slowing down oxidation processes in sensitive goods such as packaged foods, chemicals, and reactive metal products.
+
+#### 3. What are the key benefits of Oxy Fade Stretch Wrap over standard stretch film?
+- **Oxygen Barrier**: Protection against oxidation for sensitive products.
+- **High Clarity**: Fast visual inspection of wrapped loads without unwrapping.
+- **Up to 50% Less Plastic**: Material-efficient blend secures loads using less film per pallet.
+- **High Elastic Recovery**: Superior load retention force preventing box shifting during transport.
+
+#### 4. Can Oxy Fade Stretch Wrap be used for both manual and machine wrapping?
+Yes, Oxy Fade Stretch Wrap is available in both manual hand rolls (2" or 3" core) and machine rolls (3" core) for automated turntable and rotary-arm stretch wrappers.
+
+#### 5. What widths and thicknesses are available for Oxy Fade Stretch Wrap?
+Standard widths range from 50 mm to 600 mm (custom widths up to 1.5 Meters available). Standard thicknesses range from 12 Micron to 29 Micron.
+
+#### 6. What colors and core options are available?
+Available colors include Natural Clear, Opaque White, Blue, and Black. Standard core IDs are 25 mm, 31 mm, and 76.2 mm.
+
+#### 7. What industries commonly use Oxy Fade Stretch Wrap?
+- Exporters & 3PL Logistics Providers
+- Food & FMCG Packaging
+- Chemical & Pharmaceutical Manufacturers
+- Industrial Manufacturing & E-Commerce Warehouses
+
+#### 8. Is Oxy Fade Stretch Wrap cost-effective for large-scale operations?
+Yes, Oxy Fade Stretch Wrap delivers high stretch capacity and elastic recovery, allowing operators to wrap pallets securely using significantly less film per load, lowering the overall cost per pallet wrapped.
+
+#### 9. Is Oxy Fade Stretch Wrap recyclable?
+Yes, Oxy Fade Stretch Wrap is manufactured from 100% recyclable polyethylene material and can be recycled through standard soft plastic recycling streams.
+
+#### 10. Can custom logo printing or private branding be applied?
+Yes, WinnerPack provides private labeling, custom roll lengths, and custom brand printing options for B2B buyers and bulk distributors.`,
+    image: "/images/products/stretch-film/image.png",
+    gallery: ["/images/products/stretch-film/image.png"],
+    specs: {
+      "Protection Against Dust / Dirt": "Yes",
+      "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
+      "Visual Inspection": "High clarity film for easy visual inspection",
+      "Cost Effectiveness": "More cost effective compared to straps / shrink / corrugation",
+      "Wrapping Options": "Available for manual wrapping / machine wrapping",
+      "Standard Widths": "50 mm / 100 mm / 150 mm / 200 mm / 300 mm / 450 mm / 500 mm / 600 mm (Max width 1.5 metres)",
+      "Standard Thickness": "12 / 15 / 18 / 23 / 29 micron (Other thicknesses on request)",
+      "Standard Colours": "Natural / Opaque White / Blue / Black (Other colours on request)",
+      "Standard Core ID": "25 mm / 31 mm / 76.2 mm",
+      "Special Additives": "UV Protection / VCI / Antistatic",
+    },
+    options: {
+      widths: ["50 mm", "100 mm", "150 mm", "200 mm", "300 mm", "450 mm", "500 mm", "600 mm"],
+      thicknesses: ["12 Micron", "15 Micron", "18 Micron", "23 Micron", "29 Micron"],
+      colors: ["Natural Clear", "Opaque White", "Blue", "Black"],
+    },
+    applications: [
+      "Export pallet load unitization & wrapping",
+      "Oxidation-sensitive product packaging",
+      "Third-party logistics & warehousing",
+      "Food & FMCG bulk carton wrapping",
+      "Irregular & heavy item bundling",
+    ],
+    visualGradients: "from-yellow-400 to-amber-500",
+  },
+  {
     id: "collation-shrink-film",
     title: "Collation Shrink Film",
     category: "film-products",
