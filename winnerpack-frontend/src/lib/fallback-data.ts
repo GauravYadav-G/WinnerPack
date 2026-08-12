@@ -5443,7 +5443,39 @@ Our BOPP rolls are available in three main formats to suit every packaging requi
 - Thermal lamination on paperboard cartons and labels
 - Horizontal flow-wrap (HFFS) automatic packaging
 - Bakery, biscuit, confectionery, and soap bar overwrapping
-- Tape base film for adhesive packaging tape`,
+- Tape base film for adhesive packaging tape
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are BOPP rolls used for?
+BOPP rolls are used for thermal lamination over paperboard cartons and labels, high-speed flexographic and rotogravure surface printing, and automatic horizontal flow-wrap (HFFS) packaging of food and FMCG products.
+
+#### 2. What types of BOPP rolls do you manufacture?
+We supply three main types — **Plain BOPP Rolls** for lamination, **Corona-Treated BOPP Rolls** for printing, and **Heat-Sealable BOPP Rolls** for direct sealing on automatic HFFS flow-wrap machines.
+
+#### 3. What does corona treatment do to BOPP rolls?
+Corona treatment raises the surface energy of the BOPP film to 38–42 dynes/cm, allowing flexographic and rotogravure inks to adhere firmly without smudging or peeling during high-speed printing.
+
+#### 4. What thickness range is available for BOPP rolls?
+Our BOPP rolls are available from **15 Micron to 40 Micron** in standard widths from 200mm to 1000mm, with custom gauge options upon request.
+
+#### 5. What is the difference between heat-sealable BOPP rolls and plain BOPP rolls?
+Plain BOPP rolls require a separate lamination adhesive or extrusion coat to bond surfaces. Heat-sealable BOPP rolls have a co-extruded sealable terpolymer skin layer that bonds to itself or other surfaces at 105°C–120°C directly on HFFS machinery.
+
+#### 6. What speed can heat-sealable BOPP rolls run on packaging machines?
+Heat-sealable BOPP rolls are engineered to run smoothly at high-speed HFFS packaging machine rates for bakery, biscuit, and soap bar wrapping applications.
+
+#### 7. Are BOPP rolls suitable for food contact packaging?
+Yes. BOPP rolls are manufactured from food-grade polypropylene and comply with applicable FDA and EU food contact material regulations.
+
+#### 8. What is the moisture barrier performance of BOPP rolls?
+BOPP film provides excellent moisture vapor barrier protection, helping preserve the freshness and shelf life of dry food, bakery, and pharmaceutical products.
+
+#### 9. Can BOPP rolls be used for flower and gift wrapping?
+Yes. Plain and printed BOPP rolls are widely used for decorative flower bouquet wrapping and retail gift packaging due to their high optical clarity and attractive appearance.
+
+#### 10. What industries typically use BOPP film rolls?
+Food & bakery, pharmaceutical, printing & lamination, gift packaging, FMCG consumer goods, and adhesive tape manufacturing are the primary industries using BOPP film rolls.`,
     image: "/images/products/bopp-films-pouches/image.png",
     gallery: ["/images/products/bopp-films-pouches/image.png"],
     specs: {
@@ -5481,7 +5513,39 @@ Our BOPP pouches are available in two primary closure styles:
 - Garment, hosiery, and apparel retail display bags
 - Greeting cards, stationery, albums, and gift packaging
 - Dry food, snack, and confectionery pouches
-- Pharmaceutical sample and over-the-counter product packaging`,
+- Pharmaceutical sample and over-the-counter product packaging
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are BOPP pouches?
+BOPP (Bi-Axially Oriented Polypropylene) pouches are high-clarity, rigid plastic bags made from BOPP film, used for retail display, garment packaging, and food products requiring excellent product visibility.
+
+#### 2. What closure types are available for BOPP pouches?
+We offer two main closure options — **Self-Adhesive Tape Seal** (peel-and-seal resealable strip for retail display) and **Heat-Sealed** (closed on automated machines for food-grade or hygienic packaging).
+
+#### 3. What is the Euro slot header punch option?
+The Euro slot is a standardized punch hole on a printed white header card at the top of the pouch, allowing the bag to hang on standard retail peg hooks without any additional labeling or tagging.
+
+#### 4. Can BOPP pouches be custom printed?
+Yes. We offer flexographic printing on the header card or full pouch surface for brand logos, product information, barcodes, and promotional graphics.
+
+#### 5. Are BOPP pouches food-safe?
+Yes. BOPP pouches are manufactured from food-grade polypropylene resin complying with applicable FDA and EU food contact regulations for dry food products.
+
+#### 6. What sizes are available for BOPP pouches?
+Standard sizes include **4×6 inch, 6×9 inch, and 9×12 inch**, with fully customizable widths and lengths available to fit any product dimensions.
+
+#### 7. What is the optical clarity of BOPP pouches?
+BOPP pouches achieve 95%+ light transmission — a glass-like, crystal-clear appearance that provides maximum product visibility on retail shelves and display pegs.
+
+#### 8. Can BOPP pouches hold their shape on retail displays?
+Yes. The bi-axial orientation of BOPP film gives the pouches excellent body stiffness and a crisp, rigid feel that maintains its shape during retail display without collapsing.
+
+#### 9. What products are best suited for BOPP pouches?
+Garments, hosiery, socks, greeting cards, stationery, dry snacks, confectionery, pharmaceutical samples, and accessories are ideally suited for BOPP display pouches.
+
+#### 10. How do BOPP pouches compare to ordinary PE or LDPE bags?
+BOPP pouches are significantly stiffer, clearer, and more rigid than PE or LDPE bags, giving products a premium presentation finish. They are not stretchable like LDPE, making them ideal for clean-edged, shape-retaining retail display.`,
     image: "/images/products/bopp-films-pouches/image.png",
     gallery: ["/images/products/bopp-films-pouches/image.png"],
     specs: {
@@ -5613,7 +5677,39 @@ PVC shrink rolls provide one of the crispest, highest-gloss finishes in the shri
 - Multipacking bottles, cans, and boxes
 - Pharmaceutical and healthcare product sealing
 - Consumer goods display packaging
-- CD, DVD, and software box overwrapping`,
+- CD, DVD, and software box overwrapping
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are PVC shrink rolls?
+PVC shrink rolls are continuous reels of polyvinyl chloride heat-shrink film — available in centerfolded or single-wound formats — used on L-bar sealing machines and heat shrink tunnels to wrap and seal products.
+
+#### 2. What is the difference between centerfolded and single-wound PVC shrink rolls?
+Centerfolded (CF) rolls are folded tubing — the L-bar sealer cuts and seals both sides simultaneously, wrapping around the product from one roll. Single-wound (SW) rolls are flat single-layer film used in chamber sealers or side-seal machines for larger or irregular products.
+
+#### 3. What is the shrink ratio of your PVC shrink rolls?
+Our PVC shrink rolls achieve **40% to 50% Transverse Direction (TD) shrinkage**, conforming tightly around any product profile when passed through a heat tunnel.
+
+#### 4. At what temperature do PVC shrink rolls activate?
+PVC shrink rolls activate at **110°C to 130°C** in a heat shrink tunnel — lower than PE or POF shrink films, reducing energy consumption on packaging lines.
+
+#### 5. What is the optical finish of PVC shrink rolls?
+PVC shrink rolls produce a **high-gloss, crystal-clear finish** after heat activation, enhancing product shelf appeal with a rigid, premium wrapped appearance.
+
+#### 6. Can PVC shrink rolls be printed?
+Yes. PVC shrink rolls can be pre-printed using flexographic inks before conversion, allowing brand logos, product labels, and promotional graphics to be applied.
+
+#### 7. What thickness range is available for PVC shrink rolls?
+Standard thickness ranges from **30 Micron to 50 Micron**, in widths from 200mm to 600mm, customizable to fit the product and sealing machine specifications.
+
+#### 8. What products are commonly wrapped using PVC shrink rolls?
+Cosmetics, perfume boxes, pharmaceutical cartons, software boxes, CD/DVD multipacks, stationary sets, and hardware tools are commonly wrapped using PVC shrink rolls.
+
+#### 9. Do PVC shrink rolls provide tamper-evidence?
+Yes. Once heat-activated, the tight shrink seal immediately shows visible tampering if the packaging is opened or disturbed, providing effective tamper-evident protection.
+
+#### 10. Are PVC shrink rolls compatible with standard L-bar sealing machines?
+Yes. Our centerfolded PVC shrink rolls are engineered for smooth operation on standard L-bar sealing machines with heat shrink tunnels, at widths and thicknesses that suit most common machines.`,
     image: "/images/products/pvc-shrink-rolls-pouches/image.png",
     gallery: ["/images/products/pvc-shrink-rolls-pouches/image.png"],
     specs: {
@@ -5650,7 +5746,39 @@ PVC shrink pouches are widely used in cosmetics, pharmaceuticals, and consumer g
 - Pharmaceutical over-the-counter product protection
 - Stationary, office supplies, and toys
 - Consumer electronics accessories
-- Food product small multipacks`,
+- Food product small multipacks
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are PVC shrink pouches?
+PVC shrink pouches are pre-formed open-end bags made from high-clarity PVC shrink film. A product is loaded into the pouch, which is then passed through a heat shrink tunnel to achieve a tight, conforming wrap around the product.
+
+#### 2. How are PVC shrink pouches different from PVC shrink rolls?
+Shrink pouches are pre-formed bags that require only product loading and heat tunnel activation — no L-bar sealer is needed. Shrink rolls require an L-bar sealer machine to cut and seal film around each product before the heat tunnel step.
+
+#### 3. What shrink ratio do PVC shrink pouches achieve?
+Our PVC shrink pouches achieve **40% to 50% Transverse Direction (TD) shrinkage**, conforming tightly to any product shape on all four sides.
+
+#### 4. Are PVC shrink pouches suitable for manual packing operations?
+Yes. The pre-formed open-end design allows products to be manually or semi-automatically loaded without any machine sealing step, making them ideal for small-batch or semi-manual production lines.
+
+#### 5. What is the visual finish of a heat-activated PVC shrink pouch?
+After heat activation, PVC shrink pouches produce a **crystal-clear, high-gloss finish** that wraps tightly around the product contour, greatly enhancing shelf appeal and product presentation.
+
+#### 6. Can PVC shrink pouches be custom printed?
+Yes. PVC shrink pouches can be surface printed using flexographic inks before bag conversion, allowing brand names, product information, and graphics to be applied.
+
+#### 7. What thickness range is available for PVC shrink pouches?
+Standard thickness ranges from **30 Micron to 50 Micron**, with fully custom dimensions available to fit the specific shape and size of your product.
+
+#### 8. What temperature activates PVC shrink pouches?
+PVC shrink pouches activate at **100°C to 130°C** in a heat shrink tunnel, achieving tight and even shrinkage across the entire pouch surface.
+
+#### 9. What products are commonly packaged in PVC shrink pouches?
+Cosmetics, personal care products, gift sets, pharmaceutical over-the-counter items, stationery, toys, consumer electronics accessories, and small food multipacks are commonly packaged in PVC shrink pouches.
+
+#### 10. Do PVC shrink pouches provide tamper-evident protection?
+Yes. Once heat-activated, the PVC shrink pouch forms a tight, conforming seal around the product that visibly distorts or tears if tampered with, providing effective tamper-evident protection for retail and pharmaceutical packaging.`,
     image: "/images/products/pvc-shrink-rolls-pouches/image.png",
     gallery: ["/images/products/pvc-shrink-rolls-pouches/image.png"],
     specs: {
