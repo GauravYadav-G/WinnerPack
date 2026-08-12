@@ -77,6 +77,7 @@ export default function CategoryClient({
             { label: currentCategory.title },
           ]}
           align="center"
+          bgImage={currentCategory.image || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"}
         />
 
         <Section className="pt-8 sm:pt-10 pb-16 bg-transparent">

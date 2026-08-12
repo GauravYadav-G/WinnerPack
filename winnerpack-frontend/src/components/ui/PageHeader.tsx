@@ -33,15 +33,15 @@ export function PageHeader({
     <section className={`relative overflow-hidden pb-12 pt-10 md:pb-16 md:pt-12 lg:pb-20 ${
       isLight ? "bg-[var(--color-bone)] border-b border-[var(--color-line)]" : "bg-[var(--color-blue-deep)]"
     }`}>
-      {/* Background Manufacturing Image for Dark Header Theme */}
+      {/* Background Manufacturing Image for Header Theme */}
       {!isLight && (
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <OptimizedImage
             src={bgImage}
             alt="WinnerPack Industrial Plant Background"
-            className="w-full h-full object-cover object-center opacity-55 scale-105"
+            className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 scale-105 transition-opacity duration-300"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/80 via-[var(--color-blue-deep)]/60 to-[var(--color-ink)]/80 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/65 via-[var(--color-blue-deep)]/45 to-[var(--color-ink)]/65 pointer-events-none" />
         </div>
       )}
 
@@ -55,7 +55,7 @@ export function PageHeader({
         </>
       ) : (
         <>
-          <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+          <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" aria-hidden />
           <div
             className="pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-[var(--color-amber)]/10 blur-[100px]"
             aria-hidden
@@ -70,43 +70,43 @@ export function PageHeader({
             <ol className={`flex flex-wrap items-center gap-1.5 font-mono text-xs ${
               isCenter ? "justify-center" : ""
             } ${
-              isLight ? "text-[var(--color-mute)]" : "text-white/45"
+              isLight ? "text-[var(--color-mute)]" : "text-white/80 drop-shadow-sm"
             }`}>
               {crumbs.map((c, i) => (
                 <li key={i} className="flex items-center gap-1.5">
-                  {i > 0 && <ChevronRight className={`h-3 w-3 ${isLight ? "text-slate-400/60" : "text-white/25"}`} />}
+                  {i > 0 && <ChevronRight className={`h-3 w-3 ${isLight ? "text-slate-400/60" : "text-white/40"}`} />}
                   {c.to ? (
                     <Link href={c.to} className={`transition-colors hover:text-[var(--color-amber-dark)] ${
-                      isLight ? "text-[var(--color-ink)]" : "hover:text-[var(--color-amber)]"
+                      isLight ? "text-[var(--color-ink)]" : "hover:text-[var(--color-amber)] text-white/90"
                     }`}>
                       {c.label}
                     </Link>
                   ) : (
-                    <span className={isLight ? "text-[var(--color-ink)] font-semibold" : "text-white/75"}>{c.label}</span>
+                    <span className={isLight ? "text-[var(--color-ink)] font-semibold" : "text-white font-semibold"}>{c.label}</span>
                   )}
                 </li>
               ))}
             </ol>
           </nav>
         )}
-        <span className={`inline-block rounded-full px-2.5 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-semibold uppercase tracking-wider ${
+        <span className={`inline-block rounded-full px-2.5 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-semibold uppercase tracking-wider drop-shadow-sm ${
           isLight
             ? "bg-[var(--color-blue-soft)] text-[var(--color-blue)] border border-[var(--color-blue-3)]/10"
-            : "bg-[var(--color-amber)]/15 text-[var(--color-amber)]"
+            : "bg-[var(--color-amber)]/25 text-[var(--color-amber)] border border-[var(--color-amber)]/30 backdrop-blur-md"
         }`}>
           {eyebrow}
         </span>
-        <h1 className={`mt-3 md:mt-5 text-balance font-display text-3xl md:text-6xl font-bold leading-[1.05] tracking-tight max-w-4xl ${
+        <h1 className={`mt-3 md:mt-5 text-balance font-display text-3xl md:text-6xl font-bold leading-[1.05] tracking-tight max-w-4xl drop-shadow-lg ${
           isCenter ? "text-center mx-auto" : ""
         } ${
           isLight ? "text-[var(--color-ink)]" : "text-white"
         }`}>
           {title}
         </h1>
-        <p className={`mt-3 md:mt-6 max-w-2xl text-xs md:text-lg leading-relaxed ${
+        <p className={`mt-3 md:mt-6 max-w-2xl text-xs md:text-lg leading-relaxed drop-shadow-md ${
           isCenter ? "text-center mx-auto" : ""
         } ${
-          isLight ? "text-[var(--color-mute)]" : "text-white/70"
+          isLight ? "text-[var(--color-mute)]" : "text-white/90 font-medium"
         }`}>
           {intro}
         </p>
