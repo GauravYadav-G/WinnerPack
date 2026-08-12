@@ -343,33 +343,33 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         {isParentProduct ? (
           <>
             {/* 1. HERO BANNER */}
-            <div className="relative w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] overflow-hidden bg-[var(--color-ink)] flex items-center justify-center border-b border-white/10">
+            <div className="relative w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] overflow-hidden bg-[var(--color-blue-deep)] flex items-center justify-center border-b border-white/10">
               <div className="absolute inset-0">
                 <OptimizedImage
-                  src="/images/desktop/about/blown_film_tower.png"
+                  src={product.image || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"}
                   alt={product.title}
-                  className="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity scale-105"
+                  className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-ink)]/90 via-[var(--color-blue-deep)]/80 to-[var(--color-ink)]/95" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/65 via-[var(--color-blue-deep)]/45 to-[var(--color-ink)]/65 pointer-events-none" />
               </div>
 
               <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-2 sm:space-y-3">
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white font-display drop-shadow-md">
+                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white font-display drop-shadow-lg">
                   {product.title}
                 </h1>
 
                 <nav aria-label="Breadcrumb" className="pt-1">
-                  <ol className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-white/70">
+                  <ol className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-white/90 drop-shadow-md">
                     <li><Link href="/" className="hover:text-[var(--color-amber)] transition-colors">Home</Link></li>
-                    <li><ChevronRight className="h-3 w-3 text-white/40" /></li>
+                    <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
                     <li><Link href="/products" className="hover:text-[var(--color-amber)] transition-colors">Products</Link></li>
                     {category && (
                       <>
-                        <li><ChevronRight className="h-3 w-3 text-white/40" /></li>
+                        <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
                         <li><Link href={`/product-category/${product.category}`} className="hover:text-[var(--color-amber)] transition-colors">{category}</Link></li>
                       </>
                     )}
-                    <li><ChevronRight className="h-3 w-3 text-white/40" /></li>
+                    <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
                     <li className="font-bold text-[var(--color-amber)]">{product.title}</li>
                   </ol>
                 </nav>
@@ -449,46 +449,32 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                 {product.longDesc ? (
                   <div
-                    className="space-y-3.5 text-sm sm:text-base text-[var(--color-mute)] leading-relaxed [&_p]:text-sm [&_p]:sm:text-base [&_p]:text-[var(--color-mute)] [&_p]:leading-relaxed [&_p]:my-1.5 [&_h2]:font-display [&_h2]:text-xl [&_h2]:sm:text-2xl [&_h2]:font-extrabold [&_h2]:text-[var(--color-ink)] [&_h2]:mt-4 [&_h2]:mb-2 [&_h3]:font-display [&_h3]:text-lg [&_h3]:sm:text-xl [&_h3]:font-bold [&_h3]:text-[var(--color-ink)] [&_h3]:mt-3.5 [&_h3]:mb-1.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_ul]:my-2 [&_li]:text-xs [&_li]:sm:text-sm [&_li]:text-[var(--color-ink)] [&_li_p]:my-0 [&_li_p]:inline [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-1 [&_ol]:my-2"
+                    className="space-y-3.5 text-sm sm:text-base text-[var(--color-mute)] leading-relaxed [&_p]:text-sm [&_p]:sm:text-base [&_p]:text-[var(--color-mute)] [&_p]:leading-relaxed [&_p]:my-1.5 [&_h2]:font-display [&_h2]:text-xl [&_h2]:sm:text-2xl [&_h2]:font-extrabold [&_h2]:text-[var(--color-ink)] [&_h2]:mt-4 [&_h2]:mb-2 [&_h2]:pt-3 [&_h2]:border-t [&_h2]:border-[var(--color-line)] [&_h3]:font-display [&_h3]:text-base [&_h3]:sm:text-lg [&_h3]:font-bold [&_h3]:text-[var(--color-ink)] [&_h3]:mt-4 [&_h3]:mb-1.5 [&_h3]:pt-2 [&_h3]:border-t [&_h3]:border-[var(--color-line)] [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1.5 [&_ul]:my-2.5 [&_li]:text-xs [&_li]:sm:text-sm [&_li]:text-[var(--color-ink)] [&_li]:marker:text-[var(--color-amber-dark)] [&_li]:marker:font-bold [&_li_p]:my-0 [&_li_p]:inline [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-1.5 [&_ol]:my-2.5"
                     dangerouslySetInnerHTML={{ __html: marked.parse(getLongDescWithoutFaq(product.longDesc)) as string }}
                   />
                 ) : (
-                  <p>
-                    With its wide range of applications, including packaging for food, pharmaceuticals, agriculture, textiles, and industrial goods, WinnerPack products offer unmatched performance, reliability, and cost-effectiveness.
-                  </p>
+                  <p>{product.blurb}</p>
                 )}
 
-                {/* Benefits Section */}
-                <div className="pt-6 border-t border-[var(--color-line)] space-y-5">
-                  <div className="flex items-center gap-2">
-                    <div className="h-6 w-1 rounded-full bg-[var(--color-amber)]" />
-                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                      Key Industrial Benefits
-                    </h2>
+                {/* Key Performance Applications */}
+                {Array.isArray(product.applications) && product.applications.length > 0 && (
+                  <div className="pt-4 border-t border-[var(--color-line)]">
+                    <h3 className="font-display text-lg sm:text-xl font-extrabold text-[var(--color-ink)] mb-4">
+                      Key Performance Applications
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {product.applications.map((benefit: string, bIdx: number) => (
+                        <div
+                          key={bIdx}
+                          className="flex items-start gap-3 rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-3.5 sm:p-4 text-xs sm:text-sm font-semibold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber)]/50 transition-colors"
+                        >
+                          <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--color-amber-dark)] shrink-0 mt-0.5" />
+                          <span>{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <p className="font-semibold text-[var(--color-ink)] font-sans">
-                    Here are key industrial benefits of using WinnerPack {product.title}:
-                  </p>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                    {[
-                      "Enhanced durability and superior mechanical protection.",
-                      "Reliable barrier against moisture, contaminants, and wear.",
-                      "High clarity and visual appeal for premium branding.",
-                      "Extended shelf life and protection in rigorous environments.",
-                      "Compatible with high-speed automated packaging machinery.",
-                      "Cost-effective solution adhering to ISO & international standards."
-                    ].map((benefit) => (
-                      <div
-                        key={benefit}
-                        className="flex items-start gap-3 rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-3.5 sm:p-4 text-xs sm:text-sm font-semibold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber)]/50 transition-colors"
-                      >
-                        <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--color-amber-dark)] shrink-0 mt-0.5" />
-                        <span>{benefit}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                )}
 
                 {/* DEDICATED FREQUENTLY ASKED QUESTIONS (FAQ) SECTION */}
                 <FaqSection faqs={extractFaqs(product.longDesc)} />
@@ -500,27 +486,27 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           /* ── CASE 2: SUB-PRODUCT / SPECIFIC DETAIL PAGE (2-COLUMN WITH "OUR PRODUCTS" SIDEBAR) ── */
           <>
             {/* HERO BANNER */}
-            <div className="relative w-full h-[200px] sm:h-[260px] md:h-[320px] overflow-hidden bg-[var(--color-ink)] flex items-center justify-center border-b border-white/10">
+            <div className="relative w-full h-[200px] sm:h-[260px] md:h-[320px] overflow-hidden bg-[var(--color-blue-deep)] flex items-center justify-center border-b border-white/10">
               <div className="absolute inset-0">
                 <OptimizedImage
-                  src="/images/desktop/about/blown_film_tower.png"
+                  src={product.image || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"}
                   alt={product.title}
-                  className="w-full h-full object-cover object-center opacity-55 scale-105"
+                  className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/80 via-[var(--color-blue-deep)]/60 to-[var(--color-ink)]/80" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/65 via-[var(--color-blue-deep)]/45 to-[var(--color-ink)]/65 pointer-events-none" />
               </div>
 
               <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-2">
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white font-display drop-shadow-md">
+                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white font-display drop-shadow-lg">
                   {product.title}
                 </h1>
 
                 <nav aria-label="Breadcrumb" className="pt-1">
-                  <ol className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-white/70">
+                  <ol className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-white/90 drop-shadow-md">
                     <li><Link href="/" className="hover:text-[var(--color-amber)] transition-colors">Home</Link></li>
-                    <li><ChevronRight className="h-3 w-3 text-white/40" /></li>
+                    <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
                     <li><Link href="/products" className="hover:text-[var(--color-amber)] transition-colors">Products</Link></li>
-                    <li><ChevronRight className="h-3 w-3 text-white/40" /></li>
+                    <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
                     <li className="font-bold text-[var(--color-amber)]">{product.title}</li>
                   </ol>
                 </nav>
