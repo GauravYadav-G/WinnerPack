@@ -134,12 +134,12 @@ function ProductsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.15 }}
-                className="relative aspect-[21/9] sm:aspect-[24/9] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-xl group"
+                className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-slate-50 shadow-xl group flex items-center justify-center p-2 sm:p-3"
               >
                 <OptimizedImage
                   src="/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg"
                   alt="LDPE Shrink Film Collation Wrap for Water Bottles Multipacks"
-                  className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-contain object-center transition-transform duration-700 group-hover:scale-[1.02]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-3 left-4 sm:bottom-4 sm:left-6 text-white pointer-events-none">
