@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, Phone, Mail, Clock, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Mail, Clock, ChevronDown, ArrowRight, ChevronRight } from "lucide-react";
 import { cn } from "../utils/cn";
 import { productCategories } from "../data";
 import OptimizedImage from '@/components/OptimizedImage';
@@ -64,6 +64,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isProductsHovered, setIsProductsHovered] = useState(false);
+  const [activeCategoryTab, setActiveCategoryTab] = useState<string>(productCategories[0]?.id || "film-products");
   const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
 
   useEffect(() => {
@@ -113,7 +114,6 @@ export default function Navbar() {
       </div>
 
       {/* ── MAIN NAVBAR ── */}
-      {/* Use lg (1024px) as the mobile/desktop breakpoint instead of md (768px) to prevent crowding */}
       <div className="h-[72px] sm:h-[76px] lg:h-[80px] relative z-40">
         <nav className={cn(
           "bg-white border-b border-[var(--color-line)] h-[72px] sm:h-[76px] lg:h-[80px] w-full transition-all duration-300 text-[var(--color-ink)]",
@@ -124,10 +124,10 @@ export default function Navbar() {
             {/* Logo & Brand */}
             <Link href="/" className="flex items-center gap-2.5 sm:gap-3 lg:gap-3.5 group shrink-0" data-hover>
               <OptimizedImage
-  src={"/logo.png"}
-  alt="Winner Pack Logo"
-  className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-/>
+                src={"/logo.png"}
+                alt="Winner Pack Logo"
+                className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
               <div className="leading-tight flex flex-col">
                 <div className="font-display text-base sm:text-lg lg:text-xl xl:text-2xl font-black tracking-tight text-[var(--color-ink)] leading-none">
                   Winner Pack
@@ -138,7 +138,7 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* Desktop Nav Links — only visible at lg (1024px) and above */}
+            {/* Desktop Nav Links — visible at lg (1024px) and above */}
             <ul className="hidden lg:flex items-center gap-0.5 xl:gap-1.5">
               {links.map((link) => {
                 const isActive = pathname === link.href || (link.hasMegaMenu && pathname.startsWith("/product"));
@@ -165,51 +165,119 @@ export default function Navbar() {
                         <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200 text-[var(--color-amber)]", isProductsHovered && "rotate-180")} />
                       </Link>
 
-                      {/* ── MEGA MENU DROPDOWN ── */}
+                      {/* ── SPLIT-PANE MEGA MENU DROPDOWN (Tabbed Category Side List + Products Grid) ── */}
                       <div
                         className={cn(
-                          "absolute left-1/2 -translate-x-1/2 top-[56px] w-[90vw] max-w-5xl bg-[var(--color-ink)]/98 backdrop-blur-2xl text-white shadow-[0_20px_50px_rgba(0,0,0,0.6)] rounded-xl border border-white/10 p-5 lg:p-6 xl:p-7 transition-all duration-300 z-50 pointer-events-auto",
+                          "absolute left-1/2 -translate-x-1/2 top-[56px] w-[92vw] max-w-5xl bg-[var(--color-ink)]/98 backdrop-blur-2xl text-white shadow-[0_25px_60px_rgba(0,0,0,0.7)] rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 z-50 pointer-events-auto",
                           isProductsHovered
                             ? "opacity-100 visible translate-y-0"
                             : "opacity-0 invisible -translate-y-2 pointer-events-none"
                         )}
                       >
                         {/* Top Decorative Amber Line */}
-                        <div className="absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r from-transparent via-[var(--color-amber)] to-transparent" />
+                        <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] via-[#ff9e43] to-[var(--color-amber)]" />
 
-                        {/* Mega Menu Grid Layout */}
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 xl:gap-8">
-                          {productCategories.map((category) => (
-                            <div key={category.id} className="flex flex-col gap-3">
-                              
-                              {/* Category Header */}
-                              <Link
-                                href={`/product-category/${category.id}`}
-                                className="group flex items-center justify-between border-b border-white/10 pb-2 text-xs font-extrabold uppercase tracking-widest text-[var(--color-amber)] hover:text-[var(--color-amber-2)] transition-colors"
-                              >
-                                <span>• {category.title}</span>
-                              </Link>
-
-                              {/* Products List under Category */}
-                              <ul className="flex flex-col gap-2">
-                                {category.items.map((item) => {
-                                  const slug = getItemSlug(item);
-                                  return (
-                                    <li key={item}>
-                                      <Link
-                                        href={`/products/${slug}`}
-                                        className="group flex items-center text-xs text-white/85 hover:text-[var(--color-amber)] transition-all duration-150 py-0.5"
-                                      >
-                                        <span className="inline-block transition-transform duration-150 group-hover:translate-x-1.5">
-                                          {item}
-                                        </span>
-                                      </Link>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
+                        <div className="flex flex-row min-h-[380px]">
+                          {/* Left Column: Vertical Category Tabs (Active state highlights with white bg & dark ink text) */}
+                          <div className="w-64 lg:w-72 shrink-0 bg-[#0c072b] border-r border-white/10 flex flex-col divide-y divide-white/5 py-2">
+                            <div className="px-5 py-2.5 text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--color-amber)]">
+                              Product Categories
                             </div>
-                          ))}
+                            {productCategories.map((category) => {
+                              const isActive = activeCategoryTab === category.id;
+                              const Icon = category.icon;
+                              return (
+                                <button
+                                  key={category.id}
+                                  type="button"
+                                  onMouseEnter={() => setActiveCategoryTab(category.id)}
+                                  onClick={() => setActiveCategoryTab(category.id)}
+                                  className={cn(
+                                    "w-full px-5 py-3.5 text-left text-xs lg:text-sm transition-all duration-200 flex items-center justify-between group cursor-pointer",
+                                    isActive
+                                      ? "bg-white text-[#120a3b] font-extrabold shadow-md border-l-4 border-[var(--color-amber)]"
+                                      : "bg-transparent text-white/80 hover:bg-white/10 hover:text-white"
+                                  )}
+                                >
+                                  <div className="flex items-center gap-3">
+                                    <div className={cn(
+                                      "p-1.5 rounded-lg transition-colors shrink-0",
+                                      isActive ? "bg-amber-100 text-[var(--color-amber-dark)]" : "bg-white/5 text-white/60 group-hover:text-[var(--color-amber)]"
+                                    )}>
+                                      <Icon className="h-4 w-4" />
+                                    </div>
+                                    <span className="truncate">{category.title}</span>
+                                  </div>
+                                  <span className={cn(
+                                    "text-[10px] font-mono font-bold px-2 py-0.5 rounded-full transition-colors shrink-0 ml-2",
+                                    isActive ? "bg-[#120a3b] text-white" : "bg-white/10 text-white/60 group-hover:bg-white/20 group-hover:text-white"
+                                  )}>
+                                    {category.items.length}
+                                  </span>
+                                </button>
+                              );
+                            })}
+                          </div>
+
+                          {/* Right Area: Dynamic Product Items Grid */}
+                          {(() => {
+                            const currentCategory = productCategories.find((c) => c.id === activeCategoryTab) || productCategories[0];
+                            return (
+                              <div className="flex-1 p-6 lg:p-7 bg-[#120a3b]/95 flex flex-col justify-between">
+                                <div>
+                                  {/* Category Header */}
+                                  <div className="flex items-start justify-between border-b border-white/10 pb-4 mb-5 gap-4">
+                                    <div>
+                                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--color-amber)]">
+                                        {currentCategory.tag}
+                                      </span>
+                                      <h3 className="text-base lg:text-lg font-extrabold text-white font-display mt-0.5">
+                                        {currentCategory.title}
+                                      </h3>
+                                    </div>
+                                    <Link
+                                      href={`/product-category/${currentCategory.id}`}
+                                      onClick={() => setIsProductsHovered(false)}
+                                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-amber)] hover:text-white transition-colors bg-white/5 hover:bg-[var(--color-amber)] px-3.5 py-1.5 rounded-xl border border-white/10 hover:border-transparent shrink-0"
+                                    >
+                                      <span>View Category</span>
+                                      <ArrowRight className="h-3.5 w-3.5" />
+                                    </Link>
+                                  </div>
+
+                                  {/* Sub-Items Grid (2 or 3 Columns) */}
+                                  <div className="grid grid-cols-2 gap-2.5">
+                                    {currentCategory.items.map((item) => {
+                                      const slug = getItemSlug(item);
+                                      return (
+                                        <Link
+                                          key={item}
+                                          href={`/products/${slug}`}
+                                          onClick={() => setIsProductsHovered(false)}
+                                          className="group p-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/5 hover:border-[var(--color-amber)]/40 transition-all duration-200 flex items-center justify-between text-xs text-white/90 hover:text-white"
+                                        >
+                                          <span className="font-medium group-hover:font-bold group-hover:text-[var(--color-amber)] transition-colors truncate">
+                                            {item}
+                                          </span>
+                                          <ChevronRight className="h-3.5 w-3.5 text-white/30 group-hover:text-[var(--color-amber)] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                                        </Link>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+
+                                {/* Bottom Info Bar */}
+                                <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-white/60">
+                                  <span className="font-mono text-[11px] truncate mr-4">
+                                    {currentCategory.blurb}
+                                  </span>
+                                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-3 py-1 rounded-full shrink-0">
+                                    ISO Verified
+                                  </span>
+                                </div>
+                              </div>
+                            );
+                          })()}
                         </div>
                       </div>
                     </li>
@@ -256,93 +324,93 @@ export default function Navbar() {
             </button>
 
             {/* Mobile/Tablet Drawer Menu Overlay — visible below lg */}
-          {open && (
-            <div className="lg:hidden absolute inset-x-0 top-[72px] sm:top-[76px] bg-white border-b border-[var(--color-line)] shadow-lg z-30 flex flex-col p-5 gap-4 animate-fade-in max-h-[85vh] overflow-y-auto">
-              <ul className="flex flex-col gap-1">
-                {links.map((link) => {
-                  const isActive = pathname === link.href;
+            {open && (
+              <div className="lg:hidden absolute inset-x-0 top-[72px] sm:top-[76px] bg-white border-b border-[var(--color-line)] shadow-lg z-30 flex flex-col p-5 gap-4 animate-fade-in max-h-[85vh] overflow-y-auto">
+                <ul className="flex flex-col gap-1">
+                  {links.map((link) => {
+                    const isActive = pathname === link.href;
 
-                  if (link.hasMegaMenu) {
+                    if (link.hasMegaMenu) {
+                      return (
+                        <li key={link.label} className="border-b border-slate-100 pb-2">
+                          <button
+                            onClick={() => setMobileCategoriesOpen(!mobileCategoriesOpen)}
+                            className={cn(
+                              "flex items-center justify-between w-full py-3 px-2 text-sm font-semibold transition-colors rounded-lg",
+                              isActive
+                                ? "text-[var(--color-amber)] bg-amber-50/50"
+                                : "text-[var(--color-ink)] hover:text-[var(--color-amber)] hover:bg-slate-50"
+                            )}
+                          >
+                            <span>{link.label}</span>
+                            <ChevronDown className={cn("h-4 w-4 text-[var(--color-amber)] transition-transform duration-200", mobileCategoriesOpen && "rotate-180")} />
+                          </button>
+
+                          {/* Mobile Products Preview */}
+                          {mobileCategoriesOpen && (
+                            <div className="mt-2 py-2 px-1 space-y-4 border-l-2 border-[var(--color-amber)] ml-3">
+                              {productCategories.map((cat) => (
+                                <div key={cat.id} className="space-y-1.5">
+                                  {/* Category Header */}
+                                  <Link
+                                    href={`/product-category/${cat.id}`}
+                                    onClick={() => setOpen(false)}
+                                    className="block text-xs font-bold uppercase text-[var(--color-amber)] tracking-wider"
+                                  >
+                                    • {cat.title}
+                                  </Link>
+
+                                  {/* Clean 2-Column Grid of Text Links */}
+                                  <div className="grid grid-cols-2 gap-x-3 gap-y-1 pl-2">
+                                    {cat.items.map((item) => (
+                                      <Link
+                                        key={item}
+                                        href={`/products/${getItemSlug(item)}`}
+                                        onClick={() => setOpen(false)}
+                                        className="text-xs text-slate-700 hover:text-[var(--color-amber)] transition-colors leading-snug py-0.5 truncate"
+                                        title={item}
+                                      >
+                                        {item}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </li>
+                      );
+                    }
+
                     return (
-                      <li key={link.label} className="border-b border-slate-100 pb-2">
-                        <button
-                          onClick={() => setMobileCategoriesOpen(!mobileCategoriesOpen)}
+                      <li key={link.label} className="border-b border-slate-50 last:border-0">
+                        <Link
+                          href={link.href}
+                          onClick={() => setOpen(false)}
                           className={cn(
-                            "flex items-center justify-between w-full py-3 px-2 text-sm font-semibold transition-colors rounded-lg",
+                            "block py-3 px-2 text-sm font-semibold transition-colors rounded-lg",
                             isActive
                               ? "text-[var(--color-amber)] bg-amber-50/50"
                               : "text-[var(--color-ink)] hover:text-[var(--color-amber)] hover:bg-slate-50"
                           )}
                         >
-                          <span>{link.label}</span>
-                          <ChevronDown className={cn("h-4 w-4 text-[var(--color-amber)] transition-transform duration-200", mobileCategoriesOpen && "rotate-180")} />
-                        </button>
-
-                        {/* Mobile Products Preview */}
-                        {mobileCategoriesOpen && (
-                          <div className="mt-2 py-2 px-1 space-y-4 border-l-2 border-[var(--color-amber)] ml-3">
-                            {productCategories.map((cat) => (
-                              <div key={cat.id} className="space-y-1.5">
-                                {/* Category Header */}
-                                <Link
-                                  href={`/product-category/${cat.id}`}
-                                  onClick={() => setOpen(false)}
-                                  className="block text-xs font-bold uppercase text-[var(--color-amber)] tracking-wider"
-                                >
-                                  • {cat.title}
-                                </Link>
-
-                                {/* Clean 2-Column Grid of Text Links */}
-                                <div className="grid grid-cols-2 gap-x-3 gap-y-1 pl-2">
-                                  {cat.items.map((item) => (
-                                    <Link
-                                      key={item}
-                                      href={`/products/${getItemSlug(item)}`}
-                                      onClick={() => setOpen(false)}
-                                      className="text-xs text-slate-700 hover:text-[var(--color-amber)] transition-colors leading-snug py-0.5 truncate"
-                                      title={item}
-                                    >
-                                      {item}
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        )}
+                          {link.label}
+                        </Link>
                       </li>
                     );
-                  }
-
-                  return (
-                    <li key={link.label} className="border-b border-slate-50 last:border-0">
-                      <Link
-                        href={link.href}
-                        onClick={() => setOpen(false)}
-                        className={cn(
-                          "block py-3 px-2 text-sm font-semibold transition-colors rounded-lg",
-                          isActive
-                            ? "text-[var(--color-amber)] bg-amber-50/50"
-                            : "text-[var(--color-ink)] hover:text-[var(--color-amber)] hover:bg-slate-50"
-                        )}
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-              
-              {/* Mobile CTA */}
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="block text-center bg-[var(--color-amber)] text-[var(--color-blue-deep)] py-3 rounded-lg text-sm font-bold hover:bg-[var(--color-amber)]/90 transition-colors"
-              >
-                Request a Quote
-              </Link>
-            </div>
-          )}
+                  })}
+                </ul>
+                
+                {/* Mobile CTA */}
+                <Link
+                  href="/contact"
+                  onClick={() => setOpen(false)}
+                  className="block text-center bg-[var(--color-amber)] text-[var(--color-blue-deep)] py-3 rounded-lg text-sm font-bold hover:bg-[var(--color-amber)]/90 transition-colors"
+                >
+                  Request a Quote
+                </Link>
+              </div>
+            )}
 
           </div>
         </nav>
@@ -350,4 +418,3 @@ export default function Navbar() {
     </>
   );
 }
-
