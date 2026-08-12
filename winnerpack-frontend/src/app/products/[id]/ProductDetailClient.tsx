@@ -215,14 +215,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       </div>
 
                       {/* Heading */}
-                      <div>
-                        <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber)]">
-                          Polyester Bonding Grade
-                        </span>
-                        <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight mt-0.5">
-                          Adhesive Lamination Film
-                        </h3>
-                      </div>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight pt-1">
+                        Adhesive Lamination Film
+                      </h3>
 
                       {/* Bullet Points with Amber Accent Markers */}
                       <ul className="space-y-2.5 text-xs sm:text-sm text-white/90 leading-relaxed font-sans font-normal">
@@ -272,14 +267,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       </div>
 
                       {/* Heading */}
-                      <div>
-                        <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber)]">
-                          Pharma Strip Foil Grade
-                        </span>
-                        <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight mt-0.5">
-                          Pharma Grade Poly
-                        </h3>
-                      </div>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight pt-1">
+                        Pharma Grade Poly
+                      </h3>
 
                       {/* Bullet Points with Amber Accent Markers */}
                       <ul className="space-y-2.5 text-xs sm:text-sm text-white/90 leading-relaxed font-sans font-normal">
