@@ -4325,6 +4325,83 @@ Yes, WinnerPack offers competitive B2B wholesale pricing, allowing companies to 
     visualGradients: "from-yellow-400 to-amber-500",
   },
   {
+    id: "recycled-stretch-wrap",
+    title: "Recycled Stretch Wrap",
+    category: "film-products",
+    tag: "PCR Stretch Wrap",
+    blurb: "Sustainable high-performance pallet wrap manufactured with a minimum of 40% Post-Consumer & Post-Industrial recycled (PCR/PIR) resin, reducing plastic footprint without compromising load stability.",
+    longDesc: `WinnerPack Recycled Stretch Wrap is the perfect solution for businesses looking to reduce their environmental impact without sacrificing packaging quality, tensile strength, or reliability. Our stretch wrap is manufactured using a minimum of 40% recycled content (PCR/PIR), including repurposed post-consumer polyethylene and recycled plastic polymers, allowing you to trust that your packaging is both highly sustainable and high-performing.
+
+We have carefully engineered and tested the mechanical strength of our recycled stretch wrap to ensure it meets strict ISO quality standards and delivers a tight, secure fit for your palletized products. Plus, our film features easy application for both manual hand wrapping and automatic stretch wrapping machines. With WinnerPack Recycled Stretch Wrap, you can rest assured that you are packaging sustainably while fully protecting your goods during transport and storage.
+
+### Key Features of WinnerPack Recycled Stretch Wrap
+- **Minimum 40% Recycled Content**: Manufactured using 40% Post-Industrial (PIR) and Post-Consumer (PCR) recycled resin to minimize virgin plastic consumption.
+- **High-Performance & Durable**: Advanced co-extrusion technology delivers exceptional puncture resistance, high stretchability, and tear strength.
+- **Secure Pallet Fit**: High elastic memory holds heavy pallet loads firmly bound during long-distance transit and warehousing.
+- **Eco-Friendly ESG Solution**: Helps businesses achieve circular economy targets, lower carbon emissions, and reduce plastic packaging waste taxes.
+- **Easy & Efficient Handling**: Smooth unwind and high self-cling properties reduce operator wrapping time and effort.
+- **Universal Machine & Hand Compatibility**: Available in hand rolls with ergonomic cores and machine-grade rolls for automated wrapping lines.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Recycled Stretch Wrap?
+Recycled Stretch Wrap is an eco-friendly pallet wrapping film manufactured with at least 40% Post-Consumer Recycled (PCR) and Post-Industrial Recycled (PIR) resin blends, reducing reliance on virgin fossil-based polymers.
+
+#### 2. Does Recycled Stretch Wrap have the same strength as virgin stretch film?
+Yes. WinnerPack Recycled Stretch Wrap undergoes rigorous quality testing to ensure multi-layer co-extruded strength, high puncture resistance, and load-retention performance comparable to 100% virgin stretch films.
+
+#### 3. What percentage of recycled material is used in this wrap?
+Our recycled stretch wrap contains a minimum of 40% PCR/PIR recycled content, helping businesses meet plastic packaging tax exemptions and sustainability benchmarks.
+
+#### 4. Can Recycled Stretch Wrap be recycled again after use?
+Yes! WinnerPack Recycled Stretch Wrap is 100% recyclable. After unwrap, it can be collected and re-processed through standard soft plastic recycling streams.
+
+#### 5. Is Recycled Stretch Wrap suitable for heavy pallet loads?
+Yes. Its high-tensile multi-layer construction delivers strong load containment, making it suitable for industrial boxes, beverage trays, and heavy machinery pallets.
+
+#### 6. Can Recycled Stretch Wrap be used on automatic wrapping machines?
+Yes. It is available in both manual hand rolls (2" and 3" core) and machine-grade rolls (3" core) compatible with high-speed turntable and rotary wrapping equipment.
+
+#### 7. What widths and thicknesses are available?
+Standard widths range from 50 mm to 600 mm (custom widths up to 1.5 Meters available). Standard thicknesses range from 12 Micron to 29 Micron.
+
+#### 8. Does Recycled Stretch Wrap affect visual inspection or scanning?
+No. High-clarity recycled resin formulations allow easy visual inspection of wrapped goods and seamless barcode scanning.
+
+#### 9. What colors and core options are available?
+Available in Natural Clear, Opaque White, Blue Tint, and Black Opaque. Core IDs available include 25 mm, 31 mm, and 76.2 mm.
+
+#### 10. How does Recycled Stretch Wrap help lower corporate carbon footprints?
+By utilizing 40% recycled resin, the production process consumes significantly less energy and crude oil compared to virgin plastic manufacturing, directly lowering Scope 3 supply chain carbon emissions.`,
+    image: "/images/products/stretch-film/image.png",
+    gallery: ["/images/products/stretch-film/image.png"],
+    specs: {
+      "Protection Against Dust / Dirt": "Yes",
+      "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
+      "Visual Inspection": "Helps for Visual Inspection",
+      "Cost Effectiveness": "More Cost effective compared to Straps / Shrink / Corrugation",
+      "Wrapping Options": "Available for Manual Wrapping / Machine Wrapping",
+      "Standard Widths": "50 mm / 100 mm / 150 mm / 200 mm / 300 mm / 450 mm / 500 mm / 600 mm (Max Width 1.5 Meters)",
+      "Standard Thickness": "12 Micron / 15 Micron / 18 Micron / 23 Micron / 29 Micron",
+      "Standard Colours": "Natural / Opaque White / Blue / Black",
+      "Standard Core ID": "25 mm / 31 mm / 76.2 mm",
+      "Special Additives": "UV Protection / VCI / Antistatic",
+    },
+    options: {
+      widths: ["50 mm", "100 mm", "150 mm", "200 mm", "300 mm", "450 mm", "500 mm", "600 mm"],
+      thicknesses: ["12 Micron", "15 Micron", "18 Micron", "23 Micron", "29 Micron"],
+      colors: ["Natural Clear", "Opaque White", "Blue", "Black"],
+    },
+    applications: [
+      "Sustainable industrial pallet wrapping",
+      "ESG-compliant warehouse logistics",
+      "Circular economy packaging operations",
+      "Export cargo & bulk goods unitization",
+      "Plastic packaging tax reduction initiatives",
+    ],
+    visualGradients: "from-yellow-400 to-amber-500",
+  },
+  {
     id: "collation-shrink-film",
     title: "Collation Shrink Film",
     category: "film-products",
