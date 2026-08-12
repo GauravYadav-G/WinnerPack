@@ -595,15 +595,18 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                   <div key={subcat.id} className="space-y-1 pl-2">
                                     <Link
                                       href={`/products/${subcat.slug}`}
-                                      className={`block text-xs sm:text-[13px] font-bold font-display tracking-tight transition-colors ${
+                                      className={`flex items-center justify-between py-0.5 text-xs sm:text-[13px] font-bold font-display tracking-tight transition-colors ${
                                         isDirectSubcat
-                                          ? "text-[var(--color-amber-dark)] font-black"
+                                          ? "text-[var(--color-ink)] font-black"
                                           : isCurrentSubcat
                                           ? "text-[var(--color-blue-deep)] font-extrabold"
                                           : "text-[var(--color-ink)] hover:text-[var(--color-amber-dark)]"
                                       }`}
                                     >
-                                      {subcat.title}
+                                      <span>{subcat.title}</span>
+                                      {isDirectSubcat && (
+                                        <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] shrink-0 ml-1.5" />
+                                      )}
                                     </Link>
 
                                     {/* Specific Product Items (Navbar Tier 3) */}
@@ -618,10 +621,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                           <li key={item.name}>
                                             <Link
                                               href={`/products/${item.slug}`}
-                                              className={`group flex items-center justify-between py-1 px-2 rounded-md text-xs font-sans transition-all duration-200 ${
+                                              className={`flex items-center justify-between py-0.5 px-1.5 rounded-md text-xs font-sans transition-colors ${
                                                 isActive
-                                                  ? "font-extrabold text-[var(--color-blue-deep)] bg-[var(--color-amber)]/25 border-l-[3px] border-[var(--color-amber)] shadow-xs"
-                                                  : "text-[var(--color-mute)] hover:text-[var(--color-ink)] hover:bg-slate-200/50"
+                                                  ? "font-extrabold text-[var(--color-ink)]"
+                                                  : "text-[var(--color-mute)] hover:text-[var(--color-ink)]"
                                               }`}
                                             >
                                               <span className="truncate">{item.name}</span>
