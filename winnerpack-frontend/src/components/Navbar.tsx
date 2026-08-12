@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X, Phone, Mail, Clock, ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "../utils/cn";
-import { productCategories } from "../data";
 import OptimizedImage from '@/components/OptimizedImage';
 
 const links = [
@@ -290,49 +289,6 @@ export const productHierarchy = [
     ]
   }
 ];
-
-// Helper to map item names to folder slugs
-function getItemSlug(name: string): string {
-  const map: Record<string, string> = {
-    "Plain Labels": "plain-labels",
-    "Printed Labels": "printed-labels",
-    "Barcode Labels": "barcode-labels",
-    "Product Labels": "product-labels",
-    "Self Adhesive Labels": "self-adhesive-labels",
-    "Thermal Labels": "thermal-labels",
-    "LDPE Films & Pouches": "ldpe-films-pouches",
-    "POF Films & Pouches": "pof-films-pouches",
-    "Coloured Films & Pouches": "coloured-films-pouches",
-    "BOPP Films & Pouches": "bopp-films-pouches",
-    "PVC Shrink Rolls & Pouches": "pvc-shrink-rolls-pouches",
-    "Stretch Film": "stretch-film",
-    "Lamination Films & Pouches": "lamination-films-pouches",
-    "Compostable Films & Pouches": "compostable-films-pouches",
-    "POF Shrink Rolls & Pouches": "pof-shrink-rolls",
-    "LDPE Shrink Rolls & Pouches": "ldpe-shrink-rolls",
-    "PVC Shrink Rolls, Pouches & Tubes": "pvc-shrink-rolls",
-    "Poly Courier Bags": "poly-courier-bags",
-    "Paper Courier Bags": "paper-courier-bags",
-    "PETG Rolls & Pouches / BOPP Pouches / ESD Pouches": "specialty-pouches",
-    "PP Strap": "pp-strap",
-    "Printed PP Strap": "printed-pp-strap",
-    "Colored PP Strap": "colored-pp-strap",
-    "PET Strap": "pet-strap",
-    "Bubble Roll & Pouches": "bubble-roll",
-    "EPE Foam Rolls": "epe-foam-rolls",
-    "Air Bags": "air-bags",
-    "Corrugated Boxes": "corrugated-boxes",
-    "Corrugated Rolls": "corrugated-rolls",
-    "Edge Protector": "edge-protector",
-    "BOPP Tapes": "bopp-tapes",
-    "Printed BOPP Tapes": "printed-bopp-tapes",
-    "Coloured BOPP Tapes": "coloured-bopp-tapes",
-    "Silicon Tapes": "silicon-tapes",
-    "Pallet Cover": "pallet-cover",
-    "Pallet Liner": "pallet-liner"
-  };
-  return map[name] || name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -639,29 +595,42 @@ export default function Navbar() {
                           {/* Mobile Products Preview */}
                           {mobileCategoriesOpen && (
                             <div className="mt-2 py-2 px-1 space-y-4 border-l-2 border-[var(--color-amber)] ml-3">
-                              {productCategories.map((cat) => (
-                                <div key={cat.id} className="space-y-1.5">
+                              {productHierarchy.map((cat) => (
+                                <div key={cat.id} className="space-y-2">
                                   {/* Category Header */}
                                   <Link
-                                    href={`/product-category/${cat.id}`}
+                                    href={`/product-category/${cat.catSlug}`}
                                     onClick={() => setOpen(false)}
-                                    className="block text-xs font-bold uppercase text-[var(--color-amber)] tracking-wider"
+                                    className="block text-xs font-bold uppercase text-[var(--color-amber-dark)] tracking-wider"
                                   >
                                     • {cat.title}
                                   </Link>
 
-                                  {/* Clean 2-Column Grid of Text Links */}
-                                  <div className="grid grid-cols-2 gap-x-3 gap-y-1 pl-2">
-                                    {cat.items.map((item) => (
-                                      <Link
-                                        key={item}
-                                        href={`/products/${getItemSlug(item)}`}
-                                        onClick={() => setOpen(false)}
-                                        className="text-xs text-slate-700 hover:text-[var(--color-amber)] transition-colors leading-snug py-0.5 truncate"
-                                        title={item}
-                                      >
-                                        {item}
-                                      </Link>
+                                  {/* Subcategories and items */}
+                                  <div className="space-y-2 pl-2">
+                                    {cat.subcategories.map((subcat) => (
+                                      <div key={subcat.id} className="space-y-1">
+                                        <Link
+                                          href={`/products/${subcat.slug}`}
+                                          onClick={() => setOpen(false)}
+                                          className="block text-xs font-bold text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] transition-colors"
+                                        >
+                                          {subcat.title}
+                                        </Link>
+                                        <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 pl-2">
+                                          {subcat.items.map((item) => (
+                                            <Link
+                                              key={item.name}
+                                              href={`/products/${item.slug}`}
+                                              onClick={() => setOpen(false)}
+                                              className="text-[11px] text-slate-600 hover:text-[var(--color-amber-dark)] transition-colors py-0.5 truncate"
+                                              title={item.name}
+                                            >
+                                              {item.name}
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      </div>
                                     ))}
                                   </div>
                                 </div>

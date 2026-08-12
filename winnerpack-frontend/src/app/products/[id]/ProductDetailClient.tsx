@@ -112,6 +112,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       });
   }, [id, targetId]);
 
+  useEffect(() => {
+    if (product?.title) {
+      document.title = `${product.title} | WinnerPack`;
+    }
+  }, [product]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-[var(--color-blue-deep)] text-white">
