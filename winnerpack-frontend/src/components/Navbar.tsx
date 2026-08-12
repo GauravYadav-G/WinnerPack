@@ -49,8 +49,8 @@ const productHierarchy = [
         title: "Lamination PE Film",
         slug: "lamination-films-pouches",
         items: [
-          { name: "Adhesive Lamination Film", slug: "lamination-films-pouches" },
-          { name: "Pharma Grade Poly", slug: "lamination-films-pouches" },
+          { name: "Adhesive Lamination Film", slug: "adhesive-lamination-film" },
+          { name: "Pharma Grade Poly", slug: "pharma-grade-poly" },
         ]
       },
       {

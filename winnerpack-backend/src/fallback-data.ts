@@ -960,6 +960,92 @@ Here are some benefits of using PE lamination roll:
     visualGradients: "from-sky-400 to-blue-500",
   },
   {
+    id: "adhesive-lamination-film",
+    title: "Adhesive Lamination Film",
+    category: "film-products",
+    tag: "Adhesive Lamination",
+    blurb: "Adhesive Lamination Film is a versatile solution for all your laminating needs. This high-quality film is designed to provide a strong and durable bond, making it ideal for various applications.",
+    longDesc: `Adhesive Lamination Film is a versatile solution for all your laminating needs. This high-quality film is designed to provide a strong and durable bond, making it ideal for various applications.
+
+The adhesive lamination process involves combining two or more layers of material using an adhesive film. This creates a composite structure that offers enhanced strength, protection, and visual appeal.
+
+Our adhesive lamination film acts as the bonding agent, securely joining different substrates together. With our adhesive lamination film, you can achieve seamless adhesion between materials such as paper, plastic, fabric, or metal. This ensures a reliable and long-lasting bond, making it suitable for packaging, labeling, and graphic arts industries.
+
+One of the key advantages of our adhesive lamination film is its exceptional clarity. It provides a crystal-clear finish, allowing your printed designs or product information to shine through without any distortion. This makes it perfect for applications where visibility and aesthetics are crucial.
+
+Additionally, our adhesive lamination film offers excellent resistance to moisture, chemicals, and UV radiation. This ensures that your laminated products remain protected and maintain their integrity even in challenging environments.
+
+Whether you need to create eye-catching packaging, durable labels, or vibrant displays, our adhesive lamination film is the perfect choice. Its versatility, strength, and visual clarity make it an essential tool for any project that requires reliable adhesion and enhanced protection.
+
+### Introduction to Adhesive Lamination
+Adhesive lamination is a simple and effective way to protect and preserve a wide range of materials using self adhesive laminating sheets. Unlike traditional lamination methods that require a machine or special equipment, self adhesive laminating sheets offer an easy, hassle-free solution. Just peel and stick the clear, acid free sheet onto your document, photo, sign, certificate, or schedule for instant protection and a professional finish.
+
+These laminating sheets are designed to be user-friendly, making them perfect for both home and office use. The clear, transparent finish ensures that your documents and photos remain vibrant and easy to read, while the acid free material helps prevent yellowing or damage over time. Whether you need to safeguard important certificates, display schedules, or create durable signs, self adhesive laminating sheets provide a quick and reliable way to keep your materials looking their best.
+
+### Manufacturing Self Adhesive Laminating Rolls
+At WinnerPack, we take pride in our manufacturing process and the exceptional features of our laminating rolls. It is designed to provide superior quality and performance, making us stand out from the competition.
+
+The manufacturing process of our laminating rolls begins with the selection of high-grade materials. We source premium quality films and adhesives to ensure the durability and reliability of our products. Our self adhesive laminating rolls are made using a combination of advanced machinery and skilled craftsmanship.
+
+One of the key features that sets our laminating rolls apart is the self-adhesive property. This eliminates the need for additional adhesives or heat activation, making the lamination process quick and hassle-free. Simply peel off the backing and apply the roll or sheet to your desired surface for instant adhesion.
+
+Our self-adhesive laminating rolls and sheets offer excellent clarity, allowing your documents, photos, or artwork to be displayed with vibrant colors and sharp details. The transparent finish enhances the visual appeal and protects the laminated items from wear and tear, moisture, and UV radiation.
+
+WinnerPack is one of the leading manufacturers and suppliers of ADHESIVE LAMINATION FILM in the world, trusted across international packaging hubs and modern industrial supply chains.
+
+### Industrial Applications
+In industrial settings, adhesive lamination film plays a crucial role in enhancing the durability and longevity of essential materials. Self adhesive laminating sheets are widely used to protect documents such as safety instructions, equipment manuals, and maintenance schedules from damage caused by frequent handling, moisture, and exposure to harsh environments. The clear, acid free sheets ensure that important information remains legible and intact, even in demanding conditions.
+
+Laminating sheets are also perfect for creating long-lasting signs, labels, and identification tags used throughout factories, warehouses, and construction sites. Their easy application means that employees can quickly laminate documents or signage on demand, without the need for a machine or specialized equipment. This not only saves time but also reduces costs associated with traditional lamination methods.
+
+Additionally, the self adhesive feature allows for quick customization and application to a variety of surfaces, making these sheets ideal for labeling equipment, organizing inventory, and displaying safety information. The result is a more efficient, organized, and professional industrial workspace.
+
+### Food Packaging
+Adhesive lamination film is an essential component in the food packaging industry, where product safety and presentation are top priorities. Self adhesive laminating sheets provide a protective barrier that helps prevent moisture, contamination, and tampering, ensuring that food products remain fresh and safe for consumption. The acid free, clear sheets are perfect for maintaining the quality and appearance of packaging, allowing branding, nutritional information, and product details to remain visible and attractive.
+
+These laminating sheets are easy to use and can be applied without the need for a machine or additional equipment, making them ideal for both large-scale food manufacturers and small businesses. The strong, self adhesive bond ensures that packaging stays sealed and secure throughout storage, transport, and display.
+
+In addition to protection, adhesive lamination film enhances the visual appeal of food packaging, helping products stand out on store shelves. Whether used for vacuum pouches, dairy products, or specialty food items, self adhesive laminating sheets offer a reliable, cost-effective solution for food packaging that meets industry standards for safety and quality.
+
+### Self Adhesive Laminating Sheets Acid Free Benefits
+Avail Benefits of Self Adhesive Laminating Sheets with WinnerPack:
+1. Easy application with adhesive backing.
+2. Versatile for use on different materials.
+3. Provides protection against moisture and damage.
+4. Offers durability and resistance to tearing and scratching.
+5. Maintains clarity for visibility of the original content.
+6. Cost-effective compared to other lamination methods.
+7. Can be easily customized and trimmed to size.
+8. Convenient for on-demand laminating without the need for machines or pouches.
+
+### Self Adhesive Lamination Film / Sheet Features
+- Used for lamination to polyester
+- Available in widths upto 2.25 meters
+- Thickness Range from 18-300 microns
+- Colours : Natural, White opaque. Other colours available on request.
+- Applications : Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.`,
+    image: "/images/products/specialty-pouches/image.png",
+    gallery: [
+      "/images/products/specialty-pouches/image.png",
+      "/images/desktop/about/blown_film_tower.png",
+      "/images/products/lamination-films-pouches/applications/app-3.png"
+    ],
+    specs: {
+      "Primary Use": "Used for lamination to polyester",
+      "Available Widths": "Up to 2.25 meters",
+      "Thickness Range": "18 - 300 microns",
+      "Available Colours": "Natural, White opaque (Other colours available on request)",
+      "Applications": "Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.",
+    },
+    options: {
+      widths: ["Up to 2.25 Meters", "500 mm", "750 mm", "1000 mm", "1500 mm", "2250 mm"],
+      thicknesses: ["18 Micron", "20 Micron", "37.5 Micron", "40 Micron", "50 Micron", "100 Micron", "150 Micron", "300 Micron"],
+      colors: ["Natural Transparent", "White Opaque"],
+    },
+    applications: ["Seeds Packaging", "Pesticide Packaging", "Dairy Products", "Vacuum Pouches", "Condom Packaging"],
+    visualGradients: "from-blue-600 to-indigo-700",
+  },
+  {
     id: "compostable-films-pouches",
     title: "Compostable Films & Pouches",
     category: "film-products",
