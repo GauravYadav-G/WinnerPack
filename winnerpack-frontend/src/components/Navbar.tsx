@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, Phone, Mail, Clock, ChevronDown, ArrowRight, ChevronRight } from "lucide-react";
+import { Menu, X, Phone, Mail, Clock, ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "../utils/cn";
 import { productCategories } from "../data";
 import OptimizedImage from '@/components/OptimizedImage';
@@ -203,7 +203,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isProductsHovered, setIsProductsHovered] = useState(false);
-  const [activeCategoryTab, setActiveCategoryTab] = useState<string>(extendedProductMenu[0].id);
+  const [activeCategoryTab, setActiveCategoryTab] = useState<string | null>(null);
   const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
 
   useEffect(() => {
@@ -288,7 +288,10 @@ export default function Navbar() {
                       key={link.label}
                       className="relative py-5"
                       onMouseEnter={() => setIsProductsHovered(true)}
-                      onMouseLeave={() => setIsProductsHovered(false)}
+                      onMouseLeave={() => {
+                        setIsProductsHovered(false);
+                        setActiveCategoryTab(null);
+                      }}
                     >
                       <Link
                         href={link.href}
@@ -304,106 +307,96 @@ export default function Navbar() {
                         <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200 text-[var(--color-amber)]", isProductsHovered && "rotate-180")} />
                       </Link>
 
-                      {/* ── TILAK POLYPACK STYLE SPLIT-PANE MEGA MENU DROPDOWN ── */}
-                      <div
-                        className={cn(
-                          "absolute left-1/2 -translate-x-1/2 top-[56px] w-[94vw] max-w-5xl bg-[#120a3b] text-white shadow-[0_30px_70px_rgba(0,0,0,0.7)] rounded-xl border border-white/10 overflow-hidden transition-all duration-300 z-50 pointer-events-auto",
-                          isProductsHovered
-                            ? "opacity-100 visible translate-y-0"
-                            : "opacity-0 invisible -translate-y-2 pointer-events-none"
-                        )}
-                      >
-                        {/* Top Decorative System Amber Line */}
-                        <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] via-[#ff9e43] to-[var(--color-amber)]" />
+                      {/* ── TILAK POLYPACK STYLE DYNAMIC FLYOUT SUBMENU ── */}
+                      {isProductsHovered && (
+                        <div className="absolute left-0 top-[56px] z-50 flex items-start pointer-events-auto">
+                          
+                          {/* 1st Tier: Category Dropdown List */}
+                          <div className="w-64 lg:w-72 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 z-20">
+                            {/* Top decorative accent bar */}
+                            <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] to-[#ff9e43]" />
 
-                        <div className="flex flex-row min-h-[440px] max-h-[520px]">
-                          {/* Left Column: Vertical Category Menu Stack (Active state: White bg, Dark ink text, Amber left border) */}
-                          <div className="w-64 lg:w-72 shrink-0 bg-[#120a3b] border-r border-white/10 flex flex-col overflow-y-auto no-scrollbar py-1">
-                            {extendedProductMenu.map((category) => {
-                              const isActive = activeCategoryTab === category.id;
-                              return (
-                                <button
-                                  key={category.id}
-                                  type="button"
-                                  onMouseEnter={() => setActiveCategoryTab(category.id)}
-                                  onClick={() => setActiveCategoryTab(category.id)}
-                                  className={cn(
-                                    "w-full px-4 py-3 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between border-b border-white/5 cursor-pointer",
-                                    isActive
-                                      ? "bg-white text-[#120a3b] font-black shadow-md border-l-4 border-l-[var(--color-amber)]"
-                                      : "bg-[#120a3b] text-white/85 hover:bg-white/10 hover:text-[var(--color-amber)] font-medium"
-                                  )}
-                                >
-                                  <span className="truncate">{category.title}</span>
-                                  <ChevronRight className={cn(
-                                    "h-3.5 w-3.5 shrink-0 ml-1 transition-transform",
-                                    isActive ? "text-[var(--color-amber-dark)] translate-x-0.5" : "text-white/30"
-                                  )} />
-                                </button>
-                              );
-                            })}
-                          </div>
-
-                          {/* Right Area: Sub-Items Panel (Side-by-side Dark Blue Blocks) */}
-                          {(() => {
-                            const currentCategory = extendedProductMenu.find((c) => c.id === activeCategoryTab) || extendedProductMenu[0];
-                            return (
-                              <div className="flex-1 p-6 lg:p-7 bg-[#0d072b] flex flex-col justify-between overflow-y-auto">
-                                <div>
-                                  {/* Sub-Panel Header */}
-                                  <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
-                                    <div>
-                                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--color-amber)]">
-                                        {currentCategory.tag}
-                                      </span>
-                                      <h3 className="text-base lg:text-lg font-extrabold text-white font-display mt-0.5">
-                                        {currentCategory.title}
-                                      </h3>
-                                    </div>
+                            <div className="divide-y divide-white/5 max-h-[75vh] overflow-y-auto no-scrollbar">
+                              {extendedProductMenu.map((category) => {
+                                const isCurrentActive = activeCategoryTab === category.id;
+                                return (
+                                  <div
+                                    key={category.id}
+                                    onMouseEnter={() => setActiveCategoryTab(category.id)}
+                                    className="relative group/item"
+                                  >
                                     <Link
-                                      href={`/product-category/${currentCategory.catSlug}`}
-                                      onClick={() => setIsProductsHovered(false)}
-                                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-amber)] hover:text-white transition-colors bg-white/5 hover:bg-[var(--color-amber)] px-3.5 py-1.5 rounded-lg border border-white/10 hover:border-transparent shrink-0"
+                                      href={`/product-category/${category.catSlug}`}
+                                      className={cn(
+                                        "w-full px-4 py-2.5 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer",
+                                        isCurrentActive
+                                          ? "bg-white text-[#120a3b] font-black shadow-sm border-l-4 border-l-[var(--color-amber)]"
+                                          : "bg-[#120a3b] text-white/85 hover:bg-white/10 hover:text-[var(--color-amber)] font-medium"
+                                      )}
                                     >
-                                      <span>Explore All</span>
-                                      <ArrowRight className="h-3.5 w-3.5" />
+                                      <span className="truncate">{category.title}</span>
+                                      {category.items && category.items.length > 0 && (
+                                        <ChevronRight className={cn(
+                                          "h-3.5 w-3.5 shrink-0 ml-1 transition-transform",
+                                          isCurrentActive ? "text-[var(--color-amber-dark)] translate-x-0.5" : "text-white/30"
+                                        )} />
+                                      )}
                                     </Link>
                                   </div>
+                                );
+                              })}
+                            </div>
+                          </div>
 
-                                  {/* Sub-Items Side-by-Side Dark Blue Block Grid */}
-                                  <div className="grid grid-cols-2 gap-3">
-                                    {currentCategory.items.map((item) => {
-                                      return (
-                                        <Link
-                                          key={item.name}
-                                          href={`/products/${item.slug}`}
-                                          onClick={() => setIsProductsHovered(false)}
-                                          className="group p-3.5 rounded-lg bg-[#1a114b] hover:bg-[#26186c] border border-white/10 hover:border-[var(--color-amber)]/50 transition-all duration-200 flex items-center justify-between text-xs text-white hover:text-[var(--color-amber)] shadow-xs"
-                                        >
-                                          <span className="font-bold tracking-wide truncate">
-                                            {item.name}
-                                          </span>
-                                          <ChevronRight className="h-4 w-4 text-[var(--color-amber)] opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0 ml-2" />
-                                        </Link>
-                                      );
-                                    })}
+                          {/* 2nd Tier: Flyout Submenu Panel (Appears dynamically attached to the side only when hovering!) */}
+                          {(() => {
+                            const currentCategory = extendedProductMenu.find((c) => c.id === activeCategoryTab);
+                            if (!currentCategory || !currentCategory.items || currentCategory.items.length === 0) {
+                              return null;
+                            }
+                            return (
+                              <div
+                                onMouseEnter={() => setActiveCategoryTab(currentCategory.id)}
+                                className="w-80 lg:w-96 bg-[#0d072b] text-white shadow-2xl rounded-xl border border-white/10 p-4 ml-1 z-10 transition-all duration-150 animate-fade-in"
+                              >
+                                {/* Submenu Header */}
+                                <div className="border-b border-white/10 pb-2.5 mb-3 flex items-center justify-between">
+                                  <div>
+                                    <span className="text-[9px] font-mono uppercase tracking-widest text-[var(--color-amber)]">
+                                      {currentCategory.tag}
+                                    </span>
+                                    <h4 className="text-xs lg:text-sm font-extrabold text-white font-display mt-0.5 truncate">
+                                      {currentCategory.title}
+                                    </h4>
                                   </div>
+                                  <Link
+                                    href={`/product-category/${currentCategory.catSlug}`}
+                                    onClick={() => setIsProductsHovered(false)}
+                                    className="text-[11px] font-bold text-white/60 hover:text-[var(--color-amber)] transition-colors shrink-0 ml-2"
+                                  >
+                                    View All →
+                                  </Link>
                                 </div>
 
-                                {/* Sub-Panel Footer Notice */}
-                                <div className="mt-6 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-white/50 font-mono">
-                                  <span className="text-[11px]">
-                                    Direct Manufacturer Supply · Custom Specifications Available
-                                  </span>
-                                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-3 py-1 rounded-full shrink-0">
-                                    ISO 9001:2015
-                                  </span>
+                                {/* Sub-Items Grid in 2 Columns */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                  {currentCategory.items.map((item) => (
+                                    <Link
+                                      key={item.name}
+                                      href={`/products/${item.slug}`}
+                                      onClick={() => setIsProductsHovered(false)}
+                                      className="p-2.5 rounded-lg bg-[#1a114b] hover:bg-[#26186c] border border-white/5 hover:border-[var(--color-amber)]/40 transition-all flex items-center justify-between text-xs text-white/90 hover:text-[var(--color-amber)] font-medium shadow-xs"
+                                    >
+                                      <span className="truncate">{item.name}</span>
+                                      <ChevronRight className="h-3 w-3 text-[var(--color-amber)] opacity-60 shrink-0 ml-1" />
+                                    </Link>
+                                  ))}
                                 </div>
                               </div>
                             );
                           })()}
                         </div>
-                      </div>
+                      )}
                     </li>
                   );
                 }
