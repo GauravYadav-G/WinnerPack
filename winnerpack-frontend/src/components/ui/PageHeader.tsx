@@ -1,6 +1,10 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import OptimizedImage from '@/components/OptimizedImage';
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Crumb {
   label: string;
@@ -15,6 +19,7 @@ interface PageHeaderProps {
   theme?: "dark" | "light";
   align?: "left" | "center";
   bgImage?: string;
+  bgImages?: string[];
 }
 
 export function PageHeader({
@@ -25,22 +30,45 @@ export function PageHeader({
   theme = "dark",
   align = "center",
   bgImage = "/images/desktop/about/blown_film_tower.png",
+  bgImages,
 }: PageHeaderProps) {
   const isLight = theme === "light";
   const isCenter = align === "center";
+
+  const imagesList = bgImages && bgImages.length > 0 ? bgImages : [bgImage];
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+
+  useEffect(() => {
+    if (imagesList.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentImgIndex((prev) => (prev + 1) % imagesList.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [imagesList.length]);
 
   return (
     <section className={`relative overflow-hidden pb-12 pt-10 md:pb-16 md:pt-12 lg:pb-20 ${
       isLight ? "bg-[var(--color-bone)] border-b border-[var(--color-line)]" : "bg-[var(--color-blue-deep)]"
     }`}>
-      {/* Background Manufacturing Image for Header Theme */}
+      {/* Background Manufacturing Image Showcase for Header Theme */}
       {!isLight && (
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <OptimizedImage
-            src={bgImage}
-            alt="WinnerPack Industrial Plant Background"
-            className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 scale-105 transition-opacity duration-300"
-          />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={imagesList[currentImgIndex]}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 0.85, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+              className="absolute inset-0 w-full h-full"
+            >
+              <OptimizedImage
+                src={imagesList[currentImgIndex]}
+                alt="WinnerPack Industrial Plant Background"
+                className="w-full h-full object-cover object-center"
+              />
+            </motion.div>
+          </AnimatePresence>
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/65 via-[var(--color-blue-deep)]/45 to-[var(--color-ink)]/65 pointer-events-none" />
         </div>
       )}

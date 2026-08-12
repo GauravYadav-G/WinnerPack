@@ -77,7 +77,17 @@ export default function CategoryClient({
             { label: currentCategory.title },
           ]}
           align="center"
-          bgImage={currentCategory.image || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"}
+          bgImages={
+            currentCategory.id === "film-products"
+              ? [
+                  "/images/desktop/portfolio/action_extrusion_tower_blue.jpg",
+                  "/images/products/bopp-films-pouches/image.png",
+                  "/images/desktop/portfolio/product_app_blown_film.png",
+                  "/images/products/coloured-films-pouches/image.png",
+                  "/images/products/stretch-film/image.png",
+                ]
+              : [currentCategory.image || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"]
+          }
         />
 
         <Section className="pt-8 sm:pt-10 pb-16 bg-transparent">
