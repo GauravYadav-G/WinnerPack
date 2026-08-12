@@ -4535,25 +4535,132 @@ Selection depends on food consistency (dry, liquid, viscous, frozen), shelf-life
     title: "Printed PE Films",
     category: "film-products",
     tag: "Printed PE",
-    blurb: "Multi-layer co-extruded printed PE liquid film rolls (Milk, Ghee, Water, SMP) with high puncture resistance and zero-leak thermal seam welding.",
-    longDesc: `Printed PE Films are specialized high-tensile polyethylene rolls manufactured for automatic liquid and dairy pouch packaging machines (VFFS). Formulated with 3-layer co-extruded resin blends featuring black EVOH/opaque barrier layers that protect fresh milk, ghee, edible oil, and purified water from light oxidation.
+    blurb: "Multi-layer co-extruded 100% virgin 3-layer PE film rolls (Milk, Ghee, Water, SMP) formulated with Metallocene for maximum seal strength, deep-freeze 8-color printing, and zero-leak drop durability.",
+    longDesc: `Printed PE (Polyethylene) Films are versatile, high-performance packaging films engineered for automated form-fill-seal (FFS) packaging machines across liquid, dairy, dry powder, and retail sectors. Manufactured from 100% prime virgin resins, these multi-layer co-extruded films combine high tensile strength, outstanding puncture resistance, and hermetic heat-seal integrity.
 
-### Key Performance Properties
-- **High Hot-Tack Sealing**: Weld seam seals instantly through liquid splash on high-speed vertical form-fill-seal machines.
-- **Light & UV Barrier**: 100% opaque inner layer prevents vitamin degradation and off-flavor development.
-- **Tear & Drop Strength**: Co-extruded mLLDPE prevents pouch burst when dropped during dairy logistics.`,
+At WinnerPack, our liquid and dairy packaging films are produced using **100% Virgin 3-Layer PE Films**. We source white masterbatch exclusively from multinational polymer manufacturers and incorporate **Metallocene Poly** to achieve the highest possible seal strength through liquid splash contamination. Our surface printing supports up to **8 colors with optimum deep-freeze ink properties**.
+
+### Film Types & Substrate Configurations
+- **Low-Density Polyethylene (LDPE)**: Soft, flexible, and high-clarity film with excellent moisture resistance.
+- **High-Density Polyethylene (HDPE)**: High stiffness, tensile strength, and moisture/oxygen barrier for heavier payloads.
+- **Metallized Polyethylene Films**: Premium metallic appearance providing extra light-shielding and brand prestige.
+- **Co-Extruded 3-Layer Films**: White/Black, Yellow/Black, or White/Clear structures engineered for zero-leak weld seams.
+
+### Tailored Roll Stock & Automated Machinery Specs
+Our rollstock films are custom-built to match customer automated pouch machines (VFFS/HFFS):
+- **Machine Customization**: Unwind direction, edge alignment, repeat length, roll width, and core size.
+- **High-Definition Graphics**: Printed via HD Flexographic and Rotogravure technology with proof approval prior to production.
+- **Quality Certifications**: Manufactured under FDA compliance, ISO 9001, ISO 14001, BRC, and GMP certified quality management systems.
+
+### Key Benefits & Product Advantages
+- **Metallocene Seal Strength**: Instant low-temp hot tack prevents pouch leaks or channel gaps.
+- **8-Color Deep Freeze Inks**: Surface printed graphics retain vibrant color depth in sub-zero frozen storage.
+- **Drop Test Pass Assurance**: High puncture and tear resistance ensures pouches easily pass drop tests.
+- **100% Virgin Food-Grade Resin**: Taste-free, odor-free safety compliant with FDA and EU food contact standards.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are printed PE films?
+Printed PE (Polyethylene) films are polyethylene-based multi-layer flexible films that undergo high-definition flexographic or rotogravure printing to display logos, branding, and product information on automated packaging lines.
+
+#### 2. How are printed PE films used in packaging?
+Unwound on Form-Fill-Seal (FFS) machines to form pouches, sachets, and protective overwraps, shielding products from moisture, oxygen, and contamination.
+
+#### 3. What industries commonly use printed PE films?
+- **Food & Dairy**: Milk pouches, ghee, vanaspati, skimmed milk powder (SMP), drinking water, frozen foods.
+- **Pharmaceuticals**: Protective and tamper-evident medicine packaging.
+- **Consumer Goods**: Toiletries, household detergents, retail products.
+- **Agriculture**: Seed wraps and fertilizer bags.
+
+#### 4. What are the benefits of using printed PE films for packaging?
+- **Customization**: Up to 8-color surface printing with deep-freeze inks.
+- **Durability**: High tear resistance, puncture resistance, and drop-test pass rates.
+- **Cost-Effective**: High-speed automated roll stock production reduces unit costs.
+- **Metallocene Sealing**: Best possible seal strength under liquid splash.
+
+#### 5. Can printed PE films be customized with logos and designs?
+Yes! Fully customized in roll width, film thickness, repeat length, unwind direction, and up to 8-color graphics.
+
+#### 6. What types of printing techniques are used on PE films?
+Flexographic printing for sharp, vivid, high-speed runs, Gravure printing for fine detail, and Digital printing for short-run customization.
+
+#### 7. Are printed PE films eco-friendly?
+Yes! Mono-material polyethylene (PE/PE) films are 100% recyclable, reducing environmental footprint.
+
+#### 8. What is the difference between printed PE films and other plastic films?
+PE films offer superior flexibility, low-temperature sealability, drop-impact toughness, and cost efficiency compared to rigid films.
+
+#### 9. How does print quality affect product visibility?
+Vibrant 8-color prints enhance brand recognition and shelf appeal, distinguishing products in competitive retail environments.
+
+#### 10. Can printed PE films be used for food packaging?
+Yes! Made from 100% virgin food-grade resins compliant with FDA, EU, BRC, and GMP food safety regulations.`,
     image: "/images/products/coloured-films-pouches/image.png",
     gallery: ["/images/products/coloured-films-pouches/image.png"],
-    specs: { "Extrusion Tech": "3-Layer Co-Extruded Liquid Packaging Film", "Leak Rate": "Zero Leakage Weld Seam Guarantee", "Printing": "Food-Safe Flexographic Printing" },
+    specs: {
+      "Film Structure": "100% Virgin 3-Layer Co-Extruded PE Film",
+      "Sealing Polymer": "Metallocene Poly for Best Possible Seal Strength",
+      "Masterbatch Grade": "White / Yellow Masterbatch Purchased Only from Multinationals",
+      "Printing Capabilities": "Surface Printing Up to 8 Colors (Optimum Deep Freeze Inks)",
+      "Drop Test Performance": "High Puncture Resistance & Guaranteed Drop Test Pass",
+    },
     thicknessLengthMatrix: [{ micron: "55", gauge: "220", meters: "1,000", feet: "3,280" }, { micron: "75", gauge: "300", meters: "750", feet: "2,460" }],
     subCategories: [
-      { id: "milk-packaging-film", title: "Milk Packaging Film", subtitle: "Liquid Milk Pouch Film Rolls", blurb: "3-Layer black/white co-extruded liquid milk pouch packaging rolls.", image: "/images/products/coloured-films-pouches/image.png" },
-      { id: "ghee-packaging-film", title: "Ghee Packaging Film", subtitle: "High Barrier Ghee & Oil Film", blurb: "High puncture resistance film rolls for ghee, vanaspati, and edible oil pouches.", image: "/images/products/coloured-films-pouches/image.png" },
-      { id: "smp-packaging-film", title: "SMP Packaging Film", subtitle: "Skimmed Milk Powder Bulk Bags", blurb: "Heavy-duty barrier liner film rolls for skimmed milk powder and dairy ingredients.", image: "/images/products/ldpe-shrink-rolls/image.png" },
-      { id: "water-packaging-film", title: "Water Packaging Film", subtitle: "Purified Water Pouch Sheeting", blurb: "High-clarity printed PE film rolls for 200ml and 500ml drinking water pouches.", image: "/images/products/coloured-films-pouches/image.png" },
+      {
+        id: "milk-packaging-film",
+        title: "Milk Packaging Film",
+        subtitle: "Liquid Milk Pouch Film Rolls",
+        blurb: "100% virgin 3-layer co-extruded black/white PE film rolls featuring Metallocene sealing and 8-color deep freeze printing.",
+        image: "/images/products/coloured-films-pouches/image.png",
+        specs: {
+          "Film Structure": "100% Virgin 3-Layer PE Films (White/Black Co-ex)",
+          "Masterbatch": "White Masterbatch from Multinationals Only",
+          "Sealing Poly": "Metallocene Poly for Best Possible Seal Strength",
+          "Deep Freeze Inks": "Surface Printing Up to 8 Colors (Deep Freeze Rated)",
+        },
+      },
+      {
+        id: "ghee-packaging-film",
+        title: "Ghee Packaging Film",
+        subtitle: "High Barrier Ghee & Oil Film",
+        blurb: "Heavy-duty 3-layer virgin PE film rolls for ghee, vanaspati, and edible oils using Metallocene for leak-proof hot oil seals.",
+        image: "/images/products/coloured-films-pouches/image.png",
+        specs: {
+          "Film Structure": "100% Virgin 3-Layer PE Films",
+          "Masterbatch Options": "White or Yellow Masterbatch (Multinational Grade)",
+          "Sealing Technology": "Metallocene Poly for Maximum Oil/Fat Seal Strength",
+          "Durability": "Puncture & Grease Resistant Barrier Construction",
+        },
+      },
+      {
+        id: "smp-packaging-film",
+        title: "SMP Packaging Film",
+        subtitle: "Skimmed Milk Powder Bulk Bags",
+        blurb: "Heavy-gauge 3-layer virgin PE film rolls for skimmed milk powder (SMP) 25kg bulk bags and dry dairy ingredients.",
+        image: "/images/products/ldpe-shrink-rolls/image.png",
+        specs: {
+          "Film Structure": "100% Virgin 3-Layer PE Films",
+          "Masterbatch": "White Masterbatch Purchased Only from Multinationals",
+          "Sealing Strength": "Metallocene Poly for Ultra-Strong 25kg Bag Seals",
+          "Printing": "Up to 8-Color Surface Printing with Deep Freeze Inks",
+        },
+      },
+      {
+        id: "water-packaging-film",
+        title: "Water Packaging Film",
+        subtitle: "Purified Water Pouch Sheeting",
+        blurb: "High-clarity 100% virgin LDPE printed film rolls with high tear and puncture resistance, easily passing pouch drop tests.",
+        image: "/images/products/coloured-films-pouches/image.png",
+        specs: {
+          "Seal Strength": "High Hot-Tack Impulse Sealing",
+          "Puncture Resistance": "High Puncture Resistant Capability",
+          "Drop Test": "Easily Passes Pouch Drop Tests",
+          "Resin Purity": "100% Virgin Food-Grade Odor-Free PE",
+        },
+      },
     ],
-    options: { widths: ["325mm", "345mm", "450mm"], thicknesses: ["55 Micron", "65 Micron", "75 Micron", "90 Micron"], colors: ["White / Black Co-ex", "Clear"] },
-    applications: ["Liquid fresh milk pouch packaging", "Ghee & edible oil pouches", "Drinking water sachet rolls"],
+    options: { widths: ["325mm", "345mm", "450mm"], thicknesses: ["55 Micron", "65 Micron", "75 Micron", "90 Micron"], colors: ["White / Black Co-ex", "Yellow Masterbatch", "Clear"] },
+    applications: ["Liquid fresh milk pouch packaging", "Ghee, vanaspati & edible oil pouches", "Skimmed milk powder (SMP) bulk liners & drinking water"],
     visualGradients: "from-sky-400 to-blue-500",
   },
   {
@@ -4561,11 +4668,25 @@ Selection depends on food consistency (dry, liquid, viscous, frozen), shelf-life
     title: "Milk Packaging Film",
     category: "film-products",
     tag: "Milk Film",
-    blurb: "3-Layer co-extruded black/white polyethylene pouch film engineered for continuous liquid fresh milk packaging machines.",
-    longDesc: "Milk Packaging Film features an opaque white outer layer for vibrant brand printing and a solid black inner layer that blocks UV light to preserve fresh milk freshness and nutritional value.",
+    blurb: "3-Layer 100% virgin co-extruded black/white polyethylene pouch film engineered with Metallocene for continuous liquid fresh milk packaging machines.",
+    longDesc: `Milk Packaging Film is engineered specifically for liquid fresh milk pouch packaging on automatic Vertical Form-Fill-Seal (VFFS) packaging machines. Manufactured from **100% Virgin 3-Layer PE Films**, our milk films utilize white masterbatch purchased exclusively from multinational suppliers.
+
+We incorporate **Metallocene Poly** into the seal layer to deliver the best possible seal strength, preventing pinholes, leakers, or seal contamination during high-speed liquid filling. Our surface printing supports up to **8 colors using inks with optimum deep-freeze properties**, ensuring brand graphics remain sharp and scuff-free during cold chain distribution.
+
+### Technical Specifications & Features
+- **100% Virgin 3-Layer PE Films**: High-purity co-extrusion for strength and food safety.
+- **Multinational White Masterbatch**: Superior opacity, brightness, and UV light barrier.
+- **Metallocene Poly Sealing**: Best-in-class hot-tack strength through liquid milk splash.
+- **8-Color Surface Printing**: Deep-freeze rated inks for refrigeration and freezing.
+- **Drop Test Pass Guarantee**: Engineered to withstand physical drops during dairy delivery.`,
     image: "/images/products/coloured-films-pouches/image.png",
     gallery: ["/images/products/coloured-films-pouches/image.png"],
-    specs: { "Co-Extrusion": "White / Clear / Black 3-Layer Structure", "Seal Strength": "High Hot-Tack Liquid Sealing", "Thickness": "55 Micron to 75 Micron" },
+    specs: {
+      "Film Structure": "100% Virgin 3-Layer PE Films (White/Black Co-ex)",
+      "Masterbatch Source": "White Masterbatch Purchased Only from Multinationals",
+      "Sealing Technology": "Metallocene Poly for Best Possible Seal Strength",
+      "Printing": "Surface Printing Up to 8 Colors (Optimum Deep Freeze Inks)",
+    },
     thicknessLengthMatrix: [{ micron: "55", gauge: "220", meters: "1,000", feet: "3,280" }, { micron: "65", gauge: "260", meters: "850", feet: "2,788" }],
     options: { widths: ["325mm Standard", "345mm"], thicknesses: ["55 Micron", "65 Micron", "75 Micron"], colors: ["White/Black Co-ex"] },
     applications: ["Pasteurized fresh milk pouches", "Buttermilk & lassi liquid packaging", "Flavored milk sachets"],
@@ -4576,13 +4697,26 @@ Selection depends on food consistency (dry, liquid, viscous, frozen), shelf-life
     title: "Ghee Packaging Film",
     category: "film-products",
     tag: "Ghee Film",
-    blurb: "Heavy-duty multi-layer poly film rolls engineered for oil/grease resistance and puncture-free ghee pouch packaging.",
-    longDesc: "Ghee Packaging Film utilizes specialized metallocene LLDPE resins that resist fat breakdown and maintain high heat seal strength in the presence of hot liquid ghee or edible oils.",
+    blurb: "Heavy-duty 3-layer virgin PE film rolls for ghee and vanaspati pouch packaging, formulated with Metallocene for leak-proof oil seals.",
+    longDesc: `Ghee & Vanaspati Packaging Film is a high-performance multi-layer film manufactured from **100% Virgin 3-Layer PE Films**. Specifically engineered for edible oils, ghee, and vanaspati, it features high oil and fat resistance to prevent film degradation or seal breakdown.
+
+We use white masterbatch purchased strictly from multinational suppliers (and can also supply with **Yellow Masterbatch** upon customer request). Formulated with **Metallocene Poly**, this film delivers the best possible seal strength through hot liquid oil contamination, ensuring 100% leak-proof pouches during transit and storage.
+
+### Technical Specifications & Features
+- **100% Virgin 3-Layer PE Films**: High mechanical strength and tear resistance.
+- **White or Yellow Masterbatch**: Purchased from leading multinationals for vivid opacity.
+- **Metallocene Poly Sealing**: Maximum seal strength under oil contamination.
+- **Fat & Grease Barrier**: Resistant to oil migration and pouch channel leaks.`,
     image: "/images/products/coloured-films-pouches/image.png",
     gallery: ["/images/products/coloured-films-pouches/image.png"],
-    specs: { "Grease Resistance": "100% Oil & Fat Barrier", "Dart Drop Impact": "High Puncture Resistance", "Thickness": "75 Micron to 105 Micron" },
+    specs: {
+      "Film Composition": "Made from 100% Virgin 3-Layer PE Films",
+      "Masterbatch Options": "White or Yellow Masterbatch from Multinationals Only",
+      "Sealing Poly": "Metallocene Poly to Provide Best Possible Seal Strength",
+      "Oil Resistance": "100% Grease & Fat Barrier Protection",
+    },
     thicknessLengthMatrix: [{ micron: "75", gauge: "300", meters: "750", feet: "2,460" }, { micron: "90", gauge: "360", meters: "600", feet: "1,968" }],
-    options: { widths: ["325mm", "450mm"], thicknesses: ["75 Micron", "90 Micron", "105 Micron"], colors: ["White HD Printed"] },
+    options: { widths: ["325mm", "450mm"], thicknesses: ["75 Micron", "90 Micron", "105 Micron"], colors: ["White / Yellow Masterbatch"] },
     applications: ["Pure ghee 500ml & 1L pouches", "Vanaspati & mustard oil packaging", "Refined cooking oil sachets"],
     visualGradients: "from-sky-400 to-blue-500",
   },
@@ -4591,11 +4725,24 @@ Selection depends on food consistency (dry, liquid, viscous, frozen), shelf-life
     title: "SMP Packaging Film",
     category: "film-products",
     tag: "SMP Bag Film",
-    blurb: "Heavy-gauge moisture barrier PE liner film rolls for skimmed milk powder (SMP) 25kg bulk bags and agricultural ingredients.",
-    longDesc: "SMP Packaging Film is extruded with ultra-low moisture vapor transmission rates (MVTR) to prevent hygroscopic skimmed milk powder from caking or absorbing ambient moisture.",
+    blurb: "Heavy-gauge 3-layer virgin PE film rolls for Skimmed Milk Powder (SMP) 25kg bulk bags and agricultural ingredients.",
+    longDesc: `SMP (Skimmed Milk Powder) Packaging Film is a high-barrier bulk lining film manufactured from **100% Virgin 3-Layer PE Films**. Engineered to protect hygroscopic milk powders and dairy ingredients from moisture absorption, caking, and contamination.
+
+Formulated with **Metallocene Poly** for ultra-strong heat seals capable of supporting 25kg payload drops, and printed with up to **8 colors using deep-freeze inks** for long-term cold storage.
+
+### Technical Specifications & Features
+- **100% Virgin 3-Layer PE Films**: Superior toughness and puncture resistance.
+- **Multinational White Masterbatch**: High opacity and professional appearance.
+- **Metallocene Poly Sealing**: Ultra-strong seal integrity for heavy bulk bags.
+- **8-Color Deep Freeze Inks**: Surface printed graphics resistant to cold storage moisture.`,
     image: "/images/products/ldpe-shrink-rolls/image.png",
     gallery: ["/images/products/ldpe-shrink-rolls/image.png"],
-    specs: { "MVTR Barrier": "Ultra Low Moisture Vapor Transmission Rate", "Bag Capacity": "25kg Heavy Duty Bulk Lining", "Thickness": "80 Micron to 150 Micron" },
+    specs: {
+      "Film Composition": "Made from 100% Virgin 3-Layer PE Films",
+      "Masterbatch": "White Masterbatch Purchased Only from Multinationals",
+      "Sealing Strength": "Metallocene Poly for Ultra-Strong 25kg Bag Seals",
+      "Printing Inks": "Surface Printing Up to 8 Colors (Deep Freeze Properties)",
+    },
     thicknessLengthMatrix: [{ micron: "100", gauge: "400", meters: "500", feet: "1,640" }],
     options: { widths: ["600mm", "900mm", "1200mm"], thicknesses: ["80 Micron", "100 Micron", "120 Micron"], colors: ["Natural Clear", "Milky White"] },
     applications: ["Skimmed milk powder 25kg inner liners", "Dairy whey powder bulk bags", "Food ingredient protective liners"],
@@ -4606,11 +4753,24 @@ Selection depends on food consistency (dry, liquid, viscous, frozen), shelf-life
     title: "Water Packaging Film",
     category: "film-products",
     tag: "Water Film",
-    blurb: "High-clarity virgin LDPE printed film rolls for fast automatic packaging of 200ml and 500ml purified drinking water pouches.",
-    longDesc: "Water Packaging Film is extruded from 100% prime virgin polyethylene resins ensuring completely odor-free, taste-free water sachet packaging.",
+    blurb: "High-clarity 100% virgin LDPE printed water pouch film rolls featuring good seal strength, tear resistance, and high puncture resistance that easily passes drop tests.",
+    longDesc: `Water Packaging Film (LDPE drinking water film) is extruded from 100% prime virgin polyethylene resins for fast automated packaging of 200ml, 250ml, and 500ml drinking water pouches.
+
+Formulated for high impulse seal strength, excellent tear resistance, and superior puncture resistance, our water films **will easily pass pouch drop tests** from transport heights.
+
+### Technical Specifications & Features
+- **Good Seal Strength**: Hermetic impulse heat seals on high-speed water pouch machinery.
+- **High Puncture & Tear Resistance**: Prevents pouch rupture during handling and transport.
+- **Drop Test Pass Guarantee**: Easily passes rigorous drop testing.
+- **100% Odor-Free & Taste-Free**: Virgin food-grade resin guarantees fresh water taste.`,
     image: "/images/products/coloured-films-pouches/image.png",
     gallery: ["/images/products/coloured-films-pouches/image.png"],
-    specs: { "Odor / Taste": "100% Taste-Free & Odorless Virgin Resin", "Seal Weld": "High-Speed Impulse Sealing", "Thickness": "50 Micron to 65 Micron" },
+    specs: {
+      "Seal Capability": "Good Seal Strength for Fast Automated Packaging",
+      "Mechanical Strength": "Tear Resistance & High Puncture Resistant Capability",
+      "Drop Durability": "Will Easily Pass Pouch Drop Tests",
+      "Material Purity": "100% Virgin Food-Grade Odor-Free LDPE",
+    },
     thicknessLengthMatrix: [{ micron: "55", gauge: "220", meters: "1,000", feet: "3,280" }],
     options: { widths: ["325mm"], thicknesses: ["50 Micron", "55 Micron", "65 Micron"], colors: ["Clear HD Printed"] },
     applications: ["200ml & 500ml drinking water pouches", "Liquids sachet packaging", "Event mineral water pouches"],
