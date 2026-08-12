@@ -649,9 +649,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   {/* RIGHT COLUMN: DETAILED ARTICLE CONTENT */}
                   <main className="flex-1 max-w-4xl space-y-8 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed font-sans font-normal">
                     
-                    {/* Top Featured Full-Width Rectangle Product Image (Perfect Fit in Card) */}
+                    {/* Top Featured Full-Width Rectangle Product Image (Taller Card Height) */}
                     <div className="w-full max-w-full overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white shadow-md">
-                      <div className="aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden">
+                      <div className="aspect-[16/13] sm:aspect-[16/12] w-full overflow-hidden">
                         <OptimizedImage
                           src={img || product.image || "/images/products/specialty-pouches/image.png"}
                           alt={product.title}

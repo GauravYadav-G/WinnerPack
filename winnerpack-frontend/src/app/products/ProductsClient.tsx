@@ -134,7 +134,7 @@ function ProductsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.15 }}
-                className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-xl group"
+                className="relative aspect-[16/13] sm:aspect-[16/12] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-xl group"
               >
                 <OptimizedImage
                   src="/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg"
