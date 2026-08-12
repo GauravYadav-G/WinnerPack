@@ -15,15 +15,39 @@ import ScrollProgress from "@/components/ScrollProgress";
 import PageWrapper from "@/components/PageWrapper";
 import OptimizedImage from '@/components/OptimizedImage';
 
-// Additional Featured Products for the showcase section
+// Featured Products covering all 4 primary categories: Films, Labels, Tapes, Strapping
 const featuredProducts = [
   {
     id: "flexible-laminated-rolls",
     title: "Flexible Laminated Rolls & Pouches",
     category: "film-products",
-    tag: "Multi-Layer Laminates",
+    tag: "Films & Pouches",
     blurb: "High-barrier 2-layer, 3-layer, and 4-layer laminated packaging rolls & pouches printed up to 8 colors for food, FMCG, and pharma packaging.",
     image: "/images/products/lamination-films-pouches/image.png",
+  },
+  {
+    id: "printed-labels",
+    title: "Printed Product Labels & Stickers",
+    category: "label-sticker-products",
+    tag: "Labels & Stickers",
+    blurb: "High-density thermal transfer barcode labels, printed product stickers, and self-adhesive labels for retail, pharma, and shipping.",
+    image: "/images/products/printed-labels/image.png",
+  },
+  {
+    id: "bopp-tapes",
+    title: "BOPP Sealing Tapes & Custom Printed Tapes",
+    category: "tapes",
+    tag: "Packaging Tapes",
+    blurb: "High-tack BOPP box sealing tapes, custom printed brand logo tapes, and specialized silicon tapes for secure carton closure.",
+    image: "/images/products/bopp-tapes/image.png",
+  },
+  {
+    id: "pet-strap",
+    title: "High-Tensile PET & PP Strapping Rolls",
+    category: "strapping",
+    tag: "Strapping Products",
+    blurb: "High break-strength PET strapping and colored PP strapping rolls engineered for heavy pallet unitization and industrial baling.",
+    image: "/images/products/pet-strap/image.png",
   },
   {
     id: "printed-pe-films",
@@ -34,36 +58,12 @@ const featuredProducts = [
     image: "/images/products/coloured-films-pouches/image.png",
   },
   {
-    id: "ldpe-bags",
-    title: "LDPE Poly Bags & Sacks",
-    category: "film-products",
-    tag: "Cleanroom & Industrial Bags",
-    blurb: "Antistatic ESD poly bags, biohazard specimen bags, black refuse sacks, ice bags, poly mailers, and soft loop handle bags.",
-    image: "/images/products/ldpe-films-pouches/applications/app-3.png",
-  },
-  {
     id: "stretch-film",
     title: "Industrial Stretch Film Rolls",
     category: "film-products",
     tag: "Pallet Unitization",
     blurb: "Hand and machine-grade cast stretch films delivering up to 300% pre-stretch for secure pallet unitization and transoceanic shipping.",
     image: "/images/products/stretch-film/image.png",
-  },
-  {
-    id: "bopp-films",
-    title: "BOPP Films & Display Pouches",
-    category: "film-products",
-    tag: "High-Clarity Overwrap",
-    blurb: "Bi-axially oriented polypropylene plain, corona-treated, and heat-sealable rolls & glass-clear retail display pouches with header slots.",
-    image: "/images/products/bopp-films-pouches/image.png",
-  },
-  {
-    id: "pvc-shrink-films",
-    title: "PVC Heat Shrink Films",
-    category: "film-products",
-    tag: "Tamper-Evident Shrink",
-    blurb: "High-gloss PVC shrink rolls and pre-formed open-end pouches providing 40-50% TD shrinkage at low activation temperatures for multi-packs.",
-    image: "/images/products/pvc-shrink-rolls-pouches/image.png",
   },
 ];
 
@@ -121,20 +121,20 @@ function ProductsContent() {
               <div className="flex flex-col items-start gap-3">
                 <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--color-blue)] font-bold">
                   <span className="w-8 h-0.5 bg-[var(--color-blue)]"></span>
-                  WinnerPack Industry Expertise
+                  WinnerPack Manufacturing Excellence
                 </div>
                 <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[var(--color-ink)] text-balance">
-                  Multilayer Films & Industrial Packaging Solutions
+                  Complete Industrial Packaging Solutions — Films, Labels, Tapes & Strapping
                 </h2>
                 <div className="w-20 h-1 bg-[var(--color-amber)] rounded-full mb-2" />
               </div>
 
               <div className="mt-6 space-y-4 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed">
                 <p>
-                  Established as one of the leading organizations engaged in manufacturing, supplying, and exporting a wide collection of <strong className="text-[var(--color-ink)] font-semibold">Multilayer Films and Flexible Laminates in Rolls & Pouches</strong>. Our comprehensive range consists of Unprinted PE Films, Printed PE Films (Milk, Ghee, SMP, Water), Flexible Laminated Rolls and Pouches, Shrink Films (POF, LDPE, PVC), Wrap-Around Labels, Lidding Foils, Stretch Films, and Industrial Poly Bags. We manufacture all our products using prime virgin raw materials, which are procured from trustworthy multinational resin vendors. All our products are widely used in various industries for packaging purposes and are known for their durability, seamless finish, barrier protection, and tear resistance.
+                  Established as one of the leading organizations engaged in manufacturing, supplying, and exporting a wide collection of <strong className="text-[var(--color-ink)] font-semibold">Multilayer Films, Self-Adhesive Labels & Stickers, High-Tack Packaging Tapes, and High-Tensile Strapping Rolls</strong>. Our comprehensive catalog spans Unprinted & Printed PE Films (Milk, Ghee, SMP, Water), Flexible Laminated Rolls and Pouches, POF/PVC/LDPE Shrink Films, Machine & Hand Stretch Wrap, Custom Printed Barcode Labels, Product Stickers, BOPP Box Sealing Tapes, and PET/PP Strapping. We manufacture all our products using prime virgin raw materials and high-tack adhesives procured from trustworthy global vendors.
                 </p>
                 <p>
-                  Promoted by technocrats that have decades of hands-on experience in this domain, we have been successfully providing our clients with high quality products as per their exact specifications. Our modern manufacturing facility, equipped with advanced multi-layer blown film extrusion lines, high-speed rotogravure & flexographic printing presses, and automated pouch converting machinery, enables us to fabricate all our products in accordance with global quality standards. Besides this, our team of expert professionals work in close proximity with our clients to understand their exact packaging demands in a better way.
+                  Promoted by technocrats with decades of hands-on experience in this domain, we provide our global clients with engineered packaging solutions as per their exact specifications. Our modern manufacturing facility is equipped with advanced multi-layer blown film extrusion lines, high-speed rotogravure & flexographic printing presses, adhesive coating units, and automated converting lines to fabricate products adhering strictly to international quality standards.
                 </p>
               </div>
             </div>
@@ -174,10 +174,10 @@ function ProductsContent() {
 
                 <div className="space-y-4 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed">
                   <p>
-                    Since our inception, WinnerPack as a packaging material manufacturer has left no stone unturned in improving and identifying the needs of our clients who come from different industrial spheres. Delivering quality packaging products worldwide with successful application and satisfied client base have been the backbone of our company.
+                    Since our inception, WinnerPack as a packaging material manufacturer has left no stone unturned in improving and identifying the needs of our clients who come from different industrial spheres. Delivering quality packaging products worldwide with successful application and a satisfied client base forms the backbone of our company.
                   </p>
                   <p>
-                    The products manufactured at WinnerPack include: high-clarity stretch film, machine stretch film, surface protection film, flexible packaging material, laminated pouches, milk packaging film, water packaging film, collation shrink film, LDPE poly bags, BOPP films, and specialized industrial tapes.
+                    The products manufactured at WinnerPack include: machine & hand stretch films, surface protection films, LDPE poly bags & shipping sacks, flexible laminated barrier pouches, milk & water packaging films, self-adhesive product labels & barcode stickers, high-tack BOPP box sealing & printed tapes, and high-tensile PET/PP strapping rolls.
                   </p>
                 </div>
 
@@ -186,7 +186,7 @@ function ProductsContent() {
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" /> 100% Prime Virgin Resins
                   </div>
                   <div className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)] font-mono">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" /> FDA Food-Safe Certified
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" /> FDA Food-Safe & ISO Certified
                   </div>
                 </div>
               </motion.div>
@@ -198,7 +198,7 @@ function ProductsContent() {
         {/* SECTION 4: ALTERNATING FEATURE SECTIONS (Reference Images 3 & 4)            */}
         {/* ========================================================================= */}
 
-        {/* FEATURE BLOCK 1: Food Grade Packaging Material (Image 3 Top) */}
+        {/* FEATURE BLOCK 1: Food Grade & Industrial Packaging Material (Image 3 Top) */}
         <section className="py-12 sm:py-16 bg-white border-b border-[var(--color-line)]">
           <Container>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -229,16 +229,16 @@ function ProductsContent() {
                   Hygiene & Safety First
                 </span>
                 <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)] uppercase tracking-tight mb-4 text-balance">
-                  FOOD GRADE PACKAGING MATERIAL
+                  FOOD GRADE & INDUSTRIAL PACKAGING MATERIALS
                 </h3>
                 <div className="w-14 h-1 bg-[var(--color-amber)] mb-6" />
 
                 <div className="space-y-4 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed">
                   <p>
-                    All the packaging material manufactured by us is quality tested and made from superior quality 100% prime virgin raw materials, and once it is manufactured it is labelled as food grade.
+                    All the packaging material manufactured by us is quality tested and made from superior quality 100% prime virgin raw materials. Once manufactured, our flexible films, laminated barrier pouches, and food-contact packaging are certified food grade.
                   </p>
                   <p>
-                    Being one of the major suppliers of packaging products in India and worldwide, WinnerPack has ensured that only the best is catered to the client with the help of hi-tech engineering and a skilled team of experts. Our films block moisture, oxygen, and UV light, preserving fresh taste and nutritional value over long-term shelf storage.
+                    Being one of the major suppliers of packaging products in India and worldwide, WinnerPack has ensured that only the best is catered to the client with the help of hi-tech engineering and a skilled team of experts. Our films block moisture, oxygen, and UV light, preserving fresh taste and nutritional value over long-term storage.
                   </p>
                 </div>
               </motion.div>
@@ -246,7 +246,7 @@ function ProductsContent() {
           </Container>
         </section>
 
-        {/* FEATURE BLOCK 2: Food Packaging & Flexible Laminates (Image 3 Bottom / 4 Top) */}
+        {/* FEATURE BLOCK 2: Custom Printed Films, Labels, Tapes & Strapping (Image 3 Bottom / 4 Top) */}
         <section className="py-0 bg-white border-b border-[var(--color-line)]">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left Solid Navy Box */}
@@ -258,19 +258,19 @@ function ProductsContent() {
               className="bg-[var(--color-blue-deep)] text-white p-8 sm:p-12 md:p-16 flex flex-col justify-center"
             >
               <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight mb-6 leading-tight text-balance">
-                FOOD PACKAGING INDIA & GLOBAL MARKETS
+                CUSTOM PRINTED FILMS, LABELS, TAPES & STRAPPING
               </h3>
               <div className="w-16 h-1 bg-[var(--color-amber)] mb-6" />
 
               <div className="space-y-4 text-white/80 text-sm sm:text-base leading-relaxed">
                 <p>
-                  We provide Food Packaging Material as per the demand of our customers in India and across the world. We customize the packaging product as per the specifications provided by our clients, ensuring maximum satisfaction for them.
+                  We provide Food & Industrial Packaging Materials as per the exact demand of our customers in India and across the world. We customize packaging dimensions, barrier layers, label die-cuts, tape widths, and strap break-strengths ensuring maximum satisfaction for our clients.
                 </p>
                 <p>
-                  Using the latest technology we ensure that quality of our packaging product is never compromised at the time when it is manufactured. We have a host of our Exclusive Design Patterns from which the customer can choose the packaging design which best suits their requirement. Our Packaging Material has features like Multiple Barrier Sealing Support, good intact sealing results in freshness of food for a longer period of time, and printed packaging materials that can have your company logo, colors and designs.
+                  Using advanced rotogravure & flexographic printing technology up to 8 colors, we deliver vibrant custom designs across barrier films, brand printed sealing tapes, barcode tracking labels, and printed strapping rolls with your company logo, graphics, and color specifications.
                 </p>
                 <p>
-                  The Packaging Material that we use is of a superior quality as we use nothing but the best when it comes to Food Packaging Material.
+                  The packaging material that we use is of superior quality as we use nothing but the best when it comes to industrial packaging solutions.
                 </p>
               </div>
             </motion.div>
@@ -285,14 +285,14 @@ function ProductsContent() {
             >
               <OptimizedImage
                 src="/images/desktop/portfolio/product_app_warehouse_dispatch.png"
-                alt="WinnerPack Food Packaging Warehouse Dispatch"
+                alt="WinnerPack Packaging Warehouse Dispatch"
                 className="w-full h-full object-cover object-center"
               />
             </motion.div>
           </div>
         </section>
 
-        {/* FEATURE BLOCK 3: Advanced Industrial Packaging (Image 4 Bottom) */}
+        {/* FEATURE BLOCK 3: Complete Cargo Unitization & Packaging Excellence (Image 4 Bottom) */}
         <section className="py-12 sm:py-16 bg-[var(--color-mist)] border-t border-[var(--color-line)]">
           <Container>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -320,10 +320,10 @@ function ProductsContent() {
                 className="flex flex-col justify-center"
               >
                 <span className="font-mono text-xs font-bold text-[var(--color-blue)] tracking-wider uppercase mb-1">
-                  Global Supply Leader
+                  End-to-End Industrial Packaging
                 </span>
                 <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)] uppercase tracking-tight mb-4 text-balance">
-                  PACKAGING MATERIAL EXCELLENCE
+                  COMPLETE INDUSTRIAL PACKAGING EXCELLENCE
                 </h3>
                 <div className="w-14 h-1 bg-[var(--color-amber)] mb-6" />
 
@@ -332,7 +332,7 @@ function ProductsContent() {
                     WinnerPack is a leading spearhead in the Packaging Industry, providing excellent packaging solutions in accord with diverse industry needs.
                   </p>
                   <p>
-                    After gaining momentum in the Packaging Industry, WinnerPack has extended its manufacturing capabilities to engineer specialized high-strength films, stretch wraps, barrier laminates, and custom labels serving pharmaceuticals, dairy, electronics, agriculture, and logistics worldwide.
+                    From high-stretch machine wrap securing heavy palletized cargo during transoceanic shipping, to printed box sealing tapes, thermal barcode tracking labels, and high-tensile PET strapping rolls, WinnerPack delivers complete end-to-end industrial load unitization.
                   </p>
                 </div>
 
@@ -350,7 +350,7 @@ function ProductsContent() {
         </section>
 
         {/* ========================================================================= */}
-        {/* SECTION 5: MAIN CATEGORIES GRID (4 Square Cards)                           */}
+        {/* SECTION 5: MAIN CATEGORIES GRID (4 Square Cards: Films, Labels, Tapes, Strapping) */}
         {/* ========================================================================= */}
         <section className="py-16 bg-white border-t border-[var(--color-line)]">
           <Container>
@@ -363,7 +363,7 @@ function ProductsContent() {
               </h2>
               <div className="mt-3 h-1 w-16 bg-[var(--color-amber)] mx-auto rounded-full" />
               <p className="mt-4 text-[var(--color-mute)] text-sm sm:text-base">
-                Explore our primary product categories engineered for high tensile strength, load stability, and barrier protection.
+                Explore our 4 primary product lines — engineered for high strength, clear identification, secure sealing, and pallet load unitization.
               </p>
             </div>
 
@@ -411,7 +411,7 @@ function ProductsContent() {
         </section>
 
         {/* ========================================================================= */}
-        {/* SECTION 6: FEATURED PRODUCTS SHOWCASE GRID (Reference Image 5)             */}
+        {/* SECTION 6: FEATURED PRODUCTS SHOWCASE GRID (Covering All 4 Product Lines) */}
         {/* ========================================================================= */}
         <section className="py-16 bg-[var(--color-bone)] border-t border-[var(--color-line)]">
           <Container>
@@ -424,11 +424,11 @@ function ProductsContent() {
               </h2>
               <div className="mt-3 h-1 w-16 bg-[var(--color-amber)] mx-auto rounded-full" />
               <p className="mt-4 text-[var(--color-mute)] text-sm sm:text-base">
-                Discover our specialized packaging solutions manufactured to exact technical standards.
+                Discover our specialized films, labels, tapes, and strapping manufactured to exact technical standards.
               </p>
             </div>
 
-            {/* Product Cards Grid (Image 5 style) */}
+            {/* Product Cards Grid (Covering Films, Labels, Tapes & Strapping) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
               {featuredProducts.map((prod, i) => (
                 <motion.div
