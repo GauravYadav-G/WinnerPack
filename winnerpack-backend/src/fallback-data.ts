@@ -2515,21 +2515,61 @@ Yes, most machine stretch films are recyclable as they are made of polyethylene 
     applications: ["Pallet bottom layer board", "Stack stabilization interleaving", "Carton moisture barrier protector"],
     visualGradients: "from-yellow-400 to-amber-500",
   },
-
-  // --- ADDITIONAL STANDALONE FILM PARENTS & SUB-PRODUCTS ---
   {
     id: "pof-shrink-film",
     title: "POF Shrink Film",
     category: "film-products",
     tag: "POF Shrink",
     blurb: "5-Layer co-extruded Polyolefin (POF) shrink rolls and pre-cut pouches engineered for crystal-clear optical transparency, high tensile puncture resistance, and dog-ear free shrink performance.",
-    longDesc: `POF (Polyolefin) Shrink Film is an advanced multi-layer polymer film produced via double-bubble co-extrusion technology. Engineered for retail display packaging, food overwrapping, and industrial multipacks, POF shrink film delivers 93%+ glass-like clarity, high tensile strength, and clean non-stick sealing wire performance.
+    longDesc: `POF (Polyolefin) Shrink Film is an advanced multi-layer polymer film produced via double-bubble co-extrusion technology. Engineered for retail display packaging, food overwrapping, and industrial multipacks, WinnerPack POF shrink film delivers 93%+ glass-like clarity, high tensile strength, and clean non-stick sealing wire performance.
+
+WinnerPack is a leading manufacturer and global supplier of high-grade POF Shrink Film, serving food processors, cosmetics manufacturers, publishing houses, and retail packaging operations across worldwide markets.
 
 ### Key Material Features
-- **High Gloss Display Optics**: Enhances shelf presence with crystal-clear transparency.
+- **High Gloss Display Optics**: Enhances shelf presence with 93%+ glass-like optical clarity and high reflection.
 - **Bi-Axial Uniform Shrinkage**: 62% MD / 60% TD shrink ratio ensures tight, wrinkle-free corner fitment without 'dog ears'.
-- **Puncture & Tear Resistance**: Multi-layer LLDPE/PP core prevents tear propagation across sharp box corners.
-- **Food Safe & Recyclable**: 100% FDA compliant for direct food contact and 100% recyclable.`,
+- **Puncture & Tear Resistance**: 5-layer co-extruded LLDPE/PP core prevents tear propagation across sharp box corners.
+- **Food Safe & Recyclable**: 100% FDA compliant for direct food contact and 100% recyclable polyolefin material.
+- **Wide Temperature Window**: Reliable shrink activation from 140°C to 180°C in standard thermal shrink tunnels.
+- **Non-Toxic Smoke Free Sealing**: Emits no toxic fumes or chlorine gas during hot-wire or L-bar heat sealing.
+
+### Applications of POF Shrink Film
+- **Food & Bakery Packaging**: Wraps fresh bakery goods, pizza trays, confectioneries, and frozen foods.
+- **Cosmetics & Personal Care**: Provides tamper-evident overwrapping for perfume boxes, lotion bottles, and gift sets.
+- **Stationery & Publishing**: Shields books, magazines, notebooks, and art supplies from dust and fingerprints.
+- **Toys, Games & Hardware**: Bundles multipack board games, software boxes, and hardware tools securely.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is POF Shrink Film?
+POF (Polyolefin) Shrink Film is a premium multi-layer shrink film made from Polyethylene (PE) and Polypropylene (PP). It shrinks tightly and uniformly around items when exposed to heat, providing crystal-clear retail display packaging.
+
+#### 2. How does POF Shrink Film differ from PVC shrink film?
+Unlike PVC film, POF shrink film is 100% food-safe, odorless, and emits no toxic chlorine gas or corrosive fumes during sealing. POF is also more flexible, stronger, does not become brittle at cold temperatures, and is 100% recyclable.
+
+#### 3. Is POF Shrink Film approved for direct food contact?
+Yes. WinnerPack POF Shrink Film is manufactured using US FDA and EU-compliant food-grade virgin resins, making it completely safe for direct wrapping of food items.
+
+#### 4. What formats are available for POF Shrink Film?
+Available in Centerfolded (CF) rolls for L-sealers, Single Wound (SW) rolls for automated wrapping lines, and Pre-Cut 3-Side Sealed Pouches for quick manual packing.
+
+#### 5. What shrink ratio does POF film provide?
+It features bi-axial shrinkage of up to 62% Machine Direction (MD) and 60% Transverse Direction (TD), creating a tight, wrinkle-free seal around products of all shapes.
+
+#### 6. What temperature is required to shrink POF film?
+POF film activates in heat tunnels or with heat guns between 140°C and 180°C (284°F to 356°F), depending on tunnel speed and film micron thickness.
+
+#### 7. Does POF Shrink Film form hard 'dog ears' on box corners?
+No. High-flexibility polyolefin resins shrink smoothly around corners without leaving sharp or rigid 'dog ears', resulting in clean, aesthetic retail presentation.
+
+#### 8. Can POF film be used on automated high-speed packaging machines?
+Yes. WinnerPack POF films are formulated with slip additives for high-speed automatic side sealers and continuous motion wrappers running up to 120 packs per minute.
+
+#### 9. What thicknesses are standard for POF Shrink Film?
+Standard thicknesses include 12 Micron (50 Gauge), 15 Micron (60 Gauge), 19 Micron (75 Gauge), and 25 Micron (100 Gauge).
+
+#### 10. Is POF Shrink Film recyclable?
+Yes. POF is 100% recyclable under category #4 (LDPE/PP) soft plastic recycling programs.`,
     image: "/images/products/pof-shrink-rolls/image.png",
     gallery: [
       "/images/products/pof-shrink-rolls/image.png",
@@ -2540,18 +2580,16 @@ Yes, most machine stretch films are recyclable as they are made of polyethylene 
       "Polymer Structure": "5-Layer Co-Extruded Polyolefin (POF)",
       "Shrink Temp Window": "140°C to 180°C Thermal Tunnel",
       "Optical Clarity": "93% Glass Gloss Reflection",
+      "Bi-Axial Shrinkage": "62% MD / 60% TD Controlled Shrink",
       "Available Formats": "Centerfolded (CF) / Single Wound (SW) / Pre-Cut Pouches",
+      "Food Contact Rating": "FDA 21 CFR & EU Food Safe Compliant",
+      "Recyclability": "100% Recyclable Polyolefin (#4 PE/PP)",
     },
     thicknessLengthMatrix: [
       { micron: "12", gauge: "50", meters: "1,665", feet: "5,250" },
       { micron: "15", gauge: "60", meters: "1,332", feet: "4,375" },
       { micron: "19", gauge: "75", meters: "1,067", feet: "3,500" },
       { micron: "25", gauge: "100", meters: "800", feet: "2,625" },
-    ],
-    subCategories: [
-      { id: "cross-linked-pof", title: "Cross-Linked POF Film", subtitle: "Irradiated High Tensile Polyolefin Rolls", blurb: "Irradiated cross-linked POF shrink film with extreme puncture resistance and high hot-knife seal strength.", image: "/images/products/pof-shrink-rolls/image.png" },
-      { id: "non-cross-linked-pof-film", title: "Non-Cross-Linked POF Film", subtitle: "Standard 5-Layer Soft Shrink Polyolefin", blurb: "Standard co-extruded POF shrink rolls designed for bakery, books, cosmetics, and general retail multipacks.", image: "/images/products/pof-shrink-rolls/image.png" },
-      { id: "pof-shrink-pouches", title: "POF Shrink Pouches", subtitle: "Pre-Cut Sealed Polyolefin Shrink Bags", blurb: "Pre-cut 3-side sealed POF shrink pouches ready for manual L-bar sealing and instant shrink tunnel processing.", image: "/images/products/pof-films-pouches/applications/app-4.png" },
     ],
     options: { widths: ["200mm", "300mm", "450mm", "600mm"], thicknesses: ["12 Micron", "15 Micron", "19 Micron", "25 Micron"], colors: ["Ultra Clear Glass Finish"] },
     applications: ["Food & bakery packaging", "Gift basket & cosmetic boxes", "Toys, books & stationery packs"],
@@ -2563,11 +2601,72 @@ Yes, most machine stretch films are recyclable as they are made of polyethylene 
     category: "film-products",
     tag: "Irradiated POF",
     blurb: "Irradiated cross-linked POF shrink film engineered with enhanced polymer chain bonds for extreme puncture resistance and high-speed automated L-sealer performance.",
-    longDesc: "Cross-Linked POF Film undergoes high-energy electron beam irradiation during extrusion, forming strong cross-linked molecular bonds. This grants the film superior resistance against puncture from sharp edges, zero burn-through on extended shrink tunnels, and ultra-strong seal wire welds.",
+    longDesc: `Cross-Linked POF Film undergoes high-energy electron beam irradiation during extrusion, forming strong cross-linked molecular bonds throughout the polymer matrix. This grants the film superior resistance against puncture from sharp box corners, zero burn-through under extended shrink tunnel exposure, and ultra-strong seal wire welds.
+
+WinnerPack Cross-Linked POF Shrink Film is specially designed for high-speed automatic wrapping machines, heavy-duty multipacks, and products with sharp or irregular edges that easily tear conventional shrink films.
+
+### Key Performance Advantages
+- **Extreme Puncture & Tear Resistance**: Irradiated polymer network prevents tears when wrapping sharp hardware, metal edges, or heavy boxes.
+- **Ultra-Strong Weld Sealing**: Provides high seal strength across hot-knife, L-bar, and side-sealers without wire burnout or smoke.
+- **Wide Operating Window**: Resists burn-through at high tunnel temperatures, accommodating fluctuating machine speeds.
+- **High Retraction Force**: Holds heavy multi-packs bound tightly without relaxing during long-distance transit.
+- **Crystal-Clear Optics**: Retains 93%+ glass-like clarity and high gloss for premium B2B and retail presentation.
+
+### Applications
+- Heavy retail carton & box bundling
+- Sharp-edged hardware, tools & automotive parts
+- High-speed automatic L-sealers & continuous motion side-wrappers
+- Multi-pack beverage & canned food trayless wrapping
+- Frozen food & cold-chain overwrapping
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Cross-Linked POF Film?
+Cross-Linked POF Film is an advanced polyolefin shrink film that has been treated with electron-beam irradiation during manufacturing. This creates strong chemical cross-links between polymer chains, significantly boosting tensile strength and puncture durability.
+
+#### 2. What is the difference between Cross-Linked and Standard POF film?
+Cross-Linked POF film offers up to 50% higher puncture resistance, stronger seal welds, and a wider sealing/shrinking temperature window than standard non-cross-linked POF film. It does not burn through easily in shrink tunnels and handles sharp-cornered products without tearing.
+
+#### 3. Why is Cross-Linked POF preferred for high-speed packaging machines?
+Because of its superior seal wire strength and thermal stability, it allows automatic L-bar sealers and continuous side-sealers to run at maximum speeds (up to 120 packs per minute) without seal failure or wire residue buildup.
+
+#### 4. Can Cross-Linked POF wrap sharp-edged products?
+Yes. The irradiated molecular structure provides exceptional resistance against punctures from sharp box corners, metal hardware, and rigid plastic edges.
+
+#### 5. Is Cross-Linked POF safe for food packaging?
+Yes. WinnerPack Cross-Linked POF film is FDA and EU food contact approved, non-toxic, odorless, and suitable for direct contact with food products.
+
+#### 6. What roll formats are available?
+Available in Centerfolded (CF) and Single Wound (SW) rolls tailored for manual, semi-automatic, and fully automatic wrapping machinery.
+
+#### 7. What thicknesses are offered?
+Offered in 12 Micron (50 Gauge), 15 Micron (60 Gauge), 19 Micron (75 Gauge), and 25 Micron (100 Gauge).
+
+#### 8. Does Cross-Linked POF shrink uniformly?
+Yes. It provides consistent 60%+ bi-axial shrinkage, ensuring a tight, wrinkle-free fit over complex shapes.
+
+#### 9. How does Cross-Linked POF perform in cold storage?
+It remains soft, flexible, and crack-resistant down to -40°C, making it ideal for frozen food packaging.
+
+#### 10. Is Cross-Linked POF recyclable?
+Yes. It is 100% recyclable under soft polyolefin plastic recycling streams.`,
     image: "/images/products/pof-shrink-rolls/image.png",
     gallery: ["/images/products/pof-shrink-rolls/image.png"],
-    specs: { "Polymer Link": "Irradiated Cross-Linked Structure", "Puncture Resistance": "Superior Sharp Edge Impact Rating", "Sealing Window": "Ultra-Wide Hot Knife Sealing Range" },
-    thicknessLengthMatrix: [{ micron: "12", gauge: "50", meters: "1,665", feet: "5,250" }, { micron: "15", gauge: "60", meters: "1,332", feet: "4,375" }, { micron: "19", gauge: "75", meters: "1,067", feet: "3,500" }],
+    specs: {
+      "Polymer Structure": "Irradiated Cross-Linked Polyolefin",
+      "Puncture Rating": "Extreme Sharp Edge Impact Resistance",
+      "Sealing Window": "Ultra-Wide Hot Knife Sealing Range",
+      "Optical Clarity": "93% Glass Gloss Reflection",
+      "Shrink Temperature": "140°C to 190°C Thermal Tunnel",
+      "Machine Speed": "Up to 120 Packs Per Minute",
+      "Food Safety": "FDA 21 CFR & EU Compliant",
+    },
+    thicknessLengthMatrix: [
+      { micron: "12", gauge: "50", meters: "1,665", feet: "5,250" },
+      { micron: "15", gauge: "60", meters: "1,332", feet: "4,375" },
+      { micron: "19", gauge: "75", meters: "1,067", feet: "3,500" },
+      { micron: "25", gauge: "100", meters: "800", feet: "2,625" },
+    ],
     options: { widths: ["200mm", "300mm", "450mm", "600mm"], thicknesses: ["12 Micron", "15 Micron", "19 Micron", "25 Micron"], colors: ["Ultra Clear"] },
     applications: ["Heavy retail box bundling", "Sharp-edged hardware packaging", "High-speed automatic L-sealers"],
     visualGradients: "from-sky-400 to-blue-500",
@@ -2577,12 +2676,71 @@ Yes, most machine stretch films are recyclable as they are made of polyethylene 
     title: "Non-Cross-Linked POF Film",
     category: "film-products",
     tag: "Standard POF",
-    blurb: "Standard 5-layer co-extruded POF shrink rolls (centerfolded and single wound) offering outstanding optical clarity, soft-shrink capability, and low-temperature activation.",
-    longDesc: "Non-Cross-Linked POF Film provides a cost-effective, high-clarity shrink solution for everyday retail items. Its soft-shrink tension prevents thin paperbacks or flexible food items from bending during shrinking.",
+    blurb: "Standard 5-layer co-extruded POF shrink rolls offering outstanding optical clarity, soft-shrink capability, and low-temperature activation for retail goods.",
+    longDesc: `Non-Cross-Linked POF Film provides a cost-effective, high-clarity shrink packaging solution for everyday consumer items. Produced via 5-layer co-extrusion, its soft-shrink characteristics prevent thin paperbacks, flexible food trays, or delicate cosmetic boxes from bending or warping during the heat shrinking process.
+
+WinnerPack Non-Cross-Linked POF Film is ideal for bakery products, publishing, gift baskets, and general retail items requiring crystal-clear product visibility at an economical price point.
+
+### Key Features & Benefits
+- **Soft-Shrink Activation**: Low-tension shrink force prevents thin books, paper boxes, and flexible items from warping.
+- **Glass-Like Optical Clarity**: High gloss finish enhances product color vibrancy and brand appeal on store shelves.
+- **Low Activation Temperature**: Shrinks efficiently at lower tunnel temperatures (135°C–160°C), saving energy.
+- **Odorless & Smoke-Free Sealing**: Emits zero toxic fumes or unpleasant odors during impulse or L-bar wire sealing.
+- **Cost-Effective Retail Overwrap**: Economical choice for high-volume retail goods overwrapping.
+
+### Applications
+- Bakery & confectionery packaging (cakes, breads, cookies)
+- Books, notebooks, magazines & paper products
+- Cosmetics, perfume boxes & hygiene items
+- Toys, board games & stationery gift sets
+- Household products & general multipacks
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Non-Cross-Linked POF Film?
+Non-Cross-Linked POF Film is a standard 5-layer co-extruded polyolefin shrink film designed for general-purpose retail overwrapping and display packaging.
+
+#### 2. What is the benefit of soft-shrink performance?
+Soft-shrink performance ensures the film contracts gently without exerting excessive force, preventing flexible or thin products (like paperbacks or light boxes) from bending or warping.
+
+#### 3. How does Non-Cross-Linked POF compare to PVC shrink film?
+Non-Cross-Linked POF is completely odorless, non-toxic, food-grade safe, and recyclable — unlike PVC which emits hazardous chlorine gas and becomes brittle over time.
+
+#### 4. Is this film food contact safe?
+Yes. WinnerPack Non-Cross-Linked POF film meets US FDA and EU regulations for direct food contact.
+
+#### 5. What roll formats are available?
+Available in Centerfolded (CF) rolls for standard L-bar sealers and Single Wound (SW) rolls for automated wrapping lines.
+
+#### 6. What tunnel temperatures are recommended?
+Activates smoothly in thermal shrink tunnels between 135°C and 160°C.
+
+#### 7. Does it leave hard corners or dog ears?
+No. The flexible polyolefin structure shrinks smoothly over item contours without leaving sharp corners.
+
+#### 8. What thicknesses are available?
+Offered in standard 15 Micron (60 Gauge), 19 Micron (75 Gauge), and 25 Micron (100 Gauge).
+
+#### 9. Can it be used with impulse hand sealers?
+Yes, it seals cleanly with tabletop impulse bar sealers, L-bar sealers, and automated packaging machinery.
+
+#### 10. Is Non-Cross-Linked POF recyclable?
+Yes, 100% recyclable under soft plastic (#4 PE/PP) recycling streams.`,
     image: "/images/products/pof-shrink-rolls/image.png",
     gallery: ["/images/products/pof-shrink-rolls/image.png"],
-    specs: { "Format Availability": "Centerfolded (CF) / Single Wound (SW)", "Shrink Activation": "135°C Low Temperature Soft Shrink", "Clarity Rating": "94% Glass-Clear Display Optics" },
-    thicknessLengthMatrix: [{ micron: "15", gauge: "60", meters: "1,332", feet: "4,375" }, { micron: "19", gauge: "75", meters: "1,067", feet: "3,500" }],
+    specs: {
+      "Polymer Structure": "5-Layer Co-Extruded Polyolefin (LLDPE/PP)",
+      "Format Availability": "Centerfolded (CF) / Single Wound (SW)",
+      "Shrink Activation": "135°C Low Temperature Soft Shrink",
+      "Clarity Rating": "94% Glass-Clear Display Optics",
+      "Food Contact Safety": "FDA 21 CFR & EU Certified Food Grade",
+      "Recyclability": "100% Recyclable Polyolefin",
+    },
+    thicknessLengthMatrix: [
+      { micron: "15", gauge: "60", meters: "1,332", feet: "4,375" },
+      { micron: "19", gauge: "75", meters: "1,067", feet: "3,500" },
+      { micron: "25", gauge: "100", meters: "800", feet: "2,625" },
+    ],
     options: { widths: ["200mm", "300mm", "450mm"], thicknesses: ["15 Micron", "19 Micron", "25 Micron"], colors: ["Glass Clear"] },
     applications: ["Food & bakery product wrapping", "Gift baskets & cosmetic packs", "Books & stationery boxes"],
     visualGradients: "from-sky-400 to-blue-500",
@@ -2592,13 +2750,71 @@ Yes, most machine stretch films are recyclable as they are made of polyethylene 
     title: "POF Shrink Pouches",
     category: "film-products",
     tag: "POF Bags",
-    blurb: "Pre-cut three-side sealed POF shrink pouches and bags ready for instant item insertion, eliminating roll slitting off-cut waste.",
-    longDesc: "POF Shrink Pouches are pre-fabricated sealed bags designed to speed up manual packing operations. Users slide the product into the pouch and seal the open edge using a tabletop impulse wire sealer before tunnel shrinking.",
+    blurb: "Pre-cut three-side sealed POF shrink pouches ready for instant item insertion, eliminating roll slitting off-cut waste and accelerating manual packing.",
+    longDesc: `POF Shrink Pouches are pre-fabricated 3-side sealed shrink bags engineered to streamline manual and semi-automatic packing operations. Instead of unwinding centerfolded film rolls, operators simply slide the product into the pre-cut pouch and seal the open fourth side using a tabletop impulse wire sealer before passing the item through a shrink tunnel.
+
+WinnerPack POF Shrink Pouches eliminate scrap film waste, cut down labor setup time, and deliver consistent, professional crystal-clear shrink packaging for individual items, gift sets, and books.
+
+### Key Advantages of Pre-Cut Pouches
+- **Zero Off-Cut Waste**: Pre-cut dimensions eliminate film scrap and trimming waste generated by roll sealers.
+- **Fast & Easy Packing**: Operators slide products directly into the open bag opening for rapid processing.
+- **High-Gloss Clarity**: Provides 93%+ glass-clear transparency to highlight product colors and branding.
+- **Strong 3-Side Seals**: Factory-sealed side welds ensure pouches do not burst during heat tunnel shrinking.
+- **Food Safe & Recyclable**: 100% FDA compliant for food contact and 100% recyclable polyolefin material.
+
+### Applications
+- Individual gift baskets, luxury cosmetics & perfume sets
+- Books, photo albums, notebooks & printed stationery
+- Artisanal soaps, candles & craft items
+- Bakery items, trayless confectioneries & gift packs
+- Retail electronic accessories & small hardware parts
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are POF Shrink Pouches?
+POF Shrink Pouches are pre-cut polyolefin shrink bags sealed on three sides with one open end for easy product insertion prior to sealing and heat shrinking.
+
+#### 2. What are the benefits of using POF Pouches over film rolls?
+Pouches eliminate the need for roll mounting and trim cutting, significantly reducing labor time and film material waste in manual or small-batch packaging operations.
+
+#### 3. How are POF Shrink Pouches sealed and shrunk?
+The item is placed inside the pouch, the open end is sealed using a tabletop impulse heat sealer, and the pouch is passed through a thermal shrink tunnel (or shrunk using a hot air gun).
+
+#### 4. Are POF Shrink Pouches safe for food packaging?
+Yes. WinnerPack POF Shrink Pouches are made from 100% food-grade virgin polyolefin resins, fully compliant with FDA and EU food safety standards.
+
+#### 5. Do POF Pouches burst during shrinking?
+No. Factory side welds are engineered with high seal strength to withstand internal air expansion during heat tunnel passage.
+
+#### 6. What sizes are available for POF Shrink Pouches?
+Available in standard pre-cut sizes such as 100x150mm, 150x200mm, 200x300mm, 300x400mm, and custom dimensions tailored to customer product sizes.
+
+#### 7. What film thickness is used for POF Pouches?
+Standard pouch thicknesses include 15 Micron (60 Gauge) and 19 Micron (75 Gauge).
+
+#### 8. Can POF Pouches be shrunk with a hand-held heat gun?
+Yes! They can be shrunk using portable hot air guns for small-scale operations or low-volume packing stations.
+
+#### 9. Does the film leave cloudy marks after shrinking?
+No. WinnerPack POF pouches shrink with crystal-clear transparency, high gloss, and no haze.
+
+#### 10. Are POF Shrink Pouches recyclable?
+Yes. They are 100% recyclable under soft plastic (#4 PE/PP) recycling programs.`,
     image: "/images/products/pof-films-pouches/applications/app-4.png",
     gallery: ["/images/products/pof-films-pouches/applications/app-4.png"],
-    specs: { "Format Style": "Pre-Cut 3-Side Sealed Bags", "Sealing Method": "Tabletop Impulse Bar Sealer", "Clarity": "Ultra-High Gloss" },
-    thicknessLengthMatrix: [{ micron: "15", gauge: "60", meters: "Custom", feet: "Custom" }],
-    options: { widths: ["100x150mm", "150x200mm", "200x300mm"], thicknesses: ["15 Micron", "19 Micron"], colors: ["Clear"] },
+    specs: {
+      "Format Style": "Pre-Cut 3-Side Sealed Polyolefin Bags",
+      "Sealing Method": "Tabletop Impulse Bar Sealer / L-Bar",
+      "Optical Clarity": "93% Glass-Clear High Gloss Finish",
+      "Shrink Activation": "140°C to 175°C Heat Tunnel or Heat Gun",
+      "Food Contact Safety": "FDA 21 CFR & EU Certified Food Grade",
+      "Recyclability": "100% Recyclable Polyolefin",
+    },
+    thicknessLengthMatrix: [
+      { micron: "15", gauge: "60", meters: "Custom", feet: "Custom" },
+      { micron: "19", gauge: "75", meters: "Custom", feet: "Custom" },
+    ],
+    options: { widths: ["100x150mm", "150x200mm", "200x300mm", "300x400mm"], thicknesses: ["15 Micron", "19 Micron"], colors: ["Glass Clear"] },
     applications: ["Individual gift basket wrapping", "Book & album shrink sealing", "Soap & cosmetic jar pouches"],
     visualGradients: "from-sky-400 to-blue-500",
   },

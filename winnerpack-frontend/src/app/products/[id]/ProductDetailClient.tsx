@@ -191,7 +191,14 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         return res.json();
       })
       .then((data) => {
-        setProduct(data);
+        const fallback = initialProducts.find((p) => p.id === targetId || p.id === id);
+        const mergedData = {
+          ...data,
+          subCategories: (Array.isArray(data.subCategories) && data.subCategories.length > 0)
+            ? data.subCategories
+            : fallback?.subCategories || [],
+        };
+        setProduct(mergedData);
         setImg(data.gallery?.[0] || data.image || "");
 
         apiFetch("/api/products")
@@ -326,8 +333,15 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     appSlotImages[3] || `${productAppDir}/app-4.png`,
   ];
 
+  const fallbackParent = initialProducts.find((p) => p.id === product.id || p.id === id || p.id === targetId);
+  const displaySubCategories = (Array.isArray(product.subCategories) && product.subCategories.length > 0)
+    ? product.subCategories
+    : fallbackParent?.subCategories || [];
+
   const isParentProduct = Boolean(
-    (Array.isArray(product.subCategories) && product.subCategories.length > 0) ||
+    displaySubCategories.length > 0 ||
+    product.id === "pof-shrink-film" ||
+    product.id === "plastic-stretch-film" ||
     product.id === "lamination-films-pouches" ||
     product.id === "lamination-pe-film"
   );
@@ -377,11 +391,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             </div>
 
             {/* 2. PROMINENT SUBCATEGORY CARDS IN WINNERPACK ROYAL NAVY & AMBER THEME */}
-            {product.subCategories && product.subCategories.length > 0 && (
+            {displaySubCategories.length > 0 && (
               <section className="bg-[var(--color-mist)] py-8 sm:py-12 md:py-14 border-b border-[var(--color-line)]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 items-stretch">
-                    {product.subCategories.map((sub: any) => (
+                    {displaySubCategories.map((sub: any) => (
                       <div
                         key={sub.id || sub.title}
                         className="bg-[var(--color-ink)] text-white rounded-2xl sm:rounded-3xl border border-white/10 shadow-xl p-5 sm:p-7 flex flex-col justify-between group hover:border-[var(--color-amber)]/40 transition-all duration-300"
