@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface Crumb {
   label: string;
@@ -13,9 +14,18 @@ interface PageHeaderProps {
   crumbs?: Crumb[];
   theme?: "dark" | "light";
   align?: "left" | "center";
+  bgImage?: string;
 }
 
-export function PageHeader({ eyebrow, title, intro, crumbs, theme = "dark", align = "left" }: PageHeaderProps) {
+export function PageHeader({
+  eyebrow,
+  title,
+  intro,
+  crumbs,
+  theme = "dark",
+  align = "left",
+  bgImage = "/images/desktop/about/blown_film_tower.png",
+}: PageHeaderProps) {
   const isLight = theme === "light";
   const isCenter = align === "center";
 
@@ -23,6 +33,18 @@ export function PageHeader({ eyebrow, title, intro, crumbs, theme = "dark", alig
     <section className={`relative overflow-hidden pb-12 pt-10 md:pb-16 md:pt-12 lg:pb-20 ${
       isLight ? "bg-[var(--color-bone)] border-b border-[var(--color-line)]" : "bg-[var(--color-blue-deep)]"
     }`}>
+      {/* Background Manufacturing Image for Dark Header Theme */}
+      {!isLight && (
+        <div className="absolute inset-0 z-0">
+          <OptimizedImage
+            src={bgImage}
+            alt="WinnerPack Industrial Plant Background"
+            className="w-full h-full object-cover object-center opacity-55 scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/80 via-[var(--color-blue-deep)]/60 to-[var(--color-ink)]/80 pointer-events-none" />
+        </div>
+      )}
+
       {isLight ? (
         <>
           <div className="absolute inset-0 bg-grid-fine opacity-20" aria-hidden />
@@ -33,9 +55,9 @@ export function PageHeader({ eyebrow, title, intro, crumbs, theme = "dark", alig
         </>
       ) : (
         <>
-          <div className="absolute inset-0 bg-grid opacity-50" aria-hidden />
+          <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
           <div
-            className="pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-[var(--color-amber)]/12 blur-[130px]"
+            className="pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-[var(--color-amber)]/10 blur-[100px]"
             aria-hidden
           />
         </>

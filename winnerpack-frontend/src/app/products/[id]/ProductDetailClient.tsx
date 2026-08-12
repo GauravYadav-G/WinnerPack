@@ -505,9 +505,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 <OptimizedImage
                   src="/images/desktop/about/blown_film_tower.png"
                   alt={product.title}
-                  className="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity scale-105"
+                  className="w-full h-full object-cover object-center opacity-55 scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-ink)]/90 via-[var(--color-blue-deep)]/85 to-[var(--color-ink)]/95" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/80 via-[var(--color-blue-deep)]/60 to-[var(--color-ink)]/80" />
               </div>
 
               <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-2">
