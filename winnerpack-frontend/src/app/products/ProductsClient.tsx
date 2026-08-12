@@ -90,65 +90,71 @@ function ProductsContent() {
         />
 
         {/* ========================================================================= */}
-        {/* SECTION 2: PRODUCT DESCRIPTION & FEATURED LDPE SHRINK FILM AT TOP          */}
+        {/* SECTION 2: COMPANY OVERVIEW & MANUFACTURING EXCELLENCE                     */}
         {/* ========================================================================= */}
-        <section className="relative overflow-hidden bg-[var(--color-bone)] py-10 sm:py-16 lg:py-20 border-b border-[var(--color-line)]">
+        <section className="relative overflow-hidden bg-[var(--color-bone)] py-10 sm:py-16 lg:py-24 border-b border-[var(--color-line)]">
           <div className="absolute inset-0 bg-grid-fine opacity-15 pointer-events-none" aria-hidden />
           <div className="absolute left-0 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-6"
-            >
-              {/* Header & Eyebrow */}
-              <div className="space-y-3">
+            <div className="grid gap-6 sm:gap-8 lg:gap-12 lg:grid-cols-12 lg:items-start">
+              
+              {/* LEFT COLUMN: Stacked Industrial Plant Images (Restored Manufacturing Cards) */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="lg:col-span-6 grid grid-cols-2 lg:flex lg:flex-col items-center sm:items-start justify-start gap-3 sm:gap-6"
+              >
+                <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
+                  <OptimizedImage
+                    src="/images/desktop/portfolio/action_extrusion_tower_blue.jpg"
+                    alt="WinnerPack Industrial Blown Film Extrusion Plant"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
+                  <OptimizedImage
+                    src="/images/desktop/portfolio/product_app_pallet_wrapping.png"
+                    alt="WinnerPack Pallet Stretch Wrapping Facility"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+              </motion.div>
+
+              {/* RIGHT COLUMN: Home Page Natural Flow Content & Typography */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="lg:col-span-6 space-y-4 sm:space-y-6"
+              >
+                {/* Eyebrow Tag with Horizontal Accent Line */}
                 <div className="flex items-center gap-2.5">
                   <div className="h-0.5 w-6 sm:w-8 bg-[var(--color-amber-dark)] rounded-full" />
                   <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
-                    Manufacturing Excellence & LDPE Shrink Solutions
+                    Manufacturing Excellence
                   </span>
                 </div>
 
+                {/* Main Headline */}
                 <h2 className="font-display text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--color-ink)] leading-snug sm:leading-[1.15] text-balance">
-                  Complete Industrial Packaging Solutions — LDPE Shrink Film, Multilayer Laminates, Labels, Tapes & Strapping
+                  Complete Industrial Packaging Solutions — Films, Labels, Tapes & Strapping
                 </h2>
-              </div>
 
-              {/* Product Description Narrative */}
-              <div className="space-y-3 sm:space-y-4 text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal">
-                <p>
-                  Winner Pack Technologies Pvt. Ltd. is a pioneer in manufacturing, supplying, and exporting high-performance <strong className="text-[var(--color-ink)] font-semibold">LDPE Shrink Film, Multilayer Co-Extruded Barrier Films, Self-Adhesive Labels, Box Sealing Tapes, and PET/PP Strapping Rolls</strong>. Our heavy-duty <strong className="text-[var(--color-ink)] font-semibold">LDPE Collation Shrink Film</strong> is specially engineered for high-speed automated packaging of mineral water bottle multipacks, carbonated soft drinks, food cans, and bulk retail goods — delivering superior puncture resistance, high holding force, and crystal-clear clarity.
-                </p>
-                <p>
-                  Promoted by technocrats with decades of hands-on experience, our modern manufacturing facility features multi-layer blown film extrusion towers, high-speed rotogravure & flexographic printing presses up to 8 colors, and automated converting machinery. We fabricate all products using 100% prime virgin food-grade raw materials adhering strictly to international ISO & FDA compliance standards.
-                </p>
-              </div>
-
-              {/* Full-Width Landscape LDPE Shrink Film Image (Exact Width of Text Container) */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-                className="relative aspect-[16/13] sm:aspect-[16/12] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-xl group"
-              >
-                <OptimizedImage
-                  src="/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg"
-                  alt="LDPE Shrink Film Collation Wrap for Water Bottles Multipacks"
-                  className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-4 sm:bottom-4 sm:left-6 text-white pointer-events-none">
-                  <span className="inline-block px-3 py-1 font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-[var(--color-blue-deep)]/90 backdrop-blur-md text-white rounded-full shadow-sm">
-                    Featured: Heavy-Duty LDPE Collation Shrink Film Bottle Packaging
-                  </span>
+                {/* Narrative Paragraphs */}
+                <div className="space-y-2.5 sm:space-y-4 text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal">
+                  <p>
+                    Established as one of the leading organizations engaged in manufacturing, supplying, and exporting a wide collection of <strong className="text-[var(--color-ink)] font-semibold">Multilayer Films, Self-Adhesive Labels & Stickers, High-Tack Packaging Tapes, and High-Tensile Strapping Rolls</strong>. Our comprehensive catalog spans Unprinted & Printed PE Films (Milk, Ghee, SMP, Water), Flexible Laminated Rolls and Pouches, POF/PVC/LDPE Shrink Films, Machine & Hand Stretch Wrap, Custom Printed Barcode Labels, Product Stickers, BOPP Box Sealing Tapes, and PET/PP Strapping.
+                  </p>
+                  <p>
+                    Promoted by technocrats with decades of hands-on experience in this domain, we provide our global clients with engineered packaging solutions as per their exact specifications. Our modern manufacturing facility is equipped with advanced multi-layer blown film extrusion lines, high-speed rotogravure & flexographic printing presses, adhesive coating units, and automated converting lines to fabricate products adhering strictly to international quality standards.
+                  </p>
                 </div>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
