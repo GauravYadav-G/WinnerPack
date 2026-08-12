@@ -410,28 +410,85 @@ export const initialProducts = [
     category: "film-products",
     tag: "Packaging Films",
     blurb: "High-performance LDPE, LLDPE, and collation packaging films engineered for industrial bundling, pallet protection, and heavy-duty barrier containment.",
-    longDesc: `Packaging Films are versatile and indispensable components in the realm of modern industrial packaging. Engineered for exceptional clarity, tensile strength, holding force, and flexibility, these films are widely used across diverse industrial sectors to safeguard goods during handling, storage, and long-distance transport.
+    longDesc: `Packaging films play a pivotal role in the world of modern consumer goods, providing a versatile and efficient solution for the protection, preservation, and presentation of various products.
 
-### Introduction to Packaging Films
-Packaging films act as the primary protective layer for products ranging from bulk palletized goods to individual retail items. By combining prime virgin polyethylene resins with advanced multi-layer blown film extrusion technology, our packaging films deliver superior puncture resistance, tear propagation resistance, and uniform shrinkage.
+Packaging films are designed specifically for packaging applications, offering a wide range of benefits to both manufacturers and consumers alike. With their ability to create a protective barrier against external elements, packaging films safeguard products from moisture, oxygen, light, and other potential hazards, ensuring their freshness and extending their shelf life.
 
-### Manufacturing & Polymer Engineering
-At WinnerPack, our packaging films are manufactured using advanced 3-layer and 5-layer co-extrusion blown film lines. We formulate specific polymer density blends (LDPE, LLDPE, mLLDPE) to provide:
-- **Optimal Drawdown Ability**: High melt strength for high-speed automated packaging lines.
-- **Superior Impact & Dart Drop Resistance**: Withstands heavy drops and rough logistics handling.
-- **Controlled Shrinkage & Elastic Memory**: Maintains high tension and load stability throughout transit.
+These films also contribute to the overall visual appeal of the packaging, captivating consumers with their vibrant colors, glossy finishes, and clarity. Additionally, packaging films can be customized to incorporate branding elements, product information, and tamper-evident features, fostering consumer trust and enhancing the overall product experience. From easy-peel films for convenient access to HIPS sealing films for secure containment, the world of packaging films offers a diverse range of solutions to meet the unique needs of various industries and products.
 
-### Industrial Applications
-Packaging films serve vital roles across key industries:
-- **Beverage & Food Industry**: Secondary bundling of water bottles, canned beverages, and jars without carton trays.
-- **Warehousing & Logistics**: Pallet load containment, moisture protection, and dust barriers.
-- **Manufacturing & Construction**: Heavy component wrapping, building material protection, and chemical shipping sacks.
+### Packaging Film Rolls Manufacturer
+**WinnerPack: Your Leading Packaging Film Rolls Manufacturer for Every Need**
 
-### Key Packaging Film Features
-- Thickness range from 30 Micron to 200 Micron.
-- Widths customizable from 200 mm to 2.25 meters.
-- Available in high-gloss transparent, milky white opaque, and UV-stabilized grades.
-- 100% recyclable prime polymer resins.`,
+At WinnerPack, we take pride in being a trusted and reliable manufacturer of a comprehensive range of packaging films. With our commitment to quality, innovation, and customer satisfaction, we offer a diverse selection of packaging film rolls tailored to meet the specific requirements of various industries.
+
+From high-performance lidding films that provide excellent seal integrity and easy peelability to HIPS sealing films that ensure secure containment, we have a solution for every packaging challenge.
+
+WinnerPack is one of the leading manufacturers and suppliers of PACKAGING FILMS in the world. With a presence across global markets, WinnerPack has established itself as a trusted provider of high-quality PACKAGING FILMS.
+
+### Why Choose WinnerPack?
+If you are looking for a more sustainable packaging solution, then products from WinnerPack are a great fit for you! We bring the experience of 20+ years in this industry and provide our customers with the most sustainable, eco-friendly and customised solutions based on their needs.
+
+**Highlights of using products from WinnerPack:**
+- **Top-quality products**: Manufactured using prime polymer resins and advanced multi-layer extrusion technology.
+- **Eco-friendly solution**: Sustainable, recyclable, and low carbon footprint packaging options.
+- **Customised packaging products**: Tailored to your exact specifications, widths, and gauge requirements.
+- **Standards compliant**: Products that meet international manufacturing and quality standards (ISO 9001:2015 & FDA).
+- **Reliable packaging partner**: Trusted B2B manufacturing partner for your business across global supply chains.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are Packaging Films?
+Packaging films are flexible sheets made from various materials, used to wrap, protect, and preserve products during storage or transit. They offer versatility in packaging solutions and are often used as barriers to protect products from environmental factors such as moisture, dust, and contaminants.
+
+#### 2. What materials are used to make Packaging Films?
+Packaging films are fabricated using a wide range of materials, including but not limited to:
+- **Polyethylene (PE)**: Commonly used for stretch films and shrink wraps due to its durability and flexibility.
+- **Polypropylene (PP)**: Used for clear wraps and food-safe applications due to its excellent clarity and barrier properties.
+- **Polyvinyl Chloride (PVC)**: Preferred for shrink films because of its elasticity and high shrink ratio.
+- **Biodegradable Polymers**: These are eco-friendly options made from renewable resources such as polylactic acid (PLA).
+Each material is selected based on specific application requirements, offering tailored functionality like food safety, UV resistance, or increased tensile strength.
+
+#### 3. What are the common types of Packaging Films?
+- **Stretch Films**: Used for securing palletized goods during shipping.
+- **Shrink Films**: Heat-activated films used to tightly conform to the shape of products.
+- **Barrier Films**: Multi-layer films designed to protect perishables by preventing the passage of gases or moisture.
+- **Thermoform Films**: Used in forming rigid and semi-rigid packaging in a variety of shapes.
+- **Specialty Films**: Designed for unique applications, such as anti-static films for electronics or biodegradable films for eco-conscious packaging.
+
+#### 4. What are the applications of Packaging Films?
+- **Food and Beverage Industry**: Protects and preserves consumables such as snacks, meats, dairy, and beverages.
+- **Industrial Goods**: Secures machinery, parts, and raw materials for storage or transportation.
+- **E-Commerce & Retail**: Provides tamper-proof and protective packaging for goods like electronics, clothing, and beauty products.
+
+#### 5. How do Packaging Films protect products during transit?
+Packaging films provide comprehensive protection through several mechanisms, including:
+- **Shock Absorption**: Reduces the risk of physical damage by wrapping tightly around the product.
+- **Moisture Barrier**: Prevents exposure to humidity and condensation, preserving product integrity.
+- **Secure Wrapping**: Keeps goods bundled tightly to prevent movement during transportation.
+All films are subjected to rigorous testing standards to ensure optimal protective qualities.
+
+#### 6. Are Packaging Films eco-friendly?
+Yes, eco-friendly alternatives are available. Many manufacturers now offer biodegradable and compostable films made from renewable resources, such as PLA or PHA. Additionally, recyclable films made from single-material compositions are gaining popularity for their sustainability. Certification for recyclability and biodegradability ensures compliance with environmental standards.
+
+#### 7. Can Packaging Films be customized in size, thickness, and design?
+Customization is achieved through advanced manufacturing capabilities and stringent adherence to client specifications, including:
+- **Size**: Custom widths and lengths for unique product dimensions.
+- **Thickness**: Ranges from thin films for lightweight packaging to thick films for heavy-duty applications.
+- **Design**: Can include branding elements like logos, colors, or printed patterns.
+
+#### 8. What industries use Packaging Films?
+Packaging films are utilized across multiple sectors, including Food and Beverage, Pharmaceuticals, Cosmetics and Personal Care, Industrial Manufacturing, and E-Commerce and Retail. Their adaptability makes them a preferred choice across industries that require high-quality, protective packaging solutions.
+
+#### 9. How do I choose the right Packaging Film for my product?
+Selecting the appropriate packaging film involves considering factors such as:
+- **Product Nature**: Fragility, perishability, and weight.
+- **Required Barrier Properties**: Protection from moisture, oxygen, or UV light.
+- **Packaging Process**: Compatibility with manual or automated packaging equipment.
+- **Environmental Concerns**: Recyclability or biodegradability options.
+Consulting with a packaging expert ensures the chosen film meets both functional and regulatory requirements.
+
+#### 10. Are Packaging Films suitable for food packaging?
+Yes, many packaging films are specifically designed for food applications. They adhere to international food safety standards, including FDA and EU certifications, ensuring they are safe for direct contact with consumables. Barrier films, in particular, are highly recommended for extending shelf life and maintaining the quality of food products.`,
     image: "/images/products/ldpe-shrink-rolls/image.png",
     gallery: [
       "/images/products/ldpe-shrink-rolls/image.png",
@@ -440,8 +497,8 @@ Packaging films serve vital roles across key industries:
       "/images/products/ldpe-films-pouches/applications/app-3.png",
     ],
     specs: {
-      "Thickness Range": "30 Micron to 200 Micron",
-      "Width Customization": "200 mm to 2,250 mm",
+      "Thickness Range": "20 Micron to 200 Micron",
+      "Width Customization": "250 mm to 2,400 mm",
       "Polymer Density": "0.92 g/cm³ Pure Prime LDPE/LLDPE",
       "Holding Force": "High Tension Load Containment",
       "Impact Resistance": "High Dart Drop & Tensile Strength",
@@ -463,10 +520,10 @@ Packaging films serve vital roles across key industries:
         blurb: "Heavy-gauge LDPE collation shrink film engineered for heat-shrink bundling of beverage bottles, cans, glass jars, and heavy industrial products with high holding force and puncture resistance.",
         image: "/images/products/ldpe-shrink-rolls/image.png",
         specs: {
-          "Shrink Temperature": "160°C to 200°C Thermal Tunnel",
-          "Thickness Range": "50 Micron to 150 Micron",
-          "Holding Force": "High Load Bundling Stabilization",
-          "Tear Resistance": "High Longitudinal & Transverse Tear Strength",
+          "Cost Savings": "Significant Cost savings vs Corrugated Box Packaging",
+          "Disposal": "Ease of post usage disposal",
+          "Shipment Efficiency": "Lower Cost of shipment (Due to savings in space and weight)",
+          "Protection": "Protection from Humidity, Dust and Dirt",
         },
         applications: ["Mineral water & beverage bottle bundling", "Canned food collation packs", "Chemical container shrink wrapping"],
       },
@@ -477,10 +534,10 @@ Packaging films serve vital roles across key industries:
         blurb: "Heavy-duty polyethylene bin liners, box liners, and industrial drum liners designed with reinforced bottom seals to prevent leaks and tears during waste and material disposal.",
         image: "/images/products/ldpe-films-pouches/applications/app-3.png",
         specs: {
-          "Format Types": "Flat Bags / Gusseted Liners / Star Seal Rolls",
-          "Thickness Range": "20 Micron to 100 Micron",
-          "Leak Resistance": "High Integrity Thermal Welded Bottom Seal",
-          "Material": "Prime Virgin LDPE / Heavy Duty Recycled PE",
+          "Handling": "Ideal for Handling Bulk Packing Dry Materials",
+          "Widths Available": "250 mm – 2400 mm",
+          "Thickness": "20 Micron – 200 Micron",
+          "Gusset Feature": "Gusset Option Available",
         },
         applications: ["Industrial drum & box liners", "Commercial facility waste bins", "Healthcare & hospitality sanitation"],
       },
@@ -491,10 +548,10 @@ Packaging films serve vital roles across key industries:
         blurb: "Multi-layer co-extruded stretch wrap film providing high elongation and puncture resistance to securely bundle and wrap pallet loads during transit and storage.",
         image: "/images/products/stretch-film/image.png",
         specs: {
-          "Elongation Rate": "Up to 300% High Pre-Stretch Capacity",
-          "Cling Type": "One-Side / Differential Cling",
-          "Thickness Range": "12 Micron to 35 Micron",
-          "Core Standard": "3 Inch Standard Paper Core",
+          "Protection": "Protection Against Dust / Dirt",
+          "Waterproofing": "Helps make packaging waterproof when wrapped around paper containers",
+          "Inspection": "Helps for Visual Inspection",
+          "Cost Effectiveness": "More Cost effective compared to Straps / Shrink / Corrugation",
         },
         applications: ["Pallet unitization & wrapping", "Carton stabilization", "Moisture & dust barrier wrapping"],
       },
@@ -505,17 +562,17 @@ Packaging films serve vital roles across key industries:
         blurb: "Engineered collation shrink film designed specifically for secondary multi-pack bundling of beverages, dairy bottles, and retail canned products on high-speed continuous shrink wrappers.",
         image: "/images/products/pof-shrink-rolls/image.png",
         specs: {
-          "Shrink Ratio": "70% MD / 20% TD Controlled Shrink",
-          "Seal Strength": "High Hot-Tack Impulse Sealing",
-          "Clarity": "High Gloss Transparent Print-Ready Surface",
-          "Packaging Line Speed": "Up to 120 Packs Per Minute",
+          "Cost Savings": "Cost Effective compared to corrugated boxes",
+          "Eco Footprint": "Lower Carbon footprint",
+          "Spill Barrier": "Makes the bundle water proof and spill proof",
+          "Marketing": "Using a transparent film helps in marketing the product",
         },
         applications: ["Beverage multipack collation", "Dairy & juice bottle bundling", "Trayless can packaging"],
       }
     ],
     options: {
-      widths: ["200 mm", "400 mm", "600 mm", "900 mm", "48 inches (1220 mm)"],
-      thicknesses: ["30 Micron", "50 Micron", "80 Micron", "120 Micron", "200 Micron"],
+      widths: ["250 mm", "400 mm", "600 mm", "900 mm", "2400 mm"],
+      thicknesses: ["20 Micron", "30 Micron", "50 Micron", "80 Micron", "120 Micron", "200 Micron"],
       colors: ["High Gloss Clear", "Milky White", "Black UV Opaque"],
     },
     applications: ["Beverage bottle collation packaging", "Paper towel & textile overwrap", "Heavy industrial shipping sacks", "Bread & food pouches"],
