@@ -1486,45 +1486,7 @@ Standard polyethylene mulch is synthetic, but certified biodegradable mulching f
     applications: ["Strawberry, melon & tomato cultivation", "Pepper, cucumber & eggplant farming", "Cotton, tobacco & orchard beds"],
     visualGradients: "from-emerald-500 to-teal-700",
   },
-  {
-    id: "greenhouse-film",
-    title: "Greenhouse Cover Film",
-    category: "film-products",
-    tag: "Greenhouse Cover",
-    blurb: "Multi-year UV-stabilized greenhouse polyhouse cover film with 90%+ light transmission, anti-fog drop control, and high thermal heat retention.",
-    longDesc: `Greenhouse Cover Film is a high-technology multi-layer co-extruded polyhouse sheet engineered for commercial greenhouse and polyhouse construction. Designed to withstand harsh atmospheric conditions, high UV exposure, and temperature swings, our greenhouse films create the ultimate protected climate for high-value crops.
 
-### Key Product Features:
-- **90%+ PAR Light Transmission**: Maximizes photosynthetically active radiation (PAR) for rapid plant growth.
-- **Anti-Drip & Anti-Fog Coating**: Prevents heavy water droplets from dripping onto crops, reducing disease risks.
-- **IR Thermal Heat Retention**: Keeps greenhouse interior warm during cold nights by trapping long-wave infrared heat.
-- **5-Layer Heavy Duty Co-Extrusion**: Delivers high tear and puncture resistance against heavy winds and hail.
-- **Multi-Year Warranty**: Guaranteed UV resistance for 3 to 5 years depending on micron thickness.`,
-    image: "/images/desktop/about/blown_film_tower.png",
-    gallery: [
-      "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/journey/solution_pcr_eco_film.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png"
-    ],
-    specs: {
-      "Light Transmission": "90% PAR Transmission Rating",
-      "Thermicity Index": "Over 80% Longwave IR Heat Retention",
-      "Anti-Drip Additive": "Hydrophilic Internal Surface Coating",
-      "Width Range": "Up to 14 Meters Seamless Sheet Width",
-      "Thickness Range": "150 Micron to 200 Micron",
-    },
-    thicknessLengthMatrix: [
-      { micron: "150", gauge: "600", meters: "100", feet: "328" },
-      { micron: "200", gauge: "800", meters: "80", feet: "262" },
-    ],
-    options: {
-      widths: ["4.0m", "7.0m", "9.0m", "12.0m", "14.0m"],
-      thicknesses: ["150 Micron", "200 Micron"],
-      colors: ["Clear Transparent", "Diffused Milky White"],
-    },
-    applications: ["Commercial polyhouse structures", "Floriculture & cut flower growing", "High-value hydroponic farming"],
-    visualGradients: "from-emerald-500 to-teal-700",
-  },
   {
     id: "low-tunnel-film",
     title: "Low Tunnel Film",
@@ -3330,25 +3292,141 @@ Yes, it is 100% recyclable under soft plastic (#4 PE) recycling programs.`,
     title: "Biodegradable Films",
     category: "film-products",
     tag: "Eco Bio Film",
-    blurb: "100% Certified home and industrial compostable bio-polymer films (PBAT + PLA + Cornstarch) engineered for eco-friendly shopping bags, shrink wrap, and courier mailers.",
-    longDesc: `Biodegradable Films are certified eco-friendly packaging materials produced from renewable bio-resins. Compliant with EN 13432 and ISO 17088 standards, these films fully break down into natural organic soil nutrients within 90 to 180 days in composting conditions without leaving microplastics or toxic residues.
+    blurb: "100% Certified home and industrial compostable bio-polymer films (PBAT + PLA + Starch) engineered for eco-friendly shopping bags, shrink wrap, and agricultural mulch.",
+    longDesc: `Take your eco-friendly lifestyle to the next level with certified biodegradable films! Manufactured from renewable plant-based materials like cornstarch, PLA, and cellulose, biodegradable films decompose in natural composting environments in months instead of long decades or centuries.
 
-### Key Material Advantages
-- **100% Certified Compostable**: EN 13432 & ISO 17088 Certified.
-- **Zero Microplastics**: Degrades naturally into water, CO2, and biomass.
-- **Silk Matte Finish**: Elegant soft-touch texture for luxury eco retail packaging.`,
+As a proud biodegradable film manufacturer with over 20+ years of industry experience, WinnerPack provides customized, reliable, and cost-effective eco-packaging solutions tailored to global standards across the US, Europe, Singapore, Australia, and worldwide.
+
+### Applications of Biodegradable Films
+- **Food Packaging**: Eco-friendly alternative for fruits, vegetables, bakery, and meat items.
+- **Gift & Goods Wrapping**: Sustainable overwrap films for luxury gift sets and retail boxes.
+- **Retail Shopping Bags**: Customized D-cut and loop-handle carry bags for eco-conscious brands.
+- **Medical Packaging**: Disposable packaging for bandages, gloves, syringes, and tray covers.
+- **Construction & Sheeting**: Sustainable insulation membranes, dust covers, and roofing liners.
+- **Consumer Goods**: Eco packaging for toys, electronics, cosmetics, and furniture items.
+- **Industrial Packaging**: Protective wraps for chemicals, batteries, and industrial components.
+- **Agriculture**: Soil-biodegradable mulch films protecting crops without leaving microplastics.
+
+### Key Benefits of Biodegradable Films
+- **Better for the Environment**: Significantly lowers carbon footprint and landfill burden.
+- **100% Compostable**: Returns safely to organic soil matter without leaving microplastic residue.
+- **High Mechanical Strength**: Thinner gauges achieve higher tensile toughness to offset raw material costs.
+- **Standards Compliant**: Meets ASTM D6400 and EN 13432 international compostability standards.
+- **Affordable & Sustainable**: Cost-effective long-term packaging alternative to petroleum plastics.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are Biodegradable Films?
+Biodegradable films are environmentally-friendly packaging materials designed to break down naturally through biological processes into water, carbon dioxide, and organic biomass without leaving toxic residues.
+
+#### 2. What are the key benefits of using Biodegradable Films?
+- Reduction of plastic pollution and landfill waste.
+- Bio-based renewable origin supporting circular economy goals.
+- Certified compostability under ASTM D6400 & EN 13432.
+- Functional strength and elasticity comparable to traditional plastics.
+
+#### 3. How do Biodegradable Films help reduce environmental impact?
+They decompose into natural soil nutrients, emitting fewer greenhouse gases during manufacturing and eliminating persistent microplastics.
+
+#### 4. What are the applications of Biodegradable Films in agriculture?
+Used as soil-biodegradable mulch films, greenhouse covers, and silage wraps that can be tilled directly into soil post-harvest.
+
+#### 5. Are Biodegradable Films safe for food packaging?
+Yes! They comply with US FDA and EU food contact safety regulations, providing safe, non-toxic food overwrapping.
+
+#### 6. How long do Biodegradable Films take to decompose?
+In standard composting conditions, they break down completely within 90 days to 2 years, depending on film thickness and soil microbial activity.
+
+#### 7. Can Biodegradable Films be composted?
+Yes! Certified compostable films meet ASTM D6400 or EN 13432 standards, making them suitable for home or industrial composting.
+
+#### 8. What industries use Biodegradable Films?
+Agriculture, food packaging, retail, healthcare, consumer electronics, and textiles.
+
+#### 9. How are Biodegradable Films different from traditional plastic films?
+Made from renewable plant resins (PLA/PBAT/starch) instead of petroleum, they naturally decompose into non-toxic biomass.
+
+#### 10. Are Biodegradable Films cost-effective compared to conventional plastics?
+Higher mechanical strength allows thinner film gauges, offsetting raw material costs while saving businesses long-term waste management fees.`,
     image: "/images/desktop/journey/solution_pcr_eco_film.png",
     gallery: ["/images/desktop/journey/solution_pcr_eco_film.png"],
-    specs: { "Bio Resin Base": "PBAT + PLA + Cornstarch Blend", "Certification": "EN 13432 / ASTM D6400 / ISO 17088", "Disintegration": "Fully degraded within 90-180 Days" },
-    thicknessLengthMatrix: [{ micron: "20", gauge: "80", meters: "1,500", feet: "4,920" }, { micron: "30", gauge: "120", meters: "1,000", feet: "3,280" }],
-    subCategories: [
-      { id: "bio-degradable-mulch-film", title: "Bio Degradable Mulch Film", subtitle: "Soil Compostable Mulch Sheeting", blurb: "Soil-biodegradable agricultural mulch film that plows directly into soil after harvest.", image: "/images/desktop/journey/solution_pcr_eco_film.png" },
-      { id: "biodegradable-shrink-film", title: "Biodegradable Shrink Film", subtitle: "Compostable Overwrap Shrink Rolls", blurb: "Eco-friendly POF/PBAT heat shrink rolls for sustainable product overwrapping.", image: "/images/desktop/journey/solution_pcr_eco_film.png" },
-      { id: "biodegradable-shopping-bag", title: "Biodegradable Shopping Bag", subtitle: "Eco Retail Carry Bags", blurb: "D-cut and W-cut compostable retail carry bags with non-toxic flexo ink branding.", image: "/images/products/compostable-films-pouches/applications/app-4.png" },
-      { id: "compostable-pouches", title: "Compostable Pouches", subtitle: "Self-Adhesive Bio Courier Mailers", blurb: "Eco e-commerce courier bags with high-tack permanent adhesive eco flap tape.", image: "/images/products/compostable-films-pouches/applications/app-4.png" },
+    specs: {
+      "Material Composition": "PBAT + PLA + Plant Starch Bio-Polymer Blend",
+      "Certification Standard": "ASTM D6400 & EN 13432 Certified Compostable",
+      "Decomposition Rate": "Fully degrades into organic humus within 90 - 180 Days",
+      "Microplastic Impact": "Zero Toxic Residuals or Microplastics",
+      "Mechanical Advantage": "Higher Tensile Strength allowing thinner film gauges",
+    },
+    thicknessLengthMatrix: [
+      { micron: "15", gauge: "60", meters: "1,500", feet: "4,920" },
+      { micron: "20", gauge: "80", meters: "1,200", feet: "3,936" },
+      { micron: "30", gauge: "120", meters: "1,000", feet: "3,280" },
+      { micron: "40", gauge: "160", meters: "800", feet: "2,624" },
     ],
-    options: { widths: ["200mm", "350mm", "500mm"], thicknesses: ["20 Micron", "30 Micron", "40 Micron"], colors: ["Natural Translucent", "Eco Green", "Matte Off-White"] },
-    applications: ["Sustainable retail packaging", "Eco e-commerce courier bags", "Soil compostable agricultural mulch"],
+    subCategories: [
+      {
+        id: "bio-degradable-mulch-film",
+        title: "Bio Degradable Mulch Film",
+        subtitle: "Soil Compostable Mulch Sheeting",
+        blurb: "Higher mechanical strength compared to regular films allowing reduced thickness to offset raw material cost. Meets ASTM D6400 and EN 13432 requirements.",
+        image: "/images/desktop/journey/solution_pcr_eco_film.png",
+        specs: {
+          "Certification": "Meets ASTM D6400 & EN 13432 Compostability Standards",
+          "Mechanical Strength": "Higher tensile strength allows thinner gauge thickness",
+          "Cost Efficiency": "Reduced thickness offsets raw material input cost",
+          "Soil Integration": "Plows directly into soil post-harvest with zero retrieval cost",
+          "Applications": "Vegetable mulching, organic farming & fruit orchards",
+        },
+      },
+      {
+        id: "biodegradable-shrink-film",
+        title: "Biodegradable Shrink Film",
+        subtitle: "Compostable Overwrap Shrink Rolls",
+        blurb: "Eco-friendly POF/PBAT heat shrink rolls engineered for sustainable retail overwrapping, meeting ASTM D6400 and EN 13432 requirements.",
+        image: "/images/desktop/journey/solution_pcr_eco_film.png",
+        specs: {
+          "Certification": "Meets ASTM D6400 & EN 13432 Compostability Standards",
+          "Optical Finish": "High-clarity gloss transparency for retail goods",
+          "Shrink Performance": "Soft-shrink activation preventing box corner warping",
+          "Eco Material": "100% Home & Industrial Compostable Bio-Resin Blend",
+          "Applications": "Organic food multipacks, gift boxes & cosmetic overwraps",
+        },
+      },
+      {
+        id: "biodegradable-shopping-bag",
+        title: "Biodegradable Shopping Bag",
+        subtitle: "Eco Retail Carry Bags",
+        blurb: "D-cut and W-cut compostable retail carry bags printed with water-based eco flexo inks, meeting ASTM D6400 and EN 13432 requirements.",
+        image: "/images/products/compostable-films-pouches/applications/app-4.png",
+        specs: {
+          "Certification": "Meets ASTM D6400 & EN 13432 Compostability Standards",
+          "Carry Formats": "D-Cut, Loop Handle, and W-Cut Grocery Bags",
+          "Print Engineering": "Non-Toxic Water-Based Eco Flexo Ink Branding",
+          "Load Strength": "Reinforced bottom seal holding up to 8 kg payload",
+          "Applications": "Apparel shopping bags, organic markets & trade events",
+        },
+      },
+      {
+        id: "compostable-pouches",
+        title: "Compostable Pouches",
+        subtitle: "Self-Adhesive Bio Courier Mailers",
+        blurb: "100% Home compostable self-adhesive courier mailers and zipper pouches for eco e-commerce shipping, meeting ASTM D6400 and EN 13432.",
+        image: "/images/products/compostable-films-pouches/applications/app-4.png",
+        specs: {
+          "Certification": "Meets ASTM D6400 & EN 13432 Compostability Standards",
+          "Adhesive Flap": "Permanent High-Tack Eco Adhesive Sealing Strip",
+          "Texture": "Silky Soft-Touch Matte Surface Finish",
+          "Puncture Resistance": "Tough tear-proof structure for parcel logistics",
+          "Applications": "E-commerce mailers, apparel shipping & document pouches",
+        },
+      },
+    ],
+    options: {
+      widths: ["200mm", "350mm", "500mm", "900mm", "1200mm"],
+      thicknesses: ["15 Micron", "20 Micron", "30 Micron", "40 Micron"],
+      colors: ["Natural Translucent", "Eco Green", "Matte Off-White", "Opaque Black"],
+    },
+    applications: ["Sustainable food & retail packaging", "Soil compostable agricultural mulching", "Eco-friendly e-commerce courier bags"],
     visualGradients: "from-emerald-500 to-teal-700",
   },
   {
@@ -3356,13 +3434,81 @@ Yes, it is 100% recyclable under soft plastic (#4 PE) recycling programs.`,
     title: "Bio Degradable Mulch Film",
     category: "film-products",
     tag: "Eco Soil Mulch",
-    blurb: "Soil-degradable PBAT agricultural mulch film that breaks down directly in field soil, eliminating plastic retrieval costs post-harvest.",
-    longDesc: "Bio Degradable Mulch Film is engineered to perform as a high-efficiency weed and moisture barrier during crop growth, then completely biodegrade into soil organic matter when plowed under post-harvest.",
+    blurb: "Soil-degradable PBAT agricultural mulch film that plows directly into field soil post-harvest, eliminating removal labor and plastic waste while meeting ASTM D6400 and EN 13432.",
+    longDesc: `Bio-Degradable Mulch Film is an advanced agricultural covering material produced from renewable bio-polymers. Engineered to fulfill the role of traditional plastic mulch films during crop growth, it offers the game-changing benefit of decomposing in-situ into natural elements—such as carbon dioxide, water, and organic biomass—when plowed under post-harvest.
+
+Unlike conventional PE mulch films that require costly, laborious manual retrieval, biodegradable mulch films break down naturally via soil microorganisms, saving farmers significant labor time and disposal costs.
+
+### Manufacturing Process of Bio-Degradable Mulch Film
+1. **Raw Material Selection**: Premium bio-polymers derived from renewable plant resources are selected to guarantee purity and certified compostability.
+2. **Precision Film Extrusion**: Bio-resins are melted and processed through multi-layer blown film extrusion machinery, forming thin, flexible sheets with high mechanical strength.
+3. **Additives Incorporation**: Weather-resistant UV stabilizers and non-toxic colorants are integrated for solar durability and heat control.
+4. **Custom Printing & Perforation**: Optional branding, plant spacing guides, and micro-perforations are added for water/air permeability.
+
+### Key Features & Agronomic Advantages
+- **Higher Mechanical Strength**: Offers superior tensile strength compared to standard PE films, allowing reduced film thickness (e.g., 12–15 Micron) to offset bio-resin raw material costs.
+- **ASTM D6400 & EN 13432 Certified**: Guaranteed 100% soil bio-degradation without leaving microplastics or toxic residues.
+- **Natural Soil Decomposition**: Degrades into harmless organic substances, enriching soil health over time.
+- **Moisture Retention**: Minimizes soil water evaporation, maintaining root zone humidity and reducing irrigation frequency.
+- **Soil Temperature Regulation**: Traps heat during cool periods and deflects excess heat during warm periods to prevent temperature shock.
+- **Durable & Tear-Resistant**: Resists installation tearing, wind lift, and drip stake friction throughout the crop cycle.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Bio-Degradable Mulch Film?
+Bio-Degradable Mulch Film is an advanced agricultural covering made from bio-based polymers (PBAT/PLA/starch). It performs like traditional plastic mulch during crop growth and naturally decomposes into CO₂, water, and organic biomass after harvest.
+
+#### 2. How does Bio-Degradable Mulch Film benefit agricultural practices?
+- Promotes weed suppression, reducing nutrient, water, and sunlight competition.
+- Conserves soil moisture, lowering irrigation requirements.
+- Regulates soil temperature for improved seed germination and root development.
+- Prevents soil splash onto foliage, reducing soil-borne fungal diseases.
+
+#### 3. What are the environmental advantages of Bio-Degradable Mulch Film?
+It eliminates plastic field waste and landfill disposal challenges. Decomposing naturally in soil, it leaves zero toxic residues or microplastics, significantly lowering the farm's carbon footprint.
+
+#### 4. How long does Bio-Degradable Mulch Film take to decompose?
+It maintains physical integrity during the crop cycle (3 to 6 months) and begins microbial disintegration post-harvest, fully integrating into soil organic matter within 6 to 12 months under standard field conditions.
+
+#### 5. What crops are suitable for Bio-Degradable Mulch Film?
+- **Vegetables**: Tomatoes, peppers, cucumbers, and melons.
+- **Fruits**: Strawberries and blueberries.
+- **Horticulture**: Ornamental flowers and nursery beds.
+- **Field Crops**: Short-duration row crops requiring moisture lock and weed control.
+
+#### 6. Can Bio-Degradable Mulch Film help in weed control and moisture conservation?
+Yes! Its opaque surface restricts sunlight to stop weed seed germination, while its barrier structure prevents soil water evaporation.
+
+#### 7. Is Bio-Degradable Mulch Film safe for soil and plant health?
+Rigorously tested under EN 17033, EN 13432, and ASTM D6400 standards, it decomposes into safe organic humus that enriches soil fertility.
+
+#### 8. How is Bio-Degradable Mulch Film installed in the field?
+Applied using standard tractor mulch-laying machinery or manual bed shapers. Stretching snugly over beds prevents wind lift.
+
+#### 9. Does Bio-Degradable Mulch Film require removal after the season?
+No! Unlike traditional plastic mulch, it does not require removal or disposal. Simply plow it into the soil post-harvest.
+
+#### 10. What factors should I consider when selecting a Bio-Degradable Mulch Film?
+Match the film’s field lifespan to your crop growth duration, consider local soil temperature/microbial activity, choose adequate gauge thickness, and verify ASTM D6400 / EN 13432 certifications.`,
     image: "/images/desktop/journey/solution_pcr_eco_film.png",
     gallery: ["/images/desktop/journey/solution_pcr_eco_film.png"],
-    specs: { "Biodegradability": "100% Soil Biodegradable (EN 17033)", "UV Lifespan": "3 to 6 Months Field Stability", "Thickness": "15 to 25 Micron" },
-    thicknessLengthMatrix: [{ micron: "15", gauge: "60", meters: "1,200", feet: "3,936" }, { micron: "20", gauge: "80", meters: "1,000", feet: "3,280" }],
-    options: { widths: ["0.9m", "1.2m", "1.5m"], thicknesses: ["15 Micron", "20 Micron", "25 Micron"], colors: ["Black Opaque", "Translucent"] },
+    specs: {
+      "Compostability Standards": "Meets ASTM D6400, EN 13432 & EN 17033",
+      "Mechanical Performance": "High Tensile Strength allowing reduced gauge thickness",
+      "Field Integration": "100% Soil Disintegration (Plowed under post-harvest)",
+      "Thickness Range": "12 Micron to 25 Micron",
+      "Applications": "Tomatoes, peppers, cucumbers, melons & organic farming",
+    },
+    thicknessLengthMatrix: [
+      { micron: "12", gauge: "50", meters: "1,500", feet: "4,920" },
+      { micron: "15", gauge: "60", meters: "1,200", feet: "3,936" },
+      { micron: "20", gauge: "80", meters: "1,000", feet: "3,280" },
+    ],
+    options: {
+      widths: ["0.9m", "1.2m", "1.5m"],
+      thicknesses: ["12 Micron", "15 Micron", "20 Micron"],
+      colors: ["Black Opaque", "Translucent"],
+    },
     applications: ["Vegetable crop mulching", "Short-cycle organic farming", "Zero-plastic field retrieval agriculture"],
     visualGradients: "from-emerald-500 to-teal-700",
   },
@@ -3371,14 +3517,86 @@ Yes, it is 100% recyclable under soft plastic (#4 PE) recycling programs.`,
     title: "Biodegradable Shrink Film",
     category: "film-products",
     tag: "Eco Shrink",
-    blurb: "Certified compostable heat shrink film rolls designed for eco-conscious retail overwrapping and multipack bundling.",
-    longDesc: "Biodegradable Shrink Film provides smooth bi-axial shrink performance while remaining 100% home and industrial compostable, helping consumer brands meet strict zero-waste goals.",
+    blurb: "Laboratory-tested plant-based heat shrink film (PLA/PBAT) delivering reliable overwrap performance while fully decomposing into non-toxic biomass. Meets ASTM D6400 and EN 13432.",
+    longDesc: `Biodegradable shrink wrap represents a revolutionary breakthrough in sustainable packaging innovation. Formulated from plant-based polymers such as Polylactic Acid (PLA) and Polybutylene Adipate Terephthalate (PBAT), this advanced shrink film delivers the high tensile strength, optical clarity, and puncture resistance of traditional polyolefin shrink wrap, while remaining environmentally responsible.
+
+Our eco-friendly shrink wrap decomposes naturally through microbial digestion, converting into organic biomass, natural gases, and harmless soil compounds without leaving microplastics or toxic residues.
+
+### Advanced Decomposition Technology
+Laboratory testing verifies that our eco-friendly films decompose naturally through biological microbial consumption:
+- **Verified Breakdown Rate**: Achieves a laboratory-tested decomposition rate of **20.8% within 183 days** under landfill conditions.
+- **Industrial Composting Standard**: Fully disintegrates within **3 to 6 months** under industrial composting conditions (meeting **ASTM D6400** and **EN 13432** standards).
+- **Lower Energy Processing**: Activates at lower tunnel temperatures, cutting electricity consumption and operational carbon dioxide emissions.
+
+### Comprehensive Industry Applications
+- **Food & Beverage**: Provides airtight protective wrapping for bottled beverages, fresh produce trays, and bakery multipacks.
+- **Retail & Consumer Goods**: Creates high-gloss overwrap for personal care items, cosmetics boxes, books, and toys.
+- **Pharmaceuticals & Healthcare**: Secures medical devices, supplies, and sterile consumables with tamper-evident seals.
+- **Luxury Packaging Solutions**: Ideal for high-end gift baskets, artisanal soaps, and luxury cosmetic boxes using sealing wands or automated heat tunnels.
+
+### Types of Biodegradable Shrink Film
+- **Oxo-Biodegradable Polyolefin Films (Biolefin)**: Microbe-attracting polyolefin film for accelerated breakdown.
+- **Fully Compostable Bio-Films (EcoShrink)**: Certified 100% plant-starch based PLA/PBAT shrink rolls for complete industrial composting.
+
+### Why Choose WinnerPack Biodegradable Shrink Film?
+- Laboratory-tested materials with verified decomposition rates.
+- Compatible with manual sealing wands, L-bar sealers, and automated high-speed thermal shrink tunnels.
+- Reduces plastic packaging waste while protecting goods during transit.
+- Lower tunnel temperature activation saves energy costs.
+- Global B2B supply network serving clients across the US, Europe, Australia, Canada, and worldwide.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Biodegradable Shrink Film?
+Biodegradable Shrink Film is an eco-friendly packaging material designed to decompose naturally into organic biomass under specific environmental or composting conditions, replacing traditional petroleum-based shrink wrap.
+
+#### 2. How does Biodegradable Shrink Film benefit the packaging industry?
+- **Sustainability**: Reduces dependency on fossil fuels and eliminates landfill plastic accumulation.
+- **Compliance**: Supports corporate net-zero targets and strict global plastic regulations.
+- **Consumer Trust**: Meets consumer demand for eco-conscious packaging.
+
+#### 3. What materials are used to make Biodegradable Shrink Film?
+Made from plant-based biopolymers such as Polylactic Acid (PLA), Polybutylene Adipate Terephthalate (PBAT), and bio-resins that break down safely in natural environments.
+
+#### 4. Is Biodegradable Shrink Film safe for food packaging?
+Yes! Manufactured in compliance with US FDA 21 CFR and EU international food contact standards, ensuring zero chemical leaching into food items.
+
+#### 5. How long does Biodegradable Shrink Film take to decompose?
+Under industrial composting conditions, it breaks down within 3 to 6 months. In landfill conditions, laboratory testing verifies a 20.8% breakdown rate within 183 days.
+
+#### 6. Can Biodegradable Shrink Film be recycled or composted?
+It is designed for industrial or home composting facilities (complying with ASTM D6400 and EN 13432) rather than standard mechanical plastic recycling streams.
+
+#### 7. What industries use Biodegradable Shrink Film?
+Food & beverage, retail consumer goods, pharmaceuticals, cosmetics, and luxury gift packaging.
+
+#### 8. How is Biodegradable Shrink Film applied to products?
+Applied using standard thermal shrink equipment. Place film around product and apply heat via shrink tunnel or heat gun; the film contracts tightly to form a tamper-evident seal.
+
+#### 9. Does Biodegradable Shrink Film provide the same protection as traditional shrink film?
+Yes! Formulated for high tensile tear resistance, bi-axial shrink memory, and crystal-clear display optics matching traditional POF shrink film performance.
+
+#### 10. What factors should I consider when choosing Biodegradable Shrink Film?
+Evaluate your required seal strength, equipment compatibility (L-bar vs tunnel speed), disposal pathway (composting vs landfill), and ASTM D6400 / EN 13432 compliance.`,
     image: "/images/desktop/journey/solution_pcr_eco_film.png",
     gallery: ["/images/desktop/journey/solution_pcr_eco_film.png"],
-    specs: { "Shrink Temp": "140°C to 170°C", "Certification": "EN 13432 Certified", "Format": "Centerfolded Rolls" },
-    thicknessLengthMatrix: [{ micron: "19", gauge: "75", meters: "1,000", feet: "3,280" }],
-    options: { widths: ["200mm", "350mm", "450mm"], thicknesses: ["19 Micron", "25 Micron"], colors: ["Translucent Clear"] },
-    applications: ["Organic product multipacks", "Eco retail box overwrap", "Sustainable cosmetics packaging"],
+    specs: {
+      "Compostability Certification": "Meets ASTM D6400 & EN 13432 Standards",
+      "Decomposition Rate": "Laboratory Verified 20.8% within 183 Days (Landfill)",
+      "Industrial Composting": "3 to 6 Months Complete Disintegration",
+      "Polymer Base": "Plant-Based PLA & PBAT Bio-Resin Blend",
+      "Shrink Equipment": "Sealing Wands, L-Bar Sealers & Heat Tunnels",
+    },
+    thicknessLengthMatrix: [
+      { micron: "19", gauge: "75", meters: "1,000", feet: "3,280" },
+      { micron: "25", gauge: "100", meters: "800", feet: "2,624" },
+    ],
+    options: {
+      widths: ["200mm", "350mm", "450mm", "600mm"],
+      thicknesses: ["19 Micron", "25 Micron"],
+      colors: ["Translucent Clear"],
+    },
+    applications: ["Organic food & beverage multipacks", "Retail cosmetics & soap boxes", "Luxury gift baskets & pharmaceutical supplies"],
     visualGradients: "from-emerald-500 to-teal-700",
   },
   {
@@ -3386,14 +3604,82 @@ Yes, it is 100% recyclable under soft plastic (#4 PE) recycling programs.`,
     title: "Biodegradable Shopping Bag",
     category: "film-products",
     tag: "Eco Carry Bag",
-    blurb: "High-tensile compostable retail carry bags featuring D-cut and loop handles, silk matte finish, and custom water-based eco printing.",
-    longDesc: "Biodegradable Shopping Bags offer the strength and tear resistance of traditional plastic carry bags, with the environmental benefit of 100% certified home compostability.",
+    blurb: "Eco-friendly compostable retail carry bags engineered with 20% thinner gauge and superior puncture resistance. Meets ASTM D6400 and EN 13432 standards.",
+    longDesc: `Biodegradable Shopping Bags represent the ultimate eco-friendly alternative to single-use plastic retail carry bags. Engineered with advanced bio-polymer formulation, our bags feature a **20% lower thickness** than conventional plastic bags while maintaining equal load-bearing strength, high puncture resistance, and leak-free reliability.
+
+Our biodegradable shopping bags are programmed to remain durable during retail use, then break down post-use. Kitchen and food waste can be composted directly inside these bags in home or industrial compost bins, turning organic waste into rich soil nutrients.
+
+### Manufacturing Process of Biodegradable Shopping Bags
+1. **Material Selection**: Carefully selected bio-polymers such as PLA (Polylactic Acid) and PBAT (Polybutylene Adipate Terephthalate) derived from renewable resources like cornstarch and sugarcane.
+2. **Precision Bio-Extrusion**: Raw materials are melted and extruded into a continuous bio-sheet featuring high tear strength and puncture resistance.
+3. **Eco-Friendly Water-Based Printing**: Customized branding and logos are applied using non-toxic water-based inks that do not harm the environment during composting.
+4. **Precision Bag Formation**: High-speed automated machinery cuts, folds, and seals continuous sheets into well-constructed D-cut, W-cut (t-shirt), and loop-handle bags.
+
+### Key Benefits & Advantages
+- **20% Thinner Gauge with Equal Strength**: Thinner film formulation reduces material usage while maintaining high load-bearing capacity and leak-free performance.
+- **Co-Compostable with Kitchen Waste**: Allows consumers to collect organic kitchen food scraps directly in the bag for home or industrial composting.
+- **ASTM D6400 & EN 13432 Certified**: Meets strict international compostability standards, breaking down into harmless CO₂, water, and biomass.
+- **Plant-Based Renewable Resins**: Reduces reliance on petroleum fossil fuels.
+- **Custom Eco Branding**: Printed with water-based flexo inks to promote sustainable brand messaging.
+- **Preferred by Eco-Conscious Consumers**: Enhances brand loyalty among environmentally aware shoppers.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are Biodegradable Shopping Bags?
+Biodegradable Shopping Bags are eco-friendly carry bags made from plant-based polymers (PLA/PBAT/starch) that break down into natural elements (water, CO₂, and biomass) through microbial action.
+
+#### 2. How are Biodegradable Shopping Bags different from traditional plastic bags?
+Traditional plastic bags persist for centuries in landfills. Biodegradable shopping bags decompose within months, leaving zero microplastics or toxic chemical residues.
+
+#### 3. What materials are used to make Biodegradable Shopping Bags?
+- Starch-based polymers (cornstarch or potato starch)
+- Polylactic Acid (PLA) derived from plant sugars
+- Polyhydroxyalkanoates (PHA) and PBAT bio-resins
+- Natural fibers and non-toxic water-based printing inks
+
+#### 4. How long do Biodegradable Shopping Bags take to decompose?
+Under industrial composting conditions, they disintegrate within 3 to 6 months. In home compost setups, natural bio-resins break down safely alongside kitchen food waste.
+
+#### 5. Are Biodegradable Shopping Bags safe for the environment?
+Yes! They decompose into natural organic soil nutrients without releasing toxic microplastics or heavy metal residues.
+
+#### 6. Can Biodegradable Shopping Bags carry heavy loads?
+Yes! Engineered with high tensile tear resistance and leak-free seals, our bags hold up to 8 kg carrying weight despite a 20% thinner film gauge.
+
+#### 7. Are Biodegradable Shopping Bags reusable?
+Yes. Designed for durability, consumers can reuse them multiple times for everyday errands before utilizing them as compostable kitchen waste liners.
+
+#### 8. What industries use Biodegradable Shopping Bags?
+- Retail Apparel & Fashion Stores
+- Supermarkets & Organic Grocery Markets
+- E-Commerce Brands & Sustainable Boutiques
+- Food Service, Takeout & Catering Operations
+
+#### 9. Can Biodegradable Shopping Bags be customized with logos and branding?
+Yes! Customized with your logo and design patterns using eco-friendly water-based flexo printing inks that do not compromise compostability.
+
+#### 10. Are Biodegradable Shopping Bags compostable at home?
+Yes, bio-bags manufactured from natural starch and PBAT blends are suitable for home composting alongside kitchen food waste.`,
     image: "/images/products/compostable-films-pouches/applications/app-4.png",
     gallery: ["/images/products/compostable-films-pouches/applications/app-4.png"],
-    specs: { "Handle Style": "D-Cut / Loop Handle / W-Cut", "Inks": "Non-Toxic Water-Based Eco Flexo Ink", "Load Capacity": "Up to 8 kg" },
-    thicknessLengthMatrix: [{ micron: "30", gauge: "120", meters: "Custom", feet: "Custom" }],
-    options: { widths: ["8x10 inch", "12x15 inch", "16x20 inch"], thicknesses: ["30 Micron", "40 Micron", "50 Micron"], colors: ["Natural White", "Eco Green"] },
-    applications: ["Retail apparel shopping bags", "Grocery store organic produce bags", "Exhibition & event eco carry bags"],
+    specs: {
+      "Compostability Certification": "Meets ASTM D6400 & EN 13432 Requirements",
+      "Material Composition": "PLA + PBAT + Renewable Plant Starch Blend",
+      "Gauge Efficiency": "20% Thinner Gauge with Equal Load Strength",
+      "Printing Method": "Non-Toxic Water-Based Eco Flexo Ink",
+      "Co-Composting Feature": "Safe for Food/Kitchen Waste Home Composting",
+    },
+    thicknessLengthMatrix: [
+      { micron: "20", gauge: "80", meters: "Custom", feet: "Custom" },
+      { micron: "30", gauge: "120", meters: "Custom", feet: "Custom" },
+      { micron: "40", gauge: "160", meters: "Custom", feet: "Custom" },
+    ],
+    options: {
+      widths: ["8x10 inch", "12x15 inch", "16x20 inch", "18x24 inch"],
+      thicknesses: ["20 Micron", "30 Micron", "40 Micron"],
+      colors: ["Natural White", "Eco Green", "Opaque Black"],
+    },
+    applications: ["Supermarket & organic grocery retail", "Apparel & fashion store carry bags", "Food waste & kitchen compostable bags"],
     visualGradients: "from-emerald-500 to-teal-700",
   },
   {
@@ -3401,11 +3687,23 @@ Yes, it is 100% recyclable under soft plastic (#4 PE) recycling programs.`,
     title: "Compostable Pouches",
     category: "film-products",
     tag: "Eco Mailer",
-    blurb: "100% Home compostable self-adhesive courier mailers and zipper pouches for sustainable e-commerce shipping.",
-    longDesc: "Compostable Pouches feature a permanent high-tack adhesive flap tape that seals security parcels reliably while breaking down into natural soil humus in compost bins.",
+    blurb: "100% Home compostable self-adhesive courier mailers and zipper pouches for sustainable e-commerce shipping. Meets ASTM D6400 and EN 13432.",
+    longDesc: `Compostable Pouches feature a permanent high-tack adhesive flap tape that seals security parcels reliably while breaking down into natural soil humus in compost bins. 
+
+Compliant with ASTM D6400 and EN 13432 standards, our compostable shipping mailers provide e-commerce brands with a zero-waste packaging solution.
+
+### Key Product Specifications
+- **ASTM D6400 & EN 13432 Certified**: 100% home compostable parcel mailers.
+- **High-Tack Security Flap**: Tamper-evident permanent adhesive closure.
+- **Waterproof & Tear Resistant**: Protects inner goods against rain, dirt, and transit abrasion.`,
     image: "/images/products/compostable-films-pouches/applications/app-4.png",
     gallery: ["/images/products/compostable-films-pouches/applications/app-4.png"],
-    specs: { "Adhesive Flap": "Permanent High-Tack Eco Adhesive Strip", "Surface Feel": "Silky Soft-Touch Matte", "Tear Strength": "High Puncture Resistance" },
+    specs: {
+      "Compostability Certification": "Meets ASTM D6400 & EN 13432 Requirements",
+      "Adhesive Flap": "Permanent High-Tack Eco Adhesive Strip",
+      "Surface Finish": "Silky Soft-Touch Matte Texture",
+      "Protection": "100% Waterproof & High Puncture Resistance",
+    },
     thicknessLengthMatrix: [{ micron: "50", gauge: "200", meters: "Custom", feet: "Custom" }],
     options: { widths: ["6x9 inch", "10x12 inch", "12x16 inch"], thicknesses: ["50 Micron", "60 Micron"], colors: ["Matte Black", "Off-White", "Leaf Green"] },
     applications: ["Sustainable e-commerce courier shipping", "Apparel brand mailers", "Eco subscription box packaging"],

@@ -58,7 +58,6 @@ export const productHierarchy = [
         slug: "agricultural-films",
         items: [
           { name: "Plastic Mulching Film", slug: "plastic-mulching-film" },
-          { name: "Greenhouse Film", slug: "greenhouse-film" },
           { name: "Low Tunnel Film", slug: "low-tunnel-film" },
           { name: "Mulch Film", slug: "mulch-film" },
         ]
