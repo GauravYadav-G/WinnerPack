@@ -2591,6 +2591,11 @@ Yes. POF is 100% recyclable under category #4 (LDPE/PP) soft plastic recycling p
       { micron: "19", gauge: "75", meters: "1,067", feet: "3,500" },
       { micron: "25", gauge: "100", meters: "800", feet: "2,625" },
     ],
+    subCategories: [
+      { id: "cross-linked-pof", title: "Cross-Linked POF Film", subtitle: "Irradiated High Tensile Polyolefin Rolls", blurb: "Irradiated cross-linked POF shrink film with extreme puncture resistance and high hot-knife seal strength.", image: "/images/products/pof-shrink-rolls/image.png" },
+      { id: "non-cross-linked-pof-film", title: "Non-Cross-Linked POF Film", subtitle: "Standard 5-Layer Soft Shrink Polyolefin", blurb: "Standard co-extruded POF shrink rolls designed for bakery, books, cosmetics, and general retail multipacks.", image: "/images/products/pof-shrink-rolls/image.png" },
+      { id: "pof-shrink-pouches", title: "POF Shrink Pouches", subtitle: "Pre-Cut Sealed Polyolefin Shrink Bags", blurb: "Pre-cut 3-side sealed POF shrink pouches ready for manual L-bar sealing and instant shrink tunnel processing.", image: "/images/products/pof-films-pouches/applications/app-4.png" },
+    ],
     options: { widths: ["200mm", "300mm", "450mm", "600mm"], thicknesses: ["12 Micron", "15 Micron", "19 Micron", "25 Micron"], colors: ["Ultra Clear Glass Finish"] },
     applications: ["Food & bakery packaging", "Gift basket & cosmetic boxes", "Toys, books & stationery packs"],
     visualGradients: "from-sky-400 to-blue-500",
