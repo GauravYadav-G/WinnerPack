@@ -1336,7 +1336,7 @@ Consider your crop type, regional climate (high UV vs cold), application method 
       },
       {
         id: "low-tunnel-film",
-        title: "Low Tunnel Sheeting",
+        title: "Low Tunnel Film",
         subtitle: "Perforated Micro-Climate Sheeting for Early Crop Protection",
         blurb: "Clear high-clarity low tunnel protective sheeting designed for row crop installation, providing frost protection and accelerated seed germination.",
         image: "/images/desktop/journey/solution_pcr_eco_film.png",
@@ -1363,21 +1363,6 @@ Consider your crop type, regional climate (high UV vs cold), application method 
           "Puncture Strength": "High resistance against drip stake tearing",
         },
         applications: ["Commercial horticulture mulching", "Fruit orchard soil covers", "Weed control without chemical pesticides"],
-      },
-      {
-        id: "greenhouse-film",
-        title: "Greenhouse Cover Film",
-        subtitle: "Anti-Drip & Anti-Fog UV Stabilized Polyhouse Covers",
-        blurb: "Multi-year UV-stabilized greenhouse polyhouse cover film with 90%+ light transmission, anti-fog drop control, and high thermal heat retention.",
-        image: "/images/desktop/about/blown_film_tower.png",
-        specs: {
-          "Light Transmission": "90% PAR Solar Transmission",
-          "Thermal Barrier": "IR Thermicity Heat Retention Coating",
-          "Anti-Fog Effect": "Hydrophilic Anti-Drip Droplet Control",
-          "Width Customization": "Up to 14 Meters Seamless Width",
-          "UV Life": "3 to 5 Year Multi-Season Solar Durability",
-        },
-        applications: ["Polyhouse & greenhouse covers", "Horticulture & floriculture protection", "Controlled environment farming"],
       },
     ],
     options: {
