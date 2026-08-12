@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronRight, ArrowLeft, Loader2, CheckCircle2 } from "lucide-react";
+import { ChevronRight, ArrowLeft, Loader2, CheckCircle2, HelpCircle, ChevronDown } from "lucide-react";
 import { productCategories } from "../../../data";
 import { Container, Section, Eyebrow } from "@/components/ui/primitives";
 import { Stagger, StaggerItem } from "@/components/ui/motion";
@@ -21,6 +21,101 @@ import { apiFetch } from "@/lib/api";
 import { marked } from "marked";
 import { initialProducts } from "@/lib/fallback-data";
 import OptimizedImage from '@/components/OptimizedImage';
+
+function extractFaqs(longDesc?: string) {
+  if (!longDesc) return [];
+  const faqStartIndex = longDesc.indexOf("### Frequently Asked Questions");
+  if (faqStartIndex === -1) return [];
+
+  const faqText = longDesc.substring(faqStartIndex);
+  const regex = /####\s*(\d+\.\s*[^?\n]+\??)\n+([\s\S]*?)(?=(####\s*\d+\.|$))/g;
+  const faqs: { question: string; answer: string }[] = [];
+  let match;
+  while ((match = regex.exec(faqText)) !== null) {
+    faqs.push({
+      question: match[1].trim(),
+      answer: match[2].trim(),
+    });
+  }
+  return faqs;
+}
+
+function getLongDescWithoutFaq(longDesc?: string) {
+  if (!longDesc) return "";
+  const faqStartIndex = longDesc.indexOf("### Frequently Asked Questions");
+  if (faqStartIndex === -1) return longDesc;
+  return longDesc.substring(0, faqStartIndex).trim();
+}
+
+function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) {
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
+
+  if (!faqs || faqs.length === 0) return null;
+
+  return (
+    <div className="pt-10 border-t border-[var(--color-line)] space-y-6 font-sans">
+      <div className="space-y-2">
+        <div className="flex items-center gap-2">
+          <HelpCircle className="h-5 w-5 text-[var(--color-amber-dark)] shrink-0" />
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
+            Frequently Asked Questions
+          </span>
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+          Frequently Asked Questions (FAQ)
+        </h2>
+        <p className="text-xs sm:text-sm text-[var(--color-mute)]">
+          Find comprehensive answers to common questions about materials, customization, standards, and packaging applications.
+        </p>
+      </div>
+
+      <div className="space-y-3 pt-2">
+        {faqs.map((faq, index) => {
+          const isOpen = openIdx === index;
+          return (
+            <div
+              key={index}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                isOpen
+                  ? "border-[var(--color-amber)] bg-white shadow-md ring-1 ring-[var(--color-amber)]/30"
+                  : "border-[var(--color-line)] bg-[var(--color-mist)] hover:border-slate-300"
+              }`}
+            >
+              <button
+                type="button"
+                onClick={() => setOpenIdx(isOpen ? null : index)}
+                className="w-full flex items-center justify-between p-4 sm:p-5 text-left gap-4 font-sans font-bold text-sm sm:text-base text-[var(--color-ink)] cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <span className={`flex items-center justify-center h-7 w-7 rounded-lg text-xs font-mono font-black shrink-0 transition-colors ${
+                    isOpen ? "bg-[var(--color-amber)] text-[var(--color-blue-deep)]" : "bg-slate-200 text-slate-700"
+                  }`}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span>{faq.question}</span>
+                </div>
+                <div className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                  isOpen ? "rotate-180 bg-[var(--color-amber)]/20 text-[var(--color-amber-dark)]" : "text-slate-400"
+                }`}>
+                  <ChevronDown className="h-4 w-4" />
+                </div>
+              </button>
+
+              {isOpen && (
+                <div className="px-4 pb-5 sm:px-5 sm:pb-6 pt-2 text-xs sm:text-sm text-[var(--color-mute)] leading-relaxed border-t border-slate-100 font-sans">
+                  <div
+                    className="space-y-2 [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_li]:text-xs [&_li]:sm:text-sm [&_strong]:text-[var(--color-ink)]"
+                    dangerouslySetInnerHTML={{ __html: marked.parse(faq.answer) as string }}
+                  />
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -331,7 +426,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 {product.longDesc ? (
                   <div
                     className="space-y-4 text-sm sm:text-base text-[var(--color-mute)] leading-relaxed [&_p]:text-sm [&_p]:sm:text-base [&_p]:text-[var(--color-mute)] [&_p]:leading-relaxed [&_h2]:font-display [&_h2]:text-xl [&_h2]:sm:text-2xl [&_h2]:font-extrabold [&_h2]:text-[var(--color-ink)] [&_h2]:pt-4 [&_h3]:font-display [&_h3]:text-lg [&_h3]:sm:text-xl [&_h3]:font-bold [&_h3]:text-[var(--color-ink)] [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_li]:text-sm [&_li]:text-[var(--color-mute)]"
-                    dangerouslySetInnerHTML={{ __html: marked.parse(product.longDesc) as string }}
+                    dangerouslySetInnerHTML={{ __html: marked.parse(getLongDescWithoutFaq(product.longDesc)) as string }}
                   />
                 ) : (
                   <p>
@@ -370,6 +465,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     ))}
                   </div>
                 </div>
+
+                {/* DEDICATED FREQUENTLY ASKED QUESTIONS (FAQ) SECTION */}
+                <FaqSection faqs={extractFaqs(product.longDesc)} />
 
               </div>
             </section>
@@ -672,6 +770,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                         </div>
                       </div>
                     )}
+
+                    {/* DEDICATED FREQUENTLY ASKED QUESTIONS (FAQ) SECTION */}
+                    <FaqSection faqs={extractFaqs(product.longDesc)} />
 
                     {/* Bottom CTA / Contact Bar */}
                     <div className="pt-8 border-t border-[var(--color-line)]">
