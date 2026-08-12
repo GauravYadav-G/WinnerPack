@@ -24,10 +24,22 @@ import OptimizedImage from '@/components/OptimizedImage';
 
 function extractFaqs(longDesc?: string) {
   if (!longDesc) return [];
-  const faqStartIndex = longDesc.indexOf("### Frequently Asked Questions");
-  if (faqStartIndex === -1) return [];
+  const faqPatterns = [
+    "### Frequently Asked Questions",
+    "### FAQ",
+    "#### 1. What",
+    "#### 1. "
+  ];
+  let startIdx = -1;
+  for (const pattern of faqPatterns) {
+    const idx = longDesc.indexOf(pattern);
+    if (idx !== -1 && (startIdx === -1 || idx < startIdx)) {
+      startIdx = idx;
+    }
+  }
+  if (startIdx === -1) return [];
 
-  const faqText = longDesc.substring(faqStartIndex);
+  const faqText = longDesc.substring(startIdx);
   const regex = /####\s*(\d+\.\s*[^?\n]+\??)\n+([\s\S]*?)(?=(####\s*\d+\.|$))/g;
   const faqs: { question: string; answer: string }[] = [];
   let match;
@@ -42,9 +54,21 @@ function extractFaqs(longDesc?: string) {
 
 function getLongDescWithoutFaq(longDesc?: string) {
   if (!longDesc) return "";
-  const faqStartIndex = longDesc.indexOf("### Frequently Asked Questions");
-  if (faqStartIndex === -1) return longDesc;
-  return longDesc.substring(0, faqStartIndex).trim();
+  const faqPatterns = [
+    "### Frequently Asked Questions",
+    "### FAQ",
+    "#### 1. What",
+    "#### 1. "
+  ];
+  let earliestIdx = -1;
+  for (const pattern of faqPatterns) {
+    const idx = longDesc.indexOf(pattern);
+    if (idx !== -1 && (earliestIdx === -1 || idx < earliestIdx)) {
+      earliestIdx = idx;
+    }
+  }
+  if (earliestIdx === -1) return longDesc;
+  return longDesc.substring(0, earliestIdx).trim();
 }
 
 function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) {
@@ -666,7 +690,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       {product.longDesc && (
                         <div
                           className="space-y-5 text-sm sm:text-base text-[var(--color-mute)] leading-relaxed [&_p]:text-sm [&_p]:sm:text-base [&_p]:text-[var(--color-mute)] [&_p]:leading-relaxed [&_h2]:font-display [&_h2]:text-xl [&_h2]:sm:text-2xl [&_h2]:font-extrabold [&_h2]:text-[var(--color-ink)] [&_h2]:pt-4 [&_h2]:border-t [&_h2]:border-[var(--color-line)] [&_h3]:font-display [&_h3]:text-lg [&_h3]:sm:text-xl [&_h3]:font-bold [&_h3]:text-[var(--color-ink)] [&_h3]:pt-4 [&_h3]:border-t [&_h3]:border-[var(--color-line)] [&_ul]:list-none [&_ul]:space-y-2 [&_li]:text-xs [&_li]:sm:text-sm [&_li]:text-[var(--color-ink)] [&_li]:flex [&_li]:items-start [&_li]:gap-2 [&_li]:before:content-['•'] [&_li]:before:text-[var(--color-amber)] [&_li]:before:font-black [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2"
-                          dangerouslySetInnerHTML={{ __html: marked.parse(product.longDesc) as string }}
+                          dangerouslySetInnerHTML={{ __html: marked.parse(getLongDescWithoutFaq(product.longDesc)) as string }}
                         />
                       )}
                     </div>
