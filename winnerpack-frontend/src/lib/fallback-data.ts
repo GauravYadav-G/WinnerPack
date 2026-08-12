@@ -3848,13 +3848,16 @@ When correctly applied with sufficient overlapping layers, silage stretch film p
     image: "/images/products/stretch-film/image.png",
     gallery: ["/images/products/stretch-film/image.png"],
     specs: {
-      "Roll Widths": "250 mm / 500 mm / 750 mm",
-      "Thickness Options": "23 Micron / 29 Micron (25-35 Micron customizable)",
-      "UV Stabilization": "Up to 12 Months Outdoor Field Protection",
+      "Width Options": "250 mm / 500 mm / 750 mm (Custom Available)",
+      "Thickness Range": "23 Micron / 29 Micron (25–35 Micron Customizable)",
+      "Colors": "White / Green / Black (Custom Colors Available)",
       "Pre-Stretch Capability": "Up to 55%",
-      "Color Options": "White / Green / Black",
-      "Material": "100% Virgin Premium LLDPE Polyethylene",
-      "Oxygen Permeability": "Low Oxygen Transmission Rate",
+      "Film Structure": "Multi-Layer Co-Extrusion Technology",
+      "UV Stabilization": "High UV Stabilization (Up to 12 Months Outdoor Protection)",
+      "Oxygen Barrier": "Low Oxygen Transmission Rate (Airtight Fermentation Seal)",
+      "Puncture Resistance": "High Puncture & Tear Resistance for Rough Stems",
+      "Cling Performance": "Strong Tack & High Cling without Adhesives",
+      "Baler Compatibility": "All Major High-Speed Automatic & Semi-Automatic Balers",
     },
     options: {
       widths: ["250 mm", "500 mm", "750 mm"],
@@ -3867,6 +3870,100 @@ When correctly applied with sufficient overlapping layers, silage stretch film p
       "Corn silage wrapping",
       "Hay bale plastic wrap",
       "Dairy & livestock feed preservation",
+    ],
+    visualGradients: "from-yellow-400 to-amber-500",
+  },
+  {
+    id: "pre-stretch-film",
+    title: "Pre Stretch Film",
+    category: "film-products",
+    tag: "Pre-Stretch",
+    blurb: "Multi-layer pre-stretched film engineered to deliver 50% film savings, ultra-lightweight rolls, and maximum pallet holding force with minimal operator fatigue.",
+    longDesc: `Pre-stretch is the process that allows the stretch film to be stretched before (pre) being applied to a load.
+
+WinnerPack Pre-Stretch Film is a multi-layer packaging stretch film designed to be thinner and stronger than standard stretch film. This multi-layered stretch film has special characteristics that increase stretch resistance and strengthen load holding for transport. Ultimately, this produces less environmental waste since the operator consumes less material during usage.
+
+The high-performance pre-stretched film brings the benefits of modern top-of-the-range stretch wrappers to manual application and standard wrapping machinery. Pre-stretch is strong, consistent, and stable at a minimum effort of the worker. The cost of consumables is drastically reduced while increasing film coverage.
+
+WinnerPack is one of the leading manufacturers and suppliers of Pre-stretch Film in the world, providing reliable and high-performance pre-stretched wrap solutions to global supply chains across logistics, manufacturing, retail, and food industries.
+
+### Why Choose WinnerPack Pre-stretch Film?
+- **Cost & Time Effective**: 50% less film consumption with longer roll length for the same reel weight due to ultra-thin gauge.
+- **High Performance**: Superior puncture and tear resistance at thinner thickness with minimum neck-down during application.
+- **Reinforced Edges**: Hemmed/reinforced roll edges provide enhanced load-holding force and prevent edge tears.
+- **User Friendly & Ergonomic**: 50% lighter roll weight reduces worker physical fatigue during manual hand wrapping.
+- **Environmentally Friendly**: Consumes less material per pallet, drastically reducing plastic waste and disposal costs.
+- **Storage & Processing Efficiency**: More meters per roll means reduced warehouse storage space and fewer roll changes during processing.
+
+### Standard Sizes & Specifications
+- **Hand Roll Size**: 430 × 450 mm × 9 Micron × 500 Meter (2" Core ID)
+- **Machine Roll Size**: 430 × 450 mm × 9 Micron × 1500 Meter (3" Core ID)
+- **Core Options**: 2 Inch (Hand Roll) & 3 Inch (Machine Roll)
+- **Available Widths**: 150 mm, 200 mm, 250 mm, 300 mm, 400 mm, 500 mm & 550 mm (Custom widths available)
+- **Thickness Range**: 6 to 13 Micron (Ultra-Thin High Strength)
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is pre-stretch film?
+Pre-stretch film is a type of stretch film that has been stretched during its manufacturing process. This allows it to maintain consistent elongation and strength, requiring minimal effort during application. It is widely used for securing and stabilizing pallet loads in packaging and logistics operations.
+
+#### 2. How does pre-stretch film differ from regular stretch film?
+Unlike regular stretch film, pre-stretch film is pre-stretched during production, giving it enhanced stability and tension when applied. Regular stretch film requires the user to manually stretch it during application, which often leads to inconsistent results. Pre-stretch film is lighter, easier to handle, and uses less material.
+
+#### 3. What are the benefits of using pre-stretch film in packaging?
+- **Cost Savings**: Reduced material usage (up to 50% less film) and lighter weight.
+- **Ease of Use**: Requires minimal effort to apply, reducing operator fatigue.
+- **Consistent Application**: Improves load stability with uniform tension.
+- **Sustainability**: Less material consumed per load means less environmental plastic waste.
+- **Enhanced Strength**: Multi-layer structure provides excellent tear resistance despite thinner gauge.
+
+#### 4. How is pre-stretch film applied during packaging?
+Pre-stretch film can be applied manually using lightweight hand dispensers or with automatic wrapping machines. Its lightweight nature makes it easier to handle compared to traditional stretch films. Once wrapped, it clings tightly to the load, maintaining tension over extended periods.
+
+#### 5. What industries commonly use pre-stretch film for packaging?
+- **Logistics and Transportation**: For securing cargo during shipping.
+- **Manufacturing**: For palletizing goods efficiently.
+- **Retail and Distribution**: For stabilizing products in warehouses.
+- **Food and Beverage**: For unitizing products like bottles, cans, and boxes.
+
+#### 6. Is pre-stretch film more cost-effective than traditional stretch film?
+Yes, pre-stretch film is highly economical. Since it is pre-stretched during production, less material is required to wrap loads effectively. Its lighter weight also reduces shipping costs and packaging waste, contributing to overall cost-efficiency.
+
+#### 7. Can pre-stretch film be used for securing both light and heavy items?
+Absolutely. Pre-stretch film is highly versatile and adapts to various load weights. For light items, it ensures firm stabilization without applying excessive tension. For heavier items, it maintains superior strength to hold the load securely.
+
+#### 8. Is pre-stretch film recyclable or eco-friendly?
+Yes, pre-stretch film is 100% recyclable. Its material efficiency (requiring 50% less film per load) makes it a sustainable option, generating less plastic waste.
+
+#### 9. What are the typical sizes and thicknesses of pre-stretch film?
+Standard sizes include Hand Rolls (430 mm × 9 Micron × 500m) and Machine Rolls (430 mm × 9 Micron × 1500m). Widths range from 150 mm to 550 mm, with thicknesses typically between 6 to 13 microns.
+
+#### 10. How does pre-stretch film improve load stability during shipping and storage?
+Pre-stretch film is engineered to deliver consistent tension and cling, preventing load shifting during transit. Its advanced elasticity and tear resistance protect packages from external impacts, ensuring safe delivery and stable storage conditions.`,
+    image: "/images/products/stretch-film/image.png",
+    gallery: ["/images/products/stretch-film/image.png"],
+    specs: {
+      "Hand Roll Size": "430 × 450 mm × 9 Micron × 500 Meter",
+      "Machine Roll Size": "430 × 450 mm × 9 Micron × 1500 Meter",
+      "Core ID": "2″ (Hand Roll) / 3″ (Machine Roll)",
+      "Available Widths": "150 mm, 200 mm, 250 mm, 300 mm, 400 mm, 500 mm, 550 mm",
+      "Thickness Range": "6 Micron to 13 Micron Ultra-Thin High Strength",
+      "Material Savings": "50% Less Film Consumption vs Standard Stretch Film",
+      "Weight Reduction": "50% Lighter Roll Weight for Reduced Operator Fatigue",
+      "Structure": "Multi-Layer Co-Extruded Film with Reinforced Edges",
+      "Recyclability": "100% Recyclable Polyethylene",
+    },
+    options: {
+      widths: ["150 mm", "200 mm", "250 mm", "300 mm", "400 mm", "430 mm", "500 mm", "550 mm"],
+      thicknesses: ["6 Micron", "8 Micron", "9 Micron", "12 Micron", "13 Micron"],
+      colors: ["High Clarity Natural", "Black Opaque"],
+    },
+    applications: [
+      "High-speed automated pallet wrapping",
+      "Ergonomic manual hand wrapping",
+      "Logistics cargo & pallet unitization",
+      "Food & beverage bottle/box wrapping",
+      "Eco-friendly waste-reduction packaging",
     ],
     visualGradients: "from-yellow-400 to-amber-500",
   },
