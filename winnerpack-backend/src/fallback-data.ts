@@ -3671,6 +3671,206 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
     visualGradients: "from-yellow-400 to-amber-500",
   },
   {
+    id: "cling-film",
+    title: "Cling Film",
+    category: "film-products",
+    tag: "Cling Film",
+    blurb: "Food-grade transparent cling film roll engineered to cover, seal, and preserve food items without adhesives — maintaining freshness, aroma, and safety.",
+    longDesc: `Cling Film clings and covers food without any adhesive or glue required for covering it. WinnerPack provides high-quality cling films that tightly pack food items together, preserving freshness and quality across food service, catering, and household applications.
+
+The Cling Film offered by WinnerPack is made of transparent polymer with superior elasticity and self-clinging properties, forming a reliable seal around food containers or items of different shapes and sizes. Cling Wraps keep food safe from contamination, prevent drying out, and retain taste and aroma during storage and transport.
+
+### Cling Film Manufacturer & Supplier
+WinnerPack uses high-grade polyethylene (LDPE) and PVC raw materials compliant with FDA and EU food contact regulations. The stretch quality helps it cling securely and wrap evenly around food products, making it an essential packaging film solution.
+
+### Key Advantages & Features
+- **Promises Freshness**: Prevents food from drying out in refrigerators and stops odors from spreading.
+- **Versatile Food Protection**: Ideal for cooked foods, fresh fruits, vegetables, dairy products, and sweets.
+- **Preserves Aroma**: Retains natural aroma and moisture within packaged food items.
+- **Adhesive-Free Self-Cling**: Clings securely to containers without messy glues or adhesive tapes.
+- **Reusable & Cost-Effective**: Durable film construction allows reuse in decorative and secondary wrapping applications.
+- **Dust & Moisture Protection**: Shields items from external dirt, air exposure, and moisture ingress.
+
+### How to Select Cling Films
+1. **Determine Required Size**: Choose roll widths (typically 300 mm to 600 mm) based on items or containers being wrapped.
+2. **Select Thickness**: Pick suitable micron thickness (10 to 25 Micron) for optimal strength and elasticity.
+3. **Verify Food-Grade Material**: Ensure manufacture from high-quality food-safe polyethylene (LDPE/PVC).
+4. **Dispensing Convenience**: Consider rolls supplied with cutter boxes or self-core holders for smooth application.
+5. **Microwave Compatibility**: Check heat-resistance specs if intended for reheating food.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is cling film?
+Cling film, often referred to as plastic wrap, is a thin, transparent film made from stretchable plastic materials. It is primarily used to cover and seal food items to preserve freshness and prevent contamination during storage and transportation.
+
+#### 2. What materials are used to make cling film?
+Cling film is typically made from low-density polyethylene (LDPE) or polyvinyl chloride (PVC). Both materials are renowned for their elasticity, adhesive cling properties, and durability, making them ideal for a variety of food packaging applications.
+
+#### 3. How is cling film used in food packaging?
+Cling film is widely utilized in food packaging to securely wrap fresh produce, meats, baked goods, and prepared meals. Its stretchable nature and self-sealing properties ensure an air-tight fit, reducing oxygen exposure and extending shelf life.
+
+#### 4. Is cling film safe for food storage?
+Yes, cling film designed for food packaging is manufactured to meet strict safety standards. It undergoes rigorous testing to comply with food-grade certifications (such as FDA and EU directives) for direct contact with edible goods.
+
+#### 5. Can cling film be used for both hot and cold items?
+Cling film is versatile and can be used for both hot and cold items. However, PVC-based cling film should not be used at high temperatures or in direct contact with hot food. LDPE-based cling film offers higher heat resistance — always follow specified temperature guidelines.
+
+#### 6. Is cling film recyclable or eco-friendly?
+Recyclability depends on the material. Cling films made from LDPE are recyclable where soft plastic recycling facilities exist. Eco-friendly biodegradable and compostable options are also available for sustainability-focused operations.
+
+#### 7. How does cling film keep food fresh for longer periods?
+Cling film provides a barrier against air, moisture, and bacteria, slowing down oxidation and minimizing contamination risks. Enhanced oxygen permeability and water vapor regulation optimize freshness preservation.
+
+#### 8. Can cling film be used for non-food items?
+Yes, cling film is commonly employed to wrap and protect non-food items such as stationery, pharmaceuticals, acrylic surfaces, and tools from dust, scratches, and environmental factors during storage and shipping.
+
+#### 9. What are the common sizes and thicknesses of cling film rolls?
+Rolls typically range from 300 mm to 600 mm (12 inches to 24 inches) in width and 10 microns to 25 microns in thickness. Custom roll lengths and widths are available based on customer requirements.
+
+#### 10. What are the differences between regular cling film and stretch film?
+- **Cling Film**: Thinner (10–25 Micron), highly flexible with self-adhesive cling, primarily designed for food wrapping and light packaging.
+- **Stretch Film**: Thicker (12–29 Micron), engineered for heavy pallet load containment and industrial bundling using manual or machine wrappers.`,
+    image: "/images/products/stretch-film/image.png",
+    gallery: ["/images/products/stretch-film/image.png"],
+    specs: {
+      "Protection Against Dust / Dirt": "Yes",
+      "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
+      "Visual Inspection": "Helps for Visual Inspection",
+      "Cost Effectiveness": "More Cost effective compared to Straps / Shrink / Corrugation",
+      "Wrapping Options": "Available for Manual Wrapping / Machine Wrapping",
+      "Standard Widths": "50 mm / 100 mm / 150 mm / 200 mm / 300 mm / 450 mm / 500 mm / 600 mm (Max Width 1.5 Meters)",
+      "Standard Thickness": "12 Micron / 15 Micron / 18 Micron / 23 Micron / 29 Micron",
+      "Standard Colours": "Natural / Opaque White / Blue / Black",
+      "Standard Core ID": "25 mm / 31 mm / 76.2 mm",
+      "Special Additives": "UV Protection / VCI / Antistatic",
+    },
+    options: {
+      widths: ["300 mm", "450 mm", "500 mm", "600 mm"],
+      thicknesses: ["10 Micron", "12 Micron", "15 Micron", "18 Micron", "25 Micron"],
+      colors: ["Clear Natural", "Opaque White", "Blue Tint", "Black"],
+    },
+    applications: [
+      "Fresh food & produce wrapping",
+      "Catering & commercial kitchen food storage",
+      "Dairy, meat & bakery preservation",
+      "Refrigerated food preservation",
+      "Pharmaceutical & stationery protective wrap",
+    ],
+    visualGradients: "from-yellow-400 to-amber-500",
+  },
+  {
+    id: "silage-stretch-film",
+    title: "Silage Stretch Film & Bale Wrap",
+    category: "film-products",
+    tag: "Silage Wrap",
+    blurb: "High-performance multi-layer silage stretch film engineered for round and square bale wrapping with 12-month UV stabilization, high puncture resistance, and airtight oxygen barrier protection.",
+    longDesc: `Silage stretch film is essential for preserving forage quality in modern dairy and livestock farming. Designed for wrapping round bales and square bales, WinnerPack high-performance silage wrap film creates an airtight environment that protects silage from oxygen, moisture, and UV exposure.
+
+WinnerPack is a trusted silage film manufacturer and global supplier, delivering premium silage stretch film, bale wrap film, and plastic hay bale wrap to agricultural markets worldwide. Our silage wrapping films are part of our high-performance stretch wrap product range designed to help farmers reduce spoilage, improve fermentation, and maintain maximum nutritional value in stored forage.
+
+### Silage Wrap & Plastic Hay Bale Wrap Film
+Our silage wrap film is specially engineered for high-load retention and strong cling performance. It is suitable for use with all major baler and wrapping machines.
+
+**Applications include:**
+- Round bale silage wrap
+- Square bale wrapping
+- Corn silage wrapping
+- Hay bale plastic wrap
+- Forage preservation systems
+
+### Key Benefits
+- **Excellent Puncture Resistance**: Multi-layer co-extrusion technology prevents tears on rough stems.
+- **High Tensile Strength**: Ensures tight, secure bale wrapping without film breakage.
+- **Superior Stretch Capability**: Pre-stretch capability up to 55% for optimal material efficiency.
+- **Strong Tack & Cling**: Provides uniform layer-to-layer adhesion without gaps.
+- **Low Oxygen Permeability**: Creates an airtight anaerobic environment for optimal fermentation.
+- **UV Stabilized**: Up to 12 months outdoor UV protection under harsh summer sunlight.
+
+### Technical Specifications
+- **Available Widths**: 250 mm / 500 mm / 750 mm
+- **Thickness Options**: 23 Micron / 29 Micron (custom 25–35 Micron available)
+- **Colors**: White / Green / Black (custom options available)
+- **Pre-Stretch Capability**: Up to 55%
+- **UV Protection**: High UV stabilization (up to 12 months outdoor protection)
+- **Barrier Rating**: Low oxygen transmission rate & low water permeability
+
+### Why Farmers Choose Silage Stretch Film Over Traditional Methods
+Compared to tarps or silo pits, silage stretch film offers:
+- Better oxygen barrier preventing mold formation
+- Improved fermentation process and higher nutrient retention
+- Lower dry matter loss
+- Easier handling, transport, and storage
+- Reduced overall labor cost and feed wastage
+
+### Compatible with High-Speed Wrapping Machines
+Suitable for modern automatic and semi-automatic balers:
+- High-speed baler machines
+- Individual bale wrapping systems
+- Inline wrapping systems
+- Commercial-scale agricultural operations
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is silage stretch film?
+Silage stretch film is a specialized agricultural film designed to securely wrap and preserve silage, hay, or other forages. It ensures an airtight seal, promoting effective fermentation and preventing spoilage.
+
+#### 2. How is silage stretch film used in agricultural applications?
+Silage stretch film is applied using a baling machine, which wraps silage bales in multiple layers of the film. This process creates an oxygen barrier, maintaining optimal conditions for anaerobic fermentation, which is essential for preserving the nutritional content of the feed.
+
+#### 3. What are the benefits of using silage stretch film for preserving silage?
+- **Preservational Excellence**: Creates an airtight seal, reducing spoilage and retaining feed value.
+- **Weather Resistance**: Protects silage from moisture, UV rays, and extreme temperatures.
+- **Efficiency**: Streamlines agricultural processes by ensuring long-term forage preservation.
+- **Cost-Effective**: Reduces waste caused by spoilage, enhancing feed quality and livestock productivity.
+
+#### 4. What materials are used to make silage stretch film?
+Silage stretch film is manufactured using premium-grade Linear Low-Density Polyethylene (LLDPE). This polymer blend provides elasticity, puncture durability, and self-tack cling required for agricultural baling.
+
+#### 5. How does silage stretch film help in maintaining the quality of feed?
+By creating an oxygen-free environment, silage stretch film promotes anaerobic fermentation, which minimizes nutrient loss and inhibits the growth of molds and bacteria — ensuring nutrient-rich feed for livestock.
+
+#### 6. Is silage stretch film UV resistant?
+Yes, silage stretch film is UV-stabilized to resist the degrading effects of prolonged sun exposure for up to 12 months in outdoor field conditions.
+
+#### 7. What are the common sizes and thicknesses available for silage stretch film?
+Available in roll widths of 250 mm, 500 mm, and 750 mm, with standard thicknesses of 23 Micron and 29 Micron (custom 25–35 Micron options available).
+
+#### 8. Can silage stretch film be recycled or is it biodegradable?
+Silage stretch film is recyclable and can be processed through agricultural plastics recycling programs. Farmers are encouraged to participate in proper soft plastic recycling initiatives.
+
+#### 9. How long can silage be stored when properly wrapped with silage stretch film?
+When correctly applied with sufficient overlapping layers, silage stretch film preserves silage for up to 12 months or longer depending on storage conditions.
+
+#### 10. What makes silage stretch film different from regular stretch film used in packaging?
+- **UV-Stabilized**: Engineered for up to 12 months direct sunlight exposure.
+- **Puncture Resistant**: Built to withstand sharp, dry forage stems and rough mechanical handling.
+- **Tack & Cling Formula**: Formulated for high outdoor cling in varying weather conditions.`,
+    image: "/images/products/stretch-film/image.png",
+    gallery: ["/images/products/stretch-film/image.png"],
+    specs: {
+      "Roll Widths": "250 mm / 500 mm / 750 mm",
+      "Thickness Options": "23 Micron / 29 Micron (25-35 Micron customizable)",
+      "UV Stabilization": "Up to 12 Months Outdoor Field Protection",
+      "Pre-Stretch Capability": "Up to 55%",
+      "Color Options": "White / Green / Black",
+      "Material": "100% Virgin Premium LLDPE Polyethylene",
+      "Oxygen Permeability": "Low Oxygen Transmission Rate",
+    },
+    options: {
+      widths: ["250 mm", "500 mm", "750 mm"],
+      thicknesses: ["23 Micron", "29 Micron", "35 Micron"],
+      colors: ["White", "Green", "Black"],
+    },
+    applications: [
+      "Round bale silage wrapping",
+      "Square bale forage protection",
+      "Corn silage wrapping",
+      "Hay bale plastic wrap",
+      "Dairy & livestock feed preservation",
+    ],
+    visualGradients: "from-yellow-400 to-amber-500",
+  },
+  {
     id: "collation-shrink-film",
     title: "Collation Shrink Film",
     category: "film-products",

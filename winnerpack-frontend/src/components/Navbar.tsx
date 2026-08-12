@@ -98,24 +98,7 @@ export const productHierarchy = [
           { name: "Water Packaging Film", slug: "water-packaging-film" },
         ]
       },
-      {
-        id: "stretch-film",
-        title: "Plastic Stretch Film",
-        slug: "plastic-stretch-film",
-        items: [
-          { name: "Mini Stretch Wrap Rolls", slug: "mini-stretch-wrap-rolls" },
-          { name: "Manual Stretch Film", slug: "manual-stretch-film" },
-          { name: "Machine Stretch Film", slug: "machine-stretch-film" },
-          { name: "Cling Film", slug: "cling-film" },
-          { name: "Silage Stretch Film & Bale Wrap", slug: "silage-stretch-film" },
-          { name: "Pre Stretch Film", slug: "pre-stretch-film" },
-          { name: "VCI Stretch Film", slug: "vci-stretch-film" },
-          { name: "Oxy Fade Stretch Wrap", slug: "oxy-fade-stretch-wrap" },
-          { name: "Coreless Stretch Film", slug: "coreless-stretch-film" },
-          { name: "Biodegradable Stretch Wrap", slug: "biodegradable-stretch-wrap" },
-          { name: "Recycled Stretch Wrap", slug: "recycled-stretch-wrap" },
-        ]
-      },
+
       {
         id: "ldpe-bags",
         title: "LDPE Bags",
