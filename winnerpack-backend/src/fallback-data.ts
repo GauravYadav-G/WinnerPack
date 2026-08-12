@@ -2773,14 +2773,104 @@ Using plastic mulch film is one of the most effective methods to increase agricu
     title: "Mini Stretch Wrap Rolls",
     category: "film-products",
     tag: "Mini Stretch",
-    blurb: "Compact 100mm and 250mm handheld mini stretch wrap rolls with reusable plastic handles for fast bundle tying and pipe bundling.",
-    longDesc: "Mini Stretch Wrap Rolls replace sticky tape or twine when bundling long extrusions, pipes, wooden moldings, or small boxes. Leaves zero adhesive residue on wrapped items.",
+    blurb: "Compact handheld mini stretch wrap rolls designed to securely wrap and protect small to medium items — from boxes and cables to furniture and irregularly shaped products.",
+    longDesc: `Mini stretch wrap rolls are a must-have solution for all your packaging needs, offering unmatched versatility and convenience. Crafted from premium stretch film, WinnerPack mini stretch wrap rolls are designed to securely wrap and protect a wide range of products, from boxes and furniture to items of different sizes.
+
+The inclusion of a plastic handle makes each roll easy to grip and maneuver, allowing for quick and efficient wrapping whether you're preparing items for shipping, storage, or moving. Their compact and lightweight design ensures that mini stretch wrap rolls are easy to store and transport, making them ideal for both business and personal use.
+
+With their ability to stretch and conform to various shapes, these rolls provide a tight, secure hold that keeps your items safe from moisture and dust. Whether you need to bundle small packages or wrap larger objects, mini stretch wrap rolls deliver quality and reliability every time — making them the perfect choice for anyone looking for a convenient and effective packaging solution.
+
+### Product Features
+- **Generous Roll Length**: Each roll offers ample stretch film material to wrap and secure multiple items with ease.
+- **80-Gauge Strength**: Ensures a strong, durable hold that keeps your goods protected throughout transit or storage.
+- **Self-Clinging Design**: Film adheres tightly to itself without additional tape or strapping, streamlining the wrapping process.
+- **Lightweight & Easy to Handle**: Designed for effortless manual application whether bundling small items or securing larger loads.
+- **Robust Material**: Withstands dust, dirt, and moisture, ensuring items remain clean and secure.
+- **No Adhesives Required**: This film clings itself to the product without any extra glue material or adhesives.
+- **Plastic Dispenser Available**: We can supply with a plastic dispenser if required; rolls are easy to use with hands for manual wrapping.
+
+### Why Choose WinnerPack for Mini Stretch Rolls?
+- **Superior Quality**: Consistent performance and reliability manufactured to industry standards.
+- **Extensive Industry Experience**: Years of expertise delivering high-quality mini stretch wrap rolls that customers trust.
+- **Advanced Manufacturing Facilities**: State-of-the-art technology to produce rolls of the highest standards.
+- **Competitive Pricing**: Excellent value without compromising quality and performance.
+- **Excellent Customer Service**: Dedicated support team addressing queries and offering reliable assistance throughout purchasing.
+
+### Benefits
+- Convenient and easy-to-use packaging solution for small or irregularly shaped items.
+- Provides secure and tight wrapping to prevent shifting or movement during transit.
+- Offers protection against dust, moisture, and minor damages.
+- Ideal for bundling and securing lightweight or delicate items.
+- Saves time and effort compared to traditional packaging methods.
+- Compact and portable for on-the-go packaging needs.
+- Can be easily torn by hand without tools or equipment.
+- Cost-effective option for small-scale packaging requirements.
+- Transparent film allows for easy identification and barcode scanning.
+- Versatile applications across various industries.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are mini stretch wrap rolls?
+Mini stretch wrap rolls are compact, handheld rolls of stretchable plastic film designed for securing and bundling small to medium-sized items. Known for their elasticity and strength, these rolls are an efficient solution for packaging and organizing products.
+
+#### 2. How are mini stretch wrap rolls different from standard stretch wrap rolls?
+The primary difference lies in their size. Mini stretch wrap rolls are smaller in width, ranging from 50 mm to 150 mm, making them ideal for bundling smaller items or securing irregularly shaped products. Standard stretch wrap rolls are wider, generally used for wrapping large pallets or loads.
+
+#### 3. What sizes are available for mini stretch wrap rolls?
+Mini stretch wrap rolls are available in widths of 50 mm, 100 mm, and 150 mm (customizable as per requirement). Thickness starts from 10 Micron onwards. Core IDs available: 25 mm / 31 mm / 38 mm / 50 mm / 76 mm. Extended core is available if required.
+
+#### 4. What are the benefits of using mini stretch wrap rolls for packaging?
+- **Ease of Use**: Their compact size makes them convenient for manual use without special machinery.
+- **Cost-Effective**: Perfect for small packaging needs as they reduce film wastage.
+- **Enhanced Security**: Provides a tight and secure wrap for small or odd-shaped items.
+- **Efficiency**: Minimizes damage during transit or storage by keeping items tightly bound.
+
+#### 5. Can mini stretch wrap rolls be used for both small and large items?
+Mini stretch wrap rolls are primarily designed for small to medium-sized items, such as cables, tools, boxes, and pipes. While they can be used for larger items, standard stretch wrap rolls would be more suitable for wrapping large pallets or bulk goods.
+
+#### 6. Are mini stretch wrap rolls eco-friendly or recyclable?
+Most mini stretch wrap rolls are made from polyethylene, which is recyclable. It is essential to check local recycling guidelines to ensure proper disposal. WinnerPack also offers eco-friendly options made with recycled or biodegradable materials.
+
+#### 7. How do you apply mini stretch wrap rolls effectively?
+- **Manual Use**: Hold the roll by its handle and rotate it around the item for a firm wrap. Applying gentle tension ensures a secure hold.
+- **With Dispensers**: Use a compatible mini stretch wrap dispenser for precision, efficiency, and control during application.
+- Ensure each layer overlaps slightly to enhance stability and durability.
+
+#### 8. What industries commonly use mini stretch wrap rolls?
+- **Retail**: For bundling small products and securing boxes.
+- **Logistics**: To ensure stability during shipping and handling.
+- **E-commerce**: For securely packaging books, tools, and accessories.
+- **Manufacturing**: To bind tools, parts, and small components.
+
+#### 9. Are mini stretch wrap rolls cost-effective for small-scale packaging needs?
+Yes, mini stretch wrap rolls are an economical solution for small-scale needs. Due to their compact size, they minimize material wastage, making them ideal for businesses seeking cost-efficient packaging options for smaller items.
+
+#### 10. How does mini stretch wrap help in preventing damage during storage or shipping?
+Mini stretch wrap's elasticity and cling properties ensure tight bundling, reducing the risk of items shifting during transit or handling. It provides a protective layer that minimizes exposure to dust, moisture, and scratches while keeping products securely in place.`,
     image: "/images/products/stretch-film/image.png",
     gallery: ["/images/products/stretch-film/image.png"],
-    specs: { "Roll Width": "100mm (4 Inch) & 250mm (10 Inch)", "Included Accessories": "Reusable Plastic Extended Core Handle", "Cling": "High One-Side Cling" },
-    thicknessLengthMatrix: [{ micron: "20", gauge: "80", meters: "150", feet: "492" }],
-    options: { widths: ["100mm (4\")", "250mm (10\")"], thicknesses: ["17 Micron", "20 Micron"], colors: ["Clear", "Opaque Black"] },
-    applications: ["Pipe & aluminum profile bundling", "Small box grouping & wire coil wrapping", "Residue-free industrial tying"],
+    specs: {
+      "Width": "50 MM / 100 MM / 150 MM (Can be customised as per requirement)",
+      "Thickness": "10 Micron onwards",
+      "Core ID": "25 MM / 31 MM / 38 MM / 50 MM / 76 MM",
+      "Extended Core": "Yes, if required",
+      "Colours": "Transparent / Blue / Black (Can be customised as per requirement)",
+      "Packing": "As per requirement",
+      "Self-Clinging": "Yes — No adhesive required",
+    },
+    options: {
+      widths: ["50 MM", "100 MM", "150 MM"],
+      thicknesses: ["10 Micron", "15 Micron", "17 Micron", "20 Micron"],
+      colors: ["Transparent", "Blue", "Black"],
+    },
+    applications: [
+      "Small item bundling & collation",
+      "Pipe & aluminum profile bundling",
+      "Cable & wire coil wrapping",
+      "Retail product grouping",
+      "E-commerce packaging",
+      "Tool & component binding",
+    ],
     visualGradients: "from-yellow-400 to-amber-500",
   },
   {
