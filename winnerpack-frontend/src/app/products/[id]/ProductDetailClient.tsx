@@ -758,42 +758,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       </div>
                     )}
 
-                    {/* Thickness & Length Yield Matrix */}
-                    {product.thicknessLengthMatrix && (
-                      <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2.5">
-                            <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
-                            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                              Thickness & Length Yield Matrix
-                            </h2>
-                          </div>
-                          <span className="text-[var(--color-amber-dark)] text-xs font-mono font-bold">Micron → Length</span>
-                        </div>
-                        <div className="overflow-x-auto rounded-xl border border-[var(--color-line)] bg-white shadow-2xs">
-                          <table className="w-full text-center border-collapse text-xs sm:text-sm font-mono">
-                            <thead>
-                              <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)] text-[var(--color-ink)] font-bold">
-                                <th className="px-3 py-2 border-r border-[var(--color-line)] bg-[var(--color-amber)]/10 text-[var(--color-amber-dark)]">Micron (µm)</th>
-                                <th className="px-3 py-2 border-r border-[var(--color-line)]">Gauge</th>
-                                <th className="px-3 py-2 border-r border-[var(--color-line)] bg-[var(--color-blue-deep)]/10 text-[var(--color-blue-deep)]">Meters</th>
-                                <th className="px-3 py-2">Feet</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {product.thicknessLengthMatrix.map((row: any, idx: number) => (
-                                <tr key={idx} className={`border-b border-[var(--color-line)] last:border-b-0 ${idx % 2 === 1 ? "bg-[var(--color-mist)]" : "bg-white"}`}>
-                                  <td className="px-3 py-2 font-bold text-[var(--color-amber-dark)] border-r border-[var(--color-line)]">{row.micron}</td>
-                                  <td className="px-3 py-2 text-[var(--color-mute)] border-r border-[var(--color-line)]">{row.gauge}</td>
-                                  <td className="px-3 py-2 font-bold text-[var(--color-blue-deep)] border-r border-[var(--color-line)]">{row.meters}</td>
-                                  <td className="px-3 py-2 text-[var(--color-mute)]">{row.feet}</td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    )}
+
 
                     {/* DEDICATED FREQUENTLY ASKED QUESTIONS (FAQ) SECTION */}
                     <FaqSection faqs={extractFaqs(product.longDesc)} />
