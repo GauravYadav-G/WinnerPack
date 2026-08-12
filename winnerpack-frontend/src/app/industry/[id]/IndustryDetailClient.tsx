@@ -32,11 +32,16 @@ export default function IndustryDetailClient({ params }: { params: Promise<{ id:
 
       <PageWrapper>
         {/* ── HEADER & OUTCOME BANNER ── */}
-        <section className="relative overflow-hidden bg-[var(--color-ink)] py-14 sm:py-20 lg:py-24 text-white">
-          {/* Ambient Glass Glows */}
-          <div className="absolute top-0 right-1/4 h-[500px] w-[500px] rounded-full bg-[var(--color-amber)]/10 blur-[130px] pointer-events-none" />
-          <div className="absolute bottom-0 left-10 h-[400px] w-[400px] rounded-full bg-indigo-600/15 blur-[120px] pointer-events-none" />
-          <div className="absolute inset-0 bg-grid-dark opacity-30 pointer-events-none" />
+        <section className="relative overflow-hidden bg-[var(--color-blue-deep)] py-14 sm:py-20 lg:py-24 text-white">
+          <div className="absolute inset-0 z-0">
+            <OptimizedImage
+              src="/images/desktop/about/blown_film_tower.png"
+              alt="Industry Manufacturing Background"
+              className="w-full h-full object-cover object-center opacity-55 scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/80 via-[var(--color-blue-deep)]/60 to-[var(--color-ink)]/80 pointer-events-none" />
+          </div>
+          <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
 
           <Container className="relative z-10">
             {/* Breadcrumbs */}

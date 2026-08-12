@@ -23,7 +23,7 @@ export function PageHeader({
   intro,
   crumbs,
   theme = "dark",
-  align = "left",
+  align = "center",
   bgImage = "/images/desktop/about/blown_film_tower.png",
 }: PageHeaderProps) {
   const isLight = theme === "light";

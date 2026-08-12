@@ -84,6 +84,7 @@ export default function Blog() {
           }
           intro="Practical engineering notes on materials, quality standards, sustainability and the economics of industrial packaging — written by the people who make it."
           crumbs={[{ label: "Home", to: "/" }, { label: "Blog" }]}
+          align="center"
         />
 
         {/* Background textures */}

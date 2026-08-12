@@ -76,6 +76,7 @@ export default function CategoryClient({
             { label: "Products", to: "/products" },
             { label: currentCategory.title },
           ]}
+          align="center"
         />
 
         <Section className="pt-8 sm:pt-10 pb-16 bg-transparent">
