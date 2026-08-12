@@ -1627,36 +1627,98 @@ Yes. When handled carefully, cleaned after harvest, inspected for minor puncture
     title: "Mulch Film",
     category: "film-products",
     tag: "Soil Mulch",
-    blurb: "Embossed and smooth agricultural mulch film rolls optimized for drip irrigation compatibility, weed control, and crop root stabilization.",
-    longDesc: `Mulch Film is an essential soil management solution engineered to prevent weed growth, reduce fertilizer leaching, and maintain optimum root zone temperature. Available in embossed micro-textures that resist tearing on soil ridges, our mulch films ensure clean, efficient crop production.
+    blurb: "High-grade agricultural mulch film rolls engineered in clear, black, silver, white, and red to suppress weeds, retain moisture, regulate soil temperature, and accelerate harvest yields.",
+    longDesc: `Mulch Film (or agricultural mulching film) is a specialized polyethylene or biodegradable sheet used in modern farming to cover the soil surface around crops. Mulching is the essential agricultural process of covering soil to optimize root zone conditions, protect soil structure, and maximize crop production.
 
-### Key Product Features:
-- **Diamond Embossed Texture**: Delivers superior flexibility and tear resistance on rough field terrain.
-- **100% Weed Suppression**: Opaque black formulations prevent weed seed germination completely.
-- **Moisture Retention**: Minimizes soil water evaporation and preserves soil structure.
-- **Drip Irrigation Friendly**: Works seamlessly with automated drip line laying equipment.`,
+WinnerPack Mulch Films are engineered in a variety of colors, widths (600 mm to 1800 mm), and thicknesses (15 to 50+ Micron) tailored to crop lifecycle, soil conditions, and regional climate needs.
+
+### Clear vs. Coloured Mulch Film
+- **Clear Plastic Mulch Film**: Ideal for maximum soil warming in cold regions, accelerating early spring seed germination.
+- **Coloured & Opaque Mulch Film**: Limits light transmission to block weed growth completely, maintaining moderate soil temperatures and eliminating chemical weedicides.
+
+### Key Agronomic Benefits of Mulching Film
+- **Less Investment on Weedicides**: Weeds require sunlight to grow. Opaque coloured mulch blocks light, eliminating weeds and saving farmers significant chemical costs.
+- **Soil Moisture Retention**: Most crops require consistent root zone moisture rather than excessive water. Plastic mulch prevents water evaporation, reducing irrigation frequency.
+- **Earlier Harvest**: Increases soil warmth and retains moisture, accelerating plant development and enabling earlier market harvesting.
+- **Optimal Fertilizer Utilization**: Combines with drip irrigation to keep fertilizers close to plant roots, preventing nutrient leaching during heavy rains.
+- **Increase in Growth (The Chimney Effect)**: Minimizes air escape from mulched land, trapping CO₂ around plant foliage and maintaining warmth to supercharge crop growth.
+- **Early & Higher Quantity Vegetable Yields**: Dramatically boosts yields for tomatoes, peppers, eggplants, cucumbers, strawberries, and melons.
+
+### SPECIFICATIONS OF MULCH FILM
+- **15 Micron – 20 Micron**: Single Season Crop | Width: 600 MM to 1800 MM | Colors: Transparent, Black, White, Silver + Black, Red
+- **20 Micron – 30 Micron**: 2 or 3 Season Crops | Width: 600 MM to 1800 MM | Colors: Transparent, Black, White, Silver + Black, Red
+- **50 Micron Onwards**: Orchards for Longer Life | Width: 600 MM to 1800 MM | Colors: Transparent, Black, White, Silver + Black, Red
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Mulch Film?
+Mulch Film is a polyethylene or biodegradable plastic sheet used in agriculture to cover the soil surface around crops. It acts as a protective barrier that improves soil quality, regulates temperature, and promotes crop growth.
+
+#### 2. What are the benefits of using Mulch Film in agriculture?
+- Enhanced weed control by blocking sunlight access to weeds.
+- Soil moisture conservation by reducing evaporation.
+- Improved crop yield and quality due to regulated growing conditions.
+- Prevention of soil erosion caused by heavy rain or wind.
+- Reduction in soil-borne diseases by preventing direct plant-to-soil contact.
+
+#### 3. How does Mulch Film help in weed control?
+Mulch Film creates a physical barrier that blocks sunlight, preventing weed seeds from germinating. This ensures crops have exclusive access to soil nutrients, water, and sunlight without competition.
+
+#### 4. Can Mulch Film conserve soil moisture and improve water efficiency?
+Yes. Mulch Film dramatically reduces soil water evaporation, keeping moisture in the root zone. This decreases irrigation frequency and enhances water-use efficiency, especially in dry and arid regions.
+
+#### 5. What crops are suitable for Mulch Film application?
+- **Vegetables**: Tomatoes, cucumbers, peppers, eggplants, and squash.
+- **Fruits**: Strawberries, melons, watermelons, and pineapples.
+- **Horticulture**: Commercial flowers, herbs, and cash crops.
+
+#### 6. What are the different types of Mulch Film?
+- **Black Mulch Film**: Superior weed control and heat absorption for cold climates.
+- **Silver + Black Mulch Film**: Repels insect pests (aphids/thrips) and reflects light into crop canopy.
+- **Biodegradable Mulch Film**: Decomposes naturally into organic soil matter after harvest.
+- **Clear Mulch Film**: Delivers maximum soil warming for early spring solarization.
+
+#### 7. How does Mulch Film affect soil temperature?
+Black films absorb solar heat, warming cold soil for early planting; silver/reflective films deflect excessive solar heat to keep soil cool in hot climates.
+
+#### 8. How is Mulch Film installed in the field?
+1. Level soil and prepare raised beds.
+2. Lay drip irrigation lines before spreading film.
+3. Unroll film tightly over beds, securing edges with soil or pins.
+4. Cut planting holes according to crop layout.
+5. Plant seedlings directly through the holes.
+
+#### 9. Is Mulch Film biodegradable?
+Certified biodegradable options decompose naturally in soil; standard polyethylene mulch films are recyclable and should be retrieved after harvest.
+
+#### 10. How do I choose the right Mulch Film for my farm?
+- **Climate**: Black for cold regions; Silver/White for hot climates.
+- **Crop Duration**: 15–20 Micron for single-season crops; 20–30 Micron for 2–3 season crops; 50+ Micron for orchard trees.
+- **Sustainability**: Choose biodegradable options for zero-retrieval labor.`,
     image: "/images/desktop/journey/solution_pcr_eco_film.png",
     gallery: [
       "/images/desktop/journey/solution_pcr_eco_film.png",
       "/images/desktop/portfolio/product_app_pallet_wrapping.png"
     ],
     specs: {
-      "Surface Finish": "Diamond Embossed / Smooth Micro Texture",
-      "Thickness Range": "20 Micron to 50 Micron",
-      "Width Range": "0.9m to 2.1m",
-      "UV Life": "12 to 24 Months Field Rating",
+      "Thickness Range": "15-20 Micron (1 Season), 20-30 Micron (2-3 Seasons), 50+ Micron (Orchards)",
+      "Available Widths": "600 MM to 1800 MM",
+      "Colors Available": "Transparent, Black, White, Silver + Black, Red",
+      "Agronomic Effect": "Chimney Effect CO₂ Retention, Moisture Lock & Weed Control",
+      "Target Crops": "Tomatoes, Peppers, Eggplants, Strawberries, Melons",
     },
     thicknessLengthMatrix: [
-      { micron: "20", gauge: "80", meters: "1,000", feet: "3,280" },
-      { micron: "25", gauge: "100", meters: "800", feet: "2,624" },
+      { micron: "15", gauge: "60", meters: "1,000", feet: "3,280" },
+      { micron: "20", gauge: "80", meters: "800", feet: "2,624" },
       { micron: "30", gauge: "120", meters: "600", feet: "1,968" },
+      { micron: "50", gauge: "200", meters: "400", feet: "1,312" },
     ],
     options: {
-      widths: ["0.9m", "1.2m", "1.5m", "2.1m"],
-      thicknesses: ["20 Micron", "25 Micron", "30 Micron", "50 Micron"],
-      colors: ["Solid Black Opaque", "Silver-Black"],
+      widths: ["600 MM", "900 MM", "1200 MM", "1500 MM", "1800 MM"],
+      thicknesses: ["15 Micron", "20 Micron", "30 Micron", "50 Micron"],
+      colors: ["Transparent", "Black", "White", "Silver + Black", "Red"],
     },
-    applications: ["Commercial vegetable farming", "Orchard tree row covers", "Drip irrigated row crops"],
+    applications: ["Tomato, pepper & eggplant beds", "Strawberry & melon cultivation", "Commercial orchard tree rows"],
     visualGradients: "from-emerald-500 to-teal-700",
   },
   {
