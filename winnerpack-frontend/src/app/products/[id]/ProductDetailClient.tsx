@@ -277,13 +277,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                           </Link>
 
                           <div>
-                            {sub.subtitle && (
-                              <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber)]">
-                                {sub.subtitle}
-                              </span>
-                            )}
                             <Link href={`/products/${sub.id || sub.slug || product.id}`} className="block hover:text-[var(--color-amber)] transition-colors">
-                              <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight pt-1">
+                              <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight">
                                 {sub.title}
                               </h3>
                             </Link>
