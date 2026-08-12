@@ -3968,6 +3968,105 @@ Pre-stretch film is engineered to deliver consistent tension and cling, preventi
     visualGradients: "from-yellow-400 to-amber-500",
   },
   {
+    id: "vci-stretch-film",
+    title: "VCI Stretch Film",
+    category: "film-products",
+    tag: "VCI Rust Protection",
+    blurb: "Vapor Corrosion Inhibitor (VCI) stretch film engineered to protect metal coils, machinery, and automotive parts from rust and corrosion for up to 24 months without oils or grease.",
+    longDesc: `VCI stretch films are specialized industrial stretch wrap films that combine the benefits of stretch film with VCI (Volatile Corrosion Inhibitor) technology. They provide dual physical and chemical protection against corrosion and moisture for metal products during storage and transportation.
+
+The VCI technology releases a corrosion-inhibiting vapor into the enclosed packaging space. This vapor forms an invisible, molecular-level protective layer on the metal surface, preventing moisture, oxygen, and other corrosive agents from causing rust or degradation. The process involves wrapping the metal product with the VCI stretch film, which securely holds and protects the item while providing long-lasting rust prevention.
+
+WinnerPack specializes in manufacturing high-performance VCI stretch films designed to offer exceptional quality and performance for global industrial markets.
+
+### Manufacturing Process & Quality
+- **Resin Mixing**: High-quality polyethylene resins and specialized VCI additives are carefully blended for optimal vapor release.
+- **Film Extrusion**: Advanced co-extrusion technology produces a multi-layer film with balanced mechanical strength and elasticity.
+- **VCI Coating & Infusion**: The VCI formulation is evenly distributed throughout the film matrix, ensuring uniform corrosion-inhibiting performance.
+- **Stretch Production & Slitting**: The film is cooled, stretched, and slit into customized widths and lengths for hand or machine wrapping.
+
+### Key Benefits of WinnerPack VCI Stretch Film
+- **Advanced Corrosion Protection**: Protects ferrous and non-ferrous metals (steel, iron, copper, aluminum) from rust without mess.
+- **Up to 24 Months Protection**: Extended corrosion barrier performance under proper storage and transit conditions.
+- **No Grease or Oils Needed**: Eliminates the need for messy rust-preventive oils, degreasing, or secondary chemical washing.
+- **Dual Physical & Chemical Shield**: Combines tight dust/moisture containment with vapor-phase rust inhibition.
+- **High Stretchability & Cling**: Excellent elongation and self-adhesion for tight, secure wrapping of complex machinery.
+- **Transparent Visibility**: Clear film allows visual inspection and barcode scanning without unwrapping the protective package.
+- **Environmentally Friendly**: 100% recyclable polyethylene without hazardous heavy metals or harmful chemicals.
+
+### Standard Sizes & Technical Specifications
+- **Standard Widths**: 50 mm / 100 mm / 150 mm / 200 mm / 300 mm / 450 mm / 500 mm / 600 mm (Up to 1.5 Meters available)
+- **Standard Thickness**: 12 Micron / 15 Micron / 18 Micron / 23 Micron / 29 Micron
+- **Standard Colours**: Natural Clear / Transparent Blue Tint / Black Opaque
+- **Standard Core ID**: 25 mm / 31 mm / 76.2 mm
+- **Special Additives**: VCI (Vapor Corrosion Inhibitor), UV Protection, Antistatic
+- **Wrapping Options**: Available for both Manual Hand Wrapping and Machine Wrapping
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is VCI stretch film?
+VCI (Vapor Corrosion Inhibitor) stretch film is a specialized packaging material designed to protect metal components from corrosion during storage and transportation. It is infused with corrosion-inhibiting chemicals that form a protective barrier around metal surfaces, preventing rust formation and degradation.
+
+#### 2. How does VCI stretch film protect against corrosion?
+VCI stretch film works by releasing vapor-phase corrosion inhibitors into the surrounding enclosed package environment. These vapors adhere to metal surfaces and form an invisible, molecular-level protective layer that prevents moisture, oxygen, and corrosive agents from reaching the metal. It provides both physical protection and chemical corrosion resistance.
+
+#### 3. What industries commonly use VCI stretch film?
+- **Automotive Manufacturing**: Protects engine components, brake discs, and body panels.
+- **Aerospace and Defense**: Safeguards precision metal parts and assemblies.
+- **Electronics & Electrical**: Protects copper coils, transformers, and metal housing.
+- **Heavy Machinery**: Wraps large equipment, gears, and structural steel.
+- **Metalworking & Fabrication**: Protects steel coils, sheets, tubes, and fasteners.
+
+#### 4. Can VCI stretch film be used for packaging metal parts and machinery?
+Yes, VCI stretch film is specifically engineered for metal parts and machinery. It protects both ferrous metals (steel, cast iron) and non-ferrous metals (copper, aluminum, brass) during export shipment and long-term warehousing.
+
+#### 5. Is VCI stretch film safe for direct contact with metals?
+Yes, VCI stretch film is completely safe for direct contact with metals. It is manufactured using clean polymer formulations that leave no sticky residue, stains, or chemical damage on metal surfaces.
+
+#### 6. How long does corrosion protection last with VCI stretch film?
+Under proper storage conditions and sealed packaging, VCI stretch film provides active corrosion protection for up to 24 months.
+
+#### 7. What materials are used to make VCI stretch film?
+VCI stretch film is manufactured using high-grade Linear Low-Density Polyethylene (LLDPE) blended with volatile corrosion-inhibiting additives that remain active throughout the film's lifecycle.
+
+#### 8. How is VCI stretch film different from regular stretch film?
+Regular stretch film provides physical protection against dust and scratches but offers zero protection against moisture-induced rust. VCI stretch film provides dual physical containment AND chemical rust inhibition, eliminating the need for protective oils or greases.
+
+#### 9. What are the key benefits of using VCI stretch film over traditional packaging methods?
+- Dual physical and chemical protection against corrosion
+- Eliminates messy rust-preventive oils, reducing labor and cleaning costs
+- Cost-effective for long-term storage and export transit
+- Easy to apply and remove without residue
+- Transparent for effortless visual inspection`,
+    image: "/images/products/stretch-film/image.png",
+    gallery: ["/images/products/stretch-film/image.png"],
+    specs: {
+      "Protection Against Dust / Dirt": "Yes",
+      "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
+      "Visual Inspection": "Helps for Visual Inspection",
+      "Cost Effectiveness": "More Cost effective compared to Straps / Shrink / Corrugation",
+      "Wrapping Options": "Available for Manual Wrapping / Machine Wrapping",
+      "Standard Widths": "50 mm / 100 mm / 150 mm / 200 mm / 300 mm / 450 mm / 500 mm / 600 mm (Max Width 1.5 Meters)",
+      "Standard Thickness": "12 Micron / 15 Micron / 18 Micron / 23 Micron / 29 Micron",
+      "Standard Colours": "Natural / Opaque White / Blue / Black",
+      "Standard Core ID": "25 mm / 31 mm / 76.2 mm",
+      "Special Additives": "UV Protection / VCI / Antistatic",
+    },
+    options: {
+      widths: ["50 mm", "100 mm", "150 mm", "200 mm", "300 mm", "450 mm", "500 mm", "600 mm"],
+      thicknesses: ["12 Micron", "15 Micron", "18 Micron", "23 Micron", "29 Micron"],
+      colors: ["Natural Clear", "Transparent Blue Tint", "Opaque White", "Black"],
+    },
+    applications: [
+      "Steel & aluminum coil wrapping",
+      "Automotive parts rust protection",
+      "Heavy machinery & equipment packaging",
+      "Export shipping metal protection",
+      "Electrical copper & transformer wrapping",
+    ],
+    visualGradients: "from-yellow-400 to-amber-500",
+  },
+  {
     id: "collation-shrink-film",
     title: "Collation Shrink Film",
     category: "film-products",
