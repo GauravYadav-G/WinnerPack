@@ -166,107 +166,155 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       <Navbar />
 
       <PageWrapper>
-        {/* ── SPECIALIZED REFERENCE LAYOUT FOR LAMINATION PE FILM ── */}
+        {/* ── SPECIALIZED LAYOUT FOR LAMINATION PE FILM (WINNERPACK THEME & TYPOGRAPHY) ── */}
         {(product.id === "lamination-films-pouches" || product.id === "lamination-pe-film") ? (
           <>
-            {/* 1. FULL-WIDTH HERO BANNER (MATCHING REFERENCE SCREENSHOT) */}
-            <div className="relative w-full h-[200px] sm:h-[260px] md:h-[320px] lg:h-[360px] overflow-hidden bg-[#12285a] flex items-center justify-center">
+            {/* 1. HERO BANNER WITH WINNERPACK INK NAVY & AMBER ACCENTS */}
+            <div className="relative w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] overflow-hidden bg-[var(--color-ink)] flex items-center justify-center border-b border-white/10">
               <div className="absolute inset-0">
                 <OptimizedImage
                   src="/images/desktop/about/blown_film_tower.png"
                   alt="Lamination PE Film Manufacturing"
-                  className="w-full h-full object-cover object-center opacity-35 mix-blend-luminosity scale-105"
+                  className="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0a1b47]/95 via-[#183a80]/85 to-[#0a1b47]/95" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-ink)]/90 via-[var(--color-blue-deep)]/80 to-[var(--color-ink)]/95" />
               </div>
 
-              <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+              <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-2 sm:space-y-3">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-amber)]/20 border border-[var(--color-amber)]/40 px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber)]">
+                  High-Barrier Polyethylene Films
+                </span>
+                
                 <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white font-display drop-shadow-md">
-                  LAMINATION PE FILM
+                  Lamination PE Film
                 </h1>
-                <div className="mt-3 flex items-center justify-center gap-2 text-xs sm:text-sm font-mono font-medium text-white/70">
-                  <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                  <span>/</span>
-                  <Link href="/products" className="hover:text-white transition-colors">Products</Link>
-                  <span>/</span>
-                  <span className="text-white font-bold">Lamination PE Film</span>
-                </div>
+
+                <nav aria-label="Breadcrumb" className="pt-1">
+                  <ol className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-white/70">
+                    <li><Link href="/" className="hover:text-[var(--color-amber)] transition-colors">Home</Link></li>
+                    <li><ChevronRight className="h-3 w-3 text-white/40" /></li>
+                    <li><Link href="/products" className="hover:text-[var(--color-amber)] transition-colors">Products</Link></li>
+                    <li><ChevronRight className="h-3 w-3 text-white/40" /></li>
+                    <li className="font-bold text-[var(--color-amber)]">Lamination PE Film</li>
+                  </ol>
+                </nav>
               </div>
             </div>
 
-            {/* 2. TWO PROMINENT ROYAL BLUE CARDS (MATCHING REFERENCE SCREENSHOT) */}
-            <section className="bg-white pt-10 sm:pt-14 md:pt-16 pb-6">
+            {/* 2. TWO PROMINENT SUBCATEGORY CARDS IN WINNERPACK THEME */}
+            <section className="bg-[var(--color-mist)] py-10 sm:py-14 md:py-16 border-b border-[var(--color-line)]">
               <div className="max-w-5xl mx-auto px-4 sm:px-6">
+                <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+                  <Eyebrow>Product Classifications</Eyebrow>
+                  <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                    Engineered PE Lamination Grades
+                  </h2>
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
                   
                   {/* Card 1: Adhesive Lamination Film */}
-                  <div className="bg-[#183883] text-white rounded-none sm:rounded-sm shadow-xl p-5 sm:p-6 lg:p-7 flex flex-col justify-between">
-                    <div className="space-y-4">
-                      {/* Inner Image with crisp white frame */}
-                      <div className="bg-white p-2 sm:p-3 shadow-inner aspect-[16/10] overflow-hidden flex items-center justify-center">
+                  <div className="bg-[var(--color-ink)] text-white rounded-2xl sm:rounded-3xl border border-white/10 shadow-xl p-5 sm:p-7 lg:p-8 flex flex-col justify-between group hover:border-[var(--color-amber)]/40 transition-all duration-300">
+                    <div className="space-y-4 sm:space-y-5">
+                      {/* Inner Image Frame */}
+                      <div className="bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl p-2 sm:p-2.5 aspect-[16/10] overflow-hidden flex items-center justify-center">
                         <OptimizedImage
                           src="/images/products/specialty-pouches/image.png"
                           alt="Adhesive Lamination Film"
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover rounded-lg sm:rounded-xl transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
 
                       {/* Heading */}
-                      <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight pt-1">
-                        Adhesive Lamination Film
-                      </h2>
+                      <div>
+                        <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber)]">
+                          Polyester Bonding Grade
+                        </span>
+                        <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight mt-0.5">
+                          Adhesive Lamination Film
+                        </h3>
+                      </div>
 
-                      {/* Bullet Points */}
-                      <ul className="space-y-2 text-xs sm:text-sm md:text-[14px] text-white/95 leading-relaxed list-disc list-outside pl-4 font-normal">
-                        <li>Used for lamination to polyester</li>
-                        <li>Available in widths upto 2.25 meters</li>
-                        <li>Thickness Range from 18-300 microns</li>
-                        <li>Colours : Natural, White opaque. Other colours available on request.</li>
-                        <li>Applications : Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.</li>
+                      {/* Bullet Points with Amber Accent Markers */}
+                      <ul className="space-y-2.5 text-xs sm:text-sm text-white/90 leading-relaxed font-sans font-normal">
+                        <li className="flex items-start gap-2.5">
+                          <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                          <span>Used for lamination to polyester</span>
+                        </li>
+                        <li className="flex items-start gap-2.5">
+                          <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                          <span>Available in widths upto 2.25 meters</span>
+                        </li>
+                        <li className="flex items-start gap-2.5">
+                          <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                          <span>Thickness Range from 18-300 microns</span>
+                        </li>
+                        <li className="flex items-start gap-2.5">
+                          <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                          <span>Colours: Natural, White opaque. Other colours available on request.</span>
+                        </li>
+                        <li className="flex items-start gap-2.5">
+                          <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                          <span>Applications: Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.</span>
+                        </li>
                       </ul>
                     </div>
 
-                    <div className="pt-6">
+                    <div className="pt-6 sm:pt-7">
                       <Button
                         to={`/contact?sku=lamination-pe-film&grade=${encodeURIComponent("Adhesive Lamination Film")}`}
-                        className="w-full justify-center bg-white text-[#183883] hover:bg-slate-100 font-bold py-2.5 sm:py-3 text-xs sm:text-sm rounded-none sm:rounded-sm shadow-sm transition-all"
+                        className="w-full justify-center bg-[var(--color-amber)] text-[var(--color-blue-deep)] hover:bg-[var(--color-amber-dark)] font-bold py-3 sm:py-3.5 text-xs sm:text-sm rounded-xl shadow-md font-sans transition-all"
                       >
-                        Inquire for Adhesive Lamination Film
+                        Request Quote for Adhesive Film
                       </Button>
                     </div>
                   </div>
 
                   {/* Card 2: Pharma Grade Poly */}
-                  <div className="bg-[#183883] text-white rounded-none sm:rounded-sm shadow-xl p-5 sm:p-6 lg:p-7 flex flex-col justify-between">
-                    <div className="space-y-4">
-                      {/* Inner Image with crisp white frame */}
-                      <div className="bg-white p-2 sm:p-3 shadow-inner aspect-[16/10] overflow-hidden flex items-center justify-center">
+                  <div className="bg-[var(--color-ink)] text-white rounded-2xl sm:rounded-3xl border border-white/10 shadow-xl p-5 sm:p-7 lg:p-8 flex flex-col justify-between group hover:border-[var(--color-amber)]/40 transition-all duration-300">
+                    <div className="space-y-4 sm:space-y-5">
+                      {/* Inner Image Frame */}
+                      <div className="bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl p-2 sm:p-2.5 aspect-[16/10] overflow-hidden flex items-center justify-center">
                         <OptimizedImage
                           src="/images/products/lamination-films-pouches/applications/app-3.png"
                           alt="Pharma Grade Poly"
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover rounded-lg sm:rounded-xl transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
 
                       {/* Heading */}
-                      <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight pt-1">
-                        Pharma Grade Poly
-                      </h2>
+                      <div>
+                        <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber)]">
+                          Pharma Strip Foil Grade
+                        </span>
+                        <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight mt-0.5">
+                          Pharma Grade Poly
+                        </h3>
+                      </div>
 
-                      {/* Bullet Points */}
-                      <ul className="space-y-2 text-xs sm:text-sm md:text-[14px] text-white/95 leading-relaxed list-disc list-outside pl-4 font-normal">
-                        <li>Pharma Grade Poly is Used for Heat and Press Lamination to Aluminum Foil for further packing of strip tablets in pharmaceutical industry</li>
-                        <li>Other Applications Include for Lidding Application, Cable Wrap, Extrusion Lamination</li>
-                        <li>Standard Thicknesses are 20, 37.5 Micron, 40 Micron, 50 Micron.</li>
+                      {/* Bullet Points with Amber Accent Markers */}
+                      <ul className="space-y-2.5 text-xs sm:text-sm text-white/90 leading-relaxed font-sans font-normal">
+                        <li className="flex items-start gap-2.5">
+                          <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                          <span>Pharma Grade Poly is Used for Heat and Press Lamination to Aluminum Foil for further packing of strip tablets in pharmaceutical industry</span>
+                        </li>
+                        <li className="flex items-start gap-2.5">
+                          <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                          <span>Other Applications Include for Lidding Application, Cable Wrap, Extrusion Lamination</span>
+                        </li>
+                        <li className="flex items-start gap-2.5">
+                          <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                          <span>Standard Thicknesses are 20, 37.5 Micron, 40 Micron, 50 Micron.</span>
+                        </li>
                       </ul>
                     </div>
 
-                    <div className="pt-6">
+                    <div className="pt-6 sm:pt-7">
                       <Button
                         to={`/contact?sku=lamination-pe-film&grade=${encodeURIComponent("Pharma Grade Poly")}`}
-                        className="w-full justify-center bg-white text-[#183883] hover:bg-slate-100 font-bold py-2.5 sm:py-3 text-xs sm:text-sm rounded-none sm:rounded-sm shadow-sm transition-all"
+                        className="w-full justify-center bg-[var(--color-amber)] text-[var(--color-blue-deep)] hover:bg-[var(--color-amber-dark)] font-bold py-3 sm:py-3.5 text-xs sm:text-sm rounded-xl shadow-md font-sans transition-all"
                       >
-                        Inquire for Pharma Grade Poly
+                        Request Quote for Pharma Poly
                       </Button>
                     </div>
                   </div>
@@ -275,13 +323,16 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </div>
             </section>
 
-            {/* 3. STRUCTURED ARTICLE CONTENT (MATCHING REFERENCE SCREENSHOT) */}
-            <section className="bg-white py-8 sm:py-12 md:py-16 border-b border-[var(--color-line)]">
-              <div className="max-w-5xl mx-auto px-4 sm:px-6 text-[#1f2937] text-sm sm:text-base leading-relaxed space-y-6 font-normal">
+            {/* 3. STRUCTURED ARTICLE CONTENT (WINNERPACK TYPOGRAPHY & THEMING) */}
+            <section className="bg-white py-10 sm:py-16 md:py-20 border-b border-[var(--color-line)] font-sans">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed space-y-6 sm:space-y-8 font-normal font-sans">
                 
-                <p>
-                  Lamination PE film is a versatile and indispensable component in the realm of packaging solutions. This high-quality film, made from polyethylene, exhibits exceptional clarity, strength, and flexibility. Lamination PE film is available as laminated and stretch film options, and is widely used as a packaging film and plastic film in various industries. It is commonly utilized as a protective layer, enhancing the durability and visual appeal of various products.
-                </p>
+                <div className="space-y-4">
+                  <Eyebrow>Material Overview</Eyebrow>
+                  <p className="text-sm sm:text-base text-[var(--color-ink)] font-medium leading-relaxed">
+                    Lamination PE film is a versatile and indispensable component in the realm of packaging solutions. This high-quality film, made from polyethylene, exhibits exceptional clarity, strength, and flexibility. Lamination PE film is available as laminated and stretch film options, and is widely used as a packaging film and plastic film in various industries. It is commonly utilized as a protective layer, enhancing the durability and visual appeal of various products.
+                  </p>
+                </div>
 
                 <p>
                   The lamination process involves bonding the film to surfaces such as paper, cardboard, or other materials to provide an added layer of protection against moisture, dirt, and wear. The process can involve combining polyethylene films with other materials such as biaxially oriented polypropylene, polypropylene, or sheets to enhance specific properties. Anti static properties are also important for packaging sensitive electronics and medical products. This enables businesses across industries to safeguard their goods during handling, storage, and transportation.
@@ -296,10 +347,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 </p>
 
                 {/* Section: Properties of PE Film */}
-                <div className="pt-4 space-y-4">
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">
-                    Properties of PE Film
-                  </h2>
+                <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
+                  <div className="flex items-center gap-2">
+                    <div className="h-6 w-1 rounded-full bg-[var(--color-amber)]" />
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                      Properties of PE Film
+                    </h2>
+                  </div>
                   <p>
                     The unique properties of PE film make it an indispensable material for a wide range of uses. Known for its excellent chemical resistance and electrical insulation, PE film is also oil-resistant and waterproof, providing robust protection for packaged goods. Its low density means it is nearly non-absorbent and can float on water, adding to its versatility in various applications.
                   </p>
@@ -309,10 +363,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 </div>
 
                 {/* Section: Lamination PE Film Manufacturer */}
-                <div className="pt-4 space-y-4">
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">
-                    Lamination PE Film Manufacturer
-                  </h2>
+                <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
+                  <div className="flex items-center gap-2">
+                    <div className="h-6 w-1 rounded-full bg-[var(--color-amber)]" />
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                      Lamination PE Film Manufacturer
+                    </h2>
+                  </div>
                   <p>
                     A lamination PE film manufacturer plays a pivotal role in delivering high-quality PE films tailored for a variety of packaging applications. Utilizing advanced extrusion and lamination technologies, these manufacturers produce a diverse range of film products, including barrier films, stretch films, and protective films, each designed to meet the specific needs of industries such as food packaging, medical packaging, and industrial packaging.
                   </p>
@@ -328,25 +385,39 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 </div>
 
                 {/* Section: Benefits of PE Lamination Roll */}
-                <div className="pt-4 space-y-4">
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">
-                    Benefits of PE Lamination Roll:
-                  </h2>
-                  <p className="font-medium text-[#374151]">
-                    Here are some benefits of using PE lamination roll:
+                <div className="pt-6 border-t border-[var(--color-line)] space-y-5">
+                  <div className="flex items-center gap-2">
+                    <div className="h-6 w-1 rounded-full bg-[var(--color-amber)]" />
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                      Benefits of PE Lamination Roll
+                    </h2>
+                  </div>
+                  <p className="font-semibold text-[var(--color-ink)] font-sans">
+                    Here are key industrial benefits of using WinnerPack PE lamination roll:
                   </p>
-                  <ul className="space-y-2 list-disc list-outside pl-5 text-[#374151]">
-                    <li>Enhanced durability and protection for products.</li>
-                    <li>Reliable barrier against moisture, oxygen, and contaminants.</li>
-                    <li>Versatile and customizable for various packaging needs.</li>
-                    <li>Improved product appearance and visual appeal.</li>
-                    <li>Extended shelf life for perishable goods.</li>
-                    <li>Compatibility with different lamination techniques.</li>
-                    <li>Ease of use and efficient production workflows.</li>
-                    <li>Wide range of thickness options for customization.</li>
-                    <li>Cost-effective solution for packaging requirements.</li>
-                    <li>Compliant with industry standards and regulations.</li>
-                  </ul>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                    {[
+                      "Enhanced durability and protection for products.",
+                      "Reliable barrier against moisture, oxygen, and contaminants.",
+                      "Versatile and customizable for various packaging needs.",
+                      "Improved product appearance and visual appeal.",
+                      "Extended shelf life for perishable goods.",
+                      "Compatibility with different lamination techniques.",
+                      "Ease of use and efficient production workflows.",
+                      "Wide range of thickness options for customization.",
+                      "Cost-effective solution for packaging requirements.",
+                      "Compliant with industry standards and regulations."
+                    ].map((benefit) => (
+                      <div
+                        key={benefit}
+                        className="flex items-start gap-3 rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-3.5 sm:p-4 text-xs sm:text-sm font-semibold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber)]/50 transition-colors"
+                      >
+                        <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--color-amber-dark)] shrink-0 mt-0.5" />
+                        <span>{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
               </div>
