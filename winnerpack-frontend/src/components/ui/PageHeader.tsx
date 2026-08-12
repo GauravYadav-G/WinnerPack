@@ -69,7 +69,7 @@ export function PageHeader({
             <motion.div
               key={imagesList[currentImgIndex]}
               initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 0.85, scale: 1 }}
+              animate={{ opacity: 0.65, scale: 1.02 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1.2, ease: "easeInOut" }}
               className="absolute inset-0 w-full h-full"
@@ -77,11 +77,11 @@ export function PageHeader({
               <OptimizedImage
                 src={imagesList[currentImgIndex]}
                 alt="WinnerPack Industrial Plant Background"
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover object-center blur-[3px] scale-105"
               />
             </motion.div>
           </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/65 via-[var(--color-blue-deep)]/45 to-[var(--color-ink)]/65 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/75 via-[var(--color-blue-deep)]/55 to-[var(--color-ink)]/75 pointer-events-none" />
         </div>
       )}
 

@@ -407,7 +407,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   <motion.div
                     key={HERO_HEADER_POOL[heroBgIndex]}
                     initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 0.85, scale: 1 }}
+                    animate={{ opacity: 0.65, scale: 1.02 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 1.2, ease: "easeInOut" }}
                     className="absolute inset-0 w-full h-full"
@@ -415,11 +415,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     <OptimizedImage
                       src={HERO_HEADER_POOL[heroBgIndex]}
                       alt={product.title}
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-cover object-center blur-[3px] scale-105"
                     />
                   </motion.div>
                 </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/65 via-[var(--color-blue-deep)]/45 to-[var(--color-ink)]/65 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/75 via-[var(--color-blue-deep)]/55 to-[var(--color-ink)]/75 pointer-events-none" />
               </div>
 
               <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-2 sm:space-y-3">
@@ -561,7 +561,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   <motion.div
                     key={HERO_HEADER_POOL[heroBgIndex]}
                     initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 0.85, scale: 1 }}
+                    animate={{ opacity: 0.65, scale: 1.02 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 1.2, ease: "easeInOut" }}
                     className="absolute inset-0 w-full h-full"
@@ -569,11 +569,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     <OptimizedImage
                       src={HERO_HEADER_POOL[heroBgIndex]}
                       alt={product.title}
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-cover object-center blur-[3px] scale-105"
                     />
                   </motion.div>
                 </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/65 via-[var(--color-blue-deep)]/45 to-[var(--color-ink)]/65 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/75 via-[var(--color-blue-deep)]/55 to-[var(--color-ink)]/75 pointer-events-none" />
               </div>
 
               <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-2">
