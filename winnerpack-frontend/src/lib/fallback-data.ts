@@ -5069,19 +5069,242 @@ Mini stretch wrap's elasticity and cling properties ensure tight bundling, reduc
     title: "LDPE Bags",
     category: "film-products",
     tag: "LDPE Bags",
-    blurb: "Heavy-duty pre-cut LDPE flat bags, gusseted box liners, shipping sacks, and trash bags fabricated with reinforced impulse welded bottom seals.",
-    longDesc: "LDPE Bags are fabricated in a wide variety of custom dimensions, thicknesses, and seal styles. Designed for protective industrial lining, shipping bulk powders, and heavy hardware packaging.",
+    blurb: "Premium Low-Density Polyethylene (LDPE) bags manufactured for industrial, cleanroom, retail, medical, and shipping applications. Engineered for high clarity, flexibility, and moisture containment.",
+    longDesc: `WinnerPack is a leading manufacturer and global supplier of premium **Low-Density Polyethylene (LDPE) Bags**. Tailored to meet diverse industrial, healthcare, retail, e-commerce, and logistics requirements, our bags combine exceptional flexibility, soft-touch stretchability, and reliable moisture barrier containment.
+
+Manufactured in a controlled clean environment to maintain strict hygiene standards and minimize particle contamination, our LDPE poly bags reflect brand integrity while protecting sensitive electronics, medical devices, retail apparel, and fresh food products.
+
+### Complete Range of LDPE Poly Bag Solutions
+- **Antistatic Poly Bags**: 3-layered ESD protective bags engineered to shield sensitive electronic components from static discharge.
+- **Biohazard Bags**: Clinical waste bags, specimen bags, and chemotherapy drug transport bags for healthcare facilities.
+- **Black Refuse Sacks**: Large, heavy-duty trash sacks engineered for extreme tear resistance and stretch without breakage.
+- **Clear Polythene Packing Bags**: Economical transparent bags offering hygienic dust and moisture protection for retail display.
+- **Ice Bags**: 100% Virgin 3-Layer PE films formulated with **Metallocene Poly** for maximum seal strength in below-freezing temperatures, with 8-color deep freeze printing and D-Punch handles.
+- **Plastic D-Cut Bags**: HDPE and LDPE bags featuring die-cut handles for boutique retail display.
+- **Polythene Clothing Packing Bags**: Self-sealing clear garment bags popular among retail displayers and dry-cleaners.
+- **Grip Seal Bags**: Reusable, food-safe click-lock zipper bags providing clear product visibility.
+- **Poly Mailer Bags**: Custom-printed white courier mailers providing an economical shipping solution over bulky boxes.
+- **Plastic Bags with Hanger Hook**: Zip lock garment bags with integrated hanging hooks for hosiery and apparel pegs.
+- **Soft Loop Handle Bags**: Upscale retail carrying bags with expandable bottom gussets and comfortable soft loop handles.
+- **Plastic Drawstring Bags**: Flexible LDPE bags with plastic cinching drawstrings—an economical alternative to cotton bags.
+
+### LDPE vs. HDPE: Understanding the Structural Differences
+- **Flexibility & Stretch**: LDPE features a wider branched polymer chain, resulting in superior stretch, soft texture, and high clarity. HDPE features a compact linear structure, offering greater rigidity and stiffness.
+- **Clarity & Display**: LDPE delivers superior optical clarity, making it the preferred choice for clean retail merchandise presentation.
+- **Puncture Resistance**: LDPE stretches around sharp edges without tearing, making it ideal for cleanroom, life sciences, and garment packaging.
+
+### Key Benefits & Advantages
+- **Superior Quality & Durability**: Engineered for strength, tear resistance, and long-lasting clarity without degradation over time.
+- **Cleanroom & Healthcare Safety**: Low particle generation, non-toxic food-grade resins, and compliance with FDA and EU regulations.
+- **Sustainability Focus**: Manufactured using 100% recyclable polyethylene (#4 recycling code) and eco-conscious production practices.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are LDPE bags?
+LDPE (Low-Density Polyethylene) bags are flexible, durable, and lightweight plastic bags made from low-density polyethylene resin, widely used for retail display, medical waste, electronics, and shipping.
+
+#### 2. What are the key benefits of using LDPE bags?
+- **Durability**: Strong, stretchable, and resistant to tears.
+- **Moisture Barrier**: Protects contents against water vapor and humidity.
+- **High Transparency**: Clear film showcases contents professionally.
+- **Cost-Effective**: Economical packaging solution for commercial packaging.
+
+#### 3. How are LDPE bags different from HDPE bags?
+LDPE bags are softer, more flexible, and offer higher stretch and clarity. HDPE bags are stiffer, crinkly, and provide higher rigidity for heavy-duty load carrying.
+
+#### 4. Are LDPE bags recyclable and environmentally friendly?
+Yes! LDPE bags are 100% recyclable under plastic recycling code #4 and can be reused multiple times to support circular economy goals.
+
+#### 5. What industries commonly use LDPE bags for packaging?
+- **Retail & E-Commerce**: Apparel bags, mailers, garment hanger bags.
+- **Industrial & Electronics**: Antistatic ESD bags, refuse sacks, drum liners.
+- **Healthcare & Life Sciences**: Biohazard waste bags, specimen bags, cleanroom packaging.
+- **Food & Dairy**: Ice bags, produce bags, food-safe zip-lock pouches.
+
+#### 6. Can LDPE bags be customized with branding and printing?
+Yes! Fully customizable with high-resolution flexographic printing, brand logos, custom colors, handles (D-cut, soft loop, drawstring), and size dimensions.
+
+#### 7. Are LDPE bags food-safe and approved for food packaging?
+Yes! Manufactured using 100% virgin food-grade polyethylene compliant with FDA and EU food contact safety standards.
+
+#### 8. What thickness options are available for LDPE bags?
+Thickness ranges from lightweight **0.5 mil (12.5 microns)** up to heavy-duty **6 mil (150 microns)** or more depending on payload requirements.
+
+#### 9. How durable and stretchable are LDPE bags?
+Due to their branched molecular structure, LDPE bags stretch significantly under tension before tearing, offering excellent drop-impact and puncture resistance.
+
+#### 10. Where can I buy LDPE bags in bulk or wholesale?
+WinnerPack manufactures and exports LDPE bags directly in bulk quantities, delivering international quality standards across global markets including USA, Europe, Australia, and Asia.`,
     image: "/images/products/ldpe-films-pouches/applications/app-3.png",
     gallery: ["/images/products/ldpe-films-pouches/applications/app-3.png"],
-    specs: { "Seal Type": "Heavy-Duty Bottom Weld / Side Gusset", "Resin Grade": "Prime Virgin LDPE / LLDPE Blend", "Thickness Range": "30 to 200 Micron" },
-    thicknessLengthMatrix: [{ micron: "50", gauge: "200", meters: "Custom", feet: "Custom" }, { micron: "100", gauge: "400", meters: "Custom", feet: "Custom" }],
+    specs: {
+      "Material Grade": "100% Prime Virgin Food-Grade LDPE Resin",
+      "Bag Style Variants": "Antistatic, Biohazard, Ice, Mailer, D-Cut, Hanger Hook, Soft Loop",
+      "Thickness Range": "0.5 mil (12µ) to 6 mil (150µ)",
+      "Recycling Code": "100% Recyclable Polyethylene (Code #4)",
+      "Sealing Technology": "Heavy-Duty Thermal Bottom Weld & Reusable Zip Locks",
+    },
+    thicknessLengthMatrix: [{ micron: "25", gauge: "100", meters: "Custom", feet: "Custom" }, { micron: "150", gauge: "600", meters: "Custom", feet: "Custom" }],
     subCategories: [
-      { id: "standard-normal-ldpe-film", title: "Standard Normal LDPE Film", subtitle: "High-Gloss Protective Sheeting", blurb: "Standard non-shrink LDPE tubing and sheeting rolls for dust protection and protective overwrapping.", image: "/images/products/ldpe-films-pouches/applications/app-1.png" },
-      { id: "ldpe-pouches-bags", title: "LDPE Pouches & Bags", subtitle: "Industrial Gusseted Bags & Liners", blurb: "Custom size gusseted LDPE bags and box liners with high bottom seal integrity.", image: "/images/products/ldpe-films-pouches/applications/app-3.png" },
-      { id: "heavy-duty-shipping-sacks", title: "Heavy-Duty Shipping Sacks", subtitle: "Puncture Proof Bulk Sacks", blurb: "Extra heavy-duty 150-200 micron LDPE sacks for chemical resins, fertilizers, and raw materials.", image: "/images/products/ldpe-films-pouches/applications/app-3.png" },
+      {
+        id: "antistatic-poly-bags",
+        title: "Antistatic Poly Bags",
+        subtitle: "3-Layer ESD Component Shielding",
+        blurb: "3-Layered antistatic poly bags designed to ensure proper ESD protection for sensitive electronic components.",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        specs: {
+          "Protection": "3-Layered for Proper Electronic ESD Protection",
+          "Performance": "Long Lasting & High Shielding Efficiency",
+          "Pricing": "Competitive B2B Wholesale Pricing",
+          "Application": "Circuit Boards, Computer Parts & Microchips",
+        },
+      },
+      {
+        id: "biohazard-bags",
+        title: "Biohazard Bags",
+        subtitle: "Infectious Waste & Specimen Bags",
+        blurb: "Infectious waste bags, specimen bags, and chemo drug transport bags for everyday healthcare use.",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        specs: {
+          "Waste Types": "Infectious Waste, Specimen & Chemo Drug Bags",
+          "Industry": "Everyday Medical & Healthcare Industry Use",
+          "Stock Sizes": "Numerous Stock Sizes Available",
+          "Compliance": "OSHA & FDA Medical Waste Standards",
+        },
+      },
+      {
+        id: "black-refuse-sacks",
+        title: "Black Refuse Sacks",
+        subtitle: "Extreme Strength Heavy Duty Sacks",
+        blurb: "Large black refuse sacks engineered with extreme strength to stretch without breakage under heavy municipal waste.",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        specs: {
+          "Strength Rating": "Extreme Strength Heavy Duty Construction",
+          "Durability": "Strong, Durable, and Very Tough",
+          "Stretchability": "Stretches Without Breakage or Tear",
+          "Application": "Industrial, Commercial & Municipal Refuse",
+        },
+      },
+      {
+        id: "clear-polythene-packing-bags",
+        title: "Clear Polythene Packing Bags",
+        subtitle: "Economical Retail & Industrial Bags",
+        blurb: "Popular transparent polythene bags offering hygienic protection against dirt, dust, and moisture for retail packaging.",
+        image: "/images/products/ldpe-films-pouches/applications/app-1.png",
+        specs: {
+          "Visibility": "100% Transparent for Clear Product Content View",
+          "Protection": "Hygienic Shield Against Dirt, Dust & Moisture",
+          "Economy": "Economical Retail & Industrial Packaging Form",
+          "Material": "Prime Food-Grade Virgin Polyethylene",
+        },
+      },
+      {
+        id: "ice-bags",
+        title: "Ice Bags",
+        subtitle: "3-Layer Virgin PE Freezing Bags",
+        blurb: "Made from 100% Virgin 3-Layer PE Films with Metallocene poly for maximum seal strength in below-freezing temperatures.",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        specs: {
+          "Film Structure": "Made from 100% Virgin 3-Layer PE Films",
+          "Sealing Poly": "Metallocene Poly for Best Seal Strength in Freezing Temps",
+          "Deep Freeze Inks": "Surface Printing Up to 8 Colors (Deep Freeze Rated)",
+          "Handling Option": "Provided with D-Punch Handle for Ease of Handling",
+        },
+      },
+      {
+        id: "plastic-dcut-bags",
+        title: "Plastic Dcut Bags",
+        subtitle: "HDPE & LDPE Die-Cut Handle Bags",
+        blurb: "High-density and low-density polythene bags with die-cut handles for boutique retail shopping.",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        specs: {
+          "Material Options": "HDPE (High Density) & LDPE (Low Density)",
+          "Handle Design": "Die-Cut D-Handle for Convenient Carrying",
+          "Retail Appeal": "Smooth Finish for Boutique Retail Display",
+          "Custom Printing": "Vibrant Flexographic & Rotogravure Branding",
+        },
+      },
+      {
+        id: "polythene-clothing-packing-bags",
+        title: "Polythene Clothing Packing Bags",
+        subtitle: "Self-Sealing Apparel Display Bags",
+        blurb: "Clear self-sealing polythene clothing display bags for retail garments, apparel stores, and dry-cleaners.",
+        image: "/images/products/ldpe-films-pouches/applications/app-1.png",
+        specs: {
+          "Closure System": "Self-Sealing Peel & Seal Adhesive Flap",
+          "Application": "Clothing Display, Retail Stores & Dry-Cleaners",
+          "Clarity": "Sparkling Clear Polythene Presentation",
+          "Protection": "Keeps Garments Clean, Dust-Free & Fresh",
+        },
+      },
+      {
+        id: "grip-seal-bags",
+        title: "Grip Seal Bags",
+        subtitle: "Reusable Click-Lock Zipper Bags",
+        blurb: "Reusable, highly transparent, food-safe LDPE grip seal bags with tough click-lock track closures.",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        specs: {
+          "Reusability": "Reusable Click-Lock Zipper Track Closure",
+          "Safety": "100% Food Safe & Highly Transparent",
+          "Durability": "Tough Puncture-Resistant LDPE Film",
+          "Versatility": "Ideal for Hardware, Snacks & Small Parts",
+        },
+      },
+      {
+        id: "poly-mailer-bags",
+        title: "Poly Mailer Bags",
+        subtitle: "White Courier Ecommerce Shipping Bags",
+        blurb: "Custom-printed white poly mailers for ecommerce shipping, offering an economical alternative to bulky boxes.",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        specs: {
+          "Application": "Ecommerce Shipping & Courier Logistics Mailers",
+          "Cost Savings": "Economical Alternative to Bulky Cardboard Boxes",
+          "Customization": "Custom-Printed White Poly Mailers with Logos",
+          "Closure": "Tamper-Evident Permanent Peel-and-Seal Strip",
+        },
+      },
+      {
+        id: "plastic-bags-hanger-hook",
+        title: "Plastic Bags with Hanger Hook",
+        subtitle: "Garment & Hosiery Hanging Bags",
+        blurb: "Transparent zip-lock plastic bags with integrated hanger hooks for hosiery and multiple garment retail display.",
+        image: "/images/products/ldpe-films-pouches/applications/app-1.png",
+        specs: {
+          "Features": "Zip Lock Closure & Integrated Hanging Hook",
+          "Use Case": "Hosiery Industry, Garments & Apparel Packs",
+          "Display": "Convenient Peg Display Hanging in Retail Stores",
+          "Protection": "Dust-Proof Seal with Heavy Header Hook",
+        },
+      },
+      {
+        id: "soft-loop-handle-bags",
+        title: "Soft Loop Handle Bags",
+        subtitle: "Upscale Retail Boutique Carrying Bags",
+        blurb: "Upscale retail bags featuring comfortable soft loop handles and expandable bottom gussets for transport stability.",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        specs: {
+          "Handle Design": "Upscale Soft Loop Handles (One on Each Side)",
+          "Bottom Gusset": "Expandable Bottom Gusset Increases Stability & Volume",
+          "Benefit": "Keeps Contents Secured, Reducing Movement & Damage",
+          "Look & Feel": "Upscale Boutique Retail Presentation",
+        },
+      },
+      {
+        id: "plastic-drawstring-bags",
+        title: "Plastic Drawstring Bags",
+        subtitle: "Flexible Cinching Drawstring Bags",
+        blurb: "Flexible and strong LDPE bags featuring plastic drawstring closures—an economical alternative to cotton drawstring bags.",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        specs: {
+          "Closure System": "Plastic Drawstring Tape for Cinching Closure",
+          "Strength": "Flexible & Strong Polyethylene Construction",
+          "Customization": "Customized Sizes, Colors & Printed Designs",
+          "Cost Efficiency": "Economical Alternative to Cotton Drawstring Bags",
+        },
+      },
     ],
-    options: { widths: ["200mm to 1200mm"], thicknesses: ["30 Micron", "50 Micron", "100 Micron", "150 Micron", "200 Micron"], colors: ["High Gloss Clear", "Milky White", "Black Opaque"] },
-    applications: ["Industrial box & drum liners", "Heavy chemical & resin shipping sacks", "Garment & textile dust covers"],
+    options: { widths: ["100mm to 1200mm"], thicknesses: ["0.5 mil (12µ)", "2 mil (50µ)", "4 mil (100µ)", "6 mil (150µ)"], colors: ["High Gloss Clear", "White Opaque", "Black Refuse", "Antistatic Pink"] },
+    applications: ["Electronics ESD shielding", "Healthcare & biohazard waste containment", "Garment display, ecommerce mailers & retail carrying bags"],
     visualGradients: "from-sky-400 to-blue-500",
   },
   {

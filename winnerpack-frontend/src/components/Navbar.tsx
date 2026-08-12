@@ -104,9 +104,18 @@ export const productHierarchy = [
         title: "LDPE Bags",
         slug: "ldpe-bags",
         items: [
-          { name: "Standard Normal LDPE Film", slug: "standard-normal-ldpe-film" },
-          { name: "LDPE Pouches & Bags", slug: "ldpe-pouches-bags" },
-          { name: "Heavy-Duty Shipping Sacks", slug: "heavy-duty-shipping-sacks" },
+          { name: "Antistatic Poly Bags", slug: "antistatic-poly-bags" },
+          { name: "Biohazard Bags", slug: "biohazard-bags" },
+          { name: "Black Refuse Sacks", slug: "black-refuse-sacks" },
+          { name: "Clear Polythene Packing Bags", slug: "clear-polythene-packing-bags" },
+          { name: "Ice Bags", slug: "ice-bags" },
+          { name: "Plastic Dcut Bags", slug: "plastic-dcut-bags" },
+          { name: "Polythene Clothing Packing Bags", slug: "polythene-clothing-packing-bags" },
+          { name: "Grip Seal Bags", slug: "grip-seal-bags" },
+          { name: "Poly Mailer Bags", slug: "poly-mailer-bags" },
+          { name: "Plastic Bags with Hanger Hook", slug: "plastic-bags-hanger-hook" },
+          { name: "Soft Loop Handle Bags", slug: "soft-loop-handle-bags" },
+          { name: "Plastic Drawstring Bags", slug: "plastic-drawstring-bags" },
         ]
       },
       {
