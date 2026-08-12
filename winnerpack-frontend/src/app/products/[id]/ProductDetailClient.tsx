@@ -36,7 +36,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     "packaging-films":      "packaging-films",       // ✓ direct match — has own entry
     "pof-shrink-film":      "pof-films-pouches",
     "lamination-pe-film":   "lamination-films-pouches",
-    "agricultural-films":   "compostable-films-pouches",
+    "agricultural-films":   "agricultural-films",    // ✓ direct match — has own entry
     "biodegradable-films":  "compostable-films-pouches",
     "flexible-laminates":   "lamination-films-pouches",
     "printed-pe-films":     "coloured-films-pouches",

@@ -1162,6 +1162,274 @@ Avail Benefits of Self Adhesive Laminating Sheets with WinnerPack:
     applications: ["Seeds Packaging", "Pesticide Packaging", "Dairy Products", "Vacuum Pouches", "Condom Packaging"],
     visualGradients: "from-blue-600 to-indigo-700",
   },
+  // --- AGRICULTURAL FILMS & SUB-PRODUCTS ---
+  {
+    id: "agricultural-films",
+    title: "Agricultural Films",
+    category: "film-products",
+    tag: "Agricultural Film",
+    blurb: "High-performance UV-stabilized agricultural plastic films engineered for crop protection, soil moisture retention, greenhouse microclimate control, and yield optimization.",
+    longDesc: `Agricultural Films are specialized plastic sheeting products engineered specifically to enhance crop productivity, protect soil integrity, and optimize agricultural microclimates. Formulated with UV-stabilized virgin polyolefin resins, anti-fog additives, and NIR thermal barriers, our agricultural films enable farmers and commercial agricultural enterprises to maximize crop yields across diverse weather conditions.
+
+### Introduction to Agricultural Films
+In modern commercial agriculture, plastic films play a vital role in controlled environment farming (CEF). By regulating soil temperature, retaining moisture, suppressing weed growth, and protecting crops against frost, wind, and pests, our agricultural films provide an optimal growth environment for vegetables, fruits, flowers, and cash crops.
+
+### Manufacturing & UV Stabilization Engineering
+At WinnerPack, our agricultural films are produced on multi-layer co-extrusion blown film lines using prime LLDPE, LDPE, and EVA polymers. Engineered features include:
+- **Long-Term UV Protection**: Formulated with HALS (Hindered Amine Light Stabilizers) to withstand intense solar radiation for 1 to 5 seasons.
+- **Thermal Memory & Anti-Drip Coating**: Prevents condensation droplet formation while maintaining night heat retention.
+- **Superior Puncture & Tear Resistance**: Delivers high resistance against field installation tearing, strong winds, and hail.
+
+### Key Product Offerings
+- **Plastic Mulching Film**: Dual-color silver/black, black/black, and clear mulch for weed suppression and soil warmth.
+- **Greenhouse Film**: High light transmission UV-stabilized greenhouse covers with anti-fog and thermal insulation properties.
+- **Low Tunnel Film**: Flexible row covers for early crop protection and micro-climate warmth.
+- **Mulch Film**: Specialized bio-degradable and standard polyethylene mulch rolls.`,
+    image: "/images/desktop/journey/solution_pcr_eco_film.png",
+    gallery: [
+      "/images/desktop/journey/solution_pcr_eco_film.png",
+      "/images/desktop/about/blown_film_tower.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
+    ],
+    specs: {
+      "Thickness Range": "20 Micron to 200 Micron",
+      "Width Range": "0.9 Meter to 14 Meters Polyhouse Width",
+      "UV Life Expectancy": "1 to 5 Seasons Solar Stability",
+      "Light Transmission": "Up to 90% PAR Transmission",
+      "Anti-Drip & Anti-Fog": "High-Efficiency Surface Hydrophilic Coating",
+      "Material Base": "LLDPE / LDPE / EVA Virgin Polyolefin Blend",
+    },
+    thicknessLengthMatrix: [
+      { micron: "25", gauge: "100", meters: "1,000", feet: "3,280" },
+      { micron: "30", gauge: "120", meters: "800", feet: "2,624" },
+      { micron: "50", gauge: "200", meters: "500", feet: "1,640" },
+      { micron: "100", gauge: "400", meters: "300", feet: "984" },
+      { micron: "150", gauge: "600", meters: "200", feet: "656" },
+      { micron: "200", gauge: "800", meters: "150", feet: "492" },
+    ],
+    subCategories: [
+      {
+        id: "plastic-mulching-film",
+        title: "Plastic Mulching Film",
+        subtitle: "Silver-Black & Opaque UV Stabilized Crop Protection Mulch",
+        blurb: "High-grade silver-black and black polyethylene mulching film designed to reflect sunlight, suppress weeds, conserve soil moisture, and prevent soil erosion.",
+        image: "/images/desktop/journey/solution_pcr_eco_film.png",
+        specs: {
+          "Color Formats": "Silver-Black / Black-Black / Transparent / Red",
+          "Thickness Range": "20 Micron to 50 Micron",
+          "Width Range": "0.9m to 1.5m",
+          "UV Stabilization": "12 to 24 Months Solar Field Stability",
+        },
+        applications: ["Vegetable & fruit crop mulching", "Soil moisture retention & weed prevention", "Drip irrigation agriculture"],
+      },
+      {
+        id: "greenhouse-film",
+        title: "Greenhouse Cover Film",
+        subtitle: "Anti-Drip & Anti-Fog UV Stabilized Polyhouse Covers",
+        blurb: "Multi-year UV-stabilized greenhouse polyhouse cover film with 90%+ light transmission, anti-fog drop control, and high thermal heat retention.",
+        image: "/images/desktop/about/blown_film_tower.png",
+        specs: {
+          "Light Transmission": "90% PAR Solar Transmission",
+          "Thermal Barrier": "IR Thermicity Heat Retention Coating",
+          "Anti-Fog Effect": "Hydrophilic Anti-Drip Droplet Control",
+          "Width Customization": "Up to 14 Meters Seamless Width",
+        },
+        applications: ["Polyhouse & greenhouse covers", "Horticulture & floriculture protection", "Controlled environment farming"],
+      },
+      {
+        id: "low-tunnel-film",
+        title: "Low Tunnel Sheeting",
+        subtitle: "Perforated Micro-Climate Sheeting for Early Crop Protection",
+        blurb: "Clear high-clarity low tunnel protective sheeting designed for row crop installation, providing frost protection and accelerated seed germination.",
+        image: "/images/desktop/journey/solution_pcr_eco_film.png",
+        specs: {
+          "Clarity Level": "Ultra High Transparent Solar Transmission",
+          "Perforations": "Optional Vent Hole Micro Perforations",
+          "Thickness Range": "25 Micron to 50 Micron",
+          "Format": "Continuous Roll Sheeting",
+        },
+        applications: ["Row crop tunnel covers", "Early spring seed germination", "Frost & insect barrier protection"],
+      },
+      {
+        id: "mulch-film",
+        title: "Mulch Film",
+        subtitle: "Embossed Polyethylene Soil Temperature Control Film",
+        blurb: "Embossed and smooth agricultural mulch film rolls optimized for drip irrigation compatibility, weed control, and crop root stabilization.",
+        image: "/images/desktop/journey/solution_pcr_eco_film.png",
+        specs: {
+          "Surface Texture": "Diamond Embossed / Smooth Micro Texture",
+          "Width Range": "0.9 Meter to 2.1 Meters",
+          "Thickness": "20, 25, 30, 50 Micron",
+          "Puncture Resistance": "High Resistance Against Drip Pipe Stakes",
+        },
+        applications: ["Commercial horticulture mulching", "Fruit orchard soil covers", "Weed control without chemical pesticides"],
+      }
+    ],
+    options: {
+      widths: ["0.9 Meter", "1.2 Meters", "1.5 Meters", "2.1 Meters", "7.0 Meters", "14.0 Meters"],
+      thicknesses: ["20 Micron", "25 Micron", "30 Micron", "50 Micron", "100 Micron", "150 Micron", "200 Micron"],
+      colors: ["Silver / Black Dual Color", "Solid Black Opaque", "Clear Transparent", "UV Diffused White"],
+    },
+    applications: ["Commercial vegetable & fruit mulching", "Greenhouse & polyhouse coverings", "Low tunnel row crop protection", "Soil moisture retention"],
+    visualGradients: "from-emerald-500 to-teal-700",
+  },
+  {
+    id: "plastic-mulching-film",
+    title: "Plastic Mulching Film",
+    category: "film-products",
+    tag: "Mulch Film",
+    blurb: "High-grade silver-black and black polyethylene mulching film designed to reflect sunlight, suppress weeds, conserve soil moisture, and prevent soil erosion.",
+    longDesc: `Plastic Mulching Film is an indispensable tool in modern precision agriculture and commercial crop cultivation. Designed to coat the soil surface along planting rows, our multi-layer silver-black mulching film creates an ideal root zone environment that accelerates crop growth, minimizes weed competition, and significantly conserves water.
+
+### Introduction to Plastic Mulching Film
+Using plastic mulch film is one of the most effective methods to increase agricultural yield while reducing reliance on chemical herbicides and excessive irrigation. The dual-color silver/black surface reflects sunlight up into the crop canopy—disorienting insect pests while increasing lower leaf photosynthesis—while the black underside blocks 100% of light to suppress weed germination.
+
+### Key Benefits & Polymer Features:
+- **Silver / Black Dual Layer**: Silver side reflects sunlight and repels aphids/thrips; black side prevents weed growth.
+- **Micro-Climate Control**: Retains soil heat during cold nights and prevents soil crusting during heavy rainfall.
+- **Moisture Conservation**: Reduces water evaporation by up to 50%, maximizing drip irrigation efficiency.
+- **Enhanced Crop Quality**: Keeps growing fruits and vegetables clean and off raw soil, preventing rot and soil-borne fungal infections.
+- **UV Stabilized Longevity**: Engineered to withstand 12 to 24 months of intense field solar exposure without premature degradation.`,
+    image: "/images/desktop/journey/solution_pcr_eco_film.png",
+    gallery: [
+      "/images/desktop/journey/solution_pcr_eco_film.png",
+      "/images/desktop/about/blown_film_tower.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png"
+    ],
+    specs: {
+      "Film Formats": "Silver-Black / Black-Black / Transparent / Red / Yellow",
+      "Thickness Range": "20 Micron to 50 Micron",
+      "Width Range": "0.9 Meter to 1.5 Meters",
+      "Roll Length": "400 Meters to 1,000 Meters per Roll",
+      "UV Life Rating": "12 to 24 Months Field Durability",
+    },
+    thicknessLengthMatrix: [
+      { micron: "20", gauge: "80", meters: "1,000", feet: "3,280" },
+      { micron: "25", gauge: "100", meters: "800", feet: "2,624" },
+      { micron: "30", gauge: "120", meters: "600", feet: "1,968" },
+      { micron: "50", gauge: "200", meters: "400", feet: "1,312" },
+    ],
+    options: {
+      widths: ["0.9m", "1.0m", "1.2m", "1.5m"],
+      thicknesses: ["20 Micron", "25 Micron", "30 Micron", "50 Micron"],
+      colors: ["Silver-Black Dual", "Solid Black", "Transparent Clear"],
+    },
+    applications: ["Strawberry & berry cultivation", "Tomato, pepper & melon farming", "Cotton & sugarcane drip irrigation rows"],
+    visualGradients: "from-emerald-500 to-teal-700",
+  },
+  {
+    id: "greenhouse-film",
+    title: "Greenhouse Cover Film",
+    category: "film-products",
+    tag: "Greenhouse Cover",
+    blurb: "Multi-year UV-stabilized greenhouse polyhouse cover film with 90%+ light transmission, anti-fog drop control, and high thermal heat retention.",
+    longDesc: `Greenhouse Cover Film is a high-technology multi-layer co-extruded polyhouse sheet engineered for commercial greenhouse and polyhouse construction. Designed to withstand harsh atmospheric conditions, high UV exposure, and temperature swings, our greenhouse films create the ultimate protected climate for high-value crops.
+
+### Key Product Features:
+- **90%+ PAR Light Transmission**: Maximizes photosynthetically active radiation (PAR) for rapid plant growth.
+- **Anti-Drip & Anti-Fog Coating**: Prevents heavy water droplets from dripping onto crops, reducing disease risks.
+- **IR Thermal Heat Retention**: Keeps greenhouse interior warm during cold nights by trapping long-wave infrared heat.
+- **5-Layer Heavy Duty Co-Extrusion**: Delivers high tear and puncture resistance against heavy winds and hail.
+- **Multi-Year Warranty**: Guaranteed UV resistance for 3 to 5 years depending on micron thickness.`,
+    image: "/images/desktop/about/blown_film_tower.png",
+    gallery: [
+      "/images/desktop/about/blown_film_tower.png",
+      "/images/desktop/journey/solution_pcr_eco_film.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png"
+    ],
+    specs: {
+      "Light Transmission": "90% PAR Transmission Rating",
+      "Thermicity Index": "Over 80% Longwave IR Heat Retention",
+      "Anti-Drip Additive": "Hydrophilic Internal Surface Coating",
+      "Width Range": "Up to 14 Meters Seamless Sheet Width",
+      "Thickness Range": "150 Micron to 200 Micron",
+    },
+    thicknessLengthMatrix: [
+      { micron: "150", gauge: "600", meters: "100", feet: "328" },
+      { micron: "200", gauge: "800", meters: "80", feet: "262" },
+    ],
+    options: {
+      widths: ["4.0m", "7.0m", "9.0m", "12.0m", "14.0m"],
+      thicknesses: ["150 Micron", "200 Micron"],
+      colors: ["Clear Transparent", "Diffused Milky White"],
+    },
+    applications: ["Commercial polyhouse structures", "Floriculture & cut flower growing", "High-value hydroponic farming"],
+    visualGradients: "from-emerald-500 to-teal-700",
+  },
+  {
+    id: "low-tunnel-film",
+    title: "Low Tunnel Sheeting",
+    category: "film-products",
+    tag: "Low Tunnel",
+    blurb: "Clear high-clarity low tunnel protective sheeting designed for row crop installation, providing frost protection and accelerated seed germination.",
+    longDesc: `Low Tunnel Sheeting is a lightweight, high-clarity protective film used to construct mini-tunnels directly over field crop rows. Ideal for early spring planting, low tunnels create a localized warm microclimate that accelerates germination and protects delicate seedlings from sudden late-season frosts.
+
+### Key Product Features:
+- **High Light Transmission**: Allows 92%+ natural sunlight into the tunnel for optimal photosynthesis.
+- **Frost & Cold Protection**: Shields crops from night frost, harsh winds, and heavy rain damage.
+- **Optional Vent Perforations**: Pre-perforated options available for automatic temperature regulation.
+- **Easy Installation**: Lightweight roll structure designed for quick manual or mechanical hoop installation.`,
+    image: "/images/desktop/journey/solution_pcr_eco_film.png",
+    gallery: [
+      "/images/desktop/journey/solution_pcr_eco_film.png",
+      "/images/desktop/about/blown_film_tower.png"
+    ],
+    specs: {
+      "Transparency": "92% Ultra-Clear Solar Transmission",
+      "Format": "Continuous Roll Sheeting / Micro-Perforated",
+      "Thickness Range": "25 Micron to 50 Micron",
+      "Width Range": "1.2m to 2.5m",
+    },
+    thicknessLengthMatrix: [
+      { micron: "25", gauge: "100", meters: "500", feet: "1,640" },
+      { micron: "30", gauge: "120", meters: "400", feet: "1,312" },
+      { micron: "50", gauge: "200", meters: "300", feet: "984" },
+    ],
+    options: {
+      widths: ["1.2m", "1.5m", "2.0m", "2.5m"],
+      thicknesses: ["25 Micron", "30 Micron", "50 Micron"],
+      colors: ["High Gloss Clear"],
+    },
+    applications: ["Early season vegetable rows", "Watermelon & cantaloupe tunnels", "Nursery seedling protection"],
+    visualGradients: "from-emerald-500 to-teal-700",
+  },
+  {
+    id: "mulch-film",
+    title: "Mulch Film",
+    category: "film-products",
+    tag: "Soil Mulch",
+    blurb: "Embossed and smooth agricultural mulch film rolls optimized for drip irrigation compatibility, weed control, and crop root stabilization.",
+    longDesc: `Mulch Film is an essential soil management solution engineered to prevent weed growth, reduce fertilizer leaching, and maintain optimum root zone temperature. Available in embossed micro-textures that resist tearing on soil ridges, our mulch films ensure clean, efficient crop production.
+
+### Key Product Features:
+- **Diamond Embossed Texture**: Delivers superior flexibility and tear resistance on rough field terrain.
+- **100% Weed Suppression**: Opaque black formulations prevent weed seed germination completely.
+- **Moisture Retention**: Minimizes soil water evaporation and preserves soil structure.
+- **Drip Irrigation Friendly**: Works seamlessly with automated drip line laying equipment.`,
+    image: "/images/desktop/journey/solution_pcr_eco_film.png",
+    gallery: [
+      "/images/desktop/journey/solution_pcr_eco_film.png",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.png"
+    ],
+    specs: {
+      "Surface Finish": "Diamond Embossed / Smooth Micro Texture",
+      "Thickness Range": "20 Micron to 50 Micron",
+      "Width Range": "0.9m to 2.1m",
+      "UV Life": "12 to 24 Months Field Rating",
+    },
+    thicknessLengthMatrix: [
+      { micron: "20", gauge: "80", meters: "1,000", feet: "3,280" },
+      { micron: "25", gauge: "100", meters: "800", feet: "2,624" },
+      { micron: "30", gauge: "120", meters: "600", feet: "1,968" },
+    ],
+    options: {
+      widths: ["0.9m", "1.2m", "1.5m", "2.1m"],
+      thicknesses: ["20 Micron", "25 Micron", "30 Micron", "50 Micron"],
+      colors: ["Solid Black Opaque", "Silver-Black"],
+    },
+    applications: ["Commercial vegetable farming", "Orchard tree row covers", "Drip irrigated row crops"],
+    visualGradients: "from-emerald-500 to-teal-700",
+  },
   {
     id: "compostable-films-pouches",
     title: "Compostable Films & Pouches",
