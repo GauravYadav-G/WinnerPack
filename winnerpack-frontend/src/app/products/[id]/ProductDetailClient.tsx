@@ -12,7 +12,7 @@ import { ProductCard } from "@/components/ProductCard";
 import CTABanner from "@/components/CTABanner";
 
 // Layout components
-import Navbar from "@/components/Navbar";
+import Navbar, { productHierarchy } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -22,125 +22,6 @@ import { apiFetch } from "@/lib/api";
 import { marked } from "marked";
 import { initialProducts } from "@/lib/fallback-data";
 import OptimizedImage from '@/components/OptimizedImage';
-
-const SIDEBAR_PRODUCT_GROUPS = [
-  {
-    title: "Lamination PE Film",
-    slug: "lamination-films-pouches",
-    items: [
-      { name: "Adhesive Lamination Film", slug: "adhesive-lamination-film" },
-      { name: "Pharma Grade Poly", slug: "pharma-grade-poly" },
-    ],
-  },
-  {
-    title: "Agricultural Films",
-    slug: "compostable-films-pouches",
-    items: [
-      { name: "Plastic Mulching Film", slug: "compostable-films-pouches" },
-      { name: "Greenhouse Film", slug: "compostable-films-pouches" },
-      { name: "Low Tunnel Film", slug: "ldpe-films-pouches" },
-      { name: "Mulch Film", slug: "compostable-films-pouches" },
-    ],
-  },
-  {
-    title: "Biodegradble Films",
-    slug: "compostable-films-pouches",
-    items: [
-      { name: "Bio Degradable Mulch Film", slug: "compostable-films-pouches" },
-      { name: "Biodegradable Shrink Film", slug: "pof-films-pouches" },
-      { name: "Biodegradable Shopping Bag", slug: "compostable-films-pouches" },
-    ],
-  },
-  {
-    title: "Packaging Films",
-    slug: "ldpe-films-pouches",
-    items: [
-      { name: "LDPE Shrink Film", slug: "ldpe-films-pouches" },
-      { name: "PE Liners And Garbage Bags", slug: "ldpe-films-pouches" },
-      { name: "Plastic Stretch Film", slug: "stretch-films-pouches" },
-      { name: "Collation Shrink Film", slug: "pof-films-pouches" },
-    ],
-  },
-  {
-    title: "Flexible Laminate Rolls & Pouches",
-    slug: "lamination-films-pouches",
-    items: [
-      { name: "Food Packaging Laminates In Pouch And Roll Form", slug: "specialty-pouches" },
-      { name: "Agro Chemical Laminates", slug: "barrier-films-pouches" },
-      { name: "Plain Standup Pouches", slug: "standup-pouches" },
-      { name: "Lidding Foils And Laminates", slug: "lamination-films-pouches" },
-      { name: "Wrap Around Labels", slug: "roll-fed-labels" },
-      { name: "Laminated Pouch India", slug: "specialty-pouches" },
-      { name: "Polyester Laminated Roll", slug: "lamination-films-pouches" },
-      { name: "Multi Coloured Laminated Roll", slug: "coloured-films-pouches" },
-    ],
-  },
-  {
-    title: "Printed PE Films",
-    slug: "coloured-films-pouches",
-    items: [
-      { name: "Milk Pouch & Milk Packaging Film Manufacturer", slug: "coloured-films-pouches" },
-      { name: "Ghee Vanaspati Packaging Film", slug: "barrier-films-pouches" },
-      { name: "SMP Packaging Film", slug: "ldpe-films-pouches" },
-      { name: "Packaged Drinking Water Film", slug: "ldpe-films-pouches" },
-      { name: "Water Packaging Film", slug: "coloured-films-pouches" },
-    ],
-  },
-  {
-    title: "Stretch Film",
-    slug: "stretch-films-pouches",
-    items: [
-      { name: "Mini Stretch Wrap Rolls", slug: "stretch-films-pouches" },
-      { name: "Manual Stretch Film", slug: "stretch-films-pouches" },
-      { name: "Machine Stretch Film", slug: "stretch-films-pouches" },
-      { name: "Cling Film", slug: "stretch-films-pouches" },
-      { name: "Silage Stretch Film & Bale Wrap Film Manufacturer", slug: "stretch-films-pouches" },
-      { name: "Pre Stretch Film", slug: "stretch-films-pouches" },
-      { name: "VCI Stretch Film", slug: "stretch-films-pouches" },
-    ],
-  },
-  {
-    title: "Lidding Films",
-    slug: "lamination-films-pouches",
-    items: [
-      { name: "Lidding Film", slug: "lamination-films-pouches" },
-      { name: "Easy Peel Film", slug: "barrier-films-pouches" },
-      { name: "Hips Sealing Film", slug: "lamination-films-pouches" },
-    ],
-  },
-  {
-    title: "LDPE Bags",
-    slug: "ldpe-films-pouches",
-    items: [
-      { name: "Antistatic Poly Bags", slug: "ldpe-films-pouches" },
-      { name: "Clear Retail Display", slug: "ldpe-films-pouches" },
-      { name: "Grip Seal Bags", slug: "zip-lock-pouches" },
-      { name: "Poly Mailer Bags", slug: "security-courier-pouches" },
-      { name: "Plastic Bags with Hanger Hook", slug: "ldpe-films-pouches" },
-      { name: "Soft Loop Handle Bags", slug: "ldpe-films-pouches" },
-      { name: "Plastic Drawstring Bags", slug: "ldpe-films-pouches" },
-    ],
-  },
-  {
-    title: "Sustainable Stretch Wrap",
-    slug: "stretch-films-pouches",
-    items: [
-      { name: "Oxy Fade Stretch Wrap", slug: "stretch-films-pouches" },
-      { name: "Coreless Stretch Film", slug: "stretch-films-pouches" },
-      { name: "Biodegradable Stretch Wrap", slug: "compostable-films-pouches" },
-      { name: "Recycled Stretch Wrap", slug: "stretch-films-pouches" },
-    ],
-  },
-  {
-    title: "Surface Protection Films",
-    slug: "surface-protection-films",
-    items: [
-      { name: "Carpet Protection Film", slug: "surface-protection-films" },
-      { name: "Floor Protection Tape", slug: "surface-protection-films" },
-      { name: "Stainless Steel Protection Sheet", slug: "surface-protection-films" },
-    ],
-  },
-];
 
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -324,48 +205,70 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
                   
-                  {/* LEFT SIDEBAR: "OUR PRODUCT" */}
-                  <aside className="w-full lg:w-72 shrink-0 bg-[#f8fafc] border border-[var(--color-line)] rounded-2xl p-5 sm:p-6 shadow-2xs">
+                  {/* LEFT SIDEBAR: "OUR PRODUCTS" (DYNAMICALLY MATCHING NAVBAR) */}
+                  <aside className="w-full lg:w-72 shrink-0 bg-[var(--color-mist)] border border-[var(--color-line)] rounded-2xl p-5 sm:p-6 shadow-2xs">
                     <div className="mb-5 pb-3 border-b border-[var(--color-line)]">
-                      <h2 className="text-lg sm:text-xl font-black uppercase tracking-tight text-[var(--color-ink)] font-display">
-                        Our Product
+                      <h2 className="text-base sm:text-lg font-bold uppercase tracking-wider text-[var(--color-ink)] font-display">
+                        Our Products
                       </h2>
-                      <div className="h-1 w-12 bg-rose-600 rounded-full mt-1.5" />
+                      <div className="h-0.5 w-10 bg-[var(--color-amber)] rounded-full mt-1.5" />
                     </div>
 
-                    <nav className="space-y-4">
-                      {SIDEBAR_PRODUCT_GROUPS.map((group) => {
-                        const isCurrentGroup = group.items.some((item) => item.slug === product.id);
-                        return (
-                          <div key={group.title} className="space-y-1.5">
-                            <Link
-                              href={`/products/${group.slug}`}
-                              className={`block text-xs sm:text-sm font-bold transition-colors ${
-                                isCurrentGroup ? "text-rose-600 font-black" : "text-rose-600/90 hover:text-rose-700"
-                              }`}
-                            >
-                              {group.title}
-                            </Link>
+                    <nav className="space-y-6">
+                      {productHierarchy.map((cat) => {
+                        const isCurrentCat = cat.subcategories.some((sub) =>
+                          sub.slug === product.id || sub.items.some((it) => it.slug === product.id)
+                        );
 
-                            <ul className="pl-3 space-y-1 text-xs text-[#4b5563] border-l-2 border-slate-200">
-                              {group.items.map((item) => {
-                                const isActive = item.slug === product.id;
+                        return (
+                          <div key={cat.id} className="space-y-2.5">
+                            {/* Main Category Header (Navbar Tier 1) */}
+                            <span className={`block text-[11px] font-mono font-bold uppercase tracking-wider transition-colors ${
+                              isCurrentCat ? "text-[var(--color-amber-dark)] font-extrabold" : "text-[var(--color-ink)]/70"
+                            }`}>
+                              {cat.title}
+                            </span>
+
+                            {/* Subcategories (Navbar Tier 2) */}
+                            <div className="space-y-3 pl-1.5 border-l-2 border-[var(--color-line)]">
+                              {cat.subcategories.map((subcat) => {
+                                const isCurrentSubcat = subcat.slug === product.id || subcat.items.some((it) => it.slug === product.id);
+
                                 return (
-                                  <li key={item.name}>
+                                  <div key={subcat.id} className="space-y-1 pl-2">
                                     <Link
-                                      href={`/products/${item.slug}`}
-                                      className={`block py-0.5 transition-colors ${
-                                        isActive
-                                          ? "font-bold text-rose-700 bg-rose-50 -ml-3 pl-3 py-1 rounded-r border-l-2 border-rose-600 font-sans"
-                                          : "hover:text-[var(--color-ink)]"
+                                      href={`/products/${subcat.slug}`}
+                                      className={`block text-xs sm:text-[13px] font-bold font-display tracking-tight transition-colors ${
+                                        isCurrentSubcat ? "text-[var(--color-blue-deep)] font-extrabold" : "text-[var(--color-ink)] hover:text-[var(--color-amber-dark)]"
                                       }`}
                                     >
-                                      {item.name}
+                                      {subcat.title}
                                     </Link>
-                                  </li>
+
+                                    {/* Specific Product Items (Navbar Tier 3) */}
+                                    <ul className="space-y-0.5 pl-2">
+                                      {subcat.items.map((item) => {
+                                        const isActive = item.slug === product.id;
+                                        return (
+                                          <li key={item.name}>
+                                            <Link
+                                              href={`/products/${item.slug}`}
+                                              className={`block py-0.5 text-xs transition-colors font-sans ${
+                                                isActive
+                                                  ? "font-bold text-[var(--color-blue-deep)] bg-[var(--color-amber)]/20 -ml-2 pl-2 py-1 rounded-r border-l-2 border-[var(--color-amber)]"
+                                                  : "text-[var(--color-mute)] hover:text-[var(--color-ink)]"
+                                              }`}
+                                            >
+                                              {item.name}
+                                            </Link>
+                                          </li>
+                                        );
+                                      })}
+                                    </ul>
+                                  </div>
                                 );
                               })}
-                            </ul>
+                            </div>
                           </div>
                         );
                       })}
@@ -373,10 +276,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   </aside>
 
                   {/* RIGHT COLUMN: DETAILED ARTICLE CONTENT */}
-                  <main className="flex-1 max-w-4xl space-y-8 text-[#374151] text-sm sm:text-base leading-relaxed font-sans font-normal">
+                  <main className="flex-1 max-w-4xl space-y-8 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed font-sans font-normal">
                     
                     {/* Top Featured Product Rolls Image */}
-                    <div className="bg-white border border-[var(--color-line)] rounded-2xl p-2 sm:p-3 shadow-xs max-w-xl">
+                    <div className="bg-[var(--color-mist)] border border-[var(--color-line)] rounded-2xl p-2 sm:p-3 shadow-xs max-w-xl">
                       <div className="aspect-[16/10] overflow-hidden rounded-xl bg-slate-50 flex items-center justify-center">
                         <OptimizedImage
                           src={product.image || "/images/products/specialty-pouches/image.png"}
@@ -388,8 +291,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                     {/* Intro Description */}
                     <div className="space-y-4 pt-2">
-                      <p>
-                        <strong>{product.title}</strong> is a versatile solution for all your laminating needs. This high-quality film is designed to provide a strong and durable bond, making it ideal for various applications.
+                      <p className="text-sm sm:text-base text-[var(--color-ink)] font-medium leading-relaxed">
+                        <strong className="text-[var(--color-ink)]">{product.title}</strong> is a versatile solution for all your laminating needs. This high-quality film is designed to provide a strong and durable bond, making it ideal for various applications.
                       </p>
 
                       <p>
@@ -415,9 +318,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                     {/* Section: Introduction to Adhesive Lamination */}
                     <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                      <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-ink)] font-display tracking-tight">
-                        Introduction to Adhesive Lamination
-                      </h2>
+                      <div className="flex items-center gap-2.5">
+                        <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
+                        <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                          Introduction to Adhesive Lamination
+                        </h2>
+                      </div>
                       <p>
                         Adhesive lamination is a simple and effective way to protect and preserve a wide range of materials using self adhesive laminating sheets. Unlike traditional lamination methods that require a machine or special equipment, self adhesive laminating sheets offer an easy, hassle-free solution. Just peel and stick the clear, acid free sheet onto your document, photo, sign, certificate, or schedule for instant protection and a professional finish.
                       </p>
@@ -428,9 +334,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                     {/* Section: Manufacturing Self Adhesive Laminating Rolls */}
                     <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                      <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-ink)] font-display tracking-tight">
-                        Manufacturing Self Adhesive Laminating Rolls
-                      </h2>
+                      <div className="flex items-center gap-2.5">
+                        <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
+                        <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                          Manufacturing Self Adhesive Laminating Rolls
+                        </h2>
+                      </div>
                       <p>
                         At WinnerPack, we take pride in our manufacturing process and the exceptional features of our laminating rolls. It is designed to provide superior quality and performance, making us stand out from the competition.
                       </p>
@@ -450,9 +359,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                     {/* Section: Industrial Applications */}
                     <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                      <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-ink)] font-display tracking-tight">
-                        Industrial Applications
-                      </h2>
+                      <div className="flex items-center gap-2.5">
+                        <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
+                        <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                          Industrial Applications
+                        </h2>
+                      </div>
                       <p>
                         In industrial settings, adhesive lamination film plays a crucial role in enhancing the durability and longevity of essential materials. Self adhesive laminating sheets are widely used to protect documents such as safety instructions, equipment manuals, and maintenance schedules from damage caused by frequent handling, moisture, and exposure to harsh environments. The clear, acid free sheets ensure that important information remains legible and intact, even in demanding conditions.
                       </p>
@@ -466,9 +378,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                     {/* Section: Food Packaging */}
                     <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                      <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-ink)] font-display tracking-tight">
-                        Food Packaging
-                      </h2>
+                      <div className="flex items-center gap-2.5">
+                        <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
+                        <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                          Food Packaging
+                        </h2>
+                      </div>
                       <p>
                         Adhesive lamination film is an essential component in the food packaging industry, where product safety and presentation are top priorities. Self adhesive laminating sheets provide a protective barrier that helps prevent moisture, contamination, and tampering, ensuring that food products remain fresh and safe for consumption. The acid free, clear sheets are perfect for maintaining the quality and appearance of packaging, allowing branding, nutritional information, and product details to remain visible and attractive.
                       </p>
@@ -482,47 +397,81 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                     {/* Section: Self Adhesive Laminating Sheets Acid Free Benefits */}
                     <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                      <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-ink)] font-display tracking-tight">
-                        Self Adhesive Laminating Sheets Acid Free Benefits
-                      </h2>
-                      <p className="font-medium text-[var(--color-ink)]">
+                      <div className="flex items-center gap-2.5">
+                        <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
+                        <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                          Self Adhesive Laminating Sheets Acid Free Benefits
+                        </h2>
+                      </div>
+                      <p className="font-semibold text-[var(--color-ink)] font-sans">
                         Avail Benefits of Self Adhesive Laminating Sheets with WinnerPack:
                       </p>
-                      <ol className="space-y-2 list-decimal list-outside pl-5 text-[#374151]">
-                        <li>Easy application with adhesive backing.</li>
-                        <li>Versatile for use on different materials.</li>
-                        <li>Provides protection against moisture and damage.</li>
-                        <li>Offers durability and resistance to tearing and scratching.</li>
-                        <li>Maintains clarity for visibility of the original content.</li>
-                        <li>Cost-effective compared to other lamination methods.</li>
-                        <li>Can be easily customized and trimmed to size.</li>
-                        <li>Convenient for on-demand laminating without the need for machines or pouches.</li>
-                      </ol>
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                        {[
+                          "Easy application with adhesive backing.",
+                          "Versatile for use on different materials.",
+                          "Provides protection against moisture and damage.",
+                          "Offers durability and resistance to tearing and scratching.",
+                          "Maintains clarity for visibility of the original content.",
+                          "Cost-effective compared to other lamination methods.",
+                          "Can be easily customized and trimmed to size.",
+                          "Convenient for on-demand laminating without the need for machines or pouches."
+                        ].map((benefit, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-start gap-2.5 rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber)]/50 transition-colors"
+                          >
+                            <CheckCircle2 className="h-4 w-4 text-[var(--color-amber-dark)] shrink-0 mt-0.5" />
+                            <span>{benefit}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
                     {/* Section: Self Adhesive Lamination Film / Sheet Features */}
                     <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                      <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-ink)] font-display tracking-tight">
-                        Self Adhesive Lamination Film / Sheet Features
-                      </h2>
-                      <ul className="space-y-2 list-disc list-outside pl-5 text-[#374151]">
-                        <li>Used for lamination to polyester</li>
-                        <li>Available in widths upto 2.25 meters</li>
-                        <li>Thickness Range from 18-300 microns</li>
-                        <li>Colours : Natural, White opaque. Other colours available on request.</li>
-                        <li>Applications : Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.</li>
-                      </ul>
+                      <div className="flex items-center gap-2.5">
+                        <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
+                        <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                          Self Adhesive Lamination Film / Sheet Features
+                        </h2>
+                      </div>
+                      <div className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-4 sm:p-5">
+                        <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-[var(--color-ink)] font-sans">
+                          <li className="flex items-start gap-2.5">
+                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                            <span>Used for lamination to polyester</span>
+                          </li>
+                          <li className="flex items-start gap-2.5">
+                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                            <span>Available in widths upto 2.25 meters</span>
+                          </li>
+                          <li className="flex items-start gap-2.5">
+                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                            <span>Thickness Range from 18-300 microns</span>
+                          </li>
+                          <li className="flex items-start gap-2.5">
+                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                            <span>Colours: Natural, White opaque. Other colours available on request.</span>
+                          </li>
+                          <li className="flex items-start gap-2.5">
+                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                            <span>Applications: Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
 
                     {/* Bottom CTA / Contact Bar */}
                     <div className="pt-8 border-t border-[var(--color-line)]">
-                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-slate-50 border border-[var(--color-line)]">
-                        <div className="text-xs sm:text-sm text-[#4b5563]">
-                          Please contact us on <a href="tel:+918595072187" className="font-bold text-[var(--color-ink)] hover:underline">+91 85950 72187</a> or email us <a href="mailto:sales@winnerpack.in" className="font-bold text-[var(--color-ink)] hover:underline">sales@winnerpack.in</a> for quotations or other details.
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-[var(--color-mist)] border border-[var(--color-line)] shadow-xs">
+                        <div className="text-xs sm:text-sm text-[var(--color-mute)] font-sans">
+                          Please contact us on <a href="tel:+918595072187" className="font-bold text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] transition-colors">+91 85950 72187</a> or email us <a href="mailto:sales@winnerpack.in" className="font-bold text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] transition-colors">sales@winnerpack.in</a> for quotations or other details.
                         </div>
                         <Button
                           to={`/contact?sku=${product.id}&title=${encodeURIComponent(product.title)}`}
-                          className="shrink-0 bg-[var(--color-blue-deep)] text-white hover:bg-[var(--color-ink)] font-bold px-6 py-2.5 rounded-lg shadow-sm text-xs sm:text-sm"
+                          className="shrink-0 bg-[var(--color-amber)] text-[var(--color-blue-deep)] hover:bg-[var(--color-amber-dark)] font-bold px-6 py-2.5 rounded-xl shadow-md text-xs sm:text-sm font-sans transition-all"
                         >
                           Send Inquiry
                         </Button>

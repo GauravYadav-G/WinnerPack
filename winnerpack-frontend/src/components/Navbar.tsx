@@ -17,7 +17,7 @@ const links = [
 ];
 
 // Complete 3-Tier Hierarchy with 11 specified Film Products order
-const productHierarchy = [
+export const productHierarchy = [
   {
     id: "film-products",
     title: "Film Products",
