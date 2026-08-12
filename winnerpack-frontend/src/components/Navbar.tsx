@@ -92,8 +92,8 @@ export const productHierarchy = [
         title: "Printed PE Films",
         slug: "printed-pe-films",
         items: [
-          { name: "Milk Packaging Film", slug: "milk-packaging-film" },
-          { name: "Ghee Packaging Film", slug: "ghee-packaging-film" },
+          { name: "Milk Pouch & Milk Packaging Film", slug: "milk-packaging-film" },
+          { name: "Ghee Vanaspati Packaging Film", slug: "ghee-packaging-film" },
           { name: "SMP Packaging Film", slug: "smp-packaging-film" },
           { name: "Water Packaging Film", slug: "water-packaging-film" },
         ]
