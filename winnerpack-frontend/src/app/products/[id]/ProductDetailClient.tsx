@@ -313,25 +313,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     value,
   })) : [];
 
-  // 5-Photo Gallery Collage Setup: Slot 0 = Featured Hero Image; Slots 1-4 = Dedicated Product Application Folder Images
-  const productAppDir = `/images/products/${product.id}/applications`;
 
-  const appSlotImages = Array.isArray(product.applicationSlots) && product.applicationSlots.length > 0
-    ? product.applicationSlots.map((s: any) => s.image).filter(Boolean)
-    : [
-        `${productAppDir}/app-1.png`,
-        `${productAppDir}/app-2.png`,
-        `${productAppDir}/app-3.png`,
-        `${productAppDir}/app-4.png`,
-      ];
 
-  const displayGallery = [
-    product.image || appSlotImages[0] || `${productAppDir}/app-1.png`,
-    appSlotImages[0] || `${productAppDir}/app-1.png`,
-    appSlotImages[1] || `${productAppDir}/app-2.png`,
-    appSlotImages[2] || `${productAppDir}/app-3.png`,
-    appSlotImages[3] || `${productAppDir}/app-4.png`,
-  ];
+
 
   const fallbackParent = initialProducts.find((p) => p.id === product.id || p.id === id || p.id === targetId);
   const displaySubCategories = (Array.isArray(product.subCategories) && product.subCategories.length > 0)
@@ -665,37 +649,15 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   {/* RIGHT COLUMN: DETAILED ARTICLE CONTENT */}
                   <main className="flex-1 max-w-4xl space-y-8 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed font-sans font-normal">
                     
-                    {/* Top Featured Product Rolls Image & Interactive Gallery */}
-                    <div className="bg-[var(--color-mist)] border border-[var(--color-line)] rounded-2xl p-2 sm:p-3 shadow-xs max-w-xl space-y-2.5">
-                      <div className="aspect-[16/10] overflow-hidden rounded-xl bg-slate-50 flex items-center justify-center">
+                    {/* Top Featured Full-Width Rectangle Product Image */}
+                    <div className="w-full max-w-full overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white shadow-md">
+                      <div className="aspect-[21/9] sm:aspect-[24/9] w-full overflow-hidden bg-slate-900">
                         <OptimizedImage
                           src={img || product.image || "/images/products/specialty-pouches/image.png"}
                           alt={product.title}
-                          className="w-full h-full object-cover transition-all duration-300"
+                          className="w-full h-full object-cover object-center transition-all duration-300"
                         />
                       </div>
-
-                      {displayGallery.length > 1 && (
-                        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-                          {displayGallery.slice(0, 5).map((photo: string, pIdx: number) => (
-                            <button
-                              key={pIdx}
-                              type="button"
-                              onClick={() => setImg(photo)}
-                              className={`relative shrink-0 h-12 w-16 overflow-hidden rounded-lg border-2 transition-all duration-200 bg-slate-900 ${(img || displayGallery[0]) === photo
-                                  ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/40 scale-95"
-                                  : "border-white/50 opacity-80 hover:opacity-100"
-                                }`}
-                            >
-                              <OptimizedImage
-                                src={photo}
-                                alt=""
-                                className="h-full w-full object-cover"
-                              />
-                            </button>
-                          ))}
-                        </div>
-                      )}
                     </div>
 
                     {/* Standardized Rich Article Content */}
