@@ -157,6 +157,22 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const [related, setRelated] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [img, setImg] = useState<string>("");
+  const [heroBgIndex, setHeroBgIndex] = useState(0);
+
+  // Auto-rotate hero header background image
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroBgIndex((prev) => (prev + 1) % HERO_HEADER_POOL.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Update page title
+  useEffect(() => {
+    if (product?.title) {
+      document.title = `${product.title} | WinnerPack`;
+    }
+  }, [product]);
 
   // Maps navbar subcategory slugs → actual product ID in fallback-data
   const aliasMap: Record<string, string> = {
@@ -333,27 +349,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
   const isParentProduct = Boolean(
     displaySubCategories.length > 0 ||
-    product.id === "pof-shrink-film" ||
-    product.id === "packaging-films" ||
-    product.id === "plastic-stretch-film" ||
-    product.id === "lamination-films-pouches" ||
-    product.id === "lamination-pe-film" ||
-    product.id === "film-products"
+    product?.id === "pof-shrink-film" ||
+    product?.id === "packaging-films" ||
+    product?.id === "plastic-stretch-film" ||
+    product?.id === "lamination-films-pouches" ||
+    product?.id === "lamination-pe-film" ||
+    product?.id === "film-products"
   );
-  const [heroBgIndex, setHeroBgIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setHeroBgIndex((prev) => (prev + 1) % HERO_HEADER_POOL.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    if (product?.title) {
-      document.title = `${product.title} | WinnerPack`;
-    }
-  }, [product]);
 
   if (loading) {
     return (
