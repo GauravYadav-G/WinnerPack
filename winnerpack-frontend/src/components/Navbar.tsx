@@ -16,56 +16,234 @@ const links = [
   { label: "Contact Us", href: "/contact" }
 ];
 
-// The 4 Main Product Categories with their Subcategories
-const productCategoryMenu = [
+// Complete 3-Tier Hierarchy: Categories -> Subcategories -> Specific Product Types
+const productHierarchy = [
   {
     id: "film-products",
     title: "Film Products",
     catSlug: "film-products",
-    items: [
-      { name: "LDPE Films & Pouches", slug: "ldpe-films-pouches" },
-      { name: "POF Films & Pouches", slug: "pof-films-pouches" },
-      { name: "Coloured Films & Pouches", slug: "coloured-films-pouches" },
-      { name: "BOPP Films & Pouches", slug: "bopp-films-pouches" },
-      { name: "PVC Shrink Rolls & Pouches", slug: "pvc-shrink-rolls-pouches" },
-      { name: "Stretch Film", slug: "stretch-film" },
-      { name: "Lamination Films & Pouches", slug: "lamination-films-pouches" },
-      { name: "Compostable Films & Pouches", slug: "compostable-films-pouches" },
+    subcategories: [
+      {
+        id: "ldpe-films-pouches",
+        title: "LDPE Films & Pouches",
+        slug: "ldpe-films-pouches",
+        items: [
+          { name: "LDPE Shrink Film", slug: "ldpe-films-pouches" },
+          { name: "Standard Normal LDPE Film", slug: "ldpe-films-pouches" },
+          { name: "LDPE Pouches & Bags", slug: "ldpe-films-pouches" },
+        ]
+      },
+      {
+        id: "pof-films-pouches",
+        title: "POF Films & Pouches",
+        slug: "pof-films-pouches",
+        items: [
+          { name: "Cross-Linked POF Film", slug: "pof-films-pouches" },
+          { name: "Non-Cross-Linked POF Film", slug: "pof-films-pouches" },
+          { name: "POF Shrink Pouches", slug: "pof-films-pouches" },
+        ]
+      },
+      {
+        id: "coloured-films-pouches",
+        title: "Coloured Films & Pouches",
+        slug: "coloured-films-pouches",
+        items: [
+          { name: "CPE Pouches (Cast Polyethylene)", slug: "coloured-films-pouches" },
+          { name: "Milky White Pouches & Films", slug: "coloured-films-pouches" },
+        ]
+      },
+      {
+        id: "bopp-films-pouches",
+        title: "BOPP Films & Pouches",
+        slug: "bopp-films-pouches",
+        items: [
+          { name: "BOPP Film Rolls", slug: "bopp-films-pouches" },
+          { name: "BOPP Display Pouches", slug: "bopp-films-pouches" },
+        ]
+      },
+      {
+        id: "pvc-shrink-rolls-pouches",
+        title: "PVC Shrink Rolls & Pouches",
+        slug: "pvc-shrink-rolls-pouches",
+        items: [
+          { name: "PVC Heat Shrink Rolls", slug: "pvc-shrink-rolls-pouches" },
+          { name: "PVC Shrink Pouches & Sleeves", slug: "pvc-shrink-rolls-pouches" },
+        ]
+      },
+      {
+        id: "stretch-film",
+        title: "Stretch Film",
+        slug: "stretch-film",
+        items: [
+          { name: "Manual Grade Stretch Film", slug: "stretch-film" },
+          { name: "Machine Grade Stretch Film", slug: "stretch-film" },
+        ]
+      },
+      {
+        id: "lamination-films-pouches",
+        title: "Lamination Films & Pouches",
+        slug: "lamination-films-pouches",
+        items: [
+          { name: "Lamination Film Rolls", slug: "lamination-films-pouches" },
+          { name: "Laminated Barrier Pouches", slug: "lamination-films-pouches" },
+        ]
+      },
+      {
+        id: "compostable-films-pouches",
+        title: "Compostable Films & Pouches",
+        slug: "compostable-films-pouches",
+        items: [
+          { name: "Compostable Film Rolls", slug: "compostable-films-pouches" },
+          { name: "Compostable Pouches & Bags", slug: "compostable-films-pouches" },
+        ]
+      },
     ]
   },
   {
     id: "label-sticker-products",
     title: "Labels & Stickers",
     catSlug: "label-sticker-products",
-    items: [
-      { name: "Plain Labels", slug: "plain-labels" },
-      { name: "Printed Labels", slug: "printed-labels" },
-      { name: "Barcode Labels", slug: "barcode-labels" },
-      { name: "Product Labels", slug: "product-labels" },
-      { name: "Self Adhesive Labels", slug: "self-adhesive-labels" },
-      { name: "Thermal Labels", slug: "thermal-labels" },
+    subcategories: [
+      {
+        id: "plain-labels",
+        title: "Plain Labels",
+        slug: "plain-labels",
+        items: [
+          { name: "Plain Chromo Paper Labels", slug: "plain-labels" },
+          { name: "Plain Thermal Transfer Labels", slug: "plain-labels" },
+        ]
+      },
+      {
+        id: "printed-labels",
+        title: "Printed Labels",
+        slug: "printed-labels",
+        items: [
+          { name: "Flexo & Digital Printed Labels", slug: "printed-labels" },
+          { name: "Wide Format Promotional Labels", slug: "printed-labels" },
+        ]
+      },
+      {
+        id: "barcode-labels",
+        title: "Barcode Labels",
+        slug: "barcode-labels",
+        items: [
+          { name: "Thermal Transfer Barcode Labels", slug: "barcode-labels" },
+          { name: "GS1 & Data Matrix Barcode Labels", slug: "barcode-labels" },
+        ]
+      },
+      {
+        id: "product-labels",
+        title: "Product Labels",
+        slug: "product-labels",
+        items: [
+          { name: "Clear & Metallic Product Labels", slug: "product-labels" },
+          { name: "Jar & Bottle Product Labels", slug: "product-labels" },
+        ]
+      },
+      {
+        id: "self-adhesive-labels",
+        title: "Self Adhesive Labels",
+        slug: "self-adhesive-labels",
+        items: [
+          { name: "Paper Self-Adhesive Labels", slug: "self-adhesive-labels" },
+          { name: "Film Self-Adhesive Labels", slug: "self-adhesive-labels" },
+        ]
+      },
+      {
+        id: "thermal-labels",
+        title: "Thermal Labels",
+        slug: "thermal-labels",
+        items: [
+          { name: "Direct Thermal Labels", slug: "thermal-labels" },
+          { name: "Thermal Transfer Labels", slug: "thermal-labels" },
+        ]
+      },
     ]
   },
   {
     id: "tapes",
     title: "Tapes",
     catSlug: "tapes",
-    items: [
-      { name: "BOPP Tapes", slug: "bopp-tapes" },
-      { name: "Printed BOPP Tapes", slug: "printed-bopp-tapes" },
-      { name: "Coloured BOPP Tapes", slug: "coloured-bopp-tapes" },
-      { name: "Silicon Tapes", slug: "silicon-tapes" },
+    subcategories: [
+      {
+        id: "bopp-tapes",
+        title: "BOPP Tapes",
+        slug: "bopp-tapes",
+        items: [
+          { name: "Clear BOPP Packing Tape", slug: "bopp-tapes" },
+          { name: "Brown Heavy Duty BOPP Tape", slug: "bopp-tapes" },
+        ]
+      },
+      {
+        id: "printed-bopp-tapes",
+        title: "Printed BOPP Tapes",
+        slug: "printed-bopp-tapes",
+        items: [
+          { name: "Custom Logo Printed Tape", slug: "printed-bopp-tapes" },
+          { name: "Security & Warning Printed Tape", slug: "printed-bopp-tapes" },
+        ]
+      },
+      {
+        id: "coloured-bopp-tapes",
+        title: "Coloured BOPP Tapes",
+        slug: "coloured-bopp-tapes",
+        items: [
+          { name: "Solid Color Identification Tape", slug: "coloured-bopp-tapes" },
+          { name: "Floor Marking Colored Tape", slug: "coloured-bopp-tapes" },
+        ]
+      },
+      {
+        id: "silicon-tapes",
+        title: "Silicon Tapes",
+        slug: "silicon-tapes",
+        items: [
+          { name: "High Temp Silicon Tape", slug: "silicon-tapes" },
+          { name: "Self-Fusing Silicon Tape", slug: "silicon-tapes" },
+        ]
+      },
     ]
   },
   {
     id: "pp-strap",
     title: "PP & PET Strap",
     catSlug: "pp-strap",
-    items: [
-      { name: "PP Strap", slug: "pp-strap" },
-      { name: "Printed PP Strap", slug: "printed-pp-strap" },
-      { name: "Colored PP Strap", slug: "colored-pp-strap" },
-      { name: "PET Strap", slug: "pet-strap" },
+    subcategories: [
+      {
+        id: "pp-strap-main",
+        title: "PP Strap",
+        slug: "pp-strap",
+        items: [
+          { name: "Automatic PP Strapping Roll", slug: "pp-strap" },
+          { name: "Manual / Semi-Auto PP Strap", slug: "pp-strap" },
+        ]
+      },
+      {
+        id: "printed-pp-strap",
+        title: "Printed PP Strap",
+        slug: "printed-pp-strap",
+        items: [
+          { name: "Corporate Branded PP Strap", slug: "printed-pp-strap" },
+          { name: "Security Warning PP Strap", slug: "printed-pp-strap" },
+        ]
+      },
+      {
+        id: "colored-pp-strap",
+        title: "Colored PP Strap",
+        slug: "colored-pp-strap",
+        items: [
+          { name: "Solid Colored PP Strap", slug: "colored-pp-strap" },
+          { name: "Embossed Color PP Strap", slug: "colored-pp-strap" },
+        ]
+      },
+      {
+        id: "pet-strap",
+        title: "PET Strap",
+        slug: "pet-strap",
+        items: [
+          { name: "High-Tensile Green PET Strap", slug: "pet-strap" },
+          { name: "Heavy Duty Embossed PET Strap", slug: "pet-strap" },
+        ]
+      },
     ]
   }
 ];
@@ -118,7 +296,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isProductsHovered, setIsProductsHovered] = useState(false);
-  const [activeCategoryTab, setActiveCategoryTab] = useState<string | null>(null);
+  const [activeCatId, setActiveCatId] = useState<string | null>(null);
+  const [activeSubCatId, setActiveSubCatId] = useState<string | null>(null);
   const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
 
   useEffect(() => {
@@ -205,7 +384,8 @@ export default function Navbar() {
                       onMouseEnter={() => setIsProductsHovered(true)}
                       onMouseLeave={() => {
                         setIsProductsHovered(false);
-                        setActiveCategoryTab(null);
+                        setActiveCatId(null);
+                        setActiveSubCatId(null);
                       }}
                     >
                       <Link
@@ -222,22 +402,25 @@ export default function Navbar() {
                         <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200 text-[var(--color-amber)]", isProductsHovered && "rotate-180")} />
                       </Link>
 
-                      {/* ── 4-CATEGORY DYNAMIC FLYOUT SUBMENU ── */}
+                      {/* ── 3-TIER DYNAMIC CASCADING FLYOUT MENU ── */}
                       {isProductsHovered && (
                         <div className="absolute left-0 top-[56px] z-50 flex items-start pointer-events-auto">
                           
-                          {/* 1st Tier: 4 Categories Menu */}
-                          <div className="w-60 lg:w-64 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 z-20">
+                          {/* ── TIER 1: 4 Main Categories Menu ── */}
+                          <div className="w-56 lg:w-60 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 z-30 shrink-0">
                             {/* Top decorative accent bar */}
                             <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] to-[#ff9e43]" />
 
                             <div className="divide-y divide-white/5">
-                              {productCategoryMenu.map((category) => {
-                                const isCurrentActive = activeCategoryTab === category.id;
+                              {productHierarchy.map((category) => {
+                                const isCurrentActive = activeCatId === category.id;
                                 return (
                                   <div
                                     key={category.id}
-                                    onMouseEnter={() => setActiveCategoryTab(category.id)}
+                                    onMouseEnter={() => {
+                                      setActiveCatId(category.id);
+                                      setActiveSubCatId(null);
+                                    }}
                                     className="relative group/item"
                                   >
                                     <Link
@@ -250,7 +433,7 @@ export default function Navbar() {
                                       )}
                                     >
                                       <span className="truncate">{category.title}</span>
-                                      {category.items && category.items.length > 0 && (
+                                      {category.subcategories && category.subcategories.length > 0 && (
                                         <ChevronRight className={cn(
                                           "h-3.5 w-3.5 shrink-0 ml-1 transition-transform",
                                           isCurrentActive ? "text-[var(--color-amber-dark)] translate-x-0.5" : "text-white/30"
@@ -263,29 +446,82 @@ export default function Navbar() {
                             </div>
                           </div>
 
-                          {/* 2nd Tier: Subcategories Menu (Styled Identically to Main Menu without Any Headings) */}
+                          {/* ── TIER 2: Subcategories Menu (Opens on Hovering a Category) ── */}
                           {(() => {
-                            const currentCategory = productCategoryMenu.find((c) => c.id === activeCategoryTab);
-                            if (!currentCategory || !currentCategory.items || currentCategory.items.length === 0) {
+                            const currentCategory = productHierarchy.find((c) => c.id === activeCatId);
+                            if (!currentCategory || !currentCategory.subcategories || currentCategory.subcategories.length === 0) {
                               return null;
                             }
                             return (
                               <div
-                                onMouseEnter={() => setActiveCategoryTab(currentCategory.id)}
-                                className="w-64 lg:w-72 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 ml-1 z-10 transition-all duration-150 animate-fade-in"
+                                onMouseEnter={() => setActiveCatId(currentCategory.id)}
+                                className="w-64 lg:w-72 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 ml-1 z-20 shrink-0 transition-all duration-150 animate-fade-in"
                               >
                                 {/* Top decorative accent bar matching main menu */}
                                 <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] to-[#ff9e43]" />
 
-                                {/* Subcategories List matching Main Menu structure */}
                                 <div className="divide-y divide-white/5 max-h-[75vh] overflow-y-auto no-scrollbar">
-                                  {currentCategory.items.map((item) => (
+                                  {currentCategory.subcategories.map((subcat) => {
+                                    const isSubActive = activeSubCatId === subcat.id;
+                                    return (
+                                      <div
+                                        key={subcat.id}
+                                        onMouseEnter={() => setActiveSubCatId(subcat.id)}
+                                        className="relative group/subitem"
+                                      >
+                                        <Link
+                                          href={`/products/${subcat.slug}`}
+                                          className={cn(
+                                            "w-full px-4 py-2.5 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer border-b border-white/5",
+                                            isSubActive
+                                              ? "bg-white text-[#120a3b] font-black shadow-sm border-l-4 border-l-[var(--color-amber)]"
+                                              : "bg-[#120a3b] text-white/85 hover:bg-white hover:text-[#120a3b] hover:font-black hover:border-l-4 hover:border-l-[var(--color-amber)] font-medium"
+                                          )}
+                                        >
+                                          <span className="truncate">{subcat.title}</span>
+                                          {subcat.items && subcat.items.length > 0 && (
+                                            <ChevronRight className={cn(
+                                              "h-3.5 w-3.5 shrink-0 ml-1 transition-transform",
+                                              isSubActive ? "text-[var(--color-amber-dark)] translate-x-0.5" : "text-white/30"
+                                            )} />
+                                          )}
+                                        </Link>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            );
+                          })()}
+
+                          {/* ── TIER 3: Specific Product Types Menu (Opens on Hovering a Subcategory) ── */}
+                          {(() => {
+                            const currentCategory = productHierarchy.find((c) => c.id === activeCatId);
+                            if (!currentCategory) return null;
+                            const currentSubCat = currentCategory.subcategories.find((s) => s.id === activeSubCatId);
+                            if (!currentSubCat || !currentSubCat.items || currentSubCat.items.length === 0) {
+                              return null;
+                            }
+                            return (
+                              <div
+                                onMouseEnter={() => {
+                                  setActiveCatId(currentCategory.id);
+                                  setActiveSubCatId(currentSubCat.id);
+                                }}
+                                className="w-64 lg:w-72 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 ml-1 z-10 shrink-0 transition-all duration-150 animate-fade-in"
+                              >
+                                {/* Top decorative accent bar matching main menu */}
+                                <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] to-[#ff9e43]" />
+
+                                <div className="divide-y divide-white/5 max-h-[75vh] overflow-y-auto no-scrollbar">
+                                  {currentSubCat.items.map((item) => (
                                     <Link
                                       key={item.name}
                                       href={`/products/${item.slug}`}
                                       onClick={() => {
                                         setIsProductsHovered(false);
-                                        setActiveCategoryTab(null);
+                                        setActiveCatId(null);
+                                        setActiveSubCatId(null);
                                       }}
                                       className="w-full px-4 py-2.5 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer bg-[#120a3b] text-white/85 hover:bg-white hover:text-[#120a3b] hover:font-black hover:border-l-4 hover:border-l-[var(--color-amber)] border-b border-white/5 font-medium group"
                                     >
@@ -297,6 +533,7 @@ export default function Navbar() {
                               </div>
                             );
                           })()}
+
                         </div>
                       )}
                     </li>
