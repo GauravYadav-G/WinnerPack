@@ -89,21 +89,13 @@ function ProductsContent() {
 
           {/* Banner Content */}
           <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <motion.span
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-block font-mono text-xs sm:text-sm font-semibold tracking-[0.25em] text-[var(--color-amber)] uppercase mb-2"
-            >
-              WinnerPack Packaging Solutions
-            </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight text-white drop-shadow-md text-balance"
+              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-md text-balance"
             >
-              PRODUCTS
+              Products
             </motion.h1>
             
             {/* Breadcrumb links */}
