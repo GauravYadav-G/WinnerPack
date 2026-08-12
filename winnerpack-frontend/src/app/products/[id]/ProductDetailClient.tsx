@@ -718,42 +718,63 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       </div>
                     )}
 
-                    {/* Specifications & Technical Features Box */}
+                    {/* Technical Specifications Table */}
                     {specs.length > 0 && (
                       <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
                         <div className="flex items-center gap-2.5">
                           <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
                           <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                            Specifications & Technical Features
+                            Technical Specifications
                           </h2>
                         </div>
-                        <div className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-4 sm:p-5">
-                          <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-[var(--color-ink)] font-sans">
-                            {specs.map((s: any) => (
-                              <li key={s.label} className="flex items-start gap-2.5">
-                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                <span><strong className="text-[var(--color-ink)]">{s.label}:</strong> {s.value}</span>
-                              </li>
-                            ))}
-                            {product.options?.widths && (
-                              <li className="flex items-start gap-2.5">
-                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                <span><strong className="text-[var(--color-ink)]">Available Widths:</strong> {product.options.widths.join(" · ")}</span>
-                              </li>
-                            )}
-                            {product.options?.thicknesses && (
-                              <li className="flex items-start gap-2.5">
-                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                <span><strong className="text-[var(--color-ink)]">Thickness Options:</strong> {product.options.thicknesses.join(" · ")}</span>
-                              </li>
-                            )}
-                            {product.options?.colors && (
-                              <li className="flex items-start gap-2.5">
-                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                <span><strong className="text-[var(--color-ink)]">Colors Available:</strong> {product.options.colors.join(" · ")}</span>
-                              </li>
-                            )}
-                          </ul>
+                        <div className="overflow-x-auto rounded-2xl border border-[var(--color-line)] shadow-xs">
+                          <table className="w-full border-collapse text-xs sm:text-sm font-sans">
+                            <thead>
+                              <tr className="bg-[var(--color-ink)] text-white">
+                                <th className="px-4 py-3 text-left font-bold tracking-wide w-2/5 border-r border-white/10">Specification</th>
+                                <th className="px-4 py-3 text-left font-bold tracking-wide">Details</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {specs.map((s: any, idx: number) => (
+                                <tr
+                                  key={s.label}
+                                  className={`border-b border-[var(--color-line)] last:border-b-0 transition-colors hover:bg-[var(--color-amber)]/5 ${
+                                    idx % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
+                                  }`}
+                                >
+                                  <td className="px-4 py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top">
+                                    {s.label}
+                                  </td>
+                                  <td className="px-4 py-3 text-[var(--color-mute)] align-top">{s.value}</td>
+                                </tr>
+                              ))}
+                              {product.options?.widths && (
+                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${
+                                  specs.length % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
+                                }`}>
+                                  <td className="px-4 py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top">Available Widths</td>
+                                  <td className="px-4 py-3 text-[var(--color-mute)] align-top">{product.options.widths.join(" · ")}</td>
+                                </tr>
+                              )}
+                              {product.options?.thicknesses && (
+                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${
+                                  (specs.length + (product.options?.widths ? 1 : 0)) % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
+                                }`}>
+                                  <td className="px-4 py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top">Thickness Options</td>
+                                  <td className="px-4 py-3 text-[var(--color-mute)] align-top">{product.options.thicknesses.join(" · ")}</td>
+                                </tr>
+                              )}
+                              {product.options?.colors && (
+                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${
+                                  (specs.length + (product.options?.widths ? 1 : 0) + (product.options?.thicknesses ? 1 : 0)) % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
+                                }`}>
+                                  <td className="px-4 py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top">Colors Available</td>
+                                  <td className="px-4 py-3 text-[var(--color-mute)] align-top">{product.options.colors.join(" · ")}</td>
+                                </tr>
+                              )}
+                            </tbody>
+                          </table>
                         </div>
                       </div>
                     )}
