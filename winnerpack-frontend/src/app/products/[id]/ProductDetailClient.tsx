@@ -346,7 +346,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="relative w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] overflow-hidden bg-[var(--color-blue-deep)] flex items-center justify-center border-b border-white/10">
               <div className="absolute inset-0">
                 <OptimizedImage
-                  src={product.image || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"}
+                  src={product.headerImage || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"}
                   alt={product.title}
                   className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 scale-105"
                 />
@@ -489,7 +489,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="relative w-full h-[200px] sm:h-[260px] md:h-[320px] overflow-hidden bg-[var(--color-blue-deep)] flex items-center justify-center border-b border-white/10">
               <div className="absolute inset-0">
                 <OptimizedImage
-                  src={product.image || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"}
+                  src={product.headerImage || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"}
                   alt={product.title}
                   className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 scale-105"
                 />
