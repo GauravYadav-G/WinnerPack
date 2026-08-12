@@ -86,6 +86,27 @@ export default function CategoryClient({
                   "/images/products/coloured-films-pouches/image.png",
                   "/images/products/stretch-film/image.png",
                 ]
+              : currentCategory.id === "label-sticker-products"
+              ? [
+                  "/images/products/printed-labels/applications/app-1.png",
+                  "/images/products/printed-labels/image.png",
+                  "/images/products/barcode-labels/applications/app-1.png",
+                  "/images/products/product-labels/applications/app-1.png",
+                ]
+              : currentCategory.id === "tapes"
+              ? [
+                  "/images/products/bopp-tapes/image.png",
+                  "/images/products/printed-bopp-tapes/applications/app-1.png",
+                  "/images/products/coloured-bopp-tapes/applications/app-2.png",
+                  "/images/products/silicon-tapes/applications/app-1.png",
+                ]
+              : currentCategory.id === "strapping"
+              ? [
+                  "/images/products/pp-strap/applications/app-1.png",
+                  "/images/products/pet-strap/image.png",
+                  "/images/products/printed-pp-strap/applications/app-1.png",
+                  "/images/products/colored-pp-strap/applications/app-2.png",
+                ]
               : [currentCategory.image || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"]
           }
         />

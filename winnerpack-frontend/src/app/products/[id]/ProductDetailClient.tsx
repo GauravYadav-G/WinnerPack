@@ -16,11 +16,20 @@ import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import PageWrapper from "@/components/PageWrapper";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { apiFetch } from "@/lib/api";
 import { marked } from "marked";
 import { initialProducts } from "@/lib/fallback-data";
 import OptimizedImage from '@/components/OptimizedImage';
+
+const HERO_HEADER_POOL = [
+  "/images/desktop/portfolio/action_extrusion_tower_blue.jpg",
+  "/images/desktop/about/plant_blown_film_line.jpg",
+  "/images/desktop/portfolio/product_app_blown_film.png",
+  "/images/desktop/portfolio/product_app_film_slitting.png",
+  "/images/desktop/portfolio/action_factory_plant_overview.jpg",
+];
 
 function extractFaqs(longDesc?: string) {
   if (!longDesc) return [];
@@ -331,9 +340,56 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     product.id === "lamination-pe-film" ||
     product.id === "film-products"
   );
+  const [heroBgIndex, setHeroBgIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroBgIndex((prev) => (prev + 1) % HERO_HEADER_POOL.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (product?.title) {
+      document.title = `${product.title} | WinnerPack`;
+    }
+  }, [product]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[var(--color-blue-deep)] text-white">
+        <Navbar />
+        <div className="py-24 sm:py-32 flex flex-col items-center justify-center gap-4">
+          <Loader2 className="w-8 h-8 text-[var(--color-amber)] animate-spin" />
+          <p className="font-mono text-sm uppercase tracking-wider text-white/70">Loading product details...</p>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (!product) {
+    return (
+      <div className="min-h-screen bg-[var(--color-bone)] text-[var(--color-text)] font-sans">
+        <Navbar />
+        <PageWrapper className="py-20 sm:py-24">
+          <Container className="max-w-xl mx-auto text-center space-y-6">
+            <h1 className="font-display text-3xl font-extrabold text-[var(--color-ink)]">Product Not Found</h1>
+            <p className="text-[var(--color-mute)] text-sm leading-relaxed">
+              The requested product specifications page could not be located in our catalog repository.
+            </p>
+            <Button to="/products" className="inline-flex items-center gap-2 bg-[var(--color-blue-deep)] text-white font-bold py-3 px-6 rounded-xl shadow-md">
+              <ArrowLeft className="w-4 h-4" /> Back to Products Catalog
+            </Button>
+          </Container>
+        </PageWrapper>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-[var(--color-bone)] text-[var(--color-text)]">
+    <div className="min-h-screen bg-[#fafafb] text-[var(--color-text)]">
       <Cursor />
       <ScrollProgress />
       <Navbar />
@@ -342,14 +398,25 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         {/* ── CASE 1: PARENT PRODUCT / CATEGORY PAGE WITH PROMINENT SUBCATEGORY CARDS ── */}
         {isParentProduct ? (
           <>
-            {/* 1. HERO BANNER */}
+            {/* 1. HERO BANNER WITH ROTATING MANUFACTURING SLIDESHOW */}
             <div className="relative w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] overflow-hidden bg-[var(--color-blue-deep)] flex items-center justify-center border-b border-white/10">
-              <div className="absolute inset-0">
-                <OptimizedImage
-                  src={product.headerImage || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"}
-                  alt={product.title}
-                  className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 scale-105"
-                />
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={HERO_HEADER_POOL[heroBgIndex]}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 0.85, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full"
+                  >
+                    <OptimizedImage
+                      src={HERO_HEADER_POOL[heroBgIndex]}
+                      alt={product.title}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </motion.div>
+                </AnimatePresence>
                 <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/65 via-[var(--color-blue-deep)]/45 to-[var(--color-ink)]/65 pointer-events-none" />
               </div>
 
@@ -485,14 +552,25 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         ) : (
           /* ── CASE 2: SUB-PRODUCT / SPECIFIC DETAIL PAGE (2-COLUMN WITH "OUR PRODUCTS" SIDEBAR) ── */
           <>
-            {/* HERO BANNER */}
+            {/* HERO BANNER WITH ROTATING MANUFACTURING SLIDESHOW */}
             <div className="relative w-full h-[200px] sm:h-[260px] md:h-[320px] overflow-hidden bg-[var(--color-blue-deep)] flex items-center justify-center border-b border-white/10">
-              <div className="absolute inset-0">
-                <OptimizedImage
-                  src={product.headerImage || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"}
-                  alt={product.title}
-                  className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 scale-105"
-                />
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={HERO_HEADER_POOL[heroBgIndex]}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 0.85, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full"
+                  >
+                    <OptimizedImage
+                      src={HERO_HEADER_POOL[heroBgIndex]}
+                      alt={product.title}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </motion.div>
+                </AnimatePresence>
                 <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/65 via-[var(--color-blue-deep)]/45 to-[var(--color-ink)]/65 pointer-events-none" />
               </div>
 

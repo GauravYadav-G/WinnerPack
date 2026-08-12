@@ -22,6 +22,15 @@ interface PageHeaderProps {
   bgImages?: string[];
 }
 
+const DEFAULT_MANUFACTURING_IMAGES = [
+  "/images/desktop/portfolio/action_extrusion_tower_blue.jpg",
+  "/images/desktop/about/plant_blown_film_line.jpg",
+  "/images/desktop/portfolio/product_app_blown_film.png",
+  "/images/desktop/portfolio/product_app_film_slitting.png",
+  "/images/desktop/about/plant_film_slitting_machine.jpg",
+  "/images/desktop/portfolio/action_factory_plant_overview.jpg",
+];
+
 export function PageHeader({
   eyebrow,
   title,
@@ -29,20 +38,23 @@ export function PageHeader({
   crumbs,
   theme = "dark",
   align = "center",
-  bgImage = "/images/desktop/about/blown_film_tower.png",
+  bgImage,
   bgImages,
 }: PageHeaderProps) {
   const isLight = theme === "light";
   const isCenter = align === "center";
 
-  const imagesList = bgImages && bgImages.length > 0 ? bgImages : [bgImage];
+  const imagesList = bgImages && bgImages.length > 0
+    ? bgImages
+    : (bgImage ? [bgImage, ...DEFAULT_MANUFACTURING_IMAGES] : DEFAULT_MANUFACTURING_IMAGES);
+
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
   useEffect(() => {
     if (imagesList.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentImgIndex((prev) => (prev + 1) % imagesList.length);
-    }, 4500);
+    }, 4000);
     return () => clearInterval(timer);
   }, [imagesList.length]);
 
