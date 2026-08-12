@@ -166,448 +166,616 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       <Navbar />
 
       <PageWrapper>
-        {/* ── 1. BENTO GALLERY HERO COLLAGE (5-PHOTO GRID INSPIRED BY REFERENCE DESIGN) ── */}
-        <section className="bg-[var(--color-bone)] pt-6 md:pt-10 pb-8 border-b border-[var(--color-line)]">
-          <Container>
-            {/* Breadcrumbs */}
-            <nav aria-label="Breadcrumb" className="mb-5">
-              <ol className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-[var(--color-mute)]">
-                <li><Link href="/" className="hover:text-[var(--color-amber-dark)] font-medium">Home</Link></li>
-                <li><ChevronRight className="h-3 w-3 text-slate-400" /></li>
-                <li><Link href="/products" className="hover:text-[var(--color-amber-dark)] font-medium">Products</Link></li>
-                <li><ChevronRight className="h-3 w-3 text-slate-400" /></li>
-                <li>
-                  <Link href={`/product-category/${product.category}`} className="hover:text-[var(--color-amber-dark)] font-medium">
-                    {category}
-                  </Link>
-                </li>
-                <li><ChevronRight className="h-3 w-3 text-slate-400" /></li>
-                <li className="font-bold text-[var(--color-ink)]">{product.title}</li>
-              </ol>
-            </nav>
-
-            {/* 5-Photo Bento Grid Collage Header (Desktop: 5-Photo Bento Grid | Mobile: 1 Featured Hero Image + Horizontal Thumbnail Strip) */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-stretch">
-              {/* Left Column: 2 Stacked Images (Hidden on Mobile to avoid lengthy vertical scroll) */}
-              <div className="hidden md:flex md:col-span-3 flex-col gap-3 sm:gap-4">
-                <div
-                  onClick={() => setImg(displayGallery[1])}
-                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[1] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
-                    }`}
-                >
-                  <OptimizedImage
-  src={displayGallery[1]}
-  alt={`${product.title} view 1`}
-  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-/>
-                </div>
-                <div
-                  onClick={() => setImg(displayGallery[2])}
-                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[2] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
-                    }`}
-                >
-                  <OptimizedImage
-  src={displayGallery[2]}
-  alt={`${product.title} view 2`}
-  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-/>
-                </div>
+        {/* ── SPECIALIZED REFERENCE LAYOUT FOR LAMINATION PE FILM ── */}
+        {(product.id === "lamination-films-pouches" || product.id === "lamination-pe-film") ? (
+          <>
+            {/* 1. FULL-WIDTH HERO BANNER (MATCHING REFERENCE SCREENSHOT) */}
+            <div className="relative w-full h-[200px] sm:h-[260px] md:h-[320px] lg:h-[360px] overflow-hidden bg-[#12285a] flex items-center justify-center">
+              <div className="absolute inset-0">
+                <OptimizedImage
+                  src="/images/desktop/about/blown_film_tower.png"
+                  alt="Lamination PE Film Manufacturing"
+                  className="w-full h-full object-cover object-center opacity-35 mix-blend-luminosity scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0a1b47]/95 via-[#183a80]/85 to-[#0a1b47]/95" />
               </div>
 
-              {/* Center Column: 1 Large Hero Featured Image */}
-              <div className="md:col-span-6">
-                <div className="relative aspect-[16/10] sm:aspect-[16/10] md:aspect-[16/11] w-full h-full overflow-hidden rounded-xl sm:rounded-3xl border border-[var(--color-line)] bg-slate-950 shadow-md sm:shadow-lg group">
-                  <OptimizedImage
-  src={img || displayGallery[0]}
-  alt={product.title}
-  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-/>
-                </div>
-              </div>
-
-              {/* Right Column: 2 Stacked Images (Hidden on Mobile) */}
-              <div className="hidden md:flex md:col-span-3 flex-col gap-3 sm:gap-4">
-                <div
-                  onClick={() => setImg(displayGallery[3])}
-                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[3] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
-                    }`}
-                >
-                  <OptimizedImage
-  src={displayGallery[3]}
-  alt={`${product.title} view 3`}
-  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-/>
-                </div>
-                <div
-                  onClick={() => setImg(displayGallery[4])}
-                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[4] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
-                    }`}
-                >
-                  <OptimizedImage
-  src={displayGallery[4]}
-  alt={`${product.title} view 4`}
-  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-/>
+              <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white font-display drop-shadow-md">
+                  LAMINATION PE FILM
+                </h1>
+                <div className="mt-3 flex items-center justify-center gap-2 text-xs sm:text-sm font-mono font-medium text-white/70">
+                  <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                  <span>/</span>
+                  <Link href="/products" className="hover:text-white transition-colors">Products</Link>
+                  <span>/</span>
+                  <span className="text-white font-bold">Lamination PE Film</span>
                 </div>
               </div>
             </div>
 
-            {/* Mobile-Only Horizontal Thumbnail Strip (Enables instant 1-tap view switching without long scrolling) */}
-            <div className="flex md:hidden items-center gap-2 overflow-x-auto pt-2.5 pb-0.5 scrollbar-none">
-              {displayGallery.slice(0, 5).map((photo: string, pIdx: number) => (
-                <button
-                  key={pIdx}
-                  type="button"
-                  onClick={() => setImg(photo)}
-                  className={`relative shrink-0 h-12 w-16 overflow-hidden rounded-lg border-2 transition-all duration-200 bg-slate-950 ${(img || displayGallery[0]) === photo
-                      ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/40 scale-95"
-                      : "border-white/50 opacity-80"
-                    }`}
-                >
-                  <OptimizedImage
-  src={photo}
-  alt=""
-  className="h-full w-full object-cover"
-/>
-                </button>
-              ))}
-            </div>
-          </Container>
-        </section>
-
-        {/* ── 2. HERO CONTENT & FLOATING SIDEBAR CARD ── */}
-        <section className="bg-white py-4 sm:py-8 border-b border-[var(--color-line)] font-sans">
-          <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-10 items-start">
-
-              {/* LEFT COLUMN: Main Info, Quick Stats, Overview & Features */}
-              <div className="lg:col-span-7 space-y-3.5 sm:space-y-6">
-
-                {/* Header Title & Tag */}
-                <div className="space-y-1 sm:space-y-1.5">
-                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 font-mono text-[11px] sm:text-sm font-bold uppercase tracking-wider text-[var(--color-mute)]">
-                    <span className="rounded-md bg-[var(--color-bone)] border border-[var(--color-line)] px-2 py-0.5 text-[10px] sm:text-xs">
-                      {product.tag || category}
-                    </span>
-                    <span>•</span>
-                    <span>SKU: WP-{product.id.toUpperCase()}</span>
-                  </div>
-
-                  <h1 className="text-xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[var(--color-ink)] font-display leading-tight">
-                    {product.title}
-                  </h1>
-
-                  <p className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal font-sans">
-                    {product.blurb}
-                  </p>
-                </div>
-
-                {/* Horizontal Quick Stats Bar (4-Column Grid on Mobile & Desktop) */}
-                <div className="grid grid-cols-4 sm:grid-cols-4 gap-1.5 sm:gap-2 pt-0.5">
-                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
-                    <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-amber-dark)]" />
-                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Dispatch</div>
-                    <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">24-48 HR</div>
-                  </div>
-
-                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
-                    <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-blue-deep)]" />
-                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">QC</div>
-                    <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">ISO 9001</div>
-                  </div>
-
-                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
-                    <Factory className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-amber-dark)]" />
-                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Plant</div>
-                    <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">100% In-House</div>
-                  </div>
-
-                  <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
-                    <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-blue-deep)]" />
-                    <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Batch</div>
-                    <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">COA Batch</div>
-                  </div>
-                </div>
-
-                {/* Product Overview Section */}
-                <div className="space-y-1.5 pt-2 border-t border-[var(--color-line)]">
-                  <h2 className="text-base sm:text-xl font-extrabold text-[var(--color-ink)] font-display">
-                    Product Overview
-                  </h2>
-                  {product.longDesc && (
-                    <div
-                      className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal font-sans space-y-2 [&_p]:text-xs [&_p]:sm:text-base [&_p]:text-[var(--color-mute)] [&_p]:leading-relaxed [&_p]:font-sans [&_p]:font-normal [&_li]:text-xs [&_li]:sm:text-base [&_li]:text-[var(--color-mute)] [&_li]:font-sans [&_h1]:font-display [&_h1]:text-base [&_h1]:sm:text-lg [&_h1]:font-bold [&_h1]:text-[var(--color-ink)] [&_h2]:font-display [&_h2]:text-base [&_h2]:sm:text-lg [&_h2]:font-bold [&_h2]:text-[var(--color-ink)] [&_h3]:font-display [&_h3]:text-sm [&_h3]:sm:text-base [&_h3]:font-bold [&_h3]:text-[var(--color-ink)] max-w-none"
-                      dangerouslySetInnerHTML={{ __html: marked.parse(product.longDesc) as string }}
-                    />
-                  )}
-                </div>
-
-                {/* What's Included / Key Features Section (2 Columns on Mobile & Desktop) */}
-                <div className="space-y-2 pt-2 border-t border-[var(--color-line)]">
-                  <div className="flex items-center justify-between">
-                    <h2 className="text-base sm:text-xl font-extrabold text-[var(--color-ink)] font-display">
-                      What's Included & Quality Guarantees
-                    </h2>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-amber)]/20 border border-[var(--color-amber)]/40 px-2 py-0.5 text-[10px] sm:text-xs font-mono font-bold text-[var(--color-amber-dark)]">
-                      ISO Verified
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-1.5 sm:gap-2">
-                    {(product.whatsIncluded && product.whatsIncluded.length > 0
-                      ? product.whatsIncluded
-                      : [
-                          "FDA & WHO-GMP Compliant",
-                          "Zero Downtime Tolerance",
-                          "Full Traceability COA",
-                          "High Tensile Guarantee",
-                          "Custom Gauge Options",
-                          "Engineering Support"
-                        ]
-                    ).map((title: string) => (
-                      <div
-                        key={title}
-                        className="flex items-center gap-1.5 sm:gap-2.5 rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber-dark)]/40 transition-colors"
-                      >
-                        <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[var(--color-amber-dark)] shrink-0" />
-                        <span className="truncate">{title}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-
-              {/* RIGHT COLUMN: Sticky Product Specification Table Card */}
-              <div className="lg:col-span-5 lg:sticky lg:top-24 font-sans">
-                <div className="rounded-xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-3.5 sm:p-6 lg:p-7 shadow-md sm:shadow-lg lg:shadow-xl space-y-2.5 md:space-y-5">
-
-                  {/* Card Header & Badge */}
-                  <div className="flex items-center justify-between border-b border-[var(--color-line)] pb-2 md:pb-4">
-                    <div>
-                      <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
-                        Technical Specifications
-                      </span>
-                      <h3 className="text-sm sm:text-lg md:text-xl font-bold text-[var(--color-ink)] font-display mt-0.5">
-                        {product.title}
-                      </h3>
-                    </div>
-                    <span className="rounded-full bg-slate-900 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-mono font-bold uppercase text-amber-400 border border-amber-500/30">
-                      ISO 9001
-                    </span>
-                  </div>
-
-                  {/* Product Specifications Table */}
-                  {specs.length > 0 ? (
-                    <div className="overflow-x-auto scrollbar-none rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)]">
-                      <table className="w-full text-left border-collapse min-w-[240px] font-sans">
-                        <thead>
-                          <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)]">
-                            <th className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-display text-[11px] sm:text-sm font-extrabold uppercase text-[var(--color-ink)] w-1/2">
-                              Specification
-                            </th>
-                            <th className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-display text-[11px] sm:text-sm font-extrabold uppercase text-[var(--color-ink)] w-1/2">
-                              Value
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {specs.map((s: any, idx: number) => (
-                            <tr
-                              key={s.label}
-                              className={`border-b border-[var(--color-line)] last:border-b-0 transition-colors ${idx % 2 === 1 ? "bg-white/70" : "bg-transparent"
-                                }`}
-                            >
-                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
-                                {s.label}
-                              </td>
-                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
-                                {s.value}
-                              </td>
-                            </tr>
-                          ))}
-                          {product.options?.widths && (
-                            <tr className="border-b border-[var(--color-line)] bg-white/70">
-                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
-                                Widths
-                              </td>
-                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
-                                {product.options.widths.join(" · ")}
-                              </td>
-                            </tr>
-                          )}
-                          {product.options?.thicknesses && (
-                            <tr className="border-b border-[var(--color-line)]">
-                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
-                                Thickness
-                              </td>
-                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
-                                {product.options.thicknesses.join(" · ")}
-                              </td>
-                            </tr>
-                          )}
-                          {product.options?.colors && (
-                            <tr className="border-b-0 bg-white/70">
-                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
-                                Colors
-                              </td>
-                              <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
-                                {product.options.colors.join(" · ")}
-                              </td>
-                            </tr>
-                          )}
-                        </tbody>
-                      </table>
-                    </div>
-                  ) : null}
-
-                  {/* Thickness & Length Standard Roll Matrix Table */}
-                  {product.thicknessLengthMatrix && (
-                    <div className="space-y-1 md:space-y-2 pt-1 md:pt-2">
-                      <div className="flex items-center justify-between text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">
-                        <span>Standard Roll Yield Matrix</span>
-                        <span className="text-[var(--color-amber-dark)] text-[10px] sm:text-xs">Micron → Length</span>
-                      </div>
-                      <div className="overflow-x-auto scrollbar-none rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-white shadow-2xs md:shadow-xs">
-                        <table className="w-full text-center border-collapse text-[11px] sm:text-xs min-w-[220px]">
-                          <thead>
-                            <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)] font-mono text-[10px] sm:text-xs font-extrabold uppercase text-[var(--color-ink)]">
-                              <th colSpan={2} className="px-1.5 md:px-3 py-1 md:py-2 border-r border-[var(--color-line)] bg-[var(--color-amber)]/10 text-[var(--color-amber-dark)]">THICKNESS</th>
-                              <th colSpan={2} className="px-1.5 md:px-3 py-1 md:py-2 bg-[var(--color-blue-deep)]/10 text-[var(--color-blue-deep)]">LENGTH YIELD</th>
-                            </tr>
-                            <tr className="border-b border-[var(--color-line)] bg-[var(--color-mist)] font-mono text-[10px] sm:text-xs font-bold text-[var(--color-mute)]">
-                              <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1 border-r border-[var(--color-line)]">µm</th>
-                              <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1 border-r border-[var(--color-line)]">Gauge</th>
-                              <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1 border-r border-[var(--color-line)]">Meters</th>
-                              <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1">Feet</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {product.thicknessLengthMatrix.map((row: any, idx: number) => (
-                              <tr
-                                key={idx}
-                                className={`border-b border-[var(--color-line)] last:border-b-0 font-mono text-[11px] sm:text-xs ${idx % 2 === 1 ? "bg-[var(--color-mist)]/50" : "bg-white"
-                                  }`}
-                              >
-                                <td className="px-1.5 md:px-3 py-0.5 md:py-2 font-extrabold text-[var(--color-amber-dark)] border-r border-[var(--color-line)]">{row.micron}</td>
-                                <td className="px-1.5 md:px-3 py-0.5 md:py-2 text-[var(--color-mute)] border-r border-[var(--color-line)]">{row.gauge}</td>
-                                <td className="px-1.5 md:px-3 py-0.5 md:py-2 font-extrabold text-[var(--color-blue-deep)] border-r border-[var(--color-line)]">{row.meters}</td>
-                                <td className="px-1.5 md:px-3 py-0.5 md:py-2 text-[var(--color-mute)]">{row.feet}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Action Buttons */}
-                  <div className="pt-1 md:pt-2 space-y-1.5 md:space-y-3 font-sans">
-                    <Button to={`/contact?sku=${product.id}&title=${encodeURIComponent(product.title)}`} className="w-full justify-center min-h-[36px] md:min-h-[48px] py-2 md:py-3.5 text-xs sm:text-sm font-bold shadow-xs md:shadow-md touch-manipulation font-sans">
-                      Request Instant Custom Quote
-                    </Button>
-                    <Button to={`tel:${COMPANY.phoneHref}`} variant="outline" className="w-full justify-center min-h-[32px] md:min-h-[40px] py-1.5 md:py-2.5 text-xs font-bold touch-manipulation font-sans">
-                      Call Sales: {COMPANY.phoneDisplay}
-                    </Button>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-          </Container>
-        </section>
-
-        {/* ── SUB-CATEGORIES SECTION (Spacious Un-congested Desktop Cards) ── */}
-        {product.subCategories && product.subCategories.length > 0 && (
-          <Section className="bg-[var(--color-mist)] border-b border-[var(--color-line)] py-5 sm:py-10 lg:py-16 font-sans">
-            <Container>
-              <div className="max-w-2xl mb-3 sm:mb-6 lg:mb-10">
-                <Eyebrow>Product Sub-Categories</Eyebrow>
-                <h2 className="mt-0.5 text-base sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-[var(--color-ink)] font-display">
-                  {product.title} Sub-Categories
-                </h2>
-              </div>
-
-              {/* Side-by-side Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 lg:gap-8 xl:gap-10">
-                {product.subCategories.map((sub: any) => (
-                  <div
-                    key={sub.id}
-                    className="rounded-xl sm:rounded-2xl lg:rounded-3xl border border-[var(--color-line)] bg-white p-3 sm:p-5 lg:p-7 xl:p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-3 sm:space-y-4 lg:space-y-6 font-sans"
-                  >
-                    <div className="space-y-2.5 sm:space-y-4 lg:space-y-5">
-                      {/* Compact Image */}
-                      <div className="relative aspect-[2/1] sm:aspect-[16/9] w-full overflow-hidden rounded-lg sm:rounded-xl lg:rounded-2xl border border-[var(--color-line)] bg-slate-950 shadow-inner group">
+            {/* 2. TWO PROMINENT ROYAL BLUE CARDS (MATCHING REFERENCE SCREENSHOT) */}
+            <section className="bg-white pt-10 sm:pt-14 md:pt-16 pb-6">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+                  
+                  {/* Card 1: Adhesive Lamination Film */}
+                  <div className="bg-[#183883] text-white rounded-none sm:rounded-sm shadow-xl p-5 sm:p-6 lg:p-7 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      {/* Inner Image with crisp white frame */}
+                      <div className="bg-white p-2 sm:p-3 shadow-inner aspect-[16/10] overflow-hidden flex items-center justify-center">
                         <OptimizedImage
-  src={sub.image}
-  alt={sub.title}
-  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-/>
+                          src="/images/products/specialty-pouches/image.png"
+                          alt="Adhesive Lamination Film"
+                          className="w-full h-full object-cover"
+                        />
                       </div>
 
-                      <div className="space-y-1 sm:space-y-1.5 lg:space-y-2">
-                        <span className="text-[10px] sm:text-xs lg:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
-                          {sub.subtitle}
-                        </span>
-                        <h3 className="text-sm sm:text-lg lg:text-xl xl:text-2xl font-extrabold text-[var(--color-ink)] font-display mt-0.5 lg:mt-1">
-                          {sub.title}
-                        </h3>
-                        <p className="text-xs sm:text-base lg:text-base text-[var(--color-mute)] leading-relaxed lg:leading-relaxed mt-0.5 sm:mt-1 lg:mt-2 line-clamp-2 lg:line-clamp-none font-sans font-normal">
-                          {sub.blurb}
-                        </p>
-                      </div>
+                      {/* Heading */}
+                      <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight pt-1">
+                        Adhesive Lamination Film
+                      </h2>
 
-                      {/* Specs Table */}
-                      {sub.specs && (
-                        <div className="overflow-hidden scrollbar-none rounded-lg lg:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] my-1 lg:my-2">
-                          <table className="w-full text-left border-collapse text-[11px] sm:text-xs lg:text-sm font-sans table-fixed">
-                            <tbody>
-                              {Object.entries(sub.specs).slice(0, 4).map(([lbl, val]: any, sIdx: number) => (
-                                <tr
-                                  key={lbl}
-                                  className={`border-b border-[var(--color-line)] last:border-b-0 ${sIdx % 2 === 1 ? "bg-white/60" : "bg-transparent"
-                                    }`}
-                                >
-                                  <td className="px-2 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2.5 font-mono font-bold uppercase text-[var(--color-mute)] w-2/5 text-[10px] sm:text-xs lg:text-xs align-top">
-                                    {lbl}
-                                  </td>
-                                  <td className="px-2 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2.5 font-semibold text-[var(--color-ink)] w-3/5 break-words whitespace-normal font-sans text-[11px] sm:text-xs lg:text-sm align-top">
-                                    {val}
-                                  </td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
-                      )}
-
-                      {/* Compact Application tags */}
-                      {sub.applications && (
-                        <div className="flex flex-wrap gap-1 sm:gap-1.5 lg:gap-2 pt-0.5 lg:pt-1">
-                          {sub.applications.slice(0, 3).map((app: string) => (
-                            <span
-                              key={app}
-                              className="inline-flex items-center gap-1 rounded-md bg-[var(--color-bone)] border border-[var(--color-line)] px-1.5 py-0.5 sm:px-2 sm:py-1 lg:px-2.5 lg:py-1.5 text-[10px] sm:text-xs lg:text-xs font-bold text-[var(--color-ink)] font-sans"
-                            >
-                              <CheckCircle2 className="h-2.5 w-2.5 sm:h-3 sm:w-3 lg:h-3.5 lg:w-3.5 text-[var(--color-amber-dark)] shrink-0" />
-                              <span className="truncate">{app}</span>
-                            </span>
-                          ))}
-                        </div>
-                      )}
+                      {/* Bullet Points */}
+                      <ul className="space-y-2 text-xs sm:text-sm md:text-[14px] text-white/95 leading-relaxed list-disc list-outside pl-4 font-normal">
+                        <li>Used for lamination to polyester</li>
+                        <li>Available in widths upto 2.25 meters</li>
+                        <li>Thickness Range from 18-300 microns</li>
+                        <li>Colours : Natural, White opaque. Other colours available on request.</li>
+                        <li>Applications : Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.</li>
+                      </ul>
                     </div>
 
-                    <div className="pt-1.5 sm:pt-2 lg:pt-4">
-                      <Button to={`/contact?sku=${product.id}&title=${encodeURIComponent(product.title)}&grade=${encodeURIComponent(sub.title)}`} className="w-full justify-center py-1.5 sm:py-2.5 lg:py-3.5 text-xs sm:text-sm font-bold font-sans">
-                        Request Quote for {sub.title}
+                    <div className="pt-6">
+                      <Button
+                        to={`/contact?sku=lamination-pe-film&grade=${encodeURIComponent("Adhesive Lamination Film")}`}
+                        className="w-full justify-center bg-white text-[#183883] hover:bg-slate-100 font-bold py-2.5 sm:py-3 text-xs sm:text-sm rounded-none sm:rounded-sm shadow-sm transition-all"
+                      >
+                        Inquire for Adhesive Lamination Film
                       </Button>
                     </div>
                   </div>
-                ))}
+
+                  {/* Card 2: Pharma Grade Poly */}
+                  <div className="bg-[#183883] text-white rounded-none sm:rounded-sm shadow-xl p-5 sm:p-6 lg:p-7 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      {/* Inner Image with crisp white frame */}
+                      <div className="bg-white p-2 sm:p-3 shadow-inner aspect-[16/10] overflow-hidden flex items-center justify-center">
+                        <OptimizedImage
+                          src="/images/products/lamination-films-pouches/applications/app-3.png"
+                          alt="Pharma Grade Poly"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      {/* Heading */}
+                      <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight pt-1">
+                        Pharma Grade Poly
+                      </h2>
+
+                      {/* Bullet Points */}
+                      <ul className="space-y-2 text-xs sm:text-sm md:text-[14px] text-white/95 leading-relaxed list-disc list-outside pl-4 font-normal">
+                        <li>Pharma Grade Poly is Used for Heat and Press Lamination to Aluminum Foil for further packing of strip tablets in pharmaceutical industry</li>
+                        <li>Other Applications Include for Lidding Application, Cable Wrap, Extrusion Lamination</li>
+                        <li>Standard Thicknesses are 20, 37.5 Micron, 40 Micron, 50 Micron.</li>
+                      </ul>
+                    </div>
+
+                    <div className="pt-6">
+                      <Button
+                        to={`/contact?sku=lamination-pe-film&grade=${encodeURIComponent("Pharma Grade Poly")}`}
+                        className="w-full justify-center bg-white text-[#183883] hover:bg-slate-100 font-bold py-2.5 sm:py-3 text-xs sm:text-sm rounded-none sm:rounded-sm shadow-sm transition-all"
+                      >
+                        Inquire for Pharma Grade Poly
+                      </Button>
+                    </div>
+                  </div>
+
+                </div>
               </div>
-            </Container>
-          </Section>
+            </section>
+
+            {/* 3. STRUCTURED ARTICLE CONTENT (MATCHING REFERENCE SCREENSHOT) */}
+            <section className="bg-white py-8 sm:py-12 md:py-16 border-b border-[var(--color-line)]">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 text-[#1f2937] text-sm sm:text-base leading-relaxed space-y-6 font-normal">
+                
+                <p>
+                  Lamination PE film is a versatile and indispensable component in the realm of packaging solutions. This high-quality film, made from polyethylene, exhibits exceptional clarity, strength, and flexibility. Lamination PE film is available as laminated and stretch film options, and is widely used as a packaging film and plastic film in various industries. It is commonly utilized as a protective layer, enhancing the durability and visual appeal of various products.
+                </p>
+
+                <p>
+                  The lamination process involves bonding the film to surfaces such as paper, cardboard, or other materials to provide an added layer of protection against moisture, dirt, and wear. The process can involve combining polyethylene films with other materials such as biaxially oriented polypropylene, polypropylene, or sheets to enhance specific properties. Anti static properties are also important for packaging sensitive electronics and medical products. This enables businesses across industries to safeguard their goods during handling, storage, and transportation.
+                </p>
+
+                <p>
+                  With its wide range of applications, including packaging for food, pharmaceuticals, textiles, and industrial products, lamination PE film also finds use in beverage packaging, containers, and labels, as well as being suitable for frequently thermoformed packaging and custom polyethylene film products. Its versatility, strength, and reliable barrier properties make it an indispensable choice for businesses seeking optimal packaging solutions in the B2B sector. Linear low density polyethylene and ultra high molecular weight options are available for specialized needs.
+                </p>
+
+                <p>
+                  Our company’s capabilities include producing a wide range of polyethylene films and plastic films for various industries, establishing us as a leading company and distributor in the market.
+                </p>
+
+                {/* Section: Properties of PE Film */}
+                <div className="pt-4 space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">
+                    Properties of PE Film
+                  </h2>
+                  <p>
+                    The unique properties of PE film make it an indispensable material for a wide range of uses. Known for its excellent chemical resistance and electrical insulation, PE film is also oil-resistant and waterproof, providing robust protection for packaged goods. Its low density means it is nearly non-absorbent and can float on water, adding to its versatility in various applications.
+                  </p>
+                  <p>
+                    PE film is available in different forms, primarily low density polyethylene (LDPE) and high density polyethylene (HDPE). LDPE is softer, more flexible, and highly transparent, making it suitable for applications where clarity and flexibility are important. In contrast, HDPE offers greater strength and higher heat resistance, making it ideal for more demanding packaging and industrial uses. The structure of PE film, composed of repeated methylene units, can be tailored during production to achieve specific mechanical properties and thicknesses, ensuring the right balance of durability and performance for each application. Whether used in transparent packaging, industrial sheeting, or protective covers, PE film’s adaptability and reliability make it a preferred choice in many industries.
+                  </p>
+                </div>
+
+                {/* Section: Lamination PE Film Manufacturer */}
+                <div className="pt-4 space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">
+                    Lamination PE Film Manufacturer
+                  </h2>
+                  <p>
+                    A lamination PE film manufacturer plays a pivotal role in delivering high-quality PE films tailored for a variety of packaging applications. Utilizing advanced extrusion and lamination technologies, these manufacturers produce a diverse range of film products, including barrier films, stretch films, and protective films, each designed to meet the specific needs of industries such as food packaging, medical packaging, and industrial packaging.
+                  </p>
+                  <p>
+                    Manufacturers of PE film products are committed to stringent quality control, ensuring that every roll provides superior moisture barrier, abrasion resistance, and high heat resistance. This attention to detail makes their films suitable for demanding environments in sectors like automotive, aerospace, electronics, and consumer markets. By offering custom plastic products and solutions, lamination PE film manufacturers enable companies to develop innovative packaging products that enhance product safety, extend shelf life, and improve overall performance. Their expertise supports a wide array of commercial applications, from pharmaceutical and medical packaging to industrial and retail packaging, making them essential partners for businesses seeking reliable and effective packaging solutions.
+                  </p>
+                  <p>
+                    At WinnerPack, we take immense pride in being the leading manufacturer of PE lamination Film, catering to the diverse needs of businesses across industries. With our unwavering commitment to excellence, we have established ourselves as the best choice for all your lamination film requirements. Our capabilities extend to producing innovative flexible packaging films, and we are a trusted distributor for clients across various industries, ensuring reliable supply and service.
+                  </p>
+                  <p>
+                    We offer a comprehensive range of PE lamination films, including high-quality film lamination options, to meet your specific packaging needs.
+                  </p>
+                </div>
+
+                {/* Section: Benefits of PE Lamination Roll */}
+                <div className="pt-4 space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">
+                    Benefits of PE Lamination Roll:
+                  </h2>
+                  <p className="font-medium text-[#374151]">
+                    Here are some benefits of using PE lamination roll:
+                  </p>
+                  <ul className="space-y-2 list-disc list-outside pl-5 text-[#374151]">
+                    <li>Enhanced durability and protection for products.</li>
+                    <li>Reliable barrier against moisture, oxygen, and contaminants.</li>
+                    <li>Versatile and customizable for various packaging needs.</li>
+                    <li>Improved product appearance and visual appeal.</li>
+                    <li>Extended shelf life for perishable goods.</li>
+                    <li>Compatibility with different lamination techniques.</li>
+                    <li>Ease of use and efficient production workflows.</li>
+                    <li>Wide range of thickness options for customization.</li>
+                    <li>Cost-effective solution for packaging requirements.</li>
+                    <li>Compliant with industry standards and regulations.</li>
+                  </ul>
+                </div>
+
+              </div>
+            </section>
+          </>
+        ) : (
+          <>
+            {/* ── 1. BENTO GALLERY HERO COLLAGE (5-PHOTO GRID INSPIRED BY REFERENCE DESIGN) ── */}
+            <section className="bg-[var(--color-bone)] pt-6 md:pt-10 pb-8 border-b border-[var(--color-line)]">
+              <Container>
+                {/* Breadcrumbs */}
+                <nav aria-label="Breadcrumb" className="mb-5">
+                  <ol className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-[var(--color-mute)]">
+                    <li><Link href="/" className="hover:text-[var(--color-amber-dark)] font-medium">Home</Link></li>
+                    <li><ChevronRight className="h-3 w-3 text-slate-400" /></li>
+                    <li><Link href="/products" className="hover:text-[var(--color-amber-dark)] font-medium">Products</Link></li>
+                    <li><ChevronRight className="h-3 w-3 text-slate-400" /></li>
+                    <li>
+                      <Link href={`/product-category/${product.category}`} className="hover:text-[var(--color-amber-dark)] font-medium">
+                        {category}
+                      </Link>
+                    </li>
+                    <li><ChevronRight className="h-3 w-3 text-slate-400" /></li>
+                    <li className="font-bold text-[var(--color-ink)]">{product.title}</li>
+                  </ol>
+                </nav>
+
+                {/* 5-Photo Bento Grid Collage Header */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-stretch">
+                  <div className="hidden md:flex md:col-span-3 flex-col gap-3 sm:gap-4">
+                    <div
+                      onClick={() => setImg(displayGallery[1])}
+                      className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[1] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
+                        }`}
+                    >
+                      <OptimizedImage
+                        src={displayGallery[1]}
+                        alt={`${product.title} view 1`}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div
+                      onClick={() => setImg(displayGallery[2])}
+                      className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[2] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
+                        }`}
+                    >
+                      <OptimizedImage
+                        src={displayGallery[2]}
+                        alt={`${product.title} view 2`}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="md:col-span-6">
+                    <div className="relative aspect-[16/10] sm:aspect-[16/10] md:aspect-[16/11] w-full h-full overflow-hidden rounded-xl sm:rounded-3xl border border-[var(--color-line)] bg-slate-950 shadow-md sm:shadow-lg group">
+                      <OptimizedImage
+                        src={img || displayGallery[0]}
+                        alt={product.title}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="hidden md:flex md:col-span-3 flex-col gap-3 sm:gap-4">
+                    <div
+                      onClick={() => setImg(displayGallery[3])}
+                      className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[3] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
+                        }`}
+                    >
+                      <OptimizedImage
+                        src={displayGallery[3]}
+                        alt={`${product.title} view 3`}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div
+                      onClick={() => setImg(displayGallery[4])}
+                      className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border transition-all duration-200 bg-slate-950 shadow-sm cursor-pointer group ${(img || displayGallery[0]) === displayGallery[4] ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/50" : "border-[var(--color-line)]"
+                        }`}
+                    >
+                      <OptimizedImage
+                        src={displayGallery[4]}
+                        alt={`${product.title} view 4`}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex md:hidden items-center gap-2 overflow-x-auto pt-2.5 pb-0.5 scrollbar-none">
+                  {displayGallery.slice(0, 5).map((photo: string, pIdx: number) => (
+                    <button
+                      key={pIdx}
+                      type="button"
+                      onClick={() => setImg(photo)}
+                      className={`relative shrink-0 h-12 w-16 overflow-hidden rounded-lg border-2 transition-all duration-200 bg-slate-950 ${(img || displayGallery[0]) === photo
+                          ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/40 scale-95"
+                          : "border-white/50 opacity-80"
+                        }`}
+                    >
+                      <OptimizedImage
+                        src={photo}
+                        alt=""
+                        className="h-full w-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </Container>
+            </section>
+
+            {/* ── 2. HERO CONTENT & FLOATING SIDEBAR CARD ── */}
+            <section className="bg-white py-4 sm:py-8 border-b border-[var(--color-line)] font-sans">
+              <Container>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-10 items-start">
+                  <div className="lg:col-span-7 space-y-3.5 sm:space-y-6">
+                    <div className="space-y-1 sm:space-y-1.5">
+                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 font-mono text-[11px] sm:text-sm font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                        <span className="rounded-md bg-[var(--color-bone)] border border-[var(--color-line)] px-2 py-0.5 text-[10px] sm:text-xs">
+                          {product.tag || category}
+                        </span>
+                        <span>•</span>
+                        <span>SKU: WP-{product.id.toUpperCase()}</span>
+                      </div>
+
+                      <h1 className="text-xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[var(--color-ink)] font-display leading-tight">
+                        {product.title}
+                      </h1>
+
+                      <p className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal font-sans">
+                        {product.blurb}
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-4 sm:grid-cols-4 gap-1.5 sm:gap-2 pt-0.5">
+                      <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
+                        <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-amber-dark)]" />
+                        <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Dispatch</div>
+                        <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">24-48 HR</div>
+                      </div>
+
+                      <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
+                        <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-blue-deep)]" />
+                        <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">QC</div>
+                        <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">ISO 9001</div>
+                      </div>
+
+                      <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
+                        <Factory className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-amber-dark)]" />
+                        <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Plant</div>
+                        <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">100% In-House</div>
+                      </div>
+
+                      <div className="rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-1.5 sm:p-2.5 text-center space-y-0.5">
+                        <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 mx-auto text-[var(--color-blue-deep)]" />
+                        <div className="text-[9px] sm:text-xs font-mono font-bold uppercase text-[var(--color-mute)]">Batch</div>
+                        <div className="text-[10px] sm:text-sm font-extrabold text-[var(--color-ink)] font-sans truncate">COA Batch</div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-1.5 pt-2 border-t border-[var(--color-line)]">
+                      <h2 className="text-base sm:text-xl font-extrabold text-[var(--color-ink)] font-display">
+                        Product Overview
+                      </h2>
+                      {product.longDesc && (
+                        <div
+                          className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal font-sans space-y-2 [&_p]:text-xs [&_p]:sm:text-base [&_p]:text-[var(--color-mute)] [&_p]:leading-relaxed [&_p]:font-sans [&_p]:font-normal [&_li]:text-xs [&_li]:sm:text-base [&_li]:text-[var(--color-mute)] [&_li]:font-sans [&_h1]:font-display [&_h1]:text-base [&_h1]:sm:text-lg [&_h1]:font-bold [&_h1]:text-[var(--color-ink)] [&_h2]:font-display [&_h2]:text-base [&_h2]:sm:text-lg [&_h2]:font-bold [&_h2]:text-[var(--color-ink)] [&_h3]:font-display [&_h3]:text-sm [&_h3]:sm:text-base [&_h3]:font-bold [&_h3]:text-[var(--color-ink)] max-w-none"
+                          dangerouslySetInnerHTML={{ __html: marked.parse(product.longDesc) as string }}
+                        />
+                      )}
+                    </div>
+
+                    <div className="space-y-2 pt-2 border-t border-[var(--color-line)]">
+                      <div className="flex items-center justify-between">
+                        <h2 className="text-base sm:text-xl font-extrabold text-[var(--color-ink)] font-display">
+                          What's Included & Quality Guarantees
+                        </h2>
+                        <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-amber)]/20 border border-[var(--color-amber)]/40 px-2 py-0.5 text-[10px] sm:text-xs font-mono font-bold text-[var(--color-amber-dark)]">
+                          ISO Verified
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-2 sm:grid-cols-2 gap-1.5 sm:gap-2">
+                        {(product.whatsIncluded && product.whatsIncluded.length > 0
+                          ? product.whatsIncluded
+                          : [
+                              "FDA & WHO-GMP Compliant",
+                              "Zero Downtime Tolerance",
+                              "Full Traceability COA",
+                              "High Tensile Guarantee",
+                              "Custom Gauge Options",
+                              "Engineering Support"
+                            ]
+                        ).map((title: string) => (
+                          <div
+                            key={title}
+                            className="flex items-center gap-1.5 sm:gap-2.5 rounded-lg sm:rounded-xl border border-[var(--color-line)] bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber-dark)]/40 transition-colors"
+                          >
+                            <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[var(--color-amber-dark)] shrink-0" />
+                            <span className="truncate">{title}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div className="lg:col-span-5 lg:sticky lg:top-24 font-sans">
+                    <div className="rounded-xl sm:rounded-3xl border border-[var(--color-line)] bg-white p-3.5 sm:p-6 lg:p-7 shadow-md sm:shadow-lg lg:shadow-xl space-y-2.5 md:space-y-5">
+                      <div className="flex items-center justify-between border-b border-[var(--color-line)] pb-2 md:pb-4">
+                        <div>
+                          <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
+                            Technical Specifications
+                          </span>
+                          <h3 className="text-sm sm:text-lg md:text-xl font-bold text-[var(--color-ink)] font-display mt-0.5">
+                            {product.title}
+                          </h3>
+                        </div>
+                        <span className="rounded-full bg-slate-900 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-mono font-bold uppercase text-amber-400 border border-amber-500/30">
+                          ISO 9001
+                        </span>
+                      </div>
+
+                      {specs.length > 0 ? (
+                        <div className="overflow-x-auto scrollbar-none rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)]">
+                          <table className="w-full text-left border-collapse min-w-[240px] font-sans">
+                            <thead>
+                              <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)]">
+                                <th className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-display text-[11px] sm:text-sm font-extrabold uppercase text-[var(--color-ink)] w-1/2">
+                                  Specification
+                                </th>
+                                <th className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-display text-[11px] sm:text-sm font-extrabold uppercase text-[var(--color-ink)] w-1/2">
+                                  Value
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {specs.map((s: any, idx: number) => (
+                                <tr
+                                  key={s.label}
+                                  className={`border-b border-[var(--color-line)] last:border-b-0 transition-colors ${idx % 2 === 1 ? "bg-white/70" : "bg-transparent"
+                                    }`}
+                                >
+                                  <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
+                                    {s.label}
+                                  </td>
+                                  <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
+                                    {s.value}
+                                  </td>
+                                </tr>
+                              ))}
+                              {product.options?.widths && (
+                                <tr className="border-b border-[var(--color-line)] bg-white/70">
+                                  <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
+                                    Widths
+                                  </td>
+                                  <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
+                                    {product.options.widths.join(" · ")}
+                                  </td>
+                                </tr>
+                              )}
+                              {product.options?.thicknesses && (
+                                <tr className="border-b border-[var(--color-line)]">
+                                  <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
+                                    Thickness
+                                  </td>
+                                  <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
+                                    {product.options.thicknesses.join(" · ")}
+                                  </td>
+                                </tr>
+                              )}
+                              {product.options?.colors && (
+                                <tr className="border-b-0 bg-white/70">
+                                  <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 font-mono text-[11px] sm:text-xs font-bold uppercase text-[var(--color-mute)]">
+                                    Colors
+                                  </td>
+                                  <td className="px-2.5 md:px-3.5 py-1 md:py-2.5 text-[11px] sm:text-sm font-semibold text-[var(--color-ink)] font-sans">
+                                    {product.options.colors.join(" · ")}
+                                  </td>
+                                </tr>
+                              )}
+                            </tbody>
+                          </table>
+                        </div>
+                      ) : null}
+
+                      {product.thicknessLengthMatrix && (
+                        <div className="space-y-1 md:space-y-2 pt-1 md:pt-2">
+                          <div className="flex items-center justify-between text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">
+                            <span>Standard Roll Yield Matrix</span>
+                            <span className="text-[var(--color-amber-dark)] text-[10px] sm:text-xs">Micron → Length</span>
+                          </div>
+                          <div className="overflow-x-auto scrollbar-none rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-white shadow-2xs md:shadow-xs">
+                            <table className="w-full text-center border-collapse text-[11px] sm:text-xs min-w-[220px]">
+                              <thead>
+                                <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)] font-mono text-[10px] sm:text-xs font-extrabold uppercase text-[var(--color-ink)]">
+                                  <th colSpan={2} className="px-1.5 md:px-3 py-1 md:py-2 border-r border-[var(--color-line)] bg-[var(--color-amber)]/10 text-[var(--color-amber-dark)]">THICKNESS</th>
+                                  <th colSpan={2} className="px-1.5 md:px-3 py-1 md:py-2 bg-[var(--color-blue-deep)]/10 text-[var(--color-blue-deep)]">LENGTH YIELD</th>
+                                </tr>
+                                <tr className="border-b border-[var(--color-line)] bg-[var(--color-mist)] font-mono text-[10px] sm:text-xs font-bold text-[var(--color-mute)]">
+                                  <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1 border-r border-[var(--color-line)]">µm</th>
+                                  <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1 border-r border-[var(--color-line)]">Gauge</th>
+                                  <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1 border-r border-[var(--color-line)]">Meters</th>
+                                  <th className="px-1.5 md:px-2.5 py-0.5 sm:py-1">Feet</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {product.thicknessLengthMatrix.map((row: any, idx: number) => (
+                                  <tr
+                                    key={idx}
+                                    className={`border-b border-[var(--color-line)] last:border-b-0 font-mono text-[11px] sm:text-xs ${idx % 2 === 1 ? "bg-[var(--color-mist)]/50" : "bg-white"
+                                      }`}
+                                  >
+                                    <td className="px-1.5 md:px-3 py-0.5 md:py-2 font-extrabold text-[var(--color-amber-dark)] border-r border-[var(--color-line)]">{row.micron}</td>
+                                    <td className="px-1.5 md:px-3 py-0.5 md:py-2 text-[var(--color-mute)] border-r border-[var(--color-line)]">{row.gauge}</td>
+                                    <td className="px-1.5 md:px-3 py-0.5 md:py-2 font-extrabold text-[var(--color-blue-deep)] border-r border-[var(--color-line)]">{row.meters}</td>
+                                    <td className="px-1.5 md:px-3 py-0.5 md:py-2 text-[var(--color-mute)]">{row.feet}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="pt-1 md:pt-2 space-y-1.5 md:space-y-3 font-sans">
+                        <Button to={`/contact?sku=${product.id}&title=${encodeURIComponent(product.title)}`} className="w-full justify-center min-h-[36px] md:min-h-[48px] py-2 md:py-3.5 text-xs sm:text-sm font-bold shadow-xs md:shadow-md touch-manipulation font-sans">
+                          Request Instant Custom Quote
+                        </Button>
+                        <Button to={`tel:${COMPANY.phoneHref}`} variant="outline" className="w-full justify-center min-h-[32px] md:min-h-[40px] py-1.5 md:py-2.5 text-xs font-bold touch-manipulation font-sans">
+                          Call Sales: {COMPANY.phoneDisplay}
+                        </Button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </Container>
+            </section>
+
+            {/* ── SUB-CATEGORIES SECTION ── */}
+            {product.subCategories && product.subCategories.length > 0 && (
+              <Section className="bg-[var(--color-mist)] border-b border-[var(--color-line)] py-5 sm:py-10 lg:py-16 font-sans">
+                <Container>
+                  <div className="max-w-2xl mb-3 sm:mb-6 lg:mb-10">
+                    <Eyebrow>Product Sub-Categories</Eyebrow>
+                    <h2 className="mt-0.5 text-base sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-[var(--color-ink)] font-display">
+                      {product.title} Sub-Categories
+                    </h2>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 lg:gap-8 xl:gap-10">
+                    {product.subCategories.map((sub: any) => (
+                      <div
+                        key={sub.id}
+                        className="rounded-xl sm:rounded-2xl lg:rounded-3xl border border-[var(--color-line)] bg-white p-3 sm:p-5 lg:p-7 xl:p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-3 sm:space-y-4 lg:space-y-6 font-sans"
+                      >
+                        <div className="space-y-2.5 sm:space-y-4 lg:space-y-5">
+                          <div className="relative aspect-[2/1] sm:aspect-[16/9] w-full overflow-hidden rounded-lg sm:rounded-xl lg:rounded-2xl border border-[var(--color-line)] bg-slate-950 shadow-inner group">
+                            <OptimizedImage
+                              src={sub.image}
+                              alt={sub.title}
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                          </div>
+
+                          <div className="space-y-1 sm:space-y-1.5 lg:space-y-2">
+                            <span className="text-[10px] sm:text-xs lg:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
+                              {sub.subtitle}
+                            </span>
+                            <h3 className="text-sm sm:text-lg lg:text-xl xl:text-2xl font-extrabold text-[var(--color-ink)] font-display mt-0.5 lg:mt-1">
+                              {sub.title}
+                            </h3>
+                            <p className="text-xs sm:text-base lg:text-base text-[var(--color-mute)] leading-relaxed lg:leading-relaxed mt-0.5 sm:mt-1 lg:mt-2 line-clamp-2 lg:line-clamp-none font-sans font-normal">
+                              {sub.blurb}
+                            </p>
+                          </div>
+
+                          {sub.specs && (
+                            <div className="overflow-hidden scrollbar-none rounded-lg lg:rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] my-1 lg:my-2">
+                              <table className="w-full text-left border-collapse text-[11px] sm:text-xs lg:text-sm font-sans table-fixed">
+                                <tbody>
+                                  {Object.entries(sub.specs).slice(0, 4).map(([lbl, val]: any, sIdx: number) => (
+                                    <tr
+                                      key={lbl}
+                                      className={`border-b border-[var(--color-line)] last:border-b-0 ${sIdx % 2 === 1 ? "bg-white/60" : "bg-transparent"
+                                        }`}
+                                    >
+                                      <td className="px-2 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2.5 font-mono font-bold uppercase text-[var(--color-mute)] w-2/5 text-[10px] sm:text-xs lg:text-xs align-top">
+                                        {lbl}
+                                      </td>
+                                      <td className="px-2 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2.5 font-semibold text-[var(--color-ink)] w-3/5 break-words whitespace-normal font-sans text-[11px] sm:text-xs lg:text-sm align-top">
+                                        {val}
+                                      </td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          )}
+
+                          {sub.applications && (
+                            <div className="flex flex-wrap gap-1 sm:gap-1.5 lg:gap-2 pt-0.5 lg:pt-1">
+                              {sub.applications.slice(0, 3).map((app: string) => (
+                                <span
+                                  key={app}
+                                  className="inline-flex items-center gap-1 rounded-md bg-[var(--color-bone)] border border-[var(--color-line)] px-1.5 py-0.5 sm:px-2 sm:py-1 lg:px-2.5 lg:py-1.5 text-[10px] sm:text-xs lg:text-xs font-bold text-[var(--color-ink)] font-sans"
+                                >
+                                  <CheckCircle2 className="h-2.5 w-2.5 sm:h-3 sm:w-3 lg:h-3.5 lg:w-3.5 text-[var(--color-amber-dark)] shrink-0" />
+                                  <span className="truncate">{app}</span>
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="pt-1.5 sm:pt-2 lg:pt-4">
+                          <Button to={`/contact?sku=${product.id}&title=${encodeURIComponent(product.title)}&grade=${encodeURIComponent(sub.title)}`} className="w-full justify-center py-1.5 sm:py-2.5 lg:py-3.5 text-xs sm:text-sm font-bold font-sans">
+                            Request Quote for {sub.title}
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </Container>
+              </Section>
+            )}
+          </>
         )}
 
         <Section className="bg-[var(--color-mist)] py-8">
