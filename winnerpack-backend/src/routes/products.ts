@@ -73,7 +73,30 @@ router.get("/:id", async (req: Request, res: Response): Promise<void> => {
     }
 
     // Fallback if DB is disconnected/fails or product not found in DB
-    const fallbackProduct = initialProducts.find((p) => p.id === id);
+    let fallbackProduct = initialProducts.find((p) => p.id === id);
+    if (!fallbackProduct) {
+      const parentWithSub = initialProducts.find((p) =>
+        p.subCategories?.some((s: any) => s.id === id || s.slug === id)
+      );
+      if (parentWithSub) {
+        const sub = parentWithSub.subCategories.find((s: any) => s.id === id || s.slug === id);
+        fallbackProduct = {
+          id: sub.id || id,
+          title: sub.title,
+          category: parentWithSub.category,
+          tag: sub.subtitle || parentWithSub.tag,
+          blurb: sub.blurb || parentWithSub.blurb,
+          longDesc: sub.longDesc || sub.blurb || parentWithSub.longDesc,
+          image: sub.image || parentWithSub.image,
+          gallery: [sub.image || parentWithSub.image, ...(parentWithSub.gallery || [])],
+          specs: sub.specs || parentWithSub.specs,
+          applications: sub.applications || parentWithSub.applications,
+          thicknessLengthMatrix: parentWithSub.thicknessLengthMatrix,
+          options: parentWithSub.options,
+        } as any;
+      }
+    }
+
     if (!fallbackProduct) {
       res.status(404).json({ error: "Product not found" });
       return;

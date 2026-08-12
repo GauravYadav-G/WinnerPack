@@ -28,10 +28,10 @@ export const productHierarchy = [
         title: "Packaging Films",
         slug: "ldpe-films-pouches",
         items: [
-          { name: "LDPE Shrink Film", slug: "ldpe-films-pouches" },
-          { name: "PE Liners And Garbage Bags", slug: "ldpe-films-pouches" },
-          { name: "Plastic Stretch Film", slug: "stretch-film" },
-          { name: "Collation Shrink Film", slug: "pof-films-pouches" },
+          { name: "LDPE Shrink Film", slug: "ldpe-shrink-film" },
+          { name: "PE Liners And Garbage Bags", slug: "pe-liners-garbage-bags" },
+          { name: "Plastic Stretch Film", slug: "plastic-stretch-film" },
+          { name: "Collation Shrink Film", slug: "collation-shrink-film" },
         ]
       },
       {
@@ -39,9 +39,9 @@ export const productHierarchy = [
         title: "POF Shrink Film",
         slug: "pof-films-pouches",
         items: [
-          { name: "Cross-Linked POF Film", slug: "pof-films-pouches" },
-          { name: "Non-Cross-Linked POF Film", slug: "pof-films-pouches" },
-          { name: "POF Shrink Pouches", slug: "pof-films-pouches" },
+          { name: "Cross-Linked POF Film", slug: "cross-linked-pof-film" },
+          { name: "Non-Cross-Linked POF Film", slug: "non-cross-linked-pof-film" },
+          { name: "POF Shrink Pouches", slug: "pof-shrink-pouches" },
         ]
       },
       {
@@ -58,9 +58,10 @@ export const productHierarchy = [
         title: "Agricultural Films",
         slug: "compostable-films-pouches",
         items: [
-          { name: "Plastic Mulching Film", slug: "compostable-films-pouches" },
-          { name: "Low Tunnel Film", slug: "ldpe-films-pouches" },
-          { name: "Mulch Film", slug: "compostable-films-pouches" },
+          { name: "Plastic Mulching Film", slug: "plastic-mulching-film" },
+          { name: "Greenhouse Film", slug: "greenhouse-film" },
+          { name: "Low Tunnel Film", slug: "low-tunnel-film" },
+          { name: "Mulch Film", slug: "mulch-film" },
         ]
       },
       {
@@ -68,10 +69,10 @@ export const productHierarchy = [
         title: "Biodegradble Films",
         slug: "compostable-films-pouches",
         items: [
-          { name: "Bio Degradable Mulch Film", slug: "compostable-films-pouches" },
-          { name: "Biodegradable Shrink Film", slug: "pof-films-pouches" },
-          { name: "Biodegradable Shopping Bag", slug: "compostable-films-pouches" },
-          { name: "Compostable Pouches", slug: "compostable-films-pouches" },
+          { name: "Bio Degradable Mulch Film", slug: "bio-degradable-mulch-film" },
+          { name: "Biodegradable Shrink Film", slug: "biodegradable-shrink-film" },
+          { name: "Biodegradable Shopping Bag", slug: "biodegradable-shopping-bag" },
+          { name: "Compostable Pouches", slug: "compostable-pouches" },
         ]
       },
       {
@@ -79,12 +80,12 @@ export const productHierarchy = [
         title: "Flexible Laminate Rolls & Pouches",
         slug: "lamination-films-pouches",
         items: [
-          { name: "Food Packaging Laminates", slug: "lamination-films-pouches" },
-          { name: "Agro Chemical Laminates", slug: "lamination-films-pouches" },
-          { name: "Plain Standup Pouches", slug: "bopp-films-pouches" },
-          { name: "Lidding Foils And Laminates", slug: "lamination-films-pouches" },
-          { name: "Wrap Around Labels", slug: "printed-labels" },
-          { name: "Laminated Pouch India", slug: "lamination-films-pouches" },
+          { name: "Food Packaging Laminates", slug: "food-packaging-laminates" },
+          { name: "Agro Chemical Laminates", slug: "agro-chemical-laminates" },
+          { name: "Plain Standup Pouches", slug: "plain-standup-pouches" },
+          { name: "Lidding Foils And Laminates", slug: "lidding-foils-laminates" },
+          { name: "Wrap Around Labels", slug: "wrap-around-labels" },
+          { name: "Laminated Pouch India", slug: "laminated-pouch-india" },
         ]
       },
       {
@@ -92,10 +93,10 @@ export const productHierarchy = [
         title: "Printed PE Films",
         slug: "coloured-films-pouches",
         items: [
-          { name: "Milk Packaging Film", slug: "coloured-films-pouches" },
-          { name: "Ghee Packaging Film", slug: "coloured-films-pouches" },
-          { name: "SMP Packaging Film", slug: "coloured-films-pouches" },
-          { name: "Water Packaging Film", slug: "coloured-films-pouches" },
+          { name: "Milk Packaging Film", slug: "milk-packaging-film" },
+          { name: "Ghee Packaging Film", slug: "ghee-packaging-film" },
+          { name: "SMP Packaging Film", slug: "smp-packaging-film" },
+          { name: "Water Packaging Film", slug: "water-packaging-film" },
         ]
       },
       {
@@ -103,10 +104,10 @@ export const productHierarchy = [
         title: "Stretch Film",
         slug: "stretch-film",
         items: [
-          { name: "Manual Grade Stretch Film", slug: "stretch-film" },
-          { name: "Machine Grade Stretch Film", slug: "stretch-film" },
-          { name: "Sustainable Stretch Wrap", slug: "stretch-film" },
-          { name: "Mini Stretch Wrap Rolls", slug: "stretch-film" },
+          { name: "Manual Grade Stretch Film", slug: "manual-stretch-film" },
+          { name: "Machine Grade Stretch Film", slug: "machine-stretch-film" },
+          { name: "Sustainable Stretch Wrap", slug: "sustainable-stretch-wrap" },
+          { name: "Mini Stretch Wrap Rolls", slug: "mini-stretch-wrap-rolls" },
         ]
       },
       {
@@ -114,9 +115,9 @@ export const productHierarchy = [
         title: "LDPE Bags",
         slug: "ldpe-films-pouches",
         items: [
-          { name: "Standard Normal LDPE Film", slug: "ldpe-films-pouches" },
-          { name: "LDPE Pouches & Bags", slug: "ldpe-films-pouches" },
-          { name: "Heavy-Duty Shipping Sacks", slug: "ldpe-films-pouches" },
+          { name: "Standard Normal LDPE Film", slug: "standard-normal-ldpe-film" },
+          { name: "LDPE Pouches & Bags", slug: "ldpe-pouches-bags" },
+          { name: "Heavy-Duty Shipping Sacks", slug: "heavy-duty-shipping-sacks" },
         ]
       },
       {
@@ -124,9 +125,9 @@ export const productHierarchy = [
         title: "BOPP FILMS",
         slug: "bopp-films-pouches",
         items: [
-          { name: "BOPP Film Rolls", slug: "bopp-films-pouches" },
-          { name: "BOPP Display Pouches", slug: "bopp-films-pouches" },
-          { name: "Heat Sealable BOPP Films", slug: "bopp-films-pouches" },
+          { name: "BOPP Film Rolls", slug: "bopp-film-rolls" },
+          { name: "BOPP Display Pouches", slug: "bopp-display-pouches" },
+          { name: "Heat Sealable BOPP Films", slug: "heat-sealable-bopp-films" },
         ]
       },
       {
@@ -134,9 +135,9 @@ export const productHierarchy = [
         title: "PVC SHRINK FILMS",
         slug: "pvc-shrink-rolls-pouches",
         items: [
-          { name: "PVC Heat Shrink Rolls", slug: "pvc-shrink-rolls-pouches" },
-          { name: "PVC Shrink Pouches & Sleeves", slug: "pvc-shrink-rolls-pouches" },
-          { name: "PVC Heat Shrink Tubing", slug: "pvc-shrink-rolls-pouches" },
+          { name: "PVC Heat Shrink Rolls", slug: "pvc-heat-shrink-rolls" },
+          { name: "PVC Shrink Pouches & Sleeves", slug: "pvc-shrink-pouches-sleeves" },
+          { name: "PVC Heat Shrink Tubing", slug: "pvc-heat-shrink-tubing" },
         ]
       },
     ]
@@ -151,8 +152,8 @@ export const productHierarchy = [
         title: "Plain Labels",
         slug: "plain-labels",
         items: [
-          { name: "Plain Chromo Paper Labels", slug: "plain-labels" },
-          { name: "Plain Thermal Transfer Labels", slug: "plain-labels" },
+          { name: "Plain Chromo Paper Labels", slug: "plain-chromo-labels" },
+          { name: "Plain Thermal Transfer Labels", slug: "plain-thermal-transfer-labels" },
         ]
       },
       {
@@ -160,8 +161,8 @@ export const productHierarchy = [
         title: "Printed Labels",
         slug: "printed-labels",
         items: [
-          { name: "Flexo & Digital Printed Labels", slug: "printed-labels" },
-          { name: "Wide Format Promotional Labels", slug: "printed-labels" },
+          { name: "Flexo & Digital Printed Labels", slug: "custom-printed-product-labels" },
+          { name: "Wide Format Promotional Labels", slug: "industrial-warning-labels" },
         ]
       },
       {
@@ -169,8 +170,8 @@ export const productHierarchy = [
         title: "Barcode Labels",
         slug: "barcode-labels",
         items: [
-          { name: "Thermal Transfer Barcode Labels", slug: "barcode-labels" },
-          { name: "GS1 & Data Matrix Barcode Labels", slug: "barcode-labels" },
+          { name: "Thermal Transfer Barcode Labels", slug: "thermal-barcode-labels" },
+          { name: "GS1 & Data Matrix Barcode Labels", slug: "gs1-barcode-labels" },
         ]
       },
       {
@@ -178,8 +179,8 @@ export const productHierarchy = [
         title: "Product Labels",
         slug: "product-labels",
         items: [
-          { name: "Clear & Metallic Product Labels", slug: "product-labels" },
-          { name: "Jar & Bottle Product Labels", slug: "product-labels" },
+          { name: "Clear & Metallic Product Labels", slug: "clear-metallic-labels" },
+          { name: "Jar & Bottle Product Labels", slug: "jar-bottle-labels" },
         ]
       },
       {
@@ -187,8 +188,8 @@ export const productHierarchy = [
         title: "Self Adhesive Labels",
         slug: "self-adhesive-labels",
         items: [
-          { name: "Paper Self-Adhesive Labels", slug: "self-adhesive-labels" },
-          { name: "Film Self-Adhesive Labels", slug: "self-adhesive-labels" },
+          { name: "Paper Self-Adhesive Labels", slug: "paper-self-adhesive-labels" },
+          { name: "Film Self-Adhesive Labels", slug: "film-self-adhesive-labels" },
         ]
       },
       {
@@ -196,8 +197,8 @@ export const productHierarchy = [
         title: "Thermal Labels",
         slug: "thermal-labels",
         items: [
-          { name: "Direct Thermal Labels", slug: "thermal-labels" },
-          { name: "Thermal Transfer Labels", slug: "thermal-labels" },
+          { name: "Direct Thermal Labels", slug: "direct-thermal-labels" },
+          { name: "Thermal Transfer Labels", slug: "thermal-transfer-labels" },
         ]
       },
     ]
@@ -212,35 +213,35 @@ export const productHierarchy = [
         title: "BOPP Tapes",
         slug: "bopp-tapes",
         items: [
-          { name: "Clear BOPP Packing Tape", slug: "bopp-tapes" },
-          { name: "Brown Heavy Duty BOPP Tape", slug: "bopp-tapes" },
+          { name: "Clear BOPP Packing Tape", slug: "clear-bopp-tape" },
+          { name: "Brown BOPP Packaging Tape", slug: "brown-bopp-tape" },
         ]
       },
       {
-        id: "printed-bopp-tapes",
-        title: "Printed BOPP Tapes",
-        slug: "printed-bopp-tapes",
+        id: "printed-tapes",
+        title: "Printed Tapes",
+        slug: "printed-tapes",
         items: [
-          { name: "Custom Logo Printed Tape", slug: "printed-bopp-tapes" },
-          { name: "Security & Warning Printed Tape", slug: "printed-bopp-tapes" },
+          { name: "Custom Logo Printed Tape", slug: "logo-printed-tape" },
+          { name: "Security Fragile Printed Tape", slug: "fragile-printed-tape" },
         ]
       },
       {
-        id: "coloured-bopp-tapes",
-        title: "Coloured BOPP Tapes",
-        slug: "coloured-bopp-tapes",
+        id: "colored-tapes",
+        title: "Colored Tapes",
+        slug: "colored-tapes",
         items: [
-          { name: "Solid Color Identification Tape", slug: "coloured-bopp-tapes" },
-          { name: "Floor Marking Colored Tape", slug: "coloured-bopp-tapes" },
+          { name: "Color Coded Floor & Box Tape", slug: "color-coded-tape" },
+          { name: "Solid Red Blue Green Yellow Tape", slug: "solid-colored-tape" },
         ]
       },
       {
-        id: "silicon-tapes",
-        title: "Silicon Tapes",
-        slug: "silicon-tapes",
+        id: "masking-tapes",
+        title: "Masking Tapes",
+        slug: "masking-tapes",
         items: [
-          { name: "High Temp Silicon Tape", slug: "silicon-tapes" },
-          { name: "Self-Fusing Silicon Tape", slug: "silicon-tapes" },
+          { name: "General Purpose Masking Tape", slug: "general-masking-tape" },
+          { name: "High-Temperature Paint Masking", slug: "high-temp-masking-tape" },
         ]
       },
     ]
@@ -255,8 +256,8 @@ export const productHierarchy = [
         title: "PP Strap",
         slug: "pp-strap",
         items: [
-          { name: "Automatic PP Strapping Roll", slug: "pp-strap" },
-          { name: "Manual / Semi-Auto PP Strap", slug: "pp-strap" },
+          { name: "Automatic PP Strapping Roll", slug: "auto-pp-strap" },
+          { name: "Manual / Semi-Auto PP Strap", slug: "manual-pp-strap" },
         ]
       },
       {
@@ -264,8 +265,8 @@ export const productHierarchy = [
         title: "Printed PP Strap",
         slug: "printed-pp-strap",
         items: [
-          { name: "Corporate Branded PP Strap", slug: "printed-pp-strap" },
-          { name: "Security Warning PP Strap", slug: "printed-pp-strap" },
+          { name: "Corporate Branded PP Strap", slug: "branded-pp-strap" },
+          { name: "Security Warning PP Strap", slug: "security-pp-strap" },
         ]
       },
       {
@@ -273,8 +274,8 @@ export const productHierarchy = [
         title: "Colored PP Strap",
         slug: "colored-pp-strap",
         items: [
-          { name: "Solid Colored PP Strap", slug: "colored-pp-strap" },
-          { name: "Embossed Color PP Strap", slug: "colored-pp-strap" },
+          { name: "Solid Colored PP Strap", slug: "solid-color-pp-strap" },
+          { name: "Embossed Color PP Strap", slug: "embossed-color-pp-strap" },
         ]
       },
       {
@@ -282,8 +283,8 @@ export const productHierarchy = [
         title: "PET Strap",
         slug: "pet-strap",
         items: [
-          { name: "High-Tensile Green PET Strap", slug: "pet-strap" },
-          { name: "Heavy Duty Embossed PET Strap", slug: "pet-strap" },
+          { name: "High-Tensile Green PET Strap", slug: "green-pet-strap" },
+          { name: "Heavy Duty Embossed PET Strap", slug: "embossed-pet-strap" },
         ]
       },
     ]
