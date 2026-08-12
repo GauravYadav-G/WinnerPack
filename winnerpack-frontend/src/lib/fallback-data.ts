@@ -5341,7 +5341,39 @@ Our BOPP films are widely used across the food, pharmaceutical, and retail indus
 - **Excellent Moisture Barrier**: Protects dry food and pharma products against humidity.
 - **High Tensile Strength**: Bi-axial orientation yields excellent stiffness and tear resistance in both directions.
 - **Printable Surface**: Corona-treated rolls accept high-speed flexographic and rotogravure inks.
-- **Versatile Sealing**: Available in plain (for lamination) and heat-sealable co-extruded versions.`,
+- **Versatile Sealing**: Available in plain (for lamination) and heat-sealable co-extruded versions.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is BOPP film?
+BOPP (Bi-Axially Oriented Polypropylene) film is a polypropylene film stretched in both the machine and transverse directions to produce a strong, stiff, optically clear packaging material with excellent moisture barrier properties.
+
+#### 2. What are the main types of BOPP films available?
+We manufacture two main formats — **BOPP Rolls** (plain, corona-treated, and heat-sealable sheeting rolls) and **BOPP Pouches** (self-adhesive tape seal or heat-sealed display bags with optional header card punch holes).
+
+#### 3. What is corona treatment on BOPP rolls and why is it important?
+Corona treatment energizes the film surface to 38–42 dynes/cm, improving ink adhesion for crisp, high-speed flexographic and rotogravure printing without pre-treatment.
+
+#### 4. Are BOPP films food-safe?
+Yes. Our BOPP films are manufactured from food-grade polypropylene resin compliant with applicable FDA and EU food contact regulations.
+
+#### 5. What thickness range is available for BOPP films?
+Standard thickness ranges from **15 Micron to 40 Micron**, in roll widths from 200mm to 1000mm, customizable to specific requirements.
+
+#### 6. What is the difference between plain BOPP rolls and heat-sealable BOPP rolls?
+Plain BOPP rolls are used for thermal lamination over paperboard and labels. Heat-sealable BOPP rolls have a sealable terpolymer co-extruded outer layer, enabling direct sealing on high-speed automatic HFFS flow-wrap machines.
+
+#### 7. Can BOPP pouches be customized with branding and printing?
+Yes. BOPP pouches can be flexographically printed with brand logos, product information, and full-color designs, and are available with white header cards for peg hook retail display.
+
+#### 8. What products are commonly packaged in BOPP pouches?
+Garments, hosiery, socks, greeting cards, stationery, dry snacks, confectionery, and pharmaceutical samples are commonly packaged in BOPP display pouches.
+
+#### 9. What is the optical clarity of BOPP film?
+Our BOPP films achieve 95%+ light transmission — a glass-like, crystal-clear appearance that gives retail products maximum shelf visibility.
+
+#### 10. What is the moisture barrier performance of BOPP film?
+BOPP films provide an excellent Moisture Vapor Transmission Rate (MVTR) barrier, protecting dry food, bakery products, and pharmaceutical items from humidity and ambient moisture during storage and transport.`,
     image: "/images/products/bopp-films-pouches/image.png",
     gallery: ["/images/products/bopp-films-pouches/image.png"],
     specs: {
@@ -5483,7 +5515,39 @@ Our PVC shrink films are widely used in the food and beverage, pharmaceutical, c
 - **High Gloss & Clarity**: Crystal-clear glossy finish enhances shelf appeal and product presentation.
 - **Excellent Printability**: Surface printable with standard flexographic inks for custom branding.
 - **Tamper Evidence**: Tight heat-shrunk seal immediately reveals any product tampering.
-- **Cost Effective**: Lower activation temperature saves energy on heat tunnel operations.`,
+- **Cost Effective**: Lower activation temperature saves energy on heat tunnel operations.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is PVC shrink film?
+PVC (Polyvinyl Chloride) shrink film is a heat-activated packaging film that shrinks tightly around products when exposed to heat, providing tamper-evidence, group multipacking, and a high-gloss decorative finish.
+
+#### 2. What are the two main formats of PVC shrink film you manufacture?
+We manufacture **PVC Shrink Rolls** (centerfolded or single-wound rolls for L-bar sealers and heat tunnels) and **PVC Shrink Pouches** (pre-formed open-end bags for manual or semi-automatic loading before heat tunnel sealing).
+
+#### 3. What is the shrink ratio of PVC shrink film?
+Our PVC shrink films achieve **40% to 50% Transverse Direction (TD) shrinkage**, conforming tightly to any product shape — flat or irregular.
+
+#### 4. At what temperature does PVC shrink film activate?
+PVC shrink film activates at **100°C to 130°C** in a heat shrink tunnel — a lower activation temperature compared to PE or POF shrink films, saving energy on packaging lines.
+
+#### 5. What is the difference between centerfolded and single-wound PVC shrink rolls?
+Centerfolded (CF) rolls are two-layer folded tubing — ideal for L-bar sealers where the film wraps around the product from one roll. Single-wound (SW) rolls are single-layer sheeting for products requiring wrapping from one side on a chamber sealer.
+
+#### 6. What is the difference between PVC shrink rolls and PVC shrink pouches?
+Shrink rolls are cut and sealed around the product using an L-bar sealer machine and passed through a heat tunnel. Shrink pouches are pre-formed open-end bags into which the product is manually or semi-automatically loaded before heat tunnel activation.
+
+#### 7. Are PVC shrink films suitable for food packaging?
+PVC shrink film is used for dry food multipacking (bundling bottles or cartons). For direct food contact inner wrapping, we recommend food-grade POF (Polyolefin) or PE shrink films.
+
+#### 8. Can PVC shrink film be custom printed?
+Yes. PVC shrink film rolls and pouches can be surface printed using standard flexographic inks for brand logos, product information, and promotional designs before conversion.
+
+#### 9. What thickness range is available for PVC shrink film?
+Standard thickness ranges from **30 Micron to 50 Micron**, in widths from 100mm to 600mm, customizable to specific product dimensions.
+
+#### 10. What industries use PVC shrink film the most?
+Cosmetics, pharmaceuticals, FMCG consumer goods, food & beverage multipacking, and retail display packaging are the primary industries using PVC shrink rolls and pouches.`,
     image: "/images/products/pvc-shrink-rolls-pouches/image.png",
     gallery: ["/images/products/pvc-shrink-rolls-pouches/image.png"],
     specs: {
