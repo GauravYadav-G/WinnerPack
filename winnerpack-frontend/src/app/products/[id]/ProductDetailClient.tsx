@@ -232,107 +232,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             </div>
 
             {/* 2. PROMINENT SUBCATEGORY CARDS IN WINNERPACK ROYAL NAVY & AMBER THEME */}
-            {(product.id === "lamination-films-pouches" || product.id === "lamination-pe-film") ? (
-              <section className="bg-[var(--color-mist)] py-8 sm:py-12 md:py-14 border-b border-[var(--color-line)]">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
-                    
-                    {/* Card 1: Adhesive Lamination Film */}
-                    <div className="bg-[var(--color-ink)] text-white rounded-2xl sm:rounded-3xl border border-white/10 shadow-xl p-5 sm:p-7 lg:p-8 flex flex-col justify-between group hover:border-[var(--color-amber)]/40 transition-all duration-300">
-                      <div className="space-y-4 sm:space-y-5">
-                        <Link href="/products/adhesive-lamination-film" className="block bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl p-2 sm:p-2.5 aspect-[16/10] overflow-hidden flex items-center justify-center">
-                          <OptimizedImage
-                            src="/images/products/specialty-pouches/image.png"
-                            alt="Adhesive Lamination Film"
-                            className="w-full h-full object-cover rounded-lg sm:rounded-xl transition-transform duration-500 group-hover:scale-105"
-                          />
-                        </Link>
-
-                        <Link href="/products/adhesive-lamination-film" className="block hover:text-[var(--color-amber)] transition-colors">
-                          <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight pt-1">
-                            Adhesive Lamination Film
-                          </h3>
-                        </Link>
-
-                        <ul className="space-y-2.5 text-xs sm:text-sm text-white/90 leading-relaxed font-sans font-normal">
-                          <li className="flex items-start gap-2.5">
-                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                            <span>Used for lamination to polyester</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                            <span>Available in widths upto 2.25 meters</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                            <span>Thickness Range from 18-300 microns</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                            <span>Colours: Natural, White opaque. Other colours available on request.</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                            <span>Applications: Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.</span>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div className="pt-6 sm:pt-7 flex flex-col gap-2">
-                        <Button
-                          to="/products/adhesive-lamination-film"
-                          className="w-full justify-center bg-[var(--color-amber)] text-[var(--color-blue-deep)] hover:bg-[var(--color-amber-dark)] font-bold py-3 text-xs sm:text-sm rounded-xl shadow-md font-sans transition-all"
-                        >
-                          View Adhesive Lamination Details
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/* Card 2: Pharma Grade Poly */}
-                    <div className="bg-[var(--color-ink)] text-white rounded-2xl sm:rounded-3xl border border-white/10 shadow-xl p-5 sm:p-7 lg:p-8 flex flex-col justify-between group hover:border-[var(--color-amber)]/40 transition-all duration-300">
-                      <div className="space-y-4 sm:space-y-5">
-                        <div className="bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl p-2 sm:p-2.5 aspect-[16/10] overflow-hidden flex items-center justify-center">
-                          <OptimizedImage
-                            src="/images/products/lamination-films-pouches/applications/app-3.png"
-                            alt="Pharma Grade Poly"
-                            className="w-full h-full object-cover rounded-lg sm:rounded-xl transition-transform duration-500 group-hover:scale-105"
-                          />
-                        </div>
-
-                        <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight pt-1">
-                          Pharma Grade Poly
-                        </h3>
-
-                        <ul className="space-y-2.5 text-xs sm:text-sm text-white/90 leading-relaxed font-sans font-normal">
-                          <li className="flex items-start gap-2.5">
-                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                            <span>Pharma Grade Poly is Used for Heat and Press Lamination to Aluminum Foil for further packing of strip tablets in pharmaceutical industry</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                            <span>Other Applications Include for Lidding Application, Cable Wrap, Extrusion Lamination</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                            <span>Standard Thicknesses are 20, 37.5 Micron, 40 Micron, 50 Micron.</span>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div className="pt-6 sm:pt-7">
-                        <Button
-                          to={`/contact?sku=lamination-pe-film&grade=${encodeURIComponent("Pharma Grade Poly")}`}
-                          className="w-full justify-center bg-[var(--color-amber)] text-[var(--color-blue-deep)] hover:bg-[var(--color-amber-dark)] font-bold py-3 sm:py-3.5 text-xs sm:text-sm rounded-xl shadow-md font-sans transition-all"
-                        >
-                          Request Quote for Pharma Poly
-                        </Button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-            ) : product.subCategories && product.subCategories.length > 0 ? (
+            {product.subCategories && product.subCategories.length > 0 && (
               <section className="bg-[var(--color-mist)] py-8 sm:py-12 md:py-14 border-b border-[var(--color-line)]">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6">
                   <div className={`grid grid-cols-1 ${product.subCategories.length > 1 ? "md:grid-cols-2" : ""} gap-6 sm:gap-8 items-stretch`}>
@@ -394,7 +294,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   </div>
                 </div>
               </section>
-            ) : null}
+            )}
 
             {/* 3. STRUCTURED ARTICLE CONTENT (WINNERPACK TYPOGRAPHY & THEMING) */}
             <section className="bg-white py-10 sm:py-16 md:py-20 border-b border-[var(--color-line)] font-sans">
@@ -636,295 +536,120 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       )}
                     </div>
 
-                    {/* Specific Case for Adhesive Lamination Film vs General Subproduct */}
-                    {product.id === "adhesive-lamination-film" ? (
-                      <>
-                        {/* Intro Description */}
-                        <div className="space-y-4 pt-2">
-                          <p className="text-sm sm:text-base text-[var(--color-ink)] font-medium leading-relaxed">
-                            <strong className="text-[var(--color-ink)]">{product.title}</strong> is a versatile solution for all your laminating needs. This high-quality film is designed to provide a strong and durable bond, making it ideal for various applications.
-                          </p>
+                    {/* Standardized Rich Article Content */}
+                    <div className="space-y-6 pt-2">
+                      {product.blurb && (
+                        <p className="text-sm sm:text-base text-[var(--color-ink)] font-medium leading-relaxed">
+                          <strong className="text-[var(--color-ink)]">{product.title}</strong> is an advanced, high-performance packaging solution. {product.blurb}
+                        </p>
+                      )}
 
-                          <p>
-                            The adhesive lamination process involves combining two or more layers of material using an adhesive film. This creates a composite structure that offers enhanced strength, protection, and visual appeal.
-                          </p>
+                      {product.longDesc && (
+                        <div
+                          className="space-y-5 text-sm sm:text-base text-[var(--color-mute)] leading-relaxed [&_p]:text-sm [&_p]:sm:text-base [&_p]:text-[var(--color-mute)] [&_p]:leading-relaxed [&_h2]:font-display [&_h2]:text-xl [&_h2]:sm:text-2xl [&_h2]:font-extrabold [&_h2]:text-[var(--color-ink)] [&_h2]:pt-4 [&_h2]:border-t [&_h2]:border-[var(--color-line)] [&_h3]:font-display [&_h3]:text-lg [&_h3]:sm:text-xl [&_h3]:font-bold [&_h3]:text-[var(--color-ink)] [&_h3]:pt-4 [&_h3]:border-t [&_h3]:border-[var(--color-line)] [&_ul]:list-none [&_ul]:space-y-2 [&_li]:text-xs [&_li]:sm:text-sm [&_li]:text-[var(--color-ink)] [&_li]:flex [&_li]:items-start [&_li]:gap-2 [&_li]:before:content-['•'] [&_li]:before:text-[var(--color-amber)] [&_li]:before:font-black [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2"
+                          dangerouslySetInnerHTML={{ __html: marked.parse(product.longDesc) as string }}
+                        />
+                      )}
+                    </div>
 
-                          <p>
-                            Our adhesive lamination film acts as the bonding agent, securely joining different substrates together. With our adhesive lamination film, you can achieve seamless adhesion between materials such as paper, plastic, fabric, or metal. This ensures a reliable and long-lasting bond, making it suitable for packaging, labeling, and graphic arts industries.
-                          </p>
-
-                          <p>
-                            One of the key advantages of our adhesive lamination film is its exceptional clarity. It provides a crystal-clear finish, allowing your printed designs or product information to shine through without any distortion. This makes it perfect for applications where visibility and aesthetics are crucial.
-                          </p>
-
-                          <p>
-                            Additionally, our adhesive lamination film offers excellent resistance to moisture, chemicals, and UV radiation. This ensures that your laminated products remain protected and maintain their integrity even in challenging environments.
-                          </p>
-
-                          <p>
-                            Whether you need to create eye-catching packaging, durable labels, or vibrant displays, our adhesive lamination film is the perfect choice. Its versatility, strength, and visual clarity make it an essential tool for any project that requires reliable adhesion and enhanced protection.
-                          </p>
+                    {/* Benefits Section */}
+                    {Array.isArray(product.applications) && product.applications.length > 0 && (
+                      <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
+                        <div className="flex items-center gap-2.5">
+                          <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
+                          <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                            Key Applications & Benefits
+                          </h2>
                         </div>
-
-                        {/* Section: Introduction to Adhesive Lamination */}
-                        <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                          <div className="flex items-center gap-2.5">
-                            <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
-                            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                              Introduction to Adhesive Lamination
-                            </h2>
-                          </div>
-                          <p>
-                            Adhesive lamination is a simple and effective way to protect and preserve a wide range of materials using self adhesive laminating sheets. Unlike traditional lamination methods that require a machine or special equipment, self adhesive laminating sheets offer an easy, hassle-free solution. Just peel and stick the clear, acid free sheet onto your document, photo, sign, certificate, or schedule for instant protection and a professional finish.
-                          </p>
-                          <p>
-                            These laminating sheets are designed to be user-friendly, making them perfect for both home and office use. The clear, transparent finish ensures that your documents and photos remain vibrant and easy to read, while the acid free material helps prevent yellowing or damage over time. Whether you need to safeguard important certificates, display schedules, or create durable signs, self adhesive laminating sheets provide a quick and reliable way to keep your materials looking their best.
-                          </p>
-                        </div>
-
-                        {/* Section: Manufacturing Self Adhesive Laminating Rolls */}
-                        <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                          <div className="flex items-center gap-2.5">
-                            <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
-                            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                              Manufacturing Self Adhesive Laminating Rolls
-                            </h2>
-                          </div>
-                          <p>
-                            At WinnerPack, we take pride in our manufacturing process and the exceptional features of our laminating rolls. It is designed to provide superior quality and performance, making us stand out from the competition.
-                          </p>
-                          <p>
-                            The manufacturing process of our laminating rolls begins with the selection of high-grade materials. We source premium quality films and adhesives to ensure the durability and reliability of our products. Our self adhesive laminating rolls are made using a combination of advanced machinery and skilled craftsmanship.
-                          </p>
-                          <p>
-                            One of the key features that sets our laminating rolls apart is the self-adhesive property. This eliminates the need for additional adhesives or heat activation, making the lamination process quick and hassle-free. Simply peel off the backing and apply the roll or sheet to your desired surface for instant adhesion.
-                          </p>
-                          <p>
-                            Our self-adhesive laminating rolls and sheets offer excellent clarity, allowing your documents, photos, or artwork to be displayed with vibrant colors and sharp details. The transparent finish enhances the visual appeal and protects the laminated items from wear and tear, moisture, and UV radiation.
-                          </p>
-                          <p>
-                            WinnerPack is one of the leading manufacturers and suppliers of ADHESIVE LAMINATION FILM in the world. With a presence in countries such as US, Singapore, Australia, Germany, Canada, New Zealand, United Kingdom, Ireland, Scotland and Norway, WinnerPack has established itself as a trusted provider of high-quality ADHESIVE LAMINATION FILM.
-                          </p>
-                        </div>
-
-                        {/* Section: Industrial Applications */}
-                        <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                          <div className="flex items-center gap-2.5">
-                            <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
-                            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                              Industrial Applications
-                            </h2>
-                          </div>
-                          <p>
-                            In industrial settings, adhesive lamination film plays a crucial role in enhancing the durability and longevity of essential materials. Self adhesive laminating sheets are widely used to protect documents such as safety instructions, equipment manuals, and maintenance schedules from damage caused by frequent handling, moisture, and exposure to harsh environments. The clear, acid free sheets ensure that important information remains legible and intact, even in demanding conditions.
-                          </p>
-                          <p>
-                            Laminating sheets are also perfect for creating long-lasting signs, labels, and identification tags used throughout factories, warehouses, and construction sites. Their easy application means that employees can quickly laminate documents or signage on demand, without the need for a machine or specialized equipment. This not only saves time but also reduces costs associated with traditional lamination methods.
-                          </p>
-                          <p>
-                            Additionally, the self adhesive feature allows for quick customization and application to a variety of surfaces, making these sheets ideal for labeling equipment, organizing inventory, and displaying safety information. The result is a more efficient, organized, and professional industrial workspace.
-                          </p>
-                        </div>
-
-                        {/* Section: Food Packaging */}
-                        <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                          <div className="flex items-center gap-2.5">
-                            <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
-                            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                              Food Packaging
-                            </h2>
-                          </div>
-                          <p>
-                            Adhesive lamination film is an essential component in the food packaging industry, where product safety and presentation are top priorities. Self adhesive laminating sheets provide a protective barrier that helps prevent moisture, contamination, and tampering, ensuring that food products remain fresh and safe for consumption. The acid free, clear sheets are perfect for maintaining the quality and appearance of packaging, allowing branding, nutritional information, and product details to remain visible and attractive.
-                          </p>
-                          <p>
-                            These laminating sheets are easy to use and can be applied without the need for a machine or additional equipment, making them ideal for both large-scale food manufacturers and small businesses. The strong, self adhesive bond ensures that packaging stays sealed and secure throughout storage, transport, and display.
-                          </p>
-                          <p>
-                            In addition to protection, adhesive lamination film enhances the visual appeal of food packaging, helping products stand out on store shelves. Whether used for vacuum pouches, dairy products, or specialty food items, self adhesive laminating sheets offer a reliable, cost-effective solution for food packaging that meets industry standards for safety and quality.
-                          </p>
-                        </div>
-
-                        {/* Section: Self Adhesive Laminating Sheets Acid Free Benefits */}
-                        <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                          <div className="flex items-center gap-2.5">
-                            <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
-                            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                              Self Adhesive Laminating Sheets Acid Free Benefits
-                            </h2>
-                          </div>
-                          <p className="font-semibold text-[var(--color-ink)] font-sans">
-                            Avail Benefits of Self Adhesive Laminating Sheets with WinnerPack:
-                          </p>
-                          
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                            {[
-                              "Easy application with adhesive backing.",
-                              "Versatile for use on different materials.",
-                              "Provides protection against moisture and damage.",
-                              "Offers durability and resistance to tearing and scratching.",
-                              "Maintains clarity for visibility of the original content.",
-                              "Cost-effective compared to other lamination methods.",
-                              "Can be easily customized and trimmed to size.",
-                              "Convenient for on-demand laminating without the need for machines or pouches."
-                            ].map((benefit, idx) => (
-                              <div
-                                key={idx}
-                                className="flex items-start gap-2.5 rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber)]/50 transition-colors"
-                              >
-                                <CheckCircle2 className="h-4 w-4 text-[var(--color-amber-dark)] shrink-0 mt-0.5" />
-                                <span>{benefit}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Section: Self Adhesive Lamination Film / Sheet Features */}
-                        <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                          <div className="flex items-center gap-2.5">
-                            <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
-                            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                              Self Adhesive Lamination Film / Sheet Features
-                            </h2>
-                          </div>
-                          <div className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-4 sm:p-5">
-                            <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-[var(--color-ink)] font-sans">
-                              <li className="flex items-start gap-2.5">
-                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                <span>Used for lamination to polyester</span>
-                              </li>
-                              <li className="flex items-start gap-2.5">
-                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                <span>Available in widths upto 2.25 meters</span>
-                              </li>
-                              <li className="flex items-start gap-2.5">
-                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                <span>Thickness Range from 18-300 microns</span>
-                              </li>
-                              <li className="flex items-start gap-2.5">
-                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                <span>Colours: Natural, White opaque. Other colours available on request.</span>
-                              </li>
-                              <li className="flex items-start gap-2.5">
-                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                <span>Applications: Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.</span>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        {/* Standard Sub-Product Structured Content */}
-                        <div className="space-y-4 pt-2">
-                          {product.blurb && (
-                            <p className="text-sm sm:text-base text-[var(--color-ink)] font-medium leading-relaxed">
-                              <strong className="text-[var(--color-ink)]">{product.title}</strong> is engineered for high-performance industrial and commercial packaging requirements. {product.blurb}
-                            </p>
-                          )}
-
-                          {product.longDesc && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                          {product.applications.map((app: string, idx: number) => (
                             <div
-                              className="space-y-4 text-sm sm:text-base text-[var(--color-mute)] leading-relaxed [&_p]:text-sm [&_p]:sm:text-base [&_p]:text-[var(--color-mute)] [&_p]:leading-relaxed [&_h2]:font-display [&_h2]:text-xl [&_h2]:sm:text-2xl [&_h2]:font-extrabold [&_h2]:text-[var(--color-ink)] [&_h2]:pt-4 [&_h3]:font-display [&_h3]:text-lg [&_h3]:sm:text-xl [&_h3]:font-bold [&_h3]:text-[var(--color-ink)] [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_li]:text-sm [&_li]:text-[var(--color-mute)]"
-                              dangerouslySetInnerHTML={{ __html: marked.parse(product.longDesc) as string }}
-                            />
-                          )}
+                              key={idx}
+                              className="flex items-start gap-2.5 rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber)]/50 transition-colors"
+                            >
+                              <CheckCircle2 className="h-4 w-4 text-[var(--color-amber-dark)] shrink-0 mt-0.5" />
+                              <span>{app}</span>
+                            </div>
+                          ))}
                         </div>
+                      </div>
+                    )}
 
-                        {/* Specifications & Features */}
-                        {specs.length > 0 && (
-                          <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                            <div className="flex items-center gap-2.5">
-                              <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
-                              <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                                Product Specifications & Features
-                              </h2>
-                            </div>
-                            <div className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-4 sm:p-5">
-                              <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-[var(--color-ink)] font-sans">
-                                {specs.map((s: any) => (
-                                  <li key={s.label} className="flex items-start gap-2.5">
-                                    <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                    <span><strong className="text-[var(--color-ink)]">{s.label}:</strong> {s.value}</span>
-                                  </li>
-                                ))}
-                                {product.options?.widths && (
-                                  <li className="flex items-start gap-2.5">
-                                    <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                    <span><strong className="text-[var(--color-ink)]">Available Widths:</strong> {product.options.widths.join(" · ")}</span>
-                                  </li>
-                                )}
-                                {product.options?.thicknesses && (
-                                  <li className="flex items-start gap-2.5">
-                                    <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
-                                    <span><strong className="text-[var(--color-ink)]">Thickness Options:</strong> {product.options.thicknesses.join(" · ")}</span>
-                                  </li>
-                                )}
-                              </ul>
-                            </div>
+                    {/* Specifications & Technical Features Box */}
+                    {specs.length > 0 && (
+                      <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
+                        <div className="flex items-center gap-2.5">
+                          <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
+                          <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                            Specifications & Technical Features
+                          </h2>
+                        </div>
+                        <div className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-4 sm:p-5">
+                          <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-[var(--color-ink)] font-sans">
+                            {specs.map((s: any) => (
+                              <li key={s.label} className="flex items-start gap-2.5">
+                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                                <span><strong className="text-[var(--color-ink)]">{s.label}:</strong> {s.value}</span>
+                              </li>
+                            ))}
+                            {product.options?.widths && (
+                              <li className="flex items-start gap-2.5">
+                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                                <span><strong className="text-[var(--color-ink)]">Available Widths:</strong> {product.options.widths.join(" · ")}</span>
+                              </li>
+                            )}
+                            {product.options?.thicknesses && (
+                              <li className="flex items-start gap-2.5">
+                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                                <span><strong className="text-[var(--color-ink)]">Thickness Options:</strong> {product.options.thicknesses.join(" · ")}</span>
+                              </li>
+                            )}
+                            {product.options?.colors && (
+                              <li className="flex items-start gap-2.5">
+                                <span className="h-2 w-2 rounded-full bg-[var(--color-amber)] shrink-0 mt-1.5" />
+                                <span><strong className="text-[var(--color-ink)]">Colors Available:</strong> {product.options.colors.join(" · ")}</span>
+                              </li>
+                            )}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Thickness & Length Yield Matrix */}
+                    {product.thicknessLengthMatrix && (
+                      <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2.5">
+                            <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
+                            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                              Thickness & Length Yield Matrix
+                            </h2>
                           </div>
-                        )}
-
-                        {/* Applications Grid */}
-                        {Array.isArray(product.applications) && product.applications.length > 0 && (
-                          <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                            <div className="flex items-center gap-2.5">
-                              <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
-                              <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                                Applications & Industrial Uses
-                              </h2>
-                            </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                              {product.applications.map((app: string, idx: number) => (
-                                <div
-                                  key={idx}
-                                  className="flex items-start gap-2.5 rounded-xl border border-[var(--color-line)] bg-[var(--color-mist)] p-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] font-sans shadow-2xs hover:border-[var(--color-amber)]/50 transition-colors"
-                                >
-                                  <CheckCircle2 className="h-4 w-4 text-[var(--color-amber-dark)] shrink-0 mt-0.5" />
-                                  <span>{app}</span>
-                                </div>
+                          <span className="text-[var(--color-amber-dark)] text-xs font-mono font-bold">Micron → Length</span>
+                        </div>
+                        <div className="overflow-x-auto rounded-xl border border-[var(--color-line)] bg-white shadow-2xs">
+                          <table className="w-full text-center border-collapse text-xs sm:text-sm font-mono">
+                            <thead>
+                              <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)] text-[var(--color-ink)] font-bold">
+                                <th className="px-3 py-2 border-r border-[var(--color-line)] bg-[var(--color-amber)]/10 text-[var(--color-amber-dark)]">Micron (µm)</th>
+                                <th className="px-3 py-2 border-r border-[var(--color-line)]">Gauge</th>
+                                <th className="px-3 py-2 border-r border-[var(--color-line)] bg-[var(--color-blue-deep)]/10 text-[var(--color-blue-deep)]">Meters</th>
+                                <th className="px-3 py-2">Feet</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {product.thicknessLengthMatrix.map((row: any, idx: number) => (
+                                <tr key={idx} className={`border-b border-[var(--color-line)] last:border-b-0 ${idx % 2 === 1 ? "bg-[var(--color-mist)]" : "bg-white"}`}>
+                                  <td className="px-3 py-2 font-bold text-[var(--color-amber-dark)] border-r border-[var(--color-line)]">{row.micron}</td>
+                                  <td className="px-3 py-2 text-[var(--color-mute)] border-r border-[var(--color-line)]">{row.gauge}</td>
+                                  <td className="px-3 py-2 font-bold text-[var(--color-blue-deep)] border-r border-[var(--color-line)]">{row.meters}</td>
+                                  <td className="px-3 py-2 text-[var(--color-mute)]">{row.feet}</td>
+                                </tr>
                               ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Thickness & Length Yield Matrix */}
-                        {product.thicknessLengthMatrix && (
-                          <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-2.5">
-                                <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
-                                <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                                  Thickness & Length Yield Matrix
-                                </h2>
-                              </div>
-                              <span className="text-[var(--color-amber-dark)] text-xs font-mono font-bold">Micron → Length</span>
-                            </div>
-                            <div className="overflow-x-auto rounded-xl border border-[var(--color-line)] bg-white shadow-2xs">
-                              <table className="w-full text-center border-collapse text-xs sm:text-sm font-mono">
-                                <thead>
-                                  <tr className="border-b border-[var(--color-line)] bg-[var(--color-bone-2)] text-[var(--color-ink)] font-bold">
-                                    <th className="px-3 py-2 border-r border-[var(--color-line)] bg-[var(--color-amber)]/10 text-[var(--color-amber-dark)]">Micron (µm)</th>
-                                    <th className="px-3 py-2 border-r border-[var(--color-line)]">Gauge</th>
-                                    <th className="px-3 py-2 border-r border-[var(--color-line)] bg-[var(--color-blue-deep)]/10 text-[var(--color-blue-deep)]">Meters</th>
-                                    <th className="px-3 py-2">Feet</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {product.thicknessLengthMatrix.map((row: any, idx: number) => (
-                                    <tr key={idx} className={`border-b border-[var(--color-line)] last:border-b-0 ${idx % 2 === 1 ? "bg-[var(--color-mist)]" : "bg-white"}`}>
-                                      <td className="px-3 py-2 font-bold text-[var(--color-amber-dark)] border-r border-[var(--color-line)]">{row.micron}</td>
-                                      <td className="px-3 py-2 text-[var(--color-mute)] border-r border-[var(--color-line)]">{row.gauge}</td>
-                                      <td className="px-3 py-2 font-bold text-[var(--color-blue-deep)] border-r border-[var(--color-line)]">{row.meters}</td>
-                                      <td className="px-3 py-2 text-[var(--color-mute)]">{row.feet}</td>
-                                    </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                        )}
-                      </>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
                     )}
 
                     {/* Bottom CTA / Contact Bar */}
