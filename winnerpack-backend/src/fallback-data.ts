@@ -4156,6 +4156,94 @@ Yes, WinnerPack provides private labeling, custom roll lengths, and custom brand
     visualGradients: "from-yellow-400 to-amber-500",
   },
   {
+    id: "coreless-stretch-film",
+    title: "Coreless Stretch Film",
+    category: "film-products",
+    tag: "Coreless Wrap",
+    blurb: "Revolutionary 100% paperless core-free stretch wrap engineered to eliminate cardboard waste, lower net roll weight, reduce disposal costs, and deliver maximum load holding force.",
+    longDesc: `Coreless stretch film is a revolutionary type of stretch wrap that eliminates the need for paper cores. It features an innovative design that may be pre-stretched, improving its holding force and reducing the amount of film needed per load. This helps lower overall packaging costs while also reducing waste disposal costs and carbon footprints.
+
+When comparing coreless and traditional stretch film, it’s helpful to look at categories such as material waste, weight, user-friendliness, cost, and sustainability to understand the advantages of each option.
+
+### Key Features of WinnerPack Coreless Stretch Film
+- **100% Cost Utilization**: 100% of material cost goes directly into functional film — zero money spent on heavy paper cores that end up in landfills.
+- **Reduced Cost Per Load**: Pre-stretching increases film tensile strength and reduces the mass of film needed per pallet load.
+- **Lightweight Rolls**: Absence of heavy cardboard cores makes each roll significantly lighter, reducing operator fatigue and wrist strain during manual hand wrapping.
+- **Cardboard Waste Elimination**: Completely removes cardboard paper cores from your waste stream, streamlining warehouse operations and eliminating core disposal fees.
+- **Freight & Storage Efficiency**: Lower net roll weight reduces freight shipping costs and optimizes storage density in busy distribution centers.
+- **Ergonomic Safety & Easy Dispensing**: Designed for smooth unwinding with reusable plastic hand grips or standard coreless dispensers.
+
+### Eliminating the Cardboard Core
+Switching to WinnerPack coreless stretch film is a smart move for businesses aiming to streamline their packaging process and reduce environmental impact. By removing the cardboard core, companies can significantly cut down on the waste stream generated during packaging and shipping. This not only helps in minimizing disposal costs but also supports corporate ESG sustainability initiatives.
+
+For both small businesses and large corporations, the benefits go beyond waste reduction. The absence of a cardboard core means each roll is lighter, making it easier to handle and transport. This reduction in net weight leads to lower freight costs and more efficient inventory storage.
+
+### Why Choose WinnerPack as Your Coreless Stretch Film Manufacturer
+With over 20 years of manufacturing experience, WinnerPack has developed a wide range of coreless stretch film products to meet all kinds of industrial packaging needs. Known for innovative extrusion solutions and strict ISO quality control standards, our coreless stretch wrap comes in various sizes, widths, and thicknesses to suit different industrial applications. It is highly resistant to punctures and tears, making it an exceptional choice for securing heavy or irregular pallet loads.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is coreless stretch film?
+Coreless stretch film is an eco-friendly pallet wrapping film manufactured without a central paper or cardboard core. 100% of the roll is usable plastic film, eliminating cardboard core waste and reducing overall roll weight.
+
+#### 2. What are the main advantages of coreless stretch film over traditional stretch film?
+- **Zero Cardboard Waste**: Eliminates paper core disposal costs and warehouse clutter.
+- **Lower Net Roll Weight**: Lighter rolls reduce operator physical strain and lower transportation freight costs.
+- **100% Usable Material**: 100% of the purchased weight is functional stretch film.
+- **Reduced Carbon Footprint**: Eliminates core manufacturing and recycling environmental impacts.
+
+#### 3. How does coreless stretch film work without a core?
+Coreless stretch rolls are wound using specialized high-tension winders that create a rigid, self-supporting internal roll structure. They are applied using reusable plastic hand plugs/handles or specialized coreless dispensers.
+
+#### 4. Can coreless stretch film be used for both manual and machine wrapping?
+Yes, coreless stretch film is available for both manual hand application (with reusable ergonomic handles) and automated stretch wrapping machines equipped with coreless mandrel systems.
+
+#### 5. What widths and thicknesses are available for coreless stretch film?
+Standard widths range from 50 mm to 600 mm (custom widths up to 1.5 Meters available). Standard thicknesses range from 12 Micron to 29 Micron.
+
+#### 6. Is coreless stretch film puncture and tear resistant?
+Yes, WinnerPack coreless stretch film is manufactured using multi-layer LLDPE co-extrusion technology, providing exceptional puncture resistance and high load retention for heavy or sharp box edges.
+
+#### 7. How does coreless stretch film contribute to corporate sustainability goals?
+By eliminating cardboard cores, businesses prevent tons of paper waste from entering landfills, reduce packaging weight for lower transport emissions, and streamline recycling by using 100% recyclable polyethylene.
+
+#### 8. What core sizes or dispenser attachments are used?
+Standard coreless rolls fit reusable 25 mm, 31 mm, or 76.2 mm (1", 2", or 3") core plugs that can be reused thousands of times across multiple roll changes.
+
+#### 9. Is coreless stretch film cost-effective for B2B buyers?
+Yes, coreless stretch film eliminates the price of paper core manufacturing and core disposal fees, delivering a lower cost per wrapped pallet load.
+
+#### 10. Can coreless stretch film be recycled?
+Yes, 100% of the coreless stretch film is recyclable polyethylene (LLDPE) soft plastic, making waste management simple and clean.`,
+    image: "/images/products/stretch-film/image.png",
+    gallery: ["/images/products/stretch-film/image.png"],
+    specs: {
+      "Protection Against Dust / Dirt": "Yes",
+      "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
+      "Visual Inspection": "Helps for Visual Inspection",
+      "Cost Effectiveness": "More Cost effective compared to Straps / Shrink / Corrugation",
+      "Wrapping Options": "Available for Manual Wrapping / Machine Wrapping",
+      "Standard Widths": "50 mm / 100 mm / 150 mm / 200 mm / 300 mm / 450 mm / 500 mm / 600 mm (Max Width 1.5 Meters)",
+      "Standard Thickness": "12 Micron / 15 Micron / 18 Micron / 23 Micron / 29 Micron",
+      "Standard Colours": "Natural / Opaque White / Blue / Black",
+      "Standard Core ID": "Coreless (Reusable 25 mm / 31 mm / 76.2 mm Plugs Available)",
+      "Special Additives": "UV Protection / VCI / Antistatic",
+    },
+    options: {
+      widths: ["50 mm", "100 mm", "150 mm", "200 mm", "300 mm", "450 mm", "500 mm", "600 mm"],
+      thicknesses: ["12 Micron", "15 Micron", "18 Micron", "23 Micron", "29 Micron"],
+      colors: ["Natural Clear", "Opaque White", "Blue", "Black"],
+    },
+    applications: [
+      "Zero-waste industrial pallet wrapping",
+      "Eco-conscious warehousing & distribution",
+      "Heavy load unitization & transport",
+      "Ergonomic manual hand wrapping",
+      "High-density freight & warehouse storage",
+    ],
+    visualGradients: "from-yellow-400 to-amber-500",
+  },
+  {
     id: "collation-shrink-film",
     title: "Collation Shrink Film",
     category: "film-products",
