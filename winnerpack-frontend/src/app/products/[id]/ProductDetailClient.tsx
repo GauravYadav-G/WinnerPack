@@ -182,7 +182,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </div>
 
               <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-2">
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white font-display drop-shadow-md">
+                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white font-display drop-shadow-md">
                   {product.title}
                 </h1>
 
@@ -208,7 +208,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   {/* LEFT SIDEBAR: "OUR PRODUCTS" (DYNAMICALLY MATCHING NAVBAR) */}
                   <aside className="w-full lg:w-72 shrink-0 bg-[var(--color-mist)] border border-[var(--color-line)] rounded-2xl p-5 sm:p-6 shadow-2xs">
                     <div className="mb-5 pb-3 border-b border-[var(--color-line)]">
-                      <h2 className="text-base sm:text-lg font-bold uppercase tracking-wider text-[var(--color-ink)] font-display">
+                      <h2 className="text-base sm:text-lg font-bold text-[var(--color-ink)] font-display tracking-tight">
                         Our Products
                       </h2>
                       <div className="h-0.5 w-10 bg-[var(--color-amber)] rounded-full mt-1.5" />
@@ -497,7 +497,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </div>
 
               <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-2 sm:space-y-3">
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white font-display drop-shadow-md">
+                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white font-display drop-shadow-md">
                   Lamination PE Film
                 </h1>
 
