@@ -649,13 +649,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   {/* RIGHT COLUMN: DETAILED ARTICLE CONTENT */}
                   <main className="flex-1 max-w-4xl space-y-8 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed font-sans font-normal">
                     
-                    {/* Top Featured Full-Width Rectangle Product Image (Complete Uncropped View) */}
-                    <div className="w-full max-w-full overflow-hidden rounded-2xl border border-[var(--color-line)] bg-slate-50 shadow-md">
-                      <div className="aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden flex items-center justify-center p-2 sm:p-3">
+                    {/* Top Featured Full-Width Rectangle Product Image (Perfect Fit in Card) */}
+                    <div className="w-full max-w-full overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white shadow-md">
+                      <div className="aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden">
                         <OptimizedImage
                           src={img || product.image || "/images/products/specialty-pouches/image.png"}
                           alt={product.title}
-                          className="w-full h-full object-contain object-center transition-all duration-300"
+                          className="w-full h-full object-cover object-center transition-all duration-300"
                         />
                       </div>
                     </div>
