@@ -1138,66 +1138,57 @@ Here are some benefits of using PE lamination roll:
     title: "Adhesive Lamination Film",
     category: "film-products",
     tag: "Adhesive Lamination",
-    blurb: "Adhesive Lamination Film is a versatile solution for all your laminating needs. This high-quality film is designed to provide a strong and durable bond, making it ideal for various applications.",
-    longDesc: `Adhesive Lamination Film is a versatile solution for all your laminating needs. This high-quality film is designed to provide a strong and durable bond, making it ideal for various applications.
+    blurb: "High-performance corona treated polyethylene film designed for adhesive lamination to polyester (PET), BOPP, and foil — available in widths up to 2.25 Meters and thicknesses from 18 to 300 Micron.",
+    longDesc: `Adhesive Lamination Film is a specialized poly film engineered for combining two or more material layers using polyurethane adhesives. Designed for lamination to printed polyester (PET), BOPP, aluminum foil, and paper, it creates a robust multi-layer flexible packaging structure with enhanced burst strength, moisture protection, and shelf appeal.
 
-The adhesive lamination process involves combining two or more layers of material using an adhesive film. This creates a composite structure that offers enhanced strength, protection, and visual appeal.
+WinnerPack Adhesive Lamination Film features precision corona treatment (42+ dynes/cm) and controlled slip properties, delivering a crystal-clear finish and permanent bond strength that resists delamination even under extreme handling, pasteurization, or chemical contact.
 
-Our adhesive lamination film acts as the bonding agent, securely joining different substrates together. With our adhesive lamination film, you can achieve seamless adhesion between materials such as paper, plastic, fabric, or metal. This ensures a reliable and long-lasting bond, making it suitable for packaging, labeling, and graphic arts industries.
+### Key Applications & Substrates
+- **Lamination to Polyester (PET)**: Creates high-barrier pouches for seeds, pesticides, and processed foods.
+- **Seeds & Pesticide Packaging**: Resists chemical migration and pinhole leaks from aggressive agrochemicals.
+- **Dairy Products & Vacuum Pouches**: Provides airtight seal integrity for cheese, butter, and vacuum-packed meats.
+- **Condom & Hygiene Packaging**: Delivers sterile hermetic heat sealing for medical and hygiene foils.
 
-One of the key advantages of our adhesive lamination film is its exceptional clarity. It provides a crystal-clear finish, allowing your printed designs or product information to shine through without any distortion. This makes it perfect for applications where visibility and aesthetics are crucial.
+### Key Specifications & Features
+- **Available Widths**: Roll widths up to 2.25 Meters (2250 mm).
+- **Thickness Range**: Versatile thickness availability from 18 Micron to 300 Micron.
+- **Colours**: Available in Natural Clear, White Opaque, and custom colors on request.
+- **High Bond Strength**: Superior corona retention for permanent solventless and solvent-based polyurethane bonding.
 
-Additionally, our adhesive lamination film offers excellent resistance to moisture, chemicals, and UV radiation. This ensures that your laminated products remain protected and maintain their integrity even in challenging environments.
+### Frequently Asked Questions (FAQ)
 
-Whether you need to create eye-catching packaging, durable labels, or vibrant displays, our adhesive lamination film is the perfect choice. Its versatility, strength, and visual clarity make it an essential tool for any project that requires reliable adhesion and enhanced protection.
+#### 1. What is Adhesive Lamination Film?
+Adhesive Lamination Film is a corona-treated polyethylene film used as the sealant layer in flexible packaging laminates. It is bonded to printed PET, BOPP, or foil using polyurethane adhesives.
 
-### Introduction to Adhesive Lamination
-Adhesive lamination is a simple and effective way to protect and preserve a wide range of materials using self adhesive laminating sheets. Unlike traditional lamination methods that require a machine or special equipment, self adhesive laminating sheets offer an easy, hassle-free solution. Just peel and stick the clear, acid free sheet onto your document, photo, sign, certificate, or schedule for instant protection and a professional finish.
+#### 2. What substrates is this film designed to laminate with?
+It is primarily used for lamination to polyester (PET), BOPP, aluminum foil, paper, and nylon (PA) films.
 
-These laminating sheets are designed to be user-friendly, making them perfect for both home and office use. The clear, transparent finish ensures that your documents and photos remain vibrant and easy to read, while the acid free material helps prevent yellowing or damage over time. Whether you need to safeguard important certificates, display schedules, or create durable signs, self adhesive laminating sheets provide a quick and reliable way to keep your materials looking their best.
+#### 3. What maximum widths and thicknesses are available?
+Available in widths up to 2.25 Meters (2250 mm) and thicknesses from 18 Micron to 300 Micron.
 
-### Manufacturing Self Adhesive Laminating Rolls
-At WinnerPack, we take pride in our manufacturing process and the exceptional features of our laminating rolls. It is designed to provide superior quality and performance, making us stand out from the competition.
+#### 4. What colors can be manufactured?
+Standard colors include Natural Clear and White Opaque. Custom opaque and tinted colors are available on request.
 
-The manufacturing process of our laminating rolls begins with the selection of high-grade materials. We source premium quality films and adhesives to ensure the durability and reliability of our products. Our self adhesive laminating rolls are made using a combination of advanced machinery and skilled craftsmanship.
+#### 5. What are the main applications of Adhesive Lamination Film?
+- Agro-chemical & seed sachets
+- Pesticide packaging pouches
+- Dairy products & cheese vacuum bags
+- Medical & condom packaging foil laminates
 
-One of the key features that sets our laminating rolls apart is the self-adhesive property. This eliminates the need for additional adhesives or heat activation, making the lamination process quick and hassle-free. Simply peel off the backing and apply the roll or sheet to your desired surface for instant adhesion.
+#### 6. Does this film prevent delamination in agro-chemical packaging?
+Yes! Its specialized primer formulation and high corona treatment prevent solvent migration and delamination when containing aggressive liquid pesticides or fertilizers.
 
-Our self-adhesive laminating rolls and sheets offer excellent clarity, allowing your documents, photos, or artwork to be displayed with vibrant colors and sharp details. The transparent finish enhances the visual appeal and protects the laminated items from wear and tear, moisture, and UV radiation.
+#### 7. Is Adhesive Lamination Film food contact safe?
+Yes. WinnerPack Adhesive Lamination Film is manufactured using US FDA and EU food-grade compliant virgin polyethylene resins.
 
-WinnerPack is one of the leading manufacturers and suppliers of ADHESIVE LAMINATION FILM in the world, trusted across international packaging hubs and modern industrial supply chains.
+#### 8. What lamination adhesive types are supported?
+Fully compatible with solventless 2-component polyurethane adhesives, solvent-based adhesives, and water-based acrylic laminating adhesives.
 
-### Industrial Applications
-In industrial settings, adhesive lamination film plays a crucial role in enhancing the durability and longevity of essential materials. Self adhesive laminating sheets are widely used to protect documents such as safety instructions, equipment manuals, and maintenance schedules from damage caused by frequent handling, moisture, and exposure to harsh environments. The clear, acid free sheets ensure that important information remains legible and intact, even in demanding conditions.
+#### 9. Can it be used for vacuum pouch packaging?
+Yes. High puncture resistance and wide heat-sealing temperature windows make it ideal for vacuum pouches for meat, fish, and dairy products.
 
-Laminating sheets are also perfect for creating long-lasting signs, labels, and identification tags used throughout factories, warehouses, and construction sites. Their easy application means that employees can quickly laminate documents or signage on demand, without the need for a machine or specialized equipment. This not only saves time but also reduces costs associated with traditional lamination methods.
-
-Additionally, the self adhesive feature allows for quick customization and application to a variety of surfaces, making these sheets ideal for labeling equipment, organizing inventory, and displaying safety information. The result is a more efficient, organized, and professional industrial workspace.
-
-### Food Packaging
-Adhesive lamination film is an essential component in the food packaging industry, where product safety and presentation are top priorities. Self adhesive laminating sheets provide a protective barrier that helps prevent moisture, contamination, and tampering, ensuring that food products remain fresh and safe for consumption. The acid free, clear sheets are perfect for maintaining the quality and appearance of packaging, allowing branding, nutritional information, and product details to remain visible and attractive.
-
-These laminating sheets are easy to use and can be applied without the need for a machine or additional equipment, making them ideal for both large-scale food manufacturers and small businesses. The strong, self adhesive bond ensures that packaging stays sealed and secure throughout storage, transport, and display.
-
-In addition to protection, adhesive lamination film enhances the visual appeal of food packaging, helping products stand out on store shelves. Whether used for vacuum pouches, dairy products, or specialty food items, self adhesive laminating sheets offer a reliable, cost-effective solution for food packaging that meets industry standards for safety and quality.
-
-### Self Adhesive Laminating Sheets Acid Free Benefits
-Avail Benefits of Self Adhesive Laminating Sheets with WinnerPack:
-1. Easy application with adhesive backing.
-2. Versatile for use on different materials.
-3. Provides protection against moisture and damage.
-4. Offers durability and resistance to tearing and scratching.
-5. Maintains clarity for visibility of the original content.
-6. Cost-effective compared to other lamination methods.
-7. Can be easily customized and trimmed to size.
-8. Convenient for on-demand laminating without the need for machines or pouches.
-
-### Self Adhesive Lamination Film / Sheet Features
-- Used for lamination to polyester
-- Available in widths upto 2.25 meters
-- Thickness Range from 18-300 microns
-- Colours : Natural, White opaque. Other colours available on request.
-- Applications : Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.`,
+#### 10. Is Adhesive Lamination Film recyclable?
+Yes, it is 100% recyclable under standard soft plastic (#4 PE) recycling streams.`,
     image: "/images/products/specialty-pouches/image.png",
     gallery: [
       "/images/products/specialty-pouches/image.png",
@@ -1205,18 +1196,30 @@ Avail Benefits of Self Adhesive Laminating Sheets with WinnerPack:
       "/images/products/lamination-films-pouches/applications/app-3.png"
     ],
     specs: {
-      "Primary Use": "Used for lamination to polyester",
-      "Available Widths": "Up to 2.25 meters",
-      "Thickness Range": "18 - 300 microns",
-      "Available Colours": "Natural, White opaque (Other colours available on request)",
-      "Applications": "Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.",
+      "Lamination Substrate": "Polyester (PET), BOPP, Aluminum Foil, Paper",
+      "Max Roll Width": "Up to 2.25 Meters (2250 mm)",
+      "Thickness Range": "18 Micron to 300 Micron",
+      "Colors Available": "Natural Clear, White Opaque (Custom Available)",
+      "Corona Level": "42+ Dynes/cm Surface Energy",
+      "Food Safety": "FDA 21 CFR & EU Food Safe Approved",
     },
+    thicknessLengthMatrix: [
+      { micron: "18", gauge: "72", meters: "1,600", feet: "5,248" },
+      { micron: "25", gauge: "100", meters: "1,200", feet: "3,936" },
+      { micron: "40", gauge: "160", meters: "750", feet: "2,460" },
+      { micron: "100", gauge: "400", meters: "300", feet: "984" },
+    ],
     options: {
-      widths: ["Up to 2.25 Meters", "500 mm", "750 mm", "1000 mm", "1500 mm", "2250 mm"],
-      thicknesses: ["18 Micron", "20 Micron", "37.5 Micron", "40 Micron", "50 Micron", "100 Micron", "150 Micron", "300 Micron"],
-      colors: ["Natural Transparent", "White Opaque"],
+      widths: ["300 mm", "600 mm", "900 mm", "1200 mm", "1500 mm", "2250 mm"],
+      thicknesses: ["18 Micron", "25 Micron", "40 Micron", "60 Micron", "100 Micron", "300 Micron"],
+      colors: ["Natural Clear", "White Opaque"],
     },
-    applications: ["Seeds Packaging", "Pesticide Packaging", "Dairy Products", "Vacuum Pouches", "Condom Packaging"],
+    applications: [
+      "Seeds & pesticide sachet packaging",
+      "Dairy products & vacuum pouch sealing",
+      "Condom & personal hygiene packaging",
+      "Agro-chemical liquid barrier pouches",
+    ],
     visualGradients: "from-blue-600 to-indigo-700",
   },
   // --- AGRICULTURAL FILMS & SUB-PRODUCTS ---
@@ -2828,18 +2831,96 @@ Yes. They are 100% recyclable under soft plastic (#4 PE/PP) recycling programs.`
     title: "Lamination PE Film",
     category: "film-products",
     tag: "Lamination Poly",
-    blurb: "High-clarity corona treated polyethylene lamination film engineered for solventless and solvent-based bonding with PET, BOPP, and aluminum foil substrates.",
-    longDesc: "Lamination PE Film is specifically formulated with controlled slip properties and high corona surface treatment to provide permanent bond strength when laminated to printed polyester (PET), BOPP, or metalized films.",
+    blurb: "Versatile high-clarity Polyethylene (PE) lamination film engineered for extrusion, solventless, and solvent-based bonding with PET, BOPP, paper, and aluminum foil substrates.",
+    longDesc: `Lamination PE film is a versatile and indispensable component in the realm of modern packaging solutions. Manufactured from premium polyethylene resins, this high-quality film exhibits exceptional clarity, mechanical strength, tear resistance, and sealing flexibility. It is widely used across B2B packaging and industrial manufacturing as a vital sealing and barrier layer in multi-layer flexible laminates.
+
+The film lamination process involves bonding the polyethylene film to surfaces such as paper, cardboard, BOPP, PET, or aluminum foil to provide robust protection against moisture, oxygen, dirt, and mechanical wear. Process techniques include combining PE films with biaxially oriented polypropylene (BOPP), polyester (PET), or sheets to enhance specific properties. Anti-static properties can also be incorporated to protect sensitive electronics and medical products.
+
+At WinnerPack, we take immense pride in being a leading manufacturer and supplier of PE Lamination Film, catering to the diverse packaging demands of global clients across food, pharmaceutical, agricultural, chemical, and industrial sectors.
+
+### Properties of WinnerPack PE Lamination Film
+- **Chemical & Moisture Barrier**: Superior resistance against chemicals, oils, grease, and water vapor, keeping packaged goods safe.
+- **Controlled Density Formulations**: Available in Low-Density Polyethylene (LDPE) for flexibility and transparency, and High-Density Polyethylene (HDPE) for higher tensile strength and heat resistance.
+- **High Sealing Integrity**: Formulated for low seal initiation temperatures and ultra-strong heat seal bond strength.
+- **Anti-Static & Slip Additives**: Customized slip levels and anti-static properties for high-speed pouch converting machinery.
+- **Surface Corona Treatment**: High corona treatment (42+ dynes/cm) ensures permanent polyurethane adhesive bonding with PET, BOPP, and foil.
+
+### Benefits of WinnerPack PE Lamination Rolls
+- Enhanced durability and mechanical protection for packaged products.
+- Reliable barrier against moisture, oxygen, and environmental contaminants.
+- Versatile and customizable dimensions (widths up to 2.25 Meters, thickness 18 to 300 Micron).
+- Improved product appearance and crystal-clear visual appeal.
+- Extended shelf life for perishable food and pharmaceutical items.
+- Full compatibility with solventless, solvent-based, and extrusion lamination processes.
+- Cost-effective packaging solution compliant with US FDA and EU international regulations.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Lamination PE Film?
+Lamination PE Film is a high-grade polyethylene film specially engineered to be bonded (laminated) with other substrates like PET, BOPP, paper, or aluminum foil. It acts as the inner heat-sealing layer and moisture barrier in flexible pouches and packaging rolls.
+
+#### 2. What substrates can PE Lamination Film be bonded with?
+It bonds seamlessly with printed Polyester (PET), Biaxially Oriented Polypropylene (BOPP), Aluminum Foil, Kraft Paper, and Nylon (PA) using solventless, solvent-based polyurethane adhesives, or thermal extrusion.
+
+#### 3. What density options are available (LDPE vs HDPE)?
+We offer LDPE lamination film for applications requiring soft flexibility, high clarity, and impact toughness, and HDPE lamination film for applications demanding higher tensile stiffness and thermal resistance.
+
+#### 4. What thickness range is available for Lamination PE Film?
+Standard thicknesses range from 18 Micron to 300 Micron, fully customizable based on pouch size and product weight requirements.
+
+#### 5. What maximum widths can WinnerPack manufacture?
+We produce lamination PE film rolls in custom widths up to 2.25 Meters (2250 mm).
+
+#### 6. Is Lamination PE Film approved for food contact?
+Yes! WinnerPack Lamination PE Film is extruded using 100% virgin US FDA and EU food-grade compliant polyethylene resins, making it completely safe for direct food and dairy packaging.
+
+#### 7. What colors and finishes are available?
+Available in Natural Clear, Opaque White, Milky White, Black, and custom tinted colors upon request.
+
+#### 8. Does Lamination PE Film feature corona treatment?
+Yes. Rolls receive double-sided or single-sided corona treatment (42+ dynes/cm) to guarantee high adhesive bond strength and prevent delamination over time.
+
+#### 9. What industries use PE Lamination Film?
+- Food & Beverage (dairy, snacks, spices, frozen foods)
+- Pharmaceutical & Medical Packaging (strip packs, sterile pouches)
+- Agro-Chemicals (pesticides, seed sachets, liquid fertilizers)
+- Personal Care & Cosmetics (shampoo sachets, condom foils)
+
+#### 10. Is Lamination PE Film recyclable?
+Yes, Polyethylene (PE) is 100% recyclable under soft plastic (#4 LDPE / #2 HDPE) recycling streams.`,
     image: "/images/products/specialty-pouches/image.png",
     gallery: ["/images/products/specialty-pouches/image.png"],
-    specs: { "Corona Treatment": "42+ Dynes/cm Surface Energy", "Bonding Grade": "Solventless & Solvent-Based Polyurethane", "Thickness Range": "18 to 150 Micron" },
-    thicknessLengthMatrix: [{ micron: "25", gauge: "100", meters: "1,200", feet: "3,936" }, { micron: "40", gauge: "160", meters: "750", feet: "2,460" }],
-    subCategories: [
-      { id: "adhesive-lamination-film", title: "Adhesive Lamination Film", subtitle: "High Bond Corona Treated Poly", blurb: "Versatile self-adhesive lamination film providing crystal clear finish and permanent substrate bonding.", image: "/images/products/specialty-pouches/image.png" },
-      { id: "pharma-grade-poly", title: "Pharma Grade Poly", subtitle: "Ultra-Clean Barrier Poly Sheeting", blurb: "Cleanroom certified polyethylene lamination film formulated for pharmaceutical strip foil and medical device pouches.", image: "/images/products/specialty-pouches/image.png" },
+    specs: {
+      "Substrate Base": "Prime Virgin LDPE / LLDPE / HDPE Resin",
+      "Corona Treatment": "42+ Dynes/cm Surface Energy",
+      "Available Widths": "Up to 2.25 Meters (2250 mm)",
+      "Thickness Range": "18 Micron to 300 Micron",
+      "Colors Available": "Natural Clear, White Opaque, Custom Colors",
+      "Lamination Methods": "Solventless, Solvent-Based & Extrusion",
+      "Food Safety Standard": "US FDA 21 CFR & EU Food Safe Compliant",
+    },
+    thicknessLengthMatrix: [
+      { micron: "25", gauge: "100", meters: "1,200", feet: "3,936" },
+      { micron: "40", gauge: "160", meters: "750", feet: "2,460" },
+      { micron: "60", gauge: "240", meters: "500", feet: "1,640" },
+      { micron: "100", gauge: "400", meters: "300", feet: "984" },
     ],
-    options: { widths: ["300mm", "600mm", "900mm", "1200mm"], thicknesses: ["25 Micron", "40 Micron", "60 Micron"], colors: ["Natural Clear", "White Opaque"] },
-    applications: ["Food packaging flexible laminates", "Pharmaceutical strip packaging", "Agro-chemical barrier laminates"],
+    subCategories: [
+      { id: "adhesive-lamination-film", title: "Adhesive Lamination Film", subtitle: "High Bond Corona Treated Poly", blurb: "High-bond corona treated poly film engineered for lamination to polyester (PET), BOPP, and foil, with widths up to 2.25m and thickness 18-300 microns.", image: "/images/products/specialty-pouches/image.png" },
+      { id: "pharma-grade-poly", title: "Pharma Grade Poly", subtitle: "Ultra-Clean Barrier Poly Sheeting", blurb: "Cleanroom manufactured PE film for heat and press lamination to aluminum foil for pharmaceutical tablet strip packaging.", image: "/images/products/specialty-pouches/image.png" },
+    ],
+    options: {
+      widths: ["300 mm", "600 mm", "900 mm", "1200 mm", "1500 mm", "1800 mm", "2250 mm"],
+      thicknesses: ["18 Micron", "25 Micron", "40 Micron", "60 Micron", "80 Micron", "100 Micron", "150 Micron", "300 Micron"],
+      colors: ["Natural Clear", "White Opaque", "Custom Colors"],
+    },
+    applications: [
+      "Seeds & pesticide sachets packaging",
+      "Dairy products & vacuum pouch barrier lining",
+      "Condom packaging & hygiene foil overwrapping",
+      "Flexible food pouches (spices, snacks, liquids)",
+      "Industrial & chemical protective laminates",
+    ],
     visualGradients: "from-blue-600 to-indigo-700",
   },
   {
@@ -2847,14 +2928,82 @@ Yes. They are 100% recyclable under soft plastic (#4 PE/PP) recycling programs.`
     title: "Pharma Grade Poly",
     category: "film-products",
     tag: "Pharma Barrier",
-    blurb: "Cleanroom manufactured prime polyethylene lamination film for pharmaceutical strip foil packaging, oral dosage pouches, and sterile medical device overwrapping.",
-    longDesc: "Pharma Grade Poly is extruded under strict cGMP cleanroom conditions using US FDA-compliant virgin resin. Features low extractables, excellent heat sealing integrity, and superior moisture/gas barrier performance when laminated to aluminum foil or PET.",
+    blurb: "Cleanroom extruded polyethylene film engineered for heat and press lamination to aluminum foil for pharmaceutical tablet strip packaging, cable wrap, and extrusion lidding.",
+    longDesc: `Pharma Grade Poly is a specialized, cleanroom-manufactured polyethylene film engineered specifically for heat and press lamination to aluminum foil for further packing of strip tablets in the pharmaceutical industry. Extruded under strict cGMP cleanroom conditions using prime US FDA-compliant virgin resin, it delivers ultra-low extractables, pinhole-free sealing integrity, and maximum moisture/gas barrier protection.
+
+In addition to pharmaceutical tablet strip packaging, Pharma Grade Poly is widely used for container lidding applications, cable wrap insulation, and extrusion lamination across medical, electronic, and industrial sectors.
+
+### Standard Thicknesses
+- **20 Micron** (80 Gauge)
+- **37.5 Micron** (150 Gauge)
+- **40 Micron** (160 Gauge)
+- **50 Micron** (200 Gauge)
+*(Other custom thicknesses available upon request)*
+
+### Key Industrial Applications
+- **Pharmaceutical Strip Packaging**: Heat & press laminated to aluminum foil for tablet & capsule strip packs.
+- **Lidding Applications**: Heat seal lidding for medical cups, sterile trays, and pharmaceutical containers.
+- **Cable Wrap Insulation**: Protective barrier wrapping for telecom and power cables.
+- **Extrusion Lamination**: Base sealing layer for multi-layer medical and barrier laminates.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Pharma Grade Poly?
+Pharma Grade Poly is an ultra-clean, high-purity polyethylene film designed for heat and press lamination to aluminum foil, primarily used for packaging pharmaceutical tablet strips and capsules.
+
+#### 2. How is Pharma Grade Poly applied in strip tablet packaging?
+It is laminated onto aluminum foil using heat and press rollers. The poly layer provides the inner heat-sealing surface that seals shut around individual medicine tablets during high-speed strip packaging.
+
+#### 3. What are the standard thicknesses for Pharma Grade Poly?
+Standard thicknesses include 20 Micron, 37.5 Micron, 40 Micron, and 50 Micron. Custom thicknesses can be manufactured upon request.
+
+#### 4. What other applications is Pharma Grade Poly suitable for?
+In addition to tablet strip packaging, it is used for container lidding applications, telecommunication cable wrap insulation, and extrusion lamination.
+
+#### 5. Is Pharma Grade Poly cleanroom certified?
+Yes. WinnerPack Pharma Grade Poly is extruded under strict ISO Class 8 / cGMP cleanroom conditions to ensure zero dust, particulate, or bio-contaminants.
+
+#### 6. Is Pharma Grade Poly FDA compliant?
+Yes! It is manufactured using 100% US FDA 21 CFR and EU pharmacopoeia compliant virgin polyethylene resins with ultra-low migratable extractables.
+
+#### 7. What sealing properties does it offer?
+Offers a wide heat-sealing temperature window, fast seal initiation, and 100% leak-proof hermetic seal integrity to protect sensitive medicines from moisture degradation.
+
+#### 8. Can Pharma Grade Poly be used with blister foil lidding?
+Yes. It seals cleanly onto aluminum blister foil and rigid plastic cups (PP/PS/PET) for medical lidding applications.
+
+#### 9. What colors are available?
+Available in Natural Ultra-Clear and Opaque White.
+
+#### 10. Is Pharma Grade Poly recyclable?
+Yes, it is 100% recyclable under soft plastic (#4 PE) recycling streams.`,
     image: "/images/products/specialty-pouches/image.png",
     gallery: ["/images/products/specialty-pouches/image.png"],
-    specs: { "Cleanroom Standard": "ISO Class 8 Cleanroom Extrusion", "Compliance": "US FDA 21 CFR & EU Food Contact Approved", "Extractables": "Ultra-Low Migratable Additive Index" },
-    thicknessLengthMatrix: [{ micron: "30", gauge: "120", meters: "1,000", feet: "3,280" }, { micron: "50", gauge: "200", meters: "600", feet: "1,968" }],
-    options: { widths: ["200mm", "400mm", "600mm"], thicknesses: ["30 Micron", "50 Micron", "70 Micron"], colors: ["Natural Ultra-Clear", "Opaque White"] },
-    applications: ["Pharmaceutical strip foil lamination", "Medical sachet & pouch barrier lining", "Sterile surgical tray covers"],
+    specs: {
+      "Manufacturing Standard": "cGMP / ISO Class 8 Cleanroom Extrusion",
+      "Lamination Method": "Heat & Press Lamination to Aluminum Foil",
+      "Standard Thicknesses": "20 Micron, 37.5 Micron, 40 Micron, 50 Micron",
+      "Compliance": "US FDA 21 CFR & EU Pharmacopoeia Approved",
+      "Extractables Index": "Ultra-Low Migratable Additive Level",
+      "Applications": "Tablet Strip Packs, Lidding, Cable Wrap",
+    },
+    thicknessLengthMatrix: [
+      { micron: "20", gauge: "80", meters: "1,500", feet: "4,920" },
+      { micron: "37.5", gauge: "150", meters: "1,000", feet: "3,280" },
+      { micron: "40", gauge: "160", meters: "900", feet: "2,952" },
+      { micron: "50", gauge: "200", meters: "700", feet: "2,296" },
+    ],
+    options: {
+      widths: ["200 mm", "300 mm", "400 mm", "600 mm", "800 mm"],
+      thicknesses: ["20 Micron", "37.5 Micron", "40 Micron", "50 Micron"],
+      colors: ["Natural Ultra-Clear", "Opaque White"],
+    },
+    applications: [
+      "Pharmaceutical tablet & capsule strip packaging",
+      "Medical container & tray lidding applications",
+      "Telecommunication & power cable wrap insulation",
+      "Extrusion lamination for high-barrier sachets",
+    ],
     visualGradients: "from-blue-600 to-indigo-700",
   },
   {
