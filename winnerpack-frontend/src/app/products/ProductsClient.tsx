@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/primitives";
 import CTABanner from "@/components/CTABanner";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 // Layout components
 import Navbar from "@/components/Navbar";
@@ -179,15 +179,6 @@ function ProductsContent() {
                   <p>
                     The products manufactured at WinnerPack include: machine & hand stretch films, surface protection films, LDPE poly bags & shipping sacks, flexible laminated barrier pouches, milk & water packaging films, self-adhesive product labels & barcode stickers, high-tack BOPP box sealing & printed tapes, and high-tensile PET/PP strapping rolls.
                   </p>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-[var(--color-line)] flex flex-wrap gap-4 items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)] font-mono">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" /> 100% Prime Virgin Resins
-                  </div>
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)] font-mono">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" /> FDA Food-Safe & ISO Certified
-                  </div>
                 </div>
               </motion.div>
             </div>
