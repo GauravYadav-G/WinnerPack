@@ -1378,18 +1378,87 @@ Consider your crop type, regional climate (high UV vs cold), application method 
     title: "Plastic Mulching Film",
     category: "film-products",
     tag: "Mulch Film",
-    blurb: "High-grade silver-black and black polyethylene mulching film designed to reflect sunlight, suppress weeds, conserve soil moisture, and prevent soil erosion.",
-    longDesc: `Plastic Mulching Film is an indispensable tool in modern precision agriculture and commercial crop cultivation. Designed to coat the soil surface along planting rows, our multi-layer silver-black mulching film creates an ideal root zone environment that accelerates crop growth, minimizes weed competition, and significantly conserves water.
+    blurb: "High-grade UV-stabilized plastic mulching film engineered to reflect sunlight, suppress weeds, conserve soil moisture, regulate soil temperature, and boost crop yields.",
+    longDesc: `Plastic mulching films offer a range of essential benefits in modern agricultural practices. Serving as a protective layer over crop beds, they prevent weed growth, conserve soil moisture, and optimize soil temperature for rapid germination and healthy root development.
 
-### Introduction to Plastic Mulching Film
-Using plastic mulch film is one of the most effective methods to increase agricultural yield while reducing reliance on chemical herbicides and excessive irrigation. The dual-color silver/black surface reflects sunlight up into the crop canopy—disorienting insect pests while increasing lower leaf photosynthesis—while the black underside blocks 100% of light to suppress weed germination.
+Manufactured via multi-layer extrusion of premium polyethylene resins into thin, durable sheets, our plastic mulching films are UV-stabilized to deliver long-lasting performance across diverse weather conditions. By creating a physical barrier, these films minimize water evaporation, prevent soil erosion, and eliminate direct fruit-to-soil contact, significantly improving produce quality.
 
-### Key Benefits & Polymer Features:
-- **Silver / Black Dual Layer**: Silver side reflects sunlight and repels aphids/thrips; black side prevents weed growth.
-- **Micro-Climate Control**: Retains soil heat during cold nights and prevents soil crusting during heavy rainfall.
-- **Moisture Conservation**: Reduces water evaporation by up to 50%, maximizing drip irrigation efficiency.
-- **Enhanced Crop Quality**: Keeps growing fruits and vegetables clean and off raw soil, preventing rot and soil-borne fungal infections.
-- **UV Stabilized Longevity**: Engineered to withstand 12 to 24 months of intense field solar exposure without premature degradation.`,
+Compared to bare soil, plastic mulch films increase light levels around plants due to their reflective properties, boosting lower canopy photosynthesis and accelerating crop maturity.
+
+### Key Application Advantages
+- **Increase Soil Temperature**: Accelerates root development and early plant growth.
+- **Faster Cultivation Cycles**: Speeds up seed germination and crop harvest readiness.
+- **Eliminate Weedicides & Pesticides**: Blocks light to prevent weed growth, reducing chemical costs.
+- **Conserve Soil Moisture**: Dramatically cuts water loss from evaporation, maximizing drip irrigation efficiency.
+- **Keep Nutrients at Root Zone**: Prevents fertilizer runoff and nutrient leaching during heavy rains.
+- **Improve Fruit Quality**: Prevents soil contact, avoiding fruit rotting and surface adhesion defects.
+
+### Introduction to Mulch
+Mulch is any material spread over soil to retain moisture, suppress weeds, and regulate temperature. While farmers historically relied on organic straw or compost, modern commercial agriculture utilizes advanced polyethylene plastic mulches and biodegradable mulch films for precise microclimate control.
+
+Polyethylene mulch films create a physical barrier that prevents weed seeds from germinating throughout the growing season. To address long-term waste concerns, innovative biodegradable mulch films (such as Mater-Bi bio-polymers) break down naturally when tilled into the soil after harvest, leaving zero toxic residues or microplastics.
+
+### Laying Plastic Mulch Manufacturing Process
+At WinnerPack, we manufacture high-performance laying plastic mulch engineered for uniform soil contact and effortless field installation. Key features include:
+- **Excellent Weed Suppression**: Blocks 100% of light, eliminating weed competition for soil nutrients and moisture.
+- **Pest & Insect Barrier**: Reduces pest infestations by physically shielding soil beds.
+- **Moisture Conservation**: Retains soil moisture in arid and dry climates, lowering irrigation frequency.
+- **Microclimate Stability**: Protects crop root zones against sudden day/night temperature swings.
+- **Field Installation Synergy**: Designed for seamless integration with bed shapers, drip tape applicators, and mechanical mulch layers.
+
+### Types & Color Variations
+- **Black Plastic Mulch**: Absorbs solar radiation, warming soil for early spring planting while suppressing weeds.
+- **Silver + Black Dual Mulch**: Silver side reflects sunlight to repel aphids/thrips and boost photosynthesis; black side suppresses weeds.
+- **White + Black Mulch**: Reflects excess heat in hot climates, keeping soil cool and preventing thermal root stress.
+- **Red + Black & Natural Clear**: Specialized options for targeted crop spectrum enhancement and solarization.
+
+### Technical Specifications
+- **Thickness Options**: 15 Micron (One Season Crop), 25 & 30 Micron (Two to Three Season Crop), 50 Micron (Orchards & Perennial Crops).
+- **Available Widths**: 600 mm to 1800 mm.
+- **Colors**: Silver + Black, Black, Red + Black, White + Black & Natural.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Plastic Mulching Film?
+Plastic Mulching Film is a polyethylene-based agricultural product used to cover soil in farming and horticulture. It helps regulate soil temperature, retain moisture, suppress weeds, and enhance crop yield.
+
+#### 2. What are the benefits of using Plastic Mulching Film in agriculture?
+- Reduction in water evaporation, conserving soil moisture.
+- Minimization of weed growth by blocking sunlight.
+- Improved soil temperature for better root development.
+- Enhanced crop quality by preventing direct contact with soil.
+- Increased efficiency of fertilizer utilization and protection against soil erosion.
+
+#### 3. How does Plastic Mulching Film help in weed control?
+The opaque or reflective surface of Plastic Mulching Film prevents sunlight from reaching the soil, hindering weed germination and growth so nutrients are directed solely to primary crops.
+
+#### 4. Can Plastic Mulching Film conserve soil moisture?
+Yes. Plastic Mulching Film acts as a barrier that reduces water evaporation from the soil, maintaining consistent moisture levels especially in dry and arid regions.
+
+#### 5. What crops are suitable for Plastic Mulching Film application?
+- **Fruits**: Strawberries, melons, watermelons, and tomatoes.
+- **Vegetables**: Peppers, cucumbers, eggplants, and squash.
+- **Ornamentals**: Flowering plants and nursery saplings.
+- **Industrial Crops**: Tobacco, cotton, and sugarcane.
+
+#### 6. Is Plastic Mulching Film biodegradable?
+Most conventional plastic mulches are made from recyclable polyethylene; however, certified biodegradable mulching films made from plant-based polymers are also available to break down in soil over time.
+
+#### 7. What thickness options are available for Plastic Mulching Film?
+Films range from 15 Micron (one-season crops), 25 & 30 Micron (2-3 season crops), up to 50 Micron (perennial orchards).
+
+#### 8. How long does Plastic Mulching Film typically last?
+Standard films last one growing season, while thicker, UV-stabilized films can provide multi-season protection for 2 to 3 crops.
+
+#### 9. How should Plastic Mulching Film be applied in the field?
+1. Prepare and level the soil bed.
+2. Lay drip irrigation lines before spreading the film.
+3. Unroll film tightly over beds, ensuring close soil contact.
+4. Secure edges with soil or mulch pins against wind lift.
+5. Puncture planting holes according to crop spacing layout.
+
+#### 10. Is Plastic Mulching Film suitable for organic farming?
+Standard polyethylene mulch is synthetic, but certified biodegradable mulching films complying with organic farming standards can be used as a sustainable alternative.`,
     image: "/images/desktop/journey/solution_pcr_eco_film.png",
     gallery: [
       "/images/desktop/journey/solution_pcr_eco_film.png",
@@ -1397,24 +1466,24 @@ Using plastic mulch film is one of the most effective methods to increase agricu
       "/images/desktop/portfolio/product_app_pallet_wrapping.png"
     ],
     specs: {
-      "Film Formats": "Silver-Black / Black-Black / Transparent / Red / Yellow",
-      "Thickness Range": "20 Micron to 50 Micron",
-      "Width Range": "0.9 Meter to 1.5 Meters",
-      "Roll Length": "400 Meters to 1,000 Meters per Roll",
-      "UV Life Rating": "12 to 24 Months Field Durability",
+      "Thickness Range": "15 Micron (1 Season), 25-30 Micron (2-3 Seasons), 50 Micron (Orchards)",
+      "Available Widths": "600 mm to 1800 mm",
+      "Colors Available": "Silver + Black, Black, Red + Black, White + Black, Natural",
+      "Key Applications": "Weed Suppression, Soil Moisture Retention, Soil Warming & Yield Boost",
+      "UV Life Rating": "UV-Stabilized Multi-Season Weather Protection",
     },
     thicknessLengthMatrix: [
-      { micron: "20", gauge: "80", meters: "1,000", feet: "3,280" },
+      { micron: "15", gauge: "60", meters: "1,000", feet: "3,280" },
       { micron: "25", gauge: "100", meters: "800", feet: "2,624" },
       { micron: "30", gauge: "120", meters: "600", feet: "1,968" },
       { micron: "50", gauge: "200", meters: "400", feet: "1,312" },
     ],
     options: {
-      widths: ["0.9m", "1.0m", "1.2m", "1.5m"],
-      thicknesses: ["20 Micron", "25 Micron", "30 Micron", "50 Micron"],
-      colors: ["Silver-Black Dual", "Solid Black", "Transparent Clear"],
+      widths: ["600 mm", "900 mm", "1200 mm", "1500 mm", "1800 mm"],
+      thicknesses: ["15 Micron", "25 Micron", "30 Micron", "50 Micron"],
+      colors: ["Silver + Black", "Solid Black", "Red + Black", "White + Black", "Natural"],
     },
-    applications: ["Strawberry & berry cultivation", "Tomato, pepper & melon farming", "Cotton & sugarcane drip irrigation rows"],
+    applications: ["Strawberry, melon & tomato cultivation", "Pepper, cucumber & eggplant farming", "Cotton, tobacco & orchard beds"],
     visualGradients: "from-emerald-500 to-teal-700",
   },
   {
@@ -1458,39 +1527,99 @@ Using plastic mulch film is one of the most effective methods to increase agricu
   },
   {
     id: "low-tunnel-film",
-    title: "Low Tunnel Sheeting",
+    title: "Low Tunnel Film",
     category: "film-products",
     tag: "Low Tunnel",
-    blurb: "Clear high-clarity low tunnel protective sheeting designed for row crop installation, providing frost protection and accelerated seed germination.",
-    longDesc: `Low Tunnel Sheeting is a lightweight, high-clarity protective film used to construct mini-tunnels directly over field crop rows. Ideal for early spring planting, low tunnels create a localized warm microclimate that accelerates germination and protects delicate seedlings from sudden late-season frosts.
+    blurb: "Lightweight and flexible UV-stabilized low tunnel plastic film engineered to protect row crops against harsh weather, frost, insects, and day/night temperature fluctuations.",
+    longDesc: `Low tunnel plastic films are thin, flexible protective coverings designed specifically for agricultural row crop protection. Placed over support hoops or wire frames to form mini-tunnels, these films create a localized warm microclimate that shields delicate plants from harsh weather, wind damage, heavy rainfall, frost, and pests.
 
-### Key Product Features:
-- **High Light Transmission**: Allows 92%+ natural sunlight into the tunnel for optimal photosynthesis.
-- **Frost & Cold Protection**: Shields crops from night frost, harsh winds, and heavy rain damage.
-- **Optional Vent Perforations**: Pre-perforated options available for automatic temperature regulation.
-- **Easy Installation**: Lightweight roll structure designed for quick manual or mechanical hoop installation.`,
+WinnerPack low tunnel plastic films provide a cost-effective solution for extending the growing season, accelerating crop maturity, and optimizing water retention. Lightweight yet durable, they are easy to install, ventilate, and remove, making them a staple choice for commercial vegetable and fruit growers worldwide.
+
+### Manufacturing Process & Additive Engineering
+At WinnerPack, our low tunnel plastic films are manufactured using precise extrusion technology that blends premium polyolefin resins with advanced additives:
+- **Light Transmission & Diffusion**: Engineered for high solar PAR transmission while diffusing sunlight to prevent localized heat scorching.
+- **Anti-Fog & Anti-Condensation Additives**: Prevents water droplets from dripping onto leaves, suppressing fungal diseases and botrytis mold.
+- **Built-in UV Stabilization**: Guards against solar UV degradation, ensuring high tear strength and durability under intense field sunlight.
+- **High Tear & Puncture Resistance**: Formulated to withstand strong winds, installation stress, and hoop friction.
+
+### Key Product Benefits
+- **Helps Protect Crops from Climate Variations**: Shields plants against unexpected frost, hail, heavy rain, and high wind velocity.
+- **Provides Protection Against Insects**: Serves as a physical barrier against airborne insects, pests, and vector-borne diseases.
+- **Reduces Crop Maturity Period**: Traps solar heat to accelerate seed germination, root development, and early harvest readiness.
+- **Minimizes Day & Night Temperature Variations**: Retains daytime heat during cold nights, preventing thermal shock in delicate crops.
+- **Versatile Agricultural Utility**: Compatible with lettuce, spinach, tomatoes, strawberries, melons, and nursery seedlings.
+
+### Technical Specifications
+- **Thickness Options**: 50–150 Micron (Custom thicknesses available from 20 to 200 Micron).
+- **Available Widths**: 1 Meter to 4.5 Meters.
+- **Colors**: Clear, Yellowish.
+- **Engineered Additives**: Anti-Fog, Hydrophilic Condensation Control, Light Diffusion, UV Stabilizers.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Low Tunnel Film?
+Low Tunnel Film is a transparent or semi-transparent agricultural plastic cover designed for use in low-tunnel hoop systems. It creates a controlled microclimate over crop rows, protecting plants against adverse weather conditions, frost, insects, and environmental stress.
+
+#### 2. What are the benefits of using Low Tunnel Film in agriculture?
+- Early planting and extended growing seasons by creating a warmer microclimate.
+- Protection from frost, hail, heavy rain, and strong winds.
+- Enhanced crop yield and quality by minimizing environmental stress.
+- Improved pest and disease management, reducing reliance on chemical treatments.
+- Better water retention and controlled humidity around crops.
+
+#### 3. How does Low Tunnel Film help in crop protection?
+Low Tunnel Film serves as a physical barrier shielding crops from frost during early planting, hail or heavy rain damage, and destructive insects. Its UV-blocking and pest-deterring properties ensure optimal growth conditions.
+
+#### 4. What crops are suitable for Low Tunnel Film cultivation?
+- **Vegetables**: Lettuce, spinach, tomatoes, peppers, and cucumbers.
+- **Small Fruits**: Strawberries, melons, and watermelons.
+- **High-Value Crops**: Exotic flowers, herbs, and nursery seedlings.
+
+#### 5. Is Low Tunnel Film UV-resistant?
+Yes! WinnerPack Low Tunnel Film is manufactured with built-in UV stabilizers to resist ultraviolet radiation, preventing sun degradation and extending the film’s field lifespan.
+
+#### 6. Can Low Tunnel Film help in temperature regulation?
+Targeted solar trapping increases internal tunnel temperatures during the day and prevents night heat loss, minimizing day/night temperature swings and shielding crops from frost.
+
+#### 7. What thickness options are available for Low Tunnel Film?
+Thicknesses range from 50 to 150 Micron for standard low tunnel films, with custom gauges from 20 to 200 Micron available based on climate and crop duration.
+
+#### 8. How long does Low Tunnel Film typically last?
+Premium UV-stabilized films last 12 to 24 months, while standard light-gauge options provide single-season row crop protection.
+
+#### 9. How is Low Tunnel Film installed on a farm?
+1. Prepare planting beds and lay drip lines.
+2. Erect metal or PVC support hoops at regular intervals along crop rows.
+3. Drape the film snugly over hoops.
+4. Secure edges by burying in soil or using ground pins.
+5. Create vent slits or side openings for humidity and airflow regulation.
+
+#### 10. Is Low Tunnel Film reusable?
+Yes. When handled carefully, cleaned after harvest, inspected for minor punctures, and stored in a shaded area away from direct sunlight, thicker low tunnel films can be reused across multiple seasons.`,
     image: "/images/desktop/journey/solution_pcr_eco_film.png",
     gallery: [
       "/images/desktop/journey/solution_pcr_eco_film.png",
       "/images/desktop/about/blown_film_tower.png"
     ],
     specs: {
-      "Transparency": "92% Ultra-Clear Solar Transmission",
-      "Format": "Continuous Roll Sheeting / Micro-Perforated",
-      "Thickness Range": "25 Micron to 50 Micron",
-      "Width Range": "1.2m to 2.5m",
+      "Thickness Range": "50–150 Micron (Custom Available)",
+      "Available Widths": "1 Meter – 4.5 Meters",
+      "Colors Available": "Clear, Yellowish",
+      "Special Additives": "Anti-Fog, Light Diffusion, UV Stabilizer",
+      "Key Benefits": "Frost & Climate Shield, Insect Barrier, Fast Crop Maturity",
     },
     thicknessLengthMatrix: [
-      { micron: "25", gauge: "100", meters: "500", feet: "1,640" },
-      { micron: "30", gauge: "120", meters: "400", feet: "1,312" },
-      { micron: "50", gauge: "200", meters: "300", feet: "984" },
+      { micron: "50", gauge: "200", meters: "400", feet: "1,312" },
+      { micron: "80", gauge: "320", meters: "300", feet: "984" },
+      { micron: "100", gauge: "400", meters: "250", feet: "820" },
+      { micron: "150", gauge: "600", meters: "150", feet: "492" },
     ],
     options: {
-      widths: ["1.2m", "1.5m", "2.0m", "2.5m"],
-      thicknesses: ["25 Micron", "30 Micron", "50 Micron"],
-      colors: ["High Gloss Clear"],
+      widths: ["1.0m", "1.5m", "2.0m", "3.0m", "4.5m"],
+      thicknesses: ["50 Micron", "80 Micron", "100 Micron", "150 Micron"],
+      colors: ["Clear", "Yellowish"],
     },
-    applications: ["Early season vegetable rows", "Watermelon & cantaloupe tunnels", "Nursery seedling protection"],
+    applications: ["Lettuce, spinach & tomato row tunnels", "Strawberry & melon hoop covers", "Nursery seedling & flower protection"],
     visualGradients: "from-emerald-500 to-teal-700",
   },
   {
