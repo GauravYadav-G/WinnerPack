@@ -379,32 +379,32 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             {/* 2. PROMINENT SUBCATEGORY CARDS IN WINNERPACK ROYAL NAVY & AMBER THEME */}
             {product.subCategories && product.subCategories.length > 0 && (
               <section className="bg-[var(--color-mist)] py-8 sm:py-12 md:py-14 border-b border-[var(--color-line)]">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6">
-                  <div className={`grid grid-cols-1 ${product.subCategories.length > 1 ? "md:grid-cols-2" : ""} gap-6 sm:gap-8 items-stretch`}>
+                <div className="max-w-6xl mx-auto px-4 sm:px-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
                     {product.subCategories.map((sub: any) => (
                       <div
                         key={sub.id || sub.title}
-                        className="bg-[var(--color-ink)] text-white rounded-2xl sm:rounded-3xl border border-white/10 shadow-xl p-5 sm:p-7 lg:p-8 flex flex-col justify-between group hover:border-[var(--color-amber)]/40 transition-all duration-300"
+                        className="bg-[var(--color-ink)] text-white rounded-2xl border border-white/10 shadow-xl p-4 sm:p-5 flex flex-col justify-between group hover:border-[var(--color-amber)]/40 transition-all duration-300"
                       >
-                        <div className="space-y-4 sm:space-y-5">
-                          <Link href={`/products/${sub.id || sub.slug || product.id}`} className="block bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl p-2 sm:p-2.5 aspect-[16/10] overflow-hidden flex items-center justify-center">
+                        <div className="space-y-3">
+                          <Link href={`/products/${sub.id || sub.slug || product.id}`} className="block bg-white/5 border border-white/10 rounded-xl p-1.5 aspect-[16/9] overflow-hidden flex items-center justify-center">
                             <OptimizedImage
                               src={sub.image || product.image || "/images/products/specialty-pouches/image.png"}
                               alt={sub.title}
-                              className="w-full h-full object-cover rounded-lg sm:rounded-xl transition-transform duration-500 group-hover:scale-105"
+                              className="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
                             />
                           </Link>
 
                           <div>
                             <Link href={`/products/${sub.id || sub.slug || product.id}`} className="block hover:text-[var(--color-amber)] transition-colors">
-                              <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight">
+                              <h3 className="text-base sm:text-lg font-extrabold text-white font-display tracking-tight leading-tight">
                                 {sub.title}
                               </h3>
                             </Link>
                           </div>
 
                           {sub.blurb && (
-                            <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-sans font-normal">
+                            <p className="text-[11px] sm:text-xs text-white/75 leading-relaxed font-sans font-normal line-clamp-3">
                               {sub.blurb}
                             </p>
                           )}
