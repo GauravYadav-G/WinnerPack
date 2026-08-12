@@ -181,10 +181,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </div>
 
               <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-2 sm:space-y-3">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-amber)]/20 border border-[var(--color-amber)]/40 px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber)]">
-                  High-Barrier Polyethylene Films
-                </span>
-                
                 <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white font-display drop-shadow-md">
                   Lamination PE Film
                 </h1>
@@ -202,15 +198,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             </div>
 
             {/* 2. TWO PROMINENT SUBCATEGORY CARDS IN WINNERPACK THEME */}
-            <section className="bg-[var(--color-mist)] py-10 sm:py-14 md:py-16 border-b border-[var(--color-line)]">
+            <section className="bg-[var(--color-mist)] py-8 sm:py-12 md:py-14 border-b border-[var(--color-line)]">
               <div className="max-w-5xl mx-auto px-4 sm:px-6">
-                <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-                  <Eyebrow>Product Classifications</Eyebrow>
-                  <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                    Engineered PE Lamination Grades
-                  </h2>
-                </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
                   
                   {/* Card 1: Adhesive Lamination Film */}
