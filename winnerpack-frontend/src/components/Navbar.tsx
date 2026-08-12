@@ -408,9 +408,6 @@ export default function Navbar() {
                           
                           {/* ── TIER 1: 4 Main Categories Menu ── */}
                           <div className="w-56 lg:w-60 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 z-30 shrink-0">
-                            {/* Top decorative accent bar */}
-                            <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] to-[#ff9e43]" />
-
                             <div className="divide-y divide-white/5">
                               {productHierarchy.map((category) => {
                                 const isCurrentActive = activeCatId === category.id;
@@ -428,15 +425,15 @@ export default function Navbar() {
                                       className={cn(
                                         "w-full px-4 py-3 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer border-b border-white/5",
                                         isCurrentActive
-                                          ? "bg-white text-[#120a3b] font-black shadow-sm border-l-4 border-l-[var(--color-amber)]"
-                                          : "bg-[#120a3b] text-white/85 hover:bg-white/10 hover:text-[var(--color-amber)] font-medium"
+                                          ? "bg-white text-[#120a3b] font-bold shadow-xs"
+                                          : "bg-[#120a3b] text-white hover:bg-white hover:text-[#120a3b] hover:font-bold font-medium"
                                       )}
                                     >
                                       <span className="truncate">{category.title}</span>
                                       {category.subcategories && category.subcategories.length > 0 && (
                                         <ChevronRight className={cn(
                                           "h-3.5 w-3.5 shrink-0 ml-1 transition-transform",
-                                          isCurrentActive ? "text-[var(--color-amber-dark)] translate-x-0.5" : "text-white/30"
+                                          isCurrentActive ? "text-[#120a3b] translate-x-0.5" : "text-white/60 group-hover/item:text-[#120a3b] group-hover/item:translate-x-0.5"
                                         )} />
                                       )}
                                     </Link>
@@ -457,9 +454,6 @@ export default function Navbar() {
                                 onMouseEnter={() => setActiveCatId(currentCategory.id)}
                                 className="w-64 lg:w-72 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 ml-1 z-20 shrink-0 transition-all duration-150 animate-fade-in"
                               >
-                                {/* Top decorative accent bar matching main menu */}
-                                <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] to-[#ff9e43]" />
-
                                 <div className="divide-y divide-white/5 max-h-[75vh] overflow-y-auto no-scrollbar">
                                   {currentCategory.subcategories.map((subcat) => {
                                     const isSubActive = activeSubCatId === subcat.id;
@@ -474,15 +468,15 @@ export default function Navbar() {
                                           className={cn(
                                             "w-full px-4 py-2.5 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer border-b border-white/5",
                                             isSubActive
-                                              ? "bg-white text-[#120a3b] font-black shadow-sm border-l-4 border-l-[var(--color-amber)]"
-                                              : "bg-[#120a3b] text-white/85 hover:bg-white hover:text-[#120a3b] hover:font-black hover:border-l-4 hover:border-l-[var(--color-amber)] font-medium"
+                                              ? "bg-white text-[#120a3b] font-bold shadow-xs"
+                                              : "bg-[#120a3b] text-white hover:bg-white hover:text-[#120a3b] hover:font-bold font-medium"
                                           )}
                                         >
                                           <span className="truncate">{subcat.title}</span>
                                           {subcat.items && subcat.items.length > 0 && (
                                             <ChevronRight className={cn(
                                               "h-3.5 w-3.5 shrink-0 ml-1 transition-transform",
-                                              isSubActive ? "text-[var(--color-amber-dark)] translate-x-0.5" : "text-white/30"
+                                              isSubActive ? "text-[#120a3b] translate-x-0.5" : "text-white/60 group-hover/subitem:text-[#120a3b] group-hover/subitem:translate-x-0.5"
                                             )} />
                                           )}
                                         </Link>
@@ -510,9 +504,6 @@ export default function Navbar() {
                                 }}
                                 className="w-64 lg:w-72 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 ml-1 z-10 shrink-0 transition-all duration-150 animate-fade-in"
                               >
-                                {/* Top decorative accent bar matching main menu */}
-                                <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] to-[#ff9e43]" />
-
                                 <div className="divide-y divide-white/5 max-h-[75vh] overflow-y-auto no-scrollbar">
                                   {currentSubCat.items.map((item) => (
                                     <Link
@@ -523,10 +514,10 @@ export default function Navbar() {
                                         setActiveCatId(null);
                                         setActiveSubCatId(null);
                                       }}
-                                      className="w-full px-4 py-2.5 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer bg-[#120a3b] text-white/85 hover:bg-white hover:text-[#120a3b] hover:font-black hover:border-l-4 hover:border-l-[var(--color-amber)] border-b border-white/5 font-medium group"
+                                      className="w-full px-4 py-2.5 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer bg-[#120a3b] text-white hover:bg-white hover:text-[#120a3b] hover:font-bold border-b border-white/5 font-medium group"
                                     >
                                       <span className="truncate">{item.name}</span>
-                                      <ChevronRight className="h-3.5 w-3.5 text-white/30 group-hover:text-[var(--color-amber-dark)] shrink-0 ml-1 transition-transform group-hover:translate-x-0.5" />
+                                      <ChevronRight className="h-3.5 w-3.5 text-white/60 group-hover:text-[#120a3b] shrink-0 ml-1 transition-transform group-hover:translate-x-0.5" />
                                     </Link>
                                   ))}
                                 </div>
