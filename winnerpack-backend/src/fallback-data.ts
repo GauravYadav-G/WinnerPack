@@ -2949,6 +2949,127 @@ Using plastic mulch film is one of the most effective methods to increase agricu
     visualGradients: "from-sky-400 to-blue-500",
   },
   {
+    id: "ldpe-shrink-film",
+    title: "LDPE Shrink Film",
+    category: "film-products",
+    tag: "LDPE Shrink",
+    blurb: "Heavy-gauge LDPE collation shrink film engineered for heat-shrink bundling of beverage bottles, cans, glass jars, and heavy industrial products with high holding force and puncture resistance.",
+    longDesc: `Shrink film is a highly adaptable packaging material designed to protect, secure, and bundle a wide variety of products. Made from different materials, with polyethylene being the most popular, shrink film is especially valued for its ability to conform tightly around items, providing a reliable barrier against external elements. LDPE (Low-Density Polyethylene) is a preferred choice for secondary and tertiary packaging due to its excellent strength, flexibility, and shrink performance.
+
+With WinnerPack LDPE shrink film, businesses can achieve reliable product protection and an attractive presentation while ensuring products remain secure during shipping, storage, and handling. Suitable for food, beverages, consumer goods, and industrial products, shrink film provides a cost-effective packaging solution that improves product stability and shelf appeal.
+
+### Key Features of WinnerPack LDPE Shrink Film
+- **Significant Cost Savings**: Reduces costs compared to traditional corrugated box packaging.
+- **Ease of Post-Usage Disposal**: 100% recyclable mono-material poly sheeting.
+- **Lower Shipment Costs**: Significant weight and space savings during transport.
+- **Complete Barrier Protection**: Shields products from humidity, dust, dirt, and moisture.
+- **Cold Storage Compatible**: Suitable for direct storage in refrigerators, ice environments, and water exposure.
+- **Tamper-Evident Packaging**: Clearly displays any unauthorized opening attempts.
+- **Storage Space Savings**: Compact roll format optimizes warehouse storage space.
+- **Customizable Gauges**: Available in a wide variety of micron thicknesses to meet specific application requirements.
+
+### LDPE Shrink Properties & Engineering
+WinnerPack LDPE shrink film is engineered to deliver outstanding performance across a wide range of packaging applications. Its excellent melt strength and drawdown capability allow the film to shrink uniformly around products, creating a secure and protective seal when heat is applied.
+
+The film's biaxial shrink properties ensure consistent wrapping, while its strong sealing performance makes it suitable for both manual and automated packaging lines. Its excellent resistance to heat, moisture, and handling stresses helps protect products throughout storage, transportation, and distribution.
+
+### Why Choose WinnerPack as your LDPE Shrink Film Manufacturer
+- **Stringent Quality Assurance**: Process-controlled extrusion to maintain consistent thickness and shrink ratios.
+- **Proven Industry Experience**: 20+ years of expertise in manufacturing durable, high-performance shrink films.
+- **Customer-Centric Approach**: Tailored packaging solutions customized to your exact width, gauge, and formulation needs.
+- **Timely Global Delivery**: Direct dispatch pipelines for uninterrupted business and production operations.
+- **Competitive Manufacturer Pricing**: Transparent B2B pricing ranging from ₹95 to ₹145 per kilogram based on order specs.
+
+### Benefits of Packaging with LDPE Shrink Film
+Packaging with LDPE shrink film offers numerous advantages for businesses across various industries. Its excellent shrink properties provide a secure, protective wrap that minimizes the risk of damage during shipping, storage, and handling.
+
+Suitable for both manual L-sealers and high-speed automated shrink tunnels, WinnerPack LDPE shrink film delivers a consistent, snug fit for a wide range of products. Its clarity and durability enhance product presentation while helping improve shelf appeal. Custom-printed LDPE shrink film also supports brand visibility by showcasing logos, graphics, and product information.
+
+### Packaging Solutions for Various Industries
+- **Food and Beverage Industry**: Provides a protective barrier against moisture, dust, and contaminants while maintaining product quality throughout the supply chain.
+- **Consumer Goods & Retail**: Offers secure bundling, excellent tear resistance, and improved presentation for household items and personal care.
+- **Industrial Logistics**: Ideal for secondary and tertiary pallet bundling, machinery components, and construction materials.
+- **Sustainable Packaging**: 100% recyclable Type 4 plastic material supporting corporate zero-waste initiatives.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is LDPE Shrink Film?
+LDPE (Low-Density Polyethylene) Shrink Film is a durable, flexible plastic material widely used in packaging applications. This film is known for its excellent clarity, toughness, and ability to shrink when heat is applied, creating a secure and protective seal around products.
+
+#### 2. What are the key features of LDPE Shrink Film?
+- **High Clarity and Gloss** for enhanced product visibility.
+- **Excellent Durability** with high tensile strength and tear resistance.
+- **Heat Shrink Capability** for a tight and secure wrap.
+- **Flexibility in Thickness** to meet diverse packaging requirements.
+- **Moisture and Dust Resistance** for added product protection.
+- **Customization Options** in size, color, and printing.
+
+#### 3. How does LDPE Shrink Film work for product packaging?
+LDPE Shrink Film functions by utilizing heat to shrink and conform tightly to the product’s shape. Heat is typically applied through a heat gun or shrink tunnel during the packaging process, ensuring a secure and tamper-proof seal. The result is a lightweight yet sturdy layer of protection suitable for various packaging needs.
+
+#### 4. What industries commonly use LDPE Shrink Film?
+- **Manufacturing and Industrial Packaging**: For bundling and securing goods such as machinery components.
+- **Beverage and Bottling Companies**: For wrapping multipack bottles and cans.
+- **Retailers and E-Commerce Businesses**: For secure and clear product packaging that enhances shelf appeal.
+
+#### 5. Is LDPE Shrink Film recyclable?
+Yes, LDPE Shrink Film is recyclable. It is identified as a Type 4 plastic, meaning it can be reprocessed into new items such as garbage bags, floor tiles, and paneling. Manufacturers should ensure proper disposal methods or recycling partnerships for sustainable use.
+
+#### 6. What thickness options are available for LDPE Shrink Film?
+LDPE Shrink Film is available in various thickness options, typically ranging from 35 microns to 200 microns. This variety allows manufacturers to choose the ideal thickness based on the weight, size, and protection requirements of their packaging or bundling needs.
+
+#### 7. Can LDPE Shrink Film be used for food packaging?
+Yes, LDPE Shrink Film can be safely used for food packaging. Food-grade LDPE Shrink Film complies with international food safety standards (FDA & EU certified) and provides a hygienic wrap to preserve freshness and protect food from contamination.
+
+#### 8. How does LDPE Shrink Film protect products during storage and transit?
+LDPE Shrink Film offers reliable protection by forming a tamper-resistant and moisture-proof seal around products. This minimizes exposure to humidity, dust, and other environmental elements. The film’s high tensile strength helps prevent damage during transit, while its flexibility ensures products remain intact during handling.
+
+#### 9. Is LDPE Shrink Film suitable for high-temperature environments?
+Yes, LDPE Shrink Film performs well in moderate-high temperature requirements. However, its maximum heat resistance is generally lower than that of some other polymers. Manufacturers handling environments inclined toward prolonged exposure to high temperatures should consult technical specifications or consider multi-layer variants for enhanced protection.
+
+#### 10. Can LDPE Shrink Film be customized in size and color?
+Absolutely. LDPE Shrink Film can be produced in custom sizes, colors, and even with printed branding to meet specific packaging needs. From vibrant colored films for brand differentiation to bespoke dimensions for unique product requirements, customization options ensure ideal compatibility and enhanced market appeal.`,
+    image: "/images/products/ldpe-shrink-rolls/image.png",
+    gallery: [
+      "/images/products/ldpe-shrink-rolls/image.png",
+      "/images/products/ldpe-films-pouches/applications/app-1.png",
+      "/images/products/ldpe-films-pouches/applications/app-2.png",
+      "/images/products/ldpe-films-pouches/applications/app-3.png",
+    ],
+    specs: {
+      "Material Composition": "LDPE (Low-Density Polyethylene)",
+      "Width Customization": "150 mm to 2,000 mm",
+      "Thickness Range": "Starting from 35 Micron to 200 Micron",
+      "Available Colors": "Natural Transparent & Opaque White",
+      "Product Format": "Continuous Film Rolls & Pre-Cut Bags",
+      "Performance Additives": "UV Protection, VCI & Antistatic",
+      "Packaging Category": "Secondary & Tertiary Packaging",
+      "Recyclability Standard": "100% Recyclable LDPE (Type 4 Plastic)",
+      "Pricing Benchmark": "₹95 to ₹145 per kg (depends on spec/qty)",
+    },
+    thicknessLengthMatrix: [
+      { micron: "35", gauge: "140", meters: "900", feet: "2,952" },
+      { micron: "50", gauge: "200", meters: "600", feet: "1,968" },
+      { micron: "80", gauge: "320", meters: "375", feet: "1,230" },
+      { micron: "100", gauge: "400", meters: "300", feet: "984" },
+      { micron: "150", gauge: "600", meters: "200", feet: "656" },
+      { micron: "200", gauge: "800", meters: "150", feet: "492" },
+    ],
+    options: {
+      widths: ["150 mm", "300 mm", "600 mm", "1200 mm", "2000 mm"],
+      thicknesses: ["35 Micron", "50 Micron", "80 Micron", "100 Micron", "150 Micron", "200 Micron"],
+      colors: ["Natural Transparent", "Opaque White"],
+    },
+    applications: [
+      "Mineral water & beverage multipacks",
+      "Can & glass jar collation packaging",
+      "Chemical container shrink wrapping",
+      "Refrigerated & ice environment storage",
+      "Secondary & tertiary industrial bundling",
+    ],
+    visualGradients: "from-sky-400 to-blue-500",
+  },
+  {
     id: "pe-liners-garbage-bags",
     title: "PE Liners And Garbage Bags",
     category: "film-products",
