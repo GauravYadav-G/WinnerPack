@@ -339,11 +339,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     : fallbackParent?.subCategories || [];
 
   const isParentProduct = Boolean(
-    displaySubCategories.length > 0 ||
-    product.id === "pof-shrink-film" ||
-    product.id === "plastic-stretch-film" ||
-    product.id === "lamination-films-pouches" ||
-    product.id === "lamination-pe-film"
+    product.id === "packaging-films" ||
+    product.id === "film-products"
   );
 
   return (
