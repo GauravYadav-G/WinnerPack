@@ -16,6 +16,145 @@ const links = [
   { label: "Contact Us", href: "/contact" }
 ];
 
+// Product Category Menu matching Tilak Polypack structure with WinnerPack brand theme
+const extendedProductMenu = [
+  {
+    id: "lamination-pe-film",
+    title: "Lamination PE Film",
+    tag: "High-Bonding Barrier & Lamination Films",
+    catSlug: "film-products",
+    items: [
+      { name: "Adhesive Lamination Film", slug: "lamination-films-pouches" },
+      { name: "Pharma Grade Poly", slug: "ldpe-films-pouches" },
+      { name: "Barrier Lamination Film", slug: "lamination-films-pouches" },
+      { name: "Laminated Pouches & Rolls", slug: "lamination-films-pouches" },
+    ]
+  },
+  {
+    id: "surface-protection-tapes",
+    title: "Surface Protection Tapes",
+    tag: "Residue-Free Guard Films & Tapes",
+    catSlug: "tapes",
+    items: [
+      { name: "Surface Protection Films", slug: "coloured-films-pouches" },
+      { name: "Carpet Protection Film", slug: "coloured-films-pouches" },
+      { name: "Floor Protection Tape", slug: "bopp-tapes" },
+      { name: "Stainless Steel Protection Sheet", slug: "coloured-films-pouches" },
+    ]
+  },
+  {
+    id: "agricultural-films",
+    title: "Agricultural Films",
+    tag: "UV Stabilized Greenhouse & Mulch",
+    catSlug: "film-products",
+    items: [
+      { name: "Plastic Mulching Film", slug: "compostable-films-pouches" },
+      { name: "Low Tunnel Film", slug: "ldpe-films-pouches" },
+      { name: "Mulch Film", slug: "compostable-films-pouches" },
+    ]
+  },
+  {
+    id: "biodegradable-films",
+    title: "Biodegradble Films",
+    tag: "100% Eco-Friendly & Compostable",
+    catSlug: "film-products",
+    items: [
+      { name: "Bio Degradable Mulch Film", slug: "compostable-films-pouches" },
+      { name: "Biodegradable Shrink Film", slug: "pof-films-pouches" },
+      { name: "Biodegradable Shopping Bag", slug: "compostable-films-pouches" },
+      { name: "Compostable Pouches", slug: "compostable-films-pouches" },
+    ]
+  },
+  {
+    id: "packaging-films",
+    title: "Packaging Films",
+    tag: "Industrial Bundle & Pallet Wrap",
+    catSlug: "film-products",
+    items: [
+      { name: "LDPE Shrink Film", slug: "ldpe-films-pouches" },
+      { name: "PE Liners And Garbage Bags", slug: "ldpe-films-pouches" },
+      { name: "Plastic Stretch Film", slug: "stretch-film" },
+      { name: "Collation Shrink Film", slug: "pof-films-pouches" },
+    ]
+  },
+  {
+    id: "flexible-laminate-rolls",
+    title: "Flexible Laminate Rolls & Pouches",
+    tag: "Multi-Layer Barrier Pouches & Foils",
+    catSlug: "film-products",
+    items: [
+      { name: "Food Packaging Laminates", slug: "lamination-films-pouches" },
+      { name: "Agro Chemical Laminates", slug: "lamination-films-pouches" },
+      { name: "Plain Standup Pouches", slug: "bopp-films-pouches" },
+      { name: "Lidding Foils And Laminates", slug: "lamination-films-pouches" },
+      { name: "Wrap Around Labels", slug: "printed-labels" },
+      { name: "Laminated Pouch India", slug: "lamination-films-pouches" },
+    ]
+  },
+  {
+    id: "printed-pe-films",
+    title: "Printed PE Films",
+    tag: "Flexographic Printed Liquid Packaging",
+    catSlug: "film-products",
+    items: [
+      { name: "Milk Packaging Film", slug: "coloured-films-pouches" },
+      { name: "Ghee Packaging Film", slug: "coloured-films-pouches" },
+      { name: "SMP Packaging Film", slug: "coloured-films-pouches" },
+      { name: "Water Packaging Film", slug: "coloured-films-pouches" },
+    ]
+  },
+  {
+    id: "stretch-film",
+    title: "Stretch Film",
+    tag: "Machine & Manual Load Unitization",
+    catSlug: "film-products",
+    items: [
+      { name: "Sustainable Stretch Wrap", slug: "stretch-film" },
+      { name: "Mini Stretch Wrap Rolls", slug: "stretch-film" },
+      { name: "Manual Stretch Film", slug: "stretch-film" },
+      { name: "Machine Grade Stretch Film", slug: "stretch-film" },
+    ]
+  },
+  {
+    id: "labels-stickers",
+    title: "Labels & Stickers",
+    tag: "Thermal Transfer & Product Stickers",
+    catSlug: "label-sticker-products",
+    items: [
+      { name: "Plain Labels", slug: "plain-labels" },
+      { name: "Printed Labels", slug: "printed-labels" },
+      { name: "Barcode Labels", slug: "barcode-labels" },
+      { name: "Product Labels", slug: "product-labels" },
+      { name: "Self Adhesive Labels", slug: "self-adhesive-labels" },
+      { name: "Thermal Labels", slug: "thermal-labels" },
+    ]
+  },
+  {
+    id: "tapes-division",
+    title: "Tapes Division",
+    tag: "High-Tack BOPP & Specialty Tapes",
+    catSlug: "tapes",
+    items: [
+      { name: "BOPP Tapes", slug: "bopp-tapes" },
+      { name: "Printed BOPP Tapes", slug: "printed-bopp-tapes" },
+      { name: "Coloured BOPP Tapes", slug: "coloured-bopp-tapes" },
+      { name: "Silicon Tapes", slug: "silicon-tapes" },
+    ]
+  },
+  {
+    id: "pp-pet-strapping",
+    title: "PP & PET Strapping",
+    tag: "High Tensile Pallet Strapping Rolls",
+    catSlug: "pp-strap",
+    items: [
+      { name: "PP Strap", slug: "pp-strap" },
+      { name: "Printed PP Strap", slug: "printed-pp-strap" },
+      { name: "Colored PP Strap", slug: "colored-pp-strap" },
+      { name: "PET Strap", slug: "pet-strap" },
+    ]
+  }
+];
+
 // Helper to map item names to folder slugs
 function getItemSlug(name: string): string {
   const map: Record<string, string> = {
@@ -56,7 +195,7 @@ function getItemSlug(name: string): string {
     "Pallet Cover": "pallet-cover",
     "Pallet Liner": "pallet-liner"
   };
-  return map[name] || name.toLowerCase().replace(/\s+/g, "-");
+  return map[name] || name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
 export default function Navbar() {
@@ -64,7 +203,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isProductsHovered, setIsProductsHovered] = useState(false);
-  const [activeCategoryTab, setActiveCategoryTab] = useState<string>(productCategories[0]?.id || "film-products");
+  const [activeCategoryTab, setActiveCategoryTab] = useState<string>(extendedProductMenu[0].id);
   const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
 
   useEffect(() => {
@@ -165,27 +304,23 @@ export default function Navbar() {
                         <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200 text-[var(--color-amber)]", isProductsHovered && "rotate-180")} />
                       </Link>
 
-                      {/* ── SPLIT-PANE MEGA MENU DROPDOWN (Tabbed Category Side List + Products Grid) ── */}
+                      {/* ── TILAK POLYPACK STYLE SPLIT-PANE MEGA MENU DROPDOWN ── */}
                       <div
                         className={cn(
-                          "absolute left-1/2 -translate-x-1/2 top-[56px] w-[92vw] max-w-5xl bg-[var(--color-ink)]/98 backdrop-blur-2xl text-white shadow-[0_25px_60px_rgba(0,0,0,0.7)] rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 z-50 pointer-events-auto",
+                          "absolute left-1/2 -translate-x-1/2 top-[56px] w-[94vw] max-w-5xl bg-[#120a3b] text-white shadow-[0_30px_70px_rgba(0,0,0,0.7)] rounded-xl border border-white/10 overflow-hidden transition-all duration-300 z-50 pointer-events-auto",
                           isProductsHovered
                             ? "opacity-100 visible translate-y-0"
                             : "opacity-0 invisible -translate-y-2 pointer-events-none"
                         )}
                       >
-                        {/* Top Decorative Amber Line */}
+                        {/* Top Decorative System Amber Line */}
                         <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] via-[#ff9e43] to-[var(--color-amber)]" />
 
-                        <div className="flex flex-row min-h-[380px]">
-                          {/* Left Column: Vertical Category Tabs (Active state highlights with white bg & dark ink text) */}
-                          <div className="w-64 lg:w-72 shrink-0 bg-[#0c072b] border-r border-white/10 flex flex-col divide-y divide-white/5 py-2">
-                            <div className="px-5 py-2.5 text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--color-amber)]">
-                              Product Categories
-                            </div>
-                            {productCategories.map((category) => {
+                        <div className="flex flex-row min-h-[440px] max-h-[520px]">
+                          {/* Left Column: Vertical Category Menu Stack (Active state: White bg, Dark ink text, Amber left border) */}
+                          <div className="w-64 lg:w-72 shrink-0 bg-[#120a3b] border-r border-white/10 flex flex-col overflow-y-auto no-scrollbar py-1">
+                            {extendedProductMenu.map((category) => {
                               const isActive = activeCategoryTab === category.id;
-                              const Icon = category.icon;
                               return (
                                 <button
                                   key={category.id}
@@ -193,40 +328,30 @@ export default function Navbar() {
                                   onMouseEnter={() => setActiveCategoryTab(category.id)}
                                   onClick={() => setActiveCategoryTab(category.id)}
                                   className={cn(
-                                    "w-full px-5 py-3.5 text-left text-xs lg:text-sm transition-all duration-200 flex items-center justify-between group cursor-pointer",
+                                    "w-full px-4 py-3 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between border-b border-white/5 cursor-pointer",
                                     isActive
-                                      ? "bg-white text-[#120a3b] font-extrabold shadow-md border-l-4 border-[var(--color-amber)]"
-                                      : "bg-transparent text-white/80 hover:bg-white/10 hover:text-white"
+                                      ? "bg-white text-[#120a3b] font-black shadow-md border-l-4 border-l-[var(--color-amber)]"
+                                      : "bg-[#120a3b] text-white/85 hover:bg-white/10 hover:text-[var(--color-amber)] font-medium"
                                   )}
                                 >
-                                  <div className="flex items-center gap-3">
-                                    <div className={cn(
-                                      "p-1.5 rounded-lg transition-colors shrink-0",
-                                      isActive ? "bg-amber-100 text-[var(--color-amber-dark)]" : "bg-white/5 text-white/60 group-hover:text-[var(--color-amber)]"
-                                    )}>
-                                      <Icon className="h-4 w-4" />
-                                    </div>
-                                    <span className="truncate">{category.title}</span>
-                                  </div>
-                                  <span className={cn(
-                                    "text-[10px] font-mono font-bold px-2 py-0.5 rounded-full transition-colors shrink-0 ml-2",
-                                    isActive ? "bg-[#120a3b] text-white" : "bg-white/10 text-white/60 group-hover:bg-white/20 group-hover:text-white"
-                                  )}>
-                                    {category.items.length}
-                                  </span>
+                                  <span className="truncate">{category.title}</span>
+                                  <ChevronRight className={cn(
+                                    "h-3.5 w-3.5 shrink-0 ml-1 transition-transform",
+                                    isActive ? "text-[var(--color-amber-dark)] translate-x-0.5" : "text-white/30"
+                                  )} />
                                 </button>
                               );
                             })}
                           </div>
 
-                          {/* Right Area: Dynamic Product Items Grid */}
+                          {/* Right Area: Sub-Items Panel (Side-by-side Dark Blue Blocks) */}
                           {(() => {
-                            const currentCategory = productCategories.find((c) => c.id === activeCategoryTab) || productCategories[0];
+                            const currentCategory = extendedProductMenu.find((c) => c.id === activeCategoryTab) || extendedProductMenu[0];
                             return (
-                              <div className="flex-1 p-6 lg:p-7 bg-[#120a3b]/95 flex flex-col justify-between">
+                              <div className="flex-1 p-6 lg:p-7 bg-[#0d072b] flex flex-col justify-between overflow-y-auto">
                                 <div>
-                                  {/* Category Header */}
-                                  <div className="flex items-start justify-between border-b border-white/10 pb-4 mb-5 gap-4">
+                                  {/* Sub-Panel Header */}
+                                  <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
                                     <div>
                                       <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--color-amber)]">
                                         {currentCategory.tag}
@@ -236,43 +361,42 @@ export default function Navbar() {
                                       </h3>
                                     </div>
                                     <Link
-                                      href={`/product-category/${currentCategory.id}`}
+                                      href={`/product-category/${currentCategory.catSlug}`}
                                       onClick={() => setIsProductsHovered(false)}
-                                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-amber)] hover:text-white transition-colors bg-white/5 hover:bg-[var(--color-amber)] px-3.5 py-1.5 rounded-xl border border-white/10 hover:border-transparent shrink-0"
+                                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-amber)] hover:text-white transition-colors bg-white/5 hover:bg-[var(--color-amber)] px-3.5 py-1.5 rounded-lg border border-white/10 hover:border-transparent shrink-0"
                                     >
-                                      <span>View Category</span>
+                                      <span>Explore All</span>
                                       <ArrowRight className="h-3.5 w-3.5" />
                                     </Link>
                                   </div>
 
-                                  {/* Sub-Items Grid (2 or 3 Columns) */}
-                                  <div className="grid grid-cols-2 gap-2.5">
+                                  {/* Sub-Items Side-by-Side Dark Blue Block Grid */}
+                                  <div className="grid grid-cols-2 gap-3">
                                     {currentCategory.items.map((item) => {
-                                      const slug = getItemSlug(item);
                                       return (
                                         <Link
-                                          key={item}
-                                          href={`/products/${slug}`}
+                                          key={item.name}
+                                          href={`/products/${item.slug}`}
                                           onClick={() => setIsProductsHovered(false)}
-                                          className="group p-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/5 hover:border-[var(--color-amber)]/40 transition-all duration-200 flex items-center justify-between text-xs text-white/90 hover:text-white"
+                                          className="group p-3.5 rounded-lg bg-[#1a114b] hover:bg-[#26186c] border border-white/10 hover:border-[var(--color-amber)]/50 transition-all duration-200 flex items-center justify-between text-xs text-white hover:text-[var(--color-amber)] shadow-xs"
                                         >
-                                          <span className="font-medium group-hover:font-bold group-hover:text-[var(--color-amber)] transition-colors truncate">
-                                            {item}
+                                          <span className="font-bold tracking-wide truncate">
+                                            {item.name}
                                           </span>
-                                          <ChevronRight className="h-3.5 w-3.5 text-white/30 group-hover:text-[var(--color-amber)] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                                          <ChevronRight className="h-4 w-4 text-[var(--color-amber)] opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0 ml-2" />
                                         </Link>
                                       );
                                     })}
                                   </div>
                                 </div>
 
-                                {/* Bottom Info Bar */}
-                                <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-white/60">
-                                  <span className="font-mono text-[11px] truncate mr-4">
-                                    {currentCategory.blurb}
+                                {/* Sub-Panel Footer Notice */}
+                                <div className="mt-6 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-white/50 font-mono">
+                                  <span className="text-[11px]">
+                                    Direct Manufacturer Supply · Custom Specifications Available
                                   </span>
-                                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-3 py-1 rounded-full shrink-0">
-                                    ISO Verified
+                                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-3 py-1 rounded-full shrink-0">
+                                    ISO 9001:2015
                                   </span>
                                 </div>
                               </div>
