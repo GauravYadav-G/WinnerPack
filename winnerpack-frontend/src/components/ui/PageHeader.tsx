@@ -12,10 +12,12 @@ interface PageHeaderProps {
   intro: string;
   crumbs?: Crumb[];
   theme?: "dark" | "light";
+  align?: "left" | "center";
 }
 
-export function PageHeader({ eyebrow, title, intro, crumbs, theme = "dark" }: PageHeaderProps) {
+export function PageHeader({ eyebrow, title, intro, crumbs, theme = "dark", align = "left" }: PageHeaderProps) {
   const isLight = theme === "light";
+  const isCenter = align === "center";
 
   return (
     <section className={`relative overflow-hidden pb-12 pt-10 md:pb-16 md:pt-12 lg:pb-20 ${
@@ -38,10 +40,14 @@ export function PageHeader({ eyebrow, title, intro, crumbs, theme = "dark" }: Pa
           />
         </>
       )}
-      <div className="mx-auto max-w-7xl px-5 md:px-8 relative z-10">
+      <div className={`mx-auto max-w-7xl px-5 md:px-8 relative z-10 ${
+        isCenter ? "flex flex-col items-center text-center" : ""
+      }`}>
         {crumbs && (
           <nav aria-label="Breadcrumb" className="mb-5">
             <ol className={`flex flex-wrap items-center gap-1.5 font-mono text-xs ${
+              isCenter ? "justify-center" : ""
+            } ${
               isLight ? "text-[var(--color-mute)]" : "text-white/45"
             }`}>
               {crumbs.map((c, i) => (
@@ -69,11 +75,15 @@ export function PageHeader({ eyebrow, title, intro, crumbs, theme = "dark" }: Pa
           {eyebrow}
         </span>
         <h1 className={`mt-3 md:mt-5 text-balance font-display text-3xl md:text-6xl font-bold leading-[1.05] tracking-tight max-w-4xl ${
+          isCenter ? "text-center mx-auto" : ""
+        } ${
           isLight ? "text-[var(--color-ink)]" : "text-white"
         }`}>
           {title}
         </h1>
         <p className={`mt-3 md:mt-6 max-w-2xl text-xs md:text-lg leading-relaxed ${
+          isCenter ? "text-center mx-auto" : ""
+        } ${
           isLight ? "text-[var(--color-mute)]" : "text-white/70"
         }`}>
           {intro}

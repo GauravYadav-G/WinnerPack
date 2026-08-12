@@ -170,6 +170,7 @@ export default function GalleryClient() {
           title="Gallery"
           intro="A glimpse into our work culture, manufacturing environment, and team activities."
           crumbs={[{ label: "Home", to: "/" }, { label: "Gallery" }]}
+          align="center"
         />
 
         {/* Dynamic Visual Collage Gallery Section (Stretched max-w-[1536px]) */}
