@@ -31,9 +31,23 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const [loading, setLoading] = useState(true);
   const [img, setImg] = useState<string>("");
 
+  const aliasMap: Record<string, string> = {
+    "lamination-pe-film": "lamination-films-pouches",
+    "pof-shrink-film": "pof-films-pouches",
+    "packaging-films": "ldpe-films-pouches",
+    "agricultural-films": "compostable-films-pouches",
+    "biodegradable-films": "compostable-films-pouches",
+    "flexible-laminate-rolls": "lamination-films-pouches",
+    "printed-pe-films": "coloured-films-pouches",
+    "ldpe-bags": "ldpe-films-pouches",
+    "bopp-films": "bopp-films-pouches",
+    "pvc-shrink-films": "pvc-shrink-rolls-pouches",
+  };
+  const targetId = aliasMap[id] || id;
+
   useEffect(() => {
     setLoading(true);
-    apiFetch(`/api/products/${id}`)
+    apiFetch(`/api/products/${targetId}`)
       .then((res) => {
         if (!res.ok) throw new Error("Product not found");
         return res.json();
@@ -60,7 +74,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       })
       .catch((err) => {
         console.warn("Failed to load product detail from API, using client fallback:", err);
-        const fallbackProduct = initialProducts.find((p) => p.id === id);
+        const fallbackProduct = initialProducts.find((p) => p.id === targetId || p.id === id);
         if (fallbackProduct) {
           setProduct(fallbackProduct);
           setImg(fallbackProduct.gallery?.[0] || fallbackProduct.image || "");
@@ -73,7 +87,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         }
         setLoading(false);
       });
-  }, [id]);
+  }, [id, targetId]);
 
   if (loading) {
     return (

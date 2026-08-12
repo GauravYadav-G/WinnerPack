@@ -859,11 +859,44 @@ export const initialProducts = [
   },
   {
     id: "lamination-films-pouches",
-    title: "Lamination Films & Pouches",
+    title: "Lamination PE Film",
     category: "film-products",
-    tag: "Lamination",
-    blurb: "Multi-layer thermal, dry, and extrusion barrier lamination films and pre-formed stand-up zipper pouches engineered for zero oxygen transmission, light barrier, and extended food shelf life.",
-    longDesc: "Lamination Films & Pouches are engineered by bonding two or more flexible substrate layers (PET, Foil, MET-PET, BOPP, Nylon, and LLDPE) using solventless adhesive extrusion or thermal bonding. This multi-layer barrier composite delivers absolute zero oxygen transmission rates (OTR) and water vapor transmission rates (WVTR). Specified for gourmet coffee, dry fruits, spices, pharmaceuticals, chemical powders, and retort food packaging.\n\n### Key Product Features:\n- **Multi-Layer High Barrier Composite**: Combines PET, Aluminum Foil, and Polyethylene for absolute light, oxygen, and moisture protection.\n- **Zero Transmission Rates (OTR & WVTR)**: Prevents oxidation, rancidity, and moisture degradation for long shelf-life foods.\n- **High Hermetic Seal Integrity**: Strong heat-sealed seams withstand hot filling, vacuum sealing, and high-pressure retort sterilization.\n- **Rich Rotogravure Graphics**: Enables up to 10-color reverse printing with metallic, glossy, or soft-touch matte finishes.\n- **Pouch Formats**: Stand-up pouches with press-to-close zippers, tear notches, valve degassing, 3-side seal, and side gusset bags.\n- **Thermal & Extrusion Roll Availability**: Offered in continuous lamination film rolls for high-speed form-fill-seal (FFS) pouch machines.",
+    tag: "Lamination PE",
+    blurb: "Lamination PE film is a versatile and indispensable component in the realm of packaging solutions. This high-quality film, made from polyethylene, exhibits exceptional clarity, strength, and flexibility.",
+    longDesc: `Lamination PE film is a versatile and indispensable component in the realm of packaging solutions. This high-quality film, made from polyethylene, exhibits exceptional clarity, strength, and flexibility. Lamination PE film is available as laminated and stretch film options, and is widely used as a packaging film and plastic film in various industries. It is commonly utilized as a protective layer, enhancing the durability and visual appeal of various products.
+
+The lamination process involves bonding the film to surfaces such as paper, cardboard, or other materials to provide an added layer of protection against moisture, dirt, and wear. The process can involve combining polyethylene films with other materials such as biaxially oriented polypropylene, polypropylene, or sheets to enhance specific properties. Anti static properties are also important for packaging sensitive electronics and medical products. This enables businesses across industries to safeguard their goods during handling, storage, and transportation.
+
+With its wide range of applications, including packaging for food, pharmaceuticals, textiles, and industrial products, lamination PE film also finds use in beverage packaging, containers, and labels, as well as being suitable for frequently thermoformed packaging and custom polyethylene film products. Its versatility, strength, and reliable barrier properties make it an indispensable choice for businesses seeking optimal packaging solutions in the B2B sector. Linear low density polyethylene and ultra high molecular weight options are available for specialized needs.
+
+Our company’s capabilities include producing a wide range of polyethylene films and plastic films for various industries, establishing us as a leading company and distributor in the market.
+
+### Properties of PE Film
+The unique properties of PE film make it an indispensable material for a wide range of uses. Known for its excellent chemical resistance and electrical insulation, PE film is also oil-resistant and waterproof, providing robust protection for packaged goods. Its low density means it is nearly non-absorbent and can float on water, adding to its versatility in various applications.
+
+PE film is available in different forms, primarily low density polyethylene (LDPE) and high density polyethylene (HDPE). LDPE is softer, more flexible, and highly transparent, making it suitable for applications where clarity and flexibility are important. In contrast, HDPE offers greater strength and higher heat resistance, making it ideal for more demanding packaging and industrial uses. The structure of PE film, composed of repeated methylene units, can be tailored during production to achieve specific mechanical properties and thicknesses, ensuring the right balance of durability and performance for each application. Whether used in transparent packaging, industrial sheeting, or protective covers, PE film’s adaptability and reliability make it a preferred choice in many industries.
+
+### Lamination PE Film Manufacturer
+A lamination PE film manufacturer plays a pivotal role in delivering high-quality PE films tailored for a variety of packaging applications. Utilizing advanced extrusion and lamination technologies, these manufacturers produce a diverse range of film products, including barrier films, stretch films, and protective films, each designed to meet the specific needs of industries such as food packaging, medical packaging, and industrial packaging.
+
+Manufacturers of PE film products are committed to stringent quality control, ensuring that every roll provides superior moisture barrier, abrasion resistance, and high heat resistance. This attention to detail makes their films suitable for demanding environments in sectors like automotive, aerospace, electronics, and consumer markets. By offering custom plastic products and solutions, lamination PE film manufacturers enable companies to develop innovative packaging products that enhance product safety, extend shelf life, and improve overall performance. Their expertise supports a wide array of commercial applications, from pharmaceutical and medical packaging to industrial and retail packaging, making them essential partners for businesses seeking reliable and effective packaging solutions.
+
+At WinnerPack, we take immense pride in being the leading manufacturer of PE lamination Film, catering to the diverse needs of businesses across industries. With our unwavering commitment to excellence, we have established ourselves as the best choice for all your lamination film requirements. Our capabilities extend to producing innovative flexible packaging films, and we are a trusted distributor for clients across various industries, ensuring reliable supply and service.
+
+We offer a comprehensive range of PE lamination films, including high-quality film lamination options, to meet your specific packaging needs.
+
+### Benefits of PE Lamination Roll:
+Here are some benefits of using PE lamination roll:
+- Enhanced durability and protection for products.
+- Reliable barrier against moisture, oxygen, and contaminants.
+- Versatile and customizable for various packaging needs.
+- Improved product appearance and visual appeal.
+- Extended shelf life for perishable goods.
+- Compatibility with different lamination techniques.
+- Ease of use and efficient production workflows.
+- Wide range of thickness options for customization.
+- Cost-effective solution for packaging requirements.
+- Compliant with industry standards and regulations.`,
     image: "/images/products/specialty-pouches/image.png",
     gallery: [
       "/images/products/specialty-pouches/image.png",
@@ -872,49 +905,50 @@ export const initialProducts = [
       "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
     ],
     specs: {
-      "Substrate Structure": "PET / ALU Foil / MET-PET / Nylon / LLDPE Composite",
-      "Barrier Level": "Ultra-High Barrier Zero OTR & WVTR",
-      "Pouch Formats": "Stand-Up Zipper / 3-Side Seal / Side Gusset / Quad Seal",
-      "Sealing Temperature": "150°C - 210°C Hermetic Heat Weld",
-      "Printing Grade": "Reverse Rotogravure up to 10 Colors",
-      "Special Add-Ons": "Degassing Aroma Valves / Tear Notches / Resealable Zip",
+      "Material Type": "Virgin Low-Density Polyethylene (LDPE) & HDPE Polymers",
+      "Available Widths": "Up to 2.25 Meters (2250 mm)",
+      "Thickness Range": "18 Micron to 300 Micron",
+      "Available Colours": "Natural Transparent, White Opaque (Custom colors on request)",
+      "Lamination Process": "Heat & Press Lamination, Adhesive & Extrusion Bonding",
+      "Barrier Protection": "Moisture, Oil, Oxygen, Dirt & Abrasion Resistance",
     },
     thicknessLengthMatrix: [
-      { micron: "40", gauge: "160", meters: "750", feet: "2,460" },
-      { micron: "60", gauge: "240", meters: "500", feet: "1,640" },
-      { micron: "80", gauge: "320", meters: "375", feet: "1,230" },
+      { micron: "18 - 20", gauge: "80", meters: "1,500", feet: "4,920" },
+      { micron: "37.5 - 40", gauge: "160", meters: "750", feet: "2,460" },
+      { micron: "50", gauge: "200", meters: "600", feet: "1,968" },
       { micron: "100", gauge: "400", meters: "300", feet: "984" },
-      { micron: "120", gauge: "480", meters: "250", feet: "820" },
       { micron: "150", gauge: "600", meters: "200", feet: "656" },
+      { micron: "300", gauge: "1200", meters: "100", feet: "328" },
     ],
     subCategories: [
       {
         id: "adhesive-lamination-film",
         title: "Adhesive Lamination Film",
         subtitle: "Used for Lamination to Polyester | Widths up to 2.25 Meters",
-        blurb: "Used for lamination to polyester with high optical clarity and strong bond strength. Available in widths up to 2.25 meters and thickness range from 18 to 300 microns in Natural and White opaque finishes.",
+        blurb: "Used for lamination to polyester with exceptional clarity, strength, and flexibility. Available in widths up to 2.25 meters and thickness range from 18 to 300 microns in Natural and White opaque finishes.",
         image: "/images/products/specialty-pouches/image.png",
         specs: {
-          "Width Capability": "Widths up to 2.25 Meters",
-          "Thickness Range": "18 - 300 Microns",
-          "Available Colours": "Natural, White Opaque (Custom colors on request)",
-          "Bonding Compatibility": "Polyester, BOPP, Aluminum Foil & Metallized Films",
+          "Primary Use": "Used for lamination to polyester",
+          "Widths Available": "Available in widths upto 2.25 meters",
+          "Thickness Range": "18 - 300 microns",
+          "Colours": "Natural, White opaque (Other colours available on request)",
+          "Applications": "Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.",
         },
         applications: ["Seeds Packaging", "Pesticide Packaging", "Dairy Products", "Vacuum Pouches", "Condom Packaging"],
       },
       {
         id: "pharma-grade-poly",
         title: "Pharma Grade Poly",
-        subtitle: "Heat & Press Lamination to Aluminum Foil for Strip Tablet Packaging",
-        blurb: "Pharma Grade Poly is used for heat and press lamination to aluminum foil for further packing of strip tablets in the pharmaceutical industry. Also engineered for lidding applications, cable wrap, and extrusion lamination.",
+        subtitle: "Heat & Press Lamination to Aluminum Foil for Strip Tablets",
+        blurb: "Pharma Grade Poly is used for Heat and Press Lamination to Aluminum Foil for further packing of strip tablets in the pharmaceutical industry. Other applications include lidding application, cable wrap, and extrusion lamination.",
         image: "/images/products/lamination-films-pouches/applications/app-3.png",
         specs: {
-          "Primary Application": "Heat & Press Lamination to Aluminum Foil",
-          "Industry Sector": "Pharmaceutical Strip Tablet Packaging",
+          "Primary Application": "Heat and Press Lamination to Aluminum Foil",
+          "Target Use": "Further packing of strip tablets in pharmaceutical industry",
+          "Other Applications": "Lidding Application, Cable Wrap, Extrusion Lamination",
           "Standard Thicknesses": "20 Micron, 37.5 Micron, 40 Micron, 50 Micron",
-          "Extended Uses": "Lidding Applications, Cable Wrap, Extrusion Lamination",
         },
-        applications: ["Pharmaceutical Strip Tablet Packing", "Aluminum Foil Heat Lamination", "Lidding Applications", "Cable Wrap Insulation", "Extrusion Lamination"],
+        applications: ["Pharmaceutical Strip Tablets", "Aluminum Foil Heat Lamination", "Lidding Application", "Cable Wrap", "Extrusion Lamination"],
       }
     ],
     options: {
