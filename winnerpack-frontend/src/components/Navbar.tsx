@@ -16,7 +16,7 @@ const links = [
   { label: "Contact Us", href: "/contact" }
 ];
 
-// Complete 3-Tier Hierarchy: Categories -> Subcategories -> Specific Product Types
+// Complete 3-Tier Hierarchy with 11 specified Film Products order
 const productHierarchy = [
   {
     id: "film-products",
@@ -24,18 +24,19 @@ const productHierarchy = [
     catSlug: "film-products",
     subcategories: [
       {
-        id: "ldpe-films-pouches",
-        title: "LDPE Films & Pouches",
+        id: "packaging-films",
+        title: "Packaging Films",
         slug: "ldpe-films-pouches",
         items: [
           { name: "LDPE Shrink Film", slug: "ldpe-films-pouches" },
-          { name: "Standard Normal LDPE Film", slug: "ldpe-films-pouches" },
-          { name: "LDPE Pouches & Bags", slug: "ldpe-films-pouches" },
+          { name: "PE Liners And Garbage Bags", slug: "ldpe-films-pouches" },
+          { name: "Plastic Stretch Film", slug: "stretch-film" },
+          { name: "Collation Shrink Film", slug: "pof-films-pouches" },
         ]
       },
       {
-        id: "pof-films-pouches",
-        title: "POF Films & Pouches",
+        id: "pof-shrink-film",
+        title: "POF Shrink Film",
         slug: "pof-films-pouches",
         items: [
           { name: "Cross-Linked POF Film", slug: "pof-films-pouches" },
@@ -44,30 +45,59 @@ const productHierarchy = [
         ]
       },
       {
-        id: "coloured-films-pouches",
-        title: "Coloured Films & Pouches",
+        id: "lamination-pe-film",
+        title: "Lamination PE Film",
+        slug: "lamination-films-pouches",
+        items: [
+          { name: "Adhesive Lamination Film", slug: "lamination-films-pouches" },
+          { name: "Pharma Grade Poly", slug: "ldpe-films-pouches" },
+          { name: "Standard Lamination Film", slug: "lamination-films-pouches" },
+          { name: "Laminated Barrier Pouches", slug: "lamination-films-pouches" },
+        ]
+      },
+      {
+        id: "agricultural-films",
+        title: "Agricultural Films",
+        slug: "compostable-films-pouches",
+        items: [
+          { name: "Plastic Mulching Film", slug: "compostable-films-pouches" },
+          { name: "Low Tunnel Film", slug: "ldpe-films-pouches" },
+          { name: "Mulch Film", slug: "compostable-films-pouches" },
+        ]
+      },
+      {
+        id: "biodegradable-films",
+        title: "Biodegradble Films",
+        slug: "compostable-films-pouches",
+        items: [
+          { name: "Bio Degradable Mulch Film", slug: "compostable-films-pouches" },
+          { name: "Biodegradable Shrink Film", slug: "pof-films-pouches" },
+          { name: "Biodegradable Shopping Bag", slug: "compostable-films-pouches" },
+          { name: "Compostable Pouches", slug: "compostable-films-pouches" },
+        ]
+      },
+      {
+        id: "flexible-laminate-rolls",
+        title: "Flexible Laminate Rolls & Pouches",
+        slug: "lamination-films-pouches",
+        items: [
+          { name: "Food Packaging Laminates", slug: "lamination-films-pouches" },
+          { name: "Agro Chemical Laminates", slug: "lamination-films-pouches" },
+          { name: "Plain Standup Pouches", slug: "bopp-films-pouches" },
+          { name: "Lidding Foils And Laminates", slug: "lamination-films-pouches" },
+          { name: "Wrap Around Labels", slug: "printed-labels" },
+          { name: "Laminated Pouch India", slug: "lamination-films-pouches" },
+        ]
+      },
+      {
+        id: "printed-pe-films",
+        title: "Printed PE Films",
         slug: "coloured-films-pouches",
         items: [
-          { name: "CPE Pouches (Cast Polyethylene)", slug: "coloured-films-pouches" },
-          { name: "Milky White Pouches & Films", slug: "coloured-films-pouches" },
-        ]
-      },
-      {
-        id: "bopp-films-pouches",
-        title: "BOPP Films & Pouches",
-        slug: "bopp-films-pouches",
-        items: [
-          { name: "BOPP Film Rolls", slug: "bopp-films-pouches" },
-          { name: "BOPP Display Pouches", slug: "bopp-films-pouches" },
-        ]
-      },
-      {
-        id: "pvc-shrink-rolls-pouches",
-        title: "PVC Shrink Rolls & Pouches",
-        slug: "pvc-shrink-rolls-pouches",
-        items: [
-          { name: "PVC Heat Shrink Rolls", slug: "pvc-shrink-rolls-pouches" },
-          { name: "PVC Shrink Pouches & Sleeves", slug: "pvc-shrink-rolls-pouches" },
+          { name: "Milk Packaging Film", slug: "coloured-films-pouches" },
+          { name: "Ghee Packaging Film", slug: "coloured-films-pouches" },
+          { name: "SMP Packaging Film", slug: "coloured-films-pouches" },
+          { name: "Water Packaging Film", slug: "coloured-films-pouches" },
         ]
       },
       {
@@ -77,24 +107,38 @@ const productHierarchy = [
         items: [
           { name: "Manual Grade Stretch Film", slug: "stretch-film" },
           { name: "Machine Grade Stretch Film", slug: "stretch-film" },
+          { name: "Sustainable Stretch Wrap", slug: "stretch-film" },
+          { name: "Mini Stretch Wrap Rolls", slug: "stretch-film" },
         ]
       },
       {
-        id: "lamination-films-pouches",
-        title: "Lamination Films & Pouches",
-        slug: "lamination-films-pouches",
+        id: "ldpe-bags",
+        title: "LDPE Bags",
+        slug: "ldpe-films-pouches",
         items: [
-          { name: "Lamination Film Rolls", slug: "lamination-films-pouches" },
-          { name: "Laminated Barrier Pouches", slug: "lamination-films-pouches" },
+          { name: "Standard Normal LDPE Film", slug: "ldpe-films-pouches" },
+          { name: "LDPE Pouches & Bags", slug: "ldpe-films-pouches" },
+          { name: "Heavy-Duty Shipping Sacks", slug: "ldpe-films-pouches" },
         ]
       },
       {
-        id: "compostable-films-pouches",
-        title: "Compostable Films & Pouches",
-        slug: "compostable-films-pouches",
+        id: "bopp-films",
+        title: "BOPP FILMS",
+        slug: "bopp-films-pouches",
         items: [
-          { name: "Compostable Film Rolls", slug: "compostable-films-pouches" },
-          { name: "Compostable Pouches & Bags", slug: "compostable-films-pouches" },
+          { name: "BOPP Film Rolls", slug: "bopp-films-pouches" },
+          { name: "BOPP Display Pouches", slug: "bopp-films-pouches" },
+          { name: "Heat Sealable BOPP Films", slug: "bopp-films-pouches" },
+        ]
+      },
+      {
+        id: "pvc-shrink-films",
+        title: "PVC SHRINK FILMS",
+        slug: "pvc-shrink-rolls-pouches",
+        items: [
+          { name: "PVC Heat Shrink Rolls", slug: "pvc-shrink-rolls-pouches" },
+          { name: "PVC Shrink Pouches & Sleeves", slug: "pvc-shrink-rolls-pouches" },
+          { name: "PVC Heat Shrink Tubing", slug: "pvc-shrink-rolls-pouches" },
         ]
       },
     ]
