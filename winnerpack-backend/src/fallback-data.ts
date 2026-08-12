@@ -2906,8 +2906,34 @@ Yes, Polyethylene (PE) is 100% recyclable under soft plastic (#4 LDPE / #2 HDPE)
       { micron: "100", gauge: "400", meters: "300", feet: "984" },
     ],
     subCategories: [
-      { id: "adhesive-lamination-film", title: "Adhesive Lamination Film", subtitle: "High Bond Corona Treated Poly", blurb: "High-bond corona treated poly film engineered for lamination to polyester (PET), BOPP, and foil, with widths up to 2.25m and thickness 18-300 microns.", image: "/images/products/specialty-pouches/image.png" },
-      { id: "pharma-grade-poly", title: "Pharma Grade Poly", subtitle: "Ultra-Clean Barrier Poly Sheeting", blurb: "Cleanroom manufactured PE film for heat and press lamination to aluminum foil for pharmaceutical tablet strip packaging.", image: "/images/products/specialty-pouches/image.png" },
+      {
+        id: "adhesive-lamination-film",
+        title: "Adhesive Lamination Film",
+        subtitle: "High Bond Corona Treated Poly",
+        blurb: "Corona treated polyethylene film engineered for high bond adhesive lamination to polyester (PET), BOPP, and foil.",
+        image: "/images/products/specialty-pouches/image.png",
+        specs: {
+          "Primary Use": "Used for lamination to polyester (PET)",
+          "Available Widths": "Up to 2.25 Meters (2250 mm)",
+          "Thickness Range": "18 - 300 Microns",
+          "Colours": "Natural Clear, White Opaque (Others on request)",
+          "Applications": "Seeds, Pesticides, Dairy, Vacuum Pouches & Condoms",
+        },
+      },
+      {
+        id: "pharma-grade-poly",
+        title: "Pharma Grade Poly",
+        subtitle: "Ultra-Clean Barrier Poly Sheeting",
+        blurb: "Cleanroom manufactured PE film for heat and press lamination to aluminum foil for pharmaceutical tablet strip packaging.",
+        image: "/images/products/specialty-pouches/image.png",
+        specs: {
+          "Primary Use": "Heat & press lamination to aluminum foil for tablet strips",
+          "Other Uses": "Container lidding, cable wrap, extrusion lamination",
+          "Standard Thicknesses": "20 Micron, 37.5 Micron, 40 Micron, 50 Micron",
+          "Cleanroom Grade": "ISO Class 8 / cGMP Cleanroom Extrusion",
+          "Compliance": "US FDA 21 CFR & EU Pharmacopoeia Approved",
+        },
+      },
     ],
     options: {
       widths: ["300 mm", "600 mm", "900 mm", "1200 mm", "1500 mm", "1800 mm", "2250 mm"],
