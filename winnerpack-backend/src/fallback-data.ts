@@ -3700,42 +3700,140 @@ Compliant with ASTM D6400 and EN 13432 standards, our compostable shipping maile
     title: "Flexible Laminate Rolls & Pouches",
     category: "film-products",
     tag: "Flexible Laminate",
-    blurb: "Multi-layer barrier laminates (PET/ALU/PE, PET/MET-PET/PE, BOPP/CPP) in printed roll stock and pre-formed pouch formats for food, agro-chemical, and retail products.",
-    longDesc: `Flexible Laminate Rolls & Pouches represent the pinnacle of high-barrier food and industrial packaging. By combining reverse-printed PET or BOPP films with high-barrier aluminum foil or metalized polyester and sealable PE/CPP inner layers, our flexible laminates protect sensitive products against moisture, oxygen, light, and aroma loss.
+    blurb: "High-performance multi-layer barrier laminates combining PET, Met PET, BOPP, Alu-Foil, CPP, and PE in printed roll stock and pre-formed pouch formats.",
+    longDesc: `Flexible laminate rolls and pouches are versatile, high-performance packaging solutions engineered from multiple layers of flexible packaging films, foils, and papers (PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE). Bonding these layers creates a durable, lightweight, and moisture-proof composite structure tailored for demanding industrial and retail applications.
 
-### High-Barrier Multi-Layer Constructions
-- **3-Ply Metalized (PET / MET-PET / PE)**: Outstanding moisture and oxygen barrier for snacks, coffee, and spices.
-- **3-Ply Foil (PET / ALU / PE)**: Zero gas and light transmission for pharmaceutical powders, agro-chemicals, and vacuum items.
-- **2-Ply Clear (BOPP / CPP)**: High transparency crisp-feel laminates for bakery items and dry pasta.`,
+As a leading manufacturer and exporter with over 20+ years of experience, WinnerPack provides customized packaging materials compliant with food safety regulations, serving clients across the US, Europe, Singapore, Australia, Canada, and worldwide.
+
+### Versatile Applications of Flexible Laminates
+- **Food & Beverage**: Protects snacks, coffee, dry fruits, pickles, dairy, and beverages against moisture and oxygen spoilage.
+- **Pharmaceuticals & Healthcare**: High-barrier lidding foils and medical pouches ensuring sterile protection.
+- **Agrochemical Industry**: Chemical-resistant aluminum foil laminates for pesticides, insecticides, and fertilizers.
+- **Electrical & Industrial**: Used as rigid and flexible insulation sheets for motors and transformers.
+- **Interior Design & Architecture**: Used in decorative laminates creating smooth, aesthetic curved surfaces.
+
+### Key Benefits of Flexible Laminates
+- **Enhances Product Freshness & Quality**: Provides superior resistance against moisture, oxygen, light, and aroma loss.
+- **Durability & Heat Sealability**: High mechanical strength prevents punctures and tears during transit.
+- **Cost-Effective & Eco-Friendly**: Combines the best characteristics of kraft papers and polymer films; available in recyclable mono-material and biodegradable options.
+- **Customizable Branding**: High-definition rotogravure and digital printing options elevate shelf appeal.
+- **Equipment Compatibility**: Seamlessly runs on automated vertical (VFFS) and horizontal (HFFS) form-fill-seal machinery.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are Flexible Laminate Rolls & Pouches?
+Flexible Laminate Rolls & Pouches are multi-layer barrier packaging materials formed by bonding films, foils, and papers together to provide lightweight, high-strength protection for food and industrial goods.
+
+#### 2. What materials are used in Flexible Laminate Rolls & Pouches?
+Crafted using combinations of PET, Met PET, BOPP, HS-BOPP, Aluminum Foil, CPP, and PE. Each layer is selected for barrier protection, structural strength, or heat-sealability.
+
+#### 3. What are the benefits of using Flexible Laminate Rolls & Pouches for packaging?
+- **Barrier Protection**: Shields against moisture, light, oxygen, and odors.
+- **Durability**: High puncture and burst resistance during storage and shipping.
+- **Lightweight**: Lowers transportation freight costs and environmental footprint.
+- **Customizability**: Tailored dimensions, pouch styles, and HD printed graphics.
+- **Sustainability**: Recyclable and eco-friendly material formulations.
+
+#### 4. Are Flexible Laminate Rolls & Pouches suitable for food packaging?
+Yes! Manufactured using 100% Food Grade certified raw materials compliant with FDA and EU food safety standards to prevent contamination and extend shelf life.
+
+#### 5. Can Flexible Laminate Rolls & Pouches be customized in size, shape, and design?
+Yes! Fully customizable in roll widths, pouch formats (stand-up, 3-side seal, center seal, zipper), clear display windows, metallic finishes, and HD rotogravure prints.
+
+#### 6. How do Flexible Laminate Rolls & Pouches protect products from moisture and contamination?
+Multi-layer structures featuring aluminum foil, metalized PET, and EVOH block air, moisture, and light infiltration completely.
+
+#### 7. Are Flexible Laminate Rolls & Pouches recyclable or biodegradable?
+Yes! We offer recyclable mono-material (PE/PE or PP/PP) laminates as well as certified compostable bio-laminates.
+
+#### 8. What industries commonly use Flexible Laminate Rolls & Pouches?
+Food & Beverage, Pharmaceuticals & Healthcare, Agrochemicals, Personal Care, and Retail FMCG.
+
+#### 9. How do I choose the right type of laminate material for my packaging needs?
+Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing machinery parameters, and branding preferences.
+
+#### 10. What are the printing options available for branding on Flexible Laminate Rolls & Pouches?
+- **Rotogravure Printing**: Up to 9-color HD precision printing for large volume runs.
+- **Digital Printing**: High-definition quick turnaround printing for short runs.
+- **Reverse Surface Printing**: Traps inks between film layers for scuff-proof durability.`,
     image: "/images/products/specialty-pouches/image.png",
     gallery: ["/images/products/specialty-pouches/image.png"],
-    specs: { "Barrier Layers": "Aluminum Foil / MET-PET / EVOH / PVDC", "Printing Technology": "Up to 9-Color High Definition Rotogravure", "Lamination Type": "Solvent-Free Eco Polyurethane Lamination" },
-    thicknessLengthMatrix: [{ micron: "60", gauge: "240", meters: "1,000", feet: "3,280" }, { micron: "100", gauge: "400", meters: "600", feet: "1,968" }],
-    subCategories: [
-      { id: "food-packaging-laminates", title: "Food Packaging Laminates", subtitle: "High Barrier Printed Food Laminate Rolls", blurb: "Rotogravure printed barrier laminate rolls for snacks, tea, coffee, and dry spices.", image: "/images/products/specialty-pouches/image.png" },
-      { id: "agro-chemical-laminates", title: "Agro Chemical Laminates", subtitle: "Pesticide & Chemical Foil Laminates", blurb: "Chemical-resistant aluminum foil laminates designed for pesticide and fertilizer packaging.", image: "/images/products/specialty-pouches/image.png" },
-      { id: "plain-standup-pouches", title: "Plain Standup Pouches", subtitle: "Zipper & Spout Pre-Formed Pouches", blurb: "Unprinted stock stand-up pouches with zip locks for retail packaging versatility.", image: "/images/products/specialty-pouches/image.png" },
-      { id: "lidding-foils-laminates", title: "Lidding Foils And Laminates", subtitle: "Peelable Cup & Tray Lidding Foils", blurb: "Heat-sealable lidding foil for yogurt cups, mineral water cups, and meal trays.", image: "/images/products/specialty-pouches/image.png" },
-      { id: "wrap-around-labels", title: "Wrap Around Labels", subtitle: "BOPP Bottle Roll Labels", blurb: "Roll-fed continuous BOPP wrap-around labels for beverage and water bottles.", image: "/images/products/specialty-pouches/image.png" },
-      { id: "laminated-pouch-india", title: "Laminated Pouch India", subtitle: "Custom Pre-Formed Barrier Bags", blurb: "Custom 3-side seal, center seal, and gusseted laminated pouches.", image: "/images/products/specialty-pouches/image.png" },
+    specs: {
+      "Material Substrates": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
+      "Format Styles": "Roll Stock & Pre-Formed Pouches (Standup, 3-Side Seal, Zipper)",
+      "Food Safety Certification": "100% Food Grade Certified Raw Material",
+      "Printing Capabilities": "Up to 9-Color HD Rotogravure & Reverse Printing",
+      "Barrier Protection": "Moisture-Proof, Oxygen-Block, Light-Shielding",
+    },
+    thicknessLengthMatrix: [
+      { micron: "50", gauge: "200", meters: "1,200", feet: "3,936" },
+      { micron: "80", gauge: "320", meters: "800", feet: "2,624" },
+      { micron: "120", gauge: "480", meters: "600", feet: "1,968" },
     ],
-    options: { widths: ["100mm to 1200mm"], thicknesses: ["50 Micron", "80 Micron", "120 Micron"], colors: ["Rotogravure HD 9-Color Print"] },
-    applications: ["Processed food & snack packaging", "Pesticide & agro chemical barrier sachets", "Beverage bottle wrap-around labels"],
-    visualGradients: "from-blue-600 to-indigo-700",
-  },
-  {
-    id: "food-packaging-laminates",
-    title: "Food Packaging Laminates",
-    category: "film-products",
-    tag: "Food Laminate",
-    blurb: "Rotogravure printed multi-layer barrier laminate rolls engineered to preserve aroma, crispness, and shelf life for dry food products.",
-    longDesc: "Food Packaging Laminates combine HD rotogravure surface/reverse printing with high-barrier inner layers (MET-PET, Aluminum Foil, EVOH). Engineered for automatic form-fill-seal (FFS) pouch machines.",
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
-    specs: { "Printing": "Up to 9 Color High Definition Rotogravure", "Food Contact": "100% FDA Approved Direct Food Grade", "Form-Fill-Seal": "High Speed VFFS / HFFS Runnability" },
-    thicknessLengthMatrix: [{ micron: "60", gauge: "240", meters: "1,000", feet: "3,280" }],
-    options: { widths: ["200mm", "350mm", "500mm"], thicknesses: ["60 Micron", "80 Micron", "100 Micron"], colors: ["Custom Printed"] },
-    applications: ["Snack food & potato chip packaging", "Ground coffee & tea leaf barrier pouches", "Spices, pulses & bakery item rolls"],
+    subCategories: [
+      {
+        id: "agro-chemical-laminates",
+        title: "Agro Chemical Laminates",
+        subtitle: "Pesticide & Chemical Foil Laminates",
+        blurb: "100% Food Grade certified aluminum foil and polymer laminates engineered for chemical resistance against pesticides and liquid fertilizers.",
+        image: "/images/products/specialty-pouches/image.png",
+      },
+      {
+        id: "plain-standup-pouches",
+        title: "Plain Standup Pouches",
+        subtitle: "Premium Metallocene Sealing Pouches",
+        blurb: "Suitable for 100g to 1kg pack sizes. Premium Metallocene Poly provides best sealing for pickles, Gulab Jamun, Mango Milk Shake, and dry fruits.",
+        image: "/images/products/specialty-pouches/image.png",
+      },
+      {
+        id: "lidding-foils-laminates",
+        title: "Lidding Foils And Laminates",
+        subtitle: "Universal Cup & Tray Lidding Foils",
+        blurb: "100% Food Grade Foil + Poly or PET + Poly laminates engineered for universal sealing to PS, PP, PET, APET, CPET, and PVC containers.",
+        image: "/images/products/specialty-pouches/image.png",
+      },
+      {
+        id: "wrap-around-labels",
+        title: "Wrap Around Labels",
+        subtitle: "Automated Roll-Fed Bottle Labels",
+        blurb: "38 to 50 Micron BOPP wrap-around labels replacing PVC shrink labels to save automation labor costs on beverage bottle lines.",
+        image: "/images/products/specialty-pouches/image.png",
+      },
+      {
+        id: "laminated-pouch-india",
+        title: "Laminated Pouch India",
+        subtitle: "Embossed & Matt Finish Barrier Bags",
+        blurb: "Custom pre-formed barrier pouches available with Embossing and Matt Finish for premium shelf appeal.",
+        image: "/images/products/specialty-pouches/image.png",
+      },
+      {
+        id: "polyester-laminated-roll",
+        title: "Polyester Laminated Roll",
+        subtitle: "HD Rotogravure Printed Polyester Rolls",
+        blurb: "Polyester laminated rolls in various colors, thicknesses, and sizes with fine rotogravure printing finish.",
+        image: "/images/products/specialty-pouches/image.png",
+      },
+      {
+        id: "multi-coloured-laminated-roll",
+        title: "Multi Coloured Laminated Roll",
+        subtitle: "100% Food Grade Superior Printed Rolls",
+        blurb: "High-definition multi-colored barrier laminate rolls made from 100% Food Grade materials at cost-effective prices.",
+        image: "/images/products/specialty-pouches/image.png",
+      },
+      {
+        id: "food-packaging-laminates",
+        title: "Food Packaging Laminates In Pouch And Roll Form",
+        subtitle: "Multi-Substrate Food Barrier Packaging",
+        blurb: "100% Food Grade certified roll stock and pre-formed pouches (Center Seal, 3-Side Seal, Standup, Zipper) using PET, Met PET, BOPP, Foil, and PE.",
+        image: "/images/products/specialty-pouches/image.png",
+      },
+    ],
+    options: {
+      widths: ["100mm to 1200mm"],
+      thicknesses: ["38 Micron", "50 Micron", "80 Micron", "120 Micron"],
+      colors: ["Rotogravure HD 9-Color Print", "Embossed", "Matt Finish"],
+    },
+    applications: ["Processed food, snack & beverage packaging", "Pesticide & agrochemical barrier sachets", "Dairy, dessert & ready-meal lidding foils"],
     visualGradients: "from-blue-600 to-indigo-700",
   },
   {
@@ -3743,14 +3841,40 @@ Compliant with ASTM D6400 and EN 13432 standards, our compostable shipping maile
     title: "Agro Chemical Laminates",
     category: "film-products",
     tag: "Agro Laminate",
-    blurb: "Heavy-duty aluminum foil and specialty resin barrier laminates engineered to contain aggressive pesticides, insecticides, and liquid fertilizers.",
-    longDesc: "Agro Chemical Laminates utilize chemical-resistant primer coatings and thick aluminum foil layers to prevent volatile solvent migration, sachet swelling, or pinhole corrosion.",
+    blurb: "100% Food Grade certified aluminum foil and polymer laminates engineered for chemical resistance against pesticides, insecticides, and liquid fertilizers.",
+    longDesc: `Agro Chemical Laminates are specialized multi-layer barrier materials manufactured using 100% Food Grade certified raw materials. Engineered from substrate combinations such as PET, Met PET, BOPP, HS-BOPP, Aluminum Foil, CPP, and PE, these laminates provide maximum product resistance against aggressive chemical formulations.
+
+### Key Product Features
+- **100% Food Grade Certified Raw Material**: Safe, high-purity polymer resins and aluminum foil.
+- **Customized Substrate Selection**: Material layers are specifically selected based on the agrochemical product to ensure zero sachet swelling or pinhole corrosion.
+- **Multi-Layer Substrate Options**: PET, Met PET, BOPP, HS-BOPP, Aluminum Foil, CPP, and PE blends.
+- **Roll Form Supply**: Supplied in continuous roll stock optimized for high-speed automatic pouch packaging machinery.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What are Agro Chemical Laminates?
+Agro Chemical Laminates are high-barrier multi-layer packaging films engineered to package pesticides, insecticides, fungicides, and liquid fertilizers safely.
+
+#### 2. What substrates are used in manufacturing?
+Formulated using PET, Met PET, BOPP, HS-BOPP, Aluminum Foil, CPP, and PE based on required chemical resistance.
+
+#### 3. Can they be supplied in roll form?
+Yes! Supplied in continuous roll form as per customer width and length specifications.`,
     image: "/images/products/specialty-pouches/image.png",
     gallery: ["/images/products/specialty-pouches/image.png"],
-    specs: { "Foil Thickness": "7 Micron to 12 Micron Pure Aluminum", "Chemical Barrier": "Solvent-Proof Primer Coating", "Burst Strength": "Ultra-High Puncture Resistance" },
+    specs: {
+      "Food Safety Certification": "100% Food Grade Certified Raw Material",
+      "Substrates Used": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
+      "Format Availability": "Continuous Roll Form as per customer requirement",
+      "Chemical Resistance": "Tailored Substrate Selection for Agrochemical Protection",
+    },
     thicknessLengthMatrix: [{ micron: "90", gauge: "360", meters: "800", feet: "2,624" }],
-    options: { widths: ["150mm", "300mm", "450mm"], thicknesses: ["80 Micron", "100 Micron", "120 Micron"], colors: ["Custom HD Print"] },
-    applications: ["Liquid pesticide sachets", "Powder fungicide barrier pouches", "Specialty chemical packaging"],
+    options: {
+      widths: ["150mm", "300mm", "450mm", "600mm"],
+      thicknesses: ["80 Micron", "100 Micron", "120 Micron"],
+      colors: ["HD Rotogravure Custom Print"],
+    },
+    applications: ["Liquid pesticide sachets", "Powder fungicide barrier pouches", "Agrochemical fertilizer packaging"],
     visualGradients: "from-blue-600 to-indigo-700",
   },
   {
@@ -3758,14 +3882,42 @@ Compliant with ASTM D6400 and EN 13432 standards, our compostable shipping maile
     title: "Plain Standup Pouches",
     category: "film-products",
     tag: "Standup Pouch",
-    blurb: "Unprinted stock stand-up pouches with press-to-close zippers and bottom gussets for elegant, self-standing retail display.",
-    longDesc: "Plain Standup Pouches provide small and medium brands an instant, professional retail packaging solution. Features a wide bottom gusset that expands to allow the pouch to stand unsupported on store shelves.",
+    blurb: "Pre-formed stand-up pouches suitable for 100g to 1kg pack sizes. Uses Premium Grade Metallocene PE for superior heat sealing, ideal for pickles, Gulab Jamun, milkshakes, and dry fruits.",
+    longDesc: `Plain Standup Pouches provide a self-standing, high-barrier retail packaging solution for pack sizes ranging from 100 gm to 1 kg. 
+
+Manufactured using Premium Grade Metallocene-Based Poly, these pouches deliver outstanding seal strength, leak-proof security, and drop impact resistance for wet, viscous, and dry food items.
+
+### Key Product Features
+- **Versatile Pack Size Range**: Suitable for pack capacities from 100 gm to 1 kg.
+- **Premium Metallocene Poly**: Incorporates metallocene LLDPE for best-in-class seal integrity and low-temperature sealing.
+- **Wide Food Compatibility**: Ideal for packing Pickle, Gulab Jamun, Mango Milk Shake, Dry Fruits, nuts, and condiments.
+- **Self-Standing Bottom Gusset**: Expands to stand upright on retail shelves for maximum display visibility.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What pack sizes are available for Plain Standup Pouches?
+Designed for pack capacities ranging from 100 gm to 1 kg.
+
+#### 2. What products can be packed in these pouches?
+Pickles, Gulab Jamun, Mango Milk Shake, dry fruits, nuts, sauces, and specialty snacks.
+
+#### 3. Why is Metallocene PE used?
+Metallocene-based poly ensures superior seal strength through liquid contamination, preventing leaks and pouch bursts.`,
     image: "/images/products/specialty-pouches/image.png",
     gallery: ["/images/products/specialty-pouches/image.png"],
-    specs: { "Pouch Format": "K-Seal / Round Bottom Standup Gusset", "Closure": "Re-sealable Press Zip Lock", "Tear Notch": "Precision Laser Scored Easy-Tear Notch" },
+    specs: {
+      "Capacity Range": "100 gm to 1 kg Pack Sizes",
+      "Sealing Resin": "Premium Grade Metallocene-Based Poly",
+      "Pouch Architecture": "Self-Standing Bottom Gusset Pouch",
+      "Leak Protection": "100% Leak-Free Hermetic Sealing",
+    },
     thicknessLengthMatrix: [{ micron: "100", gauge: "400", meters: "Custom", feet: "Custom" }],
-    options: { widths: ["100x150+30mm", "150x220+40mm", "200x300+50mm"], thicknesses: ["100 Micron", "120 Micron"], colors: ["Silver Foil", "Matte Black", "Kraft Paper"] },
-    applications: ["Nuts, dried fruits & trail mix", "Specialty coffee beans & tea leaves", "Pet treats & nutritional supplements"],
+    options: {
+      widths: ["100x150+30mm", "150x220+40mm", "200x300+50mm"],
+      thicknesses: ["100 Micron", "120 Micron"],
+      colors: ["Silver Foil", "Clear Display Window", "Matte Finish"],
+    },
+    applications: ["Pickle & Gulab Jamun packaging", "Mango Milk Shake & liquid desserts", "Dry fruits, nuts & specialty snacks"],
     visualGradients: "from-blue-600 to-indigo-700",
   },
   {
@@ -3773,14 +3925,40 @@ Compliant with ASTM D6400 and EN 13432 standards, our compostable shipping maile
     title: "Lidding Foils And Laminates",
     category: "film-products",
     tag: "Lidding Foil",
-    blurb: "Heat-sealable aluminum foil and polyester lidding die-cut lids for yogurt cups, mineral water cups, and rigid plastic trays.",
-    longDesc: "Lidding Foils And Laminates provide hermetic heat sealing onto PP, PS, PET, and PVC plastic containers. Formulated with easy-peel lacquer coatings for smooth consumer opening.",
+    blurb: "100% Food Grade Foil + Poly or PET + Poly lidding materials featuring Universal Poly that seals to PS, PP, PET, APET, CPET, and PVC rigid cups and trays.",
+    longDesc: `Lidding Foils And Laminates are high-barrier heat-sealable covers manufactured from 100% Food Grade certified raw materials. Available in Foil + Poly or PET + Poly laminate structures, our lidding films feature a Universal Poly sealing layer compatible with virtually all rigid plastic containers.
+
+### Key Product Features
+- **100% Food Grade Certified Raw Material**: Safe for direct food contact in dairy and food service.
+- **Substrate Combinations**: Available in Foil + Poly or PET + Poly laminates.
+- **Universal Poly Sealing**: Seals reliably to a wide variety of rigid substrates including PS, PP, PET, APET, CPET, and PVC.
+- **Format Options**: Supplied as die-cut lids or continuous roll stock for automatic sealing machines.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What material structures are available for Lidding Foils?
+Available in Foil + Poly or PET + Poly laminates.
+
+#### 2. What rigid substrates does the Universal Poly seal to?
+Seals seamlessly to PS, PP, PET, APET, CPET, and PVC containers.
+
+#### 3. Are they food-grade certified?
+Yes! Made from 100% Food Grade certified raw materials.`,
     image: "/images/products/specialty-pouches/image.png",
     gallery: ["/images/products/specialty-pouches/image.png"],
-    specs: { "Sealing Lacquer": "Heat Sealable PP/PS/PET Lacquer", "Format": "Die-Cut Lids / Continuous Roll Stock", "Peel Rating": "Smooth Controlled Easy Peel" },
+    specs: {
+      "Food Safety Certification": "100% Food Grade Certified Raw Material",
+      "Material Formats": "Foil + Poly / PET + Poly Laminates",
+      "Universal Sealing Compatibility": "Seals to PS, PP, PET, APET, CPET & PVC",
+      "Supply Form": "Die-Cut Lids & Continuous Roll Stock",
+    },
     thicknessLengthMatrix: [{ micron: "38", gauge: "150", meters: "1,000", feet: "3,280" }],
-    options: { widths: ["75mm Lid", "95mm Lid", "Custom Tray Dimensions"], thicknesses: ["30 Micron", "38 Micron", "50 Micron"], colors: ["Embossed Silver", "Custom Printed"] },
-    applications: ["Yogurt & dairy cup lidding", "Water & juice cup covers", "Ready-meal plastic tray seals"],
+    options: {
+      widths: ["75mm Lid", "95mm Lid", "Custom Tray Dimensions"],
+      thicknesses: ["30 Micron", "38 Micron", "50 Micron"],
+      colors: ["Embossed Silver", "Custom Printed"],
+    },
+    applications: ["Yogurt & dairy cup lidding", "Water & beverage cup seals", "Ready-meal CPET/PET tray covers"],
     visualGradients: "from-blue-600 to-indigo-700",
   },
   {
@@ -3788,13 +3966,36 @@ Compliant with ASTM D6400 and EN 13432 standards, our compostable shipping maile
     title: "Wrap Around Labels",
     category: "film-products",
     tag: "Wrap Label",
-    blurb: "Continuous roll-fed BOPP wrap-around labels for high-speed hot-melt labeling on PET beverage bottles and jars.",
-    longDesc: "Wrap Around Labels are produced on clear, white, or metalized BOPP film rolls. Applied on continuous hot-melt roll-fed labeling machines at speeds exceeding 400 bottles per minute.",
+    blurb: "Continuous roll-fed BOPP wrap-around labels replacing PVC shrink labels to save automation labor costs. Available in 38 to 50 Micron thickness range.",
+    longDesc: `Wrap Around Labels are roll-fed BOPP labeling films designed as an eco-friendly, cost-effective replacement for PVC shrink sleeve labels. Applied automatically on high-speed hot-melt labeling lines, wrap-around labels deliver significant labor savings while enhancing bottle aesthetics.
+
+### Key Product Features
+- **PVC Shrink Label Replacement**: Replaces costly shrink sleeves with roll-fed BOPP labels.
+- **Automation Labor Savings**: Automated roll-fed application eliminates manual sleeve positioning.
+- **Thickness Range**: Available in 38 to 50 Micron thickness options.
+- **High-Speed Application**: Compatible with hot-melt labeling machines running at speeds over 400 bottles/min.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What thickness range is available for Wrap Around Labels?
+Available in 38 to 50 Micron thickness range.
+
+#### 2. How do Wrap Around Labels save labor costs?
+Replacing PVC shrink sleeves with roll-fed BOPP labels automates the labeling process completely.`,
     image: "/images/products/specialty-pouches/image.png",
     gallery: ["/images/products/specialty-pouches/image.png"],
-    specs: { "Material Substrate": "38/40 Micron White/Clear/Metalized BOPP", "Printing": "UV Flexo / Rotogravure HD Print", "Line Speed": "Up to 500 Bottles / Min" },
+    specs: {
+      "Thickness Range": "38 Micron to 50 Micron",
+      "Labeling Tech": "Roll-Fed Hot-Melt Automated Labeling",
+      "Efficiency Gain": "Labor Savings via Process Automation",
+      "Substrate Material": "BOPP Clear, Pearlized White & Metalized Film",
+    },
     thicknessLengthMatrix: [{ micron: "38", gauge: "150", meters: "2,000", feet: "6,560" }],
-    options: { widths: ["50mm", "80mm", "120mm"], thicknesses: ["38 Micron", "40 Micron"], colors: ["Pearlized White", "Clear", "Metallic Silver"] },
+    options: {
+      widths: ["50mm", "80mm", "120mm"],
+      thicknesses: ["38 Micron", "40 Micron", "50 Micron"],
+      colors: ["Pearlized White", "High Gloss Clear", "Metallic Silver"],
+    },
     applications: ["Mineral water PET bottles", "Carbonated soft drink bottles", "Edible oil & condiment jars"],
     visualGradients: "from-blue-600 to-indigo-700",
   },
@@ -3803,14 +4004,151 @@ Compliant with ASTM D6400 and EN 13432 standards, our compostable shipping maile
     title: "Laminated Pouch India",
     category: "film-products",
     tag: "Barrier Bags",
-    blurb: "Custom engineered 3-side seal, center seal, and side gusset barrier pouches manufactured to ISO 9001:2015 quality standards.",
-    longDesc: "Laminated Pouch India covers our full range of custom pre-formed flexible pouches fabricated for domestic and export FMCG brands.",
+    blurb: "Custom engineered pre-formed barrier pouches available with Embossing and Matt Finish options for high-impact shelf display.",
+    longDesc: `Laminated Pouch India represents our complete line of custom pre-formed barrier pouches manufactured to ISO 9001:2015 quality standards. Available with special surface treatments including Embossing and Matt Finish to elevate brand packaging.
+
+### Key Product Features
+- **Embossing Options**: Tactile 3D embossed surface patterns for premium brand feel.
+- **Matt Finish Options**: Silky non-glare matte coating for modern luxury aesthetics.
+- **Custom Pouch Styles**: 3-side seal, center seal, stand-up, and side gusset formats.
+- **High Barrier Protection**: Blocks moisture, oxygen, and light for extended shelf life.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What surface finishes are available for Laminated Pouch India?
+Available with Embossing and Matt Finish options.
+
+#### 2. What pouch styles can be manufactured?
+Center seal, 3-side seal, stand-up zipper pouches, and side-gusseted bags.`,
     image: "/images/products/specialty-pouches/image.png",
     gallery: ["/images/products/specialty-pouches/image.png"],
-    specs: { "Seal Style": "3-Side Seal / Center Fin Seal / Side Gusset", "Pinhole Resistance": "Zero Defect Thermal Welding", "Custom HD Print": "Up to 9 Colors" },
+    specs: {
+      "Surface Treatments": "Embossing & Matt Finish Options",
+      "Pouch Formats": "3-Side Seal, Center Seal & Standup Pouches",
+      "Barrier Rating": "High Moisture & Oxygen Barrier",
+      "Quality Standard": "ISO 9001:2015 Certified Manufacturing",
+    },
     thicknessLengthMatrix: [{ micron: "70", gauge: "280", meters: "Custom", feet: "Custom" }],
-    options: { widths: ["100x150mm", "200x300mm", "300x450mm"], thicknesses: ["70 Micron", "90 Micron", "110 Micron"], colors: ["HD Rotogravure Custom"] },
-    applications: ["FMCG retail product packaging", "Bulk food & chemical pouches", "Export goods moisture-proof bags"],
+    options: {
+      widths: ["100x150mm", "200x300mm", "300x450mm"],
+      thicknesses: ["70 Micron", "90 Micron", "110 Micron"],
+      colors: ["Embossed", "Matt Finish", "HD Rotogravure Custom"],
+    },
+    applications: ["FMCG retail product packaging", "Bulk food & tea pouches", "Export goods barrier packaging"],
+    visualGradients: "from-blue-600 to-indigo-700",
+  },
+  {
+    id: "polyester-laminated-roll",
+    title: "Polyester Laminated Roll",
+    category: "film-products",
+    tag: "Polyester Roll",
+    blurb: "High-finish polyester laminated rolls available in different colors, thicknesses, sizes, and specifications using HD rotogravure printing.",
+    longDesc: `Polyester Laminated Roll product line offers versatile multi-layer packaging films engineered from polyester (PET) laminated with Poly, Metalized PET, or Aluminum Foil. Printed via high-definition rotogravure process for superior finish and visual appeal.
+
+### Key Product Features
+- **Rotogravure Printing Process**: Used to deliver exceptional, high-definition print finishing.
+- **Custom Specifications**: Available in various colors, thicknesses, sizes, and laminate structures.
+- **High Barrier & Tensile Strength**: PET substrate provides excellent dimensional stability and gas barrier.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What printing process is used for Polyester Laminated Rolls?
+Rotogravure printing is used to ensure a superior print finish.
+
+#### 2. What customization options are available?
+Different colors, thicknesses, sizes, and barrier film specifications.`,
+    image: "/images/products/specialty-pouches/image.png",
+    gallery: ["/images/products/specialty-pouches/image.png"],
+    specs: {
+      "Printing Tech": "Rotogravure Printing Process for Fine Finish",
+      "Substrate Material": "Polyester (PET) Laminated Film",
+      "Customization": "Various Colors, Thicknesses, Sizes & Specs",
+      "Barrier Quality": "High Moisture & Oxygen Retention",
+    },
+    thicknessLengthMatrix: [{ micron: "60", gauge: "240", meters: "1,000", feet: "3,280" }],
+    options: {
+      widths: ["150mm to 1200mm"],
+      thicknesses: ["50 Micron", "70 Micron", "100 Micron"],
+      colors: ["Custom HD Rotogravure Colors"],
+    },
+    applications: ["Snack food packaging rolls", "Confectionery overwrap", "Consumer goods flexible rolls"],
+    visualGradients: "from-blue-600 to-indigo-700",
+  },
+  {
+    id: "multi-coloured-laminated-roll",
+    title: "Multi Coloured Laminated Roll",
+    category: "film-products",
+    tag: "Multi-Color Roll",
+    blurb: "100% Food Grade certified multi-colored barrier laminate rolls providing superior quality at par with industry standards at cost-effective prices.",
+    longDesc: `Multi Coloured Laminated Rolls are high-barrier flexible packaging rolls manufactured using 100% Food Grade materials. Printed using multi-color rotogravure technology, these rolls deliver vibrant brand presentation and superior barrier protection at competitive, cost-effective prices.
+
+### Key Product Features
+- **100% Food Grade Material**: Safe for direct contact with food products.
+- **Superior Quality**: Engineered to meet or exceed international packaging industry standards.
+- **Cost-Effective Pricing**: Delivers premium multi-color barrier packaging at economical price points.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. Is the material food grade?
+Yes! Made using 100% Food Grade certified materials.
+
+#### 2. What makes these rolls cost-effective?
+Efficient high-speed multi-color rotogravure production provides superior quality at competitive prices.`,
+    image: "/images/products/specialty-pouches/image.png",
+    gallery: ["/images/products/specialty-pouches/image.png"],
+    specs: {
+      "Food Safety": "100% Food Grade Material Certified",
+      "Quality Rating": "Superior Quality at par with Industry Standards",
+      "Cost Advantage": "Economical & Cost-Effective Pricing",
+      "Printing": "HD Multi-Color Rotogravure Printing",
+    },
+    thicknessLengthMatrix: [{ micron: "60", gauge: "240", meters: "1,000", feet: "3,280" }],
+    options: {
+      widths: ["200mm", "350mm", "500mm", "800mm"],
+      thicknesses: ["50 Micron", "80 Micron", "100 Micron"],
+      colors: ["Multi-Color Rotogravure HD Print"],
+    },
+    applications: ["Food packaging pouches & rolls", "Retail FMCG packaging", "Confectionery & snack rolls"],
+    visualGradients: "from-blue-600 to-indigo-700",
+  },
+  {
+    id: "food-packaging-laminates",
+    title: "Food Packaging Laminates In Pouch And Roll Form",
+    category: "film-products",
+    tag: "Food Laminate",
+    blurb: "100% Food Grade certified laminates supplied in roll stock and pre-formed pouch formats (Center Seal, 3-Side Seal, Standup, Zipper) using PET, Met PET, BOPP, Foil, and PE.",
+    longDesc: `Food Packaging Laminates In Pouch And Roll Form are produced from 100% Food Grade certified raw materials to protect food products from spoilage, moisture, oxygen, and light.
+
+Supplied in roll form for automatic VFFS/HFFS packaging lines, or pre-formed pouches including Center Seal, Three Side Seal, Standup Pouches, and Zipper Pouches.
+
+### Key Product Features
+- **100% Food Grade Certified Raw Material**: Compliant with global food safety standards.
+- **Multi-Substrate Options**: PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, and PE.
+- **Roll Form Supply**: Supplied in continuous roll stock as per customer specifications.
+- **Pouch Form Supply**: Supplied in Center Seal, Three Side Seal, Standup Pouch, and Zipper Pouch formats.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What formats are available for Food Packaging Laminates?
+Supplied in both Roll Form and Pouch Form (Center Seal, 3-Side Seal, Standup, Zipper).
+
+#### 2. Are materials food grade certified?
+Yes! Made from 100% Food Grade certified raw materials.`,
+    image: "/images/products/specialty-pouches/image.png",
+    gallery: ["/images/products/specialty-pouches/image.png"],
+    specs: {
+      "Food Safety Certification": "100% Food Grade Certified Raw Material",
+      "Substrate Selection": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
+      "Roll Form Supply": "Continuous Roll Stock as per customer requirement",
+      "Pouch Form Formats": "Center Seal, 3-Side Seal, Standup Pouch, Zipper Pouch",
+    },
+    thicknessLengthMatrix: [{ micron: "60", gauge: "240", meters: "1,000", feet: "3,280" }],
+    options: {
+      widths: ["150mm to 1200mm"],
+      thicknesses: ["50 Micron", "80 Micron", "100 Micron", "120 Micron"],
+      colors: ["HD Rotogravure Printed", "Transparent Window"],
+    },
+    applications: ["Snack food & potato chips", "Ground coffee & tea packaging", "Spices, pulses & bakery products"],
     visualGradients: "from-blue-600 to-indigo-700",
   },
   {

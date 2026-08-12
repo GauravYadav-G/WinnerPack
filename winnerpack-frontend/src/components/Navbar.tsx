@@ -77,12 +77,14 @@ export const productHierarchy = [
         title: "Flexible Laminate Rolls & Pouches",
         slug: "flexible-laminates",
         items: [
-          { name: "Food Packaging Laminates", slug: "food-packaging-laminates" },
           { name: "Agro Chemical Laminates", slug: "agro-chemical-laminates" },
           { name: "Plain Standup Pouches", slug: "plain-standup-pouches" },
           { name: "Lidding Foils And Laminates", slug: "lidding-foils-laminates" },
           { name: "Wrap Around Labels", slug: "wrap-around-labels" },
           { name: "Laminated Pouch India", slug: "laminated-pouch-india" },
+          { name: "Polyester Laminated Roll", slug: "polyester-laminated-roll" },
+          { name: "Multi Coloured Laminated Roll", slug: "multi-coloured-laminated-roll" },
+          { name: "Food Packaging Laminates In Pouch And Roll Form", slug: "food-packaging-laminates" },
         ]
       },
       {
