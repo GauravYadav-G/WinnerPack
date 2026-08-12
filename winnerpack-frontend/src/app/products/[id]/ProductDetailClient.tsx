@@ -32,28 +32,35 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
   // Maps navbar subcategory slugs → actual product ID in fallback-data
   const aliasMap: Record<string, string> = {
-    // Film Products subcategories → actual parent/product IDs
-    "packaging-films":      "packaging-films",       // ✓ direct match — has own entry
-    "pof-shrink-film":      "pof-films-pouches",
-    "lamination-pe-film":   "lamination-films-pouches",
-    "agricultural-films":   "agricultural-films",    // ✓ direct match — has own entry
-    "biodegradable-films":  "compostable-films-pouches",
-    "flexible-laminates":   "lamination-films-pouches",
-    "printed-pe-films":     "coloured-films-pouches",
-    "stretch-film":         "stretch-film",           // ✓ direct match
-    "ldpe-bags":            "ldpe-films-pouches",
-    "bopp-films":           "bopp-films-pouches",
-    "pvc-shrink-films":     "pvc-shrink-rolls-pouches",
-    // Tape subcategories
-    "bopp-tapes":           "bopp-tapes",             // ✓ direct match
+    // Film Products 11 Main Categories
+    "packaging-films":      "packaging-films",
+    "pof-shrink-film":      "pof-shrink-film",
+    "lamination-pe-film":   "lamination-pe-film",
+    "agricultural-films":   "agricultural-films",
+    "biodegradable-films":  "biodegradable-films",
+    "flexible-laminates":   "flexible-laminates",
+    "printed-pe-films":     "printed-pe-films",
+    "stretch-film":         "stretch-film",
+    "ldpe-bags":            "ldpe-bags",
+    "bopp-films":           "bopp-films",
+    "pvc-shrink-films":     "pvc-shrink-films",
+    // Labels & Stickers
+    "plain-labels":         "plain-labels",
+    "printed-labels":       "printed-labels",
+    "barcode-labels":       "barcode-labels",
+    "product-labels":       "product-labels",
+    "self-adhesive-labels": "self-adhesive-labels",
+    "thermal-labels":       "thermal-labels",
+    // Tapes
+    "bopp-tapes":           "bopp-tapes",
     "printed-tapes":        "printed-bopp-tapes",
     "colored-tapes":        "coloured-bopp-tapes",
     "masking-tapes":        "silicon-tapes",
-    // PP & PET Strap subcategories
-    "pp-strap":             "pp-strap",               // ✓ direct match
-    "printed-pp-strap":     "printed-pp-strap",       // ✓ direct match
-    "colored-pp-strap":     "colored-pp-strap",       // ✓ direct match
-    "pet-strap":            "pet-strap",              // ✓ direct match
+    // PP & PET Strap
+    "pp-strap":             "pp-strap",
+    "printed-pp-strap":     "printed-pp-strap",
+    "colored-pp-strap":     "colored-pp-strap",
+    "pet-strap":            "pet-strap",
   };
   const targetId = aliasMap[id] ?? id;
 
