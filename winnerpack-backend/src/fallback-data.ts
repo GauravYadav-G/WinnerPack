@@ -532,7 +532,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "PE Liners And Garbage Bags",
         subtitle: "Heavy-Duty Bin Liners & Industrial Drum Liners",
         blurb: "Heavy-duty polyethylene bin liners, box liners, and industrial drum liners designed with reinforced bottom seals to prevent leaks and tears during waste and material disposal.",
-        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        image: "/images/products/ldpe-bags/pe-garbage-bags.jpg",
         specs: {
           "Handling": "Ideal for Handling Bulk Packing Dry Materials",
           "Widths Available": "250 mm – 2400 mm",
@@ -5135,8 +5135,8 @@ Due to their branched molecular structure, LDPE bags stretch significantly under
 
 #### 10. Where can I buy LDPE bags in bulk or wholesale?
 WinnerPack manufactures and exports LDPE bags directly in bulk quantities, delivering international quality standards across global markets including USA, Europe, Australia, and Asia.`,
-    image: "/images/products/ldpe-films-pouches/applications/app-3.png",
-    gallery: ["/images/products/ldpe-films-pouches/applications/app-3.png"],
+    image: "/images/products/ldpe-bags/pe-garbage-bags.jpg",
+    gallery: ["/images/products/ldpe-bags/pe-garbage-bags.jpg"],
     specs: {
       "Material Grade": "100% Prime Virgin Food-Grade LDPE Resin",
       "Bag Style Variants": "Antistatic, Biohazard, Ice, Mailer, D-Cut, Hanger Hook, Soft Loop",
@@ -5995,11 +5995,9 @@ Yes, PE Liners and Garbage Bags can be customized to align with specific brandin
 
 #### 10. Are PE Liners and Garbage Bags suitable for both commercial and household use?
 Absolutely, PE Liners and Garbage Bags are versatile products suitable for a range of settings, whether in households for daily waste or commercial establishments requiring multi-purpose waste solutions. Different grades and specifications are available to address varied customer requirements.`,
-    image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+    image: "/images/products/ldpe-bags/pe-garbage-bags.jpg",
     gallery: [
-      "/images/products/ldpe-films-pouches/applications/app-3.png",
-      "/images/products/ldpe-films-pouches/applications/app-1.png",
-      "/images/products/ldpe-films-pouches/applications/app-2.png",
+      "/images/products/ldpe-bags/pe-garbage-bags.jpg"
     ],
     specs: {
       "Width Range": "250 mm – 2,400 mm",
