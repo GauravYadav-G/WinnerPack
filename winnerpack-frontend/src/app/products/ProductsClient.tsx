@@ -164,10 +164,10 @@ function ProductsContent() {
                 className="w-full md:w-7/12 lg:w-1/2 bg-white/95 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-2xl shadow-lift border border-[var(--color-line)]"
               >
                 <span className="font-mono text-xs font-bold tracking-[0.2em] text-[var(--color-blue)] uppercase block mb-2">
-                  WHAT WE DO
+                  What We Do
                 </span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)] uppercase tracking-tight mb-4">
-                  PACKAGING MATERIAL MANUFACTURER
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)] tracking-tight mb-3">
+                  Packaging Material Manufacturer
                 </h3>
 
                 <div className="w-12 h-1 bg-[var(--color-amber)] mb-6" />
@@ -219,8 +219,8 @@ function ProductsContent() {
                 <span className="font-mono text-xs font-bold text-[var(--color-blue)] tracking-wider uppercase mb-1">
                   Hygiene & Safety First
                 </span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)] uppercase tracking-tight mb-4 text-balance">
-                  FOOD GRADE & INDUSTRIAL PACKAGING MATERIALS
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)] tracking-tight mb-3 text-balance">
+                  Food Grade & Industrial Packaging Materials
                 </h3>
                 <div className="w-14 h-1 bg-[var(--color-amber)] mb-6" />
 
@@ -248,8 +248,8 @@ function ProductsContent() {
               transition={{ duration: 0.5 }}
               className="bg-[var(--color-blue-deep)] text-white p-8 sm:p-12 md:p-16 flex flex-col justify-center"
             >
-              <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight mb-6 leading-tight text-balance">
-                CUSTOM PRINTED FILMS, LABELS, TAPES & STRAPPING
+              <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight mb-4 leading-snug text-balance">
+                Custom Printed Films, Labels, Tapes & Strapping
               </h3>
               <div className="w-16 h-1 bg-[var(--color-amber)] mb-6" />
 
@@ -313,8 +313,8 @@ function ProductsContent() {
                 <span className="font-mono text-xs font-bold text-[var(--color-blue)] tracking-wider uppercase mb-1">
                   End-to-End Industrial Packaging
                 </span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)] uppercase tracking-tight mb-4 text-balance">
-                  COMPLETE INDUSTRIAL PACKAGING EXCELLENCE
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)] tracking-tight mb-3 text-balance">
+                  Complete Industrial Packaging Excellence
                 </h3>
                 <div className="w-14 h-1 bg-[var(--color-amber)] mb-6" />
 
@@ -347,10 +347,10 @@ function ProductsContent() {
           <Container>
             <div className="text-center mb-12 max-w-3xl mx-auto">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-blue)] font-bold block mb-2">
-                CATEGORIES
+                Categories
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-[var(--color-ink)] uppercase tracking-tight text-balance">
-                OUR PRODUCT CATEGORIES
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-ink)] tracking-tight text-balance">
+                Our Product Categories
               </h2>
               <div className="mt-3 h-1 w-16 bg-[var(--color-amber)] mx-auto rounded-full" />
               <p className="mt-4 text-[var(--color-mute)] text-sm sm:text-base">
@@ -408,10 +408,10 @@ function ProductsContent() {
           <Container>
             <div className="text-center mb-12 max-w-3xl mx-auto">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-blue)] font-bold block mb-2">
-                FEATURED PRODUCTS
+                Featured Products
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-[var(--color-ink)] uppercase tracking-tight text-balance">
-                FEATURED INDUSTRIAL PACKAGING PRODUCTS
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-ink)] tracking-tight text-balance">
+                Featured Industrial Packaging Products
               </h2>
               <div className="mt-3 h-1 w-16 bg-[var(--color-amber)] mx-auto rounded-full" />
               <p className="mt-4 text-[var(--color-mute)] text-sm sm:text-base">
