@@ -3406,20 +3406,6 @@ Higher mechanical strength allows thinner film gauges, offsetting raw material c
           "Applications": "Apparel shopping bags, organic markets & trade events",
         },
       },
-      {
-        id: "compostable-pouches",
-        title: "Compostable Pouches",
-        subtitle: "Self-Adhesive Bio Courier Mailers",
-        blurb: "100% Home compostable self-adhesive courier mailers and zipper pouches for eco e-commerce shipping, meeting ASTM D6400 and EN 13432.",
-        image: "/images/products/compostable-films-pouches/applications/app-4.png",
-        specs: {
-          "Certification": "Meets ASTM D6400 & EN 13432 Compostability Standards",
-          "Adhesive Flap": "Permanent High-Tack Eco Adhesive Sealing Strip",
-          "Texture": "Silky Soft-Touch Matte Surface Finish",
-          "Puncture Resistance": "Tough tear-proof structure for parcel logistics",
-          "Applications": "E-commerce mailers, apparel shipping & document pouches",
-        },
-      },
     ],
     options: {
       widths: ["200mm", "350mm", "500mm", "900mm", "1200mm"],

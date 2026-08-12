@@ -64,13 +64,12 @@ export const productHierarchy = [
       },
       {
         id: "biodegradable-films",
-        title: "Biodegradble Films",
+        title: "Biodegradable Films",
         slug: "biodegradable-films",
         items: [
           { name: "Bio Degradable Mulch Film", slug: "bio-degradable-mulch-film" },
           { name: "Biodegradable Shrink Film", slug: "biodegradable-shrink-film" },
           { name: "Biodegradable Shopping Bag", slug: "biodegradable-shopping-bag" },
-          { name: "Compostable Pouches", slug: "compostable-pouches" },
         ]
       },
       {
