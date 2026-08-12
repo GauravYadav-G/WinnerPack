@@ -234,7 +234,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 blurb: sub.blurb || parentWithSub.blurb,
                 longDesc: sub.longDesc || sub.blurb || parentWithSub.longDesc,
                 image: sub.image || parentWithSub.image,
-                gallery: [sub.image || parentWithSub.image, ...(parentWithSub.gallery || [])],
+                gallery: sub.gallery || [sub.image || parentWithSub.image],
                 specs: sub.specs || parentWithSub.specs,
                 applications: sub.applications || parentWithSub.applications,
                 thicknessLengthMatrix: parentWithSub.thicknessLengthMatrix,

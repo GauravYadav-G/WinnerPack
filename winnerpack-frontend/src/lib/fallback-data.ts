@@ -518,7 +518,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "LDPE Shrink Film",
         subtitle: "Heavy-Duty Collation Shrink Rolls for Bottle & Can Bundling",
         blurb: "Heavy-gauge LDPE collation shrink film engineered for heat-shrink bundling of beverage bottles, cans, glass jars, and heavy industrial products with high holding force and puncture resistance.",
-        image: "/images/products/ldpe-shrink-rolls/image.png",
+        image: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
         specs: {
           "Cost Savings": "Significant Cost savings vs Corrugated Box Packaging",
           "Disposal": "Ease of post usage disposal",
@@ -615,7 +615,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "LDPE Shrink Film",
         subtitle: "Heavy-Duty Collation Shrink Rolls for Bottle & Can Bundling",
         blurb: "Heavy-gauge LDPE collation shrink film engineered for heat-shrink bundling of beverage bottles, cans, glass jars, and heavy industrial products with high holding force and puncture resistance.",
-        image: "/images/products/ldpe-shrink-rolls/image.png",
+        image: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
         specs: {
           "Shrink Temperature": "160°C to 200°C Thermal Tunnel",
           "Thickness Range": "50 Micron to 150 Micron",
@@ -5889,12 +5889,9 @@ Yes, LDPE Shrink Film performs well in moderate-high temperature requirements. H
 
 #### 10. Can LDPE Shrink Film be customized in size and color?
 Absolutely. LDPE Shrink Film can be produced in custom sizes, colors, and even with printed branding to meet specific packaging needs. From vibrant colored films for brand differentiation to bespoke dimensions for unique product requirements, customization options ensure ideal compatibility and enhanced market appeal.`,
-    image: "/images/products/ldpe-shrink-rolls/image.png",
+    image: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
     gallery: [
-      "/images/products/ldpe-shrink-rolls/image.png",
-      "/images/products/ldpe-films-pouches/applications/app-1.png",
-      "/images/products/ldpe-films-pouches/applications/app-2.png",
-      "/images/products/ldpe-films-pouches/applications/app-3.png",
+      "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg"
     ],
     specs: {
       "Material Composition": "LDPE (Low-Density Polyethylene)",
