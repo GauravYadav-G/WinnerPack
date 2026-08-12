@@ -38,7 +38,7 @@ export const productHierarchy = [
         title: "POF Shrink Film",
         slug: "pof-shrink-film",
         items: [
-          { name: "Cross-Linked POF Film", slug: "cross-linked-pof-film" },
+          { name: "Cross-Linked POF Film", slug: "cross-linked-pof" },
           { name: "Non-Cross-Linked POF Film", slug: "non-cross-linked-pof-film" },
           { name: "POF Shrink Pouches", slug: "pof-shrink-pouches" },
         ]
@@ -160,8 +160,8 @@ export const productHierarchy = [
         title: "Printed Labels",
         slug: "printed-labels",
         items: [
-          { name: "Flexo & Digital Printed Labels", slug: "custom-printed-product-labels" },
-          { name: "Wide Format Promotional Labels", slug: "industrial-warning-labels" },
+          { name: "Flexo & Digital Printed Labels", slug: "flexo-digital-printed-labels" },
+          { name: "Wide Format Promotional Labels", slug: "wide-format-printed-labels" },
         ]
       },
       {
@@ -169,8 +169,8 @@ export const productHierarchy = [
         title: "Barcode Labels",
         slug: "barcode-labels",
         items: [
-          { name: "Thermal Transfer Barcode Labels", slug: "thermal-barcode-labels" },
-          { name: "GS1 & Data Matrix Barcode Labels", slug: "gs1-barcode-labels" },
+          { name: "Thermal Transfer Barcode Labels", slug: "thermal-transfer-barcode-labels" },
+          { name: "GS1 & Data Matrix Barcode Labels", slug: "gs1-data-matrix-barcode-labels" },
         ]
       },
       {
@@ -178,8 +178,8 @@ export const productHierarchy = [
         title: "Product Labels",
         slug: "product-labels",
         items: [
-          { name: "Clear & Metallic Product Labels", slug: "clear-metallic-labels" },
-          { name: "Jar & Bottle Product Labels", slug: "jar-bottle-labels" },
+          { name: "Clear & Metallic Product Labels", slug: "clear-metallic-product-labels" },
+          { name: "Jar & Bottle Product Labels", slug: "jar-bottle-product-labels" },
         ]
       },
       {
@@ -197,7 +197,7 @@ export const productHierarchy = [
         slug: "thermal-labels",
         items: [
           { name: "Direct Thermal Labels", slug: "direct-thermal-labels" },
-          { name: "Thermal Transfer Labels", slug: "thermal-transfer-labels" },
+          { name: "Thermal Transfer Labels", slug: "thermal-transfer-paper-labels" },
         ]
       },
     ]
@@ -255,8 +255,8 @@ export const productHierarchy = [
         title: "PP Strap",
         slug: "pp-strap",
         items: [
-          { name: "Automatic PP Strapping Roll", slug: "auto-pp-strap" },
-          { name: "Manual / Semi-Auto PP Strap", slug: "manual-pp-strap" },
+          { name: "Automatic PP Strapping Roll", slug: "automatic-pp-strap" },
+          { name: "Manual / Semi-Auto PP Strap", slug: "manual-semi-auto-pp-strap" },
         ]
       },
       {
@@ -264,8 +264,8 @@ export const productHierarchy = [
         title: "Printed PP Strap",
         slug: "printed-pp-strap",
         items: [
-          { name: "Corporate Branded PP Strap", slug: "branded-pp-strap" },
-          { name: "Security Warning PP Strap", slug: "security-pp-strap" },
+          { name: "Corporate Branded PP Strap", slug: "corporate-branded-pp-strap" },
+          { name: "Security Warning PP Strap", slug: "security-warning-pp-strap" },
         ]
       },
       {
@@ -273,8 +273,8 @@ export const productHierarchy = [
         title: "Colored PP Strap",
         slug: "colored-pp-strap",
         items: [
-          { name: "Solid Colored PP Strap", slug: "solid-color-pp-strap" },
-          { name: "Embossed Color PP Strap", slug: "embossed-color-pp-strap" },
+          { name: "Solid Colored PP Strap", slug: "primary-colored-pp-straps" },
+          { name: "Heavy Duty Colored Straps", slug: "heavy-duty-colored-straps" },
         ]
       },
       {
@@ -282,8 +282,8 @@ export const productHierarchy = [
         title: "PET Strap",
         slug: "pet-strap",
         items: [
-          { name: "High-Tensile Green PET Strap", slug: "green-pet-strap" },
-          { name: "Heavy Duty Embossed PET Strap", slug: "embossed-pet-strap" },
+          { name: "Standard Industrial PET Strap", slug: "standard-industrial-pet-strap" },
+          { name: "Extra Heavy Export PET Strap", slug: "extra-heavy-export-pet-strap" },
         ]
       },
     ]

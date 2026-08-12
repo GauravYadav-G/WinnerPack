@@ -30,19 +30,32 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const [loading, setLoading] = useState(true);
   const [img, setImg] = useState<string>("");
 
+  // Maps navbar subcategory slugs → actual product ID in fallback-data
   const aliasMap: Record<string, string> = {
-    "lamination-pe-film": "lamination-films-pouches",
-    "pof-shrink-film": "pof-films-pouches",
-    "packaging-films": "ldpe-films-pouches",
-    "agricultural-films": "compostable-films-pouches",
-    "biodegradable-films": "compostable-films-pouches",
-    "flexible-laminate-rolls": "lamination-films-pouches",
-    "printed-pe-films": "coloured-films-pouches",
-    "ldpe-bags": "ldpe-films-pouches",
-    "bopp-films": "bopp-films-pouches",
-    "pvc-shrink-films": "pvc-shrink-rolls-pouches",
+    // Film Products subcategories → actual parent/product IDs
+    "packaging-films":      "packaging-films",       // ✓ direct match — has own entry
+    "pof-shrink-film":      "pof-films-pouches",
+    "lamination-pe-film":   "lamination-films-pouches",
+    "agricultural-films":   "compostable-films-pouches",
+    "biodegradable-films":  "compostable-films-pouches",
+    "flexible-laminates":   "lamination-films-pouches",
+    "printed-pe-films":     "coloured-films-pouches",
+    "stretch-film":         "stretch-film",           // ✓ direct match
+    "ldpe-bags":            "ldpe-films-pouches",
+    "bopp-films":           "bopp-films-pouches",
+    "pvc-shrink-films":     "pvc-shrink-rolls-pouches",
+    // Tape subcategories
+    "bopp-tapes":           "bopp-tapes",             // ✓ direct match
+    "printed-tapes":        "printed-bopp-tapes",
+    "colored-tapes":        "coloured-bopp-tapes",
+    "masking-tapes":        "silicon-tapes",
+    // PP & PET Strap subcategories
+    "pp-strap":             "pp-strap",               // ✓ direct match
+    "printed-pp-strap":     "printed-pp-strap",       // ✓ direct match
+    "colored-pp-strap":     "colored-pp-strap",       // ✓ direct match
+    "pet-strap":            "pet-strap",              // ✓ direct match
   };
-  const targetId = aliasMap[id] || id;
+  const targetId = aliasMap[id] ?? id;
 
   useEffect(() => {
     setLoading(true);
