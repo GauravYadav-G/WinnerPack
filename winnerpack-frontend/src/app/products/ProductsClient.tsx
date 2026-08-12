@@ -69,7 +69,7 @@ const featuredProducts = [
 
 function ProductsContent() {
   return (
-    <div className="min-h-screen bg-white text-[var(--color-text)]">
+    <div className="min-h-screen bg-white text-[var(--color-text)] font-sans">
       <Cursor />
       <ScrollProgress />
       <Navbar />
@@ -78,15 +78,14 @@ function ProductsContent() {
         {/* ========================================================================= */}
         {/* SECTION 1: HERO HEADER BANNER (Reference Image 1 Top)                     */}
         {/* ========================================================================= */}
-        <div className="relative w-full h-[260px] sm:h-[320px] md:h-[380px] overflow-hidden bg-slate-950 flex items-center justify-center">
+        <div className="relative w-full h-[260px] sm:h-[320px] md:h-[380px] overflow-hidden bg-[var(--color-blue-deep)] flex items-center justify-center">
           {/* Background Manufacturing / Facility Image with Blue Gradient Overlay */}
           <OptimizedImage
             src="/images/desktop/portfolio/action_extrusion_tower_blue.jpg"
             alt="WinnerPack Industrial Packaging Manufacturing Plant"
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-45 scale-105"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-40 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/85 via-blue-900/70 to-slate-950/85" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-600/20 via-transparent to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/90 via-[var(--color-blue-deep)]/75 to-[var(--color-steel)]/90" />
 
           {/* Banner Content */}
           <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -94,7 +93,7 @@ function ProductsContent() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-block text-xs sm:text-sm font-semibold tracking-[0.25em] text-blue-300 uppercase mb-2"
+              className="inline-block font-mono text-xs sm:text-sm font-semibold tracking-[0.25em] text-[var(--color-amber)] uppercase mb-2"
             >
               WinnerPack Packaging Solutions
             </motion.span>
@@ -102,7 +101,7 @@ function ProductsContent() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight text-white drop-shadow-md"
+              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight text-white drop-shadow-md text-balance"
             >
               PRODUCTS
             </motion.h1>
@@ -112,10 +111,10 @@ function ProductsContent() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-4 flex items-center justify-center gap-2 text-xs sm:text-sm text-blue-200"
+              className="mt-4 flex items-center justify-center gap-2 font-mono text-xs sm:text-sm text-white/70"
             >
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <ChevronRight className="w-3.5 h-3.5 text-blue-400" />
+              <Link href="/" className="hover:text-[var(--color-amber)] transition-colors">Home</Link>
+              <ChevronRight className="w-3.5 h-3.5 text-white/40" />
               <span className="text-white font-medium">Products</span>
             </motion.div>
           </div>
@@ -124,23 +123,23 @@ function ProductsContent() {
         {/* ========================================================================= */}
         {/* SECTION 2: COMPANY OVERVIEW / INTRO TEXT (Reference Image 1 Bottom)        */}
         {/* ========================================================================= */}
-        <section className="py-12 sm:py-16 bg-[var(--color-bone)] border-b border-slate-200/80">
+        <section className="py-12 sm:py-16 bg-[var(--color-bone)] border-b border-[var(--color-line)]">
           <Container>
             <div className="max-w-5xl mx-auto">
-              <div className="flex flex-col items-start gap-4">
-                <div className="flex items-center gap-2 text-blue-900 font-bold text-xs uppercase tracking-wider">
-                  <span className="w-8 h-0.5 bg-blue-700"></span>
+              <div className="flex flex-col items-start gap-3">
+                <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--color-blue)] font-bold">
+                  <span className="w-8 h-0.5 bg-[var(--color-blue)]"></span>
                   WinnerPack Industry Expertise
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[var(--color-ink)] text-balance">
                   Multilayer Films & Industrial Packaging Solutions
                 </h2>
-                <div className="w-20 h-1 bg-amber-500 rounded-full mb-2" />
+                <div className="w-20 h-1 bg-[var(--color-amber)] rounded-full mb-2" />
               </div>
 
-              <div className="mt-6 space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+              <div className="mt-6 space-y-4 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed">
                 <p>
-                  Established as one of the leading organizations engaged in manufacturing, supplying, and exporting a wide collection of <strong className="text-slate-900 font-semibold">Multilayer Films and Flexible Laminates in Rolls & Pouches</strong>. Our comprehensive range consists of Unprinted PE Films, Printed PE Films (Milk, Ghee, SMP, Water), Flexible Laminated Rolls and Pouches, Shrink Films (POF, LDPE, PVC), Wrap-Around Labels, Lidding Foils, Stretch Films, and Industrial Poly Bags. We manufacture all our products using prime virgin raw materials, which are procured from trustworthy multinational resin vendors. All our products are widely used in various industries for packaging purposes and are known for their durability, seamless finish, barrier protection, and tear resistance.
+                  Established as one of the leading organizations engaged in manufacturing, supplying, and exporting a wide collection of <strong className="text-[var(--color-ink)] font-semibold">Multilayer Films and Flexible Laminates in Rolls & Pouches</strong>. Our comprehensive range consists of Unprinted PE Films, Printed PE Films (Milk, Ghee, SMP, Water), Flexible Laminated Rolls and Pouches, Shrink Films (POF, LDPE, PVC), Wrap-Around Labels, Lidding Foils, Stretch Films, and Industrial Poly Bags. We manufacture all our products using prime virgin raw materials, which are procured from trustworthy multinational resin vendors. All our products are widely used in various industries for packaging purposes and are known for their durability, seamless finish, barrier protection, and tear resistance.
                 </p>
                 <p>
                   Promoted by technocrats that have decades of hands-on experience in this domain, we have been successfully providing our clients with high quality products as per their exact specifications. Our modern manufacturing facility, equipped with advanced multi-layer blown film extrusion lines, high-speed rotogravure & flexographic printing presses, and automated pouch converting machinery, enables us to fabricate all our products in accordance with global quality standards. Besides this, our team of expert professionals work in close proximity with our clients to understand their exact packaging demands in a better way.
@@ -153,14 +152,14 @@ function ProductsContent() {
         {/* ========================================================================= */}
         {/* SECTION 3: "WHAT WE DO" FLOATING CARD OVERLAY (Reference Image 2)           */}
         {/* ========================================================================= */}
-        <section className="relative w-full py-16 sm:py-24 bg-slate-900 overflow-hidden">
+        <section className="relative w-full py-16 sm:py-24 bg-[var(--color-blue-deep)] overflow-hidden">
           {/* Full-width background image */}
           <OptimizedImage
             src="/images/desktop/portfolio/product_app_pallet_wrapping.png"
             alt="Packaging Material Manufacturer What We Do"
             className="absolute inset-0 w-full h-full object-cover object-center opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/80 to-blue-950/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/95 via-[var(--color-blue-deep)]/85 to-[var(--color-steel)]/75" />
 
           <Container className="relative z-10">
             <div className="flex justify-end">
@@ -170,18 +169,18 @@ function ProductsContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="w-full md:w-7/12 lg:w-1/2 bg-white/95 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-2xl shadow-2xl border border-slate-200/80"
+                className="w-full md:w-7/12 lg:w-1/2 bg-white/95 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-2xl shadow-lift border border-[var(--color-line)]"
               >
-                <span className="text-xs font-bold tracking-[0.2em] text-blue-800 uppercase block mb-2">
+                <span className="font-mono text-xs font-bold tracking-[0.2em] text-[var(--color-blue)] uppercase block mb-2">
                   WHAT WE DO
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-blue-950 uppercase tracking-tight mb-4">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)] uppercase tracking-tight mb-4">
                   PACKAGING MATERIAL MANUFACTURER
                 </h3>
 
-                <div className="w-12 h-1 bg-amber-500 mb-6" />
+                <div className="w-12 h-1 bg-[var(--color-amber)] mb-6" />
 
-                <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+                <div className="space-y-4 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed">
                   <p>
                     Since our inception, WinnerPack as a packaging material manufacturer has left no stone unturned in improving and identifying the needs of our clients who come from different industrial spheres. Delivering quality packaging products worldwide with successful application and satisfied client base have been the backbone of our company.
                   </p>
@@ -190,11 +189,11 @@ function ProductsContent() {
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-200/80 flex flex-wrap gap-4 items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-800">
+                <div className="mt-8 pt-6 border-t border-[var(--color-line)] flex flex-wrap gap-4 items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)] font-mono">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" /> 100% Prime Virgin Resins
                   </div>
-                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-800">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)] font-mono">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" /> FDA Food-Safe Certified
                   </div>
                 </div>
@@ -208,7 +207,7 @@ function ProductsContent() {
         {/* ========================================================================= */}
 
         {/* FEATURE BLOCK 1: Food Grade Packaging Material (Image 3 Top) */}
-        <section className="py-12 sm:py-16 bg-white border-b border-slate-200">
+        <section className="py-12 sm:py-16 bg-white border-b border-[var(--color-line)]">
           <Container>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Left Image */}
@@ -217,7 +216,7 @@ function ProductsContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-slate-100"
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-[var(--color-line)] bg-[var(--color-bone)]"
               >
                 <OptimizedImage
                   src="/images/products/coloured-films-pouches/image.png"
@@ -234,15 +233,15 @@ function ProductsContent() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="flex flex-col justify-center"
               >
-                <span className="text-xs font-bold text-blue-800 tracking-wider uppercase mb-1">
+                <span className="font-mono text-xs font-bold text-[var(--color-blue)] tracking-wider uppercase mb-1">
                   Hygiene & Safety First
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-blue-950 uppercase tracking-tight mb-4">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)] uppercase tracking-tight mb-4 text-balance">
                   FOOD GRADE PACKAGING MATERIAL
                 </h3>
-                <div className="w-14 h-1 bg-amber-500 mb-6" />
+                <div className="w-14 h-1 bg-[var(--color-amber)] mb-6" />
 
-                <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+                <div className="space-y-4 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed">
                   <p>
                     All the packaging material manufactured by us is quality tested and made from superior quality 100% prime virgin raw materials, and once it is manufactured it is labelled as food grade.
                   </p>
@@ -256,7 +255,7 @@ function ProductsContent() {
         </section>
 
         {/* FEATURE BLOCK 2: Food Packaging & Flexible Laminates (Image 3 Bottom / 4 Top) */}
-        <section className="py-0 bg-white">
+        <section className="py-0 bg-white border-b border-[var(--color-line)]">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left Solid Navy Box */}
             <motion.div
@@ -264,14 +263,14 @@ function ProductsContent() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-blue-900 text-white p-8 sm:p-12 md:p-16 flex flex-col justify-center"
+              className="bg-[var(--color-blue-deep)] text-white p-8 sm:p-12 md:p-16 flex flex-col justify-center"
             >
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-6 leading-tight">
+              <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight mb-6 leading-tight text-balance">
                 FOOD PACKAGING INDIA & GLOBAL MARKETS
               </h3>
-              <div className="w-16 h-1 bg-amber-400 mb-6" />
+              <div className="w-16 h-1 bg-[var(--color-amber)] mb-6" />
 
-              <div className="space-y-4 text-blue-100 text-sm sm:text-base leading-relaxed">
+              <div className="space-y-4 text-white/80 text-sm sm:text-base leading-relaxed">
                 <p>
                   We provide Food Packaging Material as per the demand of our customers in India and across the world. We customize the packaging product as per the specifications provided by our clients, ensuring maximum satisfaction for them.
                 </p>
@@ -302,7 +301,7 @@ function ProductsContent() {
         </section>
 
         {/* FEATURE BLOCK 3: Advanced Industrial Packaging (Image 4 Bottom) */}
-        <section className="py-12 sm:py-16 bg-slate-50 border-t border-slate-200">
+        <section className="py-12 sm:py-16 bg-[var(--color-mist)] border-t border-[var(--color-line)]">
           <Container>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Left Image */}
@@ -311,7 +310,7 @@ function ProductsContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-slate-900"
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-[var(--color-line)] bg-slate-900"
               >
                 <OptimizedImage
                   src="/images/desktop/portfolio/product_app_blown_film.png"
@@ -328,15 +327,15 @@ function ProductsContent() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="flex flex-col justify-center"
               >
-                <span className="text-xs font-bold text-blue-800 tracking-wider uppercase mb-1">
+                <span className="font-mono text-xs font-bold text-[var(--color-blue)] tracking-wider uppercase mb-1">
                   Global Supply Leader
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 uppercase tracking-tight mb-4">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)] uppercase tracking-tight mb-4 text-balance">
                   PACKAGING MATERIAL EXCELLENCE
                 </h3>
-                <div className="w-14 h-1 bg-amber-500 mb-6" />
+                <div className="w-14 h-1 bg-[var(--color-amber)] mb-6" />
 
-                <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+                <div className="space-y-4 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed">
                   <p>
                     WinnerPack is a leading spearhead in the Packaging Industry, providing excellent packaging solutions in accord with diverse industry needs.
                   </p>
@@ -348,7 +347,7 @@ function ProductsContent() {
                 <div className="mt-6">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-blue-900 hover:bg-blue-950 text-white font-bold text-sm rounded-lg transition-colors shadow-md"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-blue-deep)] hover:bg-[var(--color-ink)] text-white font-bold text-sm rounded-lg transition-colors shadow-md font-sans"
                   >
                     Request Custom Quote <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -361,17 +360,17 @@ function ProductsContent() {
         {/* ========================================================================= */}
         {/* SECTION 5: MAIN CATEGORIES GRID (4 Square Cards)                           */}
         {/* ========================================================================= */}
-        <section className="py-16 bg-white border-t border-slate-200">
+        <section className="py-16 bg-white border-t border-[var(--color-line)]">
           <Container>
             <div className="text-center mb-12 max-w-3xl mx-auto">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-blue-800 font-bold block mb-2">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-blue)] font-bold block mb-2">
                 CATEGORIES
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 uppercase tracking-tight">
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-[var(--color-ink)] uppercase tracking-tight text-balance">
                 OUR PRODUCT CATEGORIES
               </h2>
-              <div className="mt-3 h-1 w-16 bg-amber-500 mx-auto rounded-full" />
-              <p className="mt-4 text-slate-600 text-sm sm:text-base">
+              <div className="mt-3 h-1 w-16 bg-[var(--color-amber)] mx-auto rounded-full" />
+              <p className="mt-4 text-[var(--color-mute)] text-sm sm:text-base">
                 Explore our primary product categories engineered for high tensile strength, load stability, and barrier protection.
               </p>
             </div>
@@ -388,9 +387,9 @@ function ProductsContent() {
                 >
                   <Link
                     href={`/product-category/${cat.id}`}
-                    className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition-all duration-300 hover:border-blue-700 hover:shadow-xl hover:-translate-y-1 block h-full"
+                    className="group relative flex flex-col overflow-hidden rounded-xl border border-[var(--color-line)] bg-white transition-all duration-300 hover:border-[var(--color-blue)] hover:shadow-lift hover:-translate-y-1 block h-full"
                   >
-                    <div className="relative aspect-square w-full overflow-hidden bg-slate-100">
+                    <div className="relative aspect-square w-full overflow-hidden bg-[var(--color-bone)]">
                       <OptimizedImage
                         src={cat.image}
                         alt={cat.title}
@@ -398,17 +397,17 @@ function ProductsContent() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                       <div className="absolute bottom-3 left-3 right-3 text-white">
-                        <span className="inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-blue-900/90 text-white rounded">
+                        <span className="inline-block px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider bg-[var(--color-blue-deep)] text-white rounded">
                           {cat.tag.split("·")[0].trim()}
                         </span>
                       </div>
                     </div>
 
                     <div className="py-4 px-4 text-center bg-white flex flex-col justify-between flex-grow min-h-[80px]">
-                      <h3 className="font-bold text-base text-slate-900 group-hover:text-blue-900 transition-colors leading-snug line-clamp-2">
+                      <h3 className="font-display font-semibold text-base text-[var(--color-ink)] group-hover:text-[var(--color-blue)] transition-colors leading-snug line-clamp-2">
                         {cat.title}
                       </h3>
-                      <span className="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-800 mt-2 group-hover:translate-x-1 transition-transform">
+                      <span className="inline-flex items-center justify-center gap-1 font-mono text-xs font-semibold text-[var(--color-blue)] group-hover:text-[var(--color-amber-dark)] mt-2 group-hover:translate-x-1 transition-all">
                         Explore Category <ChevronRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
@@ -422,17 +421,17 @@ function ProductsContent() {
         {/* ========================================================================= */}
         {/* SECTION 6: FEATURED PRODUCTS SHOWCASE GRID (Reference Image 5)             */}
         {/* ========================================================================= */}
-        <section className="py-16 bg-slate-50 border-t border-slate-200">
+        <section className="py-16 bg-[var(--color-bone)] border-t border-[var(--color-line)]">
           <Container>
             <div className="text-center mb-12 max-w-3xl mx-auto">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-blue-800 font-bold block mb-2">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-blue)] font-bold block mb-2">
                 FEATURED PRODUCTS
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 uppercase tracking-tight">
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-[var(--color-ink)] uppercase tracking-tight text-balance">
                 FEATURED INDUSTRIAL PACKAGING PRODUCTS
               </h2>
-              <div className="mt-3 h-1 w-16 bg-amber-500 mx-auto rounded-full" />
-              <p className="mt-4 text-slate-600 text-sm sm:text-base">
+              <div className="mt-3 h-1 w-16 bg-[var(--color-amber)] mx-auto rounded-full" />
+              <p className="mt-4 text-[var(--color-mute)] text-sm sm:text-base">
                 Discover our specialized packaging solutions manufactured to exact technical standards.
               </p>
             </div>
@@ -449,17 +448,17 @@ function ProductsContent() {
                 >
                   <Link
                     href={`/products/${prod.id}`}
-                    className="group flex flex-col h-full rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-xl hover:border-blue-600 transition-all duration-300 hover:-translate-y-1"
+                    className="group flex flex-col h-full rounded-2xl border border-[var(--color-line)] bg-white overflow-hidden shadow-sm hover:shadow-lift hover:border-[var(--color-blue)] transition-all duration-300 hover:-translate-y-1"
                   >
                     {/* Thumbnail Image */}
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--color-bone)]">
                       <OptimizedImage
                         src={prod.image}
                         alt={prod.title}
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute top-3 left-3">
-                        <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider bg-white/90 backdrop-blur-md text-blue-950 rounded-full shadow-sm">
+                        <span className="px-3 py-1 font-mono text-xs font-semibold uppercase tracking-wider bg-white/90 backdrop-blur-md text-[var(--color-ink)] rounded-full shadow-sm">
                           {prod.tag}
                         </span>
                       </div>
@@ -468,15 +467,15 @@ function ProductsContent() {
                     {/* Content Details */}
                     <div className="p-6 flex flex-col justify-between flex-grow">
                       <div>
-                        <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-900 transition-colors leading-snug">
+                        <h3 className="font-display text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-blue)] transition-colors leading-snug">
                           {prod.title}
                         </h3>
-                        <p className="mt-2 text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed">
+                        <p className="mt-2 text-xs sm:text-sm text-[var(--color-mute)] line-clamp-3 leading-relaxed">
                           {prod.blurb}
                         </p>
                       </div>
 
-                      <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-blue-900 group-hover:text-blue-950">
+                      <div className="mt-6 pt-4 border-t border-[var(--color-line)] flex items-center justify-between font-mono text-xs font-semibold text-[var(--color-blue)] group-hover:text-[var(--color-amber-dark)] transition-colors">
                         <span>View Product Specifications</span>
                         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                       </div>
