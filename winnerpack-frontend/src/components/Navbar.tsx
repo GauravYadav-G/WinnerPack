@@ -16,109 +16,26 @@ const links = [
   { label: "Contact Us", href: "/contact" }
 ];
 
-// Product Category Menu matching Tilak Polypack structure with WinnerPack brand theme
-const extendedProductMenu = [
+// The 4 Main Product Categories with their Subcategories
+const productCategoryMenu = [
   {
-    id: "lamination-pe-film",
-    title: "Lamination PE Film",
-    tag: "High-Bonding Barrier & Lamination Films",
+    id: "film-products",
+    title: "Film Products",
     catSlug: "film-products",
     items: [
-      { name: "Adhesive Lamination Film", slug: "lamination-films-pouches" },
-      { name: "Pharma Grade Poly", slug: "ldpe-films-pouches" },
-      { name: "Barrier Lamination Film", slug: "lamination-films-pouches" },
-      { name: "Laminated Pouches & Rolls", slug: "lamination-films-pouches" },
+      { name: "LDPE Films & Pouches", slug: "ldpe-films-pouches" },
+      { name: "POF Films & Pouches", slug: "pof-films-pouches" },
+      { name: "Coloured Films & Pouches", slug: "coloured-films-pouches" },
+      { name: "BOPP Films & Pouches", slug: "bopp-films-pouches" },
+      { name: "PVC Shrink Rolls & Pouches", slug: "pvc-shrink-rolls-pouches" },
+      { name: "Stretch Film", slug: "stretch-film" },
+      { name: "Lamination Films & Pouches", slug: "lamination-films-pouches" },
+      { name: "Compostable Films & Pouches", slug: "compostable-films-pouches" },
     ]
   },
   {
-    id: "surface-protection-tapes",
-    title: "Surface Protection Tapes",
-    tag: "Residue-Free Guard Films & Tapes",
-    catSlug: "tapes",
-    items: [
-      { name: "Surface Protection Films", slug: "coloured-films-pouches" },
-      { name: "Carpet Protection Film", slug: "coloured-films-pouches" },
-      { name: "Floor Protection Tape", slug: "bopp-tapes" },
-      { name: "Stainless Steel Protection Sheet", slug: "coloured-films-pouches" },
-    ]
-  },
-  {
-    id: "agricultural-films",
-    title: "Agricultural Films",
-    tag: "UV Stabilized Greenhouse & Mulch",
-    catSlug: "film-products",
-    items: [
-      { name: "Plastic Mulching Film", slug: "compostable-films-pouches" },
-      { name: "Low Tunnel Film", slug: "ldpe-films-pouches" },
-      { name: "Mulch Film", slug: "compostable-films-pouches" },
-    ]
-  },
-  {
-    id: "biodegradable-films",
-    title: "Biodegradble Films",
-    tag: "100% Eco-Friendly & Compostable",
-    catSlug: "film-products",
-    items: [
-      { name: "Bio Degradable Mulch Film", slug: "compostable-films-pouches" },
-      { name: "Biodegradable Shrink Film", slug: "pof-films-pouches" },
-      { name: "Biodegradable Shopping Bag", slug: "compostable-films-pouches" },
-      { name: "Compostable Pouches", slug: "compostable-films-pouches" },
-    ]
-  },
-  {
-    id: "packaging-films",
-    title: "Packaging Films",
-    tag: "Industrial Bundle & Pallet Wrap",
-    catSlug: "film-products",
-    items: [
-      { name: "LDPE Shrink Film", slug: "ldpe-films-pouches" },
-      { name: "PE Liners And Garbage Bags", slug: "ldpe-films-pouches" },
-      { name: "Plastic Stretch Film", slug: "stretch-film" },
-      { name: "Collation Shrink Film", slug: "pof-films-pouches" },
-    ]
-  },
-  {
-    id: "flexible-laminate-rolls",
-    title: "Flexible Laminate Rolls & Pouches",
-    tag: "Multi-Layer Barrier Pouches & Foils",
-    catSlug: "film-products",
-    items: [
-      { name: "Food Packaging Laminates", slug: "lamination-films-pouches" },
-      { name: "Agro Chemical Laminates", slug: "lamination-films-pouches" },
-      { name: "Plain Standup Pouches", slug: "bopp-films-pouches" },
-      { name: "Lidding Foils And Laminates", slug: "lamination-films-pouches" },
-      { name: "Wrap Around Labels", slug: "printed-labels" },
-      { name: "Laminated Pouch India", slug: "lamination-films-pouches" },
-    ]
-  },
-  {
-    id: "printed-pe-films",
-    title: "Printed PE Films",
-    tag: "Flexographic Printed Liquid Packaging",
-    catSlug: "film-products",
-    items: [
-      { name: "Milk Packaging Film", slug: "coloured-films-pouches" },
-      { name: "Ghee Packaging Film", slug: "coloured-films-pouches" },
-      { name: "SMP Packaging Film", slug: "coloured-films-pouches" },
-      { name: "Water Packaging Film", slug: "coloured-films-pouches" },
-    ]
-  },
-  {
-    id: "stretch-film",
-    title: "Stretch Film",
-    tag: "Machine & Manual Load Unitization",
-    catSlug: "film-products",
-    items: [
-      { name: "Sustainable Stretch Wrap", slug: "stretch-film" },
-      { name: "Mini Stretch Wrap Rolls", slug: "stretch-film" },
-      { name: "Manual Stretch Film", slug: "stretch-film" },
-      { name: "Machine Grade Stretch Film", slug: "stretch-film" },
-    ]
-  },
-  {
-    id: "labels-stickers",
+    id: "label-sticker-products",
     title: "Labels & Stickers",
-    tag: "Thermal Transfer & Product Stickers",
     catSlug: "label-sticker-products",
     items: [
       { name: "Plain Labels", slug: "plain-labels" },
@@ -130,9 +47,8 @@ const extendedProductMenu = [
     ]
   },
   {
-    id: "tapes-division",
-    title: "Tapes Division",
-    tag: "High-Tack BOPP & Specialty Tapes",
+    id: "tapes",
+    title: "Tapes",
     catSlug: "tapes",
     items: [
       { name: "BOPP Tapes", slug: "bopp-tapes" },
@@ -142,9 +58,8 @@ const extendedProductMenu = [
     ]
   },
   {
-    id: "pp-pet-strapping",
-    title: "PP & PET Strapping",
-    tag: "High Tensile Pallet Strapping Rolls",
+    id: "pp-strap",
+    title: "PP & PET Strap",
     catSlug: "pp-strap",
     items: [
       { name: "PP Strap", slug: "pp-strap" },
@@ -307,17 +222,17 @@ export default function Navbar() {
                         <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200 text-[var(--color-amber)]", isProductsHovered && "rotate-180")} />
                       </Link>
 
-                      {/* ── TILAK POLYPACK STYLE DYNAMIC FLYOUT SUBMENU ── */}
+                      {/* ── 4-CATEGORY DYNAMIC FLYOUT SUBMENU ── */}
                       {isProductsHovered && (
                         <div className="absolute left-0 top-[56px] z-50 flex items-start pointer-events-auto">
                           
-                          {/* 1st Tier: Category Dropdown List (Main Menu) */}
-                          <div className="w-64 lg:w-72 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 z-20">
+                          {/* 1st Tier: 4 Categories Menu */}
+                          <div className="w-60 lg:w-64 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 z-20">
                             {/* Top decorative accent bar */}
                             <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] to-[#ff9e43]" />
 
-                            <div className="divide-y divide-white/5 max-h-[75vh] overflow-y-auto no-scrollbar">
-                              {extendedProductMenu.map((category) => {
+                            <div className="divide-y divide-white/5">
+                              {productCategoryMenu.map((category) => {
                                 const isCurrentActive = activeCategoryTab === category.id;
                                 return (
                                   <div
@@ -328,7 +243,7 @@ export default function Navbar() {
                                     <Link
                                       href={`/product-category/${category.catSlug}`}
                                       className={cn(
-                                        "w-full px-4 py-2.5 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer border-b border-white/5",
+                                        "w-full px-4 py-3 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer border-b border-white/5",
                                         isCurrentActive
                                           ? "bg-white text-[#120a3b] font-black shadow-sm border-l-4 border-l-[var(--color-amber)]"
                                           : "bg-[#120a3b] text-white/85 hover:bg-white/10 hover:text-[var(--color-amber)] font-medium"
@@ -348,9 +263,9 @@ export default function Navbar() {
                             </div>
                           </div>
 
-                          {/* 2nd Tier: Submenu (Styled Identically to Main Menu without Any Headings) */}
+                          {/* 2nd Tier: Subcategories Menu (Styled Identically to Main Menu without Any Headings) */}
                           {(() => {
-                            const currentCategory = extendedProductMenu.find((c) => c.id === activeCategoryTab);
+                            const currentCategory = productCategoryMenu.find((c) => c.id === activeCategoryTab);
                             if (!currentCategory || !currentCategory.items || currentCategory.items.length === 0) {
                               return null;
                             }
@@ -362,7 +277,7 @@ export default function Navbar() {
                                 {/* Top decorative accent bar matching main menu */}
                                 <div className="h-1 bg-gradient-to-r from-[var(--color-amber)] to-[#ff9e43]" />
 
-                                {/* Sub-Items List matching Main Menu structure */}
+                                {/* Subcategories List matching Main Menu structure */}
                                 <div className="divide-y divide-white/5 max-h-[75vh] overflow-y-auto no-scrollbar">
                                   {currentCategory.items.map((item) => (
                                     <Link
