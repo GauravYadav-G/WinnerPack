@@ -4244,6 +4244,87 @@ Yes, 100% of the coreless stretch film is recyclable polyethylene (LLDPE) soft p
     visualGradients: "from-yellow-400 to-amber-500",
   },
   {
+    id: "biodegradable-stretch-wrap",
+    title: "Biodegradable Stretch Wrap",
+    category: "film-products",
+    tag: "Bio Stretch Wrap",
+    blurb: "Eco-friendly high-strength bio-polyethylene pallet wrapping film engineered to break down naturally in soil and landfill environments while delivering exceptional pallet stability.",
+    longDesc: `Are you searching for a sustainable alternative to traditional pallet wrap? Look no further! WinnerPack provides a high-strength biodegradable pallet wrapping film that delivers exceptional pallet stability while also breaking down in natural soil and landfill conditions. This eco-friendly material is fully recyclable, ensuring minimal environmental impact and supporting responsible corporate packaging practices.
+
+By choosing WinnerPack Biodegradable Stretch Wrap, you contribute directly to reducing the global problem of plastic waste. Our bio-based and oxo-biodegradable stretch wraps achieve sustainability through innovative polymer formulations and manufacturing methods that prioritize both load containment strength and environmental friendliness.
+
+### Key Features of WinnerPack Biodegradable Stretch Wrap
+- **High-Strength Eco Film**: Engineered as a high-strength film offering superior protection and load retention for palletized goods during shipping and storage.
+- **Natural Degradation Formula**: Crafted from a specialist bio-additive formula designed to break down naturally over time without leaving toxic microplastics.
+- **Full Size & Gauge Flexibility**: Available in a variety of sizes and gauges (including popular 80-gauge / 20-micron options) for wrapping pallets, boxes, and heavy industrial goods.
+- **Universal Pallet Compatibility**: Compatible with all types of pallets and stretch wrapping machines (or hand application) with or without additional strapping.
+- **Weather & Impact Resistant**: Durable construction capable of withstanding environmental impacts from heat, cold, rain, dust, and dirt.
+- **Easy & Efficient Application**: Smooth unwind and self-clinging properties minimize wrapping errors and increase warehouse packing speed.
+- **Cost-Effective Sustainability**: Enables businesses to achieve corporate ESG sustainability goals without compromising load safety or increasing packaging budget.
+
+### Frequently Asked Questions (FAQ)
+
+#### 1. What is Biodegradable Stretch Wrap?
+Biodegradable Stretch Wrap is an eco-friendly pallet wrapping film engineered with bio-additives that allow the plastic film to degrade naturally into organic matter, carbon dioxide, and water when exposed to landfill or outdoor soil conditions.
+
+#### 2. How does Biodegradable Stretch Wrap differ from standard stretch wrap?
+While standard stretch film can persist in landfills for centuries, WinnerPack Biodegradable Stretch Wrap undergoes accelerated biodegradation upon disposal while maintaining equal tensile strength, stretchability, and load-holding force during active use.
+
+#### 3. Does Biodegradable Stretch Wrap compromise on strength or load stability?
+No. WinnerPack Biodegradable Stretch Wrap is engineered as a high-strength multi-layer film with excellent elastic recovery and puncture resistance, ensuring pallets remain secure during transit and storage.
+
+#### 4. How long does Biodegradable Stretch Wrap take to degrade?
+In active landfill or outdoor soil conditions, the bio-additive technology initiates degradation after its functional lifespan, breaking the film down within 1 to 3 years compared to hundreds of years for conventional plastic.
+
+#### 5. Is Biodegradable Stretch Wrap recyclable?
+Yes, before disposal, WinnerPack Biodegradable Stretch Wrap can be recycled alongside standard polyethylene soft plastics in regular recycling streams.
+
+#### 6. Can Biodegradable Stretch Wrap be used on automatic wrapping machines?
+Yes, it is available in both manual hand rolls and machine-grade rolls compatible with automatic turntable and rotary-arm stretch wrapping equipment.
+
+#### 7. What widths and thicknesses are available?
+Standard widths range from 50 mm to 600 mm (custom widths up to 1.5 Meters available). Standard thicknesses range from 12 Micron to 29 Micron (including 80-gauge / 20-micron options).
+
+#### 8. Does Biodegradable Stretch Wrap degrade prematurely in the warehouse?
+No. The biodegradation process requires exposure to microbial landfill or soil environments. The film remains completely stable with 100% mechanical performance during indoor warehouse storage and normal transit.
+
+#### 9. What industries use Biodegradable Stretch Wrap?
+- Retail & E-Commerce Logistics
+- Food & FMCG Manufacturers
+- Agricultural & Organic Product Exporters
+- Corporate ESG-certified Warehouses & 3PLs
+
+#### 10. Is Biodegradable Stretch Wrap cost-effective?
+Yes, WinnerPack offers competitive B2B wholesale pricing, allowing companies to transition to sustainable packaging without incurring excessive costs.`,
+    image: "/images/products/stretch-film/image.png",
+    gallery: ["/images/products/stretch-film/image.png"],
+    specs: {
+      "Protection Against Dust / Dirt": "Yes",
+      "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
+      "Visual Inspection": "Helps for Visual Inspection",
+      "Cost Effectiveness": "More Cost effective compared to Straps / Shrink / Corrugation",
+      "Wrapping Options": "Available for Manual Wrapping / Machine Wrapping",
+      "Standard Widths": "50 mm / 100 mm / 150 mm / 200 mm / 300 mm / 450 mm / 500 mm / 600 mm (Max Width 1.5 Meters)",
+      "Standard Thickness": "12 Micron / 15 Micron / 18 Micron / 23 Micron / 29 Micron",
+      "Standard Colours": "Natural / Opaque White / Blue / Black",
+      "Standard Core ID": "25 mm / 31 mm / 76.2 mm",
+      "Special Additives": "UV Protection / VCI / Antistatic",
+    },
+    options: {
+      widths: ["50 mm", "100 mm", "150 mm", "200 mm", "300 mm", "450 mm", "500 mm", "600 mm"],
+      thicknesses: ["12 Micron", "15 Micron", "18 Micron", "20 Micron", "23 Micron", "29 Micron"],
+      colors: ["Natural Clear", "Opaque White", "Blue", "Black"],
+    },
+    applications: [
+      "Sustainable industrial pallet wrapping",
+      "Eco-certified warehouse & 3PL logistics",
+      "Organic food & FMCG product transit",
+      "Landfill waste-reduction packaging",
+      "Corporate ESG-compliant shipping",
+    ],
+    visualGradients: "from-yellow-400 to-amber-500",
+  },
+  {
     id: "collation-shrink-film",
     title: "Collation Shrink Film",
     category: "film-products",
