@@ -5038,8 +5038,8 @@ Yes, mini stretch wrap rolls are an economical solution for small-scale needs. D
 
 #### 10. How does mini stretch wrap help in preventing damage during storage or shipping?
 Mini stretch wrap's elasticity and cling properties ensure tight bundling, reducing the risk of items shifting during transit or handling. It provides a protective layer that minimizes exposure to dust, moisture, and scratches while keeping products securely in place.`,
-    image: "/images/products/stretch-film/image.png",
-    gallery: ["/images/products/stretch-film/image.png"],
+    image: "/images/products/mini-stretch-wrap-rolls/mini-stretch-wrap.jpg",
+    gallery: ["/images/products/mini-stretch-wrap-rolls/mini-stretch-wrap.jpg"],
     specs: {
       "Width": "50 MM / 100 MM / 150 MM (Can be customised as per requirement)",
       "Thickness": "10 Micron onwards",
@@ -6105,7 +6105,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Mini Stretch Wrap Rolls",
         subtitle: "Compact bundling rolls for small items",
         blurb: "Mini Stretch Wrap Films are ideal for wrapping small items that need to be kept handy. The compact size makes bundling and collating small items quick and easy.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/mini-stretch-wrap-rolls/mini-stretch-wrap.jpg",
         specs: {
           "Ideal For": "Bundling and collating small items",
           "Format": "Compact Mini Rolls",
