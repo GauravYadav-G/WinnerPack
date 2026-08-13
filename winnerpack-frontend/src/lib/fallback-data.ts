@@ -6205,7 +6205,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Coreless Stretch Film",
         subtitle: "100% cost-used, zero-core waste film",
         blurb: "Coreless stretch film is an economical and efficient way to secure heavy loads. With no added paper cores, you save on costs while reducing your carbon footprint. Pre-stretching increases film strength and reduces amount of film needed per load.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/coreless-stretch-film/coreless-stretch-film.jpg",
         specs: {
           "Core": "Coreless — No Paper Core Waste",
           "Cost Efficiency": "100% of cost is used — no core disposal cost",
@@ -6796,8 +6796,8 @@ Yes, coreless stretch film eliminates the price of paper core manufacturing and 
 
 #### 10. Can coreless stretch film be recycled?
 Yes, 100% of the coreless stretch film is recyclable polyethylene (LLDPE) soft plastic, making waste management simple and clean.`,
-    image: "/images/products/stretch-film/image.png",
-    gallery: ["/images/products/stretch-film/image.png"],
+    image: "/images/products/coreless-stretch-film/coreless-stretch-film.jpg",
+    gallery: ["/images/products/coreless-stretch-film/coreless-stretch-film.jpg"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
