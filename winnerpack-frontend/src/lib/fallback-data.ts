@@ -6177,7 +6177,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "VCI Stretch Film",
         subtitle: "Rust and corrosion protection for metal",
         blurb: "VCI Stretch Film helps in protection of metal objects from rust by releasing Vapor Corrosion Inhibitor molecules that form a protective molecular layer on metal surfaces.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/vci-stretch-film/vci-stretch-film.jpg",
         specs: {
           "Active Agent": "VCI — Vapor Corrosion Inhibitor",
           "Protection": "Prevents rust and corrosion on metal surfaces",
@@ -6619,8 +6619,8 @@ Regular stretch film provides physical protection against dust and scratches but
 - Cost-effective for long-term storage and export transit
 - Easy to apply and remove without residue
 - Transparent for effortless visual inspection`,
-    image: "/images/products/stretch-film/image.png",
-    gallery: ["/images/products/stretch-film/image.png"],
+    image: "/images/products/vci-stretch-film/vci-stretch-film.jpg",
+    gallery: ["/images/products/vci-stretch-film/vci-stretch-film.jpg"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
