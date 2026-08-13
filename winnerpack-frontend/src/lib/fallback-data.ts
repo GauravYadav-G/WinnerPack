@@ -6163,7 +6163,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Pre Stretch Film",
         subtitle: "Pre-stretched for reduced film usage",
         blurb: "Pre-stretch is the process that allows the stretch film to be stretched before (pre) being applied to a load. A multi-layer stretch film made to be thinner and stronger than standard stretch film.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/pre-stretch-film/pre-stretch-film.jpg",
         specs: {
           "Process": "Pre-stretched before application",
           "Construction": "Multi-layer film",
@@ -6521,8 +6521,8 @@ Standard sizes include Hand Rolls (430 mm × 9 Micron × 500m) and Machine Rolls
 
 #### 10. How does pre-stretch film improve load stability during shipping and storage?
 Pre-stretch film is engineered to deliver consistent tension and cling, preventing load shifting during transit. Its advanced elasticity and tear resistance protect packages from external impacts, ensuring safe delivery and stable storage conditions.`,
-    image: "/images/products/stretch-film/image.png",
-    gallery: ["/images/products/stretch-film/image.png"],
+    image: "/images/products/pre-stretch-film/pre-stretch-film.jpg",
+    gallery: ["/images/products/pre-stretch-film/pre-stretch-film.jpg"],
     specs: {
       "Hand Roll Size": "430 × 450 mm × 9 Micron × 500 Meter",
       "Machine Roll Size": "430 × 450 mm × 9 Micron × 1500 Meter",
