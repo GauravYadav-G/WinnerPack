@@ -6219,7 +6219,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Biodegradable Stretch Wrap",
         subtitle: "Eco-friendly high-strength pallet film",
         blurb: "Biodegradable stretch wrap minimizes environmental impact while ensuring optimal protection for your products. Guaranteed roll length, incredibly durable film construction, and secure wrapping.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/biodegradable-stretch-wrap/biodegradable-stretch-wrap.jpg",
         specs: {
           "Formula": "Biodegradable",
           "Environmental Impact": "Minimized vs standard stretch film",
@@ -6877,8 +6877,8 @@ No. The biodegradation process requires exposure to microbial landfill or soil e
 
 #### 10. Is Biodegradable Stretch Wrap cost-effective?
 Yes, WinnerPack offers competitive B2B wholesale pricing, allowing companies to transition to sustainable packaging without incurring excessive costs.`,
-    image: "/images/products/stretch-film/image.png",
-    gallery: ["/images/products/stretch-film/image.png"],
+    image: "/images/products/biodegradable-stretch-wrap/biodegradable-stretch-wrap.jpg",
+    gallery: ["/images/products/biodegradable-stretch-wrap/biodegradable-stretch-wrap.jpg"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
