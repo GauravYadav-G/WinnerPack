@@ -697,7 +697,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "Cross-Linked POF Shrink Film",
         subtitle: "High Tensile Irradiated Polyolefin for Heavy & Sharp Edged Products",
         blurb: "Irradiated cross-linked POF film engineered with enhanced polymer chain bonds. Delivers superior puncture resistance, ultra-strong seal wire welds, zero burn-through, and exceptional performance on high-speed automatic L-sealers.",
-        image: "/images/products/pof-shrink-rolls/image.png",
+        image: "/images/products/cross-linked-pof/cross-linked-pof.jpg",
         specs: {
           "Polymer Link": "Irradiated Cross-Linked Structure",
           "Puncture Resistance": "Superior Puncture & Tear Resistance",
@@ -2784,7 +2784,7 @@ Yes. POF is 100% recyclable under category #4 (LDPE/PP) soft plastic recycling p
         title: "Cross-Linked POF Film",
         subtitle: "Irradiated High Tensile Polyolefin Rolls",
         blurb: "Irradiated cross-linked POF shrink film engineered with enhanced polymer chain bonds for extreme puncture resistance and high-speed automated L-sealer performance.",
-        image: "/images/products/pof-shrink-rolls/image.png",
+        image: "/images/products/cross-linked-pof/cross-linked-pof.jpg",
         specs: {
           "Polymer Structure": "Irradiated Cross-Linked Polyolefin (E-Beam)",
           "Puncture Resistance": "Extreme Sharp Edge & Heavy Box Impact Strength",
@@ -2883,8 +2883,8 @@ It remains soft, flexible, and crack-resistant down to -40°C, making it ideal f
 
 #### 10. Is Cross-Linked POF recyclable?
 Yes. It is 100% recyclable under soft polyolefin plastic recycling streams.`,
-    image: "/images/products/pof-shrink-rolls/image.png",
-    gallery: ["/images/products/pof-shrink-rolls/image.png"],
+    image: "/images/products/cross-linked-pof/cross-linked-pof.jpg",
+    gallery: ["/images/products/cross-linked-pof/cross-linked-pof.jpg"],
     specs: {
       "Polymer Structure": "Irradiated Cross-Linked Polyolefin",
       "Puncture Rating": "Extreme Sharp Edge Impact Resistance",
