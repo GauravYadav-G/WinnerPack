@@ -1073,9 +1073,9 @@ Here are some benefits of using PE lamination roll:
 - Wide range of thickness options for customization.
 - Cost-effective solution for packaging requirements.
 - Compliant with industry standards and regulations.`,
-    image: "/images/products/specialty-pouches/image.png",
+    image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
     gallery: [
-      "/images/products/specialty-pouches/image.png",
+      "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
       "/images/desktop/about/blown_film_tower.png",
       "/images/products/lamination-films-pouches/applications/app-3.png",
       "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
@@ -3113,8 +3113,8 @@ Yes. Rolls receive double-sided or single-sided corona treatment (42+ dynes/cm) 
 
 #### 10. Is Lamination PE Film recyclable?
 Yes, Polyethylene (PE) is 100% recyclable under soft plastic (#4 LDPE / #2 HDPE) recycling streams.`,
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
+    image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
+    gallery: ["/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg"],
     specs: {
       "Substrate Base": "Prime Virgin LDPE / LLDPE / HDPE Resin",
       "Corona Treatment": "42+ Dynes/cm Surface Energy",
@@ -3136,7 +3136,7 @@ Yes, Polyethylene (PE) is 100% recyclable under soft plastic (#4 LDPE / #2 HDPE)
         title: "Adhesive Lamination Film",
         subtitle: "High Bond Corona Treated Poly",
         blurb: "Corona treated polyethylene film engineered for high bond adhesive lamination to polyester (PET), BOPP, and foil.",
-        image: "/images/products/specialty-pouches/image.png",
+        image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
         specs: {
           "Primary Use": "Used for lamination to polyester (PET)",
           "Available Widths": "Up to 2.25 Meters (2250 mm)",
