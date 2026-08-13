@@ -437,10 +437,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     {displaySubCategories.map((sub: any) => (
                       <div
                         key={sub.id || sub.title}
-                        className="bg-white text-[var(--color-ink)] rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[var(--color-blue-deep)]/40 p-6 flex flex-col justify-between group transition-all duration-300"
+                        className="bg-[#faf7f2] text-[var(--color-ink)] rounded-2xl border border-[#e8e2d4] shadow-xs hover:shadow-xl hover:border-[var(--color-blue-deep)]/40 p-6 flex flex-col justify-between group transition-all duration-300"
                       >
                         <div className="space-y-4">
-                          <Link href={`/products/${sub.id || sub.slug || product.id}`} className="block bg-slate-100/70 border border-slate-200/60 rounded-xl p-2 aspect-[16/10] overflow-hidden flex items-center justify-center">
+                          <Link href={`/products/${sub.id || sub.slug || product.id}`} className="block bg-white border border-[#e4ded2] rounded-xl p-2 aspect-[16/10] overflow-hidden flex items-center justify-center">
                             <OptimizedImage
                               src={sub.image || product.image || "/images/products/specialty-pouches/image.png"}
                               alt={sub.title}
@@ -463,7 +463,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                           )}
 
                           {sub.specs && (
-                            <div className="pt-3 border-t border-slate-100">
+                            <div className="pt-3 border-t border-[#eae4d7]">
                               <ul className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed font-sans font-normal">
                                 {Object.entries(sub.specs).slice(0, 4).map(([lbl, val]: any) => (
                                   <li key={lbl} className="flex items-start gap-2.5">
