@@ -6135,7 +6135,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Cling Film",
         subtitle: "Food-grade catering and food packaging film",
         blurb: "Cling film is mainly used for packing food products and catering use, made from only virgin food-grade raw material with special additives imported from Europe. Available from 10 microns.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/cling-film/cling-film.png",
         specs: {
           "Material": "Virgin food-grade polyethylene",
           "Additives Origin": "Imported from Europe",
@@ -6311,8 +6311,8 @@ Rolls typically range from 300 mm to 600 mm (12 inches to 24 inches) in width an
 #### 10. What are the differences between regular cling film and stretch film?
 - **Cling Film**: Thinner (10–25 Micron), highly flexible with self-adhesive cling, primarily designed for food wrapping and light packaging.
 - **Stretch Film**: Thicker (12–29 Micron), engineered for heavy pallet load containment and industrial bundling using manual or machine wrappers.`,
-    image: "/images/products/stretch-film/image.png",
-    gallery: ["/images/products/stretch-film/image.png"],
+    image: "/images/products/cling-film/cling-film.png",
+    gallery: ["/images/products/cling-film/cling-film.png"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
