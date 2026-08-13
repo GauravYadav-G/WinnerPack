@@ -6233,7 +6233,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Recycled Stretch Wrap",
         subtitle: "40% recycled content sustainable stretch film",
         blurb: "Recycled Stretch Wrap is made with 40% Post Industrial / Post Consumer recycled content. High-performance, durable, easy to use, and secure fit — reducing environmental impact with sustainable packaging.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/recycled-stretch-wrap/recycled-stretch-wrap.jpg",
         specs: {
           "Recycled Content": "40% Post Industrial / Post Consumer",
           "Performance": "High-performance and durable",
@@ -6954,8 +6954,8 @@ Available in Natural Clear, Opaque White, Blue Tint, and Black Opaque. Core IDs 
 
 #### 10. How does Recycled Stretch Wrap help lower corporate carbon footprints?
 By utilizing 40% recycled resin, the production process consumes significantly less energy and crude oil compared to virgin plastic manufacturing, directly lowering Scope 3 supply chain carbon emissions.`,
-    image: "/images/products/stretch-film/image.png",
-    gallery: ["/images/products/stretch-film/image.png"],
+    image: "/images/products/recycled-stretch-wrap/recycled-stretch-wrap.jpg",
+    gallery: ["/images/products/recycled-stretch-wrap/recycled-stretch-wrap.jpg"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
