@@ -571,7 +571,7 @@ doc.setFontSize(9);
 doc.setTextColor(255, 255, 255);
 doc.setFont("helvetica", "normal");
 doc.text("Phone / WhatsApp: +91 98188 88484  |  Landline: +91 99100 00000", margin + 10, yPos + 54);
-doc.text("Email Inquiries: sales@winnerpack.in  |  info@winnerpack.in", margin + 10, yPos + 61);
+doc.text("Email Inquiries: info@winnerpack.in", margin + 10, yPos + 61);
 doc.text("Official Website: www.winnerpack.in", margin + 10, yPos + 68);
 
 

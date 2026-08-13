@@ -427,7 +427,7 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
                       <option value="film-products">Film Products</option>
                       <option value="label-sticker-products">Labels & Stickers</option>
                       <option value="tapes">Industrial Tapes</option>
-                      <option value="pp-strap">PP & PET Strap</option>
+                      <option value="pp-strap">Strap</option>
                     </select>
                   </div>
 

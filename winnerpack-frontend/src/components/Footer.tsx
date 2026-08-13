@@ -11,12 +11,13 @@ const defaultFooterData = {
   legalName: "Winner Pack Technologies Pvt. Ltd.",
   phone: "+91 85950 72187",
   phone2: "+91 74287 70999",
-  email: "sales@winnerpack.in",
+  email: "info@winnerpack.in",
   address: "Winner Pack Technologies Pvt. Ltd. Plot No. 8, B.S.T. Industrial Park, Village Dasna, Ghaziabad, Uttar Pradesh, 201015",
   description: "Winner Pack Technologies Pvt. Ltd. is a manufacturer and supplier of environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply quality stretch films, strapping rolls, shrink films, and protective packaging solutions to industrial businesses across diverse sectors.",
   linkedin: "https://linkedin.com",
   youtube: "https://youtube.com",
-  instagram: "https://instagram.com",
+  instagram: "https://www.instagram.com/winnerpacktechnologies/",
+  facebook: "https://www.facebook.com/winnerpackindia",
 };
 
 export default function Footer() {
@@ -76,6 +77,26 @@ export default function Footer() {
             <div className="mt-6 flex items-center gap-2">
               {[
                 {
+                  label: "Facebook",
+                  href: footerData.facebook || "https://www.facebook.com/winnerpackindia",
+                  svg: (
+                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                  )
+                },
+                {
+                  label: "Instagram",
+                  href: footerData.instagram || "https://www.instagram.com/winnerpacktechnologies/",
+                  svg: (
+                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                  )
+                },
+                {
                   label: "LinkedIn",
                   href: footerData.linkedin || "https://linkedin.com",
                   svg: (
@@ -90,17 +111,6 @@ export default function Footer() {
                   svg: (
                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.528 3.545 12 3.545 12 3.545s-7.528 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.022 0 12 0 12s0 3.978.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.86.508 9.388.508 9.388.508s7.528 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.978 24 12 24 12s0-3.978-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                    </svg>
-                  )
-                },
-                {
-                  label: "Instagram",
-                  href: footerData.instagram || "https://instagram.com",
-                  svg: (
-                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                     </svg>
                   )
                 }
@@ -154,7 +164,7 @@ export default function Footer() {
                   { label: "Film Products", href: "/product-category/film-products" },
                   { label: "Labels & Stickers", href: "/product-category/label-sticker-products" },
                   { label: "Tapes Catalog", href: "/product-category/tapes" },
-                  { label: "PP & PET Straps", href: "/product-category/pp-strap" }
+                  { label: "Strap", href: "/product-category/pp-strap" }
                 ].map((link) => (
                   <li key={link.label}>
                     <Link href={link.href} className="hover:text-white transition-colors duration-200 block py-0.5" data-hover>

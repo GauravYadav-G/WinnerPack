@@ -116,7 +116,7 @@ export const COMPANY = {
   phoneDisplay: "+91 85950 72187 / +91 74287 70999",
   phoneHref: "918595072187",
   phone2Href: "917428770999",
-  email: "sales@winnerpack.in",
+  email: "info@winnerpack.in",
   whatsapp: "918595072187",
   hours: "Mon - Sat: 9:00 AM - 6:00 PM"
 };

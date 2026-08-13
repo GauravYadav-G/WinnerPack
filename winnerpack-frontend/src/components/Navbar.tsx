@@ -244,7 +244,7 @@ export const productHierarchy = [
   },
   {
     id: "pp-strap",
-    title: "PP & PET Strap",
+    title: "Strap",
     catSlug: "pp-strap",
     subcategories: [
       {
@@ -295,6 +295,8 @@ export default function Navbar() {
   const [activeCatId, setActiveCatId] = useState<string | null>(null);
   const [activeSubCatId, setActiveSubCatId] = useState<string | null>(null);
   const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
+  const [mobileActiveCatId, setMobileActiveCatId] = useState<string>("film-products");
+  const [mobileExpandedSubCatId, setMobileExpandedSubCatId] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -319,9 +321,9 @@ export default function Navbar() {
         <div className="max-w-[1536px] mx-auto px-3 sm:px-4 md:px-6 lg:px-8 flex justify-between items-center">
           {/* Left: Contact Info */}
           <div className="flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-            <a href="mailto:sales@winnerpack.in" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
+            <a href="mailto:info@winnerpack.in" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
               <Mail className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber)] shrink-0" />
-              <span className="hidden min-[400px]:inline">sales@winnerpack.in</span>
+              <span className="hidden min-[400px]:inline">info@winnerpack.in</span>
               <span className="min-[400px]:hidden">Email</span>
             </a>
             <a href="tel:+918595072187" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
@@ -568,7 +570,7 @@ export default function Navbar() {
 
             {/* Mobile/Tablet Drawer Menu Overlay — visible below lg */}
             {open && (
-              <div className="lg:hidden absolute inset-x-0 top-[72px] sm:top-[76px] bg-white border-b border-[var(--color-line)] shadow-lg z-30 flex flex-col p-5 gap-4 animate-fade-in max-h-[85vh] overflow-y-auto">
+              <div className="lg:hidden absolute inset-x-0 top-[72px] sm:top-[76px] bg-white border-b border-[var(--color-line)] shadow-[0_8px_32px_rgba(10,22,40,0.12)] z-30 flex flex-col p-5 gap-4 animate-fade-in max-h-[85vh] overflow-y-auto scrollbar-none">
                 <ul className="flex flex-col gap-1">
                   {links.map((link) => {
                     const isActive = pathname === link.href;
@@ -576,62 +578,135 @@ export default function Navbar() {
                     if (link.hasMegaMenu) {
                       return (
                         <li key={link.label} className="border-b border-slate-100 pb-2">
-                          <button
-                            onClick={() => setMobileCategoriesOpen(!mobileCategoriesOpen)}
-                            className={cn(
-                              "flex items-center justify-between w-full py-3 px-2 text-sm font-semibold transition-colors rounded-lg",
-                              isActive
-                                ? "text-[var(--color-amber)] bg-amber-50/50"
-                                : "text-[var(--color-ink)] hover:text-[var(--color-amber)] hover:bg-slate-50"
-                            )}
-                          >
-                            <span>{link.label}</span>
-                            <ChevronDown className={cn("h-4 w-4 text-[var(--color-amber)] transition-transform duration-200", mobileCategoriesOpen && "rotate-180")} />
-                          </button>
+                          <div className="flex items-center justify-between w-full">
+                            <Link
+                              href="/products"
+                              onClick={() => setOpen(false)}
+                              className={cn(
+                                "flex-1 py-3 px-2 text-sm font-semibold transition-colors rounded-lg flex items-center justify-between",
+                                isActive
+                                  ? "text-[var(--color-amber)] bg-amber-50/50 font-bold"
+                                  : "text-[var(--color-ink)] hover:text-[var(--color-amber)] hover:bg-slate-50"
+                              )}
+                            >
+                              <span>{link.label}</span>
+                            </Link>
 
-                          {/* Mobile Products Preview */}
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setMobileCategoriesOpen(!mobileCategoriesOpen);
+                              }}
+                              className="p-2 text-[var(--color-amber)] hover:bg-amber-50 rounded-lg shrink-0 transition-colors"
+                              aria-label="Toggle subcategories catalog preview"
+                            >
+                              <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", mobileCategoriesOpen && "rotate-180")} />
+                            </button>
+                          </div>
+
+                          {/* Mobile Products Preview — Redesigned with Desktop 3-Tier Hierarchy */}
                           {mobileCategoriesOpen && (
-                            <div className="mt-2 py-2 px-1 space-y-4 border-l-2 border-[var(--color-amber)] ml-3">
-                              {productHierarchy.map((cat) => (
-                                <div key={cat.id} className="space-y-2">
-                                  {/* Category Header */}
-                                  <Link
-                                    href={`/product-category/${cat.catSlug}`}
-                                    onClick={() => setOpen(false)}
-                                    className="block text-xs font-bold uppercase text-[var(--color-amber-dark)] tracking-wider"
-                                  >
-                                    • {cat.title}
-                                  </Link>
+                            <div className="mt-2 py-3 px-2 space-y-4 bg-slate-50/80 rounded-xl border border-slate-200/80">
+                              
+                              {/* Tier 1: Main Category Switcher Pills */}
+                              <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none touch-pan-x -mx-1 px-1">
+                                {productHierarchy.map((cat) => {
+                                  const isActiveCat = cat.id === mobileActiveCatId || cat.catSlug === mobileActiveCatId;
+                                  return (
+                                    <button
+                                      key={cat.id}
+                                      type="button"
+                                      onClick={() => {
+                                        setMobileActiveCatId(cat.id);
+                                        setMobileExpandedSubCatId(null);
+                                      }}
+                                      className={cn(
+                                        "shrink-0 rounded-full px-3 py-1.5 text-xs font-bold transition-all duration-200 shadow-2xs whitespace-nowrap min-h-[34px] flex items-center justify-center",
+                                        isActiveCat
+                                          ? "bg-[var(--color-blue-deep)] text-white shadow-xs"
+                                          : "bg-white text-[var(--color-ink)] border border-[var(--color-line)] hover:bg-slate-100"
+                                      )}
+                                    >
+                                      {cat.title}
+                                    </button>
+                                  );
+                                })}
+                              </div>
 
-                                  {/* Subcategories and items */}
-                                  <div className="space-y-2 pl-2">
-                                    {cat.subcategories.map((subcat) => (
-                                      <div key={subcat.id} className="space-y-1">
-                                        <Link
-                                          href={`/products/${subcat.slug}`}
-                                          onClick={() => setOpen(false)}
-                                          className="block text-xs font-bold text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] transition-colors"
-                                        >
-                                          {subcat.title}
-                                        </Link>
-                                        <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 pl-2">
-                                          {subcat.items.map((item) => (
-                                            <Link
-                                              key={item.name}
-                                              href={`/products/${item.slug}`}
-                                              onClick={() => setOpen(false)}
-                                              className="text-[11px] text-slate-600 hover:text-[var(--color-amber-dark)] transition-colors py-0.5 truncate"
-                                              title={item.name}
-                                            >
-                                              {item.name}
-                                            </Link>
-                                          ))}
-                                        </div>
-                                      </div>
-                                    ))}
+                              {/* Selected Category Content */}
+                              {(() => {
+                                const selectedCat = productHierarchy.find(
+                                  (c) => c.id === mobileActiveCatId || c.catSlug === mobileActiveCatId
+                                ) || productHierarchy[0];
+
+                                return (
+                                  <div className="space-y-3 pt-1">
+                                    {/* Category Main Page Quick Link */}
+                                    <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
+                                        {selectedCat.title} Formats
+                                      </span>
+                                      <Link
+                                        href={`/product-category/${selectedCat.catSlug}`}
+                                        onClick={() => setOpen(false)}
+                                        className="text-xs font-bold text-[var(--color-blue)] hover:underline flex items-center gap-1"
+                                      >
+                                        <span>View all</span>
+                                        <ChevronRight className="h-3 w-3" />
+                                      </Link>
+                                    </div>
+
+                                    {/* Tier 2 & Tier 3: Subcategories list for active category */}
+                                    <div className="space-y-2">
+                                      {selectedCat.subcategories.map((subcat) => {
+                                        const isExpanded = mobileExpandedSubCatId === subcat.id;
+                                        return (
+                                          <div key={subcat.id} className="rounded-lg bg-white border border-slate-200/70 overflow-hidden shadow-2xs">
+                                            <div className="flex items-center justify-between p-2.5">
+                                              <Link
+                                                href={`/products/${subcat.slug}`}
+                                                onClick={() => setOpen(false)}
+                                                className="text-xs font-extrabold font-display text-[var(--color-ink)] hover:text-[var(--color-blue)] transition-colors flex-1"
+                                              >
+                                                {subcat.title}
+                                              </Link>
+
+                                              <button
+                                                type="button"
+                                                onClick={() => setMobileExpandedSubCatId(isExpanded ? null : subcat.id)}
+                                                className="p-1 text-slate-400 hover:text-[var(--color-blue)] transition-colors shrink-0"
+                                                aria-label={`Toggle ${subcat.title} sub-items`}
+                                              >
+                                                <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", isExpanded && "rotate-180")} />
+                                              </button>
+                                            </div>
+
+                                            {/* Sub-items drop down */}
+                                            {isExpanded && (
+                                              <div className="px-3 pb-2.5 pt-1 border-t border-slate-100 bg-slate-50/50 grid grid-cols-2 gap-1.5">
+                                                {subcat.items.map((item) => (
+                                                  <Link
+                                                    key={item.name}
+                                                    href={`/products/${item.slug}`}
+                                                    onClick={() => setOpen(false)}
+                                                    className="text-[11px] font-medium text-slate-600 hover:text-[var(--color-blue)] transition-colors py-1 px-1.5 rounded hover:bg-white truncate"
+                                                    title={item.name}
+                                                  >
+                                                    • {item.name}
+                                                  </Link>
+                                                ))}
+                                              </div>
+                                            )}
+                                          </div>
+                                        );
+                                      })}
+                                    </div>
                                   </div>
-                                </div>
-                              ))}
+                                );
+                              })()}
+
                             </div>
                           )}
                         </li>
@@ -657,11 +732,23 @@ export default function Navbar() {
                   })}
                 </ul>
                 
+                {/* Quick Contact Info — Stitch design bottom drawer */}
+                <div className="mt-1 pt-4 border-t border-slate-100 flex flex-col gap-2">
+                  <a href="tel:+918595072187" className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)] hover:text-[var(--color-blue)] transition-colors">
+                    <Phone className="h-3.5 w-3.5 text-[var(--color-amber-dark)] shrink-0" />
+                    +91 85950 72187
+                  </a>
+                  <a href="mailto:info@winnerpack.in" className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)] hover:text-[var(--color-blue)] transition-colors">
+                    <Mail className="h-3.5 w-3.5 text-[var(--color-amber-dark)] shrink-0" />
+                    info@winnerpack.in
+                  </a>
+                </div>
+
                 {/* Mobile CTA */}
                 <Link
                   href="/contact"
                   onClick={() => setOpen(false)}
-                  className="block text-center bg-[var(--color-amber)] text-[var(--color-blue-deep)] py-3 rounded-lg text-sm font-bold hover:bg-[var(--color-amber)]/90 transition-colors"
+                  className="block text-center bg-[var(--color-blue-deep)] text-white py-3 rounded-xl text-sm font-bold hover:bg-[var(--color-blue-deep)]/90 transition-colors"
                 >
                   Request a Quote
                 </Link>

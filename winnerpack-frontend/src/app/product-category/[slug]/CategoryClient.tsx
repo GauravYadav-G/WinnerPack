@@ -1,17 +1,21 @@
 "use client";
-import { apiFetch } from "@/lib/api";
-import { use, useState, useEffect } from "react";
+import { use, useRef } from "react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useMotionTemplate,
+  useReducedMotion,
+} from "framer-motion";
 import { productCategories } from "@/data";
-import type { Product } from "@/data";
+import { productHierarchy } from "@/components/Navbar";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Section, Container } from "@/components/ui/primitives";
-import { Stagger, StaggerItem } from "@/components/ui/motion";
-import { ProductCard } from "@/components/ProductCard";
 import CTABanner from "@/components/CTABanner";
 import { cn } from "@/utils/cn";
-import { Loader2, ArrowLeft } from "lucide-react";
-import { initialProducts } from "@/lib/fallback-data";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useIsTouch } from "@/hooks";
 
 // Layout components
 import Navbar from "@/components/Navbar";
@@ -19,7 +23,163 @@ import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import PageWrapper from "@/components/PageWrapper";
-import OptimizedImage from '@/components/OptimizedImage';
+import OptimizedImage from "@/components/OptimizedImage";
+
+// Subcategory → representative image from its actual sub-products
+const SUBCAT_IMAGES: Record<string, string> = {
+  // Film Products — using newly uploaded product images
+  "packaging-films": "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
+  "pof-shrink-film": "/images/products/cross-linked-pof/cross-linked-pof.jpg",
+  "lamination-pe-film": "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
+  "agricultural-films": "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
+  "biodegradable-films": "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.jpg",
+  "flexible-laminate-rolls": "/images/products/plain-standup-pouches/plain-standup-pouches.jpg",
+  "printed-pe-films": "/images/products/milk-packaging-film/milk-packaging-film.jpg",
+  "ldpe-bags": "/images/products/ldpe-bags/pe-garbage-bags.jpg",
+  "bopp-films": "/images/products/bopp-films-pouches/bopp-rolls.jpg",
+  "pvc-shrink-films": "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
+
+  // Labels & Stickers
+  "plain-labels": "/images/products/plain-labels/image.png",
+  "printed-labels": "/images/products/printed-labels/image.png",
+  "barcode-labels": "/images/products/barcode-labels/image.png",
+  "product-labels": "/images/products/product-labels/image.png",
+  "self-adhesive-labels": "/images/products/self-adhesive-labels/image.png",
+  "thermal-labels": "/images/products/thermal-labels/image.png",
+
+  // Tapes
+  "bopp-tapes": "/images/products/bopp-tapes/image.png",
+  "printed-tapes": "/images/products/printed-bopp-tapes/image.png",
+  "colored-tapes": "/images/products/coloured-bopp-tapes/image.png",
+  "masking-tapes": "/images/products/silicon-tapes/image.png",
+
+  // Strap
+  "pp-strap-main": "/images/products/pp-strap/image.png",
+  "printed-pp-strap": "/images/products/printed-pp-strap/image.png",
+  "colored-pp-strap": "/images/products/colored-pp-strap/image.png",
+  "pet-strap": "/images/products/pet-strap/image.png",
+};
+
+function SubcategoryCard({
+  subcat,
+}: {
+  subcat: { id: string; title: string; slug: string; items: { name: string; slug: string }[] };
+}) {
+  const reduce = useReducedMotion();
+  const touch = useIsTouch();
+  const ref = useRef<HTMLElement>(null);
+  const rx = useMotionValue(0);
+  const ry = useMotionValue(0);
+  const gx = useMotionValue(50);
+  const gy = useMotionValue(50);
+  const srx = useSpring(rx, { stiffness: 150, damping: 18 });
+  const sry = useSpring(ry, { stiffness: 150, damping: 18 });
+  const highlight = useMotionTemplate`radial-gradient(380px circle at ${gx}% ${gy}%, rgba(245,165,35,0.18), transparent 45%)`;
+
+  function handleMove(e: React.MouseEvent) {
+    if (reduce || touch || !ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;
+    const py = (e.clientY - r.top) / r.height;
+    ry.set((px - 0.5) * 10);
+    rx.set(-(py - 0.5) * 10);
+    gx.set(px * 100);
+    gy.set(py * 100);
+  }
+
+  function reset() {
+    rx.set(0);
+    ry.set(0);
+    gx.set(50);
+    gy.set(50);
+  }
+
+  const image = SUBCAT_IMAGES[subcat.id] || "/images/products/pof-shrink-rolls/image.png";
+
+  return (
+    <motion.article
+      ref={ref}
+      onMouseMove={handleMove}
+      onMouseLeave={reset}
+      style={{
+        rotateX: reduce || touch ? 0 : srx,
+        rotateY: reduce || touch ? 0 : sry,
+        transformPerspective: 1000,
+      }}
+      className="group relative flex h-full flex-col overflow-hidden rounded-xl sm:rounded-[20px] border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[var(--color-blue-3)]/50 hover:shadow-xl active:scale-[0.99] sm:active:scale-100"
+    >
+      {/* Image block with responsive aspect ratio */}
+      <Link
+        href={`/products/${subcat.slug}`}
+        className="relative block overflow-hidden"
+        aria-label={`${subcat.title} — view products`}
+      >
+        <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+          <OptimizedImage
+            src={image}
+            alt={subcat.title}
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none" />
+
+          {!reduce && !touch && (
+            <motion.div
+              className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              style={{ background: highlight }}
+            />
+          )}
+
+        </div>
+      </Link>
+
+      {/* Content block with touch-optimized typography and spacing */}
+      <div className="flex flex-1 flex-col justify-between p-4 sm:p-6">
+        <div>
+          <Link href={`/products/${subcat.slug}`} className="block group/title">
+            <h3 className="font-display text-[13px] sm:text-xl font-extrabold text-slate-900 group-hover/title:text-[var(--color-blue)] transition-colors tracking-tight leading-snug line-clamp-1 sm:line-clamp-none">
+              {subcat.title}
+            </h3>
+          </Link>
+
+
+
+          {/* Items list (Hidden on mobile to fix grid height overlap, shown on sm+) */}
+          <div className="mt-3 pt-3 border-t border-slate-100 space-y-2 hidden sm:block">
+            {subcat.items.slice(0, 4).map((item) => (
+              <div key={item.slug} className="flex items-start gap-2 text-xs sm:text-sm">
+                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] shrink-0" />
+                <span className="font-medium text-slate-600 leading-tight flex-1">{item.name}</span>
+              </div>
+            ))}
+            {subcat.items.length > 4 && (
+              <div className="flex items-center gap-2 text-xs sm:text-sm">
+                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-blue)] shrink-0" />
+                <span className="font-semibold text-[var(--color-blue)]">+{subcat.items.length - 4} more products</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Footer row — mobile: just Explore link; desktop: Explore + Quote */}
+        <div className="mt-2.5 pt-2 sm:mt-5 sm:pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+          <Link
+            href={`/products/${subcat.slug}`}
+            className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] sm:text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors min-h-[32px] sm:min-h-[40px]"
+          >
+            <span>Explore range</span>
+            <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber-dark)]" />
+          </Link>
+          <Link
+            href={`/contact?sku=${subcat.slug}&title=${encodeURIComponent(subcat.title)}`}
+            className="hidden sm:inline-flex items-center justify-center rounded-full bg-[var(--color-blue-soft)] px-4 py-2 text-xs font-bold text-[var(--color-blue)] hover:bg-[var(--color-blue)] hover:text-white active:scale-95 transition-all shadow-2xs min-h-[38px]"
+          >
+            Quote
+          </Link>
+        </div>
+      </div>
+    </motion.article>
+  );
+}
 
 export default function CategoryClient({
   params,
@@ -27,37 +187,9 @@ export default function CategoryClient({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = use(params);
-  const [productsList, setProductsList] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
 
-  // Find category definition
+  const hierarchyCategory = productHierarchy.find((c) => c.id === slug || c.catSlug === slug);
   const currentCategory = productCategories.find((c) => c.id === slug) || productCategories[0];
-
-  useEffect(() => {
-    apiFetch("/api/products")
-      .then((res) => {
-        if (!res.ok) throw new Error("API responded with error status");
-        return res.json();
-      })
-      .then((data) => {
-        if (!data || data.length === 0) {
-          setProductsList(initialProducts as any);
-        } else {
-          setProductsList(data);
-        }
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.warn("Failed to fetch products from API, using client fallback:", err);
-        setProductsList(initialProducts as any);
-        setLoading(false);
-      });
-  }, []);
-
-  // Filter products for this specific category (matching fallback-data and DB categories)
-  const categoryProducts = productsList.filter((p) => {
-    return p.category === currentCategory.id;
-  });
 
   return (
     <div className="min-h-screen bg-[var(--color-bone)] text-[var(--color-text)]">
@@ -66,66 +198,33 @@ export default function CategoryClient({
       <Navbar />
 
       <PageWrapper>
-        {/* Dedicated Category Page Header */}
         <PageHeader
-          eyebrow="Category Catalog"
-          title={currentCategory.title}
+          eyebrow="Product Category"
+          title={hierarchyCategory?.title ?? currentCategory.title}
           intro={currentCategory.blurb}
           crumbs={[
             { label: "Home", to: "/" },
             { label: "Products", to: "/products" },
-            { label: currentCategory.title },
+            { label: hierarchyCategory?.title ?? currentCategory.title },
           ]}
           align="center"
-          bgImages={
-            currentCategory.id === "film-products"
-              ? [
-                  "/images/desktop/portfolio/action_extrusion_tower_blue.jpg",
-                  "/images/products/bopp-films-pouches/image.png",
-                  "/images/desktop/portfolio/product_app_blown_film.png",
-                  "/images/products/coloured-films-pouches/image.png",
-                  "/images/products/stretch-film/image.png",
-                ]
-              : currentCategory.id === "label-sticker-products"
-              ? [
-                  "/images/products/printed-labels/applications/app-1.png",
-                  "/images/products/printed-labels/image.png",
-                  "/images/products/barcode-labels/applications/app-1.png",
-                  "/images/products/product-labels/applications/app-1.png",
-                ]
-              : currentCategory.id === "tapes"
-              ? [
-                  "/images/products/bopp-tapes/image.png",
-                  "/images/products/printed-bopp-tapes/applications/app-1.png",
-                  "/images/products/coloured-bopp-tapes/applications/app-2.png",
-                  "/images/products/silicon-tapes/applications/app-1.png",
-                ]
-              : currentCategory.id === "strapping"
-              ? [
-                  "/images/products/pp-strap/applications/app-1.png",
-                  "/images/products/pet-strap/image.png",
-                  "/images/products/printed-pp-strap/applications/app-1.png",
-                  "/images/products/colored-pp-strap/applications/app-2.png",
-                ]
-              : [currentCategory.image || "/images/desktop/portfolio/action_extrusion_tower_blue.jpg"]
-          }
         />
 
-        <Section className="pt-8 sm:pt-10 pb-16 bg-transparent">
+        <Section className="pt-6 sm:pt-10 pb-12 sm:pb-16 bg-transparent">
           <Container>
 
-            {/* Back Button & Category Tabs Navigation Bar (Mobile & Desktop Optimized) */}
-            <div className="mb-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-b border-[var(--color-line)] pb-5">
+            {/* Back Button & Category Quick Switcher Pills — Mobile Touch Optimized */}
+            <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-b border-[var(--color-line)] pb-4 sm:pb-5">
               <Link
                 href="/products"
-                className="inline-flex items-center justify-center sm:justify-start gap-2 px-3.5 py-2 rounded-full bg-white border border-[var(--color-line)] text-xs font-bold text-[var(--color-ink)] hover:text-[var(--color-blue)] shadow-sm hover:shadow transition-all shrink-0"
+                className="inline-flex items-center justify-center sm:justify-start gap-2 px-4 py-2.5 rounded-full bg-white border border-[var(--color-line)] text-xs font-bold text-[var(--color-ink)] hover:text-[var(--color-blue)] active:bg-slate-50 shadow-xs hover:shadow transition-all shrink-0 min-h-[42px]"
               >
-                <ArrowLeft className="h-4 w-4 text-[var(--color-amber-dark)]" />
+                <ArrowLeft className="h-4 w-4 text-[var(--color-amber-dark)] shrink-0" />
                 <span>Back to All Categories</span>
               </Link>
 
-              {/* Category Quick Switcher Pills (Horizontally Scrollable on Mobile) */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none w-full sm:w-auto -mx-1 px-1 sm:mx-0 sm:px-0">
+              {/* Horizontal Scrollable Category Pills with Touch Momentum */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none w-full sm:w-auto -mx-4 px-4 sm:mx-0 sm:px-0 touch-pan-x">
                 {productCategories.map((cat) => {
                   const isActive = cat.id === currentCategory.id;
                   return (
@@ -133,9 +232,9 @@ export default function CategoryClient({
                       key={cat.id}
                       href={`/product-category/${cat.id}`}
                       className={cn(
-                        "shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-300 shadow-sm whitespace-nowrap",
+                        "shrink-0 rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 shadow-2xs whitespace-nowrap min-h-[38px] flex items-center justify-center active:scale-95",
                         isActive
-                          ? "bg-[var(--color-blue-deep)] text-white ring-2 ring-[var(--color-blue-deep)]/20"
+                          ? "bg-[var(--color-blue-deep)] text-white ring-2 ring-[var(--color-blue-deep)]/25 font-bold shadow-md"
                           : "bg-white text-[var(--color-ink)] border border-[var(--color-line)] hover:bg-slate-50"
                       )}
                     >
@@ -146,66 +245,31 @@ export default function CategoryClient({
               </div>
             </div>
 
-            {/* Category Hero Banner */}
-            <div className="mb-10 overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white shadow-md">
-              <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
-                <div className="p-6 sm:p-8 lg:col-span-7 flex flex-col justify-center">
-                  <span className="inline-block w-fit rounded-full bg-[var(--color-amber)]/20 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-blue-deep)] mb-3">
-                    {currentCategory.tag}
+            {/* Subcategory Cards Grid */}
+            {hierarchyCategory ? (
+              <>
+                <div className="mb-4 sm:mb-6 flex items-center justify-between">
+                  <h3 className="font-display text-base sm:text-xl font-bold text-[var(--color-ink)]">
+                    Browse {hierarchyCategory.title} by Type
+                  </h3>
+                  <span className="font-mono text-xs font-bold text-[var(--color-mute)] bg-white border border-[var(--color-line)] px-2.5 py-1 rounded-full shadow-2xs">
+                    {hierarchyCategory.subcategories.length} categories
                   </span>
-                  <h2 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)]">
-                    {currentCategory.title}
-                  </h2>
-                  <p className="mt-2 text-xs sm:text-sm text-[var(--color-mute)] leading-relaxed">
-                    {currentCategory.blurb} Every item in this category is manufactured with high precision, meeting international quality and load safety standards.
-                  </p>
-                  <div className="mt-4 flex items-center gap-3">
-                    <span className="rounded-full bg-[var(--color-blue-deep)] px-3 py-1 font-mono text-xs font-bold text-white">
-                      {categoryProducts.length} Items Available
-                    </span>
-                  </div>
                 </div>
-                <div className="relative aspect-[16/10] lg:aspect-auto lg:h-full lg:col-span-5 overflow-hidden bg-slate-100 border-t lg:border-t-0 lg:border-l border-[var(--color-line)]">
-                  <OptimizedImage
-  src={currentCategory.image}
-  alt={currentCategory.title}
-  className="h-full w-full object-cover"
-/>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
+                  {hierarchyCategory.subcategories.map((subcat) => (
+                    <SubcategoryCard
+                      key={subcat.id}
+                      subcat={subcat}
+                    />
+                  ))}
                 </div>
-              </div>
-            </div>
-
-            {/* Products Section Header */}
-            <div className="mb-6 flex items-center justify-between">
-              <h3 className="font-display text-lg sm:text-xl font-bold text-[var(--color-ink)]">
-                Available Products in {currentCategory.title}
-              </h3>
-              <span className="font-mono text-xs font-bold text-[var(--color-mute)]">
-                {categoryProducts.length} Products
-              </span>
-            </div>
-
-            {/* Products Grid */}
-            {loading ? (
-              <div className="py-20 text-center flex flex-col items-center justify-center gap-3">
-                <Loader2 className="h-8 w-8 animate-spin text-[var(--color-blue-deep)]" />
-                <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-mute)]">
-                  Loading {currentCategory.title}...
-                </span>
-              </div>
-            ) : categoryProducts.length === 0 ? (
-              <div className="rounded-2xl border border-dashed border-[var(--color-line)] p-16 text-center text-[var(--color-mute)]">
-                No products found in this category currently.
-              </div>
+              </>
             ) : (
-              <Stagger className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-                {categoryProducts.map((p) => (
-                  <StaggerItem key={p.id} className="h-full">
-                    <ProductCard product={p} />
-                  </StaggerItem>
-                ))}
-              </Stagger>
+              <div className="rounded-2xl border border-dashed border-[var(--color-line)] p-12 sm:p-16 text-center text-[var(--color-mute)] bg-white/50">
+                No subcategories found for this category.
+              </div>
             )}
 
           </Container>

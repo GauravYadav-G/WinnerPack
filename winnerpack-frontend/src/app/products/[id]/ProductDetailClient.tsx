@@ -2,12 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronRight, ArrowLeft, ArrowRight, Loader2, CheckCircle2, HelpCircle, ChevronDown } from "lucide-react";
+import { ArrowRight, Loader2, CheckCircle2, HelpCircle, ChevronDown } from "lucide-react";
 import { productCategories } from "../../../data";
-import { Container, Section, Eyebrow } from "@/components/ui/primitives";
-import { Stagger, StaggerItem } from "@/components/ui/motion";
+import { Eyebrow } from "@/components/ui/primitives";
 import { Button } from "@/components/ui/Button";
-import { ProductCard } from "@/components/ProductCard";
 import CTABanner from "@/components/CTABanner";
 
 // Layout components
@@ -16,21 +14,13 @@ import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import PageWrapper from "@/components/PageWrapper";
-import { motion, AnimatePresence } from "framer-motion";
+import { PageHeader } from "@/components/ui/PageHeader";
 
 import { apiFetch } from "@/lib/api";
 import { marked } from "marked";
 import { initialProducts } from "@/lib/fallback-data";
 import OptimizedImage from '@/components/OptimizedImage';
 import ProductInquiryModal from "@/components/ProductInquiryModal";
-
-const HERO_HEADER_POOL = [
-  "/images/desktop/portfolio/action_extrusion_tower_blue.jpg",
-  "/images/desktop/about/plant_blown_film_line.jpg",
-  "/images/desktop/portfolio/product_app_blown_film.png",
-  "/images/desktop/portfolio/product_app_film_slitting.png",
-  "/images/desktop/portfolio/action_factory_plant_overview.jpg",
-];
 
 function extractFaqs(longDesc?: string) {
   if (!longDesc) return [];
@@ -83,6 +73,7 @@ function getLongDescWithoutFaq(longDesc?: string) {
 
 function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const [showAllMobile, setShowAllMobile] = useState(false);
 
   if (!faqs || faqs.length === 0) return null;
 
@@ -98,7 +89,7 @@ function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
         <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
           Frequently Asked Questions (FAQ)
         </h2>
-        <p className="text-xs sm:text-sm text-[var(--color-mute)]">
+        <p className="text-xs sm:text-sm text-[var(--color-mute)] hidden sm:block">
           Find comprehensive answers to common questions about materials, customization, standards, and packaging applications.
         </p>
       </div>
@@ -106,14 +97,16 @@ function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
       <div className="space-y-3 pt-2">
         {faqs.map((faq, index) => {
           const isOpen = openIdx === index;
+          const isHiddenOnMobile = index >= 3 && !showAllMobile;
+
           return (
             <div
               key={index}
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                isOpen
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isHiddenOnMobile ? "hidden sm:block" : "block"
+                } ${isOpen
                   ? "border-[var(--color-amber)] bg-white shadow-md ring-1 ring-[var(--color-amber)]/30"
                   : "border-[var(--color-line)] bg-[var(--color-mist)] hover:border-slate-300"
-              }`}
+                }`}
             >
               <button
                 type="button"
@@ -121,16 +114,14 @@ function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
                 className="w-full flex items-center justify-between p-4 sm:p-5 text-left gap-4 font-sans font-bold text-sm sm:text-base text-[var(--color-ink)] cursor-pointer"
               >
                 <div className="flex items-center gap-3">
-                  <span className={`flex items-center justify-center h-7 w-7 rounded-lg text-xs font-mono font-black shrink-0 transition-colors ${
-                    isOpen ? "bg-[var(--color-amber)] text-[var(--color-blue-deep)]" : "bg-slate-200 text-slate-700"
-                  }`}>
+                  <span className={`flex items-center justify-center h-7 w-7 rounded-lg text-xs font-mono font-black shrink-0 transition-colors ${isOpen ? "bg-[var(--color-amber)] text-[var(--color-blue-deep)]" : "bg-slate-200 text-slate-700"
+                    }`}>
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span>{faq.question}</span>
                 </div>
-                <div className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                  isOpen ? "rotate-180 bg-[var(--color-amber)]/20 text-[var(--color-amber-dark)]" : "text-slate-400"
-                }`}>
+                <div className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 bg-[var(--color-amber)]/20 text-[var(--color-amber-dark)]" : "text-slate-400"
+                  }`}>
                   <ChevronDown className="h-4 w-4" />
                 </div>
               </button>
@@ -147,6 +138,20 @@ function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
           );
         })}
       </div>
+
+      {/* Mobile Show Remaining FAQs Button with Arrow Key */}
+      {faqs.length > 3 && (
+        <div className="pt-2 text-center sm:hidden">
+          <button
+            type="button"
+            onClick={() => setShowAllMobile(!showAllMobile)}
+            className="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-white border border-[var(--color-line)] text-xs font-bold text-[var(--color-blue-deep)] shadow-2xs active:bg-slate-50 transition-all"
+          >
+            <span>{showAllMobile ? "Show fewer FAQs" : `View all ${faqs.length} FAQs`}</span>
+            <ChevronDown className={`h-4 w-4 text-[var(--color-amber-dark)] transition-transform duration-300 ${showAllMobile ? "rotate-180" : ""}`} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -197,65 +202,22 @@ function getSubcategoryImages(sub: any, parentProduct: any) {
   return images;
 }
 
-function SubcategoryCardImageGallery({ images, title }: { images: string[]; title: string }) {
+function SubcategoryCardImageGallery({ images, title, categoryName }: { images: string[]; title: string; categoryName?: string }) {
   const currentImg = images[0] || "/images/products/specialty-pouches/image.png";
 
   return (
-    <div className="relative w-full h-full group/gallery">
+    <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
       <OptimizedImage
         src={currentImg}
         alt={title}
-        className="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
+        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
       />
-
-      {/* Multi-image carousel controls commented out for now
-      {images.length > 1 && (
-        <>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setActiveIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-            }}
-            className="absolute left-1.5 top-1/2 -translate-y-1/2 rounded-full bg-slate-900/60 text-white p-1 backdrop-blur-xs opacity-0 group-hover/gallery:opacity-100 transition-all hover:bg-[var(--color-blue-deep)] z-10"
-            aria-label="Previous image"
-          >
-            <ChevronLeft className="h-3.5 w-3.5" />
-          </button>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setActiveIdx((prev) => (prev + 1) % images.length);
-            }}
-            className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-full bg-slate-900/60 text-white p-1 backdrop-blur-xs opacity-0 group-hover/gallery:opacity-100 transition-all hover:bg-[var(--color-blue-deep)] z-10"
-            aria-label="Next image"
-          >
-            <ChevronRight className="h-3.5 w-3.5" />
-          </button>
-
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1 z-10 bg-slate-900/50 px-2 py-0.5 rounded-full backdrop-blur-xs">
-            {images.map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveIdx(idx);
-                }}
-                className={`h-1.5 rounded-full transition-all ${
-                  idx === activeIdx ? "w-3.5 bg-[var(--color-amber)]" : "w-1.5 bg-white/60 hover:bg-white"
-                }`}
-                aria-label={`Slide ${idx + 1}`}
-              />
-            ))}
-          </div>
-        </>
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
+      {categoryName && (
+        <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white/90 drop-shadow-sm">
+          {categoryName}
+        </span>
       )}
-      */}
     </div>
   );
 }
@@ -264,19 +226,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const { id } = React.use(params);
 
   const [product, setProduct] = useState<any>(null);
-  const [related, setRelated] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [img, setImg] = useState<string>("");
-  const [heroBgIndex, setHeroBgIndex] = useState(0);
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
-
-  // Auto-rotate hero header background image
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setHeroBgIndex((prev) => (prev + 1) % HERO_HEADER_POOL.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   // Update page title
   useEffect(() => {
@@ -288,34 +241,34 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   // Maps navbar subcategory slugs → actual product ID in fallback-data
   const aliasMap: Record<string, string> = {
     // Film Products 11 Main Categories
-    "packaging-films":      "packaging-films",
-    "pof-shrink-film":      "pof-shrink-film",
-    "lamination-pe-film":   "lamination-pe-film",
-    "agricultural-films":   "agricultural-films",
-    "biodegradable-films":  "biodegradable-films",
-    "flexible-laminates":   "flexible-laminates",
-    "printed-pe-films":     "printed-pe-films",
-    "stretch-film":         "stretch-film",
-    "ldpe-bags":            "ldpe-bags",
-    "bopp-films":           "bopp-films",
-    "pvc-shrink-films":     "pvc-shrink-films",
+    "packaging-films": "packaging-films",
+    "pof-shrink-film": "pof-shrink-film",
+    "lamination-pe-film": "lamination-pe-film",
+    "agricultural-films": "agricultural-films",
+    "biodegradable-films": "biodegradable-films",
+    "flexible-laminates": "flexible-laminates",
+    "printed-pe-films": "printed-pe-films",
+    "stretch-film": "stretch-film",
+    "ldpe-bags": "ldpe-bags",
+    "bopp-films": "bopp-films",
+    "pvc-shrink-films": "pvc-shrink-films",
     // Labels & Stickers
-    "plain-labels":         "plain-labels",
-    "printed-labels":       "printed-labels",
-    "barcode-labels":       "barcode-labels",
-    "product-labels":       "product-labels",
+    "plain-labels": "plain-labels",
+    "printed-labels": "printed-labels",
+    "barcode-labels": "barcode-labels",
+    "product-labels": "product-labels",
     "self-adhesive-labels": "self-adhesive-labels",
-    "thermal-labels":       "thermal-labels",
+    "thermal-labels": "thermal-labels",
     // Tapes
-    "bopp-tapes":           "bopp-tapes",
-    "printed-tapes":        "printed-bopp-tapes",
-    "colored-tapes":        "coloured-bopp-tapes",
-    "masking-tapes":        "silicon-tapes",
+    "bopp-tapes": "bopp-tapes",
+    "printed-tapes": "printed-bopp-tapes",
+    "colored-tapes": "coloured-bopp-tapes",
+    "masking-tapes": "silicon-tapes",
     // PP & PET Strap
-    "pp-strap":             "pp-strap",
-    "printed-pp-strap":     "printed-pp-strap",
-    "colored-pp-strap":     "colored-pp-strap",
-    "pet-strap":            "pet-strap",
+    "pp-strap": "pp-strap",
+    "printed-pp-strap": "printed-pp-strap",
+    "colored-pp-strap": "colored-pp-strap",
+    "pet-strap": "pet-strap",
   };
   const targetId = aliasMap[id] ?? id;
 
@@ -323,19 +276,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     const controller = new AbortController();
 
     setLoading(true);
-    const productRequest = apiFetch(`/api/products/${targetId}`, { signal: controller.signal });
-    const catalogRequest = apiFetch("/api/products", { signal: controller.signal });
-
-    Promise.all([productRequest, catalogRequest])
-      .then(async ([productResponse, catalogResponse]) => {
+    apiFetch(`/api/products/${targetId}`, { signal: controller.signal })
+      .then(async (productResponse) => {
         if (!productResponse.ok) throw new Error("Product not found");
-        const [data, allProducts] = await Promise.all([
-          productResponse.json(),
-          catalogResponse.ok ? catalogResponse.json() : Promise.resolve([]),
-        ]);
-        return { data, allProducts };
+        return productResponse.json();
       })
-      .then(({ data, allProducts }) => {
+      .then((data) => {
         if (controller.signal.aborted) return;
         const fallback = initialProducts.find((p) => p.id === targetId || p.id === id);
         const mergedData = {
@@ -346,13 +292,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         };
         setProduct(mergedData);
         setImg(data.gallery?.[0] || data.image || "");
-
-        if (Array.isArray(allProducts)) {
-          const matches = allProducts.filter(
-            (item: any) => item.category === data.category && item.id !== data.id
-          ).slice(0, 3);
-          setRelated(matches);
-        }
 
         setLoading(false);
       })
@@ -387,10 +326,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         if (fallbackProduct) {
           setProduct(fallbackProduct);
           setImg(fallbackProduct.gallery?.[0] || fallbackProduct.image || "");
-          const matches = initialProducts.filter(
-            (p: any) => p.category === fallbackProduct.category && p.id !== fallbackProduct.id
-          ).slice(0, 3);
-          setRelated(matches);
         } else {
           setProduct(null);
         }
@@ -484,116 +419,82 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         {/* ── CASE 1: PARENT PRODUCT / CATEGORY PAGE WITH PROMINENT SUBCATEGORY CARDS ── */}
         {isParentProduct ? (
           <>
-            {/* 1. HERO BANNER WITH ROTATING MANUFACTURING SLIDESHOW */}
-            <div className="relative w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] overflow-hidden bg-[var(--color-blue-deep)] flex items-center justify-center border-b border-white/10">
-              <div className="absolute inset-0 z-0 overflow-hidden">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={HERO_HEADER_POOL[heroBgIndex]}
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 0.65, scale: 1.02 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 1.2, ease: "easeInOut" }}
-                    className="absolute inset-0 w-full h-full"
-                  >
-                    <OptimizedImage
-                      src={HERO_HEADER_POOL[heroBgIndex]}
-                      alt={product.title}
-                      className="w-full h-full object-cover object-center blur-[3px] scale-105"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/75 via-[var(--color-blue-deep)]/55 to-[var(--color-ink)]/75 pointer-events-none" />
-              </div>
-
-              <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-2 sm:space-y-3">
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white font-display drop-shadow-lg">
-                  {product.title}
-                </h1>
-
-                <nav aria-label="Breadcrumb" className="pt-1">
-                  <ol className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-white/90 drop-shadow-md">
-                    <li><Link href="/" className="hover:text-[var(--color-amber)] transition-colors">Home</Link></li>
-                    <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
-                    <li><Link href="/products" className="hover:text-[var(--color-amber)] transition-colors">Products</Link></li>
-                    {category && (
-                      <>
-                        <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
-                        <li><Link href={`/product-category/${product.category}`} className="hover:text-[var(--color-amber)] transition-colors">{category}</Link></li>
-                      </>
-                    )}
-                    <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
-                    <li className="font-bold text-[var(--color-amber)]">{product.title}</li>
-                  </ol>
-                </nav>
-              </div>
-            </div>
+            {/* 1. UNIFIED PAGE HEADER MATCHING ALL OTHER PAGES */}
+            <PageHeader
+              eyebrow="Product Line"
+              title={product.title}
+              intro={product.blurb}
+              align="center"
+            />
 
             {/* 2. PROMINENT SUBCATEGORY CARDS IN CLEAN CORPORATE LIGHT B2B THEME */}
             {displaySubCategories.length > 0 && (
               <section className="bg-slate-50 py-10 sm:py-14 md:py-16 border-b border-[var(--color-line)]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                   <div className="mb-8 sm:mb-10 text-center max-w-2xl mx-auto">
-                    <span className="inline-block px-3.5 py-1 rounded-full bg-[var(--color-amber)]/15 text-[var(--color-amber-dark)] font-mono text-[11px] font-bold uppercase tracking-widest mb-2.5">
-                      Subcategory Products & Solutions
-                    </span>
                     <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
                       Explore Industrial Line Options
                     </h2>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 items-stretch">
                     {displaySubCategories.map((sub: any) => {
                       const subImages = getSubcategoryImages(sub, product);
+                      const subSlug = sub.id || sub.slug || product.id;
                       return (
                         <div
                           key={sub.id || sub.title}
-                          className="bg-[#faf7f2] text-[var(--color-ink)] rounded-2xl border border-[#e8e2d4] shadow-xs hover:shadow-xl hover:border-[var(--color-blue-deep)]/40 p-6 flex flex-col justify-between group transition-all duration-300"
+                          className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[var(--color-blue-3)]/50 hover:shadow-xl active:scale-[0.99] sm:active:scale-100"
                         >
-                          <div className="space-y-4">
-                            <Link href={`/products/${sub.id || sub.slug || product.id}`} className="block bg-white border border-[#e4ded2] rounded-xl p-2 aspect-[16/10] overflow-hidden flex items-center justify-center">
-                              <SubcategoryCardImageGallery images={subImages} title={sub.title} />
-                            </Link>
+                          <Link href={`/products/${subSlug}`} className="block relative">
+                            <SubcategoryCardImageGallery images={subImages} title={sub.title} categoryName={category || product.title} />
+                          </Link>
 
-                          <div>
-                            <Link href={`/products/${sub.id || sub.slug || product.id}`} className="block transition-colors">
-                              <h3 className="text-xl font-extrabold text-[var(--color-ink)] font-display tracking-tight group-hover:text-[var(--color-blue-deep)] transition-colors">
-                                {sub.title}
-                              </h3>
-                            </Link>
-                          </div>
+                          <div className="flex flex-1 flex-col justify-between p-3.5 sm:p-6">
+                            <div>
+                              <Link href={`/products/${subSlug}`} className="block">
+                                <h3 className="font-display text-[13px] sm:text-xl font-extrabold text-slate-900 group-hover:text-[var(--color-blue)] transition-colors tracking-tight leading-snug line-clamp-1 sm:line-clamp-none">
+                                  {sub.title}
+                                </h3>
+                              </Link>
 
-                          {sub.blurb && (
-                            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans font-normal">
-                              {sub.blurb}
-                            </p>
-                          )}
+                              {sub.blurb && (
+                                <p className="hidden sm:block mt-1 sm:mt-2 text-[11px] sm:text-sm text-slate-600 leading-relaxed font-sans font-normal">
+                                  {sub.blurb}
+                                </p>
+                              )}
 
-                          {sub.specs && (
-                            <div className="pt-3 border-t border-[#eae4d7]">
-                              <ul className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed font-sans font-normal">
-                                {Object.entries(sub.specs).slice(0, 4).map(([lbl, val]: any) => (
-                                  <li key={lbl} className="flex items-start gap-2.5">
-                                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] shrink-0 mt-1.5" />
-                                    <span><strong className="text-slate-900 font-semibold">{lbl}:</strong> {String(val)}</span>
-                                  </li>
-                                ))}
-                              </ul>
+                              {sub.specs && (
+                                <div className="mt-4 pt-3.5 border-t border-slate-100 space-y-2 hidden sm:block">
+                                  {Object.entries(sub.specs).slice(0, 4).map(([lbl, val]: any) => (
+                                    <div key={lbl} className="flex items-start justify-between gap-2.5 text-xs">
+                                      <span className="font-semibold text-slate-900 shrink-0">{lbl}:</span>
+                                      <span className="font-medium text-slate-600 text-right leading-tight">{String(val)}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
                             </div>
-                          )}
-                        </div>
 
-                        <div className="pt-6">
-                          <Button
-                            to={`/products/${sub.id || sub.slug || product.id}`}
-                            className="w-full justify-center bg-[var(--color-blue-deep)] text-white hover:bg-[var(--color-blue-navy)] font-bold py-3 text-xs sm:text-sm rounded-xl shadow-xs font-sans transition-all group-hover:bg-[var(--color-amber)] group-hover:text-[var(--color-blue-deep)]"
-                          >
-                            View {sub.title} Details
-                          </Button>
+                            <div className="mt-2.5 pt-2 sm:mt-5 sm:pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                              <Link
+                                href={`/products/${subSlug}`}
+                                className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] sm:text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors min-h-[32px] sm:min-h-[40px]"
+                              >
+                                <span>Explore range</span>
+                                <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber-dark)]" />
+                              </Link>
+                              <Link
+                                href={`/contact?sku=${subSlug}&title=${encodeURIComponent(sub.title)}`}
+                                className="hidden sm:inline-flex items-center justify-center rounded-full bg-[var(--color-blue-soft)] px-4 py-1.5 text-xs font-bold text-[var(--color-blue)] hover:bg-[var(--color-blue)] hover:text-white transition-all shadow-2xs"
+                              >
+                                Quote
+                              </Link>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
                   </div>
                 </div>
               </section>
@@ -602,7 +503,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             {/* 3. STRUCTURED ARTICLE CONTENT (WINNERPACK TYPOGRAPHY & THEMING) */}
             <section className="bg-white py-10 sm:py-16 md:py-20 border-b border-[var(--color-line)] font-sans">
               <div className="max-w-5xl mx-auto px-4 sm:px-6 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed space-y-6 sm:space-y-8 font-normal font-sans">
-                
+
                 <div className="space-y-4">
                   <Eyebrow>Material Overview</Eyebrow>
                   <p className="text-sm sm:text-base text-[var(--color-ink)] font-medium leading-relaxed">
@@ -648,70 +549,77 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         ) : (
           /* ── CASE 2: SUB-PRODUCT / SPECIFIC DETAIL PAGE (2-COLUMN WITH "OUR PRODUCTS" SIDEBAR) ── */
           <>
-            {/* HERO BANNER WITH ROTATING MANUFACTURING SLIDESHOW */}
-            <div className="relative w-full min-h-[300px] overflow-hidden bg-[var(--color-blue-deep)] border-b border-white/10 sm:min-h-[360px]">
-              <div className="absolute inset-0 z-0 overflow-hidden">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={HERO_HEADER_POOL[heroBgIndex]}
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 0.65, scale: 1.02 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 1.2, ease: "easeInOut" }}
-                    className="absolute inset-0 w-full h-full"
-                  >
-                    <OptimizedImage
-                      src={HERO_HEADER_POOL[heroBgIndex]}
-                      alt={product.title}
-                      className="w-full h-full object-cover object-center blur-[3px] scale-105"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/75 via-[var(--color-blue-deep)]/55 to-[var(--color-ink)]/75 pointer-events-none" />
+            {/* 1. UNIFIED PAGE HEADER MATCHING ALL OTHER PAGES */}
+            <PageHeader
+              eyebrow={category}
+              title={product.title}
+              intro={product.blurb}
+              align="center"
+            >
+              <div className="hidden sm:flex flex-row items-center justify-center gap-3 pt-2 w-auto">
+                <Button type="button" onClick={() => setIsInquiryOpen(true)} variant="secondary" iconRight className="rounded-xl px-5 py-3 text-sm font-extrabold shadow-lg shadow-black/20 justify-center min-h-[44px]">
+                  Request a quote
+                </Button>
+                <a href="#product-specifications" className="rounded-xl border border-white/20 px-5 py-3 text-sm font-bold text-white transition hover:border-white hover:bg-white/10 text-center flex items-center justify-center min-h-[44px]">
+                  View specifications
+                </a>
               </div>
-
-              <div className="relative z-10 mx-auto flex flex-col items-center justify-center min-h-[300px] max-w-7xl text-center px-4 py-10 sm:min-h-[360px] sm:px-6 lg:px-8">
-                <div className="max-w-3xl space-y-4 flex flex-col items-center text-center">
-                  <nav aria-label="Breadcrumb">
-                    <ol className="flex flex-wrap items-center justify-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-wider text-white/85 sm:text-xs">
-                    <li><Link href="/" className="hover:text-[var(--color-amber)] transition-colors">Home</Link></li>
-                    <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
-                    <li><Link href="/products" className="hover:text-[var(--color-amber)] transition-colors">Products</Link></li>
-                    <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
-                    <li className="font-bold text-[var(--color-amber)]">{product.title}</li>
-                    </ol>
-                  </nav>
-                  <h1 className="font-display text-3xl font-black leading-[1.02] tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl">
-                    {product.title}
-                  </h1>
-                  {product.blurb && <p className="max-w-2xl text-sm leading-relaxed text-white/85 sm:text-base text-center">{product.blurb}</p>}
-                  <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
-                    <Button type="button" onClick={() => setIsInquiryOpen(true)} variant="secondary" iconRight className="rounded-xl px-5 py-3 text-sm shadow-lg shadow-black/20">
-                      Request a quote
-                    </Button>
-                    <a href="#product-specifications" className="rounded-xl border border-white/20 px-5 py-3 text-sm font-bold text-white transition hover:border-white hover:bg-white/10">View specifications</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </PageHeader>
 
             {/* 2-COLUMN MAIN CONTENT (SIDEBAR + DETAILED CONTENT) */}
             <div className="bg-white py-10 sm:py-14 md:py-16 border-b border-[var(--color-line)] font-sans">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-                  
-                  {/* LEFT SIDEBAR: "OUR PRODUCTS" (DYNAMICALLY MATCHING NAVBAR) */}
+
+                  {/* LEFT SIDEBAR: "OUR PRODUCTS" (MOBILE TOUCH-OPTIMIZED COLLAPSIBLE & DESKTOP FIXED) */}
                   <aside className="w-full lg:hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-4 shadow-2xs">
                     <div className="flex items-center justify-between gap-4">
                       <div>
                         <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--color-amber-dark)]">Product range</p>
-                        <h2 className="mt-1 font-display text-base font-extrabold text-[var(--color-ink)]">{category}</h2>
+                        <h2 className="mt-0.5 font-display text-base font-extrabold text-[var(--color-ink)]">{category}</h2>
                       </div>
-                      <div className="flex shrink-0 items-center gap-3 text-xs font-bold">
-                        <Link href={`/product-category/${product.category}`} className="text-[var(--color-blue)]">View range</Link>
-                        <Link href="/products" className="text-[var(--color-mute)]">All products</Link>
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
+                          className="px-3 py-1.5 rounded-full bg-white border border-[var(--color-line)] text-xs font-bold text-[var(--color-blue-deep)] flex items-center gap-1.5 shadow-2xs active:scale-95"
+                        >
+                          <span>{isMobileNavOpen ? "Hide catalog" : "Explore catalog"}</span>
+                          <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isMobileNavOpen ? "rotate-180" : ""}`} />
+                        </button>
                       </div>
                     </div>
+
+                    {/* Expandable Mobile Category Menu */}
+                    {isMobileNavOpen && (
+                      <div className="mt-4 pt-4 border-t border-[var(--color-line)] space-y-4 max-h-[350px] overflow-y-auto scrollbar-none pr-1">
+                        {productHierarchy.map((cat) => (
+                          <div key={cat.id} className="space-y-1.5">
+                            <span className="block text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
+                              {cat.title}
+                            </span>
+                            <div className="grid grid-cols-2 gap-1.5">
+                              {cat.subcategories.map((subcat) => {
+                                const isActive = subcat.slug === product.id || subcat.slug === id;
+                                return (
+                                  <Link
+                                    key={subcat.id}
+                                    href={`/products/${subcat.slug}`}
+                                    onClick={() => setIsMobileNavOpen(false)}
+                                    className={`px-2.5 py-1.5 rounded-lg text-xs font-bold font-display truncate transition-colors ${isActive
+                                        ? "bg-[var(--color-blue-deep)] text-white"
+                                        : "bg-white text-[var(--color-ink)] border border-[var(--color-line)] hover:bg-slate-50"
+                                      }`}
+                                  >
+                                    {subcat.title}
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </aside>
 
                   <aside className="hidden w-full shrink-0 rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-5 shadow-2xs lg:block lg:w-72 sm:p-6">
@@ -745,11 +653,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                           <div key={cat.id} className="space-y-2.5">
                             {/* Main Category Header (Navbar Tier 1) */}
                             <span
-                              className={`block text-[11px] font-mono font-bold uppercase tracking-wider transition-colors ${
-                                isCurrentCat
+                              className={`block text-[11px] font-mono font-bold uppercase tracking-wider transition-colors ${isCurrentCat
                                   ? "text-[var(--color-amber-dark)] font-black"
                                   : "text-[var(--color-ink)]/70"
-                              }`}
+                                }`}
                             >
                               {cat.title}
                             </span>
@@ -776,13 +683,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                   <div key={subcat.id} className="space-y-1 pl-2">
                                     <Link
                                       href={`/products/${subcat.slug}`}
-                                      className={`flex items-center justify-between py-0.5 text-xs sm:text-[13px] font-bold font-display tracking-tight transition-colors ${
-                                        isDirectSubcat
+                                      className={`flex items-center justify-between py-0.5 text-xs sm:text-[13px] font-bold font-display tracking-tight transition-colors ${isDirectSubcat
                                           ? "text-[var(--color-ink)] font-black"
                                           : isCurrentSubcat
-                                          ? "text-[var(--color-blue-deep)] font-extrabold"
-                                          : "text-[var(--color-ink)] hover:text-[var(--color-amber-dark)]"
-                                      }`}
+                                            ? "text-[var(--color-blue-deep)] font-extrabold"
+                                            : "text-[var(--color-ink)] hover:text-[var(--color-amber-dark)]"
+                                        }`}
                                     >
                                       <span>{subcat.title}</span>
                                       {isDirectSubcat && (
@@ -802,11 +708,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                           <li key={item.name}>
                                             <Link
                                               href={`/products/${item.slug}`}
-                                              className={`flex items-center justify-between py-0.5 px-1.5 rounded-md text-xs font-sans transition-colors ${
-                                                isActive
+                                              className={`flex items-center justify-between py-0.5 px-1.5 rounded-md text-xs font-sans transition-colors ${isActive
                                                   ? "font-extrabold text-[var(--color-ink)]"
                                                   : "text-[var(--color-mute)] hover:text-[var(--color-ink)]"
-                                              }`}
+                                                }`}
                                             >
                                               <span className="truncate">{item.name}</span>
                                               {isActive && (
@@ -829,10 +734,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                   {/* RIGHT COLUMN: DETAILED ARTICLE CONTENT */}
                   <main className="flex-1 max-w-4xl space-y-8 text-[var(--color-mute)] text-sm sm:text-base leading-relaxed font-sans font-normal">
-                    
-                    {/* Top Featured Full-Width Rectangle Product Image (Taller Card Height) */}
-                    <div className="w-full max-w-full overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white shadow-md">
-                      <div className="aspect-[16/13] sm:aspect-[16/12] w-full overflow-hidden">
+
+                    {/* Top Featured Full-Width Product Image — Touch Responsive */}
+                    <div className="w-full max-w-full overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white shadow-sm">
+                      <div className="aspect-[16/10] sm:aspect-[16/12] w-full overflow-hidden bg-slate-100">
                         <OptimizedImage
                           src={img || product.image || "/images/products/specialty-pouches/image.png"}
                           alt={product.title}
@@ -885,54 +790,50 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
                         <div className="flex items-center gap-2.5">
                           <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
-                          <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                          <h2 className="text-lg sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
                             Technical Specifications
                           </h2>
                         </div>
-                        <div className="overflow-x-auto rounded-2xl border border-[var(--color-line)] shadow-xs">
+                        <div className="overflow-x-auto rounded-2xl border border-[var(--color-line)] shadow-2xs">
                           <table className="w-full border-collapse text-xs sm:text-sm font-sans">
                             <thead>
                               <tr className="bg-[var(--color-ink)] text-white">
-                                <th className="px-4 py-3 text-left font-bold tracking-wide w-2/5 border-r border-white/10">Specification</th>
-                                <th className="px-4 py-3 text-left font-bold tracking-wide">Details</th>
+                                <th className="px-3 py-2.5 sm:px-4 sm:py-3 text-left font-bold tracking-wide w-2/5 border-r border-white/10">Specification</th>
+                                <th className="px-3 py-2.5 sm:px-4 sm:py-3 text-left font-bold tracking-wide">Details</th>
                               </tr>
                             </thead>
                             <tbody>
                               {specs.map((s: any, idx: number) => (
                                 <tr
                                   key={s.label}
-                                  className={`border-b border-[var(--color-line)] last:border-b-0 transition-colors hover:bg-[var(--color-amber)]/5 ${
-                                    idx % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
-                                  }`}
+                                  className={`border-b border-[var(--color-line)] last:border-b-0 transition-colors hover:bg-[var(--color-amber)]/5 ${idx % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
+                                    }`}
                                 >
-                                  <td className="px-4 py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top">
+                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top break-words">
                                     {s.label}
                                   </td>
-                                  <td className="px-4 py-3 text-[var(--color-mute)] align-top">{s.value}</td>
+                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 text-[var(--color-mute)] align-top break-words">{s.value}</td>
                                 </tr>
                               ))}
                               {product.options?.widths && (
-                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${
-                                  specs.length % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
-                                }`}>
-                                  <td className="px-4 py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top">Available Widths</td>
-                                  <td className="px-4 py-3 text-[var(--color-mute)] align-top">{product.options.widths.join(" · ")}</td>
+                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${specs.length % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
+                                  }`}>
+                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top break-words">Available Widths</td>
+                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 text-[var(--color-mute)] align-top break-words">{product.options.widths.join(" · ")}</td>
                                 </tr>
                               )}
                               {product.options?.thicknesses && (
-                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${
-                                  (specs.length + (product.options?.widths ? 1 : 0)) % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
-                                }`}>
-                                  <td className="px-4 py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top">Thickness Options</td>
-                                  <td className="px-4 py-3 text-[var(--color-mute)] align-top">{product.options.thicknesses.join(" · ")}</td>
+                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${(specs.length + (product.options?.widths ? 1 : 0)) % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
+                                  }`}>
+                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top break-words">Thickness Options</td>
+                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 text-[var(--color-mute)] align-top break-words">{product.options.thicknesses.join(" · ")}</td>
                                 </tr>
                               )}
                               {product.options?.colors && (
-                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${
-                                  (specs.length + (product.options?.widths ? 1 : 0) + (product.options?.thicknesses ? 1 : 0)) % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
-                                }`}>
-                                  <td className="px-4 py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top">Colors Available</td>
-                                  <td className="px-4 py-3 text-[var(--color-mute)] align-top">{product.options.colors.join(" · ")}</td>
+                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${(specs.length + (product.options?.widths ? 1 : 0) + (product.options?.thicknesses ? 1 : 0)) % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
+                                  }`}>
+                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top break-words">Colors Available</td>
+                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 text-[var(--color-mute)] align-top break-words">{product.options.colors.join(" · ")}</td>
                                 </tr>
                               )}
                             </tbody>
@@ -950,7 +851,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     <div className="pt-8 border-t border-[var(--color-line)]">
                       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-[var(--color-mist)] border border-[var(--color-line)] shadow-xs">
                         <div className="text-xs sm:text-sm text-[var(--color-mute)] font-sans">
-                          Please contact us on <a href="tel:+918595072187" className="font-bold text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] transition-colors">+91 85950 72187</a> or email us <a href="mailto:sales@winnerpack.in" className="font-bold text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] transition-colors">sales@winnerpack.in</a> for quotations or custom requirements.
+                          Please contact us on <a href="tel:+918595072187" className="font-bold text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] transition-colors">+91 85950 72187</a> or email us <a href="mailto:info@winnerpack.in" className="font-bold text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] transition-colors">info@winnerpack.in</a> for quotations or custom requirements.
                         </div>
                         <Button
                           type="button"
@@ -969,48 +870,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           </>
         )}
 
-        <Section className="bg-[var(--color-mist)] py-8">
-          <Container>
-            <div>
-              <Link
-                href="/products"
-                className="link-underline inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-blue-deep)]"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                Back to full product line catalog
-              </Link>
-            </div>
-          </Container>
-        </Section>
-
-        {/* Related Products */}
-        {related.length > 0 && (
-          <Section className="bg-white pt-16 border-t border-[var(--color-line)]">
-            <Container>
-              <Eyebrow>Related Material Solutions</Eyebrow>
-              <h2 className="mt-4 text-2xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-3xl font-display">
-                Complementary Line Products
-              </h2>
-              <Stagger className="mt-9 grid grid-cols-2 gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {related.map((p: any) => (
-                  <StaggerItem key={p.id} className="h-full">
-                    <ProductCard product={p} />
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            </Container>
-          </Section>
-        )}
 
         <CTABanner />
       </PageWrapper>
 
       <Footer />
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--color-line)] bg-white/95 px-4 py-3 shadow-[0_-10px_30px_rgba(13,7,44,0.10)] backdrop-blur-lg lg:hidden">
-        <button type="button" onClick={() => setIsInquiryOpen(true)} className="flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-amber)] px-5 py-3.5 text-sm font-extrabold text-[var(--color-ink)] shadow-sm transition active:scale-[0.98]">
-          Request a quote for {product.title}<ArrowRight className="h-4 w-4" />
-        </button>
-      </div>
       {isInquiryOpen && (
         <ProductInquiryModal
           productId={product.id}

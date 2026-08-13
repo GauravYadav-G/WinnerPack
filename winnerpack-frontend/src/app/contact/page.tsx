@@ -1,9 +1,8 @@
 "use client";
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { Mail, Phone, MapPin, CheckCircle2, ArrowRight, ChevronRight, Clock, MessageCircle, Tag } from "lucide-react";
+import { Mail, Phone, MapPin, CheckCircle2, ArrowRight, Clock, MessageCircle, Tag } from "lucide-react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { COMPANY, FAQS } from "../../lib/mock-data";
 import { initialProducts } from "../../lib/fallback-data";
 import { Container, Eyebrow } from "../../components/ui/primitives";
@@ -351,30 +350,6 @@ export default function ContactPage() {
 
       <PageWrapper className="relative pt-4 sm:pt-12 pb-10 sm:pb-16 overflow-x-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8 overflow-hidden">
-          {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6">
-            <ol className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-[var(--color-mute)]">
-              <li>
-                <Link href="/" className="hover:text-[var(--color-blue)] transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <ChevronRight className="h-3 w-3 text-slate-400" />
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-[var(--color-blue)] transition-colors">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <ChevronRight className="h-3 w-3 text-slate-400" />
-              </li>
-              <li className="font-semibold text-[var(--color-ink)]">
-                Request a quote
-              </li>
-            </ol>
-          </nav>
 
           {/* Header */}
           <div className="mb-6 sm:mb-10">

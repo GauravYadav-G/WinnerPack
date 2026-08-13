@@ -20,8 +20,7 @@ type Slide = {
 // WebP assets are generated at build time; user uploads use absolute URLs and
 // are intentionally left untouched.
 function getOptimizedStaticImage(src: string): string {
-  if (!src.startsWith("/images/")) return src;
-  return `/optimized${src.replace(/\.[^./?#]+(?=([?#]|$))/, ".webp")}`;
+  return src;
 }
 
 const defaultSlides: Slide[] = fallbackData.slides.map((slide) => ({

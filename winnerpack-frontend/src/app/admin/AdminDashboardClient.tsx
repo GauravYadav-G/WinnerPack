@@ -310,11 +310,11 @@ export default function AdminDashboardClient() {
                 </div>
               </div>
 
-              {/* Category 4: PP & PET Strap */}
+              {/* Category 4: Strap */}
               <div className="rounded-2xl border border-[#e5dfd2] p-5 bg-[#f8f7f4] space-y-3">
                 <div className="flex items-center justify-between text-xs font-bold text-[#120a3b]">
                   <span className="flex items-center gap-2">
-                    <Package className="h-4 w-4 text-purple-600" /> PP & PET Straps
+                    <Package className="h-4 w-4 text-purple-600" /> Strap
                   </span>
                   <span className="font-mono text-[#fe8220] bg-white border border-[#fe8220]/30 px-2.5 py-0.5 rounded-full">
                     {categoryStats.straps} SKUs

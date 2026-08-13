@@ -150,9 +150,9 @@ export default function ProductInquiryForm() {
 
               {/* Mobile Direct Quick Contact Bar */}
               <div className="flex sm:hidden items-center gap-3 pt-2 text-[11px] font-medium text-[var(--color-ink)]">
-                <a href="mailto:sales@winnerpack.in" className="flex items-center gap-1 text-[var(--color-amber-dark)] font-semibold">
+                <a href="mailto:info@winnerpack.in" className="flex items-center gap-1 text-[var(--color-amber-dark)] font-semibold">
                   <Mail className="h-3 w-3" />
-                  <span>sales@winnerpack.in</span>
+                  <span>info@winnerpack.in</span>
                 </a>
                 <span>•</span>
                 <a href="tel:+918595072187" className="flex items-center gap-1 text-[var(--color-amber-dark)] font-semibold">
@@ -195,9 +195,9 @@ export default function ProductInquiryForm() {
 
               {/* Direct Quick Contact Bar */}
               <div className="pt-6 border-t border-white/10 flex flex-wrap gap-4 text-xs font-medium text-slate-300">
-                <a href="mailto:sales@winnerpack.in" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
+                <a href="mailto:info@winnerpack.in" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
                   <Mail className="h-4 w-4 text-[var(--color-amber)]" />
-                  <span>sales@winnerpack.in</span>
+                  <span>info@winnerpack.in</span>
                 </a>
                 <a href="tel:+918595072187" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
                   <Phone className="h-4 w-4 text-[var(--color-amber)]" />

@@ -3,7 +3,7 @@ import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { ChevronRight, Clock, ArrowLeft } from "lucide-react";
+import { Clock, ArrowLeft } from "lucide-react";
 import { Container, Section, Eyebrow } from "@/components/ui/primitives";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/motion";
 import { Button } from "@/components/ui/Button";
@@ -143,15 +143,6 @@ export default function BlogPost() {
             aria-hidden
           />
           <Container className="relative">
-            <nav aria-label="Breadcrumb" className="mb-8">
-              <ol className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-white/45">
-                <li><Link href="/" className="hover:text-[var(--color-amber)]">Home</Link></li>
-                <li><ChevronRight className="h-3 w-3 text-white/25" /></li>
-                <li><Link href="/blog" className="hover:text-[var(--color-amber)]">Blog</Link></li>
-                <li><ChevronRight className="h-3 w-3 text-white/25" /></li>
-                <li className="text-white/75">{post.category}</li>
-              </ol>
-            </nav>
             <Eyebrow tone="light">{post.category}</Eyebrow>
             <h1 className="mt-3 md:mt-5 text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.05] tracking-tight text-white font-display text-balance">
               {post.title}

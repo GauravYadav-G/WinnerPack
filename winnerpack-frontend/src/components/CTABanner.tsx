@@ -41,7 +41,7 @@ export default function CTABanner() {
           >
             {/* Email Sales Card */}
             <a
-              href="mailto:sales@winnerpack.in"
+              href="mailto:info@winnerpack.in"
               className="group flex items-center justify-between gap-3 rounded-2xl bg-white border border-[var(--color-line)] px-5 py-4 sm:px-6 sm:py-5 text-[var(--color-ink)] shadow-xs transition hover:shadow-xl hover:border-[var(--color-amber)]/40 hover:-translate-y-0.5 duration-300"
               data-hover
             >
@@ -53,7 +53,7 @@ export default function CTABanner() {
                   <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--color-mute)] group-hover:text-[var(--color-amber-dark)] transition-colors">
                     Email sales desk
                   </div>
-                  <div className="font-display text-sm sm:text-base font-bold">sales@winnerpack.in</div>
+                  <div className="font-display text-sm sm:text-base font-bold">info@winnerpack.in</div>
                 </div>
               </div>
               <ArrowRight className="h-5 w-5 text-[var(--color-amber-dark)] transition-transform group-hover:translate-x-1" />

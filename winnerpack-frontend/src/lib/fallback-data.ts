@@ -856,7 +856,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "BOPP Film Rolls (Plain, Printed & Metallized)",
         subtitle: "High-Speed Flow Wrap Rolls, Lamination Sheeting & Thermal Rolls",
         blurb: "Continuous BOPP film rolls available in single wound (SW) and centerfolded (CF) formats. Offered in crystal clear, metallized barrier, matte finish, and custom rotogravure printed options for automated VFFS and HFFS packaging machinery.",
-        image: "/images/products/bopp-films-pouches/image.png",
+        image: "/images/products/bopp-films-pouches/bopp-rolls.jpg",
         specs: {
           "Format Types": "Single Wound (SW) / Centerfolded (CF) Slit Rolls",
           "Machine Speed Compatibility": "High Speed VFFS / HFFS Packaging Lines",
@@ -871,7 +871,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "BOPP Pouches & Bags (Self-Adhesive & Header)",
         subtitle: "Pre-Cut Glass-Clear Display Bags with Peel & Seal Tape Strip",
         blurb: "Pre-formed BOPP bags featuring peel-and-seal self-adhesive tape strips, header punch holes for retail hanger displays, and side gussets. Provides crystal-clear product visibility for garments, stationery, cards, and bakery items.",
-        image: "/images/products/bopp-films-pouches/applications/app-3.png",
+        image: "/images/products/bopp-films-pouches/bopp-pouches.jpg",
         specs: {
           "Bag Formats": "Self-Adhesive Tape Bags / Euro Slot Header Pouches / Flap Bags",
           "Sealing Method": "Peel & Seal Resealable / Permanent Adhesive Strip",
@@ -926,7 +926,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "PVC Shrink Rolls (Tubular & Lay-Flat Rolls)",
         subtitle: "Seamless Tubing & Centerfolded Rolls for Automated Shrink Machinery",
         blurb: "Continuous seamless PVC tubular rolls, centerfolded (CF) rolls, and single wound (SW) sheeting. Engineered for fast low-temperature shrink tunnels, promotional twin-pack bundling, and automated box overwrapping.",
-        image: "/images/products/pvc-shrink-rolls/image.png",
+        image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
         specs: {
           "Format Availability": "Seamless Tubular Rolls / Centerfolded (CF) / Single Wound (SW)",
           "Shrink Temperature": "80°C - 110°C Fast Shrink Response",
@@ -941,7 +941,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "PVC Shrink Pouches & Pre-Cut Sleeves",
         subtitle: "Pre-Cut Neck Bands, Cap Seals & Tamper-Evident Shrink Bags",
         blurb: "Custom pre-cut bottom-sealed PVC pouches, tamper-evident neck bands, and printed full-body shrink sleeve labels. Designed for instant manual application over bottle caps, jars, pharmaceutical containers, and retail boxes.",
-        image: "/images/products/pvc-shrink-rolls/applications/app-1.png",
+        image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.jpg",
         specs: {
           "Bag Formats": "Pre-Cut 3-Side Sealed Bags / Tubular Cut Sleeves / Perforated Bands",
           "Tamper Proofing": "Tamper-Evident Cap & Neck Perforation Lines",
@@ -1326,7 +1326,7 @@ Consider your crop type, regional climate (high UV vs cold), application method 
         title: "Plastic Mulching Film",
         subtitle: "Silver-Black & Opaque UV Stabilized Crop Protection Mulch",
         blurb: "High-grade silver-black and black polyethylene mulching film designed to reflect sunlight, suppress weeds, conserve soil moisture, and prevent soil erosion.",
-        image: "/images/desktop/journey/solution_pcr_eco_film.png",
+        image: "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
         specs: {
           "Soil Temperature": "Increases soil warmth for early crop germination",
           "Germination & Growth": "Speeds up germination & crop cultivation cycles",
@@ -1341,7 +1341,7 @@ Consider your crop type, regional climate (high UV vs cold), application method 
         title: "Low Tunnel Film",
         subtitle: "Perforated Micro-Climate Sheeting for Early Crop Protection",
         blurb: "Clear high-clarity low tunnel protective sheeting designed for row crop installation, providing frost protection and accelerated seed germination.",
-        image: "/images/desktop/journey/solution_pcr_eco_film.png",
+        image: "/images/products/low-tunnel-film/low-tunnel-film.jpg",
         specs: {
           "Climate Protection": "Helps protect row crops against harsh climate variations",
           "Pest Barrier": "Protects plants from insects & airborne vectors",
@@ -1356,7 +1356,7 @@ Consider your crop type, regional climate (high UV vs cold), application method 
         title: "Mulch Film",
         subtitle: "Embossed Polyethylene Soil Temperature Control Film",
         blurb: "Embossed and smooth agricultural mulch film rolls optimized for drip irrigation compatibility, weed control, and crop root stabilization.",
-        image: "/images/desktop/journey/solution_pcr_eco_film.png",
+        image: "/images/products/mulch-film/mulch-film.jpg",
         specs: {
           "Weedicide Savings": "Colored film blocks light, stopping weed growth & chemical costs",
           "Moisture Retention": "Keeps root zone moist, reducing irrigation requirements",
@@ -1461,9 +1461,9 @@ Standard films last one growing season, while thicker, UV-stabilized films can p
 
 #### 10. Is Plastic Mulching Film suitable for organic farming?
 Standard polyethylene mulch is synthetic, but certified biodegradable mulching films complying with organic farming standards can be used as a sustainable alternative.`,
-    image: "/images/desktop/journey/solution_pcr_eco_film.png",
+    image: "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
     gallery: [
-      "/images/desktop/journey/solution_pcr_eco_film.png",
+      "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
       "/images/desktop/about/blown_film_tower.png",
       "/images/desktop/portfolio/product_app_pallet_wrapping.png"
     ],
@@ -1560,9 +1560,9 @@ Premium UV-stabilized films last 12 to 24 months, while standard light-gauge opt
 
 #### 10. Is Low Tunnel Film reusable?
 Yes. When handled carefully, cleaned after harvest, inspected for minor punctures, and stored in a shaded area away from direct sunlight, thicker low tunnel films can be reused across multiple seasons.`,
-    image: "/images/desktop/journey/solution_pcr_eco_film.png",
+    image: "/images/products/low-tunnel-film/low-tunnel-film.jpg",
     gallery: [
-      "/images/desktop/journey/solution_pcr_eco_film.png",
+      "/images/products/low-tunnel-film/low-tunnel-film.jpg",
       "/images/desktop/about/blown_film_tower.png"
     ],
     specs: {
@@ -1659,9 +1659,9 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
 - **Climate**: Black for cold regions; Silver/White for hot climates.
 - **Crop Duration**: 15–20 Micron for single-season crops; 20–30 Micron for 2–3 season crops; 50+ Micron for orchard trees.
 - **Sustainability**: Choose biodegradable options for zero-retrieval labor.`,
-    image: "/images/desktop/journey/solution_pcr_eco_film.png",
+    image: "/images/products/mulch-film/mulch-film.jpg",
     gallery: [
-      "/images/desktop/journey/solution_pcr_eco_film.png",
+      "/images/products/mulch-film/mulch-film.jpg",
       "/images/desktop/portfolio/product_app_pallet_wrapping.png"
     ],
     specs: {
@@ -3362,7 +3362,7 @@ Higher mechanical strength allows thinner film gauges, offsetting raw material c
         title: "Bio Degradable Mulch Film",
         subtitle: "Soil Compostable Mulch Sheeting",
         blurb: "Higher mechanical strength compared to regular films allowing reduced thickness to offset raw material cost. Meets ASTM D6400 and EN 13432 requirements.",
-        image: "/images/desktop/journey/solution_pcr_eco_film.png",
+        image: "/images/products/bio-degradable-mulch-film/bio-degradable-mulch-film.jpg",
         specs: {
           "Certification": "Meets ASTM D6400 & EN 13432 Compostability Standards",
           "Mechanical Strength": "Higher tensile strength allows thinner gauge thickness",
@@ -3376,7 +3376,7 @@ Higher mechanical strength allows thinner film gauges, offsetting raw material c
         title: "Biodegradable Shrink Film",
         subtitle: "Compostable Overwrap Shrink Rolls",
         blurb: "Eco-friendly POF/PBAT heat shrink rolls engineered for sustainable retail overwrapping, meeting ASTM D6400 and EN 13432 requirements.",
-        image: "/images/desktop/journey/solution_pcr_eco_film.png",
+        image: "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.jpg",
         specs: {
           "Certification": "Meets ASTM D6400 & EN 13432 Compostability Standards",
           "Optical Finish": "High-clarity gloss transparency for retail goods",
@@ -3390,7 +3390,7 @@ Higher mechanical strength allows thinner film gauges, offsetting raw material c
         title: "Biodegradable Shopping Bag",
         subtitle: "Eco Retail Carry Bags",
         blurb: "D-cut and W-cut compostable retail carry bags printed with water-based eco flexo inks, meeting ASTM D6400 and EN 13432 requirements.",
-        image: "/images/products/compostable-films-pouches/applications/app-4.png",
+        image: "/images/products/biodegradable-shopping-bag/biodegradable-shopping-bag.jpg",
         specs: {
           "Certification": "Meets ASTM D6400 & EN 13432 Compostability Standards",
           "Carry Formats": "D-Cut, Loop Handle, and W-Cut Grocery Bags",
@@ -3469,8 +3469,8 @@ No! Unlike traditional plastic mulch, it does not require removal or disposal. S
 
 #### 10. What factors should I consider when selecting a Bio-Degradable Mulch Film?
 Match the film’s field lifespan to your crop growth duration, consider local soil temperature/microbial activity, choose adequate gauge thickness, and verify ASTM D6400 / EN 13432 certifications.`,
-    image: "/images/desktop/journey/solution_pcr_eco_film.png",
-    gallery: ["/images/desktop/journey/solution_pcr_eco_film.png"],
+    image: "/images/products/bio-degradable-mulch-film/bio-degradable-mulch-film.jpg",
+    gallery: ["/images/products/bio-degradable-mulch-film/bio-degradable-mulch-film.jpg"],
     specs: {
       "Compostability Standards": "Meets ASTM D6400, EN 13432 & EN 17033",
       "Mechanical Performance": "High Tensile Strength allowing reduced gauge thickness",
@@ -3557,8 +3557,8 @@ Yes! Formulated for high tensile tear resistance, bi-axial shrink memory, and cr
 
 #### 10. What factors should I consider when choosing Biodegradable Shrink Film?
 Evaluate your required seal strength, equipment compatibility (L-bar vs tunnel speed), disposal pathway (composting vs landfill), and ASTM D6400 / EN 13432 compliance.`,
-    image: "/images/desktop/journey/solution_pcr_eco_film.png",
-    gallery: ["/images/desktop/journey/solution_pcr_eco_film.png"],
+    image: "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.jpg",
+    gallery: ["/images/products/biodegradable-shrink-film/biodegradable-shrink-film.jpg"],
     specs: {
       "Compostability Certification": "Meets ASTM D6400 & EN 13432 Standards",
       "Decomposition Rate": "Laboratory Verified 20.8% within 183 Days (Landfill)",
@@ -3639,8 +3639,8 @@ Yes! Customized with your logo and design patterns using eco-friendly water-base
 
 #### 10. Are Biodegradable Shopping Bags compostable at home?
 Yes, bio-bags manufactured from natural starch and PBAT blends are suitable for home composting alongside kitchen food waste.`,
-    image: "/images/products/compostable-films-pouches/applications/app-4.png",
-    gallery: ["/images/products/compostable-films-pouches/applications/app-4.png"],
+    image: "/images/products/biodegradable-shopping-bag/biodegradable-shopping-bag.jpg",
+    gallery: ["/images/products/biodegradable-shopping-bag/biodegradable-shopping-bag.jpg"],
     specs: {
       "Compostability Certification": "Meets ASTM D6400 & EN 13432 Requirements",
       "Material Composition": "PLA + PBAT + Renewable Plant Starch Blend",
@@ -3749,8 +3749,8 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
 - **Rotogravure Printing**: Up to 9-color HD precision printing for large volume runs.
 - **Digital Printing**: High-definition quick turnaround printing for short runs.
 - **Reverse Surface Printing**: Traps inks between film layers for scuff-proof durability.`,
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
+    image: "/images/products/food-packaging-laminates/food-packaging-laminates.jpg",
+    gallery: ["/images/products/food-packaging-laminates/food-packaging-laminates.jpg"],
     specs: {
       "Material Substrates": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
       "Format Styles": "Roll Stock & Pre-Formed Pouches (Standup, 3-Side Seal, Zipper)",
@@ -3769,7 +3769,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Agro Chemical Laminates",
         subtitle: "Pesticide & Chemical Foil Laminates",
         blurb: "100% Food Grade certified aluminum foil and polymer laminates engineered for chemical resistance against pesticides and liquid fertilizers.",
-        image: "/images/products/specialty-pouches/image.png",
+        image: "/images/products/agro-chemical-laminates/agro-chemical-laminates.jpg",
         specs: {
           "Raw Material": "100% Food Grade Certified Raw Material",
           "Substrates": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
@@ -3782,7 +3782,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Plain Standup Pouches",
         subtitle: "Premium Metallocene Sealing Pouches",
         blurb: "Suitable for 100g to 1kg pack sizes. Premium Metallocene Poly provides best sealing for pickles, Gulab Jamun, Mango Milk Shake, and dry fruits.",
-        image: "/images/products/specialty-pouches/image.png",
+        image: "/images/products/plain-standup-pouches/plain-standup-pouches.jpg",
         specs: {
           "Pack Sizes": "Suitable for Pack Sizes from 100 gm to 1 kg",
           "Product Range": "Pack Pickle, Gulab Jamun, Mango Milk Shake, Dry Fruits",
@@ -3795,7 +3795,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Lidding Foils And Laminates",
         subtitle: "Universal Cup & Tray Lidding Foils",
         blurb: "100% Food Grade Foil + Poly or PET + Poly laminates engineered for universal sealing to PS, PP, PET, APET, CPET, and PVC containers.",
-        image: "/images/products/specialty-pouches/image.png",
+        image: "/images/products/lidding-foils-laminates/lidding-foils-laminates.jpg",
         specs: {
           "Raw Material": "Made from 100% Food Grade certified raw material",
           "Laminate Structure": "Available in Foil + Poly or PET + Poly Laminates",
@@ -3808,7 +3808,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Wrap Around Labels",
         subtitle: "Automated Roll-Fed Bottle Labels",
         blurb: "38 to 50 Micron BOPP wrap-around labels replacing PVC shrink labels to save automation labor costs on beverage bottle lines.",
-        image: "/images/products/specialty-pouches/image.png",
+        image: "/images/products/wrap-around-labels/wrap-around-labels.jpg",
         specs: {
           "Replacement": "Used in replacement of PVC Shrink Labels",
           "Labor Savings": "Labor Savings since process will be automated",
@@ -3821,7 +3821,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Laminated Pouch India",
         subtitle: "Embossed & Matt Finish Barrier Bags",
         blurb: "Custom pre-formed barrier pouches available with Embossing and Matt Finish for premium shelf appeal.",
-        image: "/images/products/specialty-pouches/image.png",
+        image: "/images/products/laminated-pouch-india/laminated-pouch-india.jpg",
         specs: {
           "Finish Option 1": "Embossing (Tactile 3D textured finish)",
           "Finish Option 2": "Matt Finish (Silky non-glare coating)",
@@ -3834,7 +3834,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Polyester Laminated Roll",
         subtitle: "HD Rotogravure Printed Polyester Rolls",
         blurb: "Polyester laminated rolls in various colors, thicknesses, and sizes with fine rotogravure printing finish.",
-        image: "/images/products/specialty-pouches/image.png",
+        image: "/images/products/polyester-laminated-roll/polyester-laminated-roll.jpg",
         specs: {
           "Customization": "Available in different colors, thickness, sizes & specs",
           "Printing Process": "Rotogravure printing process for good finishing",
@@ -3847,7 +3847,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Multi Coloured Laminated Roll",
         subtitle: "100% Food Grade Superior Printed Rolls",
         blurb: "High-definition multi-colored barrier laminate rolls made from 100% Food Grade materials at cost-effective prices.",
-        image: "/images/products/specialty-pouches/image.png",
+        image: "/images/products/multi-coloured-laminated-roll/multi-coloured-laminated-roll.jpg",
         specs: {
           "Raw Material": "100% Food Grade Material used",
           "Quality Standard": "Superior quality at par with industry standards",
@@ -3860,7 +3860,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Food Packaging Laminates In Pouch And Roll Form",
         subtitle: "Multi-Substrate Food Barrier Packaging",
         blurb: "100% Food Grade certified roll stock and pre-formed pouches (Center Seal, 3-Side Seal, Standup, Zipper) using PET, Met PET, BOPP, Foil, and PE.",
-        image: "/images/products/specialty-pouches/image.png",
+        image: "/images/products/food-packaging-laminates/food-packaging-laminates.jpg",
         specs: {
           "Raw Material": "Made from 100% Food Grade certified raw material",
           "Substrates": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
@@ -3932,8 +3932,8 @@ Yes! Formulated with leak-proof hermetic seals, high puncture resistance, and so
 
 #### 10. What industries commonly use Agro Chemical Laminates?
 Fertilizer & Pesticide Manufacturers, Agricultural Chemical Suppliers, Herbicides & Fungicide Producers, Soil Conditioner Manufacturers, and Seed Treatment Chemical Packagers.`,
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
+    image: "/images/products/agro-chemical-laminates/agro-chemical-laminates.jpg",
+    gallery: ["/images/products/agro-chemical-laminates/agro-chemical-laminates.jpg"],
     specs: {
       "Food Grade Certification": "Made from 100% Food Grade Certified Raw Material",
       "Substrates Available": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
@@ -4019,8 +4019,8 @@ Resealable Zippers, Dispensing Spouts, Precision Tear Notches, and Permanent Hea
 
 #### 10. How do I choose the right size and material for my product?
 Consider product type (dry vs liquid/viscous), required volume (100g to 1kg capacity), shelf-life expectations, and sealing equipment parameters.`,
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
+    image: "/images/products/plain-standup-pouches/plain-standup-pouches.jpg",
+    gallery: ["/images/products/plain-standup-pouches/plain-standup-pouches.jpg"],
     specs: {
       "Pack Capacity Range": "Suitable for Pack Sizes from 100 gm to 1 kg",
       "Product Compatibility": "Pickle, Gulab Jamun, Mango Milk Shake, Dry Fruits",
@@ -4099,8 +4099,8 @@ Yes! Formulated with heat-sealable lacquers that bond permanently to container r
 
 #### 9. Are Lidding Foils recyclable or eco-friendly?
 Yes! Recyclable mono-material PET/PE options and aluminum recovery programs support corporate sustainability goals.`,
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
+    image: "/images/products/lidding-foils-laminates/lidding-foils-laminates.jpg",
+    gallery: ["/images/products/lidding-foils-laminates/lidding-foils-laminates.jpg"],
     specs: {
       "Food Grade Certification": "Made from 100% Food Grade Certified Raw Material",
       "Structure Options": "Foil + Poly or PET + Poly Laminates",
@@ -4177,8 +4177,8 @@ Their 360-degree coverage ensures brand logos and graphics are visible from any 
 
 #### 10. Are Wrap Around Labels eco-friendly or recyclable?
 Yes! Mono-material BOPP labels are fully recyclable alongside PET/PE bottle streams and can be supplied with eco-friendly adhesives.`,
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
+    image: "/images/products/wrap-around-labels/wrap-around-labels.jpg",
+    gallery: ["/images/products/wrap-around-labels/wrap-around-labels.jpg"],
     specs: {
       "Thickness Range": "Available in Thickness Range of 38 – 50 Micron",
       "Cost Advantage": "Labor Savings since process will be automated (Replaces PVC Shrink)",
@@ -4254,8 +4254,8 @@ Yes! Their lightweight nature reduces shipping costs, while superior barrier con
 
 #### 10. Can Laminated Pouches be used for non-food products?
 Absolutely! Widely used for cosmetics, medical supplies, household cleaners, electronic components, and document protection.`,
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
+    image: "/images/products/laminated-pouch-india/laminated-pouch-india.jpg",
+    gallery: ["/images/products/laminated-pouch-india/laminated-pouch-india.jpg"],
     specs: {
       "Food Safety Standard": "100% Food Grade Certified Waterproof Material",
       "Surface Treatments": "Embossing & Matt Finish Brand Printing Methods",
@@ -4333,8 +4333,8 @@ Standard flexible packaging thicknesses range from **12 Micron to 50 Micron** (p
 
 #### 9. How does polyester lamination improve packaging durability?
 The PET layer provides high tensile strength and puncture resistance, preventing tearing during high-speed filling, shipping, and handling.`,
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
+    image: "/images/products/polyester-laminated-roll/polyester-laminated-roll.jpg",
+    gallery: ["/images/products/polyester-laminated-roll/polyester-laminated-roll.jpg"],
     specs: {
       "Substrate Combinations": "Polyester LDPE, Metallized PET, BOPP, Alu-Foil & CPP",
       "Printing Technology": "High-Definition Rotogravure Process for Fine Finishing",
@@ -4417,8 +4417,8 @@ We offer sustainable options utilizing recyclable mono-polymer structures and pa
 
 #### 10. What are common applications for these rolls?
 Snack and confectionery packaging, liquid pouches for milk and juices, healthcare sachets, and durable outdoor document lamination.`,
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
+    image: "/images/products/multi-coloured-laminated-roll/multi-coloured-laminated-roll.jpg",
+    gallery: ["/images/products/multi-coloured-laminated-roll/multi-coloured-laminated-roll.jpg"],
     specs: {
       "Raw Material Standard": "100% Food Grade Material from Decades-Established Vendors",
       "Quality & Pricing": "Superior Quality at Par with Industry Standards at Cost-Effective Prices",
@@ -4505,8 +4505,8 @@ Yes! We offer mono-material polyethylene (PE/PE) and recyclable BOPP films desig
 
 #### 10. How do I choose the right laminate material for my food product?
 Selection depends on food consistency (dry, liquid, viscous, frozen), shelf-life target, environmental storage conditions (humidity/temp), and machinery filling speeds.`,
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
+    image: "/images/products/food-packaging-laminates/food-packaging-laminates.jpg",
+    gallery: ["/images/products/food-packaging-laminates/food-packaging-laminates.jpg"],
     specs: {
       "Food Safety Certification": "Made from 100% Food Grade Certified Raw Material",
       "Substrates Available": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
@@ -4588,8 +4588,8 @@ Vibrant 8-color prints enhance brand recognition and shelf appeal, distinguishin
 
 #### 10. Can printed PE films be used for food packaging?
 Yes! Made from 100% virgin food-grade resins compliant with FDA, EU, BRC, and GMP food safety regulations.`,
-    image: "/images/products/coloured-films-pouches/image.png",
-    gallery: ["/images/products/coloured-films-pouches/image.png"],
+    image: "/images/products/water-packaging-film/water-packaging-film.jpg",
+    gallery: ["/images/products/water-packaging-film/water-packaging-film.jpg"],
     specs: {
       "Film Structure": "100% Virgin 3-Layer Co-Extruded PE Film",
       "Sealing Polymer": "Metallocene Poly for Best Possible Seal Strength",
@@ -4604,7 +4604,7 @@ Yes! Made from 100% virgin food-grade resins compliant with FDA, EU, BRC, and GM
         title: "Milk Pouch & Milk Packaging Film",
         subtitle: "Liquid Milk Pouch Film Rolls",
         blurb: "100% virgin 3-layer co-extruded black/white PE film rolls featuring Metallocene sealing and 8-color deep freeze printing.",
-        image: "/images/products/coloured-films-pouches/image.png",
+        image: "/images/products/milk-packaging-film/milk-packaging-film.jpg",
         specs: {
           "Film Structure": "100% Virgin 3-Layer PE Films (White/Black Co-ex)",
           "Masterbatch": "White Masterbatch from Multinationals Only",
@@ -4617,7 +4617,7 @@ Yes! Made from 100% virgin food-grade resins compliant with FDA, EU, BRC, and GM
         title: "Ghee Vanaspati Packaging Film",
         subtitle: "High Barrier Ghee & Oil Film",
         blurb: "Heavy-duty 3-layer virgin PE film rolls for ghee, vanaspati, and edible oils using Metallocene for leak-proof hot oil seals.",
-        image: "/images/products/coloured-films-pouches/image.png",
+        image: "/images/products/ghee-packaging-film/ghee-packaging-film.jpg",
         specs: {
           "Film Structure": "100% Virgin 3-Layer PE Films",
           "Masterbatch Options": "White or Yellow Masterbatch (Multinational Grade)",
@@ -4630,7 +4630,7 @@ Yes! Made from 100% virgin food-grade resins compliant with FDA, EU, BRC, and GM
         title: "SMP Packaging Film",
         subtitle: "Skimmed Milk Powder Bulk Bags",
         blurb: "Heavy-gauge 3-layer virgin PE film rolls for skimmed milk powder (SMP) 25kg bulk bags and dry dairy ingredients.",
-        image: "/images/products/ldpe-shrink-rolls/image.png",
+        image: "/images/products/smp-packaging-film/smp-packaging-film.jpg",
         specs: {
           "Film Structure": "100% Virgin 3-Layer PE Films",
           "Masterbatch": "White Masterbatch Purchased Only from Multinationals",
@@ -4643,7 +4643,7 @@ Yes! Made from 100% virgin food-grade resins compliant with FDA, EU, BRC, and GM
         title: "Water Packaging Film",
         subtitle: "Purified Water Pouch Sheeting",
         blurb: "High-clarity 100% virgin LDPE printed film rolls with high tear and puncture resistance, easily passing pouch drop tests.",
-        image: "/images/products/coloured-films-pouches/image.png",
+        image: "/images/products/water-packaging-film/water-packaging-film.jpg",
         specs: {
           "Seal Strength": "High Hot-Tack Impulse Sealing",
           "Puncture Resistance": "High Puncture Resistant Capability",
@@ -4717,8 +4717,8 @@ Printed via HD Flexographic or Rotogravure processes with up to 8 colors using f
 
 #### 10. How are environmental concerns being addressed?
 Through the adoption of 100% recyclable monolayer PE films, down-gauging film thickness without sacrificing strength, and supporting local plastic collection initiatives.`,
-    image: "/images/products/coloured-films-pouches/image.png",
-    gallery: ["/images/products/coloured-films-pouches/image.png"],
+    image: "/images/products/milk-packaging-film/milk-packaging-film.jpg",
+    gallery: ["/images/products/milk-packaging-film/milk-packaging-film.jpg"],
     specs: {
       "Pouch Volume Capacities": "250 ml, 500 ml (Half Liter), 1 Liter & 2 Liter Milk Bags",
       "Thickness Range": "50 Micron to 80 Micron (Customizable)",
@@ -4784,8 +4784,8 @@ Yes! We offer mono-material PE films that facilitate easy recycling in standard 
 
 #### 10. How does flexible packaging compare to rigid containers for Ghee and Vanaspati?
 Flexible pouches are lighter, require significantly less storage space, lower freight emissions, and offer equal barrier protection at a fraction of the packaging cost.`,
-    image: "/images/products/coloured-films-pouches/image.png",
-    gallery: ["/images/products/coloured-films-pouches/image.png"],
+    image: "/images/products/ghee-packaging-film/ghee-packaging-film.jpg",
+    gallery: ["/images/products/ghee-packaging-film/ghee-packaging-film.jpg"],
     specs: {
       "Capacity Range": "Suitable for Ghee Packaging from 200 ml up to 5 Liters",
       "Thickness Range": "50 Microns to 200 Microns (Customizable)",
@@ -4855,8 +4855,8 @@ Yes! Monolayer PE film structures are 100% recyclable in standard polyethylene r
 
 #### 10. How does SMP packaging film contribute to product shelf life and quality?
 By blocking moisture, oxygen, and UV light, these films preserve the solubility, taste, and nutritional value of skimmed milk powder over extended storage periods.`,
-    image: "/images/products/ldpe-shrink-rolls/image.png",
-    gallery: ["/images/products/ldpe-shrink-rolls/image.png"],
+    image: "/images/products/smp-packaging-film/smp-packaging-film.jpg",
+    gallery: ["/images/products/smp-packaging-film/smp-packaging-film.jpg"],
     specs: {
       "Film Structure": "100% Virgin Multilayer PE Films (White Masterbatch)",
       "Sealing Technology": "Metallocene Poly for Ultra-Strong Powder Bag Seals",
@@ -4923,8 +4923,8 @@ It is extremely cost-effective, lightweight, space-efficient, easy to transport,
 
 #### 10. Do you offer biodegradable water pouch film?
 Yes! Eco-friendly recyclable monolayer LDPE films as well as certified biodegradable film options are available upon request.`,
-    image: "/images/products/coloured-films-pouches/image.png",
-    gallery: ["/images/products/coloured-films-pouches/image.png"],
+    image: "/images/products/water-packaging-film/water-packaging-film.jpg",
+    gallery: ["/images/products/water-packaging-film/water-packaging-film.jpg"],
     specs: {
       "Material Grade": "100% Prime Virgin Food-Grade LDPE",
       "Thickness Range": "20 Microns to 120 Microns (Customizable)",
@@ -5143,156 +5143,759 @@ WinnerPack manufactures and exports LDPE bags directly in bulk quantities, deliv
         id: "antistatic-poly-bags",
         title: "Antistatic Poly Bags",
         subtitle: "3-Layer ESD Component Shielding",
-        blurb: "3-Layered antistatic poly bags designed to ensure proper ESD protection for sensitive electronic components.",
-        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        blurb: "3-Layered LDPE antistatic poly bags designed to ensure effective ESD protection and dissipation for sensitive electronic components.",
+        longDesc: `At WinnerPack (Tilak Polypack), we pride ourselves on our high-quality manufacturing process and the exceptional features of our LDPE Antistatic Bags. Specifically designed to provide effective protection against static electricity, our antistatic poly bags help ensure the safety of sensitive electronic components during storage, handling, and transportation.
+
+Our manufacturing process begins with the selection of premium LDPE (Low-Density Polyethylene) material, known for its excellent antistatic properties. This material is carefully processed into antistatic plastic films and then converted into bags using state-of-the-art machinery and manufacturing techniques. An antistatic poly bag, also known as a conductive bag, is designed for packaging and shipping electronic devices that are susceptible to electrostatic discharge (ESD).
+
+Antistatic bags can be heat sealed, taped, tied, or supplied with zipper closures to suit different packaging requirements. Their slightly transparent appearance allows easy identification of contents while providing reliable static protection. These bags are also amine-free, making them suitable for protecting sensitive polycarbonate boards and electronic components.
+
+### Salient Features:
+- **3-Layer Construction**: Enhanced structural protection for electronic components.
+- **Long-Lasting Performance**: Maintains consistent static dissipation over extended storage periods.
+- **High Efficiency**: Surface resistivity of less than 10¹⁰ Ohm/Square.
+- **Amine-Free Formulation**: Safe for polycarbonate boards and delicate circuitry.
+- **Versatile Closures**: Available with heat sealable tops, tape, ties, or 3.5mm zipper closures.
+
+### How to Select LDPE Antistatic Bags:
+- **Size**: Choose the appropriate bag size to accommodate your products or electronic components.
+- **Anti-Static Properties**: Ensure the bags provide effective protection against electrostatic discharge.
+- **Material Quality**: Select high-quality LDPE material for durability and reliable performance.
+- **Clarity**: Choose bags with sufficient transparency for easy identification of contents.
+- **Closure Mechanism**: Select the appropriate closure option, such as zip-lock, heat seal, adhesive, or tape.
+- **Customization Options**: Check whether custom printing, sizing, or additional features are available.
+- **Compliance**: Verify compliance with applicable anti-static packaging standards (ANSI/ESD S20.20-2014 & IEC 61340-5-1).
+
+### Frequently Asked Questions
+
+#### 1. What are antistatic poly bags?
+Antistatic poly bags are specialized packaging materials designed to prevent the buildup of static electricity. These bags are commonly used to protect sensitive electronic components and devices from electrostatic discharge (ESD), which can cause damage during storage or transportation.
+
+#### 2. How do antistatic poly bags prevent static electricity buildup?
+Antistatic poly bags are manufactured using materials treated with antistatic agents. These agents dissipate static charges on the surface of the bags, minimizing the risk of electrostatic discharge. Additionally, the material ensures the bags maintain a low electrical resistance, effectively neutralizing any static accumulation.
+
+#### 3. What industries commonly use antistatic poly bags?
+Antistatic poly bags are widely utilized across industries, including Electronics Manufacturing and Supply (circuit boards, microchips), Logistics & Packaging, and Aerospace & Medical Industries.
+
+#### 4. Are antistatic poly bags reusable and recyclable?
+Yes, antistatic poly bags are often reusable depending on their application and condition. Many are recyclable, as they are typically made from polyethylene or polypropylene materials.
+
+#### 5. What materials are used to manufacture antistatic poly bags?
+Antistatic poly bags are typically made from high-quality polyethylene (PE) or polypropylene (PP) infused with antistatic compounds, and may include layers for shielding in sensitive environments.
+
+#### 6. How do antistatic poly bags protect electronic components?
+Antistatic poly bags act as a barrier against electrostatic discharge, which can damage sensitive electronic components. By neutralizing static charges and preventing their buildup, the bags ensure that the contents remain unaffected during storage, handling, and transit.
+
+#### 7. What are the different types of antistatic poly bags available?
+Several types exist, including Tubular Bags (for custom cutting), Zip-Lock Bags (resealable protection), Flat Open-Top Bags (standard usage), and Metalized Shielding Bags (EMI/RFI shielding).
+
+#### 8. Can antistatic poly bags be customized with logos or specific sizes?
+Yes, antistatic poly bags can be customized to meet specific size, thickness, and branding requirements, including custom logos and barcodes.
+
+#### 9. What standards or certifications should antistatic poly bags meet?
+Antistatic poly bags should conform to international ESD standards such as ANSI/ESD S20.20-2014 and IEC 61340-5-1 for optimal performance.
+
+#### 10. Where can I purchase antistatic poly bags in bulk?
+Antistatic poly bags can be sourced in bulk from specialized packaging suppliers like WinnerPack (Tilak Polypack), offering international standard compliance and custom operational sizing.`,
+        image: "/images/products/antistatic-poly-bags/antistatic-poly-bags.jpg",
         specs: {
-          "Protection": "3-Layered for Proper Electronic ESD Protection",
-          "Performance": "Long Lasting & High Shielding Efficiency",
-          "Pricing": "Competitive B2B Wholesale Pricing",
-          "Application": "Circuit Boards, Computer Parts & Microchips",
+          "Width": "100 mm Onwards",
+          "Height": "200 mm Onwards",
+          "Thickness": "50 Micron",
+          "Zipper": "3.5 mm",
+          "Colors": "Pink, Blue & Black",
+          "Surface Resistivity": "Less than 10¹⁰ Ohm/Square",
+          "ESD Compliance": "ANSI/ESD S20.20-2014 & IEC 61340-5-1",
         },
       },
       {
         id: "biohazard-bags",
         title: "Biohazard Bags",
         subtitle: "Infectious Waste & Specimen Bags",
-        blurb: "Infectious waste bags, specimen bags, and chemo drug transport bags for everyday healthcare use.",
-        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        blurb: "Eco-friendly HM-HDPE/LLDPE biohazard bags clearly marked with biohazard symbols for infectious waste, specimen, and healthcare disposal.",
+        longDesc: `These biohazard bags are designed to help health and lab professionals as they properly dispose of waste and reduce the risk of cross-contamination. Destroying medical waste is vital as it is highly contagious and can spread harmful infections. Our range of biohazard bags is Eco-friendly and is the best option for disposing any type of organic or infectious waste. We procure high grade HM-HDPE from reliable vendors across the globe and utilize the latest technology to manufacture biohazard bags that are clearly marked with the biohazard symbol for regulatory compliance.
+
+At WinnerPack (Tilak Polypack), we specialize in manufacturing high-quality biohazard waste bags, also known as medical waste bags or biomedical waste polythene. Our manufacturing process ensures compliance with federal guidelines for hazardous waste disposal, guaranteeing proper regulatory adherence.
+
+### Key Features & Benefits:
+- **Biohazard Symbol Markings**: Clearly marked with the biohazard symbol and bilingual instructions in English and Spanish for regulatory compliance.
+- **Infectious Waste Containment**: Suitable for infectious waste bags, biohazard specimen bags & chemotherapy drug transport bags.
+- **Puncture-Resistant & Leak-Proof**: Designed to resist tears and leaks during handling and transit.
+- **Closure Flexibility**: Available with zipper, grip-seal, or twist-tie closures.
+- **Color-Coded Options**: Red (Biohazard/Blood), Yellow (Infectious/Clinical), Blue (Pharmaceutical), and Black (General Healthcare) markings.
+- **Eco-Friendly Materials**: Promotes sustainability with eco-friendly recyclable polymers.
+
+### How to Select Bio Medical Waste Bags:
+- **Consider the size**: Choose bags appropriate for the volume of waste generated.
+- **Check for compliance**: Ensure bags meet regulatory guidelines (OSHA, EPA) for biohazardous waste disposal.
+- **Look for durability**: Select puncture-resistant bags to prevent leaks or tears.
+- **Consider closure options**: Opt for secure closures such as zip locks or twist ties to prevent accidental opening.
+- **Check for labeling**: Look for bags clearly labeled with biohazard symbols and safety warnings.
+
+### Frequently Asked Questions
+
+#### 1. What are biohazard bags used for?
+Biohazard bags are specialized containment tools designed for the safe collection, storage, and disposal of biohazardous waste such as medical waste, infectious materials, contaminated items, and other waste that poses potential health risks in hospitals, laboratories, and waste facilities.
+
+#### 2. What materials are biohazard bags made of?
+Biohazard bags are typically manufactured from high-density polyethylene (HDPE) or linear low-density polyethylene (LLDPE). These materials are durable, puncture-resistant, and capable of securely containing hazardous waste under safety standards.
+
+#### 3. What do the different colors of biohazard bags signify?
+- **Red bags**: Used for biohazardous waste like blood, body fluids, and contaminated materials.
+- **Yellow bags**: Indicate infectious or clinical waste, human tissues, or microbial agents.
+- **Blue bags**: Used for non-hazardous pharmaceutical waste.
+- **Black bags**: Designated for non-infectious general healthcare waste.
+
+#### 4. Are biohazard bags regulated by any safety standards?
+Yes, biohazard bags must comply with regulatory requirements established by authorities such as OSHA (Occupational Safety and Health Administration) and EPA (Environmental Protection Agency).
+
+#### 5. How should biohazard bags be properly disposed of?
+Biohazard bags must be disposed of in accordance with local and federal waste regulations, typically undergoing autoclaving, incineration, or approved sterilization before final disposal.
+
+#### 6. What types of waste should be placed in biohazard bags?
+Intended for pathological waste, infectious waste, contaminated PPE, and disposable materials exposed to bodily fluids. They are not suitable for chemical or radioactive waste unless specified.
+
+#### 7. Are biohazard bags reusable or single-use only?
+Biohazard bags are single-use products. Once filled, they must be securely sealed and disposed of according to biohazard protocols to prevent cross-contamination.
+
+#### 8. Can biohazard bags be used for non-medical hazardous waste?
+While specifically designed for medical and biological waste, they may be used for non-medical hazardous waste if instructed by regulatory authorities.`,
+        image: "/images/products/biohazard-bags/biohazard-bags.jpg",
         specs: {
-          "Waste Types": "Infectious Waste, Specimen & Chemo Drug Bags",
-          "Industry": "Everyday Medical & Healthcare Industry Use",
-          "Stock Sizes": "Numerous Stock Sizes Available",
-          "Compliance": "OSHA & FDA Medical Waste Standards",
+          "Material": "High Grade HM-HDPE / LLDPE",
+          "Applications": "Infectious Waste, Specimen & Chemo Drug Transport",
+          "Features": "Puncture-Resistant & Biohazard Symbol Labeled",
+          "Closure Options": "Zipper, Grip-Seal or Twist Tie",
+          "Color Coding": "Red, Yellow, Blue & Black Options",
+          "Regulatory Compliance": "OSHA, EPA & Federal Healthcare Guidelines",
         },
       },
       {
         id: "black-refuse-sacks",
         title: "Black Refuse Sacks",
         subtitle: "Extreme Strength Heavy Duty Sacks",
-        blurb: "Large black refuse sacks engineered with extreme strength to stretch without breakage under heavy municipal waste.",
-        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        blurb: "Ultra Heavy Duty Black Refuse Sacks engineered with extreme strength to stretch without breakage under heavy commercial, catering, and industrial waste.",
+        longDesc: `There is nothing more frustrating than bin bags breaking and failing during busy service hours, so we offer these Ultra Heavy Duty Black Bin Bags to meet the rigorous demands of commercial use. Also known as bin liners, these heavy-duty, large-capacity sacks are ideal for handling substantial waste disposal needs in both commercial and household settings.
+
+Our Ultra Heavy Duty Black Bin Bags have been especially designed to stand up to the stresses of the catering and hospitality industry. Available in various pack sizes (such as packs of 200) to suit different requirements and provide excellent value for bulk buyers.
+
+### Key Characteristics & Features:
+- **Extra Thick Material**: Resilient to heavy municipal and commercial waste loads.
+- **Split & Puncture Resistant**: Stretches without breakage and retains strength even after minor puncture.
+- **Strongly Fused Base**: Robust base seal prevents bottom bursting or liquid leakage.
+- **Commercial & Catering Ready**: Ideal for high-volume waste in hospitality, offices, and industrial hubs.
+- **Closure Options**: Can be supplied with plastic drawstrings for quick cinching and hygiene.
+
+### How to Select Black Refuse Sacks:
+- **Assess Waste Quantity & Load**: Heavy loads require heavy-duty refuse sacks, while garden or light waste can use standard duty sacks.
+- **Check Size & Dimensions**: Available in Small (40-50L), Medium (70-90L), and Large (110L+).
+- **Discretion**: Duty black color keeps waste discreet and maintains a clean, professional appearance.
+
+### Frequently Asked Questions
+
+#### 1. What are black refuse sacks used for?
+Black refuse sacks are used for the collection, storage, and disposal of waste, including domestic garbage, commercial waste, industrial offcuts, and outdoor litter.
+
+#### 2. What materials are black refuse sacks made from?
+Typically manufactured from High-Density Polyethylene (HDPE) or Low-Density Polyethylene (LDPE) for optimal durability, flexibility, and puncture resistance.
+
+#### 3. Are black refuse sacks biodegradable or recyclable?
+Most black refuse sacks are recyclable, especially those made from polyethylene. Check product details for specific material recycling guidelines.
+
+#### 4. What thickness options are available for black refuse sacks?
+Available in various thicknesses (microns/gauge). Thicker sacks (120–200 microns+) are engineered for heavy-duty industrial waste.
+
+#### 5. What is the weight capacity of black refuse sacks?
+Standard sacks hold 10 kg to 20 kg, while heavy-duty sacks manage up to 25 kg or more.
+
+#### 6. Are black refuse sacks suitable for industrial waste disposal?
+Yes, heavy-duty black refuse sacks are widely used in industrial waste disposal to handle sharp, bulky, or heavy debris without tearing.
+
+#### 7. Can black refuse sacks be used for wet and sharp waste?
+Water-resistant properties make them suitable for wet waste. For sharp waste, high-gauge heavy-duty sacks are recommended to prevent punctures.
+
+#### 8. Do black refuse sacks come in different sizes?
+Yes, sizes range from small (40–50L), medium (70–90L), to large (110L+), with custom dimensions available on request.
+
+#### 9. Where can I buy black refuse sacks in bulk or wholesale?
+Purchasable in bulk or wholesale through packaging manufacturers like WinnerPack (Tilak Polypack) for commercial and industrial applications.
+
+#### 10. How do black refuse sacks compare to clear or colored refuse bags?
+Black refuse sacks conceal contents for discretion, clear bags allow visual inspection for recycling or security, and colored bags assist in waste segregation.`,
+        image: "/images/products/black-refuse-sacks/black-refuse-sacks.jpg",
         specs: {
-          "Strength Rating": "Extreme Strength Heavy Duty Construction",
-          "Durability": "Strong, Durable, and Very Tough",
-          "Stretchability": "Stretches Without Breakage or Tear",
-          "Application": "Industrial, Commercial & Municipal Refuse",
+          "Material": "High-Density Polyethylene (HDPE) / Low-Density Polyethylene (LDPE)",
+          "Strength Rating": "Ultra Heavy Duty / Extreme Tensile Strength",
+          "Weight Capacity": "10 kg to 25+ kg Heavy Commercial Load",
+          "Volume Options": "Small (40-50L), Medium (70-90L), Large (110L+)",
+          "Key Features": "Puncture Resistant, Fused Base, Plastic Drawstring Option",
+          "Applications": "Catering, Hospitality, Commercial, Office & Industrial Refuse",
         },
       },
       {
         id: "clear-polythene-packing-bags",
         title: "Clear Polythene Packing Bags",
         subtitle: "Economical Retail & Industrial Bags",
-        blurb: "Popular transparent polythene bags offering hygienic protection against dirt, dust, and moisture for retail packaging.",
-        image: "/images/products/ldpe-films-pouches/applications/app-1.png",
+        blurb: "High-quality transparent LDPE poly bags meeting FDA/USDA food standards, available in light, medium, and heavy-duty gauges for retail, food, and industrial packaging.",
+        longDesc: `Poly bags, commonly referred to as plastic bags, are essential packaging bags crafted from thin, flexible plastic film or nonwoven materials. Their versatility makes them a staple in both online and retail sales, as they are suitable for packaging, shipping, and storing a wide variety of items. Whether you need to protect clothing, jewelry, food, or other products, poly bags offer a transparent and waterproof solution that keeps contents safe from dust, moisture, and other environmental elements.
+
+Clear Polythene Packing Bags are one of the most popular and economical forms of retail and industrial packaging. Our transparent polythene bags are made from high-quality Low-Density Polyethylene (LDPE) resin, which meets FDA and USDA specifications, ensuring safety and compliance for various uses, including food packaging.
+
+These bags are well-made and durable, featuring strong adhesive seals or smooth ziplock sliders that open and close easily to keep products protected. Clear polythene packing bags can be produced with specialized additives such as Ethyl Vinyl Acetate (EVA) for freezer use, UV inhibitors for outdoor resistance, or anti-static properties for electronic components.
+
+### Product Gauges & Dimensions Available:
+- **Light / Medium-Duty (90–120 Gauge)**: Ideal for apparel, bread packaging, stationery, and retail display. Sizes range from 3″ x 4″ up to 36″ x 36″.
+- **Medium-Duty (150–250 Gauge)**: Designed for hardware, heavy textiles, and logistics storage. Sizes range from 3″ x 4″ up to 30″ x 68″.
+- **Heavy-Duty (500 Gauge)**: Engineered for maximum tear resistance and heavy industrial machinery parts. Sizes from 4″ x 6″ up to 36″ x 48″.
+- **Specialty Options**: Low slip (easy grip) or high slip (fast processing), resealable closures, perforated tear-off strips, and suffocation warning prints.
+
+### How to Select Clear Plastic Bags:
+- **Dimensions**: Choose the right size based on your product measurements for an accurate fit.
+- **Thickness**: Select 90-120 gauge for lightweight items, 150-250 gauge for medium-duty, and 500 gauge for maximum puncture resistance.
+- **Material Quality**: Opt for bags made from 100% virgin LDPE resin for maximum transparency and durability.
+- **Special Features**: Evaluate if freezer-safe (EVA), anti-static, or UV-resistant additives are required.
+- **Food Safety**: Verify FDA & USDA food-grade compliance when packaging edible items.
+
+### Frequently Asked Questions
+
+#### 1. What are clear polythene packing bags used for?
+Clear polythene packing bags are versatile solutions widely used in retail and e-commerce businesses, food and pharmaceutical packaging, manufacturing, and warehousing. They securely store, protect, and display clothing, documents, food items, and industrial goods.
+
+#### 2. What are the benefits of using clear polythene bags for packaging?
+Key benefits include high tear resistance, 100% visual transparency, reliable moisture and dust barrier protection, lightweight structure to reduce shipping costs, and versatile application options.
+
+#### 3. What thickness options are available for clear polythene packing bags?
+Available in a broad range of thicknesses from 20 microns (90 gauge light duty) to 125 microns (500 gauge heavy duty) to support lightweight retail or demanding industrial storage.
+
+#### 4. Are clear polythene packing bags food-safe?
+Yes, our food-grade clear polythene bags are manufactured from 100% virgin LDPE resin compliant with FDA and USDA food contact specifications.
+
+#### 5. Can clear polythene packing bags be customized with printing or branding?
+Yes, clear polythene bags can be customized with high-definition flexographic printing for company logos, barcodes, usage instructions, and safety warnings.
+
+#### 6. Are clear polythene packing bags recyclable and environmentally friendly?
+Most clear polythene packing bags are recyclable (LDPE Recycling Code 4). Eco-friendly biodegradable and compostable options are also available.
+
+#### 7. Are these bags suitable for industrial and commercial packaging?
+Yes, their robust structure, dust-proof seals, and puncture resistance make them ideal for commercial warehousing, manufacturing lines, and retail display.
+
+#### 8. Do clear polythene packing bags offer protection against moisture and dust?
+Absolutely. They form an airtight, moisture-proof shield that prevents dust, dirt, and ambient moisture from reaching delicate or perishable items.
+
+#### 9. What is the price of clear polythene packing bags in bulk?
+Bulk pricing varies depending on size, gauge, and order volume. Purchasing in bulk quantity provides significant cost savings per unit.
+
+#### 10. Where can I buy clear polythene packing bags in India?
+You can buy high-quality clear polythene packing bags directly from WinnerPack (Tilak Polypack), a trusted manufacturer offering bulk supply and fast nationwide delivery.`,
+        image: "/images/products/clear-polythene-packing-bags/clear-polythene-packing-bags.jpg",
         specs: {
-          "Visibility": "100% Transparent for Clear Product Content View",
-          "Protection": "Hygienic Shield Against Dirt, Dust & Moisture",
-          "Economy": "Economical Retail & Industrial Packaging Form",
-          "Material": "Prime Food-Grade Virgin Polyethylene",
+          "Material": "High-Quality Low-Density Polyethylene (LDPE)",
+          "Compliance": "FDA & USDA Approved Food Safe",
+          "Thickness Gauges": "90 to 500 Gauge (20 to 125 Micron)",
+          "Additive Options": "EVA (Freezer), UV Inhibitor, Anti-Static",
+          "Slip Options": "Low Slip (Easy Grip) & High Slip (Smooth Handling)",
+          "Safety & Features": "Resealable Closures, Perforated Strips, Suffocation Warnings",
+          "Available Sizes": "3″x4″ to 36″x48″ (Light, Medium & Heavy Duty)",
         },
       },
       {
         id: "ice-bags",
         title: "Ice Bags",
         subtitle: "3-Layer Virgin PE Freezing Bags",
-        blurb: "Made from 100% Virgin 3-Layer PE Films with Metallocene poly for maximum seal strength in below-freezing temperatures.",
-        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        blurb: "Made from 100% Virgin 3-Layer PE Films blended with Metallocene resin for high puncture resistance and zero seal failures in below-freezing temperatures.",
+        longDesc: `We supply wholesale ice bags engineered to withstand rough handling and extreme below-freezing temperatures. Made from 100% Virgin 3-Layer PE Films blended with Metallocene resin, our ice cube bags offer maximum seal strength, high puncture resistance, and reduced film brittleness even in sub-zero freezers.
+
+We utilize advanced surface rotogravure and flexographic printing up to 8 colors using specialized deep freeze inks that will not flake or rub off in freezing, humid conditions. Bags are available with cotton drawstrings, plastic drawstrings, D-punch handles, or plain tops to accommodate convenience stores, grocery chains, liquor outlets, and commercial ice manufacturing plants.
+
+### Standard Size & Capacity Specifications:
+- **5 lbs Ice Bag**: 9″ × 17″ × 4″ Gusset (1.2 Mil)
+- **8 lbs Ice Bag**: 11″ × 18″ (1.4 Mil)
+- **10 lbs Ice Bag**: 11.5″ × 19″ (1.4 Mil)
+- **20 lbs Ice Bag**: 14.5″ × 25″ × 4″ Gusset (1.75 Mil)
+- **50 lbs Commercial Ice Bag**: 18″ × 36″ × 4″ Gusset (3.0 Mil - Plain Top without Drawstring)
+*Note: Custom dimensions, thicknesses (0.75 mil to 8 mil), and pre-printed designs available upon request.*
+
+### Key Features & Closure Styles:
+- **100% Virgin 3-Layer Metallocene Poly**: Ensures high impact strength, low haze, high gloss transparency, and zero cold-cracking.
+- **Cotton Drawstring Ice Bags**: Pre-printed bags with built-in cotton drawstrings for easy hauling and tight top-closing.
+- **Plastic Drawstring Ice Bags**: Economical alternative providing easy carrying and fast cinching.
+- **Unprinted & Printed Ice Bags**: Available plain clear or custom-printed to turn ice packaging into an effective branding asset.
+- **USDA & FDA Approved**: Fully compliant with international food contact standards and labeling directives.
+
+### How to Select Ice Bags:
+- **Capacity & Load**: Match bag size and thickness to ice weight (5 lbs up to 50 lbs commercial bags).
+- **Closure Preference**: Select cotton drawstring for premium convenience, plastic drawstring for cost-efficiency, or plain top for heat-sealing.
+- **Freezer Performance**: Ensure metallocene resin formulation to prevent cold brittleness and seal splits.
+- **Branding**: Utilize custom printing up to 8 colors for promotional visibility in retail freezers.
+
+### Frequently Asked Questions
+
+#### 1. What are ice bags used for?
+Ice bags are primarily used for storing and transporting ice cubes, crushed ice, or block ice. They maintain proper temperature control in supermarkets, food establishments, hospitality, and event management, while also preserving seafood and dairy items in transit.
+
+#### 2. What materials are ice bags made of?
+Ice bags are manufactured using high-grade 100% virgin polyethylene (PE) blended with Metallocene resin. This delivers flexibility, high tear resistance, and high seal strength under sub-zero conditions.
+
+#### 3. Are ice bags food-grade and safe for direct contact with ice?
+Yes, all our ice bags meet stringent FDA and European Union food contact directives. They undergo rigorous quality checks for zero contamination and clear distributor/packer labeling compliance.
+
+#### 4. Do ice bags come in different sizes and thicknesses?
+Yes, standard capacities range from 5-pound retail bags (1.2 Mil) up to 50-pound commercial bags (3.0 Mil), with custom thicknesses available from 0.75 Mil to 8 Mil.
+
+#### 5. Can ice bags be customized with logos or branding?
+Targeted surface printing up to 8 colors with specialized deep freeze inks allows businesses to print logos, barcodes, and branding designs directly onto the bags.
+
+#### 6. Are ice bags biodegradable or recyclable?
+Our ice bags are manufactured from recyclable polyethylene (LDPE Code 4). We also offer eco-friendly biodegradable ice bag options upon request.
+
+#### 7. Do ice bags have special features like leak resistance or reinforced seals?
+Yes, metallocene co-extrusion guarantees leak-resistant properties and reinforced seals that absorb heavy impact drops without bursting.
+
+#### 8. Are ice bags suitable for commercial and industrial use?
+Absolutedly. They are engineered to handle the demands of commercial ice plants, supermarkets, liquor stores, and catering logistics.
+
+#### 9. How should ice bags be stored to prevent damage?
+Store in a cool, dry environment away from direct sunlight in their original packaging to prevent dust exposure and maintain long-term film integrity.`,
+        image: "/images/products/ice-bags/ice-bags.jpg",
         specs: {
-          "Film Structure": "Made from 100% Virgin 3-Layer PE Films",
-          "Sealing Poly": "Metallocene Poly for Best Seal Strength in Freezing Temps",
-          "Deep Freeze Inks": "Surface Printing Up to 8 Colors (Deep Freeze Rated)",
-          "Handling Option": "Provided with D-Punch Handle for Ease of Handling",
+          "Film Structure": "100% Virgin 3-Layer Heavy-Gauge Metallocene LDPE",
+          "Ice Capacities": "5 lbs (1.2 Mil), 8 lbs (1.4 Mil), 10 lbs (1.4 Mil), 20 lbs (1.75 Mil), 50 lbs (3.0 Mil)",
+          "Seal Technology": "Metallocene Resin for Zero Brittleness Below Freezing",
+          "Closure Options": "Cotton Drawstring, Plastic Drawstring, Wicketed, or Tape-Sealed",
+          "Printing Capability": "Up to 8 Colors Surface Printing with Deep Freeze Inks",
+          "Food Safety": "USDA & FDA Compliant for Direct Ice & Food Contact",
+          "Handling Options": "Built-in Drawstring or Ergonomic D-Punch Handle",
         },
       },
       {
         id: "plastic-dcut-bags",
         title: "Plastic Dcut Bags",
         subtitle: "HDPE & LDPE Die-Cut Handle Bags",
-        blurb: "High-density and low-density polythene bags with die-cut handles for boutique retail shopping.",
-        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        blurb: "Lightweight, durable HDPE & LDPE D-cut handle carry bags featuring heat-sealed handles, tear-resistant construction, and custom flexographic branding for retail & boutique stores.",
+        longDesc: `Plastic D-cut bags are lightweight, durable, and versatile packaging bags designed with a distinctive "D" shaped cutout near the top for convenient carrying. Commonly used in supermarkets, fashion boutiques, discount stores, e-commerce, and trade shows, these bags elevate product presentation while offering superior load-bearing strength.
+
+At WinnerPack (Tilak Polypack), our advanced manufacturing process begins with selecting prime HDPE (High-Density Polyethylene) or LDPE (Low-Density Polyethylene) resins. These materials are processed into high-strength flat sheets, precision die-cut to size, and integrated with D-cut handles using heat-sealing technology for a secure, tear-proof bond.
+
+### Material & Structural Options:
+- **HDPE D-Cut Bags**: Crisp, rigid texture providing high tensile strength at lower gauges. Ideal for grocery, hardware, and volume retail.
+- **LDPE D-Cut Bags**: Glossy, smooth, soft-touch texture with high puncture resistance. Ideal for boutique clothing stores and luxury retail packaging.
+- **Size Options**: Available in standard dimensions (8×10, 10×12, 12×16 inches) and custom sizes up to large shopping bags.
+- **Thickness Range**: Ranging from 30 microns (light promotional duty) to 150+ microns (heavy commercial loads).
+
+### How to Select Plastic D-Cut Bags:
+- **Size & Fit**: Select dimensions according to product volume and dimensions.
+- **Material Choice**: Choose LDPE for smooth luxury boutique feel, or HDPE for high-strength economy.
+- **Thickness**: Ensure higher micron gauge (75–150 microns) for heavy apparel or hardware items.
+- **Custom Branding**: Take advantage of custom screen, flexographic, or rotogravure printing for corporate logos and promotional messaging.
+
+### Frequently Asked Questions
+
+#### 1. What are plastic D-cut bags?
+Plastic D-cut bags are high-quality, durable packaging bags designed with a distinctive "D" shaped cutout handle near the top for easy, comfortable carrying in retail and promotional environments.
+
+#### 2. What are the benefits of using D-cut bags over other plastic bags?
+They offer ergonomic carrying comfort, lightweight structure, high tear resistance, clean aesthetic presentation, and excellent printable surfaces for corporate branding.
+
+#### 3. What materials are plastic D-cut bags made from?
+Typically fabricated using Low-Density Polyethylene (LDPE) for glossy smoothness or High-Density Polyethylene (HDPE) for rigid strength, as well as eco-friendly recyclable polymers.
+
+#### 4. Are plastic D-cut bags reusable and recyclable?
+Yes, LDPE and HDPE D-cut bags are strong enough to be reused multiple times and are 100% recyclable (Polyethylene Recycling Code 2 and 4).
+
+#### 5. Can plastic D-cut bags be customized with logos and designs?
+Yes, full custom flexographic, rotogravure, and screen printing are available for vibrant company logos, promotional artwork, and contact details.
+
+#### 6. What are the common sizes and thickness options for plastic D-cut bags?
+Common sizes include 8×10, 10×12, 12×16 inches and larger. Thicknesses range from 30 microns up to 150+ microns.
+
+#### 7. Are plastic D-cut bags suitable for carrying heavy items?
+Yes, by selecting heavy-duty gauges (75–150 microns) and reinforced heat-sealed handles, D-cut bags can securely carry mid-weight to heavy retail goods.
+
+#### 8. Which industries commonly use plastic D-cut bags?
+Widely specified across Retail & Fashion Boutiques, E-commerce, Supermarkets, Exhibition Giveaways, and Corporate Event Promotions.
+
+#### 9. What is the difference between D-cut and W-cut plastic bags?
+D-cut bags feature a smooth "D" die-cut punch handle for sleek retail presentation, whereas W-cut (vest/t-shirt) bags have extended loop side handles designed for grocery volume carrying.`,
+        image: "/images/products/plastic-dcut-bags/plastic-dcut-bags.jpg",
         specs: {
-          "Material Options": "HDPE (High Density) & LDPE (Low Density)",
-          "Handle Design": "Die-Cut D-Handle for Convenient Carrying",
-          "Retail Appeal": "Smooth Finish for Boutique Retail Display",
-          "Custom Printing": "Vibrant Flexographic & Rotogravure Branding",
+          "Material Options": "HDPE (High Density) & LDPE (Low Density) Polyethylene",
+          "Handle Integration": "Heat-Sealed Reinforced D-Cut Die-Cut Handles",
+          "Standard Sizes": "8×10, 10×12, 12×16 inches & Custom Dimensions",
+          "Thickness Range": "30 Micron (Light Duty) to 150+ Micron (Heavy Duty)",
+          "Custom Printing": "High-Definition Flexographic, Rotogravure & Screen Printing",
+          "Common Applications": "Supermarkets, Boutiques, Discount Stores & Trade Show Events",
+          "Features": "Reusable, Recyclable, Tear-Resistant & Ergonomic Grip",
         },
       },
       {
         id: "polythene-clothing-packing-bags",
         title: "Polythene Clothing Packing Bags",
         subtitle: "Self-Sealing Apparel Display Bags",
-        blurb: "Clear self-sealing polythene clothing display bags for retail garments, apparel stores, and dry-cleaners.",
-        image: "/images/products/ldpe-films-pouches/applications/app-1.png",
+        blurb: "Sparkling crystal-clear Peel 'n' Seal polythene clothing packing bags featuring self-sealing adhesive flaps, dust/moisture barrier protection, and custom flexographic printing for retail garments & dry-cleaning.",
+        longDesc: `WinnerPack (Tilak Polypack) supplies a wide range of clear polythene clothing packing bags engineered to present garments at their absolute best. Featuring self-sealing adhesive flaps ("Peel 'n' Seal"), our clothing display bags are the preferred packaging choice for fashion brands, apparel retailers, garment exporters, e-commerce stores, and dry-cleaners.
+
+Our sparkling crystal-clear polypropylene and polyethylene bags showcase your retail garments in beautiful, stylish, and functional packaging. Flap Seal Crystal Clear Bags strike the ideal balance between performance and price: the adhesive strip on the flap folds over smoothly to seal items securely, allowing adjustability for items shorter than the bag height.
+
+### Key Features & Benefits:
+- **Flap Seal Adhesive Action**: Easy-peel reusable adhesive flap strip secures clothing quickly without heat sealers or tape.
+- **Dust, Moisture & Wrinkle Protection**: Keeps shirts, dresses, suits, and knitwear clean, unwrinkled, and dust-free during transit and storage.
+- **Sparkling Optical Clarity**: High-clarity polypropylene film highlights garment colors, textures, and brand labels.
+- **Compression & Volume Reduction**: Reduces trapped air volume by up to 40%, saving warehouse space and lowering e-commerce shipping costs.
+- **Custom Branding & Options**: Custom logo printing, suffocation warning prints, mesh panels, and privacy-focused opaque colors available.
+
+### How to Select Clothing Packing Bags:
+- **Size & Format**: Select small bags for accessories/socks, medium for shirts/trousers, and large formats for suits and winterwear.
+- **Closure Type**: Opt for Peel 'n' Seal adhesive flap for fast retail packing, or zipper tracks for long-term customer reusability.
+- **Transparency**: Choose crystal-clear bags for retail display, or privacy opaque bags for e-commerce shipments.
+
+### Frequently Asked Questions
+
+#### 1. What are polythene clothing packing bags used for?
+Polythene clothing packing bags protect garments during storage, transportation, e-commerce shipping, and retail display. They are widely used by clothing manufacturers, fashion brands, retailers, and dry-cleaning services.
+
+#### 2. What are the benefits of using polythene bags for clothing packaging?
+They protect garments against dust, dirt, moisture, and wrinkles, provide clear product visibility for retail buyers, reduce shipping volume, and offer significant cost-effectiveness over rigid boxes.
+
+#### 3. Are polythene clothing packing bags available in different sizes and thicknesses?
+Yes, available from small accessory bags to large suit covers, with thicknesses ranging from light retail display films to heavy-duty storage sacks.
+
+#### 4. Are these bags reusable and recyclable?
+Yes, the resealable adhesive strip or zipper closure allows multiple reuses. The bags are 100% recyclable in standard polyethylene and polypropylene recycling streams.
+
+#### 5. Can polythene clothing packing bags be customized with logos and prints?
+Yes, full custom flexographic printing is available for company branding, size charts, barcodes, and regulatory suffocation warning notices.
+
+#### 6. Do these bags offer protection against dust, moisture, and wrinkles?
+Absolutedly. The sealed plastic structure eliminates environmental exposure, while compression flushes out dead air to prevent clothing from shifting and wrinkling.
+
+#### 7. Are polythene clothing storage bags suitable for long-term storage?
+Yes, when stored in dry environments away from direct UV light, they shield garments in closets and warehouses for extended periods.
+
+#### 8. What is the difference between clear and opaque polythene clothing bags?
+Clear bags maximize garment visibility for retail display, whereas opaque bags (black, white, colored) ensure privacy for discreet e-commerce deliveries.
+
+#### 9. Are these bags suitable for packaging delicate or high-end garments?
+Yes, premium virgin film grades ensure smooth, non-scratching surfaces that preserve delicate silk, wool, and luxury garments safely.`,
+        image: "/images/products/polythene-clothing-packing-bags/polythene-clothing-packing-bags.jpg",
         specs: {
-          "Closure System": "Self-Sealing Peel & Seal Adhesive Flap",
-          "Application": "Clothing Display, Retail Stores & Dry-Cleaners",
-          "Clarity": "Sparkling Clear Polythene Presentation",
-          "Protection": "Keeps Garments Clean, Dust-Free & Fresh",
+          "Closure System": "Peel 'n' Seal Resealable Adhesive Flap Strip",
+          "Material Options": "Crystal-Clear Polypropylene (PP) & Polyethylene (PE)",
+          "Protection Features": "Dust-Proof, Moisture-Resistant, Anti-Wrinkle Shield",
+          "Applications": "Apparel Retail, E-Commerce Garment Packing, Dry-Cleaners, Boutiques",
+          "Visibility Options": "100% Sparkling Clear or Discrete Opaque Tint Options",
+          "Customization": "Up to 8-Color Custom Logo Printing & Suffocation Warnings",
+          "Special Options": "Compression Air-Release Perforations & Mesh Panel Options",
         },
       },
       {
         id: "grip-seal-bags",
         title: "Grip Seal Bags",
         subtitle: "Reusable Click-Lock Zipper Bags",
-        blurb: "Reusable, highly transparent, food-safe LDPE grip seal bags with tough click-lock track closures.",
-        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        blurb: "Reusable, highly transparent, FDA food-safe LDPE grip seal (ziplock) bags with interlocking groove closures, available in custom sizes, anti-static, and metallized options.",
+        longDesc: `When looking for a reliable, reusable packaging solution that offers a secure, airtight seal, look no further than WinnerPack (Tilak Polypack) Grip Seal Bags (also known as ziplock or resealable bags). Crafted with interlocking groove channels along the bag opening, these bags open and close effortlessly with finger pressure, shielding contents against dust, dirt, and moisture.
+
+Approved for direct food contact and indispensable across warehouses, offices, laboratories, and retail settings, grip seal bags make organizing small items (nuts, bolts, jewelry, lab specimens) or protecting large reading documents convenient and leak-free.
+
+### Materials & Thickness Options:
+- **Food-Grade Virgin LDPE**: Manufactured from clear, flexible Low-Density Polyethylene compliant with FDA food contact regulations.
+- **Thickness Range**: Available in 30 µm (2 mil) for everyday light packaging, 4 mil (100 µm) for hardware and heavy tools, up to heavy-duty industrial gauges.
+- **Specialty Variants**: Anti-static ESD resealable bags for electronics, metallized barrier bags for moisture-sensitive products, Euro punch hole bags for pegboard retail display, and D-cut handle grip bags.
+
+### Key Characteristics:
+- **Size Options**: Ranging from Min 100 mm × 200 mm up to Max 600 mm × 600 mm.
+- **Surface Printing**: High-definition rotogravure surface printing up to 8 colors for corporate branding.
+- **Airtight & Waterproof**: Precision interlocking grooves prevent liquid leakage or air contamination.
+- **Reusability & Sustainability**: Designed for repeated opening and closing cycles without losing track seal grip.
+
+### How to Select Grip Seal Bags:
+- **Dimensions**: Match bag size to item dimensions (from small 100×200mm component bags to large 600×600mm document bags).
+- **Thickness**: Select 2 mil (50 µm) for food/office items, or 4 mil (100 µm) for sharp hardware/industrial parts.
+- **Special Features**: Determine if anti-static shielding, hanging punch holes, or custom logo printing is required.
+
+### Frequently Asked Questions
+
+#### 1. What are grip seal bags?
+Grip seal bags (ziplock bags) are reusable plastic bags featuring a built-in interlocking groove closure that seals shut with finger pressure without tape or ties.
+
+#### 2. What are the benefits of using grip seal bags?
+They provide an airtight/waterproof seal, infinite reusability, crystal-clear content visibility, easy opening/closing, and cost-effective inventory organization.
+
+#### 3. What materials are grip seal bags made from?
+Manufactured from high-grade virgin Low-Density Polyethylene (LDPE) and Polypropylene (PP), meeting strict FDA food safety directives.
+
+#### 4. Are grip seal bags reusable and recyclable?
+Yes, the durable zipper track maintains its seal strength over repeated uses, and clean LDPE bags are 100% recyclable (Recycling Code 4).
+
+#### 5. Do grip seal bags provide an airtight and waterproof seal?
+Yes, when fully pressed shut, the interlocking grooves form a barrier against air, dust, and liquid spills.
+
+#### 6. What sizes and thickness options are available for grip seal bags?
+Sizes range from 100 × 200 mm to 600 × 600 mm, with thicknesses spanning 30 microns (1.2 mil) up to 100 microns (4 mil+).
+
+#### 7. Are grip seal bags suitable for food storage and packaging?
+Yes, made from FDA-approved food-safe virgin LDPE, they preserve freshness and protect spices, nuts, baked goods, and snacks.
+
+#### 8. Can grip seal bags be customized with printing or branding?
+Yes, up to 8-color rotogravure surface printing is available for company logos, barcodes, usage guides, and brand graphics.
+
+#### 9. What industries commonly use grip seal bags?
+Widely used across Food & Beverage, Hardware & Electronics, Pharmaceuticals & Healthcare, E-Commerce, and Retail Display.`,
+        image: "/images/products/grip-seal-bags/grip-seal-bags.jpg",
         specs: {
-          "Reusability": "Reusable Click-Lock Zipper Track Closure",
-          "Safety": "100% Food Safe & Highly Transparent",
-          "Durability": "Tough Puncture-Resistant LDPE Film",
-          "Versatility": "Ideal for Hardware, Snacks & Small Parts",
+          "Size Range": "Min 100 mm × 200 mm to Max 600 mm × 600 mm",
+          "Thickness Options": "30 µm (2 mil) to 100 µm (4 mil+)",
+          "Material Compliance": "Food-Grade Virgin LDPE (FDA & USDA Approved)",
+          "Seal Technology": "Interlocking Click-Lock Resealable Grooves (Airtight & Waterproof)",
+          "Customization": "Up to 8-Color Printing, Euro Punch Hole, D-Cut Handle",
+          "Special Formats": "Standard Clear, Anti-Static (ESD), and Metallized Resealable Bags",
+          "Applications": "Food & Snacks, Hardware/Screws, Electronics, Pharma & Lab Samples",
         },
       },
       {
         id: "poly-mailer-bags",
         title: "Poly Mailer Bags",
         subtitle: "White Courier Ecommerce Shipping Bags",
-        blurb: "Custom-printed white poly mailers for ecommerce shipping, offering an economical alternative to bulky boxes.",
-        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        blurb: "Lightweight, tear-resistant co-extruded LDPE white poly mailer bags with tamper-evident self-adhesive seals, custom branding options, and waterproof protection for ecommerce courier shipping.",
+        longDesc: `Poly mailer bags are lightweight, ultra-durable courier packaging envelopes engineered for ecommerce shipping, retail product delivery, and logistics transport. Manufactured using multi-layer co-extruded LDPE film, these mailers provide superior tensile strength, tear resistance, and complete privacy during transit.
+
+Our white poly mailers serve as a cost-effective, space-saving alternative to bulky corrugated boxes. Equipped with a permanent self-adhesive seal flap, they eliminate the need for extra packaging tape while offering tamper-evident security—once sealed, the flap cannot be opened without tearing the bag.
+
+### Key Benefits & Product Features:
+- **Tamper-Evident Permanent Seal**: Self-adhesive closure flap bonds instantly and securely to prevent unauthorized package opening.
+- **Lightweight Shipping Economy**: Reduces volumetric freight costs compared to rigid cardboard cartons.
+- **Waterproof & Moisture-Proof**: Protects garments, textiles, documents, and soft goods from rain, dirt, and transit handling.
+- **Opacity & Privacy**: Co-extruded structure with bright white exterior and opaque dark interior shields package contents.
+- **Unpadded & Padded Variants**: Available in standard flat poly mailers as well as bubble-lined padded mailers for fragile items.
+- **Full Custom Branding**: Custom flexographic printing across the mailer surface and flap to elevate unboxing experiences.
+
+### How to Select Poly Mailer Bags:
+- **Product Dimensions**: Measure product length, width, and thickness to ensure an accurate fit.
+- **Cushioning Requirements**: Select standard unpadded mailers for clothing and soft goods, or bubble-padded mailers for accessories.
+- **Branding**: Leverage custom printing to feature company logos, social handles, and promotional messaging.
+
+### Frequently Asked Questions
+
+#### 1. What are poly mailer bags used for?
+Poly mailer bags are used for ecommerce shipping, courier packaging, garment shipping, document mailing, and retail delivery of non-fragile items.
+
+#### 2. What products can be shipped in poly mailer bags?
+Ideal for shipping clothing, T-shirts, dresses, pants, bedding, accessories, documents, and soft goods.
+
+#### 3. Are mailing poly bags waterproof?
+Yes, multi-layer LDPE co-extruded film forms a 100% waterproof and dust-proof shield around package contents.
+
+#### 4. Are poly shipping bags durable for courier use?
+Absolutedly. They are engineered with high tear and puncture resistance to endure rough multi-city logistics and sorting equipment.
+
+#### 5. Do poly mailer bags come with adhesive sealing?
+Yes, they feature a high-tack permanent peel-and-seal strip that creates a tamper-evident closure without needing additional tape.
+
+#### 6. Are poly mailers available in different sizes?
+Yes, available in custom dimensions and thickness options tailored to small accessories or large bulky apparel items.
+
+#### 7. Why are poly mailers popular in ecommerce packaging?
+They are lightweight, save storage space, lower dimensional shipping costs, and speed up order fulfillment compared to cardboard boxes.
+
+#### 8. Are poly mailer bags suitable for wholesale packaging requirements?
+Yes, supplied in bulk quantities for ecommerce fulfillment centers, courier operations, wholesalers, and exporters.
+
+#### 9. Can poly mailers be used for garment shipping?
+Yes, poly mailer bags are the industry-standard packaging for online fashion brands and garment retailers.
+
+#### 10. What industries use mailing poly bags?
+Ecommerce stores, courier/logistics providers, apparel manufacturers, financial institutions (document mailing), and wholesale distributors.`,
+        image: "/images/products/poly-mailer-bags/poly-mailer-bags.jpg",
         specs: {
-          "Application": "Ecommerce Shipping & Courier Logistics Mailers",
-          "Cost Savings": "Economical Alternative to Bulky Cardboard Boxes",
-          "Customization": "Custom-Printed White Poly Mailers with Logos",
-          "Closure": "Tamper-Evident Permanent Peel-and-Seal Strip",
+          "Material": "Co-Extruded LDPE Plastic Film (Multi-Layer Durability)",
+          "Closure Type": "Permanent Self-Adhesive Peel & Seal Strip (Tamper-Evident)",
+          "Color Options": "Exterior White (Interior Black Privacy Film), Grey, Blue, Transparent",
+          "Property Highlights": "100% Waterproof, Tear-Resistant, High Puncture Modulus",
+          "Sizes & Thickness": "Custom Sizes & Thicknesses (Available Unpadded & Bubble-Padded)",
+          "Branding": "Full-Surface High-Definition Flexographic Custom Logo Printing",
+          "Primary Usage": "Ecommerce Shipping, Courier Logistics, Garments & Apparel Mailers",
         },
       },
       {
         id: "plastic-bags-hanger-hook",
         title: "Plastic Bags with Hanger Hook",
         subtitle: "Garment & Hosiery Hanging Bags",
-        blurb: "Transparent zip-lock plastic bags with integrated hanger hooks for hosiery and multiple garment retail display.",
-        image: "/images/products/ldpe-films-pouches/applications/app-1.png",
+        blurb: "High-clarity LDPE & PP transparent poly bags with integrated heavy-duty plastic hanger hooks and click-lock ziplock closures, designed for retail rack & peg display.",
+        longDesc: `Plastic bags with hanger hooks are specialized transparent retail packaging bags designed specifically for garment packaging, hosiery display, and rack merchandising. Engineered with an integrated heavy-duty plastic hanger hook at the top header and a secure resealable ziplock closure, these bags allow products to hang neatly on store pegs and retail racks while remaining fully protected.
+
+Manufactured using prime virgin LDPE (Low-Density Polyethylene) or PP (Polypropylene), our hanging poly bags feature high optical clarity that showcases fabric textures, colors, and branding details without needing to open the package.
+
+### Key Benefits & Product Features:
+- **Integrated Heavy-Duty Hanger Hook**: Strong plastic hook header supports light to mid-weight garments without snapping or bending under load.
+- **Resealable Ziplock Track**: Keeps shirts, socks, innerwear, toys, and electronics clean, dust-free, and moisture-protected during shipping and retail display.
+- **High-Clarity Presentation**: Crystal-clear finish maximizes shelf appeal in department stores, supermarkets, and fashion boutiques.
+- **Multipurpose Merchandising**: Ideal for packaging innerwear, hosiery, t-shirts, fashion accessories, stationery, toys, and small gadgets.
+- **B2B Bulk Manufacturing**: Tailored sizes, gauge thicknesses, custom flexographic logo printing, and ventilation hole punches available for garment exporters and wholesalers.
+
+### How to Select Hanging Poly Bags:
+- **Hanger Load Capacity**: Select sturdy PP headers for heavy apparel, or flexible LDPE headers for lightweight hosiery.
+- **Bag Dimensions**: Measure garment folded dimensions ensuring adequate width and length clearance below the zipper line.
+- **Custom Branding**: Add custom logo printing and barcode headers for seamless point-of-sale retail integration.
+
+### Frequently Asked Questions
+
+#### 1. What are plastic bags with hanger hooks used for?
+Plastic bags with hanger hooks are used for packaging garments, hosiery, innerwear, and retail products, allowing them to hang neatly on store racks while shielding them from dust and moisture.
+
+#### 2. What industries commonly use hanger poly bags?
+Garment manufacturing, hosiery production, fashion retail boutiques, supermarkets, toy distribution, and wholesale B2B exporters.
+
+#### 3. Are resealable hanging poly bags suitable for retail display?
+Yes, they are specifically engineered for point-of-sale pegboard and clothing rack display in retail stores and supermarkets.
+
+#### 4. What products can be packed in plastic bags with hanger hooks?
+T-shirts, innerwear, socks, fashion accessories, plush toys, stationery sets, electronic cables, and general retail merchandise.
+
+#### 5. Are hanger plastic bags available in different sizes?
+Yes, manufactured in a wide range of custom sizes and gauge thicknesses to accommodate small socks up to large folded sweaters.
+
+#### 6. Do these bags protect products from dust and moisture?
+Yes, the airtight ziplock seal creates a protective barrier against environmental dust, dirt, humidity, and handling soils.
+
+#### 7. What material is used in resealable poly bags with hanger?
+Fabricated using high-grade virgin LDPE for flexibility or PP for maximum crystal-clear optical brilliance.
+
+#### 8. Are these hanging poly bags reusable?
+Yes, the durable ziplock closure allows customers and retailers to open and reclose the bag multiple times without damaging the package.
+
+#### 9. Why are transparent hanger bags preferred in retail packaging?
+They elevate visual merchandising, allow customers to inspect items easily, and maintain clean, organized store aisles.
+
+#### 10. Are these bags suitable for wholesale and B2B packaging requirements?
+Yes, supplied in commercial wholesale quantities for manufacturers, exporters, and retail packaging distributors worldwide.`,
+        image: "/images/products/plastic-bags-hanger-hook/plastic-bags-hanger-hook.jpg",
         specs: {
-          "Features": "Zip Lock Closure & Integrated Hanging Hook",
-          "Use Case": "Hosiery Industry, Garments & Apparel Packs",
-          "Display": "Convenient Peg Display Hanging in Retail Stores",
-          "Protection": "Dust-Proof Seal with Heavy Header Hook",
+          "Material Options": "High-Clarity Virgin LDPE (Low Density) / PP (Polypropylene)",
+          "Closure Mechanism": "Resealable Heavy-Duty Ziplock Track",
+          "Integrated Feature": "Rigid Heavy-Duty Plastic Hanger Hook / Peg Display Header",
+          "Transparency Grade": "100% Sparkling Clear Optical Presentation",
+          "Reusability & Durability": "Reusable Ziplock Mechanism & Tear-Resistant Film",
+          "Size & Thickness": "Custom Sizes & Thickness Gauges Available",
+          "Target Industries": "Garment Manufacturers, Hosiery Exporters, Retail Supermarkets & B2B Wholesalers",
         },
       },
       {
         id: "soft-loop-handle-bags",
         title: "Soft Loop Handle Bags",
         subtitle: "Upscale Retail Boutique Carrying Bags",
-        blurb: "Upscale retail bags featuring comfortable soft loop handles and expandable bottom gussets for transport stability.",
-        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        blurb: "Premium upscale retail carry bags featuring comfortable flexi-loop soft handles welded to the inside, expandable bottom gussets, and custom flexographic printing for boutiques, trade shows, and department stores.",
+        longDesc: `Soft loop handle bags (also known as flexi-loop handle bags) serve multi-purpose functions beyond conveying an upscale, luxurious appearance. Designed with comfortable soft poly loop handles welded securely to the inside rim of the bag and an expandable bottom gusset, these bags keep contents upright and secured during travel, reducing movement and preventing product breakage.
+
+Manufactured from high-grade LDPE, MDPE, or HDPE resins, soft loop handle bags provide superior tensile strength and moisture resistance compared to paper bags. The soft flexi loop design eliminates hand strain when carrying heavy retail items, leaving customers with a lasting positive impression of your brand.
+
+### Key Benefits & Structural Features:
+- **Reinforced Internal Handle Weld**: Soft loop handles are heat-welded internally, allowing full utilization of bag height without sacrificing grip comfort.
+- **Expandable Bottom Gusset**: Allows the bag to stand upright when filled, accommodating bulky boxes, apparel, and grocery items easily.
+- **Moisture & Tear Resistance**: Protects contents against rain, dirt, and heavy loads far better than paper or flimsy t-shirt bags.
+- **Vibrant Custom Branding**: High-definition flexographic printing allows full-color logos, patterns, and messaging across opaque, translucent, or custom-colored bag surfaces.
+- **Eco-Conscious Reusability**: Sturdy construction encourages customers to reuse the bag multiple times, extending your brand's promotional exposure.
+
+### How to Select Soft Loop Handle Bags:
+- **Material Choice**: Select LDPE for a smooth, glossy boutique aesthetic, or HDPE for high-strength volume carrying.
+- **Gusset Size**: Choose wider bottom gussets for shoe boxes, folded apparel, or packaged gift sets.
+- **Micron Gauge**: Opt for higher micron thicknesses (60–100 µm) for heavy retail loads and corporate gifts.
+
+### Frequently Asked Questions
+
+#### 1. What are soft loop handle bags used for?
+Soft loop handle bags are upscale retail carry bags used in fashion boutiques, department stores, supermarkets, trade shows, and corporate promotional events.
+
+#### 2. What materials are soft loop handle bags made of?
+They are manufactured from high-quality Low-Density Polyethylene (LDPE), Medium-Density Polyethylene (MDPE), or High-Density Polyethylene (HDPE).
+
+#### 3. What are the advantages of using soft loop handle bags over other types of bags?
+They combine comfortable ergonomic handles, expandable bottom gussets, superior moisture/tear resistance, and premium aesthetic presentation compared to basic plastic or fragile paper bags.
+
+#### 4. Can soft loop handle bags be customized with logos and designs?
+Yes, full custom flexographic printing up to 8 colors is available for vibrant company logos, promotional messaging, and custom colors.
+
+#### 5. Are soft loop handle bags reusable and recyclable?
+Yes, their heavy-gauge film and reinforced handle welds make them durable for long-term reusability, and clean poly film is 100% recyclable (Code 2/4).
+
+#### 6. What sizes and colors are available for soft loop handle bags?
+Available in a broad range of standard and custom sizes, with film options ranging from sparkling clear and translucent to custom opaque pantone shades.
+
+#### 7. How much weight can soft loop handle bags hold?
+Their weight capacity depends on material gauge and size, but reinforced loop handles permit carrying heavy apparel, books, and merchandise securely.
+
+#### 8. Are soft loop handle bags suitable for retail and promotional purposes?
+Yes, they are the preferred choice for premium retail shopping, luxury product packaging, and trade show merchandise giveaways.
+
+#### 9. How do soft loop handle bags compare to plastic or paper bags?
+Unlike paper bags, soft loop bags are moisture-proof and tear-resistant. Compared to basic plastic bags, they offer a far higher aesthetic standard and greater carrying comfort.`,
+        image: "/images/products/soft-loop-handle-bags/soft-loop-handle-bags.jpg",
         specs: {
-          "Handle Design": "Upscale Soft Loop Handles (One on Each Side)",
-          "Bottom Gusset": "Expandable Bottom Gusset Increases Stability & Volume",
-          "Benefit": "Keeps Contents Secured, Reducing Movement & Damage",
-          "Look & Feel": "Upscale Boutique Retail Presentation",
+          "Handle Construction": "Thermally Welded Reinforced Soft Poly Loop Handles",
+          "Material Options": "Premium LDPE, MDPE & HDPE Polyethylene Films",
+          "Base Structure": "Expandable Bottom Gusset for Boxy Volume & Transport Stability",
+          "Durability & Load": "Heavy-Duty Tear Resistance with High Weight-Bearing Capacity",
+          "Reusability & Eco-Safety": "100% Reusable & Recyclable Polymer Structure",
+          "Branding": "Full Custom Flexographic & Rotogravure Printing up to 8 Colors",
+          "Ideal Applications": "Fashion Boutiques, Supermarkets, Trade Show Giveaways, Corporate Events",
         },
       },
       {
         id: "plastic-drawstring-bags",
         title: "Plastic Drawstring Bags",
         subtitle: "Flexible Cinching Drawstring Bags",
-        blurb: "Flexible and strong LDPE bags featuring plastic drawstring closures—an economical alternative to cotton drawstring bags.",
-        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        blurb: "Lightweight, leak-resistant LLDPE & HDPE plastic drawstring bags with integrated cinching tapes, ranging from healthcare patient bags to 13-45 gallon commercial bin liners.",
+        longDesc: `Plastic drawstring bags are lightweight, flexible, leak-resistant poly bags featuring an integrated plastic drawstring tape header that cinches shut instantly when pulled. Serving as an economical, moisture-proof alternative to cotton drawstring bags, these cinching bags are standard across hospitals, hotels, retail stores, commercial facilities, and residential environments.
+
+In healthcare settings, white and clear plastic drawstring bags are widely used for patient belongings and sterile equipment setups. In hotels, they serve as guest laundry and dry-cleaning collection bags. When manufactured as commercial bin liners, their reinforced LLDPE (Linear Low-Density Polyethylene) structure easily handles heavy, wet waste without tearing or leaking.
+
+### Key Features & Technical Specifications:
+- **Cinching Drawstring Header**: Integrated poly tape provides effortless closing, lifting, and knotting without needing separate twist ties.
+- **Tough LLDPE & HDPE Resins**: Highly flexible polymer formulation yields superior puncture resistance and 90% recyclability.
+- **Leak-Proof Bottom Seal**: Heat-welded seams prevent liquid waste or wet laundry from seeping through.
+- **Capacity Options**: Available in standard capacities—1 to 4 Gallon (small waste/personal items), 13 Gallon (everyday kitchen bins), 32-33 Gallon (office bins), up to 40-45 Gallon (heavy commercial use).
+- **Custom Branding**: High-resolution screen, digital, and flexographic printing for corporate logos, hospital iconography, and brand promotional graphics.
+
+### How to Select Plastic Drawstring Bags:
+- **Application**: Choose light-gauge clear/white bags for personal belongings and hotel laundry, or heavy-gauge LLDPE for refuse and trash bins.
+- **Bin Size**: Match bag gallon capacity to standard bin dimensions (e.g., 13 gal for kitchen tall cans, 45 gal for industrial drums).
+- **Customization**: Apply custom printing to display brand logos, usage instructions, or biohazard symbols.
+
+### Frequently Asked Questions
+
+#### 1. What are plastic drawstring bags used for?
+Plastic drawstring bags are used for patient belongings in healthcare, hotel guest laundry, retail merchandise bags, promotional event giveaways, athletic gear storage, and heavy-duty trash bin liners.
+
+#### 2. What materials are plastic drawstring bags made of?
+Typically manufactured from Linear Low-Density Polyethylene (LLDPE), High-Density Polyethylene (HDPE), or Polypropylene (PP) for optimal strength and flexibility.
+
+#### 3. What are the advantages of using plastic drawstring bags?
+They offer effortless cinching closures, leak-resistant performance, lightweight portability, full customization, and significant cost savings over cotton drawstring bags.
+
+#### 4. Can plastic drawstring bags be customized with logos or designs?
+Yes, high-resolution flexographic, screen, and digital printing are available for logos, artwork, and custom colors.
+
+#### 5. Are drawstring trash bags durable enough for heavy items?
+Yes, heavy-duty LLDPE formulations feature multi-layer puncture resistance and reinforced seams capable of carrying heavy, wet commercial waste.
+
+#### 6. Are plastic drawstring bags reusable and recyclable?
+Yes, durable LLDPE material is 90% recyclable and easy to reuse multiple times for storage or hygienic disposal.
+
+#### 7. Are plastic drawstring bags waterproof?
+Yes, plastic drawstring bags are inherently water-resistant and leak-proof, guarding contents against spills, rain, and wet waste.
+
+#### 8. What sizes and colors are available?
+Capacities span 1-4 Gal (personal), 13 Gal (kitchen), 32-33 Gal (office), and 40-45 Gal (commercial). Color options include crystal clear, white opaque, and custom brand tints.
+
+#### 9. What industries commonly use plastic drawstring bags?
+Healthcare & Clinics, Hospitality & Hotels, Commercial Sanitation, Retail & Sports Apparel, and Event Promotion.`,
+        image: "/images/products/plastic-drawstring-bags/plastic-drawstring-bags.jpg",
         specs: {
-          "Closure System": "Plastic Drawstring Tape for Cinching Closure",
-          "Strength": "Flexible & Strong Polyethylene Construction",
-          "Customization": "Customized Sizes, Colors & Printed Designs",
-          "Cost Efficiency": "Economical Alternative to Cotton Drawstring Bags",
+          "Closure Mechanism": "Integrated Cinching Polyethylene Drawstring Tape",
+          "Material Options": "LLDPE (Linear Low-Density PE, 90% Recyclable) / HDPE",
+          "Capacity Sizes": "1-4 Gal (Small), 13 Gal (Kitchen), 32-33 Gal (Office), 40-45 Gal (Commercial)",
+          "Key Performance": "Leak-Resistant Bottom Seal, High Puncture Resistance",
+          "Color & Transparency": "Clear, White Opaque, Colored, and Custom High-Gloss Tint",
+          "Eco-Friendliness": "100% Reusable & 90% Recyclable LLDPE Formulation",
+          "Target Sectors": "Healthcare/Clinics, Hotel Laundry, Commercial Sanitation, Retail & Events",
         },
       },
     ],
@@ -5383,7 +5986,7 @@ BOPP films provide an excellent Moisture Vapor Transmission Rate (MVTR) barrier,
         title: "BOPP Rolls",
         subtitle: "Plain & Heat-Sealable BOPP Sheeting Rolls",
         blurb: "High-clarity plain and corona-treated BOPP film rolls for flexographic printing, thermal lamination, and food overwrapping applications.",
-        image: "/images/products/bopp-films-pouches/image.png",
+        image: "/images/products/bopp-films-pouches/bopp-rolls.jpg",
         specs: {
           "Roll Formats": "Plain, Corona-Treated & Heat-Sealable Co-Extruded",
           "Thickness Range": "15 Micron to 40 Micron",
@@ -5396,7 +5999,7 @@ BOPP films provide an excellent Moisture Vapor Transmission Rate (MVTR) barrier,
         title: "BOPP Pouches",
         subtitle: "Clear Retail Display & Header Card Pouches",
         blurb: "Glass-clear BOPP pouches with self-adhesive tape seal flaps or heat-sealed closures for high-visibility retail and garment display packaging.",
-        image: "/images/products/bopp-films-pouches/image.png",
+        image: "/images/products/bopp-films-pouches/bopp-pouches.jpg",
         specs: {
           "Clarity": "Glass-Clear 95%+ Optical Transparency",
           "Closure Types": "Self-Adhesive Tape Flap or Heat Seal",
@@ -5539,8 +6142,8 @@ Garments, hosiery, socks, greeting cards, stationery, dry snacks, confectionery,
 
 #### 10. How do BOPP pouches compare to ordinary PE or LDPE bags?
 BOPP pouches are significantly stiffer, clearer, and more rigid than PE or LDPE bags, giving products a premium presentation finish. They are not stretchable like LDPE, making them ideal for clean-edged, shape-retaining retail display.`,
-    image: "/images/products/bopp-films-pouches/image.png",
-    gallery: ["/images/products/bopp-films-pouches/image.png"],
+    image: "/images/products/bopp-films-pouches/bopp-pouches.jpg",
+    gallery: ["/images/products/bopp-films-pouches/bopp-pouches.jpg"],
     specs: {
       "Optical Clarity": "95%+ Glass-Clear Transparency",
       "Closure Options": "Self-Adhesive Tape Seal or Heat-Sealed",
@@ -5621,7 +6224,7 @@ Cosmetics, pharmaceuticals, FMCG consumer goods, food & beverage multipacking, a
         title: "PVC Shrink Rolls",
         subtitle: "Centerfolded & Single-Wound PVC Shrink Rolls",
         blurb: "High-gloss PVC shrink film rolls in centerfolded or single-wound formats for L-bar sealers and shrink tunnels.",
-        image: "/images/products/pvc-shrink-rolls-pouches/image.png",
+        image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
         specs: {
           "Roll Formats": "Centerfolded (CF) & Single-Wound (SW) Layflat",
           "Shrink Activation": "40–50% TD Shrink at 110°C–130°C",
@@ -5634,7 +6237,7 @@ Cosmetics, pharmaceuticals, FMCG consumer goods, food & beverage multipacking, a
         title: "PVC Shrink Pouches",
         subtitle: "Pre-Formed Open-End PVC Shrink Pouches",
         blurb: "Pre-formed open-end PVC shrink pouches for manual or semi-automatic product loading before heat tunnel sealing.",
-        image: "/images/products/pvc-shrink-rolls-pouches/image.png",
+        image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.jpg",
         specs: {
           "Pouch Format": "Pre-Formed Open-End for Manual/Semi-Auto Loading",
           "Shrink Performance": "Tight Conforming Shrink on All Product Profiles",
@@ -5703,8 +6306,8 @@ Yes. Once heat-activated, the tight shrink seal immediately shows visible tamper
 
 #### 10. Are PVC shrink rolls compatible with standard L-bar sealing machines?
 Yes. Our centerfolded PVC shrink rolls are engineered for smooth operation on standard L-bar sealing machines with heat shrink tunnels, at widths and thicknesses that suit most common machines.`,
-    image: "/images/products/pvc-shrink-rolls-pouches/image.png",
-    gallery: ["/images/products/pvc-shrink-rolls-pouches/image.png"],
+    image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
+    gallery: ["/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg"],
     specs: {
       "Roll Formats": "Centerfolded (CF) & Single-Wound (SW) Layflat",
       "Shrink Ratio": "40%–50% Transverse Direction (TD) Shrinkage",
@@ -5772,8 +6375,8 @@ Cosmetics, personal care products, gift sets, pharmaceutical over-the-counter it
 
 #### 10. Do PVC shrink pouches provide tamper-evident protection?
 Yes. Once heat-activated, the PVC shrink pouch forms a tight, conforming seal around the product that visibly distorts or tears if tampered with, providing effective tamper-evident protection for retail and pharmaceutical packaging.`,
-    image: "/images/products/pvc-shrink-rolls-pouches/image.png",
-    gallery: ["/images/products/pvc-shrink-rolls-pouches/image.png"],
+    image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.jpg",
+    gallery: ["/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.jpg"],
     specs: {
       "Pouch Format": "Pre-Formed Open-End for Manual/Semi-Auto Loading",
       "Shrink Performance": "40%–50% TD Shrinkage — Tight Conforming Wrap",

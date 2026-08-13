@@ -68,7 +68,7 @@ export const productCategories: ProductCategory[] = [
   },
   {
     id: "pp-strap",
-    title: "PP Strap",
+    title: "Strap",
     blurb: "High-tensile virgin polypropylene and PET strapping rolls engineered for heavy pallet unitization and zero feed jams.",
     icon: Layers,
     tag: "Virgin PP Strap · PET Strapping · Custom Printed Strap",

@@ -14,15 +14,15 @@ export default function FooterManagerClient() {
     name: "Winner Pack Technologies",
     legalName: "Winner Pack Technologies Pvt. Ltd.",
     phone: COMPANY.phone || "+91 85950 72187",
-    email: COMPANY.email || "sales@winnerpack.in",
+    email: COMPANY.email || "info@winnerpack.in",
     address: COMPANY.address || "Plot No - 8, Khasra No 2667, MIN BST Industrial Park, Bhurgharhi, Dasna, Ghaziabad, UP, 201015",
     hours: COMPANY.hours || "Mon - Sat: 9:00 AM - 7:00 PM IST",
     gstin: "09AACCW6640F1Z8",
     cin: "U51909UP2020PTC129759",
     mapsEmbedUrl: "https://maps.google.com/maps?q=Plot%20No.%208,%20B.S.T.%20Industrial%20Park,%20Dasna,%20Ghaziabad&t=&z=13&ie=UTF8&iwloc=&output=embed",
     linkedin: "https://linkedin.com/company/winnerpack",
-    twitter: "https://twitter.com/winnerpack",
-    facebook: "https://facebook.com/winnerpack",
+    instagram: "https://www.instagram.com/winnerpacktechnologies/",
+    facebook: "https://www.facebook.com/winnerpackindia",
     whatsapp: "918595072187"
   });
 

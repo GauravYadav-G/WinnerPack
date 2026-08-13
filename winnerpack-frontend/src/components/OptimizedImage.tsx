@@ -29,18 +29,8 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-function getOptimizedSrc(src?: string): string | null {
-  if (!src) return null;
-  if (src.startsWith('http://') || src.startsWith('https://')) return null; // external, can't optimize locally
-  // Admin uploads are stored as WebP already, so requesting a second
-  // `/optimized/...` variant would add a needless 404 before rendering.
-  if (/\.(webp|avif)(?:$|[?#])/i.test(src)) return null;
-  const lastSlash = src.lastIndexOf('/');
-  const dir = lastSlash >= 0 ? src.slice(0, lastSlash) : '';
-  const filename = lastSlash >= 0 ? src.slice(lastSlash + 1) : src;
-  const dot = filename.lastIndexOf('.');
-  const nameNoExt = dot >= 0 ? filename.slice(0, dot) : filename;
-  return `/optimized${dir}/${nameNoExt}.webp`;
+function getOptimizedSrc(_src?: string): string | null {
+  return null;
 }
 
 type Props = {

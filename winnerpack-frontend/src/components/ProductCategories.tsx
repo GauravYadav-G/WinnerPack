@@ -24,12 +24,16 @@ export default function ProductCategories() {
 
   // Category showcase data mapping for the 4 bento grid slots - 100% unique product & application images
   const categoryShowcase = [
-    // 0: Film Products (BOPP Slitter, Stretch Extrusion, Coloured Flexo Line, POF L-Sealer App)
+    // 0: Film Products (LDPE Shrink, Cross-Linked POF, Agricultural Mulch, Printed Food Laminates)
     {
-      slot1: "/images/products/bopp-films-pouches/image.png",
-      slot2: "/images/products/stretch-film/image.png",
-      slot3: "/images/products/coloured-films-pouches/image.png",
-      slot4: "/images/products/pof-films-pouches/applications/app-1.png",
+      slot1: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
+      slot1Title: "LDPE Shrink Film",
+      slot2: "/images/products/cross-linked-pof/cross-linked-pof.jpg",
+      slot2Title: "POF Shrink Film",
+      slot3: "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
+      slot3Title: "Agricultural Mulch Film",
+      slot4: "/images/products/milk-packaging-film/milk-packaging-film.jpg",
+      slot4Title: "Printed PE & Laminates",
       label: "Film Products Showcase"
     },
     // 1: Labels & Stickers (Printed Bottle, Barcode Inventory, Cosmetic Product, Thermal Scale)
@@ -154,8 +158,14 @@ export default function ProductCategories() {
                 <OptimizedImage
                   src={currentShowcase.slot1}
                   alt={currentShowcase.label}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none" />
+                {currentShowcase.slot1Title && (
+                  <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
+                    {currentShowcase.slot1Title}
+                  </span>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>
@@ -177,8 +187,14 @@ export default function ProductCategories() {
                   <OptimizedImage
                     src={currentShowcase.slot2}
                     alt={currentShowcase.label}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none" />
+                  {currentShowcase.slot2Title && (
+                    <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
+                      {currentShowcase.slot2Title}
+                    </span>
+                  )}
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -200,8 +216,14 @@ export default function ProductCategories() {
                     <OptimizedImage
                       src={currentShowcase.slot3}
                       alt={currentShowcase.label}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none" />
+                    {currentShowcase.slot3Title && (
+                      <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
+                        {currentShowcase.slot3Title}
+                      </span>
+                    )}
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -220,8 +242,14 @@ export default function ProductCategories() {
                     <OptimizedImage
                       src={currentShowcase.slot4}
                       alt={currentShowcase.label}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none" />
+                    {currentShowcase.slot4Title && (
+                      <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
+                        {currentShowcase.slot4Title}
+                      </span>
+                    )}
                   </motion.div>
                 </AnimatePresence>
               </div>

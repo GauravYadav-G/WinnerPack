@@ -64,13 +64,6 @@ export default function AboutUs() {
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
 
-            {/* Breadcrumb */}
-            <div className="flex items-center justify-center gap-2 text-xs font-mono font-bold text-[var(--color-mute)] uppercase tracking-widest mb-3 sm:mb-4">
-              <Link href="/" className="hover:text-[var(--color-ink)] transition-colors">Home</Link>
-              <span>/</span>
-              <span className="text-[var(--color-amber-dark)]">About Us</span>
-            </div>
-
             {/* Centred headline */}
             <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
               <h1 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--color-ink)] tracking-tight leading-snug sm:leading-[1.1]">

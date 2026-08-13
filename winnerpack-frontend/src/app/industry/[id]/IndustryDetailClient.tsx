@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ChevronRight, ArrowRight, CheckCircle2, Download, MessageSquare, Factory, Zap } from "lucide-react";
+import { ArrowRight, CheckCircle2, Download, MessageSquare, Factory, Zap } from "lucide-react";
 import { industryVerticals } from "@/data";
 import { initialProducts } from "@/lib/fallback-data";
 import { Container, Eyebrow } from "@/components/ui/primitives";
@@ -32,28 +32,18 @@ export default function IndustryDetailClient({ params }: { params: Promise<{ id:
 
       <PageWrapper>
         {/* ── HEADER & OUTCOME BANNER ── */}
-        <section className="relative overflow-hidden bg-[var(--color-blue-deep)] py-14 sm:py-20 lg:py-24 text-white">
+        <section className="relative overflow-hidden min-h-[260px] sm:min-h-[300px] md:min-h-[340px] flex items-center justify-center py-12 md:py-16 lg:py-20 bg-[var(--color-blue-deep)] border-b border-white/10 text-white">
           <div className="absolute inset-0 z-0">
             <OptimizedImage
-              src="/images/desktop/about/blown_film_tower.png"
+              src="/images/header-bg.png"
               alt="Industry Manufacturing Background"
-              className="w-full h-full object-cover object-center opacity-55 scale-105"
+              className="w-full h-full object-cover object-center scale-100 opacity-75"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/80 via-[var(--color-blue-deep)]/60 to-[var(--color-ink)]/80 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/75 via-[var(--color-blue-deep)]/50 to-[var(--color-ink)]/75 pointer-events-none" />
           </div>
           <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
 
           <Container className="relative z-10">
-            {/* Breadcrumbs */}
-            <nav aria-label="Breadcrumb" className="mb-6">
-              <ol className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-white/50">
-                <li><Link href="/" className="hover:text-[var(--color-amber)] transition-colors">Home</Link></li>
-                <li><ChevronRight className="h-3 w-3 text-white/30" /></li>
-                <li><Link href="/#industries" className="hover:text-[var(--color-amber)] transition-colors">Industries</Link></li>
-                <li><ChevronRight className="h-3 w-3 text-white/30" /></li>
-                <li className="text-white/80 font-semibold">{industry.name}</li>
-              </ol>
-            </nav>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               

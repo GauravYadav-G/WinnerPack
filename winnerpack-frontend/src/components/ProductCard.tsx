@@ -19,6 +19,42 @@ interface ProductCardProps {
   index?: number;
 }
 
+const PRODUCT_IMAGE_MAP: Record<string, string> = {
+  // Film Products subcategories & items
+  "packaging-films": "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
+  "pof-shrink-film": "/images/products/cross-linked-pof/cross-linked-pof.jpg",
+  "lamination-pe-film": "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
+  "agricultural-films": "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
+  "biodegradable-films": "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.jpg",
+  "flexible-laminated-rolls": "/images/products/plain-standup-pouches/plain-standup-pouches.jpg",
+  "flexible-laminates": "/images/products/plain-standup-pouches/plain-standup-pouches.jpg",
+  "printed-pe-films": "/images/products/milk-packaging-film/milk-packaging-film.jpg",
+  "ldpe-bags": "/images/products/ldpe-bags/pe-garbage-bags.jpg",
+  "bopp-films": "/images/products/bopp-films-pouches/bopp-rolls.jpg",
+  "pvc-shrink-films": "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
+  "stretch-film": "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
+
+  // Labels & Stickers
+  "plain-labels": "/images/products/plain-labels/image.png",
+  "printed-labels": "/images/products/printed-labels/image.png",
+  "barcode-labels": "/images/products/barcode-labels/image.png",
+  "product-labels": "/images/products/product-labels/image.png",
+  "self-adhesive-labels": "/images/products/self-adhesive-labels/image.png",
+  "thermal-labels": "/images/products/thermal-labels/image.png",
+
+  // Tapes
+  "bopp-tapes": "/images/products/bopp-tapes/image.png",
+  "printed-tapes": "/images/products/printed-bopp-tapes/image.png",
+  "colored-tapes": "/images/products/coloured-bopp-tapes/image.png",
+  "masking-tapes": "/images/products/silicon-tapes/image.png",
+
+  // Strap
+  "pp-strap-main": "/images/products/pp-strap/image.png",
+  "printed-pp-strap": "/images/products/printed-pp-strap/image.png",
+  "colored-pp-strap": "/images/products/colored-pp-strap/image.png",
+  "pet-strap": "/images/products/pet-strap/image.png",
+};
+
 export function ProductCard({ product }: ProductCardProps) {
   const reduce = useReducedMotion();
   const touch = useIsTouch();
@@ -30,7 +66,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const gy = useMotionValue(50);
   const srx = useSpring(rx, { stiffness: 150, damping: 18 });
   const sry = useSpring(ry, { stiffness: 150, damping: 18 });
-  
+
   // Spotlight highlight overlay
   const highlight = useMotionTemplate`radial-gradient(380px circle at ${gx}% ${gy}%, rgba(245,165,35,0.18), transparent 45%)`;
 
@@ -60,6 +96,8 @@ export function ProductCard({ product }: ProductCardProps) {
     productCategories.find((c) => c.id === product.category)?.title ||
     product.category;
 
+  const cardImage = PRODUCT_IMAGE_MAP[slug] || PRODUCT_IMAGE_MAP[product.category] || (product.image && !product.image.includes('/stretch-film/image.png') ? product.image : null) || "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg";
+
   return (
     <motion.article
       ref={ref}
@@ -70,21 +108,21 @@ export function ProductCard({ product }: ProductCardProps) {
         rotateY: reduce ? 0 : sry,
         transformPerspective: 1000,
       }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white transition-[border-color,box-shadow] duration-500 hover:border-[var(--color-blue)]/20 hover:shadow-lift"
+      className="group relative flex h-full flex-col overflow-hidden rounded-xl sm:rounded-[20px] border border-slate-200/80 bg-white transition-all duration-300 hover:border-[var(--color-blue-3)]/50 hover:shadow-xl"
     >
       <Link
         href={`/products/${slug}`}
         className="relative block overflow-hidden"
         aria-label={`${name} — view details`}
       >
-        <div className="relative aspect-[4/3] overflow-hidden">
+        <div className="relative aspect-[16/9] sm:aspect-[4/3] w-full overflow-hidden bg-slate-100">
           <OptimizedImage
-  src={product.image}
-  alt={name}
-  className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
-/>
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-blue-deep)]/80 via-[var(--color-blue-deep)]/10 to-transparent" />
-          
+            src={cardImage}
+            alt={name}
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
+
           {!reduce && !touch && (
             <motion.div
               className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -92,32 +130,48 @@ export function ProductCard({ product }: ProductCardProps) {
             />
           )}
 
-
-          <span className="absolute bottom-4 left-4 font-mono text-[10px] font-bold uppercase tracking-wider text-white/85">
+          <span className="absolute bottom-2 left-2.5 sm:bottom-3 sm:left-4 font-mono text-[9px] sm:text-xs font-bold uppercase tracking-widest text-white/90 drop-shadow-sm">
             {categoryName}
           </span>
         </div>
       </Link>
 
-      <div className="flex flex-1 flex-col p-4 md:p-5">
-        <h3 className="font-display text-sm sm:text-base md:text-lg font-bold tracking-tight text-[var(--color-ink)] group-hover:text-[var(--color-blue)] transition-colors duration-300 line-clamp-2 leading-tight">
-          {name}
-        </h3>
-        <p className="mt-1 line-clamp-2 flex-1 text-xs md:text-sm leading-relaxed text-[var(--color-mute)]">
-          {blurb}
-        </p>
+      <div className="flex flex-1 flex-col justify-between p-3 sm:p-6 min-h-[120px] sm:min-h-[220px]">
+        <div>
+          <Link href={`/products/${slug}`} className="block">
+            <h3 className="font-display text-sm sm:text-xl font-extrabold text-slate-900 group-hover:text-[var(--color-blue)] transition-colors tracking-tight leading-snug line-clamp-1 sm:line-clamp-none">
+              {name}
+            </h3>
+          </Link>
+          {blurb && (
+            <p className="mt-1 sm:mt-2 text-[11px] sm:text-sm text-slate-600 leading-relaxed font-sans font-normal line-clamp-2 sm:line-clamp-none">
+              {blurb}
+            </p>
+          )}
 
-        <div className="mt-4 flex items-center justify-between gap-2 border-t border-[var(--color-line)] pt-3">
+          {product.specs && (
+            <div className="mt-4 pt-3.5 border-t border-slate-100 space-y-2 hidden sm:block">
+              {Object.entries(product.specs).slice(0, 4).map(([lbl, val]: any) => (
+                <div key={lbl} className="flex items-start justify-between gap-2.5 text-xs">
+                  <span className="font-semibold text-slate-900 shrink-0">{lbl}:</span>
+                  <span className="font-medium text-slate-600 text-right leading-tight">{String(val)}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="mt-3 pt-2.5 sm:mt-5 sm:pt-4 border-t border-slate-100 flex items-center justify-between">
           <Link
             href={`/products/${slug}`}
-            className="link-underline inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-[var(--color-blue)]"
+            className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-bold text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors"
           >
             <span>View</span>
-            <ArrowRight className="h-3.5 w-3.5" />
+            <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
           </Link>
           <Link
             href={`/contact?sku=${slug}&title=${encodeURIComponent(name)}`}
-            className="inline-flex items-center gap-1 rounded-full bg-[var(--color-blue-soft)] px-3 py-1.5 md:px-4 md:py-2 text-[10px] sm:text-xs font-semibold text-[var(--color-blue)] transition-colors hover:bg-[var(--color-amber)] hover:text-[var(--color-blue-deep)]"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--color-blue-soft)] px-3 py-1 sm:px-4 sm:py-1.5 text-[11px] sm:text-xs font-bold text-[var(--color-blue)] hover:bg-[var(--color-blue)] hover:text-white transition-all shadow-2xs"
           >
             Quote
           </Link>
