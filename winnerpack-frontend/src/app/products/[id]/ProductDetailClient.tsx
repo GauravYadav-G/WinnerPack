@@ -562,9 +562,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     <li className="font-bold text-[var(--color-amber)]">{product.title}</li>
                     </ol>
                   </nav>
-                  <span className="inline-flex rounded-full border border-[var(--color-amber)]/30 bg-[var(--color-amber)]/15 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-[var(--color-amber)]">
-                    {category}
-                  </span>
                   <h1 className="font-display text-3xl font-black leading-[1.02] tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl">
                     {product.title}
                   </h1>
