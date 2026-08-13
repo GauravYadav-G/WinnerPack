@@ -1117,7 +1117,7 @@ Here are some benefits of using PE lamination roll:
         title: "Pharma Grade Poly",
         subtitle: "Heat & Press Lamination to Aluminum Foil for Strip Tablets",
         blurb: "Pharma Grade Poly is used for Heat and Press Lamination to Aluminum Foil for further packing of strip tablets in the pharmaceutical industry. Other applications include lidding application, cable wrap, and extrusion lamination.",
-        image: "/images/products/lamination-films-pouches/applications/app-3.png",
+        image: "/images/products/pharma-grade-poly/pharma-grade-poly.jpg",
         specs: {
           "Primary Application": "Heat and Press Lamination to Aluminum Foil",
           "Target Use": "Further packing of strip tablets in pharmaceutical industry",
@@ -3150,7 +3150,7 @@ Yes, Polyethylene (PE) is 100% recyclable under soft plastic (#4 LDPE / #2 HDPE)
         title: "Pharma Grade Poly",
         subtitle: "Ultra-Clean Barrier Poly Sheeting",
         blurb: "Cleanroom manufactured PE film for heat and press lamination to aluminum foil for pharmaceutical tablet strip packaging.",
-        image: "/images/products/specialty-pouches/image.png",
+        image: "/images/products/pharma-grade-poly/pharma-grade-poly.jpg",
         specs: {
           "Primary Use": "Heat & press lamination to aluminum foil for tablet strips",
           "Other Uses": "Container lidding, cable wrap, extrusion lamination",
@@ -3251,8 +3251,8 @@ Available in Natural Ultra-Clear and Opaque White.
 
 #### 10. Is Pharma Grade Poly recyclable?
 Yes, it is 100% recyclable under soft plastic (#4 PE) recycling programs.`,
-    image: "/images/products/specialty-pouches/image.png",
-    gallery: ["/images/products/specialty-pouches/image.png"],
+    image: "/images/products/pharma-grade-poly/pharma-grade-poly.jpg",
+    gallery: ["/images/products/pharma-grade-poly/pharma-grade-poly.jpg"],
     specs: {
       "Manufacturing Standard": "cGMP / ISO Class 8 Cleanroom Extrusion",
       "Lamination Method": "Heat & Press Lamination to Aluminum Foil",
