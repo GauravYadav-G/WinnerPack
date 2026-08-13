@@ -40,7 +40,7 @@ export const productHierarchy = [
         items: [
           { name: "Cross-Linked POF Film", slug: "cross-linked-pof" },
           { name: "Non-Cross-Linked POF Film", slug: "non-cross-linked-pof-film" },
-          { name: "POF Shrink Pouches", slug: "pof-shrink-pouches" },
+          // { name: "POF Shrink Pouches", slug: "pof-shrink-pouches" },
         ]
       },
       {

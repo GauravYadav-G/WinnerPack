@@ -722,6 +722,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         },
         applications: ["Food & bakery product wrapping", "Gift baskets & cosmetics packs", "Books, stationery & toy boxes", "General retail multipacks"],
       },
+      /*
       {
         id: "pof-shrink-pouches",
         title: "POF Shrink Pouches",
@@ -737,6 +738,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         },
         applications: ["Individual gift basket wrapping", "Book & album shrink sealing", "Soap & cosmetic jar pouches", "Software & DVD box sealing"],
       }
+      */
     ],
     options: {
       widths: ["200 mm", "300 mm", "450 mm", "600 mm", "750 mm"],
@@ -2805,6 +2807,7 @@ Yes. POF is 100% recyclable under category #4 (LDPE/PP) soft plastic recycling p
           "Applications": "Bakery Items, Books, Cosmetics & Retail Multipacks",
         },
       },
+      /*
       {
         id: "pof-shrink-pouches",
         title: "POF Shrink Pouches",
@@ -2819,6 +2822,7 @@ Yes. POF is 100% recyclable under category #4 (LDPE/PP) soft plastic recycling p
           "Applications": "Gift Baskets, Photo Albums, Artisanal Soaps & Stationery",
         },
       },
+      */
     ],
     options: { widths: ["200mm", "300mm", "450mm", "600mm"], thicknesses: ["12 Micron", "15 Micron", "19 Micron", "25 Micron"], colors: ["Ultra Clear Glass Finish"] },
     applications: ["Food & bakery packaging", "Gift basket & cosmetic boxes", "Toys, books & stationery packs"],
