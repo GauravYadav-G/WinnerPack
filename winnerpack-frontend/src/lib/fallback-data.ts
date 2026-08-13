@@ -546,7 +546,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "Plastic Stretch Film",
         subtitle: "High Elastic Pallet Wrap & Bundling Film",
         blurb: "Multi-layer co-extruded stretch wrap film providing high elongation and puncture resistance to securely bundle and wrap pallet loads during transit and storage.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/machine-stretch-film/machine-stretch-film.jpg",
         specs: {
           "Protection": "Protection Against Dust / Dirt",
           "Waterproofing": "Helps make packaging waterproof when wrapped around paper containers",

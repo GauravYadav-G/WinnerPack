@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronRight, ArrowLeft, ArrowRight, Loader2, CheckCircle2, HelpCircle, ChevronDown } from "lucide-react";
+import { ChevronRight, ChevronLeft, ArrowLeft, ArrowRight, Loader2, CheckCircle2, HelpCircle, ChevronDown } from "lucide-react";
 import { productCategories } from "../../../data";
 import { Container, Section, Eyebrow } from "@/components/ui/primitives";
 import { Stagger, StaggerItem } from "@/components/ui/motion";
@@ -147,6 +147,134 @@ function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
           );
         })}
       </div>
+    </div>
+  );
+}
+
+function getSubcategoryImages(sub: any, parentProduct: any) {
+  const images: string[] = [];
+
+  const addImg = (img?: string) => {
+    if (img && typeof img === "string" && !img.includes("/stretch-film/image.png") && !images.includes(img)) {
+      images.push(img);
+    }
+  };
+
+  // 1. Direct sub image
+  addImg(sub.image);
+
+  // 2. Direct sub gallery
+  if (Array.isArray(sub.gallery)) {
+    sub.gallery.forEach((i: string) => addImg(i));
+  }
+
+  // 3. Child product lookup in initialProducts
+  const subId = sub.id || sub.slug;
+  const childProd = initialProducts.find(
+    (p: any) => p.id === subId || p.id === sub.id || p.title?.toLowerCase() === sub.title?.toLowerCase()
+  );
+
+  if (childProd) {
+    addImg(childProd.image);
+    if (Array.isArray(childProd.gallery)) {
+      childProd.gallery.forEach((i: string) => addImg(i));
+    }
+    if (Array.isArray(childProd.subCategories)) {
+      childProd.subCategories.forEach((cs: any) => {
+        addImg(cs.image);
+        if (Array.isArray(cs.gallery)) {
+          cs.gallery.forEach((i: string) => addImg(i));
+        }
+      });
+    }
+  }
+
+  // Fallback to sub.image or parentProduct image
+  if (images.length === 0) {
+    images.push(sub.image || parentProduct?.image || "/images/products/specialty-pouches/image.png");
+  }
+
+  return images;
+}
+
+function SubcategoryCardImageGallery({ images, title }: { images: string[]; title: string }) {
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  const currentImg = images[activeIdx] || images[0];
+
+  return (
+    <div className="relative w-full h-full group/gallery">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentImg}
+          initial={{ opacity: 0.65, scale: 1.03 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0.65 }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+          className="w-full h-full"
+        >
+          <OptimizedImage
+            src={currentImg}
+            alt={title}
+            className="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {images.length > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setActiveIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+            }}
+            className="absolute left-1.5 top-1/2 -translate-y-1/2 rounded-full bg-slate-900/60 text-white p-1 backdrop-blur-xs opacity-0 group-hover/gallery:opacity-100 transition-all hover:bg-[var(--color-blue-deep)] z-10"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="h-3.5 w-3.5" />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setActiveIdx((prev) => (prev + 1) % images.length);
+            }}
+            className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-full bg-slate-900/60 text-white p-1 backdrop-blur-xs opacity-0 group-hover/gallery:opacity-100 transition-all hover:bg-[var(--color-blue-deep)] z-10"
+            aria-label="Next image"
+          >
+            <ChevronRight className="h-3.5 w-3.5" />
+          </button>
+
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1 z-10 bg-slate-900/50 px-2 py-0.5 rounded-full backdrop-blur-xs">
+            {images.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setActiveIdx(idx);
+                }}
+                className={`h-1.5 rounded-full transition-all ${
+                  idx === activeIdx ? "w-3.5 bg-[var(--color-amber)]" : "w-1.5 bg-white/60 hover:bg-white"
+                }`}
+                aria-label={`Slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }
@@ -434,19 +562,17 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-                    {displaySubCategories.map((sub: any) => (
-                      <div
-                        key={sub.id || sub.title}
-                        className="bg-[#faf7f2] text-[var(--color-ink)] rounded-2xl border border-[#e8e2d4] shadow-xs hover:shadow-xl hover:border-[var(--color-blue-deep)]/40 p-6 flex flex-col justify-between group transition-all duration-300"
-                      >
-                        <div className="space-y-4">
-                          <Link href={`/products/${sub.id || sub.slug || product.id}`} className="block bg-white border border-[#e4ded2] rounded-xl p-2 aspect-[16/10] overflow-hidden flex items-center justify-center">
-                            <OptimizedImage
-                              src={sub.image || product.image || "/images/products/specialty-pouches/image.png"}
-                              alt={sub.title}
-                              className="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
-                            />
-                          </Link>
+                    {displaySubCategories.map((sub: any) => {
+                      const subImages = getSubcategoryImages(sub, product);
+                      return (
+                        <div
+                          key={sub.id || sub.title}
+                          className="bg-[#faf7f2] text-[var(--color-ink)] rounded-2xl border border-[#e8e2d4] shadow-xs hover:shadow-xl hover:border-[var(--color-blue-deep)]/40 p-6 flex flex-col justify-between group transition-all duration-300"
+                        >
+                          <div className="space-y-4">
+                            <Link href={`/products/${sub.id || sub.slug || product.id}`} className="block bg-white border border-[#e4ded2] rounded-xl p-2 aspect-[16/10] overflow-hidden flex items-center justify-center">
+                              <SubcategoryCardImageGallery images={subImages} title={sub.title} />
+                            </Link>
 
                           <div>
                             <Link href={`/products/${sub.id || sub.slug || product.id}`} className="block transition-colors">
@@ -485,7 +611,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                           </Button>
                         </div>
                       </div>
-                    ))}
+                    );
+                  })}
                   </div>
                 </div>
               </section>
