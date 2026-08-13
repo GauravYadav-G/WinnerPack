@@ -712,7 +712,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "Non-Cross-Linked POF Shrink Film",
         subtitle: "Standard 5-Layer Co-Extruded Polyolefin Rolls for General Retail Packaging",
         blurb: "Standard 5-layer co-extruded POF shrink rolls (centerfolded and single wound). Offers outstanding optical clarity, soft-shrink capability for flexible items, low-temperature activation, and cost-effective everyday wrapping.",
-        image: "/images/products/pof-shrink-rolls/image.png",
+        image: "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
         specs: {
           "Format Availability": "Centerfolded (CF) / Single Wound (SW) Rolls",
           "Shrink Temp Activation": "135°C Low Temperature Soft Shrink",
@@ -1102,7 +1102,7 @@ Here are some benefits of using PE lamination roll:
         title: "Adhesive Lamination Film",
         subtitle: "Used for Lamination to Polyester | Widths up to 2.25 Meters",
         blurb: "Used for lamination to polyester with exceptional clarity, strength, and flexibility. Available in widths up to 2.25 meters and thickness range from 18 to 300 microns in Natural and White opaque finishes.",
-        image: "/images/products/specialty-pouches/image.png",
+        image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
         specs: {
           "Primary Use": "Used for lamination to polyester",
           "Widths Available": "Available in widths upto 2.25 meters",
@@ -1208,9 +1208,9 @@ Adhesive Lamination Film refers to a multilayered material created by bonding tw
 
 #### 5. Is Adhesive Lamination Film food-safe?
 Yes. Adhesive Lamination Films designed for food packaging are manufactured in compliance with international food safety standards (such as US FDA 21 CFR and EU regulations). Approved adhesives and virgin resins ensure safety for direct or indirect food contact.`,
-    image: "/images/products/specialty-pouches/image.png",
+    image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
     gallery: [
-      "/images/products/specialty-pouches/image.png",
+      "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
       "/images/desktop/about/blown_film_tower.png",
       "/images/products/lamination-films-pouches/applications/app-3.png"
     ],
@@ -2798,7 +2798,7 @@ Yes. POF is 100% recyclable under category #4 (LDPE/PP) soft plastic recycling p
         title: "Non-Cross-Linked POF Film",
         subtitle: "Standard 5-Layer Soft Shrink Polyolefin",
         blurb: "Standard 5-layer co-extruded POF shrink rolls offering outstanding optical clarity, soft-shrink capability, and low-temperature activation for retail goods.",
-        image: "/images/products/pof-shrink-rolls/image.png",
+        image: "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
         specs: {
           "Polymer Structure": "Standard 5-Layer Co-Extruded LLDPE / PP",
           "Shrink Force": "Soft-Shrink Activation (Prevents Box Warping)",
@@ -2959,8 +2959,8 @@ Yes, it seals cleanly with tabletop impulse bar sealers, L-bar sealers, and auto
 
 #### 10. Is Non-Cross-Linked POF recyclable?
 Yes, 100% recyclable under soft plastic (#4 PE/PP) recycling streams.`,
-    image: "/images/products/pof-shrink-rolls/image.png",
-    gallery: ["/images/products/pof-shrink-rolls/image.png"],
+    image: "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
+    gallery: ["/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg"],
     specs: {
       "Polymer Structure": "5-Layer Co-Extruded Polyolefin (LLDPE/PP)",
       "Format Availability": "Centerfolded (CF) / Single Wound (SW)",
