@@ -993,7 +993,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "Manual Grade Stretch Film",
         subtitle: "Hand-Wrapping Roll Format for Warehouse Staff",
         blurb: "Lightweight, pre-stretched hand wrapping film engineered to reduce worker fatigue while delivering high puncture resistance over sharp carton edges.",
-        image: "/images/products/manual-stretch-film/image.png",
+        image: "/images/products/manual-stretch-film/manual-stretch-film.png",
         specs: {
           "Stretch Limit": "Up to 150% manual pull",
           "Cling Index": "One-sided tackiness (zero residue)",
@@ -1010,7 +1010,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "Machine Grade Stretch Film",
         subtitle: "Power Pre-Stretch Rolls for Automated Turntables & Arms",
         blurb: "Cast co-extruded machine stretch film designed for 250% to 300% power pre-stretch on automated turntable and arm wrappers. Offers low-noise unwind and high dart impact strength.",
-        image: "/images/products/machine-stretch-film/image.png",
+        image: "/images/products/machine-stretch-film/machine-stretch-film.jpg",
         specs: {
           "Pre-Stretch Capability": "250% - 300% power pre-stretch yield",
           "Standard Roll Weight": "15 kg machine roll",
@@ -2509,13 +2509,9 @@ The stretch capacity of manual stretch film typically ranges from 100% to 150%. 
 
 #### 10. Is manual stretch film suitable for both small and large items?
 Yes, manual stretch film is highly versatile and can be used for both small items and bulkier loads. For larger items or palletized goods, pairing manual film with a hand dispenser ensures proper tension and load stability.`,
-    image: "/images/products/manual-stretch-film/image.png",
+    image: "/images/products/manual-stretch-film/manual-stretch-film.png",
     gallery: [
-      "/images/products/manual-stretch-film/image.png",
-      "/images/products/manual-stretch-film/applications/app-1.png",
-      "/images/products/manual-stretch-film/applications/app-2.png",
-      "/images/products/manual-stretch-film/applications/app-3.png",
-      "/images/products/manual-stretch-film/applications/app-4.png",
+      "/images/products/manual-stretch-film/manual-stretch-film.png"
     ],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
@@ -2625,18 +2621,11 @@ Consider the weight and size of the load — heavier loads may require a stronge
 #### 9. Is machine stretch film recyclable or eco-friendly?
 Yes, most machine stretch films are recyclable as they are made of polyethylene (PE) materials. WinnerPack also offers biodegradable stretch films and thinner high-strength films that minimize environmental impact, along with films made from up to 30% post-consumer recycled content.
 
-#### 10. What are the different grades of machine stretch film available?
-- **Standard Machine Film**: General-purpose use with a balance of strength and cost.
-- **High-Performance Film**: Higher stretch ratios and superior load containment for heavy-duty use.
-- **Pre-Stretched Film**: Pre-stretched during manufacturing to reduce material usage and increase operational efficiency.
-- **Colored or Opaque Film**: Used for coding, branding, or concealing sensitive items.`,
-    image: "/images/products/machine-stretch-film/image.png",
+#### 10. Can machine stretch film be customized for specific machinery?
+Yes, WinnerPack provides custom machine stretch film formulations, widths, roll weights, and colors tailored to match your specific automatic stretch wrapper machinery and load stability parameters.`,
+    image: "/images/products/machine-stretch-film/machine-stretch-film.jpg",
     gallery: [
-      "/images/products/machine-stretch-film/image.png",
-      "/images/products/machine-stretch-film/applications/app-1.png",
-      "/images/products/machine-stretch-film/applications/app-2.png",
-      "/images/products/machine-stretch-film/applications/app-3.png",
-      "/images/products/machine-stretch-film/applications/app-4.png",
+      "/images/products/machine-stretch-film/machine-stretch-film.jpg"
     ],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
@@ -6118,7 +6107,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Manual Stretch Film",
         subtitle: "Hand-applied pallet and bundle wrap",
         blurb: "Manual hand stretch film with excellent clarity for cost-effective pallet protection — more economical than straps and provides resistance to water and liquids.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/manual-stretch-film/manual-stretch-film.png",
         specs: {
           "Clarity": "Excellent",
           "Cost vs Straps": "Lower cost of packing compared to straps",
@@ -6132,7 +6121,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Machine Stretch Film",
         subtitle: "High-speed automated pallet wrap",
         blurb: "Machine grade stretch films designed for automated pallet wrapping. Available in widths from 150 mm to 1000 mm and thicknesses from 17 micron onwards, ideal for high-speed machines where film is pre-stretched before application.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/machine-stretch-film/machine-stretch-film.jpg",
         specs: {
           "Available Widths": "150 mm to 1000 mm",
           "Starting Thickness": "17 Micron onwards",

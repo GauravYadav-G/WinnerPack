@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import OptimizedImage from '@/components/OptimizedImage';
+import { apiFetch } from "@/lib/api";
 
 const defaultFooterData = {
   name: "Winner Pack Technologies",
@@ -24,11 +25,12 @@ export default function Footer() {
   useEffect(() => {
     async function loadFooterData() {
       try {
-        const res = await fetch("/api/content?key=footer");
+        const res = await apiFetch("/api/content?key=footer");
         if (res.ok) {
           const result = await res.json();
-          if (result?.data) {
-            setFooterData((prev) => ({ ...prev, ...result.data }));
+          const content = result?.data ?? result;
+          if (content) {
+            setFooterData((prev) => ({ ...prev, ...content }));
           }
         }
       } catch (err) {

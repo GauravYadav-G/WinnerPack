@@ -10,6 +10,7 @@ import {
   Mail,
   Phone
 } from "lucide-react";
+import { apiFetch } from "@/lib/api";
 
 interface CategoryGroup {
   id: string;
@@ -74,6 +75,7 @@ const mainCategoryGroups: CategoryGroup[] = [
 export default function ProductInquiryForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [activeCategoryId, setActiveCategoryId] = useState<string>("film-products");
 
   const [formData, setFormData] = useState({
@@ -91,9 +93,10 @@ export default function ProductInquiryForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
 
     try {
-      await fetch("http://localhost:4000/api/inquiries", {
+      const response = await apiFetch("/api/inquiries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -101,16 +104,18 @@ export default function ProductInquiryForm() {
           email: formData.email,
           phone: formData.phone,
           company: formData.companyName,
-          productInterest: formData.productInterest,
-          monthlyVolume: formData.monthlyVolume,
+          skuProfile: formData.productInterest,
+          lineSpeed: formData.monthlyVolume,
           message: formData.notes,
         }),
       });
+      if (!response.ok) throw new Error("Inquiry submission failed");
+      setSubmitted(true);
     } catch (err) {
-      console.warn("API submission error (using client confirmation):", err);
+      console.warn("API submission error:", err);
+      setError("We couldn't send your inquiry. Please try again or contact us directly.");
     } finally {
       setLoading(false);
-      setSubmitted(true);
     }
   };
 
@@ -236,6 +241,11 @@ export default function ProductInquiryForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-4">
+                {error && (
+                  <p role="alert" className="rounded-xl border border-red-100 bg-red-50 px-3 py-2 text-xs font-medium text-red-700">
+                    {error}
+                  </p>
+                )}
 
                 {/* 2-Column Inputs Grid on Mobile & Tablet: Name + Company */}
                 <div className="grid grid-cols-2 gap-2.5 sm:gap-4">

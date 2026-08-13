@@ -49,6 +49,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
 }
 
 body {
@@ -57,6 +58,28 @@ body {
   background: #ffffff;
   font-feature-settings: "ss01", "ss02", "cv11";
   overflow-x: hidden;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
 }
 
 html {
@@ -401,6 +424,7 @@ html {
 
 .card-premium:hover {
   transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
 }
 
 /* Marquee gradient mask */
@@ -509,6 +533,21 @@ html {
 
 .anim-blur-in {
   animation: blur-in 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @keyframes scale-in {

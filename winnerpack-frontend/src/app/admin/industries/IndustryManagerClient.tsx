@@ -18,8 +18,9 @@ export default function IndustryManagerClient() {
         const res = await apiFetch("/api/content?key=industries");
         if (res.ok) {
           const data = await res.json();
-          if (data && data.data && Array.isArray(data.data.industries)) {
-            setIndustries(data.data.industries);
+          const content = data?.data ?? data;
+          if (Array.isArray(content?.industries)) {
+            setIndustries(content.industries);
           }
         }
       } catch (err) {

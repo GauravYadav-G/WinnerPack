@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { apiFetch } from "@/lib/api";
 
 interface Industry {
   name: string;
@@ -22,11 +23,12 @@ export default function Industries() {
   useEffect(() => {
     async function loadIndustriesData() {
       try {
-        const res = await fetch("/api/content?key=industries");
+        const res = await apiFetch("/api/content?key=industries");
         if (res.ok) {
           const result = await res.json();
-          if (result?.data?.industries && Array.isArray(result.data.industries) && result.data.industries.length > 0) {
-            setIndustriesList(result.data.industries);
+          const content = result?.data ?? result;
+          if (Array.isArray(content?.industries) && content.industries.length > 0) {
+            setIndustriesList(content.industries);
           }
         }
       } catch (err) {

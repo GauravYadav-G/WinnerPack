@@ -10,6 +10,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import OptimizedImage from '@/components/OptimizedImage';
+import { apiFetch } from "@/lib/api";
 
 interface GalleryItem {
   id: number;
@@ -113,7 +114,7 @@ export default function GalleryClient() {
   useEffect(() => {
     async function fetchGallery() {
       try {
-        const res = await fetch("/api/content?key=gallery");
+        const res = await apiFetch("/api/content?key=gallery");
         if (res.ok) {
           const result = await res.json();
           const content = result?.data || result;

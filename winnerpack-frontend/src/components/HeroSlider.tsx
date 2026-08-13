@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { fetchContent } from "@/lib/content-cache";
+import { fallbackData } from "@/lib/fallback-data";
 
 type Slide = {
   id: string;
@@ -15,75 +16,6 @@ type Slide = {
   image?: string;
 };
 
-const defaultSlides: Slide[] = [
-  {
-    id: "ad",
-    tag: "01 / INFRASTRUCTURE",
-    heading: "Tailored Specs. Direct Dispatch.",
-    description: "Precision-extruded packaging materials designed for maximum load retention and line throughput.",
-    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-1.webp",
-    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-1.webp",
-  },
-  {
-    id: "capacity",
-    tag: "02 / CAPACITY",
-    heading: "12,000+ Tons Annually",
-    description: "Dual-plant automated capacity ensures consistent thickness and high-speed delivery for heavy industrial loads.",
-    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-2.webp",
-    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-2.webp",
-  },
-  {
-    id: "quality",
-    tag: "03 / QUALITY",
-    heading: "ISO 9001:2015 Standards",
-    description: "Process-controlled extrusion runs with strict tensile testing and batch traceability on every dispatch.",
-    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-3.webp",
-    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-3.webp",
-  },
-  {
-    id: "automation",
-    tag: "04 / PERFORMANCE",
-    heading: "End-to-End Solutions",
-    description: "Syncing high-tensile strapping, stretch wrap, and tapes to maximize line efficiency and lower total cost-per-pallet.",
-    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-4.webp",
-    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-4.webp",
-  },
-  {
-    id: "labels-stickers",
-    tag: "05 / LABELS & STICKERS",
-    heading: "Best Quality Labels & Stickers",
-    description: "High Performance. Superior Strength. Maximum Protection for Product & Self-Adhesive Labels.",
-    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-5.webp",
-    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-5.webp",
-  },
-  {
-    id: "tapes",
-    tag: "06 / TAPES",
-    heading: "Best Quality Tapes",
-    description: "High Performance. Superior Strength. Maximum Protection for BOPP & Custom Printed BOPP Tapes.",
-    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-6.webp",
-    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-6.webp",
-  },
-  {
-    id: "coloured-silicone-tapes",
-    tag: "07 / SPECIALTY TAPES",
-    heading: "Best Quality Coloured & Silicone Tapes",
-    description: "High Performance. Superior Strength. Maximum Protection for Coloured BOPP & Self-Fusing Silicone Tapes.",
-    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-7.webp",
-    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-7.webp",
-  },
-  {
-    id: "pp-printed-strap",
-    tag: "08 / PP & PRINTED STRAP",
-    heading: "Best Quality PP & Printed Strap",
-    description: "High Performance. Superior Strength. Maximum Protection for Plain & Custom Printed PP Strapping Rolls.",
-    desktopMediaUrl: "/optimized/images/desktop/hero-slider/slide-8.webp",
-    mobileMediaUrl: "/optimized/images/mobile/hero-slider/slide-8.webp",
-  },
-];
-
-const DEFAULT_DESKTOP_BANNER = "/optimized/images/desktop/hero-slider/right-banner.webp";
-
 // CMS seed data still stores the original `/images/...` paths. The matching
 // WebP assets are generated at build time; user uploads use absolute URLs and
 // are intentionally left untouched.
@@ -91,6 +23,16 @@ function getOptimizedStaticImage(src: string): string {
   if (!src.startsWith("/images/")) return src;
   return `/optimized${src.replace(/\.[^./?#]+(?=([?#]|$))/, ".webp")}`;
 }
+
+const defaultSlides: Slide[] = fallbackData.slides.map((slide) => ({
+  id: slide.id,
+  tag: slide.tag,
+  heading: slide.heading,
+  description: slide.description,
+  desktopMediaUrl: getOptimizedStaticImage(slide.desktopMediaUrl),
+  mobileMediaUrl: getOptimizedStaticImage(slide.mobileMediaUrl),
+}));
+const DEFAULT_DESKTOP_BANNER = getOptimizedStaticImage(fallbackData.rightBanner);
 
 export default function HeroSlider() {
   const [slides, setSlides] = useState<any[]>(defaultSlides);

@@ -10,13 +10,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ to, variant = "primary", iconRight, className, children, ...props }: ButtonProps) {
-  const baseClass = "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300";
+  const baseClass = "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-[transform,background-color,border-color,box-shadow] duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-amber)] focus-visible:ring-offset-2 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-55";
   
   const variants = {
-    primary: "bg-[var(--color-blue-deep)] text-white hover:bg-[var(--color-blue-deep)]/90 border border-transparent shadow-sm",
-    secondary: "bg-[var(--color-amber)] text-[var(--color-blue-deep)] hover:bg-[var(--color-amber)]/90 border border-transparent shadow-sm",
-    outline: "border border-[var(--color-line)] text-[var(--color-ink)] hover:border-[var(--color-blue-deep)]/30 hover:bg-[var(--color-blue-deep)]/5",
-    outlineLight: "border border-white/30 text-white hover:border-white hover:bg-white/10",
+    primary: "bg-[var(--color-blue-deep)] text-white hover:-translate-y-0.5 hover:bg-[var(--color-blue-deep)]/90 border border-transparent shadow-sm hover:shadow-md",
+    secondary: "bg-[var(--color-amber)] text-[var(--color-blue-deep)] hover:-translate-y-0.5 hover:bg-[var(--color-amber)]/90 border border-transparent shadow-sm hover:shadow-md",
+    outline: "border border-[var(--color-line)] text-[var(--color-ink)] hover:-translate-y-0.5 hover:border-[var(--color-blue-deep)]/30 hover:bg-[var(--color-blue-deep)]/5 hover:shadow-sm",
+    outlineLight: "border border-white/30 text-white hover:-translate-y-0.5 hover:border-white hover:bg-white/10",
   };
 
   const content = (

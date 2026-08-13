@@ -32,8 +32,9 @@ export default function FooterManagerClient() {
         const res = await apiFetch("/api/content?key=footer");
         if (res.ok) {
           const data = await res.json();
-          if (data && data.data) {
-            setCompanyInfo((prev) => ({ ...prev, ...data.data }));
+          const content = data?.data ?? data;
+          if (content) {
+            setCompanyInfo((prev) => ({ ...prev, ...content }));
           }
         }
       } catch (err) {

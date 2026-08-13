@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronRight, ArrowLeft, Loader2, CheckCircle2, HelpCircle, ChevronDown } from "lucide-react";
+import { ChevronRight, ArrowLeft, ArrowRight, Loader2, CheckCircle2, HelpCircle, ChevronDown } from "lucide-react";
 import { productCategories } from "../../../data";
 import { Container, Section, Eyebrow } from "@/components/ui/primitives";
 import { Stagger, StaggerItem } from "@/components/ui/motion";
@@ -22,6 +22,7 @@ import { apiFetch } from "@/lib/api";
 import { marked } from "marked";
 import { initialProducts } from "@/lib/fallback-data";
 import OptimizedImage from '@/components/OptimizedImage';
+import ProductInquiryModal from "@/components/ProductInquiryModal";
 
 const HERO_HEADER_POOL = [
   "/images/desktop/portfolio/action_extrusion_tower_blue.jpg",
@@ -158,6 +159,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const [loading, setLoading] = useState(true);
   const [img, setImg] = useState<string>("");
   const [heroBgIndex, setHeroBgIndex] = useState(0);
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
 
   // Auto-rotate hero header background image
   useEffect(() => {
@@ -209,13 +211,23 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const targetId = aliasMap[id] ?? id;
 
   useEffect(() => {
+    const controller = new AbortController();
+
     setLoading(true);
-    apiFetch(`/api/products/${targetId}`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Product not found");
-        return res.json();
+    const productRequest = apiFetch(`/api/products/${targetId}`, { signal: controller.signal });
+    const catalogRequest = apiFetch("/api/products", { signal: controller.signal });
+
+    Promise.all([productRequest, catalogRequest])
+      .then(async ([productResponse, catalogResponse]) => {
+        if (!productResponse.ok) throw new Error("Product not found");
+        const [data, allProducts] = await Promise.all([
+          productResponse.json(),
+          catalogResponse.ok ? catalogResponse.json() : Promise.resolve([]),
+        ]);
+        return { data, allProducts };
       })
-      .then((data) => {
+      .then(({ data, allProducts }) => {
+        if (controller.signal.aborted) return;
         const fallback = initialProducts.find((p) => p.id === targetId || p.id === id);
         const mergedData = {
           ...data,
@@ -226,23 +238,17 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         setProduct(mergedData);
         setImg(data.gallery?.[0] || data.image || "");
 
-        apiFetch("/api/products")
-          .then((res) => res.json())
-          .then((allProds) => {
-            if (Array.isArray(allProds)) {
-              const matches = allProds.filter(
-                (p: any) => p.category === data.category && p.id !== data.id
-              ).slice(0, 3);
-              setRelated(matches);
-            }
-          })
-          .catch(() => {
-            // Backend offline — fall back gracefully to local category related items
-          });
+        if (Array.isArray(allProducts)) {
+          const matches = allProducts.filter(
+            (item: any) => item.category === data.category && item.id !== data.id
+          ).slice(0, 3);
+          setRelated(matches);
+        }
 
         setLoading(false);
       })
-      .catch(() => {
+      .catch((error) => {
+        if (controller.signal.aborted || error.name === "AbortError") return;
         let fallbackProduct = initialProducts.find((p) => p.id === targetId || p.id === id);
         if (!fallbackProduct) {
           const parentWithSub = initialProducts.find((p) =>
@@ -281,6 +287,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         }
         setLoading(false);
       });
+
+    return () => controller.abort();
   }, [id, targetId]);
 
   useEffect(() => {
@@ -356,39 +364,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     product?.id === "lamination-pe-film" ||
     product?.id === "film-products"
   );
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[var(--color-blue-deep)] text-white">
-        <Navbar />
-        <div className="py-24 sm:py-32 flex flex-col items-center justify-center gap-4">
-          <Loader2 className="w-8 h-8 text-[var(--color-amber)] animate-spin" />
-          <p className="font-mono text-sm uppercase tracking-wider text-white/70">Loading product details...</p>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-
-  if (!product) {
-    return (
-      <div className="min-h-screen bg-[var(--color-bone)] text-[var(--color-text)] font-sans">
-        <Navbar />
-        <PageWrapper className="py-20 sm:py-24">
-          <Container className="max-w-xl mx-auto text-center space-y-6">
-            <h1 className="font-display text-3xl font-extrabold text-[var(--color-ink)]">Product Not Found</h1>
-            <p className="text-[var(--color-mute)] text-sm leading-relaxed">
-              The requested product specifications page could not be located in our catalog repository.
-            </p>
-            <Button to="/products" className="inline-flex items-center gap-2 bg-[var(--color-blue-deep)] text-white font-bold py-3 px-6 rounded-xl shadow-md">
-              <ArrowLeft className="w-4 h-4" /> Back to Products Catalog
-            </Button>
-          </Container>
-        </PageWrapper>
-        <Footer />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-[#fafafb] text-[var(--color-text)]">
@@ -555,7 +530,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           /* ── CASE 2: SUB-PRODUCT / SPECIFIC DETAIL PAGE (2-COLUMN WITH "OUR PRODUCTS" SIDEBAR) ── */
           <>
             {/* HERO BANNER WITH ROTATING MANUFACTURING SLIDESHOW */}
-            <div className="relative w-full h-[200px] sm:h-[260px] md:h-[320px] overflow-hidden bg-[var(--color-blue-deep)] flex items-center justify-center border-b border-white/10">
+            <div className="relative w-full min-h-[300px] overflow-hidden bg-[var(--color-blue-deep)] border-b border-white/10 sm:min-h-[360px]">
               <div className="absolute inset-0 z-0 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -576,20 +551,31 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/75 via-[var(--color-blue-deep)]/55 to-[var(--color-ink)]/75 pointer-events-none" />
               </div>
 
-              <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-2">
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white font-display drop-shadow-lg">
-                  {product.title}
-                </h1>
-
-                <nav aria-label="Breadcrumb" className="pt-1">
-                  <ol className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-white/90 drop-shadow-md">
+              <div className="relative z-10 mx-auto flex flex-col items-center justify-center min-h-[300px] max-w-7xl text-center px-4 py-10 sm:min-h-[360px] sm:px-6 lg:px-8">
+                <div className="max-w-3xl space-y-4 flex flex-col items-center text-center">
+                  <nav aria-label="Breadcrumb">
+                    <ol className="flex flex-wrap items-center justify-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-wider text-white/85 sm:text-xs">
                     <li><Link href="/" className="hover:text-[var(--color-amber)] transition-colors">Home</Link></li>
                     <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
                     <li><Link href="/products" className="hover:text-[var(--color-amber)] transition-colors">Products</Link></li>
                     <li><ChevronRight className="h-3 w-3 text-white/50" /></li>
                     <li className="font-bold text-[var(--color-amber)]">{product.title}</li>
-                  </ol>
-                </nav>
+                    </ol>
+                  </nav>
+                  <span className="inline-flex rounded-full border border-[var(--color-amber)]/30 bg-[var(--color-amber)]/15 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-[var(--color-amber)]">
+                    {category}
+                  </span>
+                  <h1 className="font-display text-3xl font-black leading-[1.02] tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl">
+                    {product.title}
+                  </h1>
+                  {product.blurb && <p className="max-w-2xl text-sm leading-relaxed text-white/85 sm:text-base text-center">{product.blurb}</p>}
+                  <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+                    <Button type="button" onClick={() => setIsInquiryOpen(true)} variant="secondary" iconRight className="rounded-xl px-5 py-3 text-sm shadow-lg shadow-black/20">
+                      Request a quote
+                    </Button>
+                    <a href="#product-specifications" className="rounded-xl border border-white/20 px-5 py-3 text-sm font-bold text-white transition hover:border-white hover:bg-white/10">View specifications</a>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -599,7 +585,20 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
                   
                   {/* LEFT SIDEBAR: "OUR PRODUCTS" (DYNAMICALLY MATCHING NAVBAR) */}
-                  <aside className="w-full lg:w-72 shrink-0 bg-[var(--color-mist)] border border-[var(--color-line)] rounded-2xl p-5 sm:p-6 shadow-2xs">
+                  <aside className="w-full lg:hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-4 shadow-2xs">
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--color-amber-dark)]">Product range</p>
+                        <h2 className="mt-1 font-display text-base font-extrabold text-[var(--color-ink)]">{category}</h2>
+                      </div>
+                      <div className="flex shrink-0 items-center gap-3 text-xs font-bold">
+                        <Link href={`/product-category/${product.category}`} className="text-[var(--color-blue)]">View range</Link>
+                        <Link href="/products" className="text-[var(--color-mute)]">All products</Link>
+                      </div>
+                    </div>
+                  </aside>
+
+                  <aside className="hidden w-full shrink-0 rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-5 shadow-2xs lg:block lg:w-72 sm:p-6">
                     <div className="mb-5 pb-3 border-b border-[var(--color-line)]">
                       <h2 className="text-base sm:text-lg font-bold text-[var(--color-ink)] font-display tracking-tight">
                         Our Products
@@ -744,7 +743,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                     {/* Benefits Section */}
                     {Array.isArray(product.applications) && product.applications.length > 0 && (
-                      <div className="pt-6 border-t border-[var(--color-line)] space-y-4">
+                      <div id="product-specifications" className="pt-6 border-t border-[var(--color-line)] space-y-4">
                         <div className="flex items-center gap-2.5">
                           <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
                           <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
@@ -838,7 +837,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                           Please contact us on <a href="tel:+918595072187" className="font-bold text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] transition-colors">+91 85950 72187</a> or email us <a href="mailto:sales@winnerpack.in" className="font-bold text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] transition-colors">sales@winnerpack.in</a> for quotations or custom requirements.
                         </div>
                         <Button
-                          to={`/contact?sku=${product.id}&title=${encodeURIComponent(product.title)}`}
+                          type="button"
+                          onClick={() => setIsInquiryOpen(true)}
                           className="shrink-0 bg-[var(--color-amber)] text-[var(--color-blue-deep)] hover:bg-[var(--color-amber-dark)] font-bold px-6 py-2.5 rounded-xl shadow-md text-xs sm:text-sm font-sans transition-all"
                         >
                           Send Inquiry
@@ -890,6 +890,18 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       </PageWrapper>
 
       <Footer />
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--color-line)] bg-white/95 px-4 py-3 shadow-[0_-10px_30px_rgba(13,7,44,0.10)] backdrop-blur-lg lg:hidden">
+        <button type="button" onClick={() => setIsInquiryOpen(true)} className="flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-amber)] px-5 py-3.5 text-sm font-extrabold text-[var(--color-ink)] shadow-sm transition active:scale-[0.98]">
+          Request a quote for {product.title}<ArrowRight className="h-4 w-4" />
+        </button>
+      </div>
+      {isInquiryOpen && (
+        <ProductInquiryModal
+          productId={product.id}
+          productTitle={product.title}
+          onClose={() => setIsInquiryOpen(false)}
+        />
+      )}
     </div>
   );
 }

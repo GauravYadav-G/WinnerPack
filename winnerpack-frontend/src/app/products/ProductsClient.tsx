@@ -1,514 +1,101 @@
 "use client";
-import { Suspense } from "react";
-import { productCategories } from "../../data";
-import { PageHeader } from "@/components/ui/PageHeader";
-import CTABanner from "@/components/CTABanner";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight } from "lucide-react";
 
-// Layout components
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, Factory, PackageCheck, Ruler } from "lucide-react";
+import { motion } from "framer-motion";
+import { productCategories } from "@/data";
+import { initialProducts } from "@/lib/fallback-data";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { ProductCard } from "@/components/ProductCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import PageWrapper from "@/components/PageWrapper";
-import OptimizedImage from '@/components/OptimizedImage';
+import CTABanner from "@/components/CTABanner";
+import OptimizedImage from "@/components/OptimizedImage";
 
-// Featured Products covering all 4 primary categories: Films, Labels, Tapes, Strapping
-const featuredProducts = [
-  {
-    id: "flexible-laminated-rolls",
-    title: "Flexible Laminated Rolls & Pouches",
-    category: "film-products",
-    tag: "Films & Pouches",
-    blurb: "High-barrier 2-layer, 3-layer, and 4-layer laminated packaging rolls & pouches printed up to 8 colors for food, FMCG, and pharma packaging.",
-    image: "/images/products/lamination-films-pouches/image.png",
-  },
-  {
-    id: "printed-labels",
-    title: "Printed Product Labels & Stickers",
-    category: "label-sticker-products",
-    tag: "Labels & Stickers",
-    blurb: "High-density thermal transfer barcode labels, printed product stickers, and self-adhesive labels for retail, pharma, and shipping.",
-    image: "/images/products/printed-labels/image.png",
-  },
-  {
-    id: "bopp-tapes",
-    title: "BOPP Sealing Tapes & Custom Printed Tapes",
-    category: "tapes",
-    tag: "Packaging Tapes",
-    blurb: "High-tack BOPP box sealing tapes, custom printed brand logo tapes, and specialized silicon tapes for secure carton closure.",
-    image: "/images/products/bopp-tapes/image.png",
-  },
-  {
-    id: "pet-strap",
-    title: "High-Tensile PET & PP Strapping Rolls",
-    category: "strapping",
-    tag: "Strapping Products",
-    blurb: "High break-strength PET strapping and colored PP strapping rolls engineered for heavy pallet unitization and industrial baling.",
-    image: "/images/products/pet-strap/image.png",
-  },
-  {
-    id: "printed-pe-films",
-    title: "Printed PE Films (Milk, Ghee, SMP, Water)",
-    category: "film-products",
-    tag: "Dairy & Liquid Packaging",
-    blurb: "100% Virgin 3-layer co-extruded PE films with Metallocene poly for leak-proof automated pouch packaging of milk, ghee, milk powder, and drinking water.",
-    image: "/images/products/coloured-films-pouches/image.png",
-  },
-  {
-    id: "stretch-film",
-    title: "Industrial Stretch Film Rolls",
-    category: "film-products",
-    tag: "Pallet Unitization",
-    blurb: "Hand and machine-grade cast stretch films delivering up to 300% pre-stretch for secure pallet unitization and transoceanic shipping.",
-    image: "/images/products/stretch-film/image.png",
-  },
+const catalogHighlights = [
+  { icon: Factory, title: "Direct from the manufacturer", text: "Consistent quality, practical lead times, and technical support from one team." },
+  { icon: Ruler, title: "Built to your specification", text: "Choose the right gauge, width, adhesive, print, colour, and core size." },
+  { icon: PackageCheck, title: "Ready for your line", text: "Packaging materials engineered for reliable conversion, sealing, and dispatch." },
 ];
 
-function ProductsContent() {
+const featuredIds = ["pof-shrink-film", "printed-labels", "bopp-tapes", "pet-strap", "stretch-film", "flexible-laminated-rolls"];
+const featuredProducts = featuredIds
+  .map((id) => initialProducts.find((product) => product.id === id))
+  .filter(Boolean);
+
+export default function ProductsClient() {
   return (
-    <div className="min-h-screen bg-white text-[var(--color-text)] font-sans">
+    <div className="min-h-screen bg-white text-[var(--color-text)]">
       <Cursor />
       <ScrollProgress />
       <Navbar />
 
       <PageWrapper>
-        {/* ========================================================================= */}
-        {/* SECTION 1: DEDICATED PAGE HEADER (Matching Home / Inner Page Standards)     */}
-        {/* ========================================================================= */}
         <PageHeader
-          eyebrow="Product Catalog"
-          title="Products"
-          intro="Explore our specialized industrial packaging films, pouches, self-adhesive labels, high-tack tapes, and strapping rolls."
-          crumbs={[
-            { label: "Home", to: "/" },
-            { label: "Products" },
-          ]}
+          eyebrow="Product catalogue"
+          title="Packaging that performs from line to delivery."
+          intro="Explore films, labels, tapes, and strapping engineered around your product, process, and dispatch requirements."
+          crumbs={[{ label: "Home", to: "/" }, { label: "Products" }]}
           align="center"
         />
 
-        {/* ========================================================================= */}
-        {/* SECTION 2: COMPANY OVERVIEW & MANUFACTURING EXCELLENCE                     */}
-        {/* ========================================================================= */}
-        <section className="relative overflow-hidden bg-[var(--color-bone)] py-10 sm:py-16 lg:py-24 border-b border-[var(--color-line)]">
-          <div className="absolute inset-0 bg-grid-fine opacity-15 pointer-events-none" aria-hidden />
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-            <div className="grid gap-6 sm:gap-8 lg:gap-12 lg:grid-cols-12 lg:items-start">
-              
-              {/* LEFT COLUMN: Stacked Industrial Plant Images (Restored Manufacturing Cards) */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="lg:col-span-6 grid grid-cols-2 lg:flex lg:flex-col items-center sm:items-start justify-start gap-3 sm:gap-6"
-              >
-                <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
-                  <OptimizedImage
-                    src="/images/desktop/portfolio/action_extrusion_tower_blue.jpg"
-                    alt="WinnerPack Industrial Blown Film Extrusion Plant"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
-                  <OptimizedImage
-                    src="/images/desktop/portfolio/product_app_pallet_wrapping.png"
-                    alt="WinnerPack Pallet Stretch Wrapping Facility"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-              </motion.div>
-
-              {/* RIGHT COLUMN: Home Page Natural Flow Content & Typography */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="lg:col-span-6 space-y-4 sm:space-y-6"
-              >
-                {/* Eyebrow Tag with Horizontal Accent Line */}
-                <div className="flex items-center gap-2.5">
-                  <div className="h-0.5 w-6 sm:w-8 bg-[var(--color-amber-dark)] rounded-full" />
-                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
-                    Manufacturing Excellence
-                  </span>
-                </div>
-
-                {/* Main Headline */}
-                <h2 className="font-display text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--color-ink)] leading-snug sm:leading-[1.15] text-balance">
-                  Complete Industrial Packaging Solutions — Films, Labels, Tapes & Strapping
-                </h2>
-
-                {/* Narrative Paragraphs */}
-                <div className="space-y-2.5 sm:space-y-4 text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal">
-                  <p>
-                    Established as one of the leading organizations engaged in manufacturing, supplying, and exporting a wide collection of <strong className="text-[var(--color-ink)] font-semibold">Multilayer Films, Self-Adhesive Labels & Stickers, High-Tack Packaging Tapes, and High-Tensile Strapping Rolls</strong>. Our comprehensive catalog spans Unprinted & Printed PE Films (Milk, Ghee, SMP, Water), Flexible Laminated Rolls and Pouches, POF/PVC/LDPE Shrink Films, Machine & Hand Stretch Wrap, Custom Printed Barcode Labels, Product Stickers, BOPP Box Sealing Tapes, and PET/PP Strapping.
-                  </p>
-                  <p>
-                    Promoted by technocrats with decades of hands-on experience in this domain, we provide our global clients with engineered packaging solutions as per their exact specifications. Our modern manufacturing facility is equipped with advanced multi-layer blown film extrusion lines, high-speed rotogravure & flexographic printing presses, adhesive coating units, and automated converting lines to fabricate products adhering strictly to international quality standards.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+        <section className="border-b border-[var(--color-line)] bg-[var(--color-bone)] py-7 sm:py-10">
+          <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-3 sm:px-6 lg:px-8">
+            {catalogHighlights.map(({ icon: Icon, title, text }) => (
+              <div key={title} className="flex items-start gap-3 rounded-2xl border border-[var(--color-line)] bg-white px-4 py-4 shadow-sm sm:px-5">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)]"><Icon className="h-5 w-5" /></span>
+                <div><h2 className="text-sm font-extrabold text-[var(--color-ink)]">{title}</h2><p className="mt-1 text-xs leading-relaxed text-[var(--color-mute)]">{text}</p></div>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* SECTION 3: WHAT WE DO (Matching Home Page Section Layout)                 */}
-        {/* ========================================================================= */}
-        <section className="relative overflow-hidden bg-white py-10 sm:py-16 md:py-24 border-b border-[var(--color-line)]">
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-            <div className="grid gap-8 md:gap-12 lg:grid-cols-12 items-center">
-              
-              {/* Left Content Column */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="lg:col-span-7 space-y-4 sm:space-y-6"
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="h-0.5 w-6 sm:w-8 bg-[var(--color-amber-dark)] rounded-full" />
-                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
-                    What We Do
-                  </span>
-                </div>
-
-                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-tight text-balance">
-                  Packaging Material Manufacturer
-                </h2>
-                <div className="mt-3 sm:mt-4 h-1 sm:h-1.5 w-12 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full" />
-
-                <div className="space-y-3 sm:space-y-4 text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal">
-                  <p>
-                    Since our inception, WinnerPack as a packaging material manufacturer has left no stone unturned in improving and identifying the needs of our clients who come from different industrial spheres. Delivering quality packaging products worldwide with successful application and a satisfied client base forms the backbone of our company.
-                  </p>
-                  <p>
-                    The products manufactured at WinnerPack include: machine & hand stretch films, surface protection films, LDPE poly bags & shipping sacks, flexible laminated barrier pouches, milk & water packaging films, self-adhesive product labels & barcode stickers, high-tack BOPP box sealing & printed tapes, and high-tensile PET/PP strapping rolls.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Right Feature Card Image */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="lg:col-span-5"
-              >
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-[var(--color-bone)] shadow-xl group">
-                  <OptimizedImage
-                    src="/images/desktop/portfolio/ldpe_app_cargo.png"
-                    alt="WinnerPack Industrial Cargo Packaging"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-              </motion.div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* SECTION 4: ALTERNATING FEATURE BLOCKS (Home Page Card & Typography Style) */}
-        {/* ========================================================================= */}
-
-        {/* Feature Block 1: Food Grade Materials */}
-        <section className="py-10 sm:py-16 md:py-20 bg-[var(--color-mist)] border-b border-[var(--color-line)]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-[var(--color-line)] bg-white group"
-              >
-                <OptimizedImage
-                  src="/images/products/coloured-films-pouches/image.png"
-                  alt="Food Grade Packaging Material"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="flex flex-col justify-center space-y-3 sm:space-y-4"
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="h-0.5 w-6 sm:w-8 bg-[var(--color-amber-dark)] rounded-full" />
-                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
-                    Hygiene & Safety First
-                  </span>
-                </div>
-                <h3 className="font-display text-xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-ink)] leading-snug text-balance">
-                  Food Grade & Industrial Packaging Materials
-                </h3>
-                <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full" />
-
-                <div className="space-y-3 text-xs sm:text-base text-[var(--color-mute)] leading-relaxed">
-                  <p>
-                    All the packaging material manufactured by us is quality tested and made from superior quality 100% prime virgin raw materials. Once manufactured, our flexible films, laminated barrier pouches, and food-contact packaging are certified food grade.
-                  </p>
-                  <p>
-                    Being one of the major suppliers of packaging products in India and worldwide, WinnerPack has ensured that only the best is catered to the client with the help of hi-tech engineering and a skilled team of experts. Our films block moisture, oxygen, and UV light, preserving fresh taste and nutritional value over long-term storage.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Feature Block 2: Custom Printed Range */}
-        <section className="py-10 sm:py-16 md:py-20 bg-white border-b border-[var(--color-line)]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="flex flex-col justify-center space-y-3 sm:space-y-4"
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="h-0.5 w-6 sm:w-8 bg-[var(--color-amber-dark)] rounded-full" />
-                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
-                    Tailored Customization
-                  </span>
-                </div>
-                <h3 className="font-display text-xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-ink)] leading-snug text-balance">
-                  Custom Printed Films, Labels, Tapes & Strapping
-                </h3>
-                <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full" />
-
-                <div className="space-y-3 text-xs sm:text-base text-[var(--color-mute)] leading-relaxed">
-                  <p>
-                    We provide Food & Industrial Packaging Materials as per the exact demand of our customers in India and across the world. We customize packaging dimensions, barrier layers, label die-cuts, tape widths, and strap break-strengths ensuring maximum satisfaction for our clients.
-                  </p>
-                  <p>
-                    Using advanced rotogravure & flexographic printing technology up to 8 colors, we deliver vibrant custom designs across barrier films, brand printed sealing tapes, barcode tracking labels, and printed strapping rolls with your company logo, graphics, and color specifications.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-[var(--color-line)] bg-slate-900 group"
-              >
-                <OptimizedImage
-                  src="/images/desktop/portfolio/product_app_warehouse_dispatch.png"
-                  alt="WinnerPack Packaging Warehouse Dispatch"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Feature Block 3: Industrial Cargo Unitization */}
-        <section className="py-10 sm:py-16 md:py-20 bg-[var(--color-bone)] border-b border-[var(--color-line)]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-[var(--color-line)] bg-slate-900 group"
-              >
-                <OptimizedImage
-                  src="/images/desktop/portfolio/product_app_blown_film.png"
-                  alt="Industrial Packaging Material Production"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="flex flex-col justify-center space-y-3 sm:space-y-4"
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="h-0.5 w-6 sm:w-8 bg-[var(--color-amber-dark)] rounded-full" />
-                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
-                    End-to-End Industrial Packaging
-                  </span>
-                </div>
-                <h3 className="font-display text-xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-ink)] leading-snug text-balance">
-                  Complete Industrial Packaging Excellence
-                </h3>
-                <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full" />
-
-                <div className="space-y-3 text-xs sm:text-base text-[var(--color-mute)] leading-relaxed">
-                  <p>
-                    WinnerPack is a leading spearhead in the Packaging Industry, providing excellent packaging solutions in accord with diverse industry needs.
-                  </p>
-                  <p>
-                    From high-stretch machine wrap securing heavy palletized cargo during transoceanic shipping, to printed box sealing tapes, thermal barcode tracking labels, and high-tensile PET strapping rolls, WinnerPack delivers complete end-to-end industrial load unitization.
-                  </p>
-                </div>
-
-                <div className="pt-2">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-blue-deep)] hover:bg-[var(--color-ink)] text-white font-bold text-sm rounded-xl transition-colors shadow-md font-sans"
-                  >
-                    Request Custom Quote <ArrowRight className="w-4 h-4 text-[var(--color-amber)]" />
-                  </Link>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* SECTION 5: MAIN CATEGORIES GRID (Matching Home Page ProductCategories Header) */}
-        {/* ========================================================================= */}
-        <section className="relative overflow-hidden bg-white py-10 sm:py-16 md:py-24 border-b border-[var(--color-line)]">
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-            
-            {/* Centered Executive Header (Identical to Home Page ProductCategories) */}
-            <div className="text-center mb-6 sm:mb-12 flex flex-col items-center">
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2">
-                Industrial Range & Categories
-              </span>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-tight text-balance">
-                Our Product Categories
-              </h2>
-              <div className="mt-3 sm:mt-4 h-1 sm:h-1.5 w-12 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
-              <p className="mt-3 sm:mt-4 text-xs sm:text-base text-[var(--color-mute)] max-w-2xl mx-auto">
-                Explore our 4 primary product lines — engineered for high strength, clear identification, secure sealing, and pallet load unitization.
-              </p>
+        <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20" aria-labelledby="category-heading">
+          <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-[var(--color-amber)]/5 blur-3xl" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+              <div className="max-w-2xl"><p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-amber-dark)]">Browse by material</p><h2 id="category-heading" className="mt-2 font-display text-3xl font-extrabold tracking-tight text-[var(--color-ink)] sm:text-4xl">Find the right packaging line.</h2><p className="mt-3 text-sm leading-relaxed text-[var(--color-mute)] sm:text-base">Start with a category, then compare formats and technical specifications built for your application.</p></div>
+              <Link href="/contact" className="inline-flex items-center gap-2 self-start rounded-full border border-[var(--color-line)] bg-white px-4 py-2.5 text-sm font-bold text-[var(--color-ink)] transition hover:border-[var(--color-amber)] hover:text-[var(--color-amber-dark)] sm:self-auto">Need help choosing? <ArrowRight className="h-4 w-4" /></Link>
             </div>
 
-            {/* 4 Category Cards in Grid (Matching Home Page Product Cards) */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
-              {productCategories.map((cat, i) => (
-                <motion.div
-                  key={cat.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.05 }}
-                >
-                  <Link
-                    href={`/product-category/${cat.id}`}
-                    className="group relative flex flex-col overflow-hidden rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-white transition-all duration-300 hover:border-[var(--color-amber-dark)] hover:shadow-xl hover:-translate-y-1 block h-full"
-                  >
-                    <div className="relative aspect-square w-full overflow-hidden bg-[var(--color-bone)]">
-                      <OptimizedImage
-                        src={cat.image}
-                        alt={cat.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                      <div className="absolute bottom-3 left-3 right-3 text-white">
-                        <span className="inline-block px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider bg-[var(--color-blue-deep)] text-white rounded">
-                          {cat.tag.split("·")[0].trim()}
-                        </span>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {productCategories.map((category, index) => {
+                const Icon = category.icon;
+                return (
+                  <motion.div key={category.id} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: index * 0.05 }}>
+                    <Link href={`/product-category/${category.id}`} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--color-line)] bg-white transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-[var(--color-amber)]/60 hover:shadow-lift">
+                      <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-bone)]">
+                        <OptimizedImage src={category.image} alt={category.title} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/80 via-transparent to-transparent" />
+                        <span className="absolute bottom-4 left-4 grid h-10 w-10 place-items-center rounded-xl bg-white/95 text-[var(--color-amber-dark)] shadow-md"><Icon className="h-5 w-5" /></span>
                       </div>
-                    </div>
-
-                    <div className="p-4 sm:p-5 text-center bg-white flex flex-col justify-between flex-grow min-h-[90px]">
-                      <h3 className="font-display font-bold text-sm sm:text-base text-[var(--color-ink)] group-hover:text-[var(--color-blue)] transition-colors leading-snug line-clamp-2">
-                        {cat.title}
-                      </h3>
-                      <span className="inline-flex items-center justify-center gap-1 font-mono text-xs font-bold text-[var(--color-amber-dark)] mt-2 group-hover:translate-x-1 transition-all">
-                        Explore Category <ChevronRight className="w-3.5 h-3.5" />
-                      </span>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
+                      <div className="flex flex-1 flex-col p-5">
+                        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-amber-dark)]">{category.items.length} product formats</p>
+                        <h3 className="mt-2 font-display text-xl font-extrabold text-[var(--color-ink)] group-hover:text-[var(--color-blue)]">{category.title}</h3>
+                        <p className="mt-2 flex-1 text-xs leading-relaxed text-[var(--color-mute)]">{category.blurb}</p>
+                        <div className="mt-4 flex items-center justify-between border-t border-[var(--color-line)] pt-3 text-xs font-bold text-[var(--color-ink)]"><span>Explore range</span><ArrowRight className="h-4 w-4 text-[var(--color-amber-dark)] transition-transform group-hover:translate-x-1" /></div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* SECTION 6: FEATURED PRODUCTS SHOWCASE GRID (Home Page Card & Grid Style) */}
-        {/* ========================================================================= */}
-        <section className="relative overflow-hidden bg-[var(--color-bone)] py-10 sm:py-16 md:py-24 border-b border-[var(--color-line)]">
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-            
-            {/* Centered Executive Header (Identical to Home Page Header) */}
-            <div className="text-center mb-6 sm:mb-12 flex flex-col items-center">
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2">
-                Featured Industrial Products
-              </span>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-tight text-balance">
-                Featured Packaging Line
-              </h2>
-              <div className="mt-3 sm:mt-4 h-1 sm:h-1.5 w-12 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
-              <p className="mt-3 sm:mt-4 text-xs sm:text-base text-[var(--color-mute)] max-w-2xl mx-auto">
-                Discover our specialized films, labels, tapes, and strapping manufactured to exact technical standards.
-              </p>
-            </div>
-
-            {/* Product Cards Grid (Home Page Card Styling) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
-              {featuredProducts.map((prod, i) => (
-                <motion.div
-                  key={prod.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
-                >
-                  <Link
-                    href={`/products/${prod.id}`}
-                    className="group flex flex-col h-full rounded-2xl border border-[var(--color-line)] bg-white overflow-hidden shadow-sm hover:shadow-xl hover:border-[var(--color-amber-dark)] transition-all duration-300 hover:-translate-y-1"
-                  >
-                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--color-bone)]">
-                      <OptimizedImage
-                        src={prod.image}
-                        alt={prod.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute top-3 left-3">
-                        <span className="px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider bg-white/90 backdrop-blur-md text-[var(--color-ink)] rounded-full shadow-sm">
-                          {prod.tag}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow">
-                      <div>
-                        <h3 className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-blue)] transition-colors leading-snug">
-                          {prod.title}
-                        </h3>
-                        <p className="mt-2 text-xs sm:text-sm text-[var(--color-mute)] line-clamp-3 leading-relaxed">
-                          {prod.blurb}
-                        </p>
-                      </div>
-
-                      <div className="mt-6 pt-4 border-t border-[var(--color-line)] flex items-center justify-between font-mono text-xs font-bold text-[var(--color-amber-dark)] group-hover:text-[var(--color-blue)] transition-colors">
-                        <span>View Product Specifications</span>
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
+        <section className="border-y border-[var(--color-line)] bg-[var(--color-mist)] py-12 sm:py-16 lg:py-20" aria-labelledby="featured-heading">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-amber-dark)]">Popular solutions</p><h2 id="featured-heading" className="mt-2 font-display text-3xl font-extrabold tracking-tight text-[var(--color-ink)] sm:text-4xl">Featured product range</h2></div><p className="max-w-md text-sm leading-relaxed text-[var(--color-mute)]">A quick starting point for common packaging, sealing, identification, and load-stability needs.</p></div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {featuredProducts.map((product: any) => <ProductCard key={product.id} product={product} />)}
             </div>
           </div>
         </section>
 
-        {/* CTA Banner */}
+        <section className="bg-white py-12 sm:py-16"><div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8"><div className="rounded-3xl bg-[var(--color-blue-deep)] px-6 py-8 text-white shadow-xl sm:px-10 sm:py-10"><div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center"><div><p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-amber)]">Custom requirement?</p><h2 className="mt-2 font-display text-2xl font-extrabold sm:text-3xl">Get a material recommendation from our team.</h2><p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/75">Share your product, packaging line, and dispatch goal. We’ll help you identify the practical material and specification.</p><ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-white/90">{["Technical input", "Custom specifications", "Sample availability"].map((item) => <li key={item} className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-[var(--color-amber)]" />{item}</li>)}</ul></div><Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-amber)] px-5 py-3.5 text-sm font-extrabold text-[var(--color-ink)] transition hover:bg-[var(--color-amber-2)]">Request a quote <ArrowRight className="h-4 w-4" /></Link></div></div></div></section>
         <CTABanner />
       </PageWrapper>
 
@@ -516,15 +103,3 @@ function ProductsContent() {
     </div>
   );
 }
-
-export default function Products() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-white" />}>
-      <ProductsContent />
-    </Suspense>
-  );
-}
-
-
-
-

@@ -13,6 +13,7 @@ import {
   Ruler
 } from "lucide-react";
 import OptimizedImage from '@/components/OptimizedImage';
+import { apiFetch } from "@/lib/api";
 
 const iconComponents: any[] = [UserCheck, Boxes, ShieldCheck, TrendingUp, Truck, Tag, RefreshCw, Ruler];
 
@@ -33,7 +34,7 @@ export default function Journey() {
   useEffect(() => {
     async function loadSolutionsData() {
       try {
-        const res = await fetch("/api/content?key=homepage");
+        const res = await apiFetch("/api/content?key=homepage");
         if (res.ok) {
           const result = await res.json();
           // Support both { data: { solutionsData } } and direct { solutionsData }

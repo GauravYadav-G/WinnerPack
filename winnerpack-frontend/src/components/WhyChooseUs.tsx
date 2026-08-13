@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { fetchContent } from "@/lib/content-cache";
+import { fallbackData } from "@/lib/fallback-data";
 
 import { Tag, Layers, Disc3, Shield, Leaf, Globe2, Plus } from "lucide-react";
 import OptimizedImage from '@/components/OptimizedImage';
@@ -14,44 +15,7 @@ const iconMap: Record<string, any> = {
   Globe2
 };
 
-const defaultUsps = [
-  {
-    title: "Custom specifications",
-    text: "We manufacture to your exact width, gauge, and formulation requirements — ensuring the right fit for your production line.",
-    icon: "Tag",
-    bgImage: "/images/products/bopp-films-pouches/image.png",
-  },
-  {
-    title: "Consistent roll quality",
-    text: "Our strapping rolls are manufactured to maintain uniform straightness and tension, enabling smooth operation on automated packaging lines.",
-    icon: "Layers",
-    bgImage: "/images/products/pp-strap/applications/app-1.png",
-  },
-  {
-    title: "Superior film performance",
-    text: "Our stretch films are formulated for maximum load-holding force and cling retention with optimized material usage per pallet.",
-    icon: "Disc3",
-    bgImage: "/images/products/stretch-film/applications/app-1.png",
-  },
-  {
-    title: "In-house quality testing",
-    text: "Every batch undergoes rigorous elongation, tensile strength, and adhesive performance testing before dispatch.",
-    icon: "Shield",
-    bgImage: "/images/products/coloured-bopp-tapes/applications/app-4.png",
-  },
-  {
-    title: "Eco-friendly options",
-    text: "We offer recyclable and biodegradable packaging alternatives to support your sustainability and compliance goals.",
-    icon: "Leaf",
-    bgImage: "/images/products/coloured-films-pouches/applications/app-3.png",
-  },
-  {
-    title: "Direct manufacturer supply",
-    text: "No distributor markups. We manufacture, warehouse, and dispatch directly to optimize operations and reduce procurement costs.",
-    icon: "Globe2",
-    bgImage: "/images/products/stretch-film/applications/app-4.png",
-  }
-];
+const defaultUsps = fallbackData.usps;
 
 export default function WhyChooseUs() {
   const [uspsList, setUspsList] = useState<any[]>(defaultUsps);
