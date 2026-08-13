@@ -6149,7 +6149,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Silage Stretch Film & Bale Wrap",
         subtitle: "Agricultural bale wrap with UV protection",
         blurb: "High-tack silage wrap with excellent mechanical properties including tensile strength and puncture resistance, stabilized against UV damage with low oxygen and water permeability.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/silage-stretch-film/silage-stretch-film.jpg",
         specs: {
           "Tensile Strength": "Good Mechanical Properties",
           "Tack Level": "High level of tack",
@@ -6426,8 +6426,8 @@ When correctly applied with sufficient overlapping layers, silage stretch film p
 - **UV-Stabilized**: Engineered for up to 12 months direct sunlight exposure.
 - **Puncture Resistant**: Built to withstand sharp, dry forage stems and rough mechanical handling.
 - **Tack & Cling Formula**: Formulated for high outdoor cling in varying weather conditions.`,
-    image: "/images/products/stretch-film/image.png",
-    gallery: ["/images/products/stretch-film/image.png"],
+    image: "/images/products/silage-stretch-film/silage-stretch-film.jpg",
+    gallery: ["/images/products/silage-stretch-film/silage-stretch-film.jpg"],
     specs: {
       "Width Options": "250 mm / 500 mm / 750 mm (Custom Available)",
       "Thickness Range": "23 Micron / 29 Micron (25–35 Micron Customizable)",
