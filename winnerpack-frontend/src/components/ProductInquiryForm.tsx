@@ -247,8 +247,8 @@ export default function ProductInquiryForm() {
                   </p>
                 )}
 
-                {/* 2-Column Inputs Grid on Mobile & Tablet: Name + Company */}
-                <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
+                {/* 1-Column on Mobile, 2-Column on Tablet/Desktop: Name + Company */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-1">
                     <label className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
                       Full Name <span className="text-red-500">*</span>
@@ -259,7 +259,7 @@ export default function ProductInquiryForm() {
                       placeholder="e.g. Rahul Sharma"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs"
+                      className="w-full rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-3 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs min-h-[44px]"
                     />
                   </div>
 
@@ -273,13 +273,13 @@ export default function ProductInquiryForm() {
                       placeholder="Winner Packaging"
                       value={formData.companyName}
                       onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                      className="w-full rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs"
+                      className="w-full rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-3 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs min-h-[44px]"
                     />
                   </div>
                 </div>
 
-                {/* 2-Column Inputs Grid on Mobile & Tablet: Email + Phone */}
-                <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
+                {/* 1-Column on Mobile, 2-Column on Tablet/Desktop: Email + Phone */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-1">
                     <label className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
                       Email Address <span className="text-red-500">*</span>
@@ -290,7 +290,7 @@ export default function ProductInquiryForm() {
                       placeholder="name@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs"
+                      className="w-full rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-3 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs min-h-[44px]"
                     />
                   </div>
 
@@ -304,7 +304,7 @@ export default function ProductInquiryForm() {
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs"
+                      className="w-full rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-3 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs min-h-[44px]"
                     />
                   </div>
                 </div>
