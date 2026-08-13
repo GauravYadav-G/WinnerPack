@@ -6191,7 +6191,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Oxy Fade Stretch Wrap",
         subtitle: "Reduced-plastic film with oxygen barrier",
         blurb: "Oxy Fade Stretch Wrap delivers up to 50% less plastic waste with an oxygen barrier layer for protection against oxidation, durable construction, and multiple size options.",
-        image: "/images/products/stretch-film/image.png",
+        image: "/images/products/oxy-fade-stretch-wrap/oxy-fade-stretch-wrap.jpg",
         specs: {
           "Plastic Waste Reduction": "Up to 50% less plastic waste",
           "Barrier Layer": "Oxygen barrier against oxidation",
@@ -6708,8 +6708,8 @@ Yes, Oxy Fade Stretch Wrap is manufactured from 100% recyclable polyethylene mat
 
 #### 10. Can custom logo printing or private branding be applied?
 Yes, WinnerPack provides private labeling, custom roll lengths, and custom brand printing options for B2B buyers and bulk distributors.`,
-    image: "/images/products/stretch-film/image.png",
-    gallery: ["/images/products/stretch-film/image.png"],
+    image: "/images/products/oxy-fade-stretch-wrap/oxy-fade-stretch-wrap.jpg",
+    gallery: ["/images/products/oxy-fade-stretch-wrap/oxy-fade-stretch-wrap.jpg"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
