@@ -560,7 +560,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "Collation Shrink Film",
         subtitle: "Multi-Pack Secondary Packaging Film for Bottles & Cans",
         blurb: "Engineered collation shrink film designed specifically for secondary multi-pack bundling of beverages, dairy bottles, and retail canned products on high-speed continuous shrink wrappers.",
-        image: "/images/products/pof-shrink-rolls/image.png",
+        image: "/images/products/collation-shrink-film/collation-shrink-film.jpg",
         specs: {
           "Cost Savings": "Cost Effective compared to corrugated boxes",
           "Eco Footprint": "Lower Carbon footprint",
@@ -7047,8 +7047,8 @@ Yes. Manufactured from 100% recyclable Low-Density Polyethylene (LDPE), post-use
 
 #### 10. How do I choose the right thickness for Collation Shrink Film?
 Thickness depends on bundle weight: lighter multi-packs require 30–60 Micron, while heavy beverage bottle bundles require 70–150 Micron. WinnerPack specialists assist in selecting the optimal gauge for your wrapping machinery.`,
-    image: "/images/products/pof-shrink-rolls/image.png",
-    gallery: ["/images/products/pof-shrink-rolls/image.png"],
+    image: "/images/products/collation-shrink-film/collation-shrink-film.jpg",
+    gallery: ["/images/products/collation-shrink-film/collation-shrink-film.jpg"],
     specs: {
       "Width": "100 mm – 1500 mm",
       "Thickness": "30 – 150 Micron",

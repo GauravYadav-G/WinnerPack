@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronRight, ChevronLeft, ArrowLeft, ArrowRight, Loader2, CheckCircle2, HelpCircle, ChevronDown } from "lucide-react";
+import { ChevronRight, ArrowLeft, ArrowRight, Loader2, CheckCircle2, HelpCircle, ChevronDown } from "lucide-react";
 import { productCategories } from "../../../data";
 import { Container, Section, Eyebrow } from "@/components/ui/primitives";
 import { Stagger, StaggerItem } from "@/components/ui/motion";
@@ -198,37 +198,17 @@ function getSubcategoryImages(sub: any, parentProduct: any) {
 }
 
 function SubcategoryCardImageGallery({ images, title }: { images: string[]; title: string }) {
-  const [activeIdx, setActiveIdx] = useState(0);
-
-  useEffect(() => {
-    if (images.length <= 1) return;
-    const timer = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % images.length);
-    }, 3500);
-    return () => clearInterval(timer);
-  }, [images.length]);
-
-  const currentImg = images[activeIdx] || images[0];
+  const currentImg = images[0] || "/images/products/specialty-pouches/image.png";
 
   return (
     <div className="relative w-full h-full group/gallery">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentImg}
-          initial={{ opacity: 0.65, scale: 1.03 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0.65 }}
-          transition={{ duration: 0.35, ease: "easeInOut" }}
-          className="w-full h-full"
-        >
-          <OptimizedImage
-            src={currentImg}
-            alt={title}
-            className="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
-          />
-        </motion.div>
-      </AnimatePresence>
+      <OptimizedImage
+        src={currentImg}
+        alt={title}
+        className="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
+      />
 
+      {/* Multi-image carousel controls commented out for now
       {images.length > 1 && (
         <>
           <button
@@ -275,6 +255,7 @@ function SubcategoryCardImageGallery({ images, title }: { images: string[]; titl
           </div>
         </>
       )}
+      */}
     </div>
   );
 }
