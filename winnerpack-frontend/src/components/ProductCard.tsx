@@ -19,11 +19,14 @@ interface ProductCardProps {
   index?: number;
 }
 
-const PRODUCT_IMAGE_MAP: Record<string, string> = {
+export const PRODUCT_IMAGE_MAP: Record<string, string> = {
   // Film Products subcategories & items
   "packaging-films": "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
   "pof-shrink-film": "/images/products/cross-linked-pof/cross-linked-pof.jpg",
+  "cross-linked-pof": "/images/products/cross-linked-pof/cross-linked-pof.jpg",
+  "non-cross-linked-pof-film": "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
   "lamination-pe-film": "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
+  "pharma-grade-poly": "/images/products/pharma-grade-poly/pharma-grade-poly.jpg",
   "agricultural-films": "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
   "biodegradable-films": "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.jpg",
   "flexible-laminated-rolls": "/images/products/plain-standup-pouches/plain-standup-pouches.jpg",
@@ -35,12 +38,36 @@ const PRODUCT_IMAGE_MAP: Record<string, string> = {
   "stretch-film": "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
 
   // Labels & Stickers
-  "plain-labels": "/images/products/plain-labels/image.png",
-  "printed-labels": "/images/products/printed-labels/image.png",
-  "barcode-labels": "/images/products/barcode-labels/image.png",
-  "product-labels": "/images/products/product-labels/image.png",
-  "self-adhesive-labels": "/images/products/self-adhesive-labels/image.png",
-  "thermal-labels": "/images/products/thermal-labels/image.png",
+  "plain-labels": "/images/products/plain-labels/plain-labels.jpg",
+  "plain-chromo-labels": "/images/products/plain-labels/plain-chromo-labels.jpg",
+  "plain-thermal-transfer-labels": "/images/products/plain-thermal-transfer-labels/plain-thermal-transfer-labels.jpg",
+  "printed-labels": "/images/products/printed-labels/flexo-digital-printed-labels.jpg",
+  "flexo-digital-printed-labels": "/images/products/printed-labels/flexo-digital-printed-labels.jpg",
+  "wide-format-printed-labels": "/images/products/wide-format-printed-labels/wide-format-printed-labels.jpg",
+  "barcode-labels": "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.jpg",
+  "thermal-transfer-barcode-labels": "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.jpg",
+  "gs1-data-matrix-barcode-labels": "/images/products/gs1-data-matrix-barcode-labels/gs1-data-matrix-barcode-labels.jpg",
+  "product-labels": "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.jpg",
+  "clear-metallic-product-labels": "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.jpg",
+  "jar-bottle-product-labels": "/images/products/jar-bottle-product-labels/jar-bottle-product-labels.jpg",
+  "self-adhesive-labels": "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
+  "paper-self-adhesive-labels": "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
+  "film-self-adhesive-labels": "/images/products/film-self-adhesive-labels/film-self-adhesive-labels.jpg",
+  "thermal-labels": "/images/products/direct-thermal-labels/direct-thermal-labels.jpg",
+  "direct-thermal-labels": "/images/products/direct-thermal-labels/direct-thermal-labels.jpg",
+  "thermal-transfer-paper-labels": "/images/products/thermal-transfer-paper-labels/thermal-transfer-paper-labels.jpg",
+  "hologram-stickers": "/images/products/hologram-stickers/hologram-stickers.jpg",
+  "2d-3d-holograms": "/images/products/2d-3d-holograms/2d-3d-holograms.jpg",
+  "dot-matrix-holograms": "/images/products/dot-matrix-holograms/dot-matrix-holograms.jpg",
+  "flip-flop-holograms": "/images/products/flip-flop-holograms/flip-flop-holograms.jpg",
+  "kinetic-holograms": "/images/products/kinetic-holograms/kinetic-holograms.jpg",
+  "e-beam-holograms": "/images/products/e-beam-holograms/e-beam-holograms.jpg",
+  "security-void-stickers": "/images/products/security-void-stickers/security-void-stickers.jpg",
+  "tamper-evident-stickers": "/images/products/tamper-evident-stickers/tamper-evident-stickers.jpg",
+  "thermal-transfer-ribbons": "/images/products/thermal-transfer-ribbons/thermal-transfer-ribbons.jpg",
+  "wax-ribbons": "/images/products/wax-ribbons/wax-ribbons.jpg",
+  "wax-resin-ribbons": "/images/products/wax-resin-ribbons/wax-resin-ribbons.jpg",
+  "resin-ribbons": "/images/products/resin-ribbons/resin-ribbons.jpg",
 
   // Tapes
   "bopp-tapes": "/images/products/bopp-tapes/image.png",
@@ -121,7 +148,6 @@ export function ProductCard({ product }: ProductCardProps) {
             alt={name}
             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
 
           {!reduce && !touch && (
             <motion.div
@@ -130,7 +156,7 @@ export function ProductCard({ product }: ProductCardProps) {
             />
           )}
 
-          <span className="absolute bottom-2 left-2.5 sm:bottom-3 sm:left-4 font-mono text-[9px] sm:text-xs font-bold uppercase tracking-widest text-white/90 drop-shadow-sm">
+          <span className="absolute bottom-2 left-2.5 sm:bottom-3 sm:left-4 font-mono text-[9px] sm:text-xs font-bold uppercase tracking-widest text-white px-2.5 py-1 rounded-md bg-slate-950/60 backdrop-blur-xs shadow-xs">
             {categoryName}
           </span>
         </div>

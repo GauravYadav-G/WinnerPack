@@ -164,7 +164,7 @@ export default function Footer() {
                   { label: "Film Products", href: "/product-category/film-products" },
                   { label: "Labels & Stickers", href: "/product-category/label-sticker-products" },
                   { label: "Tapes Catalog", href: "/product-category/tapes" },
-                  { label: "Strap", href: "/product-category/pp-strap" }
+                  { label: "Others", href: "/product-category/pp-strap" }
                 ].map((link) => (
                   <li key={link.label}>
                     <Link href={link.href} className="hover:text-white transition-colors duration-200 block py-0.5" data-hover>

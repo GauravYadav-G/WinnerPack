@@ -197,6 +197,40 @@ export const productHierarchy = [
           { name: "Thermal Transfer Labels", slug: "thermal-transfer-paper-labels" },
         ]
       },
+      {
+        id: "hologram-stickers",
+        title: "Hologram Stickers",
+        slug: "hologram-stickers",
+        items: [
+          { name: "2D / 3D Holograms", slug: "2d-3d-holograms" },
+          { name: "Dot Matrix Holograms", slug: "dot-matrix-holograms" },
+          { name: "Flip-Flop Holograms", slug: "flip-flop-holograms" },
+          { name: "Kinetic Holograms", slug: "kinetic-holograms" },
+          { name: "E-Beam Holograms", slug: "e-beam-holograms" },
+        ]
+      },
+      {
+        id: "security-void-stickers",
+        title: "Security Void Stickers",
+        slug: "security-void-stickers",
+        items: []
+      },
+      {
+        id: "tamper-evident-stickers",
+        title: "Tamper-Evident Stickers",
+        slug: "tamper-evident-stickers",
+        items: []
+      },
+      {
+        id: "thermal-transfer-ribbons",
+        title: "Thermal Transfer Ribbons",
+        slug: "thermal-transfer-ribbons",
+        items: [
+          { name: "Wax Ribbons", slug: "wax-ribbons" },
+          { name: "Wax/Resin Ribbons", slug: "wax-resin-ribbons" },
+          { name: "Resin Ribbons", slug: "resin-ribbons" },
+        ]
+      },
     ]
   },
   {
@@ -244,7 +278,7 @@ export const productHierarchy = [
   },
   {
     id: "pp-strap",
-    title: "Strap",
+    title: "Others",
     catSlug: "pp-strap",
     subcategories: [
       {
@@ -294,6 +328,7 @@ export default function Navbar() {
   const [isProductsHovered, setIsProductsHovered] = useState(false);
   const [activeCatId, setActiveCatId] = useState<string | null>(null);
   const [activeSubCatId, setActiveSubCatId] = useState<string | null>(null);
+  const [activeSubCatTop, setActiveSubCatTop] = useState(0);
   const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
   const [mobileActiveCatId, setMobileActiveCatId] = useState<string>("film-products");
   const [mobileExpandedSubCatId, setMobileExpandedSubCatId] = useState<string | null>(null);
@@ -384,6 +419,7 @@ export default function Navbar() {
                         setIsProductsHovered(false);
                         setActiveCatId(null);
                         setActiveSubCatId(null);
+                        setActiveSubCatTop(0);
                       }}
                     >
                       <Link
@@ -402,7 +438,10 @@ export default function Navbar() {
 
                       {/* ── 3-TIER DYNAMIC CASCADING FLYOUT MENU ── */}
                       {isProductsHovered && (
-                        <div className="absolute left-0 top-[56px] z-50 flex items-start pointer-events-auto">
+                        <div
+                          data-cascade-menu
+                          className="absolute left-0 top-[56px] z-50 flex items-start pointer-events-auto"
+                        >
                           
                           {/* ── TIER 1: 4 Main Categories Menu ── */}
                           <div className="w-56 lg:w-60 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 z-30 shrink-0">
@@ -415,6 +454,7 @@ export default function Navbar() {
                                     onMouseEnter={() => {
                                       setActiveCatId(category.id);
                                       setActiveSubCatId(null);
+                                      setActiveSubCatTop(0);
                                     }}
                                     className="relative group/item"
                                   >
@@ -458,7 +498,15 @@ export default function Navbar() {
                                     return (
                                       <div
                                         key={subcat.id}
-                                        onMouseEnter={() => setActiveSubCatId(subcat.id)}
+                                        onMouseEnter={(event) => {
+                                          const rowTop = event.currentTarget.getBoundingClientRect().top;
+                                          const menuTop = event.currentTarget
+                                            .closest("[data-cascade-menu]")
+                                            ?.getBoundingClientRect().top;
+
+                                          setActiveSubCatId(subcat.id);
+                                          setActiveSubCatTop(Math.max(0, rowTop - (menuTop ?? rowTop)));
+                                        }}
                                         className="relative group/subitem"
                                       >
                                         <Link
@@ -500,6 +548,7 @@ export default function Navbar() {
                                   setActiveCatId(currentCategory.id);
                                   setActiveSubCatId(currentSubCat.id);
                                 }}
+                                style={{ marginTop: activeSubCatTop }}
                                 className="w-64 lg:w-72 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 ml-1 z-10 shrink-0 transition-all duration-150 animate-fade-in"
                               >
                                 <div className="divide-y divide-white/5 max-h-[75vh] overflow-y-auto no-scrollbar">

@@ -39,7 +39,7 @@ export const productCategories: ProductCategory[] = [
     title: "Labels & Stickers",
     blurb: "High-density thermal transfer barcode labels, printed product labels, and self-adhesive labels for retail and shipping.",
     icon: Tag,
-    tag: "Thermal Labels · Product Stickers · Barcodes",
+    tag: "Thermal Labels · Product Stickers · Barcodes · Ribbons · Holograms",
     gradient: "from-amber-400/20 to-orange-500/10",
     image: "/images/products/product-labels/image.png",
     items: [
@@ -49,6 +49,10 @@ export const productCategories: ProductCategory[] = [
       "Product Labels",
       "Self Adhesive Labels",
       "Thermal Labels",
+      "Hologram Stickers",
+      "Security Void Stickers",
+      "Tamper-Evident Stickers",
+      "Thermal Transfer Ribbons",
     ],
   },
   {
@@ -68,7 +72,7 @@ export const productCategories: ProductCategory[] = [
   },
   {
     id: "pp-strap",
-    title: "Strap",
+    title: "Others",
     blurb: "High-tensile virgin polypropylene and PET strapping rolls engineered for heavy pallet unitization and zero feed jams.",
     icon: Layers,
     tag: "Virgin PP Strap · PET Strapping · Custom Printed Strap",

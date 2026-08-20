@@ -27,7 +27,6 @@
  */
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 
 function getOptimizedSrc(_src?: string): string | null {
   return null;
@@ -41,12 +40,10 @@ type Props = {
   height?: number;
 };
 
-export default function OptimizedImage({ src, alt, className, width = 1200, height = 1200 }: Props) {
+export default function OptimizedImage({ src, alt, className }: Props) {
   const optimizedSrc = getOptimizedSrc(src);
   const [useFallback, setUseFallback] = useState(!optimizedSrc);
 
-  // Carousels and CMS-driven components can replace `src` without unmounting.
-  // Reset the fallback choice so the next image can use its optimized asset.
   useEffect(() => {
     setUseFallback(!optimizedSrc);
   }, [optimizedSrc]);
@@ -56,16 +53,13 @@ export default function OptimizedImage({ src, alt, className, width = 1200, heig
   if (!finalSrc) return null;
 
   return (
-    <Image
+    <img
       src={finalSrc}
       alt={alt}
-      width={width}
-      height={height}
       className={className}
-      unoptimized
+      loading="lazy"
+      decoding="async"
       onError={() => {
-        // The optimized WebP doesn't exist yet (new upload not yet
-        // processed) — fall back to the original so nothing breaks.
         if (!useFallback) setUseFallback(true);
       }}
     />

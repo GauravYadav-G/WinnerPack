@@ -160,9 +160,8 @@ export default function ProductCategories() {
                   alt={currentShowcase.label}
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none" />
                 {currentShowcase.slot1Title && (
-                  <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
+                  <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
                     {currentShowcase.slot1Title}
                   </span>
                 )}
@@ -189,9 +188,8 @@ export default function ProductCategories() {
                     alt={currentShowcase.label}
                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none" />
                   {currentShowcase.slot2Title && (
-                    <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
+                    <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
                       {currentShowcase.slot2Title}
                     </span>
                   )}
@@ -218,9 +216,8 @@ export default function ProductCategories() {
                       alt={currentShowcase.label}
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none" />
                     {currentShowcase.slot3Title && (
-                      <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
+                      <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
                         {currentShowcase.slot3Title}
                       </span>
                     )}
@@ -244,9 +241,8 @@ export default function ProductCategories() {
                       alt={currentShowcase.label}
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none" />
                     {currentShowcase.slot4Title && (
-                      <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
+                      <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
                         {currentShowcase.slot4Title}
                       </span>
                     )}

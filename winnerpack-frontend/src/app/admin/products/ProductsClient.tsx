@@ -57,7 +57,7 @@ export default function ProductsClient() {
     { id: "film-products", label: "Film Products" },
     { id: "label-sticker-products", label: "Labels & Stickers" },
     { id: "tapes", label: "Industrial Tapes" },
-    { id: "pp-strap", label: "Strap" },
+    { id: "pp-strap", label: "Others" },
   ];
 
   // Dynamically compute all categories including any arriving from DB

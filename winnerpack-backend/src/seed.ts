@@ -59,6 +59,9 @@ const defaultPartnersMaterialsCerts = {
     { id: "p_milton", name: "MILTON Houseware", category: "Consumer Products & Homeware", logo: "/Brand_logo/milton.png", website: "https://milton.in" },
     { id: "p_aiplus", name: "Ai+ Smartphone", category: "Mobile & Smart Accessories", logo: "/Brand_logo/aiplus.png", website: "https://aiplus.com" },
     { id: "p_bosch", name: "BOSCH Global Engineering", category: "Automotive & Industrial Tech", logo: "/Brand_logo/bosch.svg", website: "https://bosch.com" },
+    { id: "p_anmol", name: "Anmol Industries", category: "Packaged Foods & Bakery", logo: "/Brand_logo/anmol.png", website: "https://anmolindustries.com" },
+    { id: "p_ci", name: "CI Automotive", category: "Automotive Solutions & Engineering", logo: "/Brand_logo/ci-automotive.png", website: "https://ciautomotive.com" },
+    { id: "p_bhagwati", name: "Bhagwati Products Limited", category: "Electronics & Manufacturing", logo: "/Brand_logo/bhagwati-products.png", website: "https://bhagwatiproducts.com" },
   ],
   materials: [
     { id: "m1", name: "Polyolefin (POF) Shrink Resin", code: "POF-5L", image: "/images/products/pof-shrink-rolls/image.png", specs: "12 - 25 Micron Gauge Range", properties: "5-layer cross-linked resin, high clarity, 60% bi-axial shrink ratio." },

@@ -7,11 +7,11 @@ export const initialProducts = [
     tag: "Plain",
     blurb: "Paper labels which can be affixed to containers or products for clear item information. Available in custom colors and specifications.",
     longDesc: "We provide paper labels which can be affixed to a container or products, on which information about the product or items is mentioned. Available in colours, these paper labels can also be customized as per the requirement.\n\n### Key Product Features:\n- **Versatile Substrates**: Premium Chromo paper, art paper, and direct thermal paper grades.\n- **Custom Color Options**: Available in vibrant solid colors for inventory tint coding and identification.\n- **High Tack Permanent Adhesive**: Formulated with hot-melt pressure-sensitive adhesive that bonds to corrugated, plastic, glass, and wood.\n- **Printer Compatibility**: Works seamlessly with thermal transfer and flexographic desktop barcode printers.\n- **Custom Sizing & Die-Cutting**: Custom roll widths, core sizes (1-inch & 3-inch), and die-cut shapes on demand.",
-    image: "/images/products/plain-labels/image.png",
+    image: "/images/products/plain-labels/plain-labels.jpg",
     gallery: [
-      "/images/products/plain-labels/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
+      "/images/products/plain-labels/plain-labels.jpg",
+      "/images/products/plain-labels/plain-chromo-labels.jpg",
+      "/images/products/plain-thermal-transfer-labels/plain-thermal-transfer-labels.jpg"
     ],
     specs: {
       "Material Type": "Premium Chromo / Art Paper / Thermal Stock",
@@ -35,7 +35,7 @@ export const initialProducts = [
         title: "Plain Chromo Paper Labels",
         subtitle: "White & Solid Colored Unprinted Roll Labels for Packaging",
         blurb: "High-quality unprinted chromo paper label rolls with permanent adhesive backing. Designed for clear product identification, warehouse bin marking, and color-coded carton labeling.",
-        image: "/images/products/plain-labels/image.png",
+        image: "/images/products/plain-labels/plain-chromo-labels.jpg",
         specs: {
           "Face Paper": "80 GSM Semi-Gloss Chromo Paper",
           "Adhesive": "High Tack Permanent Rubber Base Glue",
@@ -49,7 +49,7 @@ export const initialProducts = [
         title: "Plain Thermal Transfer Labels",
         subtitle: "Ribbon-Compatible White Transfer Stickers for Barcode Printers",
         blurb: "Smooth surface white paper labels optimized for wax and wax-resin thermal ribbon printing. Delivers sharp barcode print edges and durable text readability.",
-        image: "/images/products/plain-labels/applications/app-1.png",
+        image: "/images/products/plain-thermal-transfer-labels/plain-thermal-transfer-labels.jpg",
         specs: {
           "Face Stock": "Premium Thermal Transfer Paper",
           "Ribbon Match": "Wax / Wax-Resin Thermal Ribbon",
@@ -74,11 +74,10 @@ export const initialProducts = [
     tag: "Printed",
     blurb: "Printed labels are custom labels made as per customer requirements using digital, flexographic, and wide format printing.",
     longDesc: "Printed labels are custom labels which are made as per customer requirements. And are printed through various methods like digital printing, flexographic printing, and wide format printing. All these have different results of printing.\n\n### Key Product Features:\n- **Multi-Method High-Resolution Printing**: Printed using digital printing for short runs, flexographic printing for high volumes, and wide format printing for large labels.\n- **Custom Branding & Graphics**: Up to 8-color UV ink printing with crisp typography, QR codes, and photo-realistic graphics.\n- **Surface Protective Coatings**: Glossy UV lamination, matte top-coat, and scratch-resistant varnishes.\n- **Food & Pharma Grade Inks**: Non-toxic, low-odor inks compliant with FDA indirect food contact guidelines.\n- **Automatic Applicator Ready**: Precision gap die-cutting and winding directions for high-speed automatic label application machines.",
-    image: "/images/products/printed-labels/image.png",
+    image: "/images/products/printed-labels/flexo-digital-printed-labels.jpg",
     gallery: [
-      "/images/products/printed-labels/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
+      "/images/products/printed-labels/flexo-digital-printed-labels.jpg",
+      "/images/products/wide-format-printed-labels/wide-format-printed-labels.jpg"
     ],
     specs: {
       "Print Methods": "Digital / Flexographic / Wide Format Printing",
@@ -102,7 +101,7 @@ export const initialProducts = [
         title: "Flexographic & Digital Printed Labels",
         subtitle: "High-Volume & Short-Run Custom Product Branding Stickers",
         blurb: "Custom roll labels printed via flexography for mass production or digital printing for short-run SKU variations. Delivers vibrant color accuracy, photo quality detail, and durable surface protection.",
-        image: "/images/products/printed-labels/image.png",
+        image: "/images/products/printed-labels/flexo-digital-printed-labels.jpg",
         specs: {
           "Printing Process": "8-Color Flexo Press / HP Indigo Digital",
           "Special Effects": "Hot Foil Stamping / Spot UV Varnish / Embossing",
@@ -116,7 +115,7 @@ export const initialProducts = [
         title: "Wide Format & Promotional Labels",
         subtitle: "Large Format Vinyl Stickers & High-Impact Promotional Labels",
         blurb: "Large format printed labels produced on wide-format inkjet presses. Ideal for equipment rating plates, promotional window graphics, drum labels, and outdoor weatherproof branding stickers.",
-        image: "/images/products/printed-labels/applications/app-1.png",
+        image: "/images/products/wide-format-printed-labels/wide-format-printed-labels.jpg",
         specs: {
           "Printing Process": "Eco-Solvent / UV Wide Format Printing",
           "Substrate": "Heavy-Duty Vinyl / Polypropylene (PP)",
@@ -128,7 +127,7 @@ export const initialProducts = [
     ],
     options: {
       widths: ["Custom Widths (20mm to 300mm)"],
-      thicknesses: ["80 GSM Chromo", "60 Micron PP"],
+      thicknesses: ["80 GSM Chromo", "60 Micron PP Film"],
       colors: ["Full Color CMYK", "Pantone Spot Colors", "Metallic Gold & Silver"],
     },
     applications: ["Cosmetics branding", "Food item jars", "Promotional packaging seal"],
@@ -141,11 +140,10 @@ export const initialProducts = [
     tag: "Barcode",
     blurb: "Barcode labels provide regulatory information on product tracking, order delivery, transport details, and quality control across all manufacture and distribution phases.",
     longDesc: "Barcode labels are those which provide regulatory information on product tracking and identification, such as order, delivery and transport details, are an essential feature of our product tracking and management systems; they provide for the scanning of incoming and outgoing products and quality control across all phases of manufacture and distribution providing full supply chain visibility when used in conjunction with all stakeholders.\n\n### Key Product Features:\n- **Full Supply Chain Visibility**: Enables instant 1D/2D scanning of incoming and outgoing freight, batch tracking, and quality control.\n- **High Scannability Rate**: Crisp edge definition ensures 99.9%+ read rates under 1D laser and 2D matrix optical scanners.\n- **Extreme Durability**: Resistant to smudge, friction, chemical solvents, and logistics transit abrasion.\n- **Regulatory Compliance**: Meets GS1, ISO/IEC 15416, and global logistics transport labeling standards.\n- **Universal Printer Compatibility**: Works with Zebra, TSC, Honeywell, SATO, and Citizen thermal transfer printers.",
-    image: "/images/products/barcode-labels/image.png",
+    image: "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.jpg",
     gallery: [
-      "/images/products/barcode-labels/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
+      "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.jpg",
+      "/images/products/gs1-data-matrix-barcode-labels/gs1-data-matrix-barcode-labels.jpg"
     ],
     specs: {
       "Barcode Standards": "EAN-13, Code 128, QR Code, Data Matrix, GS1-128",
@@ -169,7 +167,7 @@ export const initialProducts = [
         title: "Thermal Transfer Barcode Labels",
         subtitle: "Smudge-Proof Paper & Synthetic Barcode Labels for Warehousing",
         blurb: "Precision die-cut thermal transfer barcode label rolls engineered for high-density 1D and 2D barcode printing using wax or wax-resin ribbons. Guarantees 99.9% optical scanner read rates across supply chain logistics.",
-        image: "/images/products/barcode-labels/image.png",
+        image: "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.jpg",
         specs: {
           "Stock Base": "White Semi-Gloss Chromo Paper / Synthetic PET",
           "Printing Ribbon": "Wax / Resin Ribbon Compatible",
@@ -183,7 +181,7 @@ export const initialProducts = [
         title: "GS1 & Data Matrix Barcode Labels",
         subtitle: "Regulatory Traceability & Serialization Stickers for Pharma & Retail",
         blurb: "High-resolution pre-printed or blank barcode labels formatted to strict GS1-128 and 2D Data Matrix serialization standards. Provides complete batch traceability, expiration date tracking, and quality control auditing.",
-        image: "/images/products/barcode-labels/applications/app-1.png",
+        image: "/images/products/gs1-data-matrix-barcode-labels/gs1-data-matrix-barcode-labels.jpg",
         specs: {
           "Symbology": "GS1 DataMatrix / QR Code / Code 39 / EAN-13",
           "Verification Standard": "ISO/IEC 15415 Grade A Verification",
@@ -208,11 +206,10 @@ export const initialProducts = [
     tag: "Product",
     blurb: "Product labels are any material attached to a product or container to identify contents, brand, manufacturer, and distributor information.",
     longDesc: "Product labels are any piece of material attached to a product to identify it, or to a container to identify its contents. Information that is directly written on a product can also be considered a label. Product labels don’t necessarily contain information on the item, and may also include other information, including but not limited to the brand, manufacturer, and distributor.\n\n### Key Product Features:\n- **Comprehensive Product Identification**: Displays brand logo, ingredient list, usage directions, manufacturer, and distributor details.\n- **Premium Substrate Options**: Clear PP film, white BOPP, metallic foil paper, and textured craft paper.\n- **Moisture & Oil Resistance**: Formulated to withstand condensation, oils, and refrigeration without peeling or smudging.\n- **Custom Die-Cut Shapes**: Circle, oval, rectangular, and intricate custom contour die-cuts for retail jars and bottles.\n- **Strong Adhesive Bonding**: Pressure-sensitive adhesive engineered for permanent bonding to glass, plastic, metal, and cardboard.",
-    image: "/images/products/product-labels/image.png",
+    image: "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.jpg",
     gallery: [
-      "/images/products/product-labels/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
+      "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.jpg",
+      "/images/products/jar-bottle-product-labels/jar-bottle-product-labels.jpg"
     ],
     specs: {
       "Substrates Available": "Clear BOPP / White PP Film / Metallic PET / Chromo Paper",
@@ -236,7 +233,7 @@ export const initialProducts = [
         title: "Clear & Metallic Product Labels",
         subtitle: "Transparent BOPP & Metallic Foil Labels for Premium Packaging",
         blurb: "Crystal-clear 'no label look' transparent polypropylene stickers and metallic foil embossed labels. Provides luxury shelf presentation for perfume bottles, glass jars, and premium cosmetic containers.",
-        image: "/images/products/product-labels/image.png",
+        image: "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.jpg",
         specs: {
           "Material Base": "Ultra-Clear 50 Micron BOPP Film / Metallic Silver PET",
           "Adhesive": "Water-Clear Non-Yellowing Acrylic Glue",
@@ -250,7 +247,7 @@ export const initialProducts = [
         title: "Jar & Bottle Product Labels",
         subtitle: "Waterproof & Oil-Resistant Labels for Food, Beverage & Pharma Containers",
         blurb: "Waterproof and oil-resistant product labels engineered for glass, PET, and HDPE bottles. Withstands cold storage condensation, grease, and rough handling without peeling or color fading.",
-        image: "/images/products/product-labels/applications/app-1.png",
+        image: "/images/products/jar-bottle-product-labels/jar-bottle-product-labels.jpg",
         specs: {
           "Substrate": "Synthetic White PP / Water-Resistant Art Paper",
           "Oil Barrier": "Special oil and chemical resistant top-coat",
@@ -263,9 +260,9 @@ export const initialProducts = [
     options: {
       widths: ["Custom Sizes (Circle, Oval, Rectangle, Special Contour)"],
       thicknesses: ["60 Micron PP Film", "80 GSM Chromo"],
-      colors: ["Full Color CMYK", "Metallic Gold", "Clear Transparent"],
+      colors: ["Clear Transparent", "Metallic Silver/Gold", "Pure White"],
     },
-    applications: ["Beverage bottles", "Squeeze tube packaging", "Premium retail boxes"],
+    applications: ["Cosmetic bottle branding", "Food & beverage jars", "Pharma liquid bottles"],
     visualGradients: "from-amber-400 to-orange-500",
   },
   {
@@ -275,11 +272,10 @@ export const initialProducts = [
     tag: "Self Adhesive",
     blurb: "Pressure sensitive labels made of three layers: release liner, adhesive layer, and face material. Sticks without wetting or glue application.",
     longDesc: "Self-adhesive labels (also known as pressure sensitive labels) are made by printing onto construction of three layers: a release liner (backing paper), a layer of adhesive and the face material. A self-adhesive label is a small piece of paper designed to be affixed to any surface such as paper, plastic, wood, glass or metal typically by the action of layer of adhesive on the front or back of the label. It sticks without wetting or application of glue to the product.\n\n### Key Product Features:\n- **3-Layer Sandwich Structure**: Face material, pressure-sensitive adhesive layer, and siliconized release liner.\n- **Instant Pressure Bonding**: Sticks instantly upon light contact without heat, water activation, or glue application.\n- **Universal Surface Adhesion**: Bonds securely to paper, plastic, wood, glass, polished metal, and textured cardboard.\n- **High Tack & Shear Strength**: Formulated with permanent acrylic or hot-melt adhesive that resists environmental peeling.\n- **Automatic Machine Dispensing**: Precision die-cut with consistent gap spacing for high-speed automatic labeling equipment.",
-    image: "/images/products/self-adhesive-labels/image.png",
+    image: "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
     gallery: [
-      "/images/products/self-adhesive-labels/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
+      "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
+      "/images/products/film-self-adhesive-labels/film-self-adhesive-labels.jpg"
     ],
     specs: {
       "Structure": "3-Layer Sandwich (Face Material + Adhesive + Release Liner)",
@@ -303,7 +299,7 @@ export const initialProducts = [
         title: "Paper Self-Adhesive Labels",
         subtitle: "Chromo & Art Paper Pressure-Sensitive Sticker Rolls",
         blurb: "Versatile 3-layer paper self-adhesive labels featuring high-tack permanent adhesive on glassine liner. Delivers instant bonding over cardboard boxes, paper bags, and dry packaging containers.",
-        image: "/images/products/self-adhesive-labels/image.png",
+        image: "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
         specs: {
           "Face Stock": "80 GSM Semi-Gloss Chromo Paper",
           "Adhesive": "Pressure Sensitive Hot-Melt Rubber Base Glue",
@@ -317,7 +313,7 @@ export const initialProducts = [
         title: "Film Self-Adhesive Labels",
         subtitle: "Waterproof Polypropylene & Vinyl Pressure-Sensitive Stickers",
         blurb: "Heavy-duty synthetic film self-adhesive labels (BOPP, PE, Vinyl) engineered for extreme weather, moisture, oil, and outdoor UV exposure without peeling or tearing.",
-        image: "/images/products/self-adhesive-labels/applications/app-1.png",
+        image: "/images/products/film-self-adhesive-labels/film-self-adhesive-labels.jpg",
         specs: {
           "Face Stock": "60 Micron White / Clear Polypropylene Film",
           "Adhesive": "Waterproof Permanent Acrylic Emulsion Glue",
@@ -336,17 +332,220 @@ export const initialProducts = [
     visualGradients: "from-amber-400 to-orange-500",
   },
   {
+    id: "thermal-transfer-ribbons",
+    title: "Thermal Transfer Ribbons",
+    category: "label-sticker-products",
+    tag: "Thermal Printing Ribbons",
+    blurb: "Thermal transfer ribbons use heat to transfer durable ink onto labels and other materials, providing resistance to fading, moisture, and abrasion.",
+    longDesc: "Thermal transfer ribbons are used in thermal transfer printing to transfer ink onto labels or other materials using heat. Thermal transfer printing provides greater resistance to fading, moisture and abrasion compared with direct thermal printing.\n\n### Types of Ribbons:\n- **Wax Ribbons**: Economical and suitable for paper materials.\n- **Wax/Resin Ribbons**: Provide greater durability and moderate resistance.\n- **Resin Ribbons**: Designed for synthetic materials and harsh environments.\n\n### Key Product Features:\n- **Long-Lasting Print Quality**: Delivers sharp, durable text and barcodes for reliable identification.\n- **Material Compatibility**: Ribbon grades available for paper, coated labels, and synthetic films.\n- **Environmental Resistance**: Offers strong resistance to fading, moisture, and abrasion.\n- **Printer Ready**: Compatible with common desktop and industrial thermal transfer printers.",
+    image: "/images/products/thermal-transfer-ribbons/thermal-transfer-ribbons.jpg",
+    gallery: [
+      "/images/products/thermal-transfer-ribbons/thermal-transfer-ribbons.jpg",
+      "/images/products/wax-ribbons/wax-ribbons.jpg",
+      "/images/products/wax-resin-ribbons/wax-resin-ribbons.jpg",
+      "/images/products/resin-ribbons/resin-ribbons.jpg"
+    ],
+    specs: {
+      "Ribbon Types": "Wax / Wax-Resin / Resin",
+      "Print Method": "Thermal transfer",
+      "Core Sizes": "0.5 Inch / 1 Inch / 3 Inch",
+      "Ink Side": "Coated side in / Coated side out",
+      "Compatibility": "Paper labels / Synthetic labels / Films",
+    },
+    thicknessLengthMatrix: [
+      { micron: "40 mm x 300 m", gauge: "1 Roll", meters: "300", feet: "984" },
+      { micron: "60 mm x 300 m", gauge: "1 Roll", meters: "300", feet: "984" },
+      { micron: "80 mm x 300 m", gauge: "1 Roll", meters: "300", feet: "984" },
+      { micron: "110 mm x 300 m", gauge: "1 Roll", meters: "300", feet: "984" },
+    ],
+    subCategories: [
+      {
+        id: "wax-ribbons",
+        title: "Wax Ribbons",
+        subtitle: "Economical Thermal Transfer Ribbons for Paper Labels",
+        blurb: "Cost-effective wax ribbons that produce clear, high-contrast prints on paper label materials.",
+        image: "/images/products/wax-ribbons/wax-ribbons.jpg",
+        applications: ["Shipping labels", "Retail price labels", "Warehouse cartons"],
+      },
+      {
+        id: "wax-resin-ribbons",
+        title: "Wax/Resin Ribbons",
+        subtitle: "Durable Thermal Transfer Ribbons for Coated Labels",
+        blurb: "Wax/resin ribbons balance print quality, durability, and moderate resistance for demanding label applications.",
+        image: "/images/products/wax-resin-ribbons/wax-resin-ribbons.jpg",
+        applications: ["Product labels", "Inventory labels", "Cold-storage labels"],
+      },
+      {
+        id: "resin-ribbons",
+        title: "Resin Ribbons",
+        subtitle: "High-Resistance Thermal Transfer Ribbons for Synthetic Labels",
+        blurb: "High-performance resin ribbons designed for synthetic materials and harsh environments requiring maximum durability.",
+        image: "/images/products/resin-ribbons/resin-ribbons.jpg",
+        applications: ["Chemical drum labels", "Electronics labels", "Outdoor asset labels"],
+      },
+    ],
+    options: {
+      widths: ["40 mm", "60 mm", "80 mm", "110 mm", "Custom"],
+      thicknesses: ["Wax", "Wax/Resin", "Resin"],
+      colors: ["Black", "Blue", "Red", "White", "Custom"],
+    },
+    applications: ["Barcode printing", "Product identification", "Inventory tracking", "Durable asset labels"],
+    visualGradients: "from-slate-600 to-cyan-600",
+  },
+  {
+    id: "tamper-evident-stickers",
+    title: "Tamper-Evident Stickers",
+    category: "label-sticker-products",
+    tag: "Tamper-Evident Security Labels",
+    blurb: "Tamper-evident labels provide visible signs of tampering if someone attempts to remove or alter them.",
+    longDesc: "Tamper-evident labels are designed to provide visible signs of tampering if someone attempts to remove or alter them.\n\nThey are commonly used on products, packaging and documents to indicate whether an item has been opened or interfered with.\n\n### Key Product Features:\n- **Visible Tamper Indication**: Helps clearly identify attempted removal, opening, or alteration.\n- **Product and Packaging Protection**: Supports confidence in product integrity from dispatch to delivery.\n- **Document Security**: Helps protect confidential files, certificates, and sensitive materials.\n- **Customizable Designs**: Available in custom sizes, shapes, colors, and printed branding.",
+    image: "/images/products/tamper-evident-stickers/tamper-evident-stickers.jpg",
+    gallery: [
+      "/images/products/tamper-evident-stickers/tamper-evident-stickers.jpg"
+    ],
+    specs: {
+      "Security Function": "Visible indication of removal, opening, or alteration",
+      "Material": "Tamper-evident polyester film",
+      "Adhesive": "Permanent pressure-sensitive acrylic",
+      "Finish Options": "Silver / White / Transparent / Custom printed",
+      "Format": "Roll labels / Sheet labels / Custom die-cut shapes",
+    },
+    thicknessLengthMatrix: [
+      { micron: "20x20 mm", gauge: "5,000/Roll", meters: "100", feet: "328" },
+      { micron: "25x50 mm", gauge: "2,000/Roll", meters: "100", feet: "328" },
+      { micron: "50x50 mm", gauge: "1,000/Roll", meters: "100", feet: "328" },
+      { micron: "100x50 mm", gauge: "750/Roll", meters: "75", feet: "246" },
+    ],
+    options: {
+      widths: ["20 mm", "25 mm", "50 mm", "100 mm", "Custom"],
+      thicknesses: ["36 Micron", "50 Micron", "Custom"],
+      colors: ["Silver", "White", "Transparent", "Custom"],
+    },
+    applications: ["Product packaging", "Tamper seals", "Document protection", "Asset identification"],
+    visualGradients: "from-slate-500 to-indigo-600",
+  },
+  {
+    id: "security-void-stickers",
+    title: "Security Void Stickers",
+    category: "label-sticker-products",
+    tag: "Tamper-Evident Security Labels",
+    blurb: "Security void labels show visible evidence of tampering by leaving a VOID message or similar pattern when removed.",
+    longDesc: "Security void labels are designed to show visible evidence of tampering. When the label is removed, it leaves behind a \"VOID\" message or similar pattern.\n\nThey are commonly used for product seals, warranty seals and protection of sensitive documents.\n\n### Key Product Features:\n- **Clear Tamper Evidence**: A visible VOID message or patterned residue appears once the label is lifted.\n- **Reliable Protection**: Helps discourage unauthorized access and provides an immediate visual tampering check.\n- **Customizable Formats**: Available in custom sizes, shapes, colors, and printed branding.\n- **Versatile Applications**: Suitable for product packaging, warranty protection, and confidential documents.",
+    image: "/images/products/security-void-stickers/security-void-stickers.jpg",
+    gallery: [
+      "/images/products/security-void-stickers/security-void-stickers.jpg"
+    ],
+    specs: {
+      "Tamper Indication": "VOID message / patterned residue on removal",
+      "Material": "Tamper-evident polyester film",
+      "Adhesive": "Permanent pressure-sensitive acrylic",
+      "Finish Options": "Silver / White / Transparent / Custom printed",
+      "Format": "Roll labels / Sheet labels / Custom die-cut shapes",
+    },
+    thicknessLengthMatrix: [
+      { micron: "20x20 mm", gauge: "5,000/Roll", meters: "100", feet: "328" },
+      { micron: "25x50 mm", gauge: "2,000/Roll", meters: "100", feet: "328" },
+      { micron: "50x50 mm", gauge: "1,000/Roll", meters: "100", feet: "328" },
+      { micron: "100x50 mm", gauge: "750/Roll", meters: "75", feet: "246" },
+    ],
+    options: {
+      widths: ["20 mm", "25 mm", "50 mm", "100 mm", "Custom"],
+      thicknesses: ["36 Micron", "50 Micron", "Custom"],
+      colors: ["Silver", "White", "Transparent", "Custom"],
+    },
+    applications: ["Product seals", "Warranty seals", "Sensitive document protection", "Asset identification"],
+    visualGradients: "from-slate-500 to-indigo-600",
+  },
+  {
+    id: "hologram-stickers",
+    title: "Hologram Stickers",
+    category: "label-sticker-products",
+    tag: "Security Holograms",
+    blurb: "Holographic labels provide attractive visual effects along with difficult-to-replicate security features for brand protection and authentication.",
+    longDesc: "Holographic labels are available in different types and provide attractive visual effects along with security features. High-quality holographic labels are difficult to replicate and can provide strong security features.\n\n### Available Hologram Types:\n- **2D / 3D Holograms**: Multi-dimensional visual effects that enhance product presentation and authentication.\n- **Dot Matrix Holograms**: High-resolution holograms with precise text, logos, and micro-details.\n- **Flip-Flop Holograms**: Designs that change between two images when viewed from different angles.\n- **Kinetic Holograms**: Dynamic movement effects that create a distinctive visual identity.\n- **E-Beam Holograms**: Electron-beam mastered holograms for fine-detail security applications.\n\n### Key Product Features:\n- **Strong Anti-Counterfeit Protection**: Difficult-to-replicate holographic effects help safeguard genuine products.\n- **Custom Brand Integration**: Add logos, serial numbers, QR codes, and bespoke security artwork.\n- **Premium Visual Appeal**: Iridescent finishes create a striking shelf presence across product packaging.\n- **Durable Adhesive Options**: Available with permanent adhesives for paper, plastic, glass, and metal surfaces.",
+    image: "/images/products/hologram-stickers/hologram-stickers.jpg",
+    gallery: [
+      "/images/products/hologram-stickers/hologram-stickers.jpg",
+      "/images/products/2d-3d-holograms/2d-3d-holograms.jpg",
+      "/images/products/dot-matrix-holograms/dot-matrix-holograms.jpg",
+      "/images/products/flip-flop-holograms/flip-flop-holograms.jpg",
+      "/images/products/kinetic-holograms/kinetic-holograms.jpg",
+      "/images/products/e-beam-holograms/e-beam-holograms.jpg"
+    ],
+    specs: {
+      "Hologram Types": "2D / 3D / Dot Matrix / Flip-Flop / Kinetic / E-Beam",
+      "Security Features": "Custom logo, serial numbering, QR code, micro-text",
+      "Finish Options": "Iridescent / Transparent / Metallic / Tamper-Evident",
+      "Adhesive": "Permanent Acrylic / Tamper-Evident",
+      "Format": "Roll Labels / Sheet Labels / Custom Die-Cut Shapes",
+    },
+    thicknessLengthMatrix: [
+      { micron: "20x20 mm", gauge: "5,000/Roll", meters: "100", feet: "328" },
+      { micron: "25x25 mm", gauge: "3,000/Roll", meters: "75", feet: "246" },
+      { micron: "30x30 mm", gauge: "2,000/Roll", meters: "60", feet: "197" },
+      { micron: "50x25 mm", gauge: "1,500/Roll", meters: "75", feet: "246" },
+    ],
+    subCategories: [
+      {
+        id: "2d-3d-holograms",
+        title: "2D / 3D Holograms",
+        subtitle: "Multi-Dimensional Security Labels",
+        blurb: "Visually distinctive 2D and 3D holograms that combine premium presentation with product authentication.",
+        image: "/images/products/2d-3d-holograms/2d-3d-holograms.jpg",
+        applications: ["Branded product packaging", "Warranty seals", "Authentication labels"],
+      },
+      {
+        id: "dot-matrix-holograms",
+        title: "Dot Matrix Holograms",
+        subtitle: "Fine-Detail Holographic Security Labels",
+        blurb: "Precision holograms with sharp text, logos, and micro-details for high-security branding.",
+        image: "/images/products/dot-matrix-holograms/dot-matrix-holograms.jpg",
+        applications: ["Pharmaceutical packaging", "Certificates", "High-value product seals"],
+      },
+      {
+        id: "flip-flop-holograms",
+        title: "Flip-Flop Holograms",
+        subtitle: "Angle-Change Visual Authentication Labels",
+        blurb: "Holograms that switch between two visuals as the viewing angle changes, making verification easy.",
+        image: "/images/products/flip-flop-holograms/flip-flop-holograms.jpg",
+        applications: ["Retail packaging", "Promotional labels", "Brand authentication"],
+      },
+      {
+        id: "kinetic-holograms",
+        title: "Kinetic Holograms",
+        subtitle: "Dynamic Motion-Effect Holographic Labels",
+        blurb: "Dynamic holographic patterns that create movement effects and provide a distinctive security marker.",
+        image: "/images/products/kinetic-holograms/kinetic-holograms.jpg",
+        applications: ["Premium consumer products", "Gift packaging", "Tamper-evident seals"],
+      },
+      {
+        id: "e-beam-holograms",
+        title: "E-Beam Holograms",
+        subtitle: "Electron-Beam Mastered Security Labels",
+        blurb: "Fine-detail holograms engineered for sophisticated brand-protection and security applications.",
+        image: "/images/products/e-beam-holograms/e-beam-holograms.jpg",
+        applications: ["Government documents", "Electronics", "High-security packaging"],
+      },
+    ],
+    options: {
+      widths: ["20 mm", "25 mm", "30 mm", "50 mm", "Custom"],
+      thicknesses: ["36 Micron", "50 Micron", "Custom"],
+      colors: ["Iridescent Silver", "Transparent", "Metallic Gold", "Custom"],
+    },
+    applications: ["Anti-counterfeit protection", "Warranty seals", "Brand authentication", "Premium product packaging"],
+    visualGradients: "from-violet-400 to-fuchsia-500",
+  },
+  {
     id: "thermal-labels",
     title: "Thermal Labels",
     category: "label-sticker-products",
     tag: "Thermal",
     blurb: "Thermal labels printed via direct thermal or thermal transfer heat processes to apply imagery or writing to specially-treated surfaces.",
     longDesc: "Thermal labels can refer to labels printed via one of two processes that use heat to apply imagery or writing to specially-treated surfaces. Direct thermal labels utilize heat-sensitive chemical coatings that react directly with thermal printheads without ink ribbons, while thermal transfer labels use heat to melt wax or resin ribbon ink onto label stock for long-lasting readability.\n\n### Key Product Features:\n- **Dual Thermal Printing Compatibility**: Available in Direct Thermal (ribbonless) and Thermal Transfer (ribbon-required) grades.\n- **Ribbonless Cost Efficiency**: Direct thermal labels eliminate ribbon costs for high-volume shipping, courier, and weight scale printing.\n- **High Heat Sensitivity**: Coated with high-sensitivity thermographic chemical layer for sharp, high-contrast text and barcodes.\n- **Moisture & Scratch Top-Coat**: Top-coated direct thermal paper shields prints from moisture, mild friction, and light grease.\n- **Core Options**: Standard 1-inch and 3-inch cardboard cores compatible with desktop and industrial thermal printers.",
-    image: "/images/products/thermal-labels/image.png",
+    image: "/images/products/direct-thermal-labels/direct-thermal-labels.jpg",
     gallery: [
-      "/images/products/thermal-labels/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/product_app_warehouse_dispatch.png"
+      "/images/products/direct-thermal-labels/direct-thermal-labels.jpg",
+      "/images/products/thermal-transfer-paper-labels/thermal-transfer-paper-labels.jpg"
     ],
     specs: {
       "Printing Processes": "Direct Thermal (Ribbonless) / Thermal Transfer (Ribbon Required)",
@@ -370,7 +569,7 @@ export const initialProducts = [
         title: "Direct Thermal Labels",
         subtitle: "Ribbonless Heat-Sensitive Shipping & Courier Sticker Rolls",
         blurb: "Coated with a heat-sensitive layer that turns black when exposed to thermal printheads. Eliminates ink ribbon costs, perfect for high-speed e-commerce shipping labels, courier waybills, and weight scale tags.",
-        image: "/images/products/thermal-labels/image.png",
+        image: "/images/products/direct-thermal-labels/direct-thermal-labels.jpg",
         specs: {
           "Printing Tech": "Direct Thermal (Zero Ribbon Needed)",
           "Paper Coating": "Top-Coated Thermal Sensitive Paper",
@@ -384,7 +583,7 @@ export const initialProducts = [
         title: "Thermal Transfer Labels",
         subtitle: "Wax/Resin Ribbon-Printed Long-Life Barcode & Inventory Labels",
         blurb: "Smooth surface thermal transfer paper label rolls designed for thermal transfer printers using wax or wax-resin ribbons. Produces ultra-durable, smudge-proof barcodes and text for long-term warehouse storage.",
-        image: "/images/products/thermal-labels/applications/app-3.png",
+        image: "/images/products/thermal-transfer-paper-labels/thermal-transfer-paper-labels.jpg",
         specs: {
           "Printing Tech": "Thermal Transfer (Requires Wax/Resin Ribbon)",
           "Face Paper": "Premium Matte/Semi-Gloss Chromo Paper",
@@ -2884,7 +3083,10 @@ It remains soft, flexible, and crack-resistant down to -40°C, making it ideal f
 #### 10. Is Cross-Linked POF recyclable?
 Yes. It is 100% recyclable under soft polyolefin plastic recycling streams.`,
     image: "/images/products/cross-linked-pof/cross-linked-pof.jpg",
-    gallery: ["/images/products/cross-linked-pof/cross-linked-pof.jpg"],
+    gallery: [
+      "/images/products/cross-linked-pof/cross-linked-pof.jpg",
+      "/images/products/cross-linked-pof/cross-linked-pof-rolls.jpg"
+    ],
     specs: {
       "Polymer Structure": "Irradiated Cross-Linked Polyolefin",
       "Puncture Rating": "Extreme Sharp Edge Impact Resistance",
@@ -2960,7 +3162,10 @@ Yes, it seals cleanly with tabletop impulse bar sealers, L-bar sealers, and auto
 #### 10. Is Non-Cross-Linked POF recyclable?
 Yes, 100% recyclable under soft plastic (#4 PE/PP) recycling streams.`,
     image: "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
-    gallery: ["/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg"],
+    gallery: [
+      "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
+      "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-rolls.jpg"
+    ],
     specs: {
       "Polymer Structure": "5-Layer Co-Extruded Polyolefin (LLDPE/PP)",
       "Format Availability": "Centerfolded (CF) / Single Wound (SW)",
@@ -3114,7 +3319,10 @@ Yes. Rolls receive double-sided or single-sided corona treatment (42+ dynes/cm) 
 #### 10. Is Lamination PE Film recyclable?
 Yes, Polyethylene (PE) is 100% recyclable under soft plastic (#4 LDPE / #2 HDPE) recycling streams.`,
     image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
-    gallery: ["/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg"],
+    gallery: [
+      "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
+      "/images/products/adhesive-lamination-film/adhesive-lamination-film-rolls.jpg"
+    ],
     specs: {
       "Substrate Base": "Prime Virgin LDPE / LLDPE / HDPE Resin",
       "Corona Treatment": "42+ Dynes/cm Surface Energy",
@@ -3252,7 +3460,10 @@ Available in Natural Ultra-Clear and Opaque White.
 #### 10. Is Pharma Grade Poly recyclable?
 Yes, it is 100% recyclable under soft plastic (#4 PE) recycling programs.`,
     image: "/images/products/pharma-grade-poly/pharma-grade-poly.jpg",
-    gallery: ["/images/products/pharma-grade-poly/pharma-grade-poly.jpg"],
+    gallery: [
+      "/images/products/pharma-grade-poly/pharma-grade-poly.jpg",
+      "/images/products/pharma-grade-poly/pharma-grade-poly-rolls.jpg"
+    ],
     specs: {
       "Manufacturing Standard": "cGMP / ISO Class 8 Cleanroom Extrusion",
       "Lamination Method": "Heat & Press Lamination to Aluminum Foil",
@@ -7868,7 +8079,10 @@ const defaultClients = [
   { name: "Lava", logo: "/Brand_logo/lava.png" },
   { name: "Vivo", logo: "/Brand_logo/vivo.png" },
   { name: "Noise", logo: "/Brand_logo/noise.png" },
-  { name: "Fire-Boltt", logo: "/Brand_logo/firebolt.png" }
+  { name: "Fire-Boltt", logo: "/Brand_logo/firebolt.png" },
+  { name: "Anmol", logo: "/Brand_logo/anmol.png" },
+  { name: "CI Automotive", logo: "/Brand_logo/ci-automotive.png" },
+  { name: "Bhagwati Products", logo: "/Brand_logo/bhagwati-products.png" }
 ];
 
 const defaultSteps = [

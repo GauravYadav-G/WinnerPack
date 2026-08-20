@@ -21,6 +21,9 @@ const DEFAULT_BRANDS: PartnerBrand[] = [
   { id: "p_milton", name: "MILTON Houseware", category: "Consumer Products & Homeware", logo: "/Brand_logo/milton.png", website: "https://milton.in" },
   { id: "p_aiplus", name: "Ai+ Smartphone", category: "Mobile & Smart Accessories", logo: "/Brand_logo/aiplus.png", website: "https://aiplus.com" },
   { id: "p_bosch", name: "BOSCH Global Engineering", category: "Automotive & Industrial Tech", logo: "/Brand_logo/bosch.svg", website: "https://bosch.com" },
+  { id: "p_anmol", name: "Anmol Industries", category: "Packaged Foods & Bakery", logo: "/Brand_logo/anmol.png", website: "https://anmolindustries.com" },
+  { id: "p_ci", name: "CI Automotive", category: "Automotive Solutions & Engineering", logo: "/Brand_logo/ci-automotive.png", website: "https://ciautomotive.com" },
+  { id: "p_bhagwati", name: "Bhagwati Products Limited", category: "Electronics & Manufacturing", logo: "/Brand_logo/bhagwati-products.png", website: "https://bhagwatiproducts.com" },
 ];
 
 export default function PartnersClient() {

@@ -20,6 +20,9 @@ const DEFAULT_BRANDS: BrandItem[] = [
   { name: "Milton", logo: "/Brand_logo/milton.png" },
   { name: "Ai+", logo: "/Brand_logo/aiplus.png" },
   { name: "Bosch", logo: "/Brand_logo/bosch.svg" },
+  { name: "Anmol", logo: "/Brand_logo/anmol.png" },
+  { name: "CI Automotive", logo: "/Brand_logo/ci-automotive.png" },
+  { name: "Bhagwati Products", logo: "/Brand_logo/bhagwati-products.png" },
 ];
 
 export default function ClientLogoStrip() {
@@ -102,10 +105,10 @@ export default function ClientLogoStrip() {
               className="flex items-center justify-center w-full h-20 sm:h-28 px-4 py-3 bg-white/70 backdrop-blur-xs border border-[var(--color-line)]/60 rounded-xl shadow-2xs hover:shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer select-none"
             >
               <OptimizedImage
-  src={brand.logo}
-  alt={brand.name}
-  className="max-h-10 sm:max-h-16 max-w-[130px] sm:max-w-[200px] w-auto h-auto object-contain drop-shadow-xs"
-/>
+                src={brand.logo}
+                alt={brand.name}
+                className="max-h-12 sm:max-h-18 max-w-[130px] sm:max-w-[200px] w-auto h-auto object-contain drop-shadow-xs"
+              />
             </div>
           ))}
         </div>

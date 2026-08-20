@@ -38,14 +38,18 @@ const mainCategoryGroups: CategoryGroup[] = [
   {
     id: "label-sticker-products",
     name: "Labels & Stickers",
-    badge: "Thermal · Adhesive · Printed · Barcode",
+    badge: "Thermal · Adhesive · Printed · Barcode · Ribbon · Hologram",
     items: [
       "Plain Labels",
       "Printed Labels",
       "Barcode Labels",
       "Product Labels",
       "Self Adhesive Labels",
-      "Thermal Labels"
+      "Thermal Labels",
+      "Hologram Stickers",
+      "Security Void Stickers",
+      "Tamper-Evident Stickers",
+      "Thermal Transfer Ribbons"
     ]
   },
   {
@@ -61,7 +65,7 @@ const mainCategoryGroups: CategoryGroup[] = [
   },
   {
     id: "pp-strap",
-    name: "PP Strap",
+    name: "Others",
     badge: "PP Strapping · PET Strapping · Custom Printed",
     items: [
       "PP Strap",
