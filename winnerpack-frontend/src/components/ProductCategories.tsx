@@ -11,58 +11,208 @@ export default function ProductCategories() {
   const [activeCatIndex, setActiveCatIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // 5-second automatic rotation loop across product categories
+  // Independent shuffle indexes for each of the 4 cards
+  const [slot1Idx, setSlot1Idx] = useState(0);
+  const [slot2Idx, setSlot2Idx] = useState(0);
+  const [slot3Idx, setSlot3Idx] = useState(0);
+  const [slot4Idx, setSlot4Idx] = useState(0);
+
+  // Category showcase data mapping with comprehensive real photo assets per slot for dynamic shuffling
+  const categoryShowcase = [
+    // 0: Film Products
+    {
+      label: "Film Products Showcase",
+      link: "/product-category/film-products",
+      slot1: [
+        "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
+        "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
+        "/images/products/pharma-grade-poly/pharma-grade-poly-rolls.jpg",
+        "/images/products/cross-linked-pof/cross-linked-pof-rolls.jpg",
+        "/images/products/stretch-film/machine-stretch-film.jpg",
+        "/images/products/stretch-film/pre-stretch-film.jpg"
+      ],
+      slot2: [
+        "/images/products/cross-linked-pof/cross-linked-pof.jpg",
+        "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-rolls.jpg",
+        "/images/products/adhesive-lamination-film/adhesive-lamination-film-rolls.jpg",
+        "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
+        "/images/products/stretch-film/silage-stretch-film.jpg",
+        "/images/products/stretch-film/vci-stretch-film.jpg"
+      ],
+      slot3: [
+        "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
+        "/images/products/cross-linked-pof/cross-linked-pof-rolls.jpg",
+        "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.jpg",
+        "/images/products/stretch-film/biodegradable-stretch-wrap.jpg",
+        "/images/products/stretch-film/coreless-stretch-film.jpg",
+        "/images/products/ldpe-shrink-film/image.png"
+      ],
+      slot4: [
+        "/images/products/milk-packaging-film/milk-packaging-film.jpg",
+        "/images/products/water-packaging-film/water-packaging-film.jpg",
+        "/images/products/smp-packaging-film/smp-packaging-film.jpg",
+        "/images/products/pharma-grade-poly/pharma-grade-poly.png",
+        "/images/products/soft-loop-handle-bags/soft-loop-handle-bags.jpg",
+        "/images/products/stretch-film/recycled-stretch-wrap.jpg"
+      ]
+    },
+    // 1: Labels & Stickers
+    {
+      label: "Labels & Stickers Showcase",
+      link: "/product-category/label-sticker-products",
+      slot1: [
+        "/images/products/printed-labels/flexo-digital-printed-labels.jpg",
+        "/images/products/plain-labels/plain-labels.jpg",
+        "/images/products/plain-labels/plain-chromo-labels.jpg",
+        "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
+        "/images/products/wide-format-printed-labels/wide-format-printed-labels.jpg",
+        "/images/products/plain-thermal-transfer-labels/plain-thermal-transfer-labels.jpg"
+      ],
+      slot2: [
+        "/images/products/thermal-transfer-ribbons/thermal-transfer-ribbons.jpg",
+        "/images/products/wax-resin-ribbons/wax-resin-ribbons.jpg",
+        "/images/products/resin-ribbons/resin-ribbons.jpg",
+        "/images/products/wax-ribbons/wax-ribbons.jpg",
+        "/images/products/wrap-around-labels/wrap-around-labels.jpg"
+      ],
+      slot3: [
+        "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.jpg",
+        "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.jpg",
+        "/images/products/jar-bottle-product-labels/jar-bottle-product-labels.jpg",
+        "/images/products/gs1-data-matrix-barcode-labels/gs1-data-matrix-barcode-labels.jpg",
+        "/images/products/film-self-adhesive-labels/film-self-adhesive-labels.jpg"
+      ],
+      slot4: [
+        "/images/products/hologram-stickers/hologram-stickers.jpg",
+        "/images/products/2d-3d-holograms/2d-3d-holograms.jpg",
+        "/images/products/direct-thermal-labels/direct-thermal-labels.jpg",
+        "/images/products/tamper-evident-stickers/tamper-evident-stickers.jpg",
+        "/images/products/security-void-stickers/security-void-stickers.jpg",
+        "/images/products/thermal-transfer-paper-labels/thermal-transfer-paper-labels.jpg"
+      ]
+    },
+    // 2: Tapes Division
+    {
+      label: "Tapes Division Showcase",
+      link: "/product-category/tape-products",
+      slot1: [
+        "/images/products/bopp-tapes/applications/app-1.png",
+        "/images/products/bopp-tapes/applications/app-2.png",
+        "/images/products/bopp-tapes/applications/app-3.png",
+        "/images/products/bopp-tapes/applications/app-4.png",
+        "/images/products/bopp-tapes/image.png"
+      ],
+      slot2: [
+        "/images/products/printed-bopp-tapes/applications/app-1.png",
+        "/images/products/printed-bopp-tapes/applications/app-2.png",
+        "/images/products/printed-bopp-tapes/applications/app-3.png",
+        "/images/products/printed-bopp-tapes/applications/app-4.png",
+        "/images/products/printed-bopp-tapes/image.png"
+      ],
+      slot3: [
+        "/images/products/coloured-bopp-tapes/applications/app-1.png",
+        "/images/products/coloured-bopp-tapes/applications/app-2.png",
+        "/images/products/coloured-bopp-tapes/applications/app-3.png",
+        "/images/products/coloured-bopp-tapes/applications/app-4.png",
+        "/images/products/coloured-bopp-tapes/image.png"
+      ],
+      slot4: [
+        "/images/products/silicon-tapes/applications/app-1.png",
+        "/images/products/silicon-tapes/applications/app-2.png",
+        "/images/products/silicon-tapes/applications/app-3.png",
+        "/images/products/silicon-tapes/applications/app-4.png",
+        "/images/products/silicon-tapes/image.png"
+      ]
+    },
+    // 3: PP & PET Strapping
+    {
+      label: "PP & PET Strapping Showcase",
+      link: "/product-category/strapping-products",
+      slot1: [
+        "/images/products/pp-strap/applications/app-1.png",
+        "/images/products/pp-strap/applications/app-2.png",
+        "/images/products/pp-strap/applications/app-3.png",
+        "/images/products/pp-strap/applications/app-4.png",
+        "/images/products/pp-strap/image.png"
+      ],
+      slot2: [
+        "/images/products/pet-strap/applications/app-1.png",
+        "/images/products/pet-strap/applications/app-2.png",
+        "/images/products/pet-strap/applications/app-3.png",
+        "/images/products/pet-strap/applications/app-4.png",
+        "/images/products/pet-strap/image.png"
+      ],
+      slot3: [
+        "/images/products/printed-pp-strap/applications/app-1.png",
+        "/images/products/printed-pp-strap/applications/app-2.png",
+        "/images/products/printed-pp-strap/applications/app-3.png",
+        "/images/products/printed-pp-strap/applications/app-4.png",
+        "/images/products/printed-pp-strap/image.png"
+      ],
+      slot4: [
+        "/images/products/colored-pp-strap/applications/app-1.png",
+        "/images/products/colored-pp-strap/applications/app-2.png",
+        "/images/products/colored-pp-strap/applications/app-3.png",
+        "/images/products/colored-pp-strap/applications/app-4.png",
+        "/images/products/colored-pp-strap/image.png"
+      ]
+    }
+  ];
+
+  const currentShowcase = categoryShowcase[activeCatIndex] || categoryShowcase[0];
+
+  // Randomize initial starting images on every page reload
+  useEffect(() => {
+    setSlot1Idx(Math.floor(Math.random() * 20));
+    setSlot2Idx(Math.floor(Math.random() * 20));
+    setSlot3Idx(Math.floor(Math.random() * 20));
+    setSlot4Idx(Math.floor(Math.random() * 20));
+  }, []);
+
+  // 7-second automatic rotation loop across product categories
   useEffect(() => {
     if (isPaused) return;
 
     const timer = setInterval(() => {
       setActiveCatIndex((prevIndex) => (prevIndex + 1) % productCategories.length);
-    }, 5000);
+    }, 7000);
 
     return () => clearInterval(timer);
   }, [isPaused]);
 
-  // Category showcase data mapping for the 4 bento grid slots - 100% unique product & application images
-  const categoryShowcase = [
-    // 0: Film Products (LDPE Shrink, Cross-Linked POF, Agricultural Mulch, Printed Food Laminates)
-    {
-      slot1: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
-      slot1Title: "LDPE Shrink Film",
-      slot2: "/images/products/cross-linked-pof/cross-linked-pof.jpg",
-      slot2Title: "POF Shrink Film",
-      slot3: "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
-      slot3Title: "Agricultural Mulch Film",
-      slot4: "/images/products/milk-packaging-film/milk-packaging-film.jpg",
-      slot4Title: "Printed PE & Laminates",
-      label: "Film Products Showcase"
-    },
-    // 1: Labels & Stickers (Printed Bottle, Barcode Inventory, Cosmetic Product, Thermal Scale)
-    {
-      slot1: "/images/products/printed-labels/applications/app-1.png",
-      slot2: "/images/products/barcode-labels/applications/app-1.png",
-      slot3: "/images/products/product-labels/applications/app-1.png",
-      slot4: "/images/products/thermal-labels/applications/app-3.png",
-      label: "Labels & Stickers Showcase"
-    },
-    // 2: Tapes Division (Clear BOPP Box, Printed Brand Tape, Coloured Conveyor Tape, Silicon Engine Tape)
-    {
-      slot1: "/images/products/bopp-tapes/applications/app-1.png",
-      slot2: "/images/products/printed-bopp-tapes/applications/app-1.png",
-      slot3: "/images/products/coloured-bopp-tapes/applications/app-2.png",
-      slot4: "/images/products/silicon-tapes/applications/app-1.png",
-      label: "Tapes Division Showcase"
-    },
-    // 3: PP & PET Strapping (Blue PP Pallet Strap, PET Strap Spool, Yellow Printed Strap, Red Colored Strap)
-    {
-      slot1: "/images/products/pp-strap/applications/app-1.png",
-      slot2: "/images/products/pet-strap/image.png",
-      slot3: "/images/products/printed-pp-strap/applications/app-1.png",
-      slot4: "/images/products/colored-pp-strap/applications/app-2.png",
-      label: "PP & PET Strapping Showcase"
-    }
-  ];
+  // Periodic image shuffling within cards of the active category (staggered for organic feeling)
+  useEffect(() => {
+    if (isPaused) return;
 
-  const currentShowcase = categoryShowcase[activeCatIndex] || categoryShowcase[0];
+    const shuffleInterval1 = setInterval(() => {
+      setSlot1Idx((prev) => (prev + 1) % (currentShowcase.slot1.length || 1));
+    }, 3800);
+
+    const shuffleInterval2 = setInterval(() => {
+      setSlot2Idx((prev) => (prev + 1) % (currentShowcase.slot2.length || 1));
+    }, 4400);
+
+    const shuffleInterval3 = setInterval(() => {
+      setSlot3Idx((prev) => (prev + 1) % (currentShowcase.slot3.length || 1));
+    }, 4100);
+
+    const shuffleInterval4 = setInterval(() => {
+      setSlot4Idx((prev) => (prev + 1) % (currentShowcase.slot4.length || 1));
+    }, 4700);
+
+    return () => {
+      clearInterval(shuffleInterval1);
+      clearInterval(shuffleInterval2);
+      clearInterval(shuffleInterval3);
+      clearInterval(shuffleInterval4);
+    };
+  }, [activeCatIndex, currentShowcase, isPaused]);
+
+  // Safe image getters
+  const img1 = currentShowcase.slot1[slot1Idx % currentShowcase.slot1.length] || currentShowcase.slot1[0];
+  const img2 = currentShowcase.slot2[slot2Idx % currentShowcase.slot2.length] || currentShowcase.slot2[0];
+  const img3 = currentShowcase.slot3[slot3Idx % currentShowcase.slot3.length] || currentShowcase.slot3[0];
+  const img4 = currentShowcase.slot4[slot4Idx % currentShowcase.slot4.length] || currentShowcase.slot4[0];
 
   return (
     <section id="products" className="relative overflow-hidden bg-white py-10 sm:py-16 md:py-24 border-b border-[var(--color-line)]">
@@ -108,10 +258,10 @@ export default function ProductCategories() {
                 <Link href={`/product-category/${cat.id}`} className="block h-full w-full">
                   <div className="relative aspect-[4/3] sm:aspect-square w-full overflow-hidden bg-[var(--color-bone)]">
                     <OptimizedImage
-  src={cat.image}
-  alt={cat.title}
-  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-/>
+                      src={cat.image}
+                      alt={cat.title}
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
 
                     <div
                       className={`absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 transition-all duration-300 px-2.5 sm:px-4 py-1 sm:py-2 rounded-full bg-white/95 backdrop-blur-md text-[var(--color-ink)] text-[10px] sm:text-xs font-bold shadow-lg flex items-center gap-1 sm:gap-1.5 whitespace-nowrap border border-white/40 ${isActive
@@ -141,118 +291,108 @@ export default function ProductCategories() {
           })}
         </div>
 
-        {/* ── BENTO GRID SHOWCASE (COMPACT MOBILE HEIGHTS, FULL DESKTOP SIZE) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 md:gap-8 items-stretch">
+        {/* ── 4-CARD BALANCED SHOWCASE GRID (Natural 16:10 Photo Proportions with Shuffling) ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-stretch">
 
-          {/* SLOT 1: Tall Left Poster Card (Spans 5 Columns on Desktop) */}
-          <div className="lg:col-span-5 relative h-[220px] sm:h-[380px] lg:h-[640px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
+          {/* CARD 1 */}
+          <Link
+            href={currentShowcase.link}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            className="relative aspect-[16/10] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-slate-100 shadow-md sm:shadow-lg group block transition-all duration-300 hover:shadow-2xl hover:border-[var(--color-amber-dark)]/50"
+          >
             <AnimatePresence mode="wait">
               <motion.div
-                key={`${activeCatIndex}-slot1`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="absolute inset-0"
+                key={`${activeCatIndex}-slot1-${img1}`}
+                initial={{ opacity: 0, scale: 1.03 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="absolute inset-0 flex items-center justify-center bg-slate-900/5"
               >
                 <OptimizedImage
-                  src={currentShowcase.slot1}
+                  src={img1}
                   alt={currentShowcase.label}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                {currentShowcase.slot1Title && (
-                  <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
-                    {currentShowcase.slot1Title}
-                  </span>
-                )}
               </motion.div>
             </AnimatePresence>
-          </div>
+          </Link>
 
-          {/* RIGHT COLUMN: 3 Cards Grid (Spans 7 Columns on Desktop) */}
-          <div className="lg:col-span-7 flex flex-col justify-between gap-4 sm:gap-6 md:gap-8">
+          {/* CARD 2 */}
+          <Link
+            href={currentShowcase.link}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            className="relative aspect-[16/10] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-slate-100 shadow-md sm:shadow-lg group block transition-all duration-300 hover:shadow-2xl hover:border-[var(--color-amber-dark)]/50"
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`${activeCatIndex}-slot2-${img2}`}
+                initial={{ opacity: 0, scale: 1.03 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="absolute inset-0 flex items-center justify-center bg-slate-900/5"
+              >
+                <OptimizedImage
+                  src={img2}
+                  alt={currentShowcase.label}
+                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </motion.div>
+            </AnimatePresence>
+          </Link>
 
-            {/* SLOT 2: Top Wide Banner Card */}
-            <div className="relative h-[160px] sm:h-[240px] lg:h-[304px] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`${activeCatIndex}-slot2`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="absolute inset-0"
-                >
-                  <OptimizedImage
-                    src={currentShowcase.slot2}
-                    alt={currentShowcase.label}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  {currentShowcase.slot2Title && (
-                    <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
-                      {currentShowcase.slot2Title}
-                    </span>
-                  )}
-                </motion.div>
-              </AnimatePresence>
-            </div>
+          {/* CARD 3 */}
+          <Link
+            href={currentShowcase.link}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            className="relative aspect-[16/10] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-slate-100 shadow-md sm:shadow-lg group block transition-all duration-300 hover:shadow-2xl hover:border-[var(--color-amber-dark)]/50"
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`${activeCatIndex}-slot3-${img3}`}
+                initial={{ opacity: 0, scale: 1.03 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="absolute inset-0 flex items-center justify-center bg-slate-900/5"
+              >
+                <OptimizedImage
+                  src={img3}
+                  alt={currentShowcase.label}
+                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </motion.div>
+            </AnimatePresence>
+          </Link>
 
-            {/* BOTTOM ROW: 2 Cards (2 Columns on Mobile & Desktop) */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-6 md:gap-8">
-
-              {/* SLOT 3: Bottom Left Card */}
-              <div className="relative h-[140px] sm:h-[220px] lg:h-[304px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={`${activeCatIndex}-slot3`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute inset-0"
-                  >
-                    <OptimizedImage
-                      src={currentShowcase.slot3}
-                      alt={currentShowcase.label}
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                    {currentShowcase.slot3Title && (
-                      <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
-                        {currentShowcase.slot3Title}
-                      </span>
-                    )}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* SLOT 4: Bottom Right Card */}
-              <div className="relative h-[140px] sm:h-[220px] lg:h-[304px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={`${activeCatIndex}-slot4`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute inset-0"
-                  >
-                    <OptimizedImage
-                      src={currentShowcase.slot4}
-                      alt={currentShowcase.label}
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                    {currentShowcase.slot4Title && (
-                      <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white drop-shadow-md bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
-                        {currentShowcase.slot4Title}
-                      </span>
-                    )}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-            </div>
-
-          </div>
+          {/* CARD 4 */}
+          <Link
+            href={currentShowcase.link}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            className="relative aspect-[16/10] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--color-line)] bg-slate-100 shadow-md sm:shadow-lg group block transition-all duration-300 hover:shadow-2xl hover:border-[var(--color-amber-dark)]/50"
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`${activeCatIndex}-slot4-${img4}`}
+                initial={{ opacity: 0, scale: 1.03 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="absolute inset-0 flex items-center justify-center bg-slate-900/5"
+              >
+                <OptimizedImage
+                  src={img4}
+                  alt={currentShowcase.label}
+                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </motion.div>
+            </AnimatePresence>
+          </Link>
 
         </div>
 
@@ -272,3 +412,4 @@ export default function ProductCategories() {
     </section>
   );
 }
+
