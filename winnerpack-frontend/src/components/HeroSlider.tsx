@@ -23,7 +23,7 @@ function getOptimizedStaticImage(src: string): string {
   return src;
 }
 
-const defaultSlides: Slide[] = fallbackData.slides.map((slide) => ({
+const defaultSlides: Slide[] = fallbackData.slides.slice(0, 4).map((slide) => ({
   id: slide.id,
   tag: slide.tag,
   heading: slide.heading,
@@ -46,7 +46,7 @@ export default function HeroSlider() {
     fetchContent("homepage")
       .then((data) => {
         if (data.slides && data.slides.length > 0) {
-          setSlides(data.slides);
+          setSlides(data.slides.slice(0, 4));
         }
         if (data.rightBanner) {
           setDesktopRightBanner(data.rightBanner);
