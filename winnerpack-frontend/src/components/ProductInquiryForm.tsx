@@ -332,8 +332,8 @@ export default function ProductInquiryForm() {
                             setFormData((prev) => ({ ...prev, productInterest: group.items[0] }));
                           }}
                           className={`flex-none px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold transition-all border cursor-pointer ${isActive
-                              ? "bg-[var(--color-blue-deep)] text-white border-[var(--color-blue-deep)] shadow-sm"
-                              : "bg-[var(--color-bone)] text-[var(--color-ink)] border-[var(--color-line)] hover:bg-white"
+                            ? "bg-[var(--color-blue-deep)] text-white border-[var(--color-blue-deep)] shadow-sm"
+                            : "bg-[var(--color-bone)] text-[var(--color-ink)] border-[var(--color-line)] hover:bg-white"
                             }`}
                         >
                           {group.name}

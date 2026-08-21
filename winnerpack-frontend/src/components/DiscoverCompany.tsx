@@ -34,7 +34,7 @@ export default function DiscoverCompany() {
             const img = timelineImages[idx] || "/images/desktop/hero/hero-factory.jpg";
 
             return (
-              <div 
+              <div
                 key={item.year}
                 className="grid gap-8 items-center md:grid-cols-12"
               >
@@ -63,15 +63,14 @@ export default function DiscoverCompany() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
-                  className={`md:col-span-6 overflow-hidden rounded-2xl border border-[var(--color-line)] shadow-md ${
-                    isEven ? "md:order-2" : "md:order-1"
-                  }`}
+                  className={`md:col-span-6 overflow-hidden rounded-2xl border border-[var(--color-line)] shadow-md ${isEven ? "md:order-2" : "md:order-1"
+                    }`}
                 >
                   <OptimizedImage
-  src={img}
-  alt={item.title}
-  className="aspect-[16/10] w-full object-cover transition-transform duration-700 hover:scale-105"
-/>
+                    src={img}
+                    alt={item.title}
+                    className="aspect-[16/10] w-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
                 </motion.div>
               </div>
             );

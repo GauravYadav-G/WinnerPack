@@ -8,7 +8,7 @@ export default function CTABanner() {
     <section id="contact" className="relative overflow-hidden bg-[var(--color-bone)] py-14 md:py-20 border-t border-b border-[var(--color-line)]">
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-12">
-          
+
           {/* Left Column: Heading & Subtext */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -23,7 +23,7 @@ export default function CTABanner() {
               Tell us your line speed. <br />
               We&apos;ll spec the right roll, film, and strapping roll.
             </h2>
-            
+
             <p className="max-w-xl text-sm sm:text-base md:text-lg text-[var(--color-mute)] font-normal leading-relaxed">
               Share your SKU, payload profile and monthly volume. Our application team
               responds with a tailored spec sheet and indicative pricing within one

@@ -115,10 +115,10 @@ export default function Certifications() {
               >
                 <div className="flex items-center justify-center w-full h-16 sm:h-24 px-3 py-2 bg-white/70 backdrop-blur-xs border border-[var(--color-line)]/60 rounded-xl shadow-2xs hover:shadow-md transition-all duration-300 hover:scale-105 cursor-pointer select-none">
                   <OptimizedImage
-  src={item.imageSrc}
-  alt={item.name}
-  className="max-h-9 sm:max-h-16 max-w-[100px] sm:max-w-[160px] w-auto h-auto object-contain drop-shadow-xs"
-/>
+                    src={item.imageSrc}
+                    alt={item.name}
+                    className="max-h-9 sm:max-h-16 max-w-[100px] sm:max-w-[160px] w-auto h-auto object-contain drop-shadow-xs"
+                  />
                 </div>
               </motion.div>
             ))}
@@ -138,10 +138,10 @@ export default function Certifications() {
               >
                 <div className="flex items-center justify-center w-full h-16 sm:h-24 px-3 py-2 bg-white/70 backdrop-blur-xs border border-[var(--color-line)]/60 rounded-xl shadow-2xs hover:shadow-md transition-all duration-300 hover:scale-105 cursor-pointer select-none">
                   <OptimizedImage
-  src={item.imageSrc}
-  alt={item.name}
-  className="max-h-9 sm:max-h-16 max-w-[100px] sm:max-w-[160px] w-auto h-auto object-contain drop-shadow-xs"
-/>
+                    src={item.imageSrc}
+                    alt={item.name}
+                    className="max-h-9 sm:max-h-16 max-w-[100px] sm:max-w-[160px] w-auto h-auto object-contain drop-shadow-xs"
+                  />
                 </div>
               </motion.div>
             ))}

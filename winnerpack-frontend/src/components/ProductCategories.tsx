@@ -237,8 +237,8 @@ export default function ProductCategories() {
                 onMouseLeave={() => setIsPaused(false)}
                 onClick={() => setActiveCatIndex(i)}
                 className={`group relative flex flex-col overflow-hidden rounded-xl sm:rounded-2xl border transition-all duration-300 cursor-pointer select-none ${isActive
-                    ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/40 shadow-md sm:shadow-xl bg-[var(--color-mist)] -translate-y-1 sm:-translate-y-1.5"
-                    : "border-[var(--color-line)] hover:border-[var(--color-amber)]/40 bg-white hover:shadow-lg hover:-translate-y-1"
+                  ? "border-[var(--color-amber-dark)] ring-2 ring-[var(--color-amber)]/40 shadow-md sm:shadow-xl bg-[var(--color-mist)] -translate-y-1 sm:-translate-y-1.5"
+                  : "border-[var(--color-line)] hover:border-[var(--color-amber)]/40 bg-white hover:shadow-lg hover:-translate-y-1"
                   }`}
               >
                 <Link href={`/product-category/${cat.id}`} className="block h-full w-full">
@@ -251,8 +251,8 @@ export default function ProductCategories() {
 
                     <div
                       className={`absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 transition-all duration-300 px-2.5 sm:px-4 py-1 sm:py-2 rounded-full bg-white/95 backdrop-blur-md text-[var(--color-ink)] text-[10px] sm:text-xs font-bold shadow-lg flex items-center gap-1 sm:gap-1.5 whitespace-nowrap border border-white/40 ${isActive
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-2 sm:translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-2 sm:translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
                         }`}
                     >
                       <span>Explore</span>

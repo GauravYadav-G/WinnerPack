@@ -245,37 +245,25 @@ export const productHierarchy = [
         id: "pp-strap-main",
         title: "PP Strap",
         slug: "pp-strap",
-        items: [
-          { name: "Automatic PP Strapping Roll", slug: "automatic-pp-strap" },
-          { name: "Manual / Semi-Auto PP Strap", slug: "manual-semi-auto-pp-strap" },
-        ]
+        items: []
       },
       {
         id: "printed-pp-strap",
         title: "Printed PP Strap",
         slug: "printed-pp-strap",
-        items: [
-          { name: "Corporate Branded PP Strap", slug: "corporate-branded-pp-strap" },
-          { name: "Security Warning PP Strap", slug: "security-warning-pp-strap" },
-        ]
+        items: []
       },
       {
         id: "colored-pp-strap",
         title: "Colored PP Strap",
         slug: "colored-pp-strap",
-        items: [
-          { name: "Solid Colored PP Strap", slug: "primary-colored-pp-straps" },
-          { name: "Heavy Duty Colored Straps", slug: "heavy-duty-colored-straps" },
-        ]
+        items: []
       },
       {
         id: "pet-strap",
         title: "PET Strap",
         slug: "pet-strap",
-        items: [
-          { name: "Standard Industrial PET Strap", slug: "standard-industrial-pet-strap" },
-          { name: "Extra Heavy Export PET Strap", slug: "extra-heavy-export-pet-strap" },
-        ]
+        items: []
       },
     ]
   }
@@ -330,7 +318,7 @@ export default function Navbar() {
               <span className="font-mono">+91 74287 70999</span>
             </a>
           </div>
-          
+
           {/* Right: Timing / Info */}
           <div className="hidden sm:flex items-center gap-1.5 shrink-0">
             <Clock className="h-3.5 w-3.5 text-[var(--color-amber)] shrink-0" />
@@ -346,7 +334,7 @@ export default function Navbar() {
           scrolled ? "fixed top-0 left-0 z-50 shadow-md bg-white/95 backdrop-blur-md" : "relative z-40"
         )}>
           <div className="max-w-[1536px] mx-auto px-3 sm:px-4 md:px-6 lg:px-8 h-full flex items-center justify-between">
-            
+
             {/* Logo & Brand */}
             <Link href="/" className="flex items-center gap-2.5 sm:gap-3 lg:gap-3.5 group shrink-0" data-hover>
               <OptimizedImage
@@ -400,9 +388,9 @@ export default function Navbar() {
                       {isProductsHovered && (
                         <div
                           data-cascade-menu
-                          className="absolute left-0 top-[56px] z-50 flex items-start pointer-events-auto"
+                          className="absolute -left-36 lg:-left-44 top-[56px] z-50 flex items-start pointer-events-auto"
                         >
-                          
+
                           {/* ── TIER 1: 4 Main Categories Menu ── */}
                           <div className="w-56 lg:w-60 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 z-30 shrink-0">
                             <div className="divide-y divide-white/5">
@@ -524,7 +512,6 @@ export default function Navbar() {
                                       className="w-full px-4 py-2.5 text-left text-xs lg:text-[13px] transition-all duration-150 flex items-center justify-between cursor-pointer bg-[#120a3b] text-white hover:bg-white hover:text-[#120a3b] hover:font-bold border-b border-white/5 font-medium group"
                                     >
                                       <span className="truncate">{item.name}</span>
-                                      <ChevronRight className="h-3.5 w-3.5 text-white/60 group-hover:text-[#120a3b] shrink-0 ml-1 transition-transform group-hover:translate-x-0.5" />
                                     </Link>
                                   ))}
                                 </div>
@@ -618,7 +605,7 @@ export default function Navbar() {
                           {/* Mobile Products Preview — Redesigned with Desktop 3-Tier Hierarchy */}
                           {mobileCategoriesOpen && (
                             <div className="mt-2 py-3 px-2 space-y-4 bg-slate-50/80 rounded-xl border border-slate-200/80">
-                              
+
                               {/* Tier 1: Main Category Switcher Pills */}
                               <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none touch-pan-x -mx-1 px-1">
                                 {productHierarchy.map((cat) => {
@@ -744,7 +731,7 @@ export default function Navbar() {
                     );
                   })}
                 </ul>
-                
+
                 {/* Quick Contact Info — Stitch design bottom drawer */}
                 <div className="mt-1 pt-4 border-t border-slate-100 flex flex-col gap-2">
                   <a href="tel:+918595072187" className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)] hover:text-[var(--color-blue)] transition-colors">

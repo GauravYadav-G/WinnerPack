@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Sora, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "../index.css";
 
@@ -19,6 +19,12 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: "Winner Pack Technologies Pvt. Ltd. — Engineered Packaging, Built in India",

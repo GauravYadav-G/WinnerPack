@@ -87,10 +87,10 @@ export default function Journey() {
               >
                 {/* Full-Bleed Background Image */}
                 <OptimizedImage
-  src={item.appImage}
-  alt={item.solution}
-  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-/>
+                  src={item.appImage}
+                  alt={item.solution}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
 
                 {/* Persistent dark gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />

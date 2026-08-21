@@ -68,10 +68,10 @@ export default function WhyChooseUs() {
                     aria-hidden
                   >
                     <OptimizedImage
-  src={u.bgImage}
-  alt=""
-  className="h-full w-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
-/>
+                      src={u.bgImage}
+                      alt=""
+                      className="h-full w-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
+                    />
                     {/* Layered dark overlay so text stays readable */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-ink-2)]/90 via-[var(--color-ink-2)]/80 to-black/75" />
                   </div>

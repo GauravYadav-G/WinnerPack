@@ -42,7 +42,7 @@ export default function AboutStrip() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <div className="grid gap-6 sm:gap-8 lg:gap-12 lg:grid-cols-12 lg:items-start">
-          
+
           {/* LEFT COLUMN: Image Cards (Side-by-Side on Mobile, Stacked on Desktop) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -54,19 +54,19 @@ export default function AboutStrip() {
             {/* Top Rectangular Card: Automated High-Speed Film Slitting Line */}
             <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
               <OptimizedImage
-  src={(about as any).image1 || "/images/desktop/about/plant_film_slitting_machine.jpg"}
-  alt="High-Speed Servo-Driven Film Slitting & Converting Machine"
-  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-/>
+                src={(about as any).image1 || "/images/desktop/about/plant_film_slitting_machine.jpg"}
+                alt="High-Speed Servo-Driven Film Slitting & Converting Machine"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
 
             {/* Bottom Rectangular Card: Blown Film Extrusion Tower */}
             <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
               <OptimizedImage
-  src={(about as any).image2 || "/images/desktop/about/plant_extrusion_tower.jpg"}
-  alt="Multilayer Blown Film Extrusion Tower"
-  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-/>
+                src={(about as any).image2 || "/images/desktop/about/plant_extrusion_tower.jpg"}
+                alt="Multilayer Blown Film Extrusion Tower"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
           </motion.div>
 

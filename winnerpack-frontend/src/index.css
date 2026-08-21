@@ -97,22 +97,36 @@ html {
   scrollbar-width: none;
 }
 
-/* ─── Ultra High-Resolution 4K & 8K Responsive Scaling ─── */
+/* ─── Unified Responsive Proportional Container ─── */
+.site-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 2vw, 2rem);
+  padding-right: clamp(1rem, 2vw, 2rem);
+  max-width: 1280px;
+}
+
+/* Medium Desktop (1536px+) */
+@media (min-width: 1536px) {
+  .site-container {
+    max-width: 1440px;
+  }
+}
+
+/* Full HD Monitor (1920px+) */
+@media (min-width: 1920px) {
+  .site-container {
+    max-width: 1680px;
+  }
+}
+
+/* Ultra-Wide QHD / 4K (2560px+) */
 @media (min-width: 2560px) {
-  html {
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 3840px) {
-  html {
-    font-size: 22px;
-  }
-}
-
-@media (min-width: 5120px) {
-  html {
-    font-size: 26px;
+  .site-container {
+    max-width: 2040px;
+    padding-left: clamp(2rem, 3vw, 3rem);
+    padding-right: clamp(2rem, 3vw, 3rem);
   }
 }
 

@@ -102,7 +102,7 @@ export default function AboutUs() {
             2. MISSION & VISION — two equal columns
             ════════════════════════════════════════════════════════ */}
         <section className="py-8 sm:py-12 md:py-16 border-t border-[var(--color-line)]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 md:gap-16">
 
               <div className="space-y-2 sm:space-y-4">
@@ -134,7 +134,7 @@ export default function AboutUs() {
             (2-Column Grid on Mobile for Maximum Compactness)
             ════════════════════════════════════════════════════════ */}
         <section id="board-of-directors" className="py-8 sm:py-14 md:py-20 border-t border-[var(--color-line)] bg-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
             
             {/* Top Row: Title Left + Story Paragraph Right */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 md:gap-16 items-end mb-6 sm:mb-12 md:mb-16">
@@ -238,7 +238,7 @@ export default function AboutUs() {
             4. TURNING AMBITIONS INTO RELIABLE OUTCOMES
             ════════════════════════════════════════════════════════ */}
         <section className="py-8 sm:py-14 md:py-20 border-t border-[var(--color-line)]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 md:gap-16 items-center">
 
               <div className="space-y-4 sm:space-y-6">
@@ -286,7 +286,7 @@ export default function AboutUs() {
             5. CTA BANNER — dark rounded card
             ════════════════════════════════════════════════════════ */}
         <section className="py-8 sm:py-12 md:py-16 border-t border-[var(--color-line)]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
             <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[var(--color-blue-deep)] p-6 sm:p-14 md:p-20 text-center shadow-xl sm:shadow-2xl">
               <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[var(--color-amber)]/15 blur-3xl pointer-events-none" />
               <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[var(--color-amber)]/10 blur-3xl pointer-events-none" />

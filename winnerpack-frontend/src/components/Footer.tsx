@@ -46,19 +46,19 @@ export default function Footer() {
       {/* Noise and Grid Overlays */}
       <div className="bg-noise absolute inset-0 pointer-events-none" />
       <div className="absolute inset-0 bg-grid-dark opacity-35 pointer-events-none" />
-      
+
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         {/* Main Columns Container */}
         <div className="grid gap-10 lg:grid-cols-12">
-          
+
           {/* Column 1: Logo & Company Description */}
           <div className="lg:col-span-4 flex flex-col">
             <div className="flex items-center gap-3">
               <OptimizedImage
-  src={"/logo.png"}
-  alt="Winner Pack Logo"
-  className="h-12 w-auto object-contain"
-/>
+                src={"/logo.png"}
+                alt="Winner Pack Logo"
+                className="h-12 w-auto object-contain"
+              />
               <div className="leading-tight flex flex-col">
                 <div className="font-display text-lg sm:text-xl font-black tracking-tight text-white leading-none">
                   Winner Pack
@@ -68,11 +68,11 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            
+
             <p className="mt-5 text-xs sm:text-sm leading-relaxed text-white/60 text-justify">
               {footerData.description}
             </p>
-            
+
             {/* Social Icons */}
             <div className="mt-6 flex items-center gap-2">
               {[
