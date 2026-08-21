@@ -164,9 +164,8 @@ export default function HeroSlider() {
             aria-label={`Go to slide ${i + 1}`}
           >
             <span
-              className={`block h-1 md:h-1.5 rounded-full transition-all duration-300 ${
-                i === current ? "w-5 md:w-8 bg-[var(--color-amber)]" : "w-1.5 md:w-2 bg-white/40"
-              }`}
+              className={`block h-1 md:h-1.5 rounded-full transition-all duration-300 ${i === current ? "w-5 md:w-8 bg-[var(--color-amber)]" : "w-1.5 md:w-2 bg-white/40"
+                }`}
             />
           </button>
         ))}
