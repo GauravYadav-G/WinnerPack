@@ -447,7 +447,7 @@ function getSubcategoryImages(sub: any, parentProduct: any) {
   return images;
 }
 
-function SubcategoryCardImageGallery({ images, title, categoryName }: { images: string[]; title: string; categoryName?: string }) {
+function SubcategoryCardImageGallery({ images, title }: { images: string[]; title: string; categoryName?: string }) {
   const currentImg = images[0] || "/images/products/specialty-pouches/image.png";
 
   return (
@@ -457,11 +457,6 @@ function SubcategoryCardImageGallery({ images, title, categoryName }: { images: 
         alt={title}
         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
       />
-      {categoryName && (
-        <span className="absolute bottom-3 left-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white px-2.5 py-1 rounded-md bg-slate-950/60 backdrop-blur-xs shadow-xs">
-          {categoryName}
-        </span>
-      )}
     </div>
   );
 }
@@ -681,12 +676,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     : fallbackParent?.subCategories || [];
 
   const isParentProduct = Boolean(
-    displaySubCategories.length > 0 ||
-    product?.id === "pof-shrink-film" ||
-    product?.id === "packaging-films" ||
-    product?.id === "plastic-stretch-film" ||
-    product?.id === "lamination-films-pouches" ||
-    product?.id === "lamination-pe-film" ||
+    (isFilmProduct && displaySubCategories.length > 0 && !product.specs && !product.longDesc) ||
     product?.id === "film-products"
   );
 
@@ -1187,6 +1177,100 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     )}
 
 
+
+                    {/* IN-PAGE PRODUCT TYPES & VARIATIONS GRID (PLACED BELOW HERO & SPECS TABLE) */}
+                    {displaySubCategories.length > 0 && (
+                      <div id="variants" className="pt-8 border-t border-[var(--color-line)] space-y-5">
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2.5">
+                            <div className="h-5 w-1 rounded-full bg-[var(--color-amber)] shrink-0" />
+                            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
+                              Available Types & Specifications
+                            </h2>
+                          </div>
+                          <p className="text-xs sm:text-sm text-slate-600 pl-3.5">
+                            Explore specific material grades, core dimensions, and application variants available under {product.title}.
+                          </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-1 items-stretch">
+                          {displaySubCategories.map((sub: any) => {
+                            const subImages = getSubcategoryImages(sub, product);
+                            return (
+                              <div
+                                key={sub.id || sub.title}
+                                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[var(--color-amber)]/50 hover:shadow-xl"
+                              >
+                                <div className="relative">
+                                  <SubcategoryCardImageGallery images={subImages} title={sub.title} categoryName={category || product.title} />
+                                </div>
+
+                                <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
+                                  <div>
+                                    <h3 className="font-display text-sm sm:text-base font-extrabold text-slate-900 tracking-tight leading-snug">
+                                      {sub.title}
+                                    </h3>
+
+                                    {sub.subtitle && (
+                                      <p className="text-[11px] sm:text-xs font-semibold text-[var(--color-amber-dark)] mt-1">
+                                        {sub.subtitle}
+                                      </p>
+                                    )}
+
+                                    {sub.blurb && (
+                                      <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-sans font-normal">
+                                        {sub.blurb}
+                                      </p>
+                                    )}
+
+                                    {sub.specs && (
+                                      <div className="mt-3.5 pt-3 border-t border-slate-100 space-y-1.5">
+                                        {Object.entries(sub.specs).slice(0, 5).map(([lbl, val]: any) => (
+                                          <div key={lbl} className="flex items-start justify-between gap-2 text-[11px] sm:text-xs">
+                                            <span className="font-semibold text-slate-900 shrink-0">{lbl}:</span>
+                                            <span className="font-medium text-slate-600 text-right leading-tight">{String(val)}</span>
+                                          </div>
+                                        ))}
+                                      </div>
+                                    )}
+
+                                    {Array.isArray(sub.applications) && sub.applications.length > 0 && (
+                                      <div className="mt-3 pt-2.5 border-t border-slate-100 flex flex-wrap gap-1">
+                                        {sub.applications.map((app: string, idx: number) => (
+                                          <span
+                                            key={idx}
+                                            className="inline-block px-2 py-0.5 rounded-md bg-slate-100 text-[10px] sm:text-[11px] font-medium text-slate-600"
+                                          >
+                                            {app}
+                                          </span>
+                                        ))}
+                                      </div>
+                                    )}
+                                  </div>
+
+                                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                                    <button
+                                      type="button"
+                                      onClick={() => setIsInquiryOpen(true)}
+                                      className="inline-flex items-center gap-1 text-xs font-bold text-[var(--color-amber-dark)] hover:text-[var(--color-amber)] transition-colors min-h-[32px] cursor-pointer"
+                                    >
+                                      <span>Inquire for this type</span>
+                                      <ArrowRight className="h-3 w-3" />
+                                    </button>
+                                    <Link
+                                      href={`/contact?sku=${product.id}&title=${encodeURIComponent(`${product.title} - ${sub.title}`)}`}
+                                      className="inline-flex items-center justify-center rounded-full bg-[var(--color-amber-soft)] px-3 py-1 text-xs font-bold text-[var(--color-amber-dark)] hover:bg-[var(--color-amber)] hover:text-white transition-all shadow-2xs"
+                                    >
+                                      Quote
+                                    </Link>
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
 
                     {/* DEDICATED FREQUENTLY ASKED QUESTIONS (FAQ) SECTION */}
                     <FaqSection faqs={productFaqs} />

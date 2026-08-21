@@ -70,10 +70,21 @@ export const PRODUCT_IMAGE_MAP: Record<string, string> = {
   "resin-ribbons": "/images/products/resin-ribbons/resin-ribbons.jpg",
 
   // Tapes
-  "bopp-tapes": "/images/products/bopp-tapes/image.png",
+  "bopp-tapes": "/images/products/bopp-tapes/bopp-tapes.jpg",
+  "manual-hand-dispenser-bopp-tapes": "/images/products/bopp-tapes/manual-dispenser-bopp-tapes.jpg",
+  "automated-machine-roll-bopp-tapes": "/images/products/bopp-tapes/automated-machine-roll-bopp-tapes.jpg",
   "printed-tapes": "/images/products/printed-bopp-tapes/image.png",
+  "printed-bopp-tapes": "/images/products/printed-bopp-tapes/image.png",
+  "custom-corporate-logo-tapes": "/images/products/printed-bopp-tapes/image.png",
+  "preprinted-warning-security-tapes": "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg",
   "colored-tapes": "/images/products/coloured-bopp-tapes/image.png",
+  "coloured-bopp-tapes": "/images/products/coloured-bopp-tapes/image.png",
+  "primary-colored-bopp-tapes": "/images/products/coloured-bopp-tapes/image.png",
+  "secondary-colored-bopp-tapes": "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg",
   "masking-tapes": "/images/products/silicon-tapes/image.png",
+  "silicon-tapes": "/images/products/silicon-tapes/image.png",
+  "self-fusing-silicone-leak-tapes": "/images/products/silicon-tapes/image.png",
+  "silicone-bag-sealing-tapes": "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg",
 
   // Strap
   "pp-strap-main": "/images/products/pp-strap/image.png",

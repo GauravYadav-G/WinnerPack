@@ -96,13 +96,15 @@ export default function ProductCategories() {
       label: "Tapes Division Showcase",
       link: "/product-category/tape-products",
       slot1: [
+        "/images/products/bopp-tapes/manual-dispenser-bopp-tapes.jpg",
+        "/images/products/bopp-tapes/automated-machine-roll-bopp-tapes.jpg",
         "/images/products/bopp-tapes/applications/app-1.png",
         "/images/products/bopp-tapes/applications/app-2.png",
         "/images/products/bopp-tapes/applications/app-3.png",
-        "/images/products/bopp-tapes/applications/app-4.png",
-        "/images/products/bopp-tapes/image.png"
+        "/images/products/bopp-tapes/applications/app-4.png"
       ],
       slot2: [
+        "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg",
         "/images/products/printed-bopp-tapes/applications/app-1.png",
         "/images/products/printed-bopp-tapes/applications/app-2.png",
         "/images/products/printed-bopp-tapes/applications/app-3.png",
@@ -110,6 +112,7 @@ export default function ProductCategories() {
         "/images/products/printed-bopp-tapes/image.png"
       ],
       slot3: [
+        "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg",
         "/images/products/coloured-bopp-tapes/applications/app-1.png",
         "/images/products/coloured-bopp-tapes/applications/app-2.png",
         "/images/products/coloured-bopp-tapes/applications/app-3.png",
@@ -117,6 +120,7 @@ export default function ProductCategories() {
         "/images/products/coloured-bopp-tapes/image.png"
       ],
       slot4: [
+        "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg",
         "/images/products/silicon-tapes/applications/app-1.png",
         "/images/products/silicon-tapes/applications/app-2.png",
         "/images/products/silicon-tapes/applications/app-3.png",

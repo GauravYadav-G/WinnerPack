@@ -2372,11 +2372,11 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "BOPP",
     blurb: "High-tack Biaxially Oriented Polypropylene (BOPP) self-adhesive carton sealing tapes engineered for manual handheld dispensers and automated box sealing machines.",
     longDesc: "BOPP Tapes are manufactured from high-tensile Biaxially Oriented Polypropylene film coated with water-based pressure-sensitive acrylic adhesive. Extruded under strict caliper control, these tapes provide instant tack, high shear strength, and split resistance over corrugated carton flaps, preventing box opening failures during transit.\n\n### Key Product Features:\n- **High Tack Pressure-Sensitive Adhesive**: Water-based acrylic adhesive bonds instantly to recycled and kraft cardboard.\n- **High Tensile Base Film**: Bi-axial film orientation prevents snapping under high manual or automated tensioning.\n- **Moisture & Temperature Resistance**: Resists aging, yellowing, UV light exposure, and humidity fluctuations.\n- **Manual & Machine Roll Lengths**: Available in 50m/100m manual hand rolls and 650m/1000m industrial machine rolls.\n- **Smooth & Low-Noise Unwind**: Formulated for quiet, smooth unwinding on high-speed conveyor sealing lines.",
-    image: "/images/products/bopp-tapes/image.png",
+    image: "/images/products/bopp-tapes/bopp-tapes.jpg",
     gallery: [
-      "/images/products/bopp-tapes/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
+      "/images/products/bopp-tapes/bopp-tapes.jpg",
+      "/images/products/bopp-tapes/manual-dispenser-bopp-tapes.jpg",
+      "/images/products/bopp-tapes/automated-machine-roll-bopp-tapes.jpg"
     ],
     specs: {
       "Film Structure": "Biaxially Oriented Polypropylene (BOPP) Film",
@@ -2400,7 +2400,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Manual Hand-Dispenser BOPP Tapes",
         subtitle: "48mm x 65m / 100m Hand Rolls for Warehouse Carton Sealing",
         blurb: "Lightweight, smooth-unwind BOPP self-adhesive tape rolls designed for handheld tape gun dispensers. Ideal for fast warehouse packing, e-commerce box sealing, and retail parcel dispatch.",
-        image: "/images/products/bopp-tapes/image.png",
+        image: "/images/products/bopp-tapes/manual-dispenser-bopp-tapes.jpg",
         specs: {
           "Widths Available": "48mm (2 Inch), 72mm (3 Inch)",
           "Roll Lengths": "50m, 65m, 100m Hand Rolls",
@@ -2414,7 +2414,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Automated Machine-Roll BOPP Tapes",
         subtitle: "48mm / 72mm x 650m / 1000m Industrial Sealing Machine Rolls",
         blurb: "Heavy-duty continuous long-length BOPP tape rolls engineered for fully automated top-and-bottom carton sealing machines. Reduces roll changeover downtime on high-volume conveyor lines.",
-        image: "/images/products/bopp-tapes/applications/app-1.png",
+        image: "/images/products/bopp-tapes/automated-machine-roll-bopp-tapes.jpg",
         specs: {
           "Widths Available": "48mm (2 Inch), 72mm (3 Inch)",
           "Roll Lengths": "650m, 1000m Industrial Machine Rolls",
@@ -2442,8 +2442,9 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     image: "/images/products/printed-bopp-tapes/image.png",
     gallery: [
       "/images/products/printed-bopp-tapes/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
+      "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg",
+      "/images/products/printed-bopp-tapes/applications/app-1.png",
+      "/images/products/printed-bopp-tapes/applications/app-2.png"
     ],
     specs: {
       "Print Technology": "Reverse / Surface Printed UV Cured Inks (No Rub-Off)",
@@ -2481,7 +2482,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Pre-Printed Warning & Security Tapes",
         subtitle: "Tamper-Evident Fragile & Security Caution Packaging Tapes",
         blurb: "Pre-printed with high-visibility warning text (e.g. 'FRAGILE - HANDLE WITH CARE', 'STOP IF SEAL IS BROKEN'). Prevents damage and theft during transit.",
-        image: "/images/products/printed-bopp-tapes/applications/app-1.png",
+        image: "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg",
         specs: {
           "Text Options": "'FRAGILE' / 'SECURITY SEAL' / 'HANDLE WITH CARE'",
           "Color Combination": "Red Text on White Base / Black Text on Yellow Base",
@@ -2509,8 +2510,9 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     image: "/images/products/coloured-bopp-tapes/image.png",
     gallery: [
       "/images/products/coloured-bopp-tapes/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
+      "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg",
+      "/images/products/coloured-bopp-tapes/applications/app-1.png",
+      "/images/products/coloured-bopp-tapes/applications/app-2.png"
     ],
     specs: {
       "Pigmentation Grade": "High Opacity Solid Block Masterbatch Color",
@@ -2548,7 +2550,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Secondary & Security Colored Tapes",
         subtitle: "Grass Green, Industrial Orange & Jet Black Tapes",
         blurb: "Solid secondary colored BOPP self-adhesive tapes for special inventory categorization, quality inspection marking, and confidential parcel sealing.",
-        image: "/images/products/coloured-bopp-tapes/applications/app-2.png",
+        image: "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg",
         specs: {
           "Colors": "Grass Green, Industrial Orange, Jet Black",
           "Widths": "48mm (2 Inch), 72mm (3 Inch)",
@@ -2576,8 +2578,9 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     image: "/images/products/silicon-tapes/image.png",
     gallery: [
       "/images/products/silicon-tapes/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
+      "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg",
+      "/images/products/silicon-tapes/applications/app-1.png",
+      "/images/products/silicon-tapes/applications/app-2.png"
     ],
     specs: {
       "Operating Temperature": "-50°C to +260°C Continuous",
@@ -2615,7 +2618,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Silicone Bag Sealing Tapes",
         subtitle: "Peel-and-Seal Reusable Bag Closure Tapes",
         blurb: "Polyester-backed silicone release liner tapes designed for sealing plastic mailers, OPP bags, and courier pouches with reusable peel-and-seal functionality.",
-        image: "/images/products/silicon-tapes/applications/app-1.png",
+        image: "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg",
         specs: {
           "Substrate": "Mylar / PET film with silicone release coating",
           "Adhesive": "Solvent acrylic / Synthetic rubber glue",

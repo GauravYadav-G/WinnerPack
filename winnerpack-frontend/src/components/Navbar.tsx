@@ -218,13 +218,13 @@ export const productHierarchy = [
       },
       {
         id: "printed-tapes",
-        title: "Printed Tapes",
+        title: "Printed BOPP Tapes",
         slug: "printed-bopp-tapes",
         items: []
       },
       {
         id: "colored-tapes",
-        title: "Colored Tapes",
+        title: "Coloured BOPP Tapes",
         slug: "coloured-bopp-tapes",
         items: []
       },
@@ -232,60 +232,6 @@ export const productHierarchy = [
         id: "silicon-tapes",
         title: "Silicon Tapes",
         slug: "silicon-tapes",
-        items: []
-      },
-      {
-        id: "masking-tapes",
-        title: "Masking Tapes",
-        slug: "masking-tapes",
-        items: []
-      },
-      {
-        id: "aluminium-foil-tapes",
-        title: "Aluminium Foil Tapes",
-        slug: "aluminium-foil-tapes",
-        items: []
-      },
-      {
-        id: "cross-filament-tapes",
-        title: "Cross Filament Tapes",
-        slug: "cross-filament-tapes",
-        items: []
-      },
-      {
-        id: "duct-tapes",
-        title: "Duct Tapes",
-        slug: "duct-tapes",
-        items: []
-      },
-      {
-        id: "floor-marking-tapes",
-        title: "Floor Marking Tapes",
-        slug: "floor-marking-tapes",
-        items: []
-      },
-      {
-        id: "foam-tapes",
-        title: "Foam Tapes",
-        slug: "foam-tapes",
-        items: []
-      },
-      {
-        id: "reinforced-kraft-paper-tapes",
-        title: "Reinforced Kraft Paper Tapes",
-        slug: "reinforced-kraft-paper-tapes",
-        items: []
-      },
-      {
-        id: "surface-protection-tapes",
-        title: "Surface Protection Tapes",
-        slug: "surface-protection-tapes",
-        items: []
-      },
-      {
-        id: "tissue-tapes",
-        title: "Tissue Tapes",
-        slug: "tissue-tapes",
         items: []
       },
     ]
