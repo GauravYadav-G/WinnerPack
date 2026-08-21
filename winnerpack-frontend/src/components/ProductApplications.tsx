@@ -54,7 +54,7 @@ const applicationsData: ApplicationItem[] = [
     materialUsed: "BOPP Packaging Tapes & Poly Bags",
     industry: "E-Commerce Fulfillment & Express Logistics",
     specs: ["High-Initial Tack Acrylic", "Wide Temperature Tolerance", "Tamper-Evident Sealing"],
-    image: "/images/products/bopp-tapes/image.png",
+    image: "/images/products/bopp-tapes/bopp-tapes.jpg",
     link: "/product/bopp-tapes",
   },
 ];

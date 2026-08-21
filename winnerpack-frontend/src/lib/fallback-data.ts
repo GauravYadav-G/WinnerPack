@@ -2439,12 +2439,9 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "Printed",
     blurb: "Custom corporate logo printed BOPP packaging tapes engineered for brand identification, tamper-evident security sealing, and anti-pilferage dispatch protection.",
     longDesc: "Printed BOPP Tapes feature custom corporate logos, brand names, handling instructions, or tamper-evident security warnings printed underneath or over high-tack acrylic adhesive BOPP film. Serves as a dual-purpose solution that secures shipping cartons while building brand recognition and acting as a visible indicator against unauthorized box opening.\n\n### Key Product Features:\n- **High-Resolution Custom Branding**: Printed with up to 4-color UV-resistant inks with sharp logo reproduction.\n- **Anti-Pilferage Security Protection**: Instant visual evidence if carton tape is cut or replaced during transit.\n- **High Bond Strength**: Premium acrylic glue bonds permanently to corrugated paper, preventing tape lift-off.\n- **Abrasion & Rub-Off Resistant**: Printed inks are sealed under protective release top-coats to prevent ink smudging.\n- **Custom Warning Prints**: Pre-printed messages available (e.g. 'FRAGILE', 'HANDLE WITH CARE', 'DO NOT ACCEPT IF SEAL BROKEN').",
-    image: "/images/products/printed-bopp-tapes/image.png",
+    image: "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg",
     gallery: [
-      "/images/products/printed-bopp-tapes/image.png",
-      "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg",
-      "/images/products/printed-bopp-tapes/applications/app-1.png",
-      "/images/products/printed-bopp-tapes/applications/app-2.png"
+      "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg"
     ],
     specs: {
       "Print Technology": "Reverse / Surface Printed UV Cured Inks (No Rub-Off)",
@@ -2468,7 +2465,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Custom Corporate Logo Printed Tapes",
         subtitle: "Brand Identity & Custom Artwork Packaging Tapes",
         blurb: "BOPP packaging tape customized with corporate logos, company graphics, and web addresses. Transforms shipping boxes into mobile marketing channels while securing box flaps.",
-        image: "/images/products/printed-bopp-tapes/image.png",
+        image: "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg",
         specs: {
           "Ink Colors": "Up to 4 Custom Pantone Spot Colors",
           "Background Base": "Pure White / Crystal Clear / Kraft Brown",
@@ -2507,12 +2504,9 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "Coloured",
     blurb: "Bright opaque colored BOPP self-adhesive packaging tapes engineered for inventory color classification, cargo batch sorting, and high-visibility parcel marking.",
     longDesc: "Coloured BOPP Tapes are manufactured by blending solid masterbatch color pigments into BOPP backing film, coated with high-tack acrylic adhesive. Designed for large distribution centers, fulfillment warehouses, and export logistics hubs to enable instant visual color-code sorting, cargo batching, and inventory routing.\n\n### Key Product Features:\n- **High Opacity Solid Masterbatch Colors**: Red, Yellow, Blue, Green, Orange, Black, and White solid colors.\n- **Instant Visual Inventory Sorting**: Speeds up warehouse parcel classification and cargo routing.\n- **High Tack Acrylic Bonding**: Adheres firmly to corrugated paper and stretch film without peeling.\n- **UV & Moisture Resistant**: Pigments and adhesives resist fading under warehouse lighting and moisture exposure.\n- **Standard Hand & Machine Roll Formats**: Available in 48mm x 65m hand rolls and long-length machine rolls.",
-    image: "/images/products/coloured-bopp-tapes/image.png",
+    image: "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg",
     gallery: [
-      "/images/products/coloured-bopp-tapes/image.png",
-      "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg",
-      "/images/products/coloured-bopp-tapes/applications/app-1.png",
-      "/images/products/coloured-bopp-tapes/applications/app-2.png"
+      "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg"
     ],
     specs: {
       "Pigmentation Grade": "High Opacity Solid Block Masterbatch Color",
@@ -2536,7 +2530,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Primary Colored BOPP Tapes",
         subtitle: "Signal Red, Safety Yellow & Ocean Blue Packaging Tapes",
         blurb: "High-visibility primary colored BOPP tapes designed for quick warehouse lot identification, order priority color-coding, and parcel batching.",
-        image: "/images/products/coloured-bopp-tapes/image.png",
+        image: "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg",
         specs: {
           "Colors": "Signal Red, Safety Yellow, Ocean Blue",
           "Widths": "48mm (2 Inch)",
@@ -2575,12 +2569,9 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "Silicon",
     blurb: "Self-fusing silicone rubber sealing tapes and release-liner bag sealing tapes engineered for high-temperature pipe leak repair, electrical insulation, and reusable bag closures.",
     longDesc: "Silicon Sealing Tapes encompass self-fusing silicone rubber wrapping tapes and silicone release bag sealing tapes. Self-fusing silicone tapes fuse to themselves under tension without adhesive, forming an airtight, 100% waterproof seal capable of withstanding extreme temperatures (-50°C to +260°C) and high electrical voltage insulation.\n\n### Key Product Features:\n- **Self-Fusing Adhesive-Free Action**: Fuses permanently to itself within 24 hours under tension without sticky residues.\n- **Extreme Temperature Resistance**: Operates continuously from -50°C to +260°C without melting or hardening.\n- **High Electrical Dielectric Insulation**: Withstands up to 8,000 Volts per layer for electrical cable splicing.\n- **100% Waterproof & Pressure Tight**: Instantly seals leaking water pipes, hose connections, and air ducts under pressure.\n- **Weather & Chemical Proof**: Resistant to UV radiation, ozone, salt water, fuel, and industrial hydraulic fluids.",
-    image: "/images/products/silicon-tapes/image.png",
+    image: "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg",
     gallery: [
-      "/images/products/silicon-tapes/image.png",
-      "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg",
-      "/images/products/silicon-tapes/applications/app-1.png",
-      "/images/products/silicon-tapes/applications/app-2.png"
+      "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg"
     ],
     specs: {
       "Operating Temperature": "-50°C to +260°C Continuous",
@@ -2604,7 +2595,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Self-Fusing Silicone Rubber Leak Tapes",
         subtitle: "Adhesive-Free Pipe & Electrical Insulation Repair Tapes",
         blurb: "Self-amalgamating silicone rubber tape that bonds to itself upon wrapping under tension. Provides an instant 100% waterproof emergency seal for leaking pipes, automotive radiator hoses, and high-voltage electrical cable splices.",
-        image: "/images/products/silicon-tapes/image.png",
+        image: "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg",
         specs: {
           "Widths": "25mm (1 Inch), 50mm (2 Inch)",
           "Thickness": "0.5mm, 1.0mm",

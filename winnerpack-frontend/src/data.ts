@@ -62,7 +62,7 @@ export const productCategories: ProductCategory[] = [
     icon: Disc3,
     tag: "BOPP Tapes · Custom Printed · Silicon Sealing",
     gradient: "from-emerald-400/20 to-teal-500/10",
-    image: "/images/products/printed-bopp-tapes/image.png",
+    image: "/images/products/bopp-tapes/bopp-tapes.jpg",
     items: [
       "BOPP Tapes",
       "Printed BOPP Tapes",
