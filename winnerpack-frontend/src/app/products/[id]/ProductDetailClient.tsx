@@ -650,6 +650,15 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       hierarchyCategory.catSlug === product.category
   );
   const isLabelProduct = product.category === "label-sticker-products";
+  const isFilmProduct = Boolean(
+    product.category === "film-products" ||
+    product.id === "pof-shrink-film" ||
+    product.id === "packaging-films" ||
+    product.id === "plastic-stretch-film" ||
+    product.id === "lamination-films-pouches" ||
+    product.id === "lamination-pe-film" ||
+    product.id === "film-products"
+  );
   const labelParent = isLabelProduct
     ? initialProducts.find((parent) => parent.subCategories?.some((sub: any) => sub.id === product.id))
     : undefined;
@@ -699,46 +708,117 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               align="center"
             />
 
-            {/* 2. PROMINENT SUBCATEGORY CARDS IN CLEAN CORPORATE LIGHT B2B THEME */}
+            {/* 2. PROMINENT SUBCATEGORY / IN-PAGE VARIANTS SECTION */}
             {displaySubCategories.length > 0 && (
-              <section className="bg-slate-50 py-10 sm:py-14 md:py-16 border-b border-[var(--color-line)]">
+              <section id="variants" className="bg-slate-50 py-10 sm:py-14 md:py-16 border-b border-[var(--color-line)]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                   <div className="mb-8 sm:mb-10 text-center max-w-2xl mx-auto">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] mb-1.5 block">
+                      {isFilmProduct ? "Industrial Line Navigation" : "Product Variations & Specifications"}
+                    </span>
                     <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
-                      Explore Industrial Line Options
+                      {isFilmProduct ? "Explore Industrial Line Options" : "Available Formats & Types"}
                     </h2>
+                    <p className="mt-2 text-xs sm:text-sm text-slate-600">
+                      {isFilmProduct
+                        ? "Select a dedicated category line to inspect full sub-product specifications."
+                        : `All variations and specifications available under ${product.title}.`}
+                    </p>
                   </div>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 items-stretch">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
                     {displaySubCategories.map((sub: any) => {
                       const subImages = getSubcategoryImages(sub, product);
                       const subSlug = sub.id || sub.slug || product.id;
+
+                      if (isFilmProduct) {
+                        // Film products navigate to subcategory pages
+                        return (
+                          <div
+                            key={sub.id || sub.title}
+                            className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[var(--color-blue-3)]/50 hover:shadow-xl active:scale-[0.99] sm:active:scale-100"
+                          >
+                            <Link href={`/products/${subSlug}`} className="block relative">
+                              <SubcategoryCardImageGallery images={subImages} title={sub.title} categoryName={category || product.title} />
+                            </Link>
+
+                            <div className="flex flex-1 flex-col justify-between p-3.5 sm:p-6">
+                              <div>
+                                <Link href={`/products/${subSlug}`} className="block">
+                                  <h3 className="font-display text-[13px] sm:text-xl font-extrabold text-slate-900 group-hover:text-[var(--color-blue)] transition-colors tracking-tight leading-snug line-clamp-1 sm:line-clamp-none">
+                                    {sub.title}
+                                  </h3>
+                                </Link>
+
+                                {sub.blurb && (
+                                  <p className="hidden sm:block mt-1 sm:mt-2 text-[11px] sm:text-sm text-slate-600 leading-relaxed font-sans font-normal">
+                                    {sub.blurb}
+                                  </p>
+                                )}
+
+                                {sub.specs && (
+                                  <div className="mt-4 pt-3.5 border-t border-slate-100 space-y-2 hidden sm:block">
+                                    {Object.entries(sub.specs).slice(0, 4).map(([lbl, val]: any) => (
+                                      <div key={lbl} className="flex items-start justify-between gap-2.5 text-xs">
+                                        <span className="font-semibold text-slate-900 shrink-0">{lbl}:</span>
+                                        <span className="font-medium text-slate-600 text-right leading-tight">{String(val)}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+
+                              <div className="mt-2.5 pt-2 sm:mt-5 sm:pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                                <Link
+                                  href={`/products/${subSlug}`}
+                                  className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] sm:text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors min-h-[32px] sm:min-h-[40px]"
+                                >
+                                  <span>Explore range</span>
+                                  <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber-dark)]" />
+                                </Link>
+                                <Link
+                                  href={`/contact?sku=${subSlug}&title=${encodeURIComponent(sub.title)}`}
+                                  className="hidden sm:inline-flex items-center justify-center rounded-full bg-[var(--color-blue-soft)] px-4 py-1.5 text-xs font-bold text-[var(--color-blue)] hover:bg-[var(--color-blue)] hover:text-white transition-all shadow-2xs"
+                                >
+                                  Quote
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      }
+
+                      // Labels & Stickers / Tapes: In-page variant cards with full description and instant inquiry trigger
                       return (
                         <div
                           key={sub.id || sub.title}
-                          className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[var(--color-blue-3)]/50 hover:shadow-xl active:scale-[0.99] sm:active:scale-100"
+                          className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[var(--color-amber)]/50 hover:shadow-xl"
                         >
-                          <Link href={`/products/${subSlug}`} className="block relative">
+                          <div className="relative">
                             <SubcategoryCardImageGallery images={subImages} title={sub.title} categoryName={category || product.title} />
-                          </Link>
+                          </div>
 
-                          <div className="flex flex-1 flex-col justify-between p-3.5 sm:p-6">
+                          <div className="flex flex-1 flex-col justify-between p-4 sm:p-6">
                             <div>
-                              <Link href={`/products/${subSlug}`} className="block">
-                                <h3 className="font-display text-[13px] sm:text-xl font-extrabold text-slate-900 group-hover:text-[var(--color-blue)] transition-colors tracking-tight leading-snug line-clamp-1 sm:line-clamp-none">
-                                  {sub.title}
-                                </h3>
-                              </Link>
+                              <h3 className="font-display text-base sm:text-xl font-extrabold text-slate-900 tracking-tight leading-snug">
+                                {sub.title}
+                              </h3>
+
+                              {sub.subtitle && (
+                                <p className="text-xs font-semibold text-[var(--color-amber-dark)] mt-1">
+                                  {sub.subtitle}
+                                </p>
+                              )}
 
                               {sub.blurb && (
-                                <p className="hidden sm:block mt-1 sm:mt-2 text-[11px] sm:text-sm text-slate-600 leading-relaxed font-sans font-normal">
+                                <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-sans font-normal">
                                   {sub.blurb}
                                 </p>
                               )}
 
                               {sub.specs && (
-                                <div className="mt-4 pt-3.5 border-t border-slate-100 space-y-2 hidden sm:block">
-                                  {Object.entries(sub.specs).slice(0, 4).map(([lbl, val]: any) => (
+                                <div className="mt-4 pt-3.5 border-t border-slate-100 space-y-2">
+                                  {Object.entries(sub.specs).slice(0, 5).map(([lbl, val]: any) => (
                                     <div key={lbl} className="flex items-start justify-between gap-2.5 text-xs">
                                       <span className="font-semibold text-slate-900 shrink-0">{lbl}:</span>
                                       <span className="font-medium text-slate-600 text-right leading-tight">{String(val)}</span>
@@ -746,19 +826,33 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                   ))}
                                 </div>
                               )}
+
+                              {Array.isArray(sub.applications) && sub.applications.length > 0 && (
+                                <div className="mt-3.5 pt-3 border-t border-slate-100 flex flex-wrap gap-1.5">
+                                  {sub.applications.map((app: string, idx: number) => (
+                                    <span
+                                      key={idx}
+                                      className="inline-block px-2 py-0.5 rounded-md bg-slate-100 text-[11px] font-medium text-slate-600"
+                                    >
+                                      {app}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
                             </div>
 
-                            <div className="mt-2.5 pt-2 sm:mt-5 sm:pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
-                              <Link
-                                href={`/products/${subSlug}`}
-                                className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] sm:text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors min-h-[32px] sm:min-h-[40px]"
+                            <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between gap-2">
+                              <button
+                                type="button"
+                                onClick={() => setIsInquiryOpen(true)}
+                                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[var(--color-amber-dark)] hover:text-[var(--color-amber)] transition-colors min-h-[36px] cursor-pointer"
                               >
-                                <span>Explore range</span>
-                                <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber-dark)]" />
-                              </Link>
+                                <span>Inquire for this specification</span>
+                                <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                              </button>
                               <Link
-                                href={`/contact?sku=${subSlug}&title=${encodeURIComponent(sub.title)}`}
-                                className="hidden sm:inline-flex items-center justify-center rounded-full bg-[var(--color-blue-soft)] px-4 py-1.5 text-xs font-bold text-[var(--color-blue)] hover:bg-[var(--color-blue)] hover:text-white transition-all shadow-2xs"
+                                href={`/contact?sku=${product.id}&title=${encodeURIComponent(`${product.title} - ${sub.title}`)}`}
+                                className="inline-flex items-center justify-center rounded-full bg-[var(--color-amber-soft)] px-3.5 py-1.5 text-xs font-bold text-[var(--color-amber-dark)] hover:bg-[var(--color-amber)] hover:text-white transition-all shadow-2xs"
                               >
                                 Quote
                               </Link>

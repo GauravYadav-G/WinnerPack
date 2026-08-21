@@ -147,67 +147,43 @@ export const productHierarchy = [
         id: "plain-labels",
         title: "Plain Labels",
         slug: "plain-labels",
-        items: [
-          { name: "Plain Chromo Paper Labels", slug: "plain-chromo-labels" },
-          { name: "Plain Thermal Transfer Labels", slug: "plain-thermal-transfer-labels" },
-        ]
+        items: []
       },
       {
         id: "printed-labels",
         title: "Printed Labels",
         slug: "printed-labels",
-        items: [
-          { name: "Flexo & Digital Printed Labels", slug: "flexo-digital-printed-labels" },
-          { name: "Wide Format Promotional Labels", slug: "wide-format-printed-labels" },
-        ]
+        items: []
       },
       {
         id: "barcode-labels",
         title: "Barcode Labels",
         slug: "barcode-labels",
-        items: [
-          { name: "Thermal Transfer Barcode Labels", slug: "thermal-transfer-barcode-labels" },
-          { name: "GS1 & Data Matrix Barcode Labels", slug: "gs1-data-matrix-barcode-labels" },
-        ]
+        items: []
       },
       {
         id: "product-labels",
         title: "Product Labels",
         slug: "product-labels",
-        items: [
-          { name: "Clear & Metallic Product Labels", slug: "clear-metallic-product-labels" },
-          { name: "Jar & Bottle Product Labels", slug: "jar-bottle-product-labels" },
-        ]
+        items: []
       },
       {
         id: "self-adhesive-labels",
         title: "Self Adhesive Labels",
         slug: "self-adhesive-labels",
-        items: [
-          { name: "Paper Self-Adhesive Labels", slug: "paper-self-adhesive-labels" },
-          { name: "Film Self-Adhesive Labels", slug: "film-self-adhesive-labels" },
-        ]
+        items: []
       },
       {
         id: "thermal-labels",
         title: "Thermal Labels",
         slug: "thermal-labels",
-        items: [
-          { name: "Direct Thermal Labels", slug: "direct-thermal-labels" },
-          { name: "Thermal Transfer Labels", slug: "thermal-transfer-paper-labels" },
-        ]
+        items: []
       },
       {
         id: "hologram-stickers",
         title: "Hologram Stickers",
         slug: "hologram-stickers",
-        items: [
-          { name: "2D / 3D Holograms", slug: "2d-3d-holograms" },
-          { name: "Dot Matrix Holograms", slug: "dot-matrix-holograms" },
-          { name: "Flip-Flop Holograms", slug: "flip-flop-holograms" },
-          { name: "Kinetic Holograms", slug: "kinetic-holograms" },
-          { name: "E-Beam Holograms", slug: "e-beam-holograms" },
-        ]
+        items: []
       },
       {
         id: "security-void-stickers",
@@ -225,11 +201,7 @@ export const productHierarchy = [
         id: "thermal-transfer-ribbons",
         title: "Thermal Transfer Ribbons",
         slug: "thermal-transfer-ribbons",
-        items: [
-          { name: "Wax Ribbons", slug: "wax-ribbons" },
-          { name: "Wax/Resin Ribbons", slug: "wax-resin-ribbons" },
-          { name: "Resin Ribbons", slug: "resin-ribbons" },
-        ]
+        items: []
       },
     ]
   },
@@ -242,37 +214,79 @@ export const productHierarchy = [
         id: "bopp-tapes",
         title: "BOPP Tapes",
         slug: "bopp-tapes",
-        items: [
-          { name: "Clear BOPP Packing Tape", slug: "clear-bopp-tape" },
-          { name: "Brown BOPP Packaging Tape", slug: "brown-bopp-tape" },
-        ]
+        items: []
       },
       {
         id: "printed-tapes",
         title: "Printed Tapes",
-        slug: "printed-tapes",
-        items: [
-          { name: "Custom Logo Printed Tape", slug: "logo-printed-tape" },
-          { name: "Security Fragile Printed Tape", slug: "fragile-printed-tape" },
-        ]
+        slug: "printed-bopp-tapes",
+        items: []
       },
       {
         id: "colored-tapes",
         title: "Colored Tapes",
-        slug: "colored-tapes",
-        items: [
-          { name: "Color Coded Floor & Box Tape", slug: "color-coded-tape" },
-          { name: "Solid Red Blue Green Yellow Tape", slug: "solid-colored-tape" },
-        ]
+        slug: "coloured-bopp-tapes",
+        items: []
+      },
+      {
+        id: "silicon-tapes",
+        title: "Silicon Tapes",
+        slug: "silicon-tapes",
+        items: []
       },
       {
         id: "masking-tapes",
         title: "Masking Tapes",
         slug: "masking-tapes",
-        items: [
-          { name: "General Purpose Masking Tape", slug: "general-masking-tape" },
-          { name: "High-Temperature Paint Masking", slug: "high-temp-masking-tape" },
-        ]
+        items: []
+      },
+      {
+        id: "aluminium-foil-tapes",
+        title: "Aluminium Foil Tapes",
+        slug: "aluminium-foil-tapes",
+        items: []
+      },
+      {
+        id: "cross-filament-tapes",
+        title: "Cross Filament Tapes",
+        slug: "cross-filament-tapes",
+        items: []
+      },
+      {
+        id: "duct-tapes",
+        title: "Duct Tapes",
+        slug: "duct-tapes",
+        items: []
+      },
+      {
+        id: "floor-marking-tapes",
+        title: "Floor Marking Tapes",
+        slug: "floor-marking-tapes",
+        items: []
+      },
+      {
+        id: "foam-tapes",
+        title: "Foam Tapes",
+        slug: "foam-tapes",
+        items: []
+      },
+      {
+        id: "reinforced-kraft-paper-tapes",
+        title: "Reinforced Kraft Paper Tapes",
+        slug: "reinforced-kraft-paper-tapes",
+        items: []
+      },
+      {
+        id: "surface-protection-tapes",
+        title: "Surface Protection Tapes",
+        slug: "surface-protection-tapes",
+        items: []
+      },
+      {
+        id: "tissue-tapes",
+        title: "Tissue Tapes",
+        slug: "tissue-tapes",
+        items: []
       },
     ]
   },
@@ -722,18 +736,22 @@ export default function Navbar() {
                                                 {subcat.title}
                                               </Link>
 
-                                              <button
-                                                type="button"
-                                                onClick={() => setMobileExpandedSubCatId(isExpanded ? null : subcat.id)}
-                                                className="p-1 text-slate-400 hover:text-[var(--color-blue)] transition-colors shrink-0"
-                                                aria-label={`Toggle ${subcat.title} sub-items`}
-                                              >
-                                                <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", isExpanded && "rotate-180")} />
-                                              </button>
+                                              {subcat.items && subcat.items.length > 0 ? (
+                                                <button
+                                                  type="button"
+                                                  onClick={() => setMobileExpandedSubCatId(isExpanded ? null : subcat.id)}
+                                                  className="p-1 text-slate-400 hover:text-[var(--color-blue)] transition-colors shrink-0"
+                                                  aria-label={`Toggle ${subcat.title} sub-items`}
+                                                >
+                                                  <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", isExpanded && "rotate-180")} />
+                                                </button>
+                                              ) : (
+                                                <ChevronRight className="h-3.5 w-3.5 text-slate-300 shrink-0" />
+                                              )}
                                             </div>
 
                                             {/* Sub-items drop down */}
-                                            {isExpanded && (
+                                            {isExpanded && subcat.items && subcat.items.length > 0 && (
                                               <div className="px-3 pb-2.5 pt-1 border-t border-slate-100 bg-slate-50/50 grid grid-cols-2 gap-1.5">
                                                 {subcat.items.map((item) => (
                                                   <Link

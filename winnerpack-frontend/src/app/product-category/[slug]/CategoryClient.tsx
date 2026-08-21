@@ -175,21 +175,30 @@ function SubcategoryCard({
 
 
 
-          {/* Items list (Hidden on mobile to fix grid height overlap, shown on sm+) */}
-          <div className="mt-3 pt-3 border-t border-slate-100 space-y-2 hidden sm:block">
-            {subcat.items.slice(0, 4).map((item) => (
-              <div key={item.slug} className="flex items-start gap-2 text-xs sm:text-sm">
-                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] shrink-0" />
-                <span className="font-medium text-slate-600 leading-tight flex-1">{item.name}</span>
+          {/* Items list for Film Products, or clean feature summary for Labels & Tapes */}
+          {subcat.items && subcat.items.length > 0 ? (
+            <div className="mt-3 pt-3 border-t border-slate-100 space-y-2 hidden sm:block">
+              {subcat.items.slice(0, 4).map((item) => (
+                <div key={item.slug} className="flex items-start gap-2 text-xs sm:text-sm">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] shrink-0" />
+                  <span className="font-medium text-slate-600 leading-tight flex-1">{item.name}</span>
+                </div>
+              ))}
+              {subcat.items.length > 4 && (
+                <div className="flex items-center gap-2 text-xs sm:text-sm">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-blue)] shrink-0" />
+                  <span className="font-semibold text-[var(--color-blue)]">+{subcat.items.length - 4} more products</span>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="mt-3 pt-3 border-t border-slate-100 hidden sm:block">
+              <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" />
+                <span>Full specifications & custom variants detailed in-page</span>
               </div>
-            ))}
-            {subcat.items.length > 4 && (
-              <div className="flex items-center gap-2 text-xs sm:text-sm">
-                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-blue)] shrink-0" />
-                <span className="font-semibold text-[var(--color-blue)]">+{subcat.items.length - 4} more products</span>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
         {/* Footer row — mobile: just Explore link; desktop: Explore + Quote */}
