@@ -41,7 +41,7 @@ export default function WhyChooseUs() {
     <section id="why" className="relative overflow-hidden bg-white py-16 md:py-24 border-b border-[var(--color-line)]">
       <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-5 md:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <div className="mb-12 md:mb-16 text-center max-w-4xl mx-auto flex flex-col items-center">
           <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono mb-2">
             Why WinnerPack

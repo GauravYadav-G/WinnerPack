@@ -43,7 +43,7 @@ export default function Industries() {
       {/* Background Atmosphere */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl 2xl:max-w-[1536px] px-5 md:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
 
         {/* Centered Section Header */}
         <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto flex flex-col items-center">
