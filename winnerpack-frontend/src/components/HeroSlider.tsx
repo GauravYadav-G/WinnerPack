@@ -107,7 +107,7 @@ export default function HeroSlider() {
     <section
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className="relative h-[25vh] sm:h-[40vh] md:h-[55vh] lg:h-[72vh] w-full overflow-hidden bg-black text-white select-none"
+      className="relative h-[25vh] sm:h-[40vh] md:h-[55vh] lg:h-[700px] w-full overflow-hidden bg-black text-white select-none"
     >
       {/* Split Layout */}
       <div className="absolute inset-x-0 bottom-0 top-0 h-full z-0 flex gap-0">
