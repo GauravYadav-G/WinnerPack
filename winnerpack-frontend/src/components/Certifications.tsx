@@ -55,11 +55,11 @@ export default function Certifications() {
       id="certifications"
       className="relative overflow-hidden bg-[var(--color-bone)]/60 py-12 sm:py-16 lg:py-24 border-t border-b border-[var(--color-line)]"
     >
-      {/* Background Lighting & Blueprint Atmosphere */}
+      {/* Background Lighting & Blueprint Atmosphere (Desktop GPU Optimized) */}
       <div className="absolute inset-0 bg-stripes opacity-20 pointer-events-none" />
       <div className="absolute inset-0 bg-grid-fine opacity-20 pointer-events-none" />
-      <div className="absolute -left-20 top-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[var(--color-amber)]/10 blur-3xl pointer-events-none" />
-      <div className="absolute -right-20 top-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[var(--color-blue)]/10 blur-3xl pointer-events-none" />
+      <div className="hidden sm:block absolute -left-20 top-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[var(--color-amber)]/10 blur-3xl pointer-events-none" />
+      <div className="hidden sm:block absolute -right-20 top-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[var(--color-blue)]/10 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
 
@@ -83,11 +83,11 @@ export default function Certifications() {
           {certificationsList.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: index * 0.05 }}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-white/85 backdrop-blur-xl border border-white/95 shadow-[0_4px_20px_rgb(0,0,0,0.03)] p-4 sm:p-5 text-center transition-all duration-300 hover:bg-white hover:border-[var(--color-amber)]/50 hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1.5 cursor-pointer"
+              viewport={{ once: true, margin: "50px" }}
+              transition={{ duration: 0.3, delay: index * 0.03 }}
+              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-white sm:bg-white/85 sm:backdrop-blur-xl border border-slate-200/80 sm:border-white/95 shadow-[0_2px_12px_rgb(0,0,0,0.03)] sm:shadow-[0_4px_20px_rgb(0,0,0,0.03)] p-4 sm:p-5 text-center transition-all duration-300 hover:bg-white hover:border-[var(--color-amber)]/50 hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1.5 cursor-pointer transform-gpu"
             >
               {/* Logo Presentation Area */}
               <div className="flex items-center justify-center h-20 sm:h-24 w-full my-auto px-2 py-2">

@@ -88,12 +88,12 @@ export default function Journey() {
 
   return (
     <section id="solutions" className="relative overflow-hidden bg-[var(--color-bone)]/50 py-12 sm:py-16 md:py-20 lg:py-24 border-b border-[var(--color-line)]">
-      {/* Ambient Lighting & Backdrop Atmosphere */}
+      {/* Ambient Lighting & Backdrop Atmosphere (Desktop GPU Optimized) */}
       <div className="absolute inset-0 bg-stripes opacity-20 pointer-events-none" />
       <div className="absolute inset-0 bg-grid-fine opacity-20 pointer-events-none" />
-      <div className="absolute -right-20 top-1/4 h-[350px] sm:h-[500px] w-[350px] sm:w-[500px] rounded-full bg-[var(--color-amber)]/10 blur-[100px] sm:blur-[130px] pointer-events-none" />
-      <div className="absolute -left-20 bottom-1/4 h-[350px] sm:h-[500px] w-[350px] sm:w-[500px] rounded-full bg-[var(--color-blue)]/10 blur-[100px] sm:blur-[130px] pointer-events-none" />
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] sm:h-[400px] w-[90%] sm:w-[700px] rounded-full bg-amber-500/5 blur-[90px] sm:blur-[120px] pointer-events-none" />
+      <div className="hidden sm:block absolute -right-20 top-1/4 h-[500px] w-[500px] rounded-full bg-[var(--color-amber)]/10 blur-[120px] pointer-events-none" />
+      <div className="hidden sm:block absolute -left-20 bottom-1/4 h-[500px] w-[500px] rounded-full bg-[var(--color-blue)]/10 blur-[120px] pointer-events-none" />
+      <div className="hidden sm:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[700px] rounded-full bg-amber-500/5 blur-[100px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
 
@@ -120,11 +120,11 @@ export default function Journey() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: index * 0.04 }}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl md:rounded-3xl bg-white/85 backdrop-blur-2xl border border-white/95 shadow-[0_4px_20px_rgb(0,0,0,0.03)] p-4 sm:p-5 md:p-6 transition-all duration-300 hover:bg-white hover:border-[var(--color-amber)]/60 hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1.5 cursor-pointer"
+                viewport={{ once: true, margin: "50px" }}
+                transition={{ duration: 0.3, delay: index * 0.03 }}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl md:rounded-3xl bg-white sm:bg-white/85 sm:backdrop-blur-2xl border border-slate-200/80 sm:border-white/95 shadow-[0_2px_12px_rgb(0,0,0,0.03)] sm:shadow-[0_4px_20px_rgb(0,0,0,0.03)] p-4 sm:p-5 md:p-6 transition-all duration-300 hover:bg-white hover:border-[var(--color-amber)]/60 hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1.5 cursor-pointer transform-gpu"
               >
                 {/* Ambient Soft Glow on Card Hover */}
                 <div className="pointer-events-none absolute -right-10 -top-10 h-32 sm:h-36 w-32 sm:w-36 rounded-full bg-[var(--color-amber)]/15 blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
@@ -132,7 +132,7 @@ export default function Journey() {
                 <div>
                   {/* Top Bar: Squircle Dual-Tone Icon & Serial Counter */}
                   <div className="flex items-center justify-between mb-3.5 sm:mb-5">
-                    <div className="flex h-9 w-9 sm:h-11 sm:w-11 md:h-12 md:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 backdrop-blur-md text-[var(--color-amber-dark)] border border-amber-500/25 shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-[var(--color-amber)] group-hover:to-[var(--color-amber-2)] group-hover:text-white group-hover:shadow-md group-hover:shadow-amber-500/25">
+                    <div className="flex h-9 w-9 sm:h-11 sm:w-11 md:h-12 md:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 sm:backdrop-blur-md text-[var(--color-amber-dark)] border border-amber-500/25 shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-[var(--color-amber)] group-hover:to-[var(--color-amber-2)] group-hover:text-white group-hover:shadow-md group-hover:shadow-amber-500/25">
                       <IconComponent className="h-4.5 w-4.5 sm:h-5 sm:w-5 md:h-5.5 md:w-5.5 stroke-[2.2]" />
                     </div>
 
