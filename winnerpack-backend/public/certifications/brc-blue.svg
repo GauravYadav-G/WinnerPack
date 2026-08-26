@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+  <rect width="120" height="140" rx="16" fill="#0284c7"/>
+  <path d="M35 30 L55 55 L85 25" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="60" y="85" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#ffffff" text-anchor="middle">BRC</text>
+  <text x="60" y="105" font-family="system-ui, sans-serif" font-size="8" font-weight="800" fill="#e0f2fe" text-anchor="middle" letter-spacing="0.5">PACKAGING</text>
+  <text x="60" y="118" font-family="system-ui, sans-serif" font-size="7" font-weight="800" fill="#e0f2fe" text-anchor="middle" letter-spacing="0.5">CERTIFICATED</text>
+</svg>

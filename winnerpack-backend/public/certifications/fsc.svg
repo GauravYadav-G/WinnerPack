@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+  <rect width="120" height="140" rx="12" fill="#1b5e3b"/>
+  <path d="M48 24L32 60H44L36 84H54V102H66V84H84L76 60H88L72 24H48Z" fill="#ffffff"/>
+  <text x="60" y="118" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">FSC</text>
+  <text x="60" y="130" font-family="system-ui, sans-serif" font-size="7" font-weight="600" fill="#a7f3d0" text-anchor="middle">www.fsc.org</text>
+</svg>

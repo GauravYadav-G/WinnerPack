@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" rx="24" fill="#002f6c"/>
+  <rect x="10" y="10" width="180" height="180" rx="18" fill="none" stroke="#ffc72c" stroke-width="3"/>
+  <text x="100" y="80" font-family="Arial, sans-serif" font-weight="900" font-size="36" fill="#ffc72c" text-anchor="middle">BRCGS</text>
+  <text x="100" y="115" font-family="Arial, sans-serif" font-weight="700" font-size="16" fill="#ffffff" text-anchor="middle">Packaging Materials</text>
+  <rect x="30" y="135" width="140" height="30" rx="6" fill="#ffc72c"/>
+  <text x="100" y="156" font-family="Arial, sans-serif" font-weight="900" font-size="13" fill="#002f6c" letter-spacing="2" text-anchor="middle">CERTIFIED</text>
+</svg>

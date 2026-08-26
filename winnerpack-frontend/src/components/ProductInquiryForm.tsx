@@ -1,98 +1,88 @@
 "use client";
 
-import { useState } from "react";
-import {
-  CheckCircle2,
-  ArrowRight,
-  Zap,
-  ShieldCheck,
-  ChevronDown,
-  Mail,
-  Phone
-} from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { CheckCircle2, ChevronDown, Check } from "lucide-react";
 import { apiFetch } from "@/lib/api";
+import { productHierarchy } from "@/components/Navbar";
 
-interface CategoryGroup {
-  id: string;
-  name: string;
-  badge: string;
-  items: string[];
-}
-
-const mainCategoryGroups: CategoryGroup[] = [
-  {
-    id: "film-products",
-    name: "Film Products",
-    badge: "LDPE · POF · Coloured · BOPP · PVC · Stretch Film · Lamination · Compostable",
-    items: [
-      "LDPE Films & Pouches",
-      "POF Films & Pouches",
-      "Coloured Films & Pouches",
-      "BOPP Films & Pouches",
-      "PVC Shrink Rolls & Pouches",
-      "Stretch Film",
-      "Lamination Films & Pouches",
-      "Compostable Films & Pouches",
-    ]
-  },
-  {
-    id: "label-sticker-products",
-    name: "Labels & Stickers",
-    badge: "Thermal · Adhesive · Printed · Barcode · Ribbon · Hologram",
-    items: [
-      "Plain Labels",
-      "Printed Labels",
-      "Barcode Labels",
-      "Product Labels",
-      "Self Adhesive Labels",
-      "Thermal Labels",
-      "Hologram Stickers",
-      "Security Void Stickers",
-      "Tamper-Evident Stickers",
-      "Thermal Transfer Ribbons"
-    ]
-  },
-  {
-    id: "tapes",
-    name: "Tapes",
-    badge: "BOPP Tapes · Custom Printed · Silicon Sealing",
-    items: [
-      "BOPP Tapes",
-      "Printed BOPP Tapes",
-      "Coloured BOPP Tapes",
-      "Silicon Tapes"
-    ]
-  },
-  {
-    id: "pp-strap",
-    name: "Others",
-    badge: "PP Strapping · PET Strapping · Custom Printed",
-    items: [
-      "PP Strap",
-      "Printed PP Strap",
-      "Colored PP Strap",
-      "PET Strap"
-    ]
-  }
+const volumeOptions = [
+  "Under 1 Ton / Month (Sample / Trial)",
+  "1 - 5 Tons / Month (Standard Factory Supply)",
+  "5 - 20 Tons / Month (High-Speed Automated Lines)",
+  "20+ Tons / Month (Multi-Plant Enterprise Contract)",
+  "Custom Project / One-Time Consignment"
 ];
 
 export default function ProductInquiryForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [activeCategoryId, setActiveCategoryId] = useState<string>("film-products");
+
+  const [selectedCategory, setSelectedCategory] = useState<string>("film-products");
+
+  // Dropdown open states
+  const [openDropdown, setOpenDropdown] = useState<"category" | "product" | "quantity" | null>(null);
+
+  const categoryRef = useRef<HTMLDivElement>(null);
+  const productRef = useRef<HTMLDivElement>(null);
+  const quantityRef = useRef<HTMLDivElement>(null);
 
   const [formData, setFormData] = useState({
     fullName: "",
     companyName: "",
     email: "",
     phone: "",
-    productInterest: "POF Shrink Rolls & Pouches",
+    category: "Film Products",
+    productInterest: "LDPE Shrink Film",
     monthlyVolume: "",
     notes: "",
   });
 
-  const activeGroup = mainCategoryGroups.find((g) => g.id === activeCategoryId) || mainCategoryGroups[0];
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
+      const target = event.target as Node;
+      if (
+        categoryRef.current && !categoryRef.current.contains(target) &&
+        productRef.current && !productRef.current.contains(target) &&
+        quantityRef.current && !quantityRef.current.contains(target)
+      ) {
+        setOpenDropdown(null);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
+
+  // Get active category structure from navbar product hierarchy
+  const activeCatObject = productHierarchy.find((c) => c.id === selectedCategory) || productHierarchy[0];
+
+  const handleCategorySelect = (catId: string) => {
+    setSelectedCategory(catId);
+    const catObj = productHierarchy.find((c) => c.id === catId);
+    const firstSub = catObj?.subcategories[0];
+    const defaultProduct = firstSub?.items?.[0]?.name || firstSub?.title || "";
+    setFormData((prev) => ({
+      ...prev,
+      category: catObj?.title || "",
+      productInterest: defaultProduct,
+    }));
+    setOpenDropdown(null);
+  };
+
+  const handleProductSelect = (productName: string) => {
+    setFormData((prev) => ({ ...prev, productInterest: productName }));
+    setOpenDropdown(null);
+  };
+
+  const handleVolumeSelect = (volume: string) => {
+    setFormData((prev) => ({ ...prev, monthlyVolume: volume }));
+    setOpenDropdown(null);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -108,8 +98,8 @@ export default function ProductInquiryForm() {
           email: formData.email,
           phone: formData.phone,
           company: formData.companyName,
-          skuProfile: formData.productInterest,
-          lineSpeed: formData.monthlyVolume,
+          skuProfile: `${formData.category ? `[${formData.category}] ` : ""}${formData.productInterest || "General Inquiry"}`,
+          lineSpeed: formData.monthlyVolume || "Not Specified",
           message: formData.notes,
         }),
       });
@@ -124,295 +114,372 @@ export default function ProductInquiryForm() {
   };
 
   return (
-    <section id="inquiry-form" className="relative overflow-hidden bg-[var(--color-bone)] py-10 sm:py-16 lg:py-24 border-t border-b border-[var(--color-line)]">
-      {/* Background Atmosphere */}
-      <div className="absolute inset-0 bg-stripes opacity-20 pointer-events-none" />
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[900px] rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
+    <section
+      id="inquiry-form"
+      className="relative bg-[var(--color-bone)] pt-10 pb-36 sm:py-24 lg:py-32 border-t border-b border-[var(--color-line)] z-20"
+    >
+      {/* Background Lighting & Blueprint Atmosphere (Isolated Overflow) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-stripes opacity-20" />
+        <div className="absolute inset-0 bg-grid-fine opacity-20" />
+        <div className="absolute -left-20 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[var(--color-amber)]/10 blur-3xl" />
+        <div className="absolute -right-20 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[var(--color-blue)]/10 blur-3xl" />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8 md:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-16 lg:gap-24 items-start">
 
-        {/* Main Integrated Split Container matching WinnerPack UI/UX Design System */}
-        <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-xl sm:shadow-2xl grid grid-cols-1 lg:grid-cols-12">
-
-          {/* LEFT COLUMN: WinnerPack Light Top Narrative + WinnerPack Deep Navy Bottom Panel */}
-          <div className="lg:col-span-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--color-line)]">
-
-            {/* Top Light Block */}
-            <div className="bg-[var(--color-bone)] p-4 sm:p-8 lg:p-14 space-y-2 sm:space-y-4">
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
-                Technical Specification & Quote
+          {/* LEFT COLUMN: Editorial Headline & Brand Narrative */}
+          <div className="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              {/* Clean Section Tag */}
+              <span className="block text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--color-amber-dark)] mb-2 sm:mb-6">
+                DIRECT INQUIRY
               </span>
 
-              <h2 className="font-display text-lg sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--color-ink)] leading-snug sm:leading-[1.15] text-balance">
-                Tell us your line speed. <br className="hidden sm:inline" />
-                We&apos;ll spec the right roll, film & strapping.
+              {/* Massive Brand Display Title */}
+              <h2 className="font-display text-3xl sm:text-6xl md:text-7xl font-extrabold text-[var(--color-ink)] tracking-tight leading-[1.05] mb-3 sm:mb-8">
+                The <br className="hidden sm:inline" />
+                inquiry.
               </h2>
 
-              <p className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal hidden sm:block">
-                Share your SKU, payload profile and monthly volume. Our application team responds with a tailored spec sheet and indicative pricing within one business day.
+              {/* Subtext */}
+              <p className="text-xs sm:text-base md:text-lg text-[var(--color-mute)] font-normal leading-relaxed max-w-md">
+                Tell us where you are now and where you want the work to go. Share your packaging specifications, payload requirements, or custom order.
               </p>
+            </div>
 
-              {/* Mobile Direct Quick Contact Bar */}
-              <div className="flex sm:hidden items-center gap-3 pt-2 text-[11px] font-medium text-[var(--color-ink)]">
-                <a href="mailto:info@winnerpack.in" className="flex items-center gap-1 text-[var(--color-amber-dark)] font-semibold">
-                  <Mail className="h-3 w-3" />
-                  <span>info@winnerpack.in</span>
+            {/* Direct Contact Footer */}
+            <div className="mt-6 sm:mt-16 pt-4 sm:pt-8 border-t border-[var(--color-line)]">
+              <span className="block text-[9.5px] sm:text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--color-mute)] mb-1.5 sm:mb-2">
+                DIRECT TECHNICAL DESK
+              </span>
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-mono text-[var(--color-ink)] font-semibold">
+                <a
+                  href="mailto:info@winnerpack.in"
+                  className="hover:text-[var(--color-amber-dark)] transition-colors underline underline-offset-4 decoration-[var(--color-line-2)] hover:decoration-[var(--color-amber)]"
+                >
+                  info@winnerpack.in
                 </a>
-                <span>•</span>
-                <a href="tel:+918595072187" className="flex items-center gap-1 text-[var(--color-amber-dark)] font-semibold">
-                  <Phone className="h-3 w-3" />
-                  <span>+91 85950 72187</span>
+                <span className="text-[var(--color-line-2)]">/</span>
+                <a
+                  href="tel:+918595072187"
+                  className="hover:text-[var(--color-amber-dark)] transition-colors underline underline-offset-4 decoration-[var(--color-line-2)] hover:decoration-[var(--color-amber)]"
+                >
+                  +91 85950 72187
                 </a>
               </div>
             </div>
-
-            {/* Bottom WinnerPack Deep Navy Block (Shown on Desktop & Tablet, Hidden on Mobile for Maximum Compactness) */}
-            <div className="hidden lg:flex bg-[var(--color-blue-deep)] p-8 lg:p-14 text-white space-y-8 flex-1 flex-col justify-center">
-
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-[var(--color-amber)] border border-white/15">
-                  <Zap className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-display text-base sm:text-lg font-bold text-white leading-snug">
-                    Direct Application Engineering Consultation
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed font-normal">
-                    Get personalized guidance on gauge thickness, elongation percentage, and load stabilization tailored to your plant lines.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 pt-6 border-t border-white/10">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-[var(--color-amber)] border border-white/15">
-                  <ShieldCheck className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-display text-base sm:text-lg font-bold text-white leading-snug">
-                    Free Material Sample Kit & Automated Line Testing
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed font-normal">
-                    We&apos;ll supply physical sample rolls and tapes to assess your packaging system and validate feed reliability on your automated machinery.
-                  </p>
-                </div>
-              </div>
-
-              {/* Direct Quick Contact Bar */}
-              <div className="pt-6 border-t border-white/10 flex flex-wrap gap-4 text-xs font-medium text-slate-300">
-                <a href="mailto:info@winnerpack.in" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
-                  <Mail className="h-4 w-4 text-[var(--color-amber)]" />
-                  <span>info@winnerpack.in</span>
-                </a>
-                <a href="tel:+918595072187" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
-                  <Phone className="h-4 w-4 text-[var(--color-amber)]" />
-                  <span>+91 85950 72187</span>
-                </a>
-              </div>
-
-            </div>
-
           </div>
 
-          {/* RIGHT COLUMN: WinnerPack Modern Clean Form Card */}
-          <div className="lg:col-span-6 bg-white p-4 sm:p-8 lg:p-14 flex flex-col justify-center">
-
-            <div className="mb-3 sm:mb-6 pb-2.5 sm:pb-4 border-b border-[var(--color-line)]">
-              <h3 className="font-display text-base sm:text-2xl font-extrabold text-[var(--color-ink)]">
-                Request Spec Sheet & Free Quote
-              </h3>
-              <p className="text-[11px] sm:text-sm text-[var(--color-mute)] mt-0.5">
-                Select your product range and enter your payload requirements.
-              </p>
-            </div>
-
+          {/* RIGHT COLUMN: Minimalist Underline Form with Left-Side Labels */}
+          <div className="lg:col-span-7">
             {submitted ? (
-              <div className="py-6 sm:py-12 text-center space-y-3 sm:space-y-6">
-                <div className="h-10 w-10 sm:h-16 sm:w-16 bg-[var(--color-blue-deep)] text-white rounded-full flex items-center justify-center mx-auto shadow-md">
-                  <CheckCircle2 className="h-6 w-6 sm:h-10 sm:w-10 text-[var(--color-amber)]" />
+              <div className="py-8 sm:py-16 text-left space-y-4 sm:space-y-5 bg-white/90 backdrop-blur-xl border border-[var(--color-line)] rounded-2xl sm:rounded-3xl p-6 sm:p-12 shadow-lift">
+                <div className="h-12 w-12 sm:h-14 sm:w-14 bg-[var(--color-blue-deep)] text-[var(--color-amber)] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md">
+                  <CheckCircle2 className="h-6 w-6 sm:h-8 sm:w-8" />
                 </div>
-                <div className="space-y-1 sm:space-y-2">
-                  <h4 className="font-display text-lg sm:text-2xl font-bold text-[var(--color-ink)]">Inquiry Received!</h4>
-                  <p className="max-w-md mx-auto text-xs sm:text-sm text-[var(--color-mute)] leading-relaxed">
-                    Thank you. Our technical application engineering team will send your customized spec sheet and indicative pricing within one business day.
+                <div className="space-y-1.5 sm:space-y-2">
+                  <span className="text-[10.5px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[var(--color-amber-dark)]">
+                    CONFIRMATION
+                  </span>
+                  <h3 className="font-display text-xl sm:text-3xl font-extrabold text-[var(--color-ink)]">
+                    Inquiry Received.
+                  </h3>
+                  <p className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed max-w-lg">
+                    Thank you. Our technical application engineering team will review your specifications and dispatch an indicative spec sheet within one business day.
                   </p>
                 </div>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="mt-2 sm:mt-4 px-6 sm:px-8 py-2 sm:py-3.5 rounded-full bg-[var(--color-amber)] text-white text-xs font-bold uppercase tracking-wider hover:bg-[var(--color-amber-dark)] transition-all cursor-pointer shadow-md"
+                  className="mt-2 sm:mt-4 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl bg-[var(--color-blue-deep)] text-white text-xs font-mono font-bold uppercase tracking-widest hover:bg-[var(--color-amber-dark)] transition-all cursor-pointer shadow-md text-center"
                 >
-                  Submit Another Inquiry
+                  SEND ANOTHER INQUIRY →
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-8">
                 {error && (
-                  <p role="alert" className="rounded-xl border border-red-100 bg-red-50 px-3 py-2 text-xs font-medium text-red-700">
+                  <p role="alert" className="border-l-2 border-red-500 bg-red-50 px-3 sm:px-4 py-2 sm:py-2.5 text-xs font-mono text-red-700 rounded-r-lg">
                     {error}
                   </p>
                 )}
 
-                {/* 1-Column on Mobile, 2-Column on Tablet/Desktop: Name + Company */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  <div className="space-y-1">
-                    <label className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
-                      Full Name <span className="text-red-500">*</span>
-                    </label>
+                {/* ROW 1: NAME */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-0.5 sm:gap-4 items-baseline">
+                  <label className="sm:col-span-3 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    NAME
+                  </label>
+                  <div className="sm:col-span-9">
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Rahul Sharma"
+                      placeholder="Your full name"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-3 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs min-h-[44px]"
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <label className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
-                      Company <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Winner Packaging"
-                      value={formData.companyName}
-                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                      className="w-full rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-3 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs min-h-[44px]"
+                      suppressHydrationWarning
+                      className="w-full bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] pb-2 sm:pb-3 text-sm sm:text-xl md:text-2xl text-[var(--color-ink)] placeholder-[var(--color-mute)]/60 font-medium focus:outline-none transition-colors rounded-none"
                     />
                   </div>
                 </div>
 
-                {/* 1-Column on Mobile, 2-Column on Tablet/Desktop: Email + Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  <div className="space-y-1">
-                    <label className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
-                      Email Address <span className="text-red-500">*</span>
-                    </label>
+                {/* ROW 2: EMAIL */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-0.5 sm:gap-4 items-baseline">
+                  <label className="sm:col-span-3 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    EMAIL
+                  </label>
+                  <div className="sm:col-span-9">
                     <input
                       type="email"
                       required
                       placeholder="name@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-3 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs min-h-[44px]"
+                      suppressHydrationWarning
+                      className="w-full bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] pb-2 sm:pb-3 text-sm sm:text-xl md:text-2xl text-[var(--color-ink)] placeholder-[var(--color-mute)]/60 font-medium focus:outline-none transition-colors rounded-none"
                     />
                   </div>
+                </div>
 
-                  <div className="space-y-1">
-                    <label className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
-                      Phone <span className="text-red-500">*</span>
-                    </label>
+                {/* ROW 3: PHONE */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-0.5 sm:gap-4 items-baseline">
+                  <label className="sm:col-span-3 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    PHONE
+                  </label>
+                  <div className="sm:col-span-9">
                     <input
                       type="tel"
-                      required
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 Mobile or direct contact"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3.5 py-3 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs min-h-[44px]"
+                      suppressHydrationWarning
+                      className="w-full bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] pb-2 sm:pb-3 text-sm sm:text-xl md:text-2xl text-[var(--color-ink)] placeholder-[var(--color-mute)]/60 font-medium focus:outline-none transition-colors rounded-none"
                     />
                   </div>
                 </div>
 
-                {/* Category & Product Select */}
-                <div className="space-y-1">
-                  <label htmlFor="product-interest" className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
-                    Product Interest & Specification <span className="text-red-500">*</span>
+                {/* ROW 4: COMPANY */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-0.5 sm:gap-4 items-baseline">
+                  <label className="sm:col-span-3 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    COMPANY
                   </label>
-
-                  {/* Category Pills */}
-                  <div className="flex overflow-x-auto gap-1.5 sm:gap-2 pb-0.5 scrollbar-none mb-1">
-                    {mainCategoryGroups.map((group) => {
-                      const isActive = activeCategoryId === group.id;
-                      return (
-                        <button
-                          type="button"
-                          key={group.id}
-                          onClick={() => {
-                            setActiveCategoryId(group.id);
-                            setFormData((prev) => ({ ...prev, productInterest: group.items[0] }));
-                          }}
-                          className={`flex-none px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold transition-all border cursor-pointer ${isActive
-                            ? "bg-[var(--color-blue-deep)] text-white border-[var(--color-blue-deep)] shadow-sm"
-                            : "bg-[var(--color-bone)] text-[var(--color-ink)] border-[var(--color-line)] hover:bg-white"
-                            }`}
-                        >
-                          {group.name}
-                        </button>
-                      );
-                    })}
+                  <div className="sm:col-span-9">
+                    <input
+                      type="text"
+                      placeholder="Studio, company, or venture"
+                      value={formData.companyName}
+                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                      suppressHydrationWarning
+                      className="w-full bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] pb-2 sm:pb-3 text-sm sm:text-xl md:text-2xl text-[var(--color-ink)] placeholder-[var(--color-mute)]/60 font-medium focus:outline-none transition-colors rounded-none"
+                    />
                   </div>
+                </div>
 
-                  <div className="relative">
-                    <select
-                      id="product-interest"
-                      value={formData.productInterest}
-                      onChange={(e) => setFormData({ ...formData, productInterest: e.target.value })}
-                      className="w-full rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all appearance-none cursor-pointer pr-8 sm:pr-10 shadow-xs"
+                {/* ROW 5: CATEGORY (Custom Clean Dropdown) */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-center sm:items-baseline">
+                  <label className="sm:col-span-3 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    CATEGORY
+                  </label>
+                  <div ref={categoryRef} className={`sm:col-span-9 relative ${openDropdown === "category" ? "z-50" : "z-20"}`}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenDropdown(openDropdown === "category" ? null : "category")}
+                      className="w-full flex items-center justify-between bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] py-2 sm:pb-3 text-left text-base sm:text-xl md:text-2xl text-[var(--color-ink)] font-medium transition-colors cursor-pointer min-h-[44px]"
                     >
-                      {activeGroup.items.map((item) => (
-                        <option key={item} value={item} className="bg-white text-slate-900 py-1">
-                          {item}
-                        </option>
-                      ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 sm:px-5 text-[var(--color-mute)]">
-                      <ChevronDown className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                    </div>
+                      <span className="truncate">{formData.category || "Select Category"}</span>
+                      <ChevronDown
+                        className={`h-5 w-5 text-[var(--color-mute)] transition-transform duration-200 shrink-0 ml-2 ${
+                          openDropdown === "category" ? "rotate-180 text-[var(--color-amber-dark)]" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* Category Dropdown Menu */}
+                    {openDropdown === "category" && (
+                      <div className="absolute left-0 top-full mt-2 w-full bg-white/98 backdrop-blur-2xl border border-[var(--color-line)] shadow-[0_20px_50px_rgba(0,0,0,0.18)] rounded-2xl p-1.5 z-[100] animate-in fade-in zoom-in-95 duration-150 max-h-64 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                        {productHierarchy.map((cat) => {
+                          const isSelected = selectedCategory === cat.id;
+                          return (
+                            <button
+                              key={cat.id}
+                              type="button"
+                              onClick={() => handleCategorySelect(cat.id)}
+                              className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left text-sm sm:text-base font-medium transition-all ${
+                                isSelected
+                                  ? "bg-amber-500/10 text-[var(--color-amber-dark)] font-bold"
+                                  : "text-[var(--color-ink)] hover:bg-slate-50 active:bg-slate-100"
+                              }`}
+                            >
+                              <span>{cat.title}</span>
+                              {isSelected && <Check className="h-4 w-4 text-[var(--color-amber-dark)] shrink-0" />}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 </div>
 
-                {/* Monthly Volume */}
-                <div className="space-y-1">
-                  <label className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
-                    Monthly Volume Requirement <span className="text-red-500">*</span>
+                {/* ROW 6: PRODUCT (Custom Clean Dropdown with Subcategories) */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-center sm:items-baseline">
+                  <label className="sm:col-span-3 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    PRODUCT
                   </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. 500 kg, 2 Tons/month..."
-                    value={formData.monthlyVolume}
-                    onChange={(e) => setFormData({ ...formData, monthlyVolume: e.target.value })}
-                    className="w-full rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs"
-                  />
+                  <div ref={productRef} className={`sm:col-span-9 relative ${openDropdown === "product" ? "z-50" : "z-10"}`}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenDropdown(openDropdown === "product" ? null : "product")}
+                      className="w-full flex items-center justify-between bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] py-2 sm:pb-3 text-left text-base sm:text-xl md:text-2xl text-[var(--color-ink)] font-medium transition-colors cursor-pointer min-h-[44px]"
+                    >
+                      <span className="truncate">{formData.productInterest || "Select specific product"}</span>
+                      <ChevronDown
+                        className={`h-5 w-5 text-[var(--color-mute)] transition-transform duration-200 shrink-0 ml-2 ${
+                          openDropdown === "product" ? "rotate-180 text-[var(--color-amber-dark)]" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* Product Dropdown Menu */}
+                    {openDropdown === "product" && (
+                      <div className="absolute left-0 top-full mt-2 w-full bg-white/98 backdrop-blur-2xl border border-[var(--color-line)] shadow-[0_20px_50px_rgba(0,0,0,0.18)] rounded-2xl p-2 z-[100] animate-in fade-in zoom-in-95 duration-150 max-h-72 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden divide-y divide-slate-100">
+                        {activeCatObject.subcategories.map((sub: any) => {
+                          if (sub.items && sub.items.length > 0) {
+                            return (
+                              <div key={sub.id} className="py-2 first:pt-1 last:pb-1">
+                                <span className="block px-3 py-1 text-[10.5px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] bg-amber-500/10 rounded-lg mb-1">
+                                  {sub.title}
+                                </span>
+                                <div className="space-y-0.5 mt-1">
+                                  {sub.items.map((item: any) => {
+                                    const isSelected = formData.productInterest === item.name;
+                                    return (
+                                      <button
+                                        key={item.slug}
+                                        type="button"
+                                        onClick={() => handleProductSelect(item.name)}
+                                        className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium transition-all ${
+                                          isSelected
+                                            ? "bg-[var(--color-blue-deep)] text-white font-semibold shadow-xs"
+                                            : "text-[var(--color-ink)] hover:bg-slate-50 active:bg-slate-100"
+                                        }`}
+                                      >
+                                        <span className="truncate">{item.name}</span>
+                                        {isSelected && <Check className="h-3.5 w-3.5 text-[var(--color-amber)] shrink-0 ml-2" />}
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            );
+                          }
+                          const isSelected = formData.productInterest === sub.title;
+                          return (
+                            <div key={sub.id} className="py-1">
+                              <button
+                                type="button"
+                                onClick={() => handleProductSelect(sub.title)}
+                                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium transition-all ${
+                                  isSelected
+                                    ? "bg-[var(--color-blue-deep)] text-white font-semibold shadow-xs"
+                                    : "text-[var(--color-ink)] hover:bg-slate-50 active:bg-slate-100"
+                                }`}
+                              >
+                                <span className="truncate">{sub.title}</span>
+                                {isSelected && <Check className="h-3.5 w-3.5 text-[var(--color-amber)] shrink-0 ml-2" />}
+                              </button>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
-                {/* Additional Message / Requirements */}
-                <div className="space-y-1">
-                  <label className="text-[10px] sm:text-xs font-bold text-[var(--color-ink)] uppercase tracking-wider">
-                    Message / Specific Requirements
+                {/* ROW 7: QUANTITY (Custom Clean Dropdown) */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-center sm:items-baseline">
+                  <label className="sm:col-span-3 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    QUANTITY
                   </label>
-                  <textarea
-                    rows={2}
-                    placeholder="Enter any specific roll widths, micron specs, core size..."
-                    value={formData.notes}
-                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    className="w-full rounded-lg sm:rounded-2xl border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-5 sm:py-3.5 text-xs sm:text-sm text-[var(--color-ink)] placeholder-[var(--color-mute)] focus:border-[var(--color-amber)] focus:ring-2 focus:ring-[var(--color-amber)]/20 focus:outline-none transition-all shadow-xs resize-none"
-                  />
+                  <div ref={quantityRef} className={`sm:col-span-9 relative ${openDropdown === "quantity" ? "z-50" : "z-0"}`}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenDropdown(openDropdown === "quantity" ? null : "quantity")}
+                      className="w-full flex items-center justify-between bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] py-2 sm:pb-3 text-left text-base sm:text-xl md:text-2xl text-[var(--color-ink)] font-medium transition-colors cursor-pointer min-h-[44px]"
+                    >
+                      <span className={formData.monthlyVolume ? "text-[var(--color-ink)]" : "text-[var(--color-mute)]/70 truncate"}>
+                        {formData.monthlyVolume || "Select Quantity / Monthly Volume"}
+                      </span>
+                      <ChevronDown
+                        className={`h-5 w-5 text-[var(--color-mute)] transition-transform duration-200 shrink-0 ml-2 ${
+                          openDropdown === "quantity" ? "rotate-180 text-[var(--color-amber-dark)]" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* Quantity Dropdown Menu */}
+                    {openDropdown === "quantity" && (
+                      <div className="absolute left-0 top-full mt-2 w-full bg-white/98 backdrop-blur-2xl border border-[var(--color-line)] shadow-[0_20px_50px_rgba(0,0,0,0.18)] rounded-2xl p-1.5 z-[100] animate-in fade-in zoom-in-95 duration-150 max-h-64 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                        {volumeOptions.map((vol, i) => {
+                          const isSelected = formData.monthlyVolume === vol;
+                          return (
+                            <button
+                              key={i}
+                              type="button"
+                              onClick={() => handleVolumeSelect(vol)}
+                              className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left text-xs sm:text-sm font-medium transition-all ${
+                                isSelected
+                                  ? "bg-amber-500/10 text-[var(--color-amber-dark)] font-bold"
+                                  : "text-[var(--color-ink)] hover:bg-slate-50 active:bg-slate-100"
+                              }`}
+                            >
+                              <span>{vol}</span>
+                              {isSelected && <Check className="h-4 w-4 text-[var(--color-amber-dark)] shrink-0 ml-2" />}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
-                {/* Submit CTA Button */}
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full py-2.5 sm:py-4 px-5 sm:px-8 rounded-full bg-[var(--color-amber)] hover:bg-[var(--color-amber-dark)] text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-md sm:shadow-lg shadow-[var(--color-amber)]/25 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer mt-2.5 sm:mt-4 hover:scale-[1.02]"
-                >
-                  {loading ? (
-                    <span>Generating Spec Request...</span>
-                  ) : (
-                    <>
-                      <span>Request Spec Sheet & Quote</span>
-                      <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                    </>
-                  )}
-                </button>
+                {/* ROW 8: MESSAGE */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-0.5 sm:gap-4 items-baseline">
+                  <label className="sm:col-span-3 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    MESSAGE
+                  </label>
+                  <div className="sm:col-span-9">
+                    <textarea
+                      rows={2}
+                      placeholder="What are you building, and what should it become?"
+                      value={formData.notes}
+                      onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                      suppressHydrationWarning
+                      className="w-full bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] pb-2 sm:pb-3 text-sm sm:text-xl md:text-2xl text-[var(--color-ink)] placeholder-[var(--color-mute)]/60 font-medium focus:outline-none transition-colors resize-none rounded-none"
+                    />
+                  </div>
+                </div>
+
+                {/* ROW 9: SUBMIT */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-center pt-2 sm:pt-6">
+                  <label className="sm:col-span-3 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)] hidden sm:block">
+                    SUBMIT
+                  </label>
+                  <div className="sm:col-span-9">
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl sm:rounded-2xl bg-[var(--color-blue-deep)] text-white px-8 sm:px-12 py-3.5 sm:py-4.5 text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.18em] transition-all duration-300 hover:bg-[var(--color-amber-dark)] hover:shadow-xl hover:shadow-amber-500/20 active:scale-[0.98] disabled:opacity-50 cursor-pointer text-center"
+                    >
+                      {loading ? "SENDING..." : "SEND INQUIRY"}
+                    </button>
+                  </div>
+                </div>
 
               </form>
             )}
-
           </div>
 
         </div>
-
       </div>
     </section>
   );

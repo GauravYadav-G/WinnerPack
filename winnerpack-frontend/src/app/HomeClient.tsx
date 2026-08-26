@@ -29,7 +29,7 @@ export default function Page() {
       {/* 1 & 2. Top utility bar + Main navigation */}
       <Navbar />
 
-      <PageWrapper>
+      <PageWrapper className="relative z-20">
         {/* 3. Hero slider */}
         <HeroSlider />
         <AboutStrip />

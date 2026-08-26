@@ -15,10 +15,14 @@ const DEFAULT_BRANDS: BrandItem[] = [
   { name: "Lava", logo: "/Brand_logo/lava.png" },
   { name: "Vivo", logo: "/Brand_logo/vivo.png" },
   { name: "Noise", logo: "/Brand_logo/noise.png" },
+  { name: "boAt", logo: "/Brand_logo/boat.png" },
   { name: "Fire-Boltt", logo: "/Brand_logo/firebolt.png" },
   { name: "Milton", logo: "/Brand_logo/milton.png" },
+  { name: "Luxor", logo: "/Brand_logo/luxor.png" },
   { name: "Ai+", logo: "/Brand_logo/aiplus.png" },
   { name: "Bosch", logo: "/Brand_logo/bosch.svg" },
+  { name: "IKIO Technologies", logo: "/Brand_logo/ikio.png" },
+  { name: "LRIPL", logo: "/Brand_logo/lripl.png" },
   { name: "Anmol", logo: "/Brand_logo/anmol.png" },
   { name: "CI Automotive", logo: "/Brand_logo/ci-automotive.png" },
   { name: "Bhagwati Products", logo: "/Brand_logo/bhagwati-products.png" },
@@ -69,22 +73,33 @@ export default function ClientLogoStrip() {
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-snug sm:leading-[1.15] text-balance">
             {partnerHeader.title || "We work with the best partners"}
           </h2>
+          <div className="mt-4 sm:mt-5 h-1.5 w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
         </div>
 
         {/* Clean Logo Card Boxes Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-6 items-center">
-          {brands.map((brand, idx) => (
-            <div
-              key={brand.name + idx}
-              className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 px-5 py-3.5 bg-white border border-[var(--color-line)]/90 rounded-2xl shadow-xs hover:shadow-md hover:border-[var(--color-amber)]/40 hover:-translate-y-1 transition-all duration-300 select-none group cursor-pointer"
-            >
-              <OptimizedImage
-                src={brand.logo}
-                alt={brand.name}
-                className="max-h-9 sm:max-h-12 md:max-h-14 max-w-[125px] sm:max-w-[160px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-          ))}
+          {brands.map((brand, idx) => {
+            const isCI =
+              brand.logo.toLowerCase().includes("ci-automotive") ||
+              brand.name.toLowerCase().includes("automotive");
+
+            return (
+              <div
+                key={brand.name + idx}
+                className="flex items-center justify-center w-full h-20 sm:h-24 md:h-28 px-5 py-3.5 bg-white border border-[var(--color-line)]/90 rounded-2xl shadow-xs hover:shadow-md hover:border-[var(--color-amber)]/40 hover:-translate-y-1 transition-all duration-300 select-none group cursor-pointer"
+              >
+                <OptimizedImage
+                  src={brand.logo}
+                  alt={brand.name}
+                  className={`w-auto h-auto object-contain transition-transform duration-300 ${
+                    isCI
+                      ? "max-h-11 sm:max-h-14 md:max-h-15 max-w-[135px] sm:max-w-[170px] scale-110 sm:scale-115 group-hover:scale-120"
+                      : "max-h-9 sm:max-h-12 md:max-h-13 max-w-[130px] sm:max-w-[165px] group-hover:scale-105"
+                  }`}
+                />
+              </div>
+            );
+          })}
         </div>
 
       </div>

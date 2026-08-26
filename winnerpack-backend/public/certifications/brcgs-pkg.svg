@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" fill="none">
+  <text x="5" y="45" font-family="system-ui, sans-serif" font-size="34" font-weight="900" fill="#0284c7" letter-spacing="-1">BRCGS</text>
+  <text x="5" y="66" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">Packaging Materials</text>
+  <rect x="5" y="74" width="145" height="18" rx="3" fill="#0284c7"/>
+  <text x="77" y="87" font-family="system-ui, sans-serif" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">CERTIFICATED</text>
+</svg>

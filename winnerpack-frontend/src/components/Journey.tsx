@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
@@ -12,20 +10,59 @@ import {
   RefreshCw,
   Ruler
 } from "lucide-react";
-import OptimizedImage from '@/components/OptimizedImage';
 import { apiFetch } from "@/lib/api";
 
 const iconComponents: any[] = [UserCheck, Boxes, ShieldCheck, TrendingUp, Truck, Tag, RefreshCw, Ruler];
 
 const defaultSolutionsData = [
-  { slot: "01", question: "Need a responsive point of contact for plant supply coordination?", solution: "Dedicated Key Account Manager for seamless order and dispatch coordination.", appImage: "/images/desktop/journey/solution_dispatch_manager.png", impact: "ACCOUNT MANAGEMENT", spec: "Single Point Contact", challenge: "Dedicated key account manager coordinates all plant orders and dispatches." },
-  { slot: "02", question: "Concerned about production line stoppages due to packaging stockouts?", solution: "Buffer stock maintained at our plant for quick and reliable dispatch.", appImage: "/images/desktop/journey/solution_buffer_stock.png", impact: "STOCK SECURITY", spec: "Zero Downtime", challenge: "Buffer stock stored locally at our plant for immediate dispatch." },
-  { slot: "03", question: "Facing quality issues with strapping or tape performance in the field?", solution: "Rigorous batch-level elongation, tensile and adhesive testing on every dispatch.", appImage: "/images/desktop/journey/solution_quality_testing.png", impact: "QUALITY CONTROL", spec: "Lab Verified", challenge: "Batch-level elongation, tensile, and adhesive testing on every dispatch." },
-  { slot: "04", question: "Looking to improve cost efficiency in packaging material consumption?", solution: "Optimized film gauges and high-yield formats that reduce cost per pack.", appImage: "/images/desktop/journey/solution_pallet_wrapping.png", impact: "COST YIELD", spec: "High Pre-Stretch", challenge: "Optimized film gauges and high-yield formats reduce total packaging cost." },
-  { slot: "05", question: "Facing inconsistent delivery schedules from your current supplier?", solution: "Reliable scheduled dispatches to support steady supply chain continuity.", appImage: "/images/desktop/journey/solution_scheduled_dispatch.png", impact: "LOGISTICS", spec: "On-Time Supply", challenge: "Scheduled, reliable dispatches ensure steady supply chain continuity." },
-  { slot: "06", question: "Dealing with unexpected price changes and unclear billing from suppliers?", solution: "Transparent contract pricing with no hidden surcharges or surprise escalations.", appImage: "/images/desktop/journey/solution_contract_pricing.png", impact: "TRANSPARENCY", spec: "Contract Fixed", challenge: "Fixed contract pricing with zero hidden surcharges or price jumps." },
-  { slot: "07", question: "Looking for sustainable packaging alternatives to reduce material waste?", solution: "Eco-friendly film options and optimized stretch technology for reduced material use.", appImage: "/images/desktop/journey/solution_pcr_eco_film.png", impact: "SUSTAINABILITY", spec: "Eco Friendly", challenge: "Recyclable and compostable film options for lower carbon footprint." },
-  { slot: "08", question: "Struggling with roll width, core size, or gauge inconsistencies?", solution: "Precise gauge, width, and length specifications maintained across every production batch.", appImage: "/images/desktop/journey/solution_precision_gauge.png", impact: "PRECISION", spec: "Spec Accurate", challenge: "Consistent specifications maintained across every single production batch." },
+  {
+    slot: "01",
+    question: "Supply Chain Communication",
+    solution: "Dedicated Key Account Manager",
+    challenge: "Dedicated key account manager coordinates all plant orders, schedule changes, and technical dispatches directly with your facility."
+  },
+  {
+    slot: "02",
+    question: "Zero Downtime Guarantee",
+    solution: "Local Plant Buffer Stock",
+    challenge: "Strategic safety buffer stock stored locally at our manufacturing plant for guaranteed immediate same-day dispatch."
+  },
+  {
+    slot: "03",
+    question: "Quality Verification",
+    solution: "Batch-Level QC Verification",
+    challenge: "Rigorous batch-level elongation, tensile yield, and adhesion peel testing conducted prior to every dispatch."
+  },
+  {
+    slot: "04",
+    question: "Material Cost Optimization",
+    solution: "High-Yield Gauge Optimization",
+    challenge: "Engineered film gauges and high-yield down-gauged formats that significantly lower overall packaging material cost per pallet."
+  },
+  {
+    slot: "05",
+    question: "Fleet & Transit Precision",
+    solution: "Scheduled Transit & Dispatches",
+    challenge: "Reliable time-slotted dispatch schedules engineered to support uninterrupted 24/7 factory floor operations."
+  },
+  {
+    slot: "06",
+    question: "Financial Transparency",
+    solution: "Transparent Contract Pricing",
+    challenge: "Predictable contract index pricing with zero hidden surcharges, surprise billing adjustments, or sudden spikes."
+  },
+  {
+    slot: "07",
+    question: "Circular Packaging",
+    solution: "Eco-Friendly Material Options",
+    challenge: "Recyclable PCR and optimized ultra-thin stretch formulations for measurable industrial carbon footprint reduction."
+  },
+  {
+    slot: "08",
+    question: "Dimensional Uniformity",
+    solution: "Micro-Tolerance Production",
+    challenge: "Sub-micron gauge accuracy, pristine edge cuts, and consistent core dimensions maintained across every single production run."
+  },
 ];
 
 export default function Journey() {
@@ -37,7 +74,6 @@ export default function Journey() {
         const res = await apiFetch("/api/content?key=homepage");
         if (res.ok) {
           const result = await res.json();
-          // Support both { data: { solutionsData } } and direct { solutionsData }
           const content = result?.data || result;
           if (Array.isArray(content?.solutionsData) && content.solutionsData.length > 0) {
             setSolutionsList(content.solutionsData);
@@ -51,78 +87,83 @@ export default function Journey() {
   }, []);
 
   return (
-    <section id="solutions" className="relative overflow-hidden bg-white py-10 sm:py-20 lg:py-28 border-b border-[var(--color-line)]">
-      {/* Background Atmosphere */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[var(--color-blue)]/5 blur-3xl pointer-events-none" />
+    <section id="solutions" className="relative overflow-hidden bg-[var(--color-bone)]/50 py-12 sm:py-16 md:py-20 lg:py-24 border-b border-[var(--color-line)]">
+      {/* Ambient Lighting & Backdrop Atmosphere */}
+      <div className="absolute inset-0 bg-stripes opacity-20 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-fine opacity-20 pointer-events-none" />
+      <div className="absolute -right-20 top-1/4 h-[350px] sm:h-[500px] w-[350px] sm:w-[500px] rounded-full bg-[var(--color-amber)]/10 blur-[100px] sm:blur-[130px] pointer-events-none" />
+      <div className="absolute -left-20 bottom-1/4 h-[350px] sm:h-[500px] w-[350px] sm:w-[500px] rounded-full bg-[var(--color-blue)]/10 blur-[100px] sm:blur-[130px] pointer-events-none" />
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] sm:h-[400px] w-[90%] sm:w-[700px] rounded-full bg-amber-500/5 blur-[90px] sm:blur-[120px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
 
         {/* Centered Section Header */}
-        <div className="mb-6 sm:mb-14 md:mb-20 max-w-4xl mx-auto text-center flex flex-col items-center">
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2">
-            Engineered Solutions
+        <div className="mb-10 sm:mb-14 md:mb-16 max-w-4xl mx-auto text-center flex flex-col items-center">
+          <span className="text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2.5">
+            ENGINEERED SOLUTIONS
           </span>
-          <h2 className="font-display text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug sm:leading-[1.1] tracking-tight text-[var(--color-ink)] text-balance">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug sm:leading-[1.15] tracking-tight text-[var(--color-ink)] text-balance">
             Industrial Packaging Challenges, Engineered Solutions
           </h2>
-          <div className="mt-3 sm:mt-4 h-1 sm:h-1.5 w-12 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
+          <div className="mt-3.5 sm:mt-4 h-1 sm:h-1.5 w-14 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
 
-          <p className="mt-3 sm:mt-5 text-xs sm:text-base md:text-lg text-[var(--color-mute)] leading-relaxed font-normal">
-            We support seamless supply chain operations through consistent material supply, quality verification, and spec-accurate product manufacturing.
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base md:text-lg text-[var(--color-mute)] leading-relaxed font-normal max-w-2xl text-balance">
+            Consistent material supply, verifiable testing standards, and spec-accurate industrial packaging.
           </p>
         </div>
 
-        {/* IMAGE-FIRST Full-Bleed Cards — 2x2 Grid on Mobile, 4 Columns on Desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+        {/* Modern Bento / Capability Grid — 2 in a row on mobile, 4 Columns on Desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
           {solutionsList.map((item, index) => {
             const IconComponent = iconComponents[index % iconComponents.length];
+
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.06 }}
-                className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-md cursor-pointer h-[210px] sm:h-[360px]"
+                transition={{ duration: 0.35, delay: index * 0.04 }}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl md:rounded-3xl bg-white/85 backdrop-blur-2xl border border-white/95 shadow-[0_4px_20px_rgb(0,0,0,0.03)] p-4 sm:p-5 md:p-6 transition-all duration-300 hover:bg-white hover:border-[var(--color-amber)]/60 hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1.5 cursor-pointer"
               >
-                {/* Full-Bleed Background Image */}
-                <OptimizedImage
-                  src={item.appImage}
-                  alt={item.solution}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                />
+                {/* Ambient Soft Glow on Card Hover */}
+                <div className="pointer-events-none absolute -right-10 -top-10 h-32 sm:h-36 w-32 sm:w-36 rounded-full bg-[var(--color-amber)]/15 blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
 
-                {/* Persistent dark gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />
+                <div>
+                  {/* Top Bar: Squircle Dual-Tone Icon & Serial Counter */}
+                  <div className="flex items-center justify-between mb-3.5 sm:mb-5">
+                    <div className="flex h-9 w-9 sm:h-11 sm:w-11 md:h-12 md:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 backdrop-blur-md text-[var(--color-amber-dark)] border border-amber-500/25 shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-[var(--color-amber)] group-hover:to-[var(--color-amber-2)] group-hover:text-white group-hover:shadow-md group-hover:shadow-amber-500/25">
+                      <IconComponent className="h-4.5 w-4.5 sm:h-5 sm:w-5 md:h-5.5 md:w-5.5 stroke-[2.2]" />
+                    </div>
 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/0 transition-all duration-500 group-hover:bg-black/30" />
-
-                {/* Icon Badge */}
-                <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-lg sm:rounded-xl bg-white/20 backdrop-blur-md text-white border border-white/20 transition-all duration-300 group-hover:bg-[var(--color-amber)] group-hover:border-[var(--color-amber)]">
-                  <IconComponent className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[2]" />
-                </div>
-
-                {/* Card index */}
-                <div className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 font-mono text-[9px] sm:text-[10px] font-bold text-white/60 tracking-widest">
-                  {item.slot || `0${index + 1}`}
-                </div>
-
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-5 translate-y-0 transition-transform duration-500">
-                  <h3 className="font-display text-xs sm:text-lg font-bold text-white leading-snug mb-1 sm:mb-2">
-                    {item.solution}
-                  </h3>
-
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2 mb-1 sm:mb-3">
-                    <span className="text-[9px] sm:text-xs font-mono text-white/60 truncate max-w-full">
-                      {item.spec}
+                    <span className="font-mono text-[10px] sm:text-xs font-bold text-slate-300 tracking-wider transition-colors duration-300 group-hover:text-[var(--color-amber-dark)]">
+                      /{item.slot || `0${index + 1}`}
                     </span>
                   </div>
 
-                  <p className="hidden sm:block text-xs text-white/75 leading-relaxed line-clamp-2">
-                    {item.challenge}
-                  </p>
+                  {/* Heading 1: Category / Context Eyebrow */}
+                  {item.question && (
+                    <span className="block text-[8.5px] sm:text-[10px] md:text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] mb-1 sm:mb-1.5 opacity-90 leading-tight">
+                      {item.question}
+                    </span>
+                  )}
+
+                  {/* Heading 2: Primary Solution Title */}
+                  <h3 className="font-display text-xs sm:text-sm md:text-base font-bold text-[var(--color-ink)] leading-snug tracking-tight mb-2 sm:mb-2.5 transition-colors duration-300 group-hover:text-[var(--color-blue-deep)]">
+                    {item.solution}
+                  </h3>
+
+                  {/* Operational Value Description (Properly Fills & Balances the Card) */}
+                  {item.challenge && (
+                    <p className="text-[10px] sm:text-xs md:text-[13px] text-slate-500 leading-relaxed font-normal">
+                      {item.challenge}
+                    </p>
+                  )}
+                </div>
+
+                {/* Subtle Integrated Bottom Accent Indicator */}
+                <div className="mt-4 sm:mt-5 pt-1">
+                  <div className="h-0.5 w-5 sm:w-8 bg-slate-100 rounded-full transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-[var(--color-amber)] group-hover:to-transparent" />
                 </div>
               </motion.div>
             );
