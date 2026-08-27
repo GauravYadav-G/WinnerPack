@@ -9,75 +9,75 @@ import OptimizedImage from '@/components/OptimizedImage';
 const defaultJourneySolutions = [
   {
     slot: "01",
-    question: "Need a responsive point of contact for plant supply coordination?",
-    solution: "Dedicated Key Account Manager for seamless order and dispatch coordination.",
+    question: "Custom Dimensions",
+    solution: "Tailored Sizes & Gauges",
     appImage: "/images/desktop/journey/solution_dispatch_manager.png",
-    impact: "ACCOUNT MANAGEMENT",
-    spec: "Single Point Contact",
-    challenge: "Dedicated key account manager coordinates all plant orders and dispatches."
+    impact: "CUSTOM SIZES",
+    spec: "Tailored Specs",
+    challenge: "Custom widths, thicknesses, and roll lengths manufactured to match your exact manual or automated wrapping machinery."
   },
   {
     slot: "02",
-    question: "Concerned about production line stoppages due to packaging stockouts?",
-    solution: "Buffer stock maintained at our plant for quick and reliable dispatch.",
+    question: "Reliable Strength",
+    solution: "Tear & Puncture Resistance",
     appImage: "/images/desktop/journey/solution_buffer_stock.png",
-    impact: "STOCK SECURITY",
-    spec: "Zero Downtime",
-    challenge: "Buffer stock stored locally at our plant for immediate dispatch."
+    impact: "HIGH STRENGTH",
+    spec: "Load Security",
+    challenge: "Engineered multi-layer films that deliver high load containment and secure pallets during warehouse storage and transit."
   },
   {
     slot: "03",
-    question: "Facing quality issues with strapping or tape performance in the field?",
-    solution: "Rigorous batch-level elongation, tensile and adhesive testing on every dispatch.",
+    question: "High Volume Output",
+    solution: "Bulk Manufacturing Capacity",
     appImage: "/images/desktop/journey/solution_quality_testing.png",
-    impact: "QUALITY CONTROL",
-    spec: "Lab Verified",
-    challenge: "Batch-level elongation, tensile, and adhesive testing on every dispatch."
+    impact: "BULK SUPPLY",
+    spec: "High Output",
+    challenge: "Modern high-speed extrusion lines equipped to consistently fulfill large-scale recurring factory and distributor orders."
   },
   {
     slot: "04",
-    question: "Looking to improve cost efficiency in packaging material consumption?",
-    solution: "Optimized film gauges and high-yield formats that reduce cost per pack.",
+    question: "Direct Manufacturer",
+    solution: "Factory-Direct Competitive Pricing",
     appImage: "/images/desktop/journey/solution_pallet_wrapping.png",
-    impact: "COST YIELD",
-    spec: "High Pre-Stretch",
-    challenge: "Optimized film gauges and high-yield formats reduce total packaging cost."
+    impact: "COST EFFICIENCY",
+    spec: "Factory Direct",
+    challenge: "Transparent pricing directly from the manufacturing unit, helping you reduce overall packaging costs per unit."
   },
   {
     slot: "05",
-    question: "Facing inconsistent delivery schedules from your current supplier?",
-    solution: "Reliable scheduled dispatches to support steady supply chain continuity.",
+    question: "On-Time Dispatch",
+    solution: "Reliable Delivery & Ready Stock",
     appImage: "/images/desktop/journey/solution_scheduled_dispatch.png",
-    impact: "LOGISTICS",
-    spec: "On-Time Supply",
-    challenge: "Scheduled, reliable dispatches ensure steady supply chain continuity."
+    impact: "FAST DISPATCH",
+    spec: "On-Time Delivery",
+    challenge: "Maintained safety stock and planned dispatch schedules to ensure your packaging materials arrive without factory downtime."
   },
   {
     slot: "06",
-    question: "Dealing with unexpected price changes and unclear billing from suppliers?",
-    solution: "Transparent contract pricing with no hidden surcharges or surprise escalations.",
+    question: "Brand Visibility",
+    solution: "Custom Printing & Branded Tapes",
     appImage: "/images/desktop/journey/solution_contract_pricing.png",
-    impact: "TRANSPARENCY",
-    spec: "Contract Fixed",
-    challenge: "Fixed contract pricing with zero hidden surcharges or price jumps."
+    impact: "BRANDING",
+    spec: "Custom Print",
+    challenge: "Custom logo printing, colored tapes, and barcode labels to elevate product presentation and protect against tampering."
   },
   {
     slot: "07",
-    question: "Looking for sustainable packaging alternatives to reduce material waste?",
-    solution: "Eco-friendly film options and optimized stretch technology for reduced material use.",
+    question: "Sustainable Solutions",
+    solution: "100% Recyclable Materials",
     appImage: "/images/desktop/journey/solution_pcr_eco_film.png",
-    impact: "SUSTAINABILITY",
-    spec: "Eco Friendly",
-    challenge: "Recyclable and compostable film options for lower carbon footprint."
+    impact: "SUSTAINABLE",
+    spec: "100% Recyclable",
+    challenge: "Environmentally conscious polyethylene formulations and down-gauged films that minimize overall plastic usage."
   },
   {
     slot: "08",
-    question: "Struggling with roll width, core size, or gauge inconsistencies?",
-    solution: "Precise gauge, width, and length specifications maintained across every production batch.",
+    question: "Expert Guidance",
+    solution: "Packaging Consultation & Samples",
     appImage: "/images/desktop/journey/solution_precision_gauge.png",
-    impact: "PRECISION",
-    spec: "Spec Accurate",
-    challenge: "Consistent specifications maintained across every single production batch."
+    impact: "TECHNICAL DESK",
+    spec: "Sample Trials",
+    challenge: "Dedicated packaging assistance and trial samples to help you choose the right film, strap, or tape grade for your goods."
   }
 ];
 
