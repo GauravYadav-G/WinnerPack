@@ -16,7 +16,7 @@ const defaultFooterData = {
   description: "Winner Pack Technologies Pvt. Ltd. is a manufacturer and supplier of environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply quality stretch films, strapping rolls, shrink films, and protective packaging solutions to industrial businesses across diverse sectors.",
   linkedin: "https://linkedin.com",
   youtube: "https://youtube.com",
-  instagram: "https://www.instagram.com/winnerpacktechnologies/",
+  instagram: "https://www.instagram.com/winnerpacktechnologiespvtltd/",
   facebook: "https://www.facebook.com/winnerpackindia",
 };
 
@@ -87,7 +87,7 @@ export default function Footer() {
                 },
                 {
                   label: "Instagram",
-                  href: footerData.instagram || "https://www.instagram.com/winnerpacktechnologies/",
+                  href: footerData.instagram || "https://www.instagram.com/winnerpacktechnologiespvtltd/",
                   svg: (
                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />

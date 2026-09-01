@@ -95,7 +95,7 @@ const defaultFooter = {
   legalName: "Winner Pack Technologies Pvt. Ltd.",
   phone: "+91 85950 72187",
   phone2: "+91 74287 70999",
-  email: "sales@winnerpack.in",
+  email: "info@winnerpack.in",
   address: "Plot No - 8, Khasra No 2667, MIN BST Industrial Park, Bhurgharhi, Dasna, Ghaziabad, UP, 201015",
   hours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
   gstin: "09AACCW6640F1Z8",
@@ -103,7 +103,7 @@ const defaultFooter = {
   mapsEmbedUrl: "https://maps.google.com/maps?q=Plot%20No.%208,%20B.S.T.%20Industrial%20Park,%20Dasna,%20Ghaziabad&t=&z=13&ie=UTF8&iwloc=&output=embed",
   linkedin: "https://linkedin.com/company/winnerpack",
   youtube: "https://youtube.com",
-  instagram: "https://instagram.com",
+  instagram: "https://www.instagram.com/winnerpacktechnologiespvtltd/",
   whatsapp: "918595072187",
   description: "Winner Pack Technologies Pvt. Ltd. is a manufacturer and supplier of environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply quality stretch films, strapping rolls, shrink films, and protective packaging solutions to industrial businesses across diverse sectors.",
 };

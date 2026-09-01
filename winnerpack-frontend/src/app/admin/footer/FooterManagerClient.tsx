@@ -21,7 +21,7 @@ export default function FooterManagerClient() {
     cin: "U51909UP2020PTC129759",
     mapsEmbedUrl: "https://maps.google.com/maps?q=Plot%20No.%208,%20B.S.T.%20Industrial%20Park,%20Dasna,%20Ghaziabad&t=&z=13&ie=UTF8&iwloc=&output=embed",
     linkedin: "https://linkedin.com/company/winnerpack",
-    instagram: "https://www.instagram.com/winnerpacktechnologies/",
+    instagram: "https://www.instagram.com/winnerpacktechnologiespvtltd/",
     facebook: "https://www.facebook.com/winnerpackindia",
     whatsapp: "918595072187"
   });

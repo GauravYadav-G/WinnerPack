@@ -221,7 +221,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
 
         const info = await transporter.sendMail({
           from: '"WinnerPack Inquiry" <no-reply@winnerpack.in>',
-          to: process.env.SMTP_TO || "sales@winnerpack.in",
+          to: process.env.SMTP_TO || "info@winnerpack.in",
           subject: `📩 New Lead: ${newInquiry.name} (${newInquiry.company})`,
           html: htmlBody,
           attachments: attachments,
@@ -234,7 +234,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
           console.log(previewUrl);
           console.log("==================================================\n");
         } else {
-          console.log(`✅ Email sent to ${process.env.SMTP_TO || "sales@winnerpack.in"}`);
+          console.log(`✅ Email sent to ${process.env.SMTP_TO || "info@winnerpack.in"}`);
         }
       })
       .catch((emailErr) => {

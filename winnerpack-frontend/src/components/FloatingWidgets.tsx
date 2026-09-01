@@ -148,7 +148,7 @@ export default function FloatingWidgets() {
               {/* Instagram Floating Icon */}
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.04 }}>
                 <ActionButton
-                  href="https://www.instagram.com/winnerpacktechnologies/"
+                  href="https://www.instagram.com/winnerpacktechnologiespvtltd/"
                   label="Follow on Instagram"
                   from="#833AB4"
                   to="#E1306C"
