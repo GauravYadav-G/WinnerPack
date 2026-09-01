@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useState } from "react";
 import { CheckCircle2, Loader2, Send, X } from "lucide-react";
-import { apiFetch } from "@/lib/api";
+import { submitInquiryForm } from "@/lib/api";
 
 type ProductInquiryModalProps = {
   productId: string;
@@ -38,12 +38,11 @@ export default function ProductInquiryModal({ productId, productTitle, onClose }
     event.preventDefault();
     setStatus("submitting");
     try {
-      const response = await apiFetch("/api/inquiries", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, skuProfile: `${productTitle} (${productId})` }),
+      const success = await submitInquiryForm({
+        ...form,
+        skuProfile: `${productTitle} (${productId})`,
       });
-      if (!response.ok) throw new Error("Unable to submit inquiry");
+      if (!success) throw new Error("Unable to submit inquiry");
       setStatus("success");
     } catch {
       setStatus("error");

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { CheckCircle2, ChevronDown, Check } from "lucide-react";
-import { apiFetch } from "@/lib/api";
+import { submitInquiryForm } from "@/lib/api";
 import { productHierarchy } from "@/components/Navbar";
 
 const volumeOptions = [
@@ -90,24 +90,23 @@ export default function ProductInquiryForm() {
     setError("");
 
     try {
-      const response = await apiFetch("/api/inquiries", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.fullName,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.companyName,
-          skuProfile: `${formData.category ? `[${formData.category}] ` : ""}${formData.productInterest || "General Inquiry"}`,
-          lineSpeed: formData.monthlyVolume || "Not Specified",
-          message: formData.notes,
-        }),
+      const success = await submitInquiryForm({
+        name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.companyName,
+        skuProfile: `${formData.category ? `[${formData.category}] ` : ""}${formData.productInterest || "General Inquiry"}`,
+        lineSpeed: formData.monthlyVolume || "Not Specified",
+        message: formData.notes,
       });
-      if (!response.ok) throw new Error("Inquiry submission failed");
+
+      if (!success) {
+        throw new Error("Submission failed");
+      }
       setSubmitted(true);
     } catch (err) {
-      console.warn("API submission error:", err);
-      setError("We couldn't send your inquiry. Please try again or contact us directly.");
+      console.warn("Form submission notice:", err);
+      setError("We couldn't send your inquiry. Please check your network or contact info@winnerpack.in directly.");
     } finally {
       setLoading(false);
     }

@@ -78,22 +78,24 @@ router.get("/:id", async (req: Request, res: Response): Promise<void> => {
       const parentWithSub = initialProducts.find((p) =>
         p.subCategories?.some((s: any) => s.id === id || s.slug === id)
       );
-      if (parentWithSub) {
-        const sub = parentWithSub.subCategories.find((s: any) => s.id === id || s.slug === id);
-        fallbackProduct = {
-          id: sub.id || id,
-          title: sub.title,
-          category: parentWithSub.category,
-          tag: sub.subtitle || parentWithSub.tag,
-          blurb: sub.blurb || parentWithSub.blurb,
-          longDesc: sub.longDesc || sub.blurb || parentWithSub.longDesc,
-          image: sub.image || parentWithSub.image,
-          gallery: [sub.image || parentWithSub.image, ...(parentWithSub.gallery || [])],
-          specs: sub.specs || parentWithSub.specs,
-          applications: sub.applications || parentWithSub.applications,
-          thicknessLengthMatrix: parentWithSub.thicknessLengthMatrix,
-          options: parentWithSub.options,
-        } as any;
+      if (parentWithSub && parentWithSub.subCategories) {
+        const sub = (parentWithSub.subCategories as any[]).find((s: any) => s.id === id || s.slug === id) as any;
+        if (sub) {
+          fallbackProduct = {
+            id: sub.id || id,
+            title: sub.title,
+            category: parentWithSub.category,
+            tag: sub.subtitle || parentWithSub.tag,
+            blurb: sub.blurb || parentWithSub.blurb,
+            longDesc: sub.longDesc || sub.blurb || parentWithSub.longDesc,
+            image: sub.image || parentWithSub.image,
+            gallery: [sub.image || parentWithSub.image, ...((parentWithSub as any).gallery || [])],
+            specs: sub.specs || (parentWithSub as any).specs,
+            applications: sub.applications || (parentWithSub as any).applications,
+            thicknessLengthMatrix: (parentWithSub as any).thicknessLengthMatrix,
+            options: (parentWithSub as any).options,
+          } as any;
+        }
       }
     }
 

@@ -9,6 +9,7 @@ import { Container, Eyebrow } from "../../components/ui/primitives";
 import { Reveal } from "../../components/ui/motion";
 import { Button } from "../../components/ui/Button";
 import { Accordion } from "../../components/ui/Accordion";
+import { submitInquiryForm } from "../../lib/api";
 
 // Layout components
 import Navbar from "../../components/Navbar";
@@ -68,12 +69,8 @@ function ContactFormInner() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("/api/inquiries", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (res.ok) {
+      const success = await submitInquiryForm(formData);
+      if (success) {
         setSubmitted(true);
         setFormData({
           name: "",
@@ -85,11 +82,11 @@ function ContactFormInner() {
           message: "",
         });
       } else {
-        alert("Failed to submit inquiry. Please try again.");
+        alert("Unable to submit inquiry. Please check your network or contact info@winnerpack.in directly.");
       }
     } catch (err) {
       console.error(err);
-      alert("Something went wrong. Please check your internet connection.");
+      alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }

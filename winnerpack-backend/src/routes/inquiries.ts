@@ -38,122 +38,188 @@ async function getTransporter() {
   });
 }
 
-// Clean Email HTML Generator using CID attachments
+// Classic Table Structured Email HTML Generator
 function generateCleanEmailHtml(
   inquiry: any,
-  matchedProduct: any = null,
-  hasLogoAttachment: boolean = false,
-  hasProductAttachment: boolean = false
+  matchedProduct: any = null
 ) {
-  const logoSrc = hasLogoAttachment ? "cid:winnerpack-logo" : "http://localhost:3000/logo.png";
-  const productImgSrc = hasProductAttachment
-    ? "cid:product-preview"
-    : matchedProduct?.image
-    ? matchedProduct.image.startsWith("http")
-      ? matchedProduct.image
-      : `http://localhost:3000${matchedProduct.image.startsWith("/") ? "" : "/"}${matchedProduct.image}`
-    : "";
+  const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+  const leadId = `WP-${Math.floor(100000 + Math.random() * 900000)}`;
 
   return `
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Inquiry - WinnerPack</title>
-  <style>
-    body { font-family: Arial, sans-serif; background-color: #f8fafc; color: #0f172a; margin: 0; padding: 20px; }
-    .card { max-width: 560px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .logo-container { text-align: center; padding-bottom: 20px; border-bottom: 1px solid #f1f5f9; margin-bottom: 20px; }
-    .logo-img { max-height: 48px; width: auto; display: inline-block; }
-    .brand-fallback { font-size: 22px; font-weight: bold; color: #120a3b; }
-    .brand-highlight { color: #fe8220; }
-    .heading { font-size: 18px; font-weight: bold; color: #0f172a; margin-bottom: 16px; }
-    .info-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-    .info-table td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
-    .label { font-weight: bold; color: #475569; width: 130px; }
-    .value { color: #0f172a; }
-    .product-box { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; margin: 20px 0; text-align: center; }
-    .product-tag { font-size: 11px; font-weight: bold; color: #fe8220; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
-    .product-img { max-height: 160px; max-width: 100%; object-fit: contain; border-radius: 8px; margin-bottom: 10px; background-color: #ffffff; padding: 8px; border: 1px solid #e2e8f0; }
-    .product-title { font-size: 15px; font-weight: bold; color: #0f172a; }
-    .product-price { font-size: 13px; font-weight: bold; color: #475569; margin-top: 4px; }
-    .message-box { background-color: #fff8f3; border-left: 4px solid #fe8220; padding: 14px 16px; border-radius: 0 8px 8px 0; font-size: 14px; color: #334155; margin-bottom: 24px; line-height: 1.5; }
-    .btn-container { text-align: center; margin-top: 24px; }
-    .reply-btn { display: inline-block; background-color: #fe8220; color: #ffffff; text-decoration: none; font-weight: bold; padding: 12px 28px; border-radius: 8px; font-size: 14px; }
-    .footer { font-size: 12px; color: #94a3b8; text-align: center; margin-top: 24px; border-top: 1px solid #f1f5f9; padding-top: 16px; }
+  <title>WinnerPack - Website Inquiry</title>
+  <!--[if mso]>
+  <style type="text/css">
+    body, table, td, p, a { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important; }
   </style>
+  <![endif]-->
 </head>
-<body>
-  <div class="card">
-    <!-- Brand Logo Header -->
-    <div class="logo-container">
-      <img src="${logoSrc}" alt="WinnerPack" class="logo-img" />
-    </div>
+<body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #0f172a; -webkit-font-smoothing: antialiased;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f8fafc; padding: 40px 15px;">
+    <tr>
+      <td align="center">
+        <!-- Main Document Table -->
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width: 600px; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+          
+          <!-- Header Bar -->
+          <tr>
+            <td style="padding: 22px 30px; background-color: #0f172a; color: #ffffff;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="vertical-align: middle;">
+                    <div style="font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">
+                      Winner Pack Technologies
+                    </div>
+                    <div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">
+                      Website Lead Notification
+                    </div>
+                  </td>
+                  <td align="right" style="vertical-align: middle;">
+                    <span style="font-size: 11px; color: #e2e8f0; background-color: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 4px; font-weight: 600;">
+                      Ref #${leadId}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
 
-    <!-- Inquiry Heading -->
-    <div class="heading">New Customer Inquiry</div>
+          <!-- Table Content Section -->
+          <tr>
+            <td style="padding: 30px;">
+              
+              <div style="font-size: 13px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+                Inquiry Details
+              </div>
 
-    <!-- Lead Info Table -->
-    <table class="info-table">
-      <tr>
-        <td class="label">Name:</td>
-        <td class="value"><strong>${inquiry.name || "N/A"}</strong></td>
-      </tr>
-      <tr>
-        <td class="label">Company:</td>
-        <td class="value"><strong>${inquiry.company || "N/A"}</strong></td>
-      </tr>
-      <tr>
-        <td class="label">Email:</td>
-        <td class="value"><a href="mailto:${inquiry.email}" style="color: #fe8220; text-decoration: none;">${inquiry.email}</a></td>
-      </tr>
-      <tr>
-        <td class="label">Phone:</td>
-        <td class="value"><a href="tel:${inquiry.phone}" style="color: #0f172a; text-decoration: none;">${inquiry.phone}</a></td>
-      </tr>
-      ${inquiry.skuProfile ? `
-      <tr>
-        <td class="label">SKU / Product:</td>
-        <td class="value">${inquiry.skuProfile}</td>
-      </tr>
-      ` : ""}
-      ${inquiry.lineSpeed ? `
-      <tr>
-        <td class="label">Line Speed:</td>
-        <td class="value">${inquiry.lineSpeed}</td>
-      </tr>
-      ` : ""}
-    </table>
+              <!-- Main Structured Data Table -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse: collapse; width: 100%; border: 1px solid #e2e8f0; font-size: 13px;">
+                
+                <!-- Row 1: Name -->
+                <tr style="background-color: #f8fafc;">
+                  <td style="padding: 12px 16px; font-weight: 700; color: #475569; width: 35%; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">
+                    Customer Name
+                  </td>
+                  <td style="padding: 12px 16px; font-weight: 700; color: #0f172a; border-bottom: 1px solid #e2e8f0;">
+                    ${inquiry.name || "N/A"}
+                  </td>
+                </tr>
 
-    <!-- Product Image & Details Preview (If matched) -->
-    ${matchedProduct ? `
-    <a href="${process.env.FRONTEND_URL || "http://localhost:3000"}/products/${matchedProduct.id}" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-      <div class="product-box" style="border: 1px solid #cbd5e1; hover:border-[#fe8220]; transition: all 0.2s ease;">
-        <div class="product-tag">Requested Product Preview (Click to View Live) →</div>
-        ${productImgSrc ? `<img src="${productImgSrc}" alt="${matchedProduct.title}" class="product-img" />` : ""}
-        <div class="product-title" style="color: #2563eb; text-decoration: underline;">${matchedProduct.title}</div>
-      </div>
-    </a>
-    ` : ""}
+                <!-- Row 2: Company -->
+                <tr style="background-color: #ffffff;">
+                  <td style="padding: 12px 16px; font-weight: 700; color: #475569; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">
+                    Company / Organization
+                  </td>
+                  <td style="padding: 12px 16px; color: #0f172a; border-bottom: 1px solid #e2e8f0;">
+                    ${inquiry.company || "Individual Buyer"}
+                  </td>
+                </tr>
 
-    <!-- Customer Message Box -->
-    ${inquiry.message ? `
-    <div class="message-box">
-      <strong style="color: #c2410c;">Customer Note:</strong><br/>
-      "${inquiry.message}"
-    </div>
-    ` : ""}
+                <!-- Row 3: Email -->
+                <tr style="background-color: #f8fafc;">
+                  <td style="padding: 12px 16px; font-weight: 700; color: #475569; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">
+                    Email Address
+                  </td>
+                  <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0;">
+                    <a href="mailto:${inquiry.email}" style="color: #0284c7; text-decoration: underline; font-weight: 600;">
+                      ${inquiry.email || "N/A"}
+                    </a>
+                  </td>
+                </tr>
 
-    <!-- Action Reply Button -->
-    <div class="btn-container">
-      <a href="mailto:${inquiry.email}" class="reply-btn">Reply to Customer →</a>
-    </div>
+                <!-- Row 4: Phone -->
+                <tr style="background-color: #ffffff;">
+                  <td style="padding: 12px 16px; font-weight: 700; color: #475569; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">
+                    Phone Number
+                  </td>
+                  <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0;">
+                    <a href="tel:${inquiry.phone}" style="color: #0f172a; text-decoration: none; font-weight: 600;">
+                      ${inquiry.phone || "N/A"}
+                    </a>
+                  </td>
+                </tr>
 
-    <div class="footer">
-      WinnerPack Industrial Packaging Lead System
-    </div>
-  </div>
+                <!-- Row 5: Product -->
+                <tr style="background-color: #f8fafc;">
+                  <td style="padding: 12px 16px; font-weight: 700; color: #475569; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">
+                    Product / SKU
+                  </td>
+                  <td style="padding: 12px 16px; font-weight: 600; color: #0f172a; border-bottom: 1px solid #e2e8f0;">
+                    ${inquiry.skuProfile || (matchedProduct ? matchedProduct.title : "General Inquiry")}
+                  </td>
+                </tr>
+
+                <!-- Row 6: Quantity / Volume -->
+                <tr style="background-color: #ffffff;">
+                  <td style="padding: 12px 16px; font-weight: 700; color: #475569; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">
+                    Required Volume
+                  </td>
+                  <td style="padding: 12px 16px; color: #334155; border-bottom: 1px solid #e2e8f0;">
+                    ${inquiry.lineSpeed || "Not Specified"}
+                  </td>
+                </tr>
+
+                <!-- Row 7: Message -->
+                <tr style="background-color: #f8fafc;">
+                  <td style="padding: 12px 16px; font-weight: 700; color: #475569; vertical-align: top; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">
+                    Message / Requirement
+                  </td>
+                  <td style="padding: 12px 16px; color: #334155; line-height: 1.6; border-bottom: 1px solid #e2e8f0;">
+                    ${inquiry.message || "No additional message provided."}
+                  </td>
+                </tr>
+
+                <!-- Row 8: Timestamp -->
+                <tr style="background-color: #ffffff;">
+                  <td style="padding: 12px 16px; font-weight: 700; color: #475569; border-right: 1px solid #e2e8f0;">
+                    Submission Date & Time
+                  </td>
+                  <td style="padding: 12px 16px; color: #64748b;">
+                    ${timestamp} IST
+                  </td>
+                </tr>
+
+              </table>
+
+              <!-- Action Bar -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 24px;">
+                <tr>
+                  <td>
+                    <a href="mailto:${inquiry.email}?subject=Regarding%20your%20inquiry%20with%20WinnerPack%20Technologies" style="display: inline-block; background-color: #0f172a; color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 4px;">
+                      Reply to ${inquiry.name || "Customer"} &rarr;
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding: 16px 30px; background-color: #f8fafc; border-top: 1px solid #e2e8f0; font-size: 11px; color: #94a3b8;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="color: #64748b;">
+                    Winner Pack Technologies Pvt. Ltd. &bull; <a href="https://winnerpack.in" style="color: #64748b; text-decoration: none;">www.winnerpack.in</a>
+                  </td>
+                  <td align="right" style="color: #94a3b8;">
+                    info@winnerpack.in
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
   `;
@@ -209,37 +275,42 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
       }
     }
 
-    // Send clean HTML email notification
-    getTransporter()
-      .then(async (transporter) => {
-        const htmlBody = generateCleanEmailHtml(
-          newInquiry,
-          matchedProduct,
-          hasLogoAttachment,
-          hasProductAttachment
-        );
-
-        const info = await transporter.sendMail({
-          from: '"WinnerPack Inquiry" <no-reply@winnerpack.in>',
-          to: process.env.SMTP_TO || "info@winnerpack.in",
-          subject: `📩 New Lead: ${newInquiry.name} (${newInquiry.company})`,
-          html: htmlBody,
-          attachments: attachments,
-        });
-
-        const previewUrl = nodemailer.getTestMessageUrl(info);
-        if (previewUrl) {
-          console.log("\n==================================================");
-          console.log("📧 CID EMBEDDED TEST EMAIL PREVIEW LINK:");
-          console.log(previewUrl);
-          console.log("==================================================\n");
-        } else {
-          console.log(`✅ Email sent to ${process.env.SMTP_TO || "info@winnerpack.in"}`);
-        }
+    // Forward to Form Submission API (directly delivers lead to inbox)
+    const targetEmail = process.env.SMTP_TO || "info@winnerpack.in";
+    const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+    try {
+      fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Origin: "https://winnerpack.in",
+          Referer: "https://winnerpack.in",
+        },
+        body: JSON.stringify({
+          _subject: `New Website Lead: ${newInquiry.name} - ${newInquiry.company || "Direct"}`,
+          _template: "table",
+          _captcha: "false",
+          "Customer Name": newInquiry.name,
+          "Company": newInquiry.company || "N/A",
+          "Email": newInquiry.email,
+          "Phone": newInquiry.phone,
+          "Product / Inquiry": newInquiry.skuProfile || (matchedProduct ? matchedProduct.title : "General Inquiry"),
+          "Quantity / Volume": newInquiry.lineSpeed || "Not Specified",
+          "Message": newInquiry.message || "N/A",
+          "Date & Time": `${timestamp} IST`,
+        }),
       })
-      .catch((emailErr) => {
-        console.warn("⚠️ Email notification failed (inquiry saved to DB):", emailErr.message);
-      });
+        .then((resp) => resp.json())
+        .then((result) => {
+          console.log(`✅ Form submission API dispatched to ${targetEmail}:`, result?.message || "Success");
+        })
+        .catch((err) => {
+          console.warn("⚠️ Form submission API dispatch notice:", err.message);
+        });
+    } catch (apiErr: any) {
+      console.warn("⚠️ Form submission API error:", apiErr.message);
+    }
 
     res.status(201).json(newInquiry);
   } catch (error: any) {

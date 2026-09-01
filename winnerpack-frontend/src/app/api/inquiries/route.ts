@@ -13,18 +13,55 @@ const BACKEND = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const res = await fetch(`${BACKEND}/api/inquiries`, {
+
+    // 1. Try forwarding to Express backend
+    try {
+      const res = await fetch(`${BACKEND}/api/inquiries`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        return NextResponse.json(data, { status: res.status });
+      }
+    } catch {
+      // Backend not running, fall through to direct Form Submission API
+    }
+
+    // 2. Direct Form Submission API dispatch to info@winnerpack.in
+    const targetEmail = process.env.NEXT_PUBLIC_FORM_EMAIL || "info@winnerpack.in";
+    const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+    const formSubmitRes = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Origin: "https://winnerpack.in",
+        Referer: "https://winnerpack.in",
+      },
+      body: JSON.stringify({
+        _subject: `New Lead Inquiry: ${body.name || body.fullName || "Website Visitor"} - ${body.company || body.companyName || "Direct"}`,
+        _template: "table",
+        _captcha: "false",
+        "Customer Name": body.name || body.fullName || "N/A",
+        "Company": body.company || body.companyName || "N/A",
+        "Email": body.email,
+        "Phone": body.phone,
+        "Product / Inquiry": body.skuProfile || body.productInterest || "General Inquiry",
+        "Quantity / Volume": body.lineSpeed || body.monthlyVolume || "Not Specified",
+        "Message": body.message || body.notes || "N/A",
+        "Date & Time": `${timestamp} IST`,
+      }),
     });
-    const data = await res.json();
-    return NextResponse.json(data, { status: res.status });
+
+    const data = await formSubmitRes.json();
+    return NextResponse.json({ success: true, ...data }, { status: 200 });
   } catch (err: any) {
-    console.error("[/api/inquiries proxy] Error:", err);
+    console.error("[/api/inquiries] Error:", err);
     return NextResponse.json(
-      { error: "Failed to reach backend" },
-      { status: 502 }
+      { error: "Failed to submit inquiry" },
+      { status: 500 }
     );
   }
 }
