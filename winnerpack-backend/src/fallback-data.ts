@@ -127,7 +127,7 @@ export const initialProducts = [
     ],
     options: {
       widths: ["Custom Widths (20mm to 300mm)"],
-      thicknesses: ["80 GSM Chromo", "60 Micron PP"],
+      thicknesses: ["80 GSM Chromo", "60 Micron PP Film"],
       colors: ["Full Color CMYK", "Pantone Spot Colors", "Metallic Gold & Silver"],
     },
     applications: ["Cosmetics branding", "Food item jars", "Promotional packaging seal"],
@@ -271,7 +271,7 @@ export const initialProducts = [
     category: "label-sticker-products",
     tag: "Self Adhesive",
     blurb: "Pressure sensitive labels made of three layers: release liner, adhesive layer, and face material. Sticks without wetting or glue application.",
-    longDesc: "Self-adhesive labels (also known as pressure sensitive labels) are made by printing onto construction of three layers: a release liner (backing paper), a layer of adhesive and the face material. A self-adhesive label is a small piece of paper designed to be affixed to any surface such as paper, plastic, wood, glass or metal typically by the action of layer of adhesive on the front or back of the label. It sticks without wetting or application of glue to the product.\n\n### Key Product Features:\n- **3-Layer Sandwich Structure**: Face material, pressure-sensitive adhesive layer, and siliconized release liner.\n- **Instant Pressure Bonding**: Sticks instantly upon light contact without heat, water activation, or glue application.\n- **Universal Surface Adhesion**: Bonds securely to paper, plastic, wood, glass, polished metal, and textured cardboard.\n- **High Tack & Shear Strength**: Formulated with permanent acrylic or hot-melt adhesive that resists environmental peeling.\n- **Automatic Machine Dispensing**: Precision gap die-cutting and consistent gap spacing for high-speed automatic labeling equipment.",
+    longDesc: "Self-adhesive labels (also known as pressure sensitive labels) are made by printing onto construction of three layers: a release liner (backing paper), a layer of adhesive and the face material. A self-adhesive label is a small piece of paper designed to be affixed to any surface such as paper, plastic, wood, glass or metal typically by the action of layer of adhesive on the front or back of the label. It sticks without wetting or application of glue to the product.\n\n### Key Product Features:\n- **3-Layer Sandwich Structure**: Face material, pressure-sensitive adhesive layer, and siliconized release liner.\n- **Instant Pressure Bonding**: Sticks instantly upon light contact without heat, water activation, or glue application.\n- **Universal Surface Adhesion**: Bonds securely to paper, plastic, wood, glass, polished metal, and textured cardboard.\n- **High Tack & Shear Strength**: Formulated with permanent acrylic or hot-melt adhesive that resists environmental peeling.\n- **Automatic Machine Dispensing**: Precision die-cut with consistent gap spacing for high-speed automatic labeling equipment.",
     image: "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
     gallery: [
       "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
@@ -359,9 +359,30 @@ export const initialProducts = [
       { micron: "110 mm x 300 m", gauge: "1 Roll", meters: "300", feet: "984" },
     ],
     subCategories: [
-      { id: "wax-ribbons", title: "Wax Ribbons", subtitle: "Economical Thermal Transfer Ribbons for Paper Labels", blurb: "Cost-effective wax ribbons that produce clear, high-contrast prints on paper label materials.", image: "/images/products/wax-ribbons/wax-ribbons.jpg", applications: ["Shipping labels", "Retail price labels", "Warehouse cartons"] },
-      { id: "wax-resin-ribbons", title: "Wax/Resin Ribbons", subtitle: "Durable Thermal Transfer Ribbons for Coated Labels", blurb: "Wax/resin ribbons balance print quality, durability, and moderate resistance for demanding label applications.", image: "/images/products/wax-resin-ribbons/wax-resin-ribbons.jpg", applications: ["Product labels", "Inventory labels", "Cold-storage labels"] },
-      { id: "resin-ribbons", title: "Resin Ribbons", subtitle: "High-Resistance Thermal Transfer Ribbons for Synthetic Labels", blurb: "High-performance resin ribbons designed for synthetic materials and harsh environments requiring maximum durability.", image: "/images/products/resin-ribbons/resin-ribbons.jpg", applications: ["Chemical drum labels", "Electronics labels", "Outdoor asset labels"] },
+      {
+        id: "wax-ribbons",
+        title: "Wax Ribbons",
+        subtitle: "Economical Thermal Transfer Ribbons for Paper Labels",
+        blurb: "Cost-effective wax ribbons that produce clear, high-contrast prints on paper label materials.",
+        image: "/images/products/wax-ribbons/wax-ribbons.jpg",
+        applications: ["Shipping labels", "Retail price labels", "Warehouse cartons"],
+      },
+      {
+        id: "wax-resin-ribbons",
+        title: "Wax/Resin Ribbons",
+        subtitle: "Durable Thermal Transfer Ribbons for Coated Labels",
+        blurb: "Wax/resin ribbons balance print quality, durability, and moderate resistance for demanding label applications.",
+        image: "/images/products/wax-resin-ribbons/wax-resin-ribbons.jpg",
+        applications: ["Product labels", "Inventory labels", "Cold-storage labels"],
+      },
+      {
+        id: "resin-ribbons",
+        title: "Resin Ribbons",
+        subtitle: "High-Resistance Thermal Transfer Ribbons for Synthetic Labels",
+        blurb: "High-performance resin ribbons designed for synthetic materials and harsh environments requiring maximum durability.",
+        image: "/images/products/resin-ribbons/resin-ribbons.jpg",
+        applications: ["Chemical drum labels", "Electronics labels", "Outdoor asset labels"],
+      },
     ],
     options: {
       widths: ["40 mm", "60 mm", "80 mm", "110 mm", "Custom"],
@@ -465,11 +486,46 @@ export const initialProducts = [
       { micron: "50x25 mm", gauge: "1,500/Roll", meters: "75", feet: "246" },
     ],
     subCategories: [
-      { id: "2d-3d-holograms", title: "2D / 3D Holograms", subtitle: "Multi-Dimensional Security Labels", blurb: "Visually distinctive 2D and 3D holograms that combine premium presentation with product authentication.", image: "/images/products/2d-3d-holograms/2d-3d-holograms.jpg", applications: ["Branded product packaging", "Warranty seals", "Authentication labels"] },
-      { id: "dot-matrix-holograms", title: "Dot Matrix Holograms", subtitle: "Fine-Detail Holographic Security Labels", blurb: "Precision holograms with sharp text, logos, and micro-details for high-security branding.", image: "/images/products/dot-matrix-holograms/dot-matrix-holograms.jpg", applications: ["Pharmaceutical packaging", "Certificates", "High-value product seals"] },
-      { id: "flip-flop-holograms", title: "Flip-Flop Holograms", subtitle: "Angle-Change Visual Authentication Labels", blurb: "Holograms that switch between two visuals as the viewing angle changes, making verification easy.", image: "/images/products/flip-flop-holograms/flip-flop-holograms.jpg", applications: ["Retail packaging", "Promotional labels", "Brand authentication"] },
-      { id: "kinetic-holograms", title: "Kinetic Holograms", subtitle: "Dynamic Motion-Effect Holographic Labels", blurb: "Dynamic holographic patterns that create movement effects and provide a distinctive security marker.", image: "/images/products/kinetic-holograms/kinetic-holograms.jpg", applications: ["Premium consumer products", "Gift packaging", "Tamper-evident seals"] },
-      { id: "e-beam-holograms", title: "E-Beam Holograms", subtitle: "Electron-Beam Mastered Security Labels", blurb: "Fine-detail holograms engineered for sophisticated brand-protection and security applications.", image: "/images/products/e-beam-holograms/e-beam-holograms.jpg", applications: ["Government documents", "Electronics", "High-security packaging"] },
+      {
+        id: "2d-3d-holograms",
+        title: "2D / 3D Holograms",
+        subtitle: "Multi-Dimensional Security Labels",
+        blurb: "Visually distinctive 2D and 3D holograms that combine premium presentation with product authentication.",
+        image: "/images/products/2d-3d-holograms/2d-3d-holograms.jpg",
+        applications: ["Branded product packaging", "Warranty seals", "Authentication labels"],
+      },
+      {
+        id: "dot-matrix-holograms",
+        title: "Dot Matrix Holograms",
+        subtitle: "Fine-Detail Holographic Security Labels",
+        blurb: "Precision holograms with sharp text, logos, and micro-details for high-security branding.",
+        image: "/images/products/dot-matrix-holograms/dot-matrix-holograms.jpg",
+        applications: ["Pharmaceutical packaging", "Certificates", "High-value product seals"],
+      },
+      {
+        id: "flip-flop-holograms",
+        title: "Flip-Flop Holograms",
+        subtitle: "Angle-Change Visual Authentication Labels",
+        blurb: "Holograms that switch between two visuals as the viewing angle changes, making verification easy.",
+        image: "/images/products/flip-flop-holograms/flip-flop-holograms.jpg",
+        applications: ["Retail packaging", "Promotional labels", "Brand authentication"],
+      },
+      {
+        id: "kinetic-holograms",
+        title: "Kinetic Holograms",
+        subtitle: "Dynamic Motion-Effect Holographic Labels",
+        blurb: "Dynamic holographic patterns that create movement effects and provide a distinctive security marker.",
+        image: "/images/products/kinetic-holograms/kinetic-holograms.jpg",
+        applications: ["Premium consumer products", "Gift packaging", "Tamper-evident seals"],
+      },
+      {
+        id: "e-beam-holograms",
+        title: "E-Beam Holograms",
+        subtitle: "Electron-Beam Mastered Security Labels",
+        blurb: "Fine-detail holograms engineered for sophisticated brand-protection and security applications.",
+        image: "/images/products/e-beam-holograms/e-beam-holograms.jpg",
+        applications: ["Government documents", "Electronics", "High-security packaging"],
+      },
     ],
     options: {
       widths: ["20 mm", "25 mm", "30 mm", "50 mm", "Custom"],
@@ -661,7 +717,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "LDPE Shrink Film",
         subtitle: "Heavy-Duty Collation Shrink Rolls for Bottle & Can Bundling",
         blurb: "Heavy-gauge LDPE collation shrink film engineered for heat-shrink bundling of beverage bottles, cans, glass jars, and heavy industrial products with high holding force and puncture resistance.",
-        image: "/images/products/ldpe-shrink-rolls/image.png",
+        image: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
         specs: {
           "Cost Savings": "Significant Cost savings vs Corrugated Box Packaging",
           "Disposal": "Ease of post usage disposal",
@@ -758,7 +814,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "LDPE Shrink Film",
         subtitle: "Heavy-Duty Collation Shrink Rolls for Bottle & Can Bundling",
         blurb: "Heavy-gauge LDPE collation shrink film engineered for heat-shrink bundling of beverage bottles, cans, glass jars, and heavy industrial products with high holding force and puncture resistance.",
-        image: "/images/products/ldpe-shrink-rolls/image.png",
+        image: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
         specs: {
           "Shrink Temperature": "160°C to 200°C Thermal Tunnel",
           "Thickness Range": "50 Micron to 150 Micron",
@@ -2172,7 +2228,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "bubble-roll",
     title: "Bubble Roll & Pouches",
-    category: "protective",
+    category: "pp-strap",
     tag: "Bubble",
     blurb: "Used to cushion fragile glassware, electronics, and precision components. Air-bubble protective wrapping rolls.",
     longDesc: "Cushioning bubble wrap rolls made from 100% virgin LDPE. Designed with heavy air sealing to prevent air leak. Ideal for fragile glassware, artwork, instruments, and electronics protection.",
@@ -2195,7 +2251,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "epe-foam-rolls",
     title: "EPE Foam Rolls",
-    category: "protective",
+    category: "film-products",
     tag: "EPE Foam",
     blurb: "Used to shield painted metal parts and glass plates from surface scratches. Closed-cell polyethylene cushioning sheets.",
     longDesc: "Non-crosslinked, closed-cell EPE foam sheets providing premium cushioning and shock absorption. Prevents scratch marks on painted surfaces, sheet metal components, electronics, and glass plates.",
@@ -2218,7 +2274,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "air-bags",
     title: "Air Bags",
-    category: "protective",
+    category: "film-products",
     tag: "Air Bag",
     blurb: "Used to fill voids and brace pallets inside shipping containers to prevent cargo shifting. Inflatable container dunnage bags.",
     longDesc: "Heavy-duty inflatable dunnage air bags designed to brace cargo inside shipping containers. Prevents shifts and collisions during sea and rail transits, filling lateral voids between pallets.",
@@ -2241,7 +2297,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "corrugated-boxes",
     title: "Corrugated Boxes",
-    category: "protective",
+    category: "film-products",
     tag: "Box",
     blurb: "Used to pack e-commerce parcels and stack warehouse stock securely. 3-ply, 5-ply, and 7-ply kraft board boxes.",
     longDesc: "High compression strength corrugated shipping boxes. Custom engineered flute patterns offer extreme load resistance under stacking storage. Clean printing finish for warehouse tracking codes.",
@@ -2264,7 +2320,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "corrugated-rolls",
     title: "Corrugated Rolls",
-    category: "protective",
+    category: "film-products",
     tag: "Roll",
     blurb: "Used to wrap metal pipes, furniture parts, and large machinery columns. Flexible single-face paper rolls.",
     longDesc: "Single face corrugated wrapping paper in rolls. Highly flexible structure allows wrapping around irregular shape industrial parts, furniture legs, and metallic items to protect them from dents.",
@@ -2287,7 +2343,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "edge-protector",
     title: "Edge Protector",
-    category: "protective",
+    category: "film-products",
     tag: "Edge",
     blurb: "Used to reinforce vertical pallet corners and prevent straps from cutting into boxes. Laminated paperboard corner boards.",
     longDesc: "L-shaped laminated paperboard edge protectors. Reinforces pallet vertical stack integrity, prevents strap cutting damage on carton corners, and locks columns of boxes during strapping.",
@@ -2576,7 +2632,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "manual-stretch-film",
     title: "Manual Stretch Film",
-    category: "pallet-wrapping",
+    category: "tapes",
     tag: "Manual",
     blurb: "High-quality manual hand stretch film for securing and bundling pallet loads — cost-effective, no machinery required, with excellent cling, clarity, and load stability.",
     longDesc: `Manual Stretch film is a highly stretchable plastic film which stretches and wraps products together in such a way that it stays bounded together, consuming less space and securing it at the time of transit.
@@ -2682,7 +2738,7 @@ Yes, manual stretch film is highly versatile and can be used for both small item
   {
     id: "machine-stretch-film",
     title: "Machine Stretch Film",
-    category: "pallet-wrapping",
+    category: "film-products",
     tag: "Machine",
     blurb: "High-performance machine grade stretch film designed for automated pallet wrapping — available in blown, cast, opaque, and specialty options with widths from 150 mm to 1000 mm.",
     longDesc: `WinnerPack offers high-performance Machine Stretch Film designed for machine applications to wrap pallets and goods efficiently. These stretch films are available in various specifications to meet different packaging requirements. Known for their durability and elasticity, our machine stretch films are a cost-effective, reliable, and secure packaging solution.
@@ -2796,7 +2852,7 @@ Yes, WinnerPack provides custom machine stretch film formulations, widths, roll 
   {
     id: "pallet-cover",
     title: "Pallet Cover",
-    category: "pallet-wrapping",
+    category: "film-products",
     tag: "Pallet Cover",
     blurb: "Used to protect stacked pallets from dust, moisture, and rain. Heavy-gauge LDPE pallet hood covers.",
     longDesc: "Gusseted LDPE pallet bags. Slipped over stacked pallets before stretch wrapping to provide complete 5-side moisture, dust, and rain protection for outdoor warehousing.",
@@ -2819,7 +2875,7 @@ Yes, WinnerPack provides custom machine stretch film formulations, widths, roll 
   {
     id: "pallet-liner",
     title: "Pallet Liner",
-    category: "pallet-wrapping",
+    category: "film-products",
     tag: "Pallet Liner",
     blurb: "Used to protect bottom box layers from pallet nail punctures and rising moisture. Anti-slip bottom liner sheets.",
     longDesc: "Placed on the wooden pallet base before stacking cartons. Protects bottom carton layers from nail punctures, splinters, moisture rising from wet wooden blocks, and slippage during cargo transit.",

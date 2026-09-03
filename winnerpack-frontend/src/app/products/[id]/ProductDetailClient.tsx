@@ -447,6 +447,20 @@ function getSubcategoryImages(sub: any, parentProduct: any) {
   return images;
 }
 
+const STRETCH_FILM_ITEMS = [
+  { name: "Mini Stretch Wrap Rolls", slug: "mini-stretch-wrap-rolls" },
+  { name: "Manual Stretch Film", slug: "manual-stretch-film" },
+  { name: "Machine Stretch Film", slug: "machine-stretch-film" },
+  { name: "Cling Film", slug: "cling-film" },
+  { name: "Silage Stretch Film & Bale Wrap", slug: "silage-stretch-film" },
+  { name: "Pre Stretch Film", slug: "pre-stretch-film" },
+  { name: "VCI Stretch Film", slug: "vci-stretch-film" },
+  { name: "Oxy Fade Stretch Wrap", slug: "oxy-fade-stretch-wrap" },
+  { name: "Coreless Stretch Film", slug: "coreless-stretch-film" },
+  { name: "Biodegradable Stretch Wrap", slug: "biodegradable-stretch-wrap" },
+  { name: "Recycled Stretch Wrap", slug: "recycled-stretch-wrap" },
+];
+
 function SubcategoryCardImageGallery({ images, title }: { images: string[]; title: string; categoryName?: string }) {
   const currentImg = images[0] || "/images/products/specialty-pouches/image.png";
 
@@ -637,19 +651,46 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     );
   }
 
-  const categoryObj = productCategories.find((c) => c.id === product.category);
-  const category = categoryObj?.title || product.category;
-  const currentHierarchyCategory = productHierarchy.find(
-    (hierarchyCategory) =>
-      hierarchyCategory.id === product.category ||
-      hierarchyCategory.catSlug === product.category
-  );
-  const isLabelProduct = product.category === "label-sticker-products";
+  const currentHierarchyCategory =
+    productHierarchy.find(
+      (hierarchyCategory) =>
+        hierarchyCategory.id === product.category ||
+        hierarchyCategory.catSlug === product.category
+    ) ||
+    productHierarchy.find((h) =>
+      h.subcategories.some(
+        (sub) =>
+          sub.slug === product.id ||
+          sub.slug === id ||
+          sub.id === product.id ||
+          sub.items.some((it) => it.slug === product.id || it.slug === id)
+      )
+    ) ||
+    (STRETCH_FILM_ITEMS.some((st) => st.slug === product.id || st.slug === id)
+      ? productHierarchy.find((h) => h.id === "film-products")
+      : null) ||
+    (product.category === "pallet-wrapping" || product.category === "protective"
+      ? productHierarchy.find((h) => h.id === "film-products")
+      : null) ||
+    productHierarchy[0];
+
+  const categoryObj =
+    productCategories.find((c) => c.id === product.category) ||
+    productCategories.find((c) => c.id === currentHierarchyCategory?.id) ||
+    productCategories[0];
+  const category = categoryObj?.title || "Film Products";
+
+  const isLabelProduct = currentHierarchyCategory?.id === "label-sticker-products" || product.category === "label-sticker-products";
   const isFilmProduct = Boolean(
+    currentHierarchyCategory?.id === "film-products" ||
     product.category === "film-products" ||
+    product.category === "pallet-wrapping" ||
+    product.category === "protective" ||
     product.id === "pof-shrink-film" ||
     product.id === "packaging-films" ||
     product.id === "plastic-stretch-film" ||
+    product.id === "stretch-film" ||
+    STRETCH_FILM_ITEMS.some((st) => st.slug === product.id || st.slug === id) ||
     product.id === "lamination-films-pouches" ||
     product.id === "lamination-pe-film" ||
     product.id === "film-products"
@@ -675,8 +716,29 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     ? product.subCategories
     : fallbackParent?.subCategories || [];
 
+  const FILM_PARENT_IDS = new Set([
+    "packaging-films",
+    "pof-shrink-film",
+    "plastic-stretch-film",
+    "stretch-film",
+    "lamination-pe-film",
+    "lamination-films-pouches",
+    "agricultural-films",
+    "biodegradable-films",
+    "flexible-laminates",
+    "flexible-laminate-rolls",
+    "printed-pe-films",
+    "ldpe-bags",
+    "bopp-films",
+    "pvc-shrink-films",
+    "film-products",
+    "ldpe-films-pouches",
+    "pof-films-pouches",
+    "coloured-films-pouches"
+  ]);
+
   const isParentProduct = Boolean(
-    (isFilmProduct && displaySubCategories.length > 0 && !product.specs && !product.longDesc) ||
+    (product?.id && FILM_PARENT_IDS.has(product.id) && displaySubCategories.length > 0) ||
     product?.id === "film-products"
   );
 
@@ -716,7 +778,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
+                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 items-stretch">
                     {displaySubCategories.map((sub: any) => {
                       const subImages = getSubcategoryImages(sub, product);
                       const subSlug = sub.id || sub.slug || product.id;
@@ -726,16 +788,16 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                         return (
                           <div
                             key={sub.id || sub.title}
-                            className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[var(--color-blue-3)]/50 hover:shadow-xl active:scale-[0.99] sm:active:scale-100"
+                            className="group relative flex h-full flex-col overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[var(--color-blue-3)]/50 hover:shadow-xl active:scale-[0.99] sm:active:scale-100"
                           >
                             <Link href={`/products/${subSlug}`} className="block relative">
                               <SubcategoryCardImageGallery images={subImages} title={sub.title} categoryName={category || product.title} />
                             </Link>
 
-                            <div className="flex flex-1 flex-col justify-between p-3.5 sm:p-6">
+                            <div className="flex flex-1 flex-col justify-between p-3 sm:p-6">
                               <div>
                                 <Link href={`/products/${subSlug}`} className="block">
-                                  <h3 className="font-display text-[13px] sm:text-xl font-extrabold text-slate-900 group-hover:text-[var(--color-blue)] transition-colors tracking-tight leading-snug line-clamp-1 sm:line-clamp-none">
+                                  <h3 className="font-display text-xs sm:text-xl font-extrabold text-slate-900 group-hover:text-[var(--color-blue)] transition-colors tracking-tight leading-snug line-clamp-2 sm:line-clamp-none">
                                     {sub.title}
                                   </h3>
                                 </Link>
@@ -758,10 +820,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                 )}
                               </div>
 
-                              <div className="mt-2.5 pt-2 sm:mt-5 sm:pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                              <div className="mt-2 pt-2 sm:mt-5 sm:pt-4 border-t border-slate-100 flex items-center justify-between gap-1 sm:gap-2">
                                 <Link
                                   href={`/products/${subSlug}`}
-                                  className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] sm:text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors min-h-[32px] sm:min-h-[40px]"
+                                  className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] sm:text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors min-h-[28px] sm:min-h-[40px]"
                                 >
                                   <span>Explore range</span>
                                   <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber-dark)]" />
@@ -952,7 +1014,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     {isMobileNavOpen && (
                       <div className="mt-4 pt-4 border-t border-[var(--color-line)] space-y-4 max-h-[350px] overflow-y-auto scrollbar-none pr-1">
                         {currentHierarchyCategory && (
-                          <div className="space-y-1.5">
+                          <div className="space-y-2">
                             <span className="block text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
                               {currentHierarchyCategory.title}
                             </span>
@@ -974,6 +1036,34 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                 );
                               })}
                             </div>
+
+                            {/* Mobile Stretch Film Related Fields */}
+                            {(product.id === "plastic-stretch-film" || id === "plastic-stretch-film" || STRETCH_FILM_ITEMS.some((st) => st.slug === product.id || st.slug === id)) && (
+                              <div className="mt-3 pt-2.5 border-t border-slate-200">
+                                <span className="block text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] mb-1.5">
+                                  Plastic Stretch Film Options
+                                </span>
+                                <div className="grid grid-cols-2 gap-1.5">
+                                  {STRETCH_FILM_ITEMS.map((st) => {
+                                    const isStActive = st.slug === product.id || st.slug === id;
+                                    return (
+                                      <Link
+                                        key={st.slug}
+                                        href={`/products/${st.slug}`}
+                                        onClick={() => setIsMobileNavOpen(false)}
+                                        className={`px-2 py-1 rounded text-[11px] font-medium font-sans truncate transition-colors ${
+                                          isStActive
+                                            ? "bg-[var(--color-blue-deep)] text-white font-bold"
+                                            : "bg-white text-slate-700 border border-slate-200"
+                                        }`}
+                                      >
+                                        {st.name}
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            )}
                           </div>
                         )}
                       </div>
@@ -999,6 +1089,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                             {/* Subcategories (Navbar Tier 2) */}
                             <div className="space-y-3 pl-1.5 border-l-2 border-[var(--color-line)]">
                               {currentHierarchyCategory.subcategories.map((subcat) => {
+                                const isStretchOption = STRETCH_FILM_ITEMS.some((st) => st.slug === product.id || st.slug === id);
                                 const isDirectSubcat =
                                   subcat.slug === product.id ||
                                   subcat.slug === id ||
@@ -1012,7 +1103,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                       it.slug === product.id ||
                                       it.slug === id ||
                                       it.name.toLowerCase().trim() === product.title.toLowerCase().trim()
-                                  );
+                                  ) ||
+                                  (subcat.slug === "packaging-films" && (isStretchOption || product.id === "plastic-stretch-film" || id === "plastic-stretch-film"));
 
                                 return (
                                   <div key={subcat.id} className="space-y-1 pl-2">
@@ -1034,13 +1126,15 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                     {/* Specific Product Items (Navbar Tier 3) */}
                                     <ul className="space-y-1 pl-1">
                                       {subcat.items.map((item) => {
-                                        const isActive =
+                                        const isStretchFilmItem = item.slug === "plastic-stretch-film";
+                                        const isDirectItem =
                                           item.slug === product.id ||
                                           item.slug === id ||
                                           item.name.toLowerCase().trim() === product.title.toLowerCase().trim();
+                                        const isActive = isDirectItem || (isStretchFilmItem && isStretchOption);
 
                                         return (
-                                          <li key={item.name}>
+                                          <li key={item.name} className="space-y-0.5">
                                             <Link
                                               href={`/products/${item.slug}`}
                                               className={`flex items-center justify-between py-0.5 px-1.5 rounded-md text-xs font-sans transition-colors ${isActive
@@ -1053,6 +1147,32 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] shrink-0 ml-1.5" />
                                               )}
                                             </Link>
+
+                                            {/* When inside Plastic Stretch Film: LOAD ITS RELATED FIELDS */}
+                                            {isStretchFilmItem && (isDirectItem || isStretchOption || product.id === "plastic-stretch-film" || id === "plastic-stretch-film") && (
+                                              <ul className="space-y-0.5 pl-2.5 my-1 py-0.5 border-l-2 border-[var(--color-amber)]/60">
+                                                {STRETCH_FILM_ITEMS.map((st) => {
+                                                  const isStActive = st.slug === product.id || st.slug === id;
+                                                  return (
+                                                    <li key={st.slug}>
+                                                      <Link
+                                                        href={`/products/${st.slug}`}
+                                                        className={`flex items-center justify-between py-0.5 px-1.5 rounded text-[11px] font-sans transition-colors ${
+                                                          isStActive
+                                                            ? "font-extrabold text-[var(--color-blue)] bg-blue-50/80"
+                                                            : "text-slate-500 hover:text-[var(--color-ink)] hover:bg-slate-100/70"
+                                                        }`}
+                                                      >
+                                                        <span className="truncate">{st.name}</span>
+                                                        {isStActive && (
+                                                          <span className="h-1 w-1 rounded-full bg-[var(--color-blue)] shrink-0 ml-1.5" />
+                                                        )}
+                                                      </Link>
+                                                    </li>
+                                                  );
+                                                })}
+                                              </ul>
+                                            )}
                                           </li>
                                         );
                                       })}
@@ -1193,38 +1313,38 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                           </p>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-1 items-stretch">
+                        <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6 pt-1 items-stretch">
                           {displaySubCategories.map((sub: any) => {
                             const subImages = getSubcategoryImages(sub, product);
                             return (
                               <div
                                 key={sub.id || sub.title}
-                                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[var(--color-amber)]/50 hover:shadow-xl"
+                                className="group relative flex h-full flex-col overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-[var(--color-amber)]/50 hover:shadow-xl"
                               >
                                 <div className="relative">
                                   <SubcategoryCardImageGallery images={subImages} title={sub.title} categoryName={category || product.title} />
                                 </div>
 
-                                <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
+                                <div className="flex flex-1 flex-col justify-between p-3 sm:p-5">
                                   <div>
-                                    <h3 className="font-display text-sm sm:text-base font-extrabold text-slate-900 tracking-tight leading-snug">
+                                    <h3 className="font-display text-xs sm:text-base font-extrabold text-slate-900 tracking-tight leading-snug line-clamp-2 sm:line-clamp-none">
                                       {sub.title}
                                     </h3>
 
                                     {sub.subtitle && (
-                                      <p className="text-[11px] sm:text-xs font-semibold text-[var(--color-amber-dark)] mt-1">
+                                      <p className="text-[10px] sm:text-xs font-semibold text-[var(--color-amber-dark)] mt-0.5 sm:mt-1 line-clamp-1 sm:line-clamp-none">
                                         {sub.subtitle}
                                       </p>
                                     )}
 
                                     {sub.blurb && (
-                                      <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-sans font-normal">
+                                      <p className="hidden sm:block mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-sans font-normal">
                                         {sub.blurb}
                                       </p>
                                     )}
 
                                     {sub.specs && (
-                                      <div className="mt-3.5 pt-3 border-t border-slate-100 space-y-1.5">
+                                      <div className="mt-3.5 pt-3 border-t border-slate-100 space-y-1.5 hidden sm:block">
                                         {Object.entries(sub.specs).slice(0, 5).map(([lbl, val]: any) => (
                                           <div key={lbl} className="flex items-start justify-between gap-2 text-[11px] sm:text-xs">
                                             <span className="font-semibold text-slate-900 shrink-0">{lbl}:</span>
@@ -1235,7 +1355,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                     )}
 
                                     {Array.isArray(sub.applications) && sub.applications.length > 0 && (
-                                      <div className="mt-3 pt-2.5 border-t border-slate-100 flex flex-wrap gap-1">
+                                      <div className="mt-3 pt-2.5 border-t border-slate-100 hidden sm:flex flex-wrap gap-1">
                                         {sub.applications.map((app: string, idx: number) => (
                                           <span
                                             key={idx}
@@ -1248,18 +1368,18 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                     )}
                                   </div>
 
-                                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                                  <div className="mt-2.5 pt-2 sm:mt-4 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1 sm:gap-2">
                                     <button
                                       type="button"
                                       onClick={() => setIsInquiryOpen(true)}
-                                      className="inline-flex items-center gap-1 text-xs font-bold text-[var(--color-amber-dark)] hover:text-[var(--color-amber)] transition-colors min-h-[32px] cursor-pointer"
+                                      className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-[var(--color-amber-dark)] hover:text-[var(--color-amber)] transition-colors min-h-[30px] sm:min-h-[32px] cursor-pointer"
                                     >
-                                      <span>Inquire for this type</span>
+                                      <span>Inquire</span>
                                       <ArrowRight className="h-3 w-3" />
                                     </button>
                                     <Link
                                       href={`/contact?sku=${product.id}&title=${encodeURIComponent(`${product.title} - ${sub.title}`)}`}
-                                      className="inline-flex items-center justify-center rounded-full bg-[var(--color-amber-soft)] px-3 py-1 text-xs font-bold text-[var(--color-amber-dark)] hover:bg-[var(--color-amber)] hover:text-white transition-all shadow-2xs"
+                                      className="inline-flex items-center justify-center rounded-full bg-[var(--color-amber-soft)] px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold text-[var(--color-amber-dark)] hover:bg-[var(--color-amber)] hover:text-white transition-all shadow-2xs"
                                     >
                                       Quote
                                     </Link>

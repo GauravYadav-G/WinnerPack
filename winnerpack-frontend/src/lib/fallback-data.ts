@@ -2228,7 +2228,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "bubble-roll",
     title: "Bubble Roll & Pouches",
-    category: "protective",
+    category: "pp-strap",
     tag: "Bubble",
     blurb: "Used to cushion fragile glassware, electronics, and precision components. Air-bubble protective wrapping rolls.",
     longDesc: "Cushioning bubble wrap rolls made from 100% virgin LDPE. Designed with heavy air sealing to prevent air leak. Ideal for fragile glassware, artwork, instruments, and electronics protection.",
@@ -2251,7 +2251,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "epe-foam-rolls",
     title: "EPE Foam Rolls",
-    category: "protective",
+    category: "film-products",
     tag: "EPE Foam",
     blurb: "Used to shield painted metal parts and glass plates from surface scratches. Closed-cell polyethylene cushioning sheets.",
     longDesc: "Non-crosslinked, closed-cell EPE foam sheets providing premium cushioning and shock absorption. Prevents scratch marks on painted surfaces, sheet metal components, electronics, and glass plates.",
@@ -2274,7 +2274,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "air-bags",
     title: "Air Bags",
-    category: "protective",
+    category: "film-products",
     tag: "Air Bag",
     blurb: "Used to fill voids and brace pallets inside shipping containers to prevent cargo shifting. Inflatable container dunnage bags.",
     longDesc: "Heavy-duty inflatable dunnage air bags designed to brace cargo inside shipping containers. Prevents shifts and collisions during sea and rail transits, filling lateral voids between pallets.",
@@ -2297,7 +2297,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "corrugated-boxes",
     title: "Corrugated Boxes",
-    category: "protective",
+    category: "film-products",
     tag: "Box",
     blurb: "Used to pack e-commerce parcels and stack warehouse stock securely. 3-ply, 5-ply, and 7-ply kraft board boxes.",
     longDesc: "High compression strength corrugated shipping boxes. Custom engineered flute patterns offer extreme load resistance under stacking storage. Clean printing finish for warehouse tracking codes.",
@@ -2320,7 +2320,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "corrugated-rolls",
     title: "Corrugated Rolls",
-    category: "protective",
+    category: "film-products",
     tag: "Roll",
     blurb: "Used to wrap metal pipes, furniture parts, and large machinery columns. Flexible single-face paper rolls.",
     longDesc: "Single face corrugated wrapping paper in rolls. Highly flexible structure allows wrapping around irregular shape industrial parts, furniture legs, and metallic items to protect them from dents.",
@@ -2343,7 +2343,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "edge-protector",
     title: "Edge Protector",
-    category: "protective",
+    category: "film-products",
     tag: "Edge",
     blurb: "Used to reinforce vertical pallet corners and prevent straps from cutting into boxes. Laminated paperboard corner boards.",
     longDesc: "L-shaped laminated paperboard edge protectors. Reinforces pallet vertical stack integrity, prevents strap cutting damage on carton corners, and locks columns of boxes during strapping.",
@@ -2632,7 +2632,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "manual-stretch-film",
     title: "Manual Stretch Film",
-    category: "pallet-wrapping",
+    category: "tapes",
     tag: "Manual",
     blurb: "High-quality manual hand stretch film for securing and bundling pallet loads — cost-effective, no machinery required, with excellent cling, clarity, and load stability.",
     longDesc: `Manual Stretch film is a highly stretchable plastic film which stretches and wraps products together in such a way that it stays bounded together, consuming less space and securing it at the time of transit.
@@ -2738,7 +2738,7 @@ Yes, manual stretch film is highly versatile and can be used for both small item
   {
     id: "machine-stretch-film",
     title: "Machine Stretch Film",
-    category: "pallet-wrapping",
+    category: "film-products",
     tag: "Machine",
     blurb: "High-performance machine grade stretch film designed for automated pallet wrapping — available in blown, cast, opaque, and specialty options with widths from 150 mm to 1000 mm.",
     longDesc: `WinnerPack offers high-performance Machine Stretch Film designed for machine applications to wrap pallets and goods efficiently. These stretch films are available in various specifications to meet different packaging requirements. Known for their durability and elasticity, our machine stretch films are a cost-effective, reliable, and secure packaging solution.
@@ -2852,7 +2852,7 @@ Yes, WinnerPack provides custom machine stretch film formulations, widths, roll 
   {
     id: "pallet-cover",
     title: "Pallet Cover",
-    category: "pallet-wrapping",
+    category: "film-products",
     tag: "Pallet Cover",
     blurb: "Used to protect stacked pallets from dust, moisture, and rain. Heavy-gauge LDPE pallet hood covers.",
     longDesc: "Gusseted LDPE pallet bags. Slipped over stacked pallets before stretch wrapping to provide complete 5-side moisture, dust, and rain protection for outdoor warehousing.",
@@ -2875,7 +2875,7 @@ Yes, WinnerPack provides custom machine stretch film formulations, widths, roll 
   {
     id: "pallet-liner",
     title: "Pallet Liner",
-    category: "pallet-wrapping",
+    category: "film-products",
     tag: "Pallet Liner",
     blurb: "Used to protect bottom box layers from pallet nail punctures and rising moisture. Anti-slip bottom liner sheets.",
     longDesc: "Placed on the wooden pallet base before stacking cartons. Protects bottom carton layers from nail punctures, splinters, moisture rising from wet wooden blocks, and slippage during cargo transit.",

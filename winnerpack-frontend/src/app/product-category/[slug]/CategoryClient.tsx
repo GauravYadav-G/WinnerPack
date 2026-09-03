@@ -190,10 +190,19 @@ function SubcategoryCard({
           {subcat.items && subcat.items.length > 0 ? (
             <div className="mt-3 pt-3 border-t border-slate-100 space-y-2 hidden sm:block">
               {subcat.items.slice(0, 4).map((item) => (
-                <div key={item.slug} className="flex items-start gap-2 text-xs sm:text-sm">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] shrink-0" />
-                  <span className="font-medium text-slate-600 leading-tight flex-1">{item.name}</span>
-                </div>
+                <Link
+                  key={item.slug}
+                  href={`/products/${item.slug}`}
+                  className="flex items-center justify-between gap-2 text-xs sm:text-sm py-0.5 group/item hover:text-[var(--color-blue)] transition-colors"
+                >
+                  <span className="flex items-center gap-2 min-w-0">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] group-hover/item:bg-[var(--color-blue)] shrink-0 transition-colors" />
+                    <span className="font-medium text-slate-600 group-hover/item:text-[var(--color-blue)] leading-tight truncate transition-colors">
+                      {item.name}
+                    </span>
+                  </span>
+                  <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 text-[var(--color-blue)] transition-all shrink-0" />
+                </Link>
               ))}
               {subcat.items.length > 4 && (
                 <div className="flex items-center gap-2 text-xs sm:text-sm">
