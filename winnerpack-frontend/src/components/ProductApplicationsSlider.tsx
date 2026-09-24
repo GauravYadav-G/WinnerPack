@@ -1,49 +1,13 @@
 "use client";
 
+import { defaultApplications } from '@/lib/site-defaults';
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "../utils/cn";
 import OptimizedImage from '@/components/OptimizedImage';
 
-interface ApplicationImageSlide {
-  id: string;
-  image: string;
-}
 
-const applicationSlides: ApplicationImageSlide[] = [
-  {
-    id: "action-die-ring-bubble",
-    image: "/images/desktop/portfolio/action_die_ring_bubble.jpg",
-  },
-  {
-    id: "stretch-pallet-wrapping",
-    image: "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.png",
-  },
-  {
-    id: "action-polymer-granules-hopper",
-    image: "/images/desktop/portfolio/action_polymer_granules_hopper.jpg",
-  },
-  {
-    id: "pp-strapping-action",
-    image: "/images/desktop/portfolio/gallery_pp_strapping.png",
-  },
-  {
-    id: "action-factory-plant-overview",
-    image: "/images/desktop/portfolio/action_factory_plant_overview.jpg",
-  },
-  {
-    id: "heavy-ldpe-bags",
-    image: "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.png",
-  },
-  {
-    id: "action-extrusion-tower-blue",
-    image: "/images/desktop/portfolio/action_extrusion_tower_blue.jpg",
-  },
-  {
-    id: "action-roll-rewinding-slitting",
-    image: "/images/desktop/portfolio/action_roll_rewinding_slitting.jpg",
-  },
-];
+const applicationSlides = defaultApplications;
 
 export default function ProductApplicationsSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -110,7 +74,7 @@ export default function ProductApplicationsSlider() {
 
         {/* Centered Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
+          <span className="text-xs font-bold tracking-widest text-[var(--color-amber-dark)] font-mono">
             Real-World Applications
           </span>
           <h2 className="mt-3 font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.15]">

@@ -119,13 +119,6 @@ export default function FloatingWidgets() {
 
   return (
     <>
-      <style>{`
-        @keyframes action-pulse {
-          0% { box-shadow: 0 0 0 0 var(--pulse-color); }
-          70% { box-shadow: 0 0 0 14px rgba(0,0,0,0); }
-          100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }
-        }
-      `}</style>
 
       <div ref={containerRef} className="fixed bottom-4 right-3 z-50 flex flex-col items-end gap-3 md:bottom-7 md:right-6">
         {/* Expanded Stack of Social Icons */}
@@ -218,12 +211,9 @@ export default function FloatingWidgets() {
           <span className="pointer-events-none absolute inset-x-1 top-1 h-1/2 rounded-t-full bg-gradient-to-b from-white/25 to-transparent" />
           
           {!isExpanded && (
+            // GPU-composited pulse ring: uses transform+opacity, not box-shadow
             <span
-              className="absolute inset-0 rounded-full"
-              style={{
-                "--pulse-color": "rgba(230,140,30,0.5)",
-                animation: "action-pulse 2.6s cubic-bezier(0.4,0,0.6,1) infinite",
-              } as React.CSSProperties}
+              className="action-pulse-ring absolute inset-0 rounded-full"
             />
           )}
 

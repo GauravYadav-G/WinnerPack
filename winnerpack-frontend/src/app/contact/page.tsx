@@ -35,12 +35,13 @@ function ContactFormInner() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   // Automatically pre-fill product details when arriving via Custom Quote button
   useEffect(() => {
     if (sku || titleParam || gradeParam) {
       let matchedTitle = titleParam;
-      
+
       if (!matchedTitle && sku) {
         const found = initialProducts.find((p) => p.id === sku);
         if (found) {
@@ -68,6 +69,7 @@ function ContactFormInner() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
     try {
       const success = await submitInquiryForm(formData);
       if (success) {
@@ -82,11 +84,10 @@ function ContactFormInner() {
           message: "",
         });
       } else {
-        alert("Unable to submit inquiry. Please check your network or contact info@winnerpack.in directly.");
+        setError("We couldn't send your inquiry. Please check your connection or email info@winnerpack.in directly.");
       }
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong. Please try again.");
+    } catch {
+      setError("Something went wrong. Please try again or email info@winnerpack.in directly.");
     } finally {
       setLoading(false);
     }
@@ -116,7 +117,7 @@ function ContactFormInner() {
           <h2 className="mt-1.5 sm:mt-3 text-lg sm:text-2xl font-semibold tracking-tight text-[var(--color-ink)] font-display">
             Tell us what you need
           </h2>
-          <p className="mt-1 text-[11px] sm:text-xs text-[var(--color-mute)]">Fields marked * are required.</p>
+          <p className="mt-1 text-sm text-[var(--color-mute)]">Fields marked * are required.</p>
 
           {/* Prominent Selected Product Info Badge Banner */}
           {(sku || titleParam || displayBannerTitle) && (
@@ -126,7 +127,7 @@ function ContactFormInner() {
                   <Tag className="h-3.5 w-3.5" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] truncate">
+                  <p className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] truncate">
                     Selected Product Quote
                   </p>
                   <p className="text-xs sm:text-sm font-extrabold text-[var(--color-ink)] font-display truncate">
@@ -134,7 +135,7 @@ function ContactFormInner() {
                   </p>
                 </div>
               </div>
-              <span className="shrink-0 text-[9px] font-mono font-bold bg-white px-1.5 py-0.5 rounded-md border border-[var(--color-line)] text-[var(--color-ink)] truncate max-w-[38%]">
+              <span className="shrink-0 text-xs font-mono font-bold bg-white px-1.5 py-0.5 rounded-md border border-[var(--color-line)] text-[var(--color-ink)] truncate max-w-[38%]">
                 WP-{(sku || "CUSTOM").toUpperCase()}
               </span>
             </div>
@@ -150,7 +151,7 @@ function ContactFormInner() {
               <h3 className="font-display text-lg sm:text-2xl font-bold text-[var(--color-ink)]">
                 Inquiry logged successfully.
               </h3>
-              <p className="mt-2 sm:mt-3 max-w-md text-xs sm:text-sm text-[var(--color-mute)]">
+              <p className="mt-2 sm:mt-3 max-w-md text-sm text-[var(--color-mute)]">
                 Our application engineer will call you to review line qualifications, SKU profiles, and dispatch routes within one business day.
               </p>
               <button
@@ -163,30 +164,39 @@ function ContactFormInner() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="mt-4 sm:mt-6 space-y-3 sm:space-y-6 w-full min-w-0">
+              {error && (
+                <p role="alert" aria-live="polite" className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+                  {error}
+                </p>
+              )}
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
                 <div className="min-w-0">
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label htmlFor="contact-name" className="block font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Your Name *
                   </label>
                   <input
+                    id="contact-name"
+                    autoComplete="name"
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="Rajesh Kumar"
                   />
                 </div>
                 <div className="min-w-0">
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label htmlFor="contact-company" className="block font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Company Name *
                   </label>
                   <input
+                    id="contact-company"
+                    autoComplete="organization"
                     type="text"
                     required
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="Winner Pack Ltd."
                   />
                 </div>
@@ -194,28 +204,32 @@ function ContactFormInner() {
 
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
                 <div className="min-w-0">
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label htmlFor="contact-email" className="block font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Email Address *
                   </label>
                   <input
+                    id="contact-email"
+                    autoComplete="email"
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="procurement@co.com"
                   />
                 </div>
                 <div className="min-w-0">
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label htmlFor="contact-phone" className="block font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Phone / WhatsApp *
                   </label>
                   <input
+                    id="contact-phone"
+                    autoComplete="tel"
                     type="tel"
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="+91 98765 43210"
                   />
                 </div>
@@ -223,40 +237,43 @@ function ContactFormInner() {
 
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
                 <div className="min-w-0">
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label htmlFor="contact-product" className="block font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     SKU / Product Profile
                   </label>
                   <input
+                    id="contact-product"
                     type="text"
                     value={formData.skuProfile}
                     onChange={(e) => setFormData({ ...formData, skuProfile: e.target.value })}
-                    className="w-full min-w-0 rounded-lg border border-[var(--color-amber-dark)]/40 bg-[var(--color-amber-soft)]/50 px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-bold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-amber-dark)]/40 bg-[var(--color-amber-soft)]/50 px-3 py-2 sm:px-4 sm:py-3 text-sm font-bold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="PET Strap 12mm"
                   />
                 </div>
                 <div className="min-w-0">
-                  <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                  <label htmlFor="contact-volume" className="block font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                     Line / Monthly Vol
                   </label>
                   <input
+                    id="contact-volume"
                     type="text"
                     value={formData.lineSpeed}
                     onChange={(e) => setFormData({ ...formData, lineSpeed: e.target.value })}
-                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                    className="w-full min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                     placeholder="80 rolls/mo"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
+                <label htmlFor="contact-message" className="block font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-mute)] mb-1 sm:mb-2">
                   Message / Special Requirements
                 </label>
                 <textarea
+                  id="contact-message"
                   rows={3}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
+                  className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-bone)] px-3 py-2 sm:px-4 sm:py-3 text-sm font-semibold text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-blue)]"
                   placeholder="Specify core size, customized logo print colors..."
                 />
               </div>
@@ -286,7 +303,7 @@ function ContactFormInner() {
                     <d.icon className="h-4 w-4 sm:h-5 sm:w-5" />
                   </span>
                   <div>
-                    <p className="font-mono text-[9px] sm:text-[0.62rem] uppercase tracking-wider text-[var(--color-mute)]">
+                    <p className="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)]">
                       {d.label}
                     </p>
                     {d.href ? (
@@ -350,7 +367,7 @@ export default function ContactPage() {
 
           {/* Header */}
           <div className="mb-6 sm:mb-10">
-            <span className="inline-block rounded-full bg-[var(--color-blue)]/10 px-2.5 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-semibold uppercase tracking-wider text-[var(--color-blue)] mb-2 sm:mb-3">
+            <span className="inline-block rounded-full bg-[var(--color-blue)]/10 px-2.5 py-0.5 md:px-3 md:py-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-blue)] mb-2 sm:mb-3">
               Contact
             </span>
             <h1 className="font-display text-2xl sm:text-4xl md:text-6xl font-bold leading-snug sm:leading-[1.05] tracking-tight text-[var(--color-ink)] text-balance">
@@ -382,8 +399,7 @@ export default function ContactPage() {
                   Frequently asked questions
                 </h2>
                 <p className="mt-2 sm:mt-4 max-w-sm leading-relaxed text-xs sm:text-base text-[var(--color-mute)] text-pretty">
-                  Quick answers on manufacturing, MOQs, lead times, sustainability
-                  and quality standards. Don't see your question? Just ask us directly.
+                  Quick answers to common questions about inquiries, custom specifications, samples, and product selection. Don&apos;t see your question? Just ask us directly.
                 </p>
                 <div className="mt-4 sm:mt-7">
                   <Button to={`mailto:${COMPANY.email}`} variant="secondary" iconRight className="py-2 text-xs sm:text-sm">

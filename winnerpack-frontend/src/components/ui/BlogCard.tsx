@@ -24,16 +24,16 @@ export function BlogCard({ post }: { post: BlogPostType }) {
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-bone)]">
         <OptimizedImage
-  src={post.image}
-  alt={post.title}
-  className="h-full w-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-105"
-/>
-        <span className="absolute left-4 top-4 rounded-full bg-[var(--color-amber)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--color-blue-deep)]">
+          src={post.image}
+          alt={post.title}
+          className="h-full w-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-105"
+        />
+        <span className="absolute left-4 top-4 rounded-full bg-[var(--color-amber)] px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-[var(--color-blue-deep)]">
           {post.category}
         </span>
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <div className="flex items-center gap-3 font-mono text-[10px] text-[var(--color-mute)]/60">
+        <div className="flex items-center gap-3 font-mono text-xs text-[var(--color-mute)]/60">
           <span>
             {new Date(post.date).toLocaleDateString("en-US", {
               year: "numeric",

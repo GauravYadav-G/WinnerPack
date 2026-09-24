@@ -16,11 +16,16 @@ type Slide = {
   image?: string;
 };
 
-// CMS seed data still stores the original `/images/...` paths. The matching
-// WebP assets are generated at build time; user uploads use absolute URLs and
-// are intentionally left untouched.
-function getOptimizedStaticImage(src: string): string {
-  return src;
+/**
+ * Returns a WebP version of a local static path, or the original for external URLs.
+ * e.g. /images/desktop/hero-slider/slide-1.png → /images/desktop/hero-slider/slide-1.webp
+ */
+function toWebP(src: string): string {
+  if (!src) return src;
+  // Leave external URLs untouched
+  if (src.startsWith("http://") || src.startsWith("https://")) return src;
+  // Replace .png or .jpg extension with .webp
+  return src.replace(/\.(png|jpe?g)$/i, ".webp");
 }
 
 const defaultSlides: Slide[] = fallbackData.slides.slice(0, 4).map((slide) => ({
@@ -28,10 +33,10 @@ const defaultSlides: Slide[] = fallbackData.slides.slice(0, 4).map((slide) => ({
   tag: slide.tag,
   heading: slide.heading,
   description: slide.description,
-  desktopMediaUrl: getOptimizedStaticImage(slide.desktopMediaUrl),
-  mobileMediaUrl: getOptimizedStaticImage(slide.mobileMediaUrl),
+  desktopMediaUrl: slide.desktopMediaUrl,
+  mobileMediaUrl: slide.mobileMediaUrl,
 }));
-const DEFAULT_DESKTOP_BANNER = getOptimizedStaticImage(fallbackData.rightBanner);
+const DEFAULT_DESKTOP_BANNER = fallbackData.rightBanner;
 
 export default function HeroSlider() {
   const [slides, setSlides] = useState<any[]>(defaultSlides);
@@ -45,10 +50,10 @@ export default function HeroSlider() {
   useEffect(() => {
     fetchContent("homepage")
       .then((data) => {
-        if (data.slides && data.slides.length > 0) {
+        if (data && data !== fallbackData && Array.isArray(data.slides) && data.slides.length > 0) {
           setSlides(data.slides.slice(0, 4));
         }
-        if (data.rightBanner) {
+        if (data && data !== fallbackData && data.rightBanner) {
           setDesktopRightBanner(data.rightBanner);
         }
       })
@@ -98,10 +103,7 @@ export default function HeroSlider() {
     touchStartY.current = null;
   };
 
-  const currentSlideImage = getOptimizedStaticImage(
-    slides[current]?.desktopMediaUrl || slides[current]?.image || ""
-  );
-  const currentRightBanner = getOptimizedStaticImage(desktopRightBanner);
+  const currentRightBannerSrc = desktopRightBanner;
 
   return (
     <section
@@ -115,21 +117,50 @@ export default function HeroSlider() {
         {/* Left Side: Slider Image */}
         <div className="relative w-full lg:w-[70%] h-full overflow-hidden bg-black">
           <AnimatePresence>
-            <motion.div
-              key={current}
-              initial={{ opacity: 0.1 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0.1 }}
-              transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="absolute inset-0 h-full w-full bg-[length:100%_100%] bg-center bg-no-repeat"
-              style={{ backgroundImage: `url('${currentSlideImage}')` }}
-            />
+            {slides.map((slide, i) => {
+              const src = slide.desktopMediaUrl || slide.image || "";
+              const webpSrc = toWebP(src);
+              const isFirst = i === 0;
+              const isCurrent = i === current;
+
+              return (
+                <motion.div
+                  key={slide.id || i}
+                  initial={isFirst ? false : { opacity: 0.1 }}
+                  animate={{ opacity: isCurrent ? 1 : 0 }}
+                  exit={{ opacity: 0.1 }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="absolute inset-0 h-full w-full"
+                  style={{ pointerEvents: isCurrent ? "auto" : "none" }}
+                >
+                  {isFirst ? (
+                    /* First slide: use a real <img> tag for LCP discoverability */
+                    <img
+                      src={webpSrc || src}
+                      alt="WinnerPack — Engineered Packaging Solutions"
+                      className="h-full w-full object-cover object-center"
+                      loading="eager"
+                      decoding="sync"
+                      fetchPriority="high"
+                      width={1400}
+                      height={700}
+                    />
+                  ) : (
+                    /* Subsequent slides: CSS background is fine — not LCP */
+                    <div
+                      className="absolute inset-0 h-full w-full bg-[length:100%_100%] bg-center bg-no-repeat"
+                      style={{ backgroundImage: `url('${webpSrc || src}')` }}
+                    />
+                  )}
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
 
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows — 44×44px minimum touch target */}
           <button
             onClick={handlePrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white transition hover:bg-white hover:text-black focus:outline-none cursor-pointer"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white transition hover:bg-white hover:text-black focus:outline-none cursor-pointer"
             aria-label="Previous slide"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -137,7 +168,7 @@ export default function HeroSlider() {
 
           <button
             onClick={handleNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white transition hover:bg-white hover:text-black focus:outline-none cursor-pointer"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white transition hover:bg-white hover:text-black focus:outline-none cursor-pointer"
             aria-label="Next slide"
           >
             <ArrowRight className="h-4 w-4" />
@@ -148,13 +179,13 @@ export default function HeroSlider() {
         <div className="relative hidden lg:block lg:w-[30%] h-full overflow-hidden bg-black">
           <div
             className="absolute inset-0 bg-[length:100%_100%] bg-center bg-no-repeat"
-            style={{ backgroundImage: `url('${currentRightBanner}')` }}
+            style={{ backgroundImage: `url('${toWebP(currentRightBannerSrc) || currentRightBannerSrc}')` }}
           />
         </div>
 
       </div>
 
-      {/* Slide Indicators */}
+      {/* Slide Indicators — 44×44px minimum touch target */}
       <div className="absolute bottom-2 sm:bottom-4 md:bottom-6 left-3 sm:left-5 md:left-8 z-20 flex items-center gap-1.5 sm:gap-2">
         {slides.map((_, i) => (
           <button

@@ -1,4 +1,6 @@
 import OptimizedImage from '@/components/OptimizedImage';
+import { FramedHeading } from '@/components/ui/FramedHeading';
+import { cn } from '@/utils/cn';
 
 interface Crumb {
   label: string;
@@ -18,21 +20,19 @@ interface PageHeaderProps {
 }
 
 export function PageHeader({
-  eyebrow: _eyebrow,
+  eyebrow,
   title,
-  intro,
+  intro: _intro,
   crumbs: _crumbs,
   theme = "dark",
-  align = "center",
+  align = "left",
   children,
 }: PageHeaderProps) {
   const isLight = theme === "light";
-  const isCenter = align === "center";
 
   return (
-    <section className={`relative overflow-hidden min-h-[120px] sm:min-h-[300px] md:min-h-[340px] flex items-center justify-center py-4 sm:py-12 md:py-16 lg:py-20 border-b border-white/10 ${
-      isLight ? "bg-[var(--color-bone)] border-b border-[var(--color-line)]" : "bg-[var(--color-blue-deep)]"
-    }`}>
+    <section className={`relative overflow-hidden min-h-[190px] sm:min-h-[310px] md:min-h-[350px] flex items-center justify-center py-[58px] sm:py-[82px] md:py-[98px] border-b border-white/10 ${isLight ? "bg-[var(--color-bone)] border-b border-[var(--color-line)]" : "bg-[var(--color-blue-deep)]"
+      }`}>
       {/* Permanent Header Background Image */}
       {!isLight && (
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -41,7 +41,7 @@ export function PageHeader({
             alt="WinnerPack Header Background"
             className="w-full h-full object-cover object-center scale-100 opacity-75"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/75 via-[var(--color-blue-deep)]/50 to-[var(--color-ink)]/75 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/40 via-[var(--color-blue-deep)]/25 to-[var(--color-ink)]/40 pointer-events-none" />
         </div>
       )}
 
@@ -62,26 +62,25 @@ export function PageHeader({
           />
         </>
       )}
-      <div className={`mx-auto max-w-7xl px-4 sm:px-6 md:px-8 relative z-10 ${
-        isCenter ? "flex flex-col items-center text-center" : ""
-      }`}>
-        <h1 className={`text-balance font-display text-xl sm:text-4xl md:text-6xl font-extrabold leading-[1.1] sm:leading-[1.05] tracking-tight max-w-4xl drop-shadow-lg ${
-          isCenter ? "text-center mx-auto" : ""
-        } ${
-          isLight ? "text-[var(--color-ink)]" : "text-white"
-        }`}>
-          {title}
-        </h1>
-        {intro && (
-          <p className={`hidden sm:block mt-1.5 sm:mt-3 md:mt-6 max-w-2xl text-[11px] sm:text-sm md:text-lg leading-relaxed drop-shadow-md px-1 ${
-            isCenter ? "text-center mx-auto" : ""
-          } ${
-            isLight ? "text-[var(--color-mute)]" : "text-white/90 font-medium"
-          }`}>
-            {intro}
-          </p>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 relative z-10 w-full">
+        <FramedHeading
+          as="h1"
+          title={title}
+          subtitle={eyebrow}
+          theme={theme}
+          align={align}
+          titleClassName="text-2xl sm:text-4xl md:text-5xl lg:text-6xl"
+        />
+        {children && (
+          <div
+            className={cn(
+              "mt-3 sm:mt-4 flex flex-col",
+              align === "left" ? "items-start justify-start" : "items-center justify-center"
+            )}
+          >
+            {children}
+          </div>
         )}
-        {children && <div className="mt-3 sm:mt-4 flex flex-col items-center justify-center">{children}</div>}
       </div>
     </section>
   );

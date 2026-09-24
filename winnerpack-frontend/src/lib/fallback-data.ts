@@ -2632,7 +2632,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   {
     id: "manual-stretch-film",
     title: "Manual Stretch Film",
-    category: "tapes",
+    category: "film-products",
     tag: "Manual",
     blurb: "High-quality manual hand stretch film for securing and bundling pallet loads — cost-effective, no machinery required, with excellent cling, clarity, and load stability.",
     longDesc: `Manual Stretch film is a highly stretchable plastic film which stretches and wraps products together in such a way that it stays bounded together, consuming less space and securing it at the time of transit.
@@ -7988,40 +7988,40 @@ const defaultAbout = {
 
 const defaultUsps = [
   {
-    title: "Custom specifications",
+    title: "Custom Specifications",
     text: "We manufacture to your exact width, gauge, and formulation requirements — ensuring the right fit for your production line.",
     icon: "Tag",
-    bgImage: "/images/products/bopp-films-pouches/image.png",
+    bgImage: "/images/desktop/why-choose-us/custom_specifications.webp",
   },
   {
-    title: "Consistent roll quality",
+    title: "Consistent Roll Quality",
     text: "Our strapping rolls are manufactured to maintain uniform straightness and tension, enabling smooth operation on automated packaging lines.",
     icon: "Layers",
-    bgImage: "/images/products/pp-strap/applications/app-1.png",
+    bgImage: "/images/desktop/why-choose-us/roll_quality.webp",
   },
   {
-    title: "Superior film performance",
+    title: "Superior Film Performance",
     text: "Our stretch films are formulated for maximum load-holding force and cling retention with optimized material usage per pallet.",
     icon: "Disc3",
-    bgImage: "/images/products/stretch-film/applications/app-1.png",
+    bgImage: "/images/desktop/why-choose-us/film_performance.webp",
   },
   {
-    title: "In-house quality testing",
+    title: "In-House Quality Testing",
     text: "Every batch undergoes rigorous elongation, tensile strength, and adhesive performance testing before dispatch.",
     icon: "Shield",
-    bgImage: "/images/products/coloured-bopp-tapes/applications/app-4.png",
+    bgImage: "/images/desktop/why-choose-us/quality_testing.webp",
   },
   {
-    title: "Eco-friendly options",
+    title: "Eco-Friendly Options",
     text: "We offer recyclable and biodegradable packaging alternatives to support your sustainability and compliance goals.",
     icon: "Leaf",
-    bgImage: "/images/products/coloured-films-pouches/applications/app-3.png",
+    bgImage: "/images/desktop/why-choose-us/eco_friendly.webp",
   },
   {
-    title: "Direct manufacturer supply",
+    title: "Direct Manufacturer Supply",
     text: "No distributor markups. We manufacture, warehouse, and dispatch directly to optimize operations and reduce procurement costs.",
     icon: "Globe2",
-    bgImage: "/images/products/stretch-film/applications/app-4.png",
+    bgImage: "/images/desktop/why-choose-us/direct_supply.webp",
   }
 ];
 

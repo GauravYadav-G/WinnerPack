@@ -1,152 +1,128 @@
 "use client";
 
+import OptimizedImage from "@/components/OptimizedImage";
+import { fetchContent } from "@/lib/content-cache";
+import { defaultAbout } from "@/lib/site-defaults";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Zap } from "lucide-react";
+import { ArrowUpRight, Leaf } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { fetchContent } from "@/lib/content-cache";
-import OptimizedImage from '@/components/OptimizedImage';
 
 export default function AboutStrip() {
-  const [about, setAbout] = useState({
-    tagline: "Pioneering B2B Industrial Packaging & Labeling Solutions",
-    para1: "Winner Pack Technologies Pvt. Ltd. supplies environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply premium quality solutions tailored to your operational needs.",
-    para2: "We specialize in BOPP tapes, strapping rolls, shrink films, and protective packaging, serving various key industrial sectors including food, cosmetics, pharmaceuticals, and retail logistics.",
-    image1: "/images/desktop/about/plant_film_slitting_machine.jpg",
-    image2: "/images/desktop/about/plant_extrusion_tower.jpg",
-    stats: [
-      { value: "8+", label: "Years in business" },
-      { value: "4", label: "Product categories" },
-      { value: "20+", label: "Product lines" },
-      { value: "100%", label: "Customer commitment" }
-    ]
-  });
+  const [about, setAbout] = useState(defaultAbout);
 
   useEffect(() => {
     fetchContent("homepage")
       .then((data) => {
-        if (data.about) {
-          setAbout(data.about);
-        }
+        if (data.about) setAbout(data.about);
       })
       .catch(() => {
-        // Backend offline — fall back gracefully to default about data
+        // Use local content when the CMS is unavailable.
       });
   }, []);
 
   return (
-    <section id="about" className="relative overflow-hidden bg-[var(--color-bone)] py-10 sm:py-16 lg:py-24 border-b border-[var(--color-line)]">
-      {/* Background Atmosphere */}
-      <div className="absolute inset-0 bg-grid-fine opacity-15 pointer-events-none" />
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="relative overflow-hidden border-b border-[var(--color-line)] bg-[var(--color-bone)] py-12 sm:py-16"
+    >
+      <div className="pointer-events-none absolute left-1/2 top-0 h-64 w-[42rem] -translate-x-1/2 rounded-full bg-[var(--color-amber)]/[0.055] blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-        <div className="grid gap-6 sm:gap-8 lg:gap-12 lg:grid-cols-12 lg:items-start">
-
-          {/* LEFT COLUMN: Image Cards (Side-by-Side on Mobile, Stacked on Desktop) */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-6 grid grid-cols-2 lg:flex lg:flex-col items-center sm:items-start justify-start gap-3 sm:gap-6"
+        <motion.header
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto flex max-w-4xl flex-col items-center text-center"
+        >
+          <span className="mb-2 font-mono text-xs font-bold tracking-widest text-[var(--color-amber-dark)]">
+            About Us
+          </span>
+          <h2
+            id="about-heading"
+            className="font-display text-balance text-2xl font-extrabold leading-[1.15] tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-4xl lg:text-5xl"
           >
-            {/* Top Rectangular Card: Automated High-Speed Film Slitting Line */}
-            <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
+            {about.tagline}
+          </h2>
+          <div className="mt-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)]" />
+        </motion.header>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-9 sm:mt-11"
+        >
+          <div className="grid gap-5 lg:grid-cols-12 lg:items-stretch">
+            <div className="group relative min-h-[320px] overflow-hidden rounded-[1.75rem] bg-[var(--color-line)] sm:min-h-[390px] lg:col-span-7 lg:min-h-[410px] lg:rounded-[2rem]">
               <OptimizedImage
-                src={(about as any).image1 || "/images/desktop/about/plant_film_slitting_machine.jpg"}
-                alt="High-Speed Servo-Driven Film Slitting & Converting Machine"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                src={about.image1 || "/images/desktop/about/about_factory_floor_v2.webp"}
+                alt="Winner Pack industrial packaging production facility"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]"
+                width={1448}
+                height={1086}
               />
             </div>
 
-            {/* Bottom Rectangular Card: Blown Film Extrusion Tower */}
-            <div className="relative aspect-[4/3] sm:aspect-[16/10.5] w-full max-w-xl overflow-hidden rounded-2xl sm:rounded-3xl border border-[var(--color-line)] bg-white shadow-md sm:shadow-xl group">
-              <OptimizedImage
-                src={(about as any).image2 || "/images/desktop/about/plant_extrusion_tower.jpg"}
-                alt="Multilayer Blown Film Extrusion Tower"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-          </motion.div>
-
-          {/* RIGHT COLUMN: Natural Flow Content & Stats */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-6 space-y-4 sm:space-y-6"
-          >
-            {/* Eyebrow Tag with Horizontal Accent Line */}
-            <div className="flex items-center gap-2.5">
-              <div className="h-0.5 w-6 sm:w-8 bg-[var(--color-amber-dark)] rounded-full" />
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono">
-                About Winner Pack
-              </span>
-            </div>
-
-            {/* Main Headline */}
-            <h2 className="font-display text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--color-ink)] leading-snug sm:leading-[1.15] text-balance">
-              {about.tagline}
-            </h2>
-
-            {/* Narrative Paragraphs */}
-            <div className="space-y-2.5 sm:space-y-4 text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal">
-              {about.para1 && <p>{about.para1}</p>}
-              {about.para2 && <p className="hidden sm:block">{about.para2}</p>}
-            </div>
-
-            {/* 2 Bottom Feature Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6 pt-3 sm:pt-4 border-t border-[var(--color-line)]">
-              <div className="space-y-1 sm:space-y-2">
-                <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)]">
-                  <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5" />
+            <div className="flex min-h-[360px] flex-col justify-between rounded-[1.75rem] border border-[var(--color-line)] bg-white p-7 shadow-[0_14px_40px_rgba(23,13,73,0.06)] sm:p-9 lg:col-span-5 lg:min-h-[410px] lg:rounded-[2rem] lg:p-10">
+              <div>
+                <div className="mb-7 flex items-center gap-3">
+                  <span className="h-1.5 w-9 rounded-full bg-[var(--color-amber)]" aria-hidden="true" />
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-amber-dark)]">
+                    Our promise
+                  </span>
                 </div>
-                <p className="font-display text-sm sm:text-base font-bold text-[var(--color-ink)]">
-                  &quot;We Serve To Deserve&quot;
+                <blockquote className="font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-ink)] sm:text-4xl">
+                  “We Serve To Deserve”
+                </blockquote>
+                <p className="mt-5 max-w-md text-sm leading-7 text-[var(--color-mute)] sm:text-base">
+                  {about.para2 || "Premium secondary and tertiary packaging, developed around your operational requirements."}
                 </p>
-                <p className="text-[11px] sm:text-xs text-[var(--color-mute)] leading-relaxed">
-                  Environment-friendly secondary and tertiary solutions tailored to your operational specifications.
-                </p>
+                <div className="mt-6 flex items-center gap-3 border-t border-[var(--color-line)] pt-5 text-sm font-semibold text-[var(--color-ink-3)]">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)]">
+                    <Leaf className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  Environment-conscious materials and processes
+                </div>
               </div>
 
-              <div className="space-y-1 sm:space-y-2">
-                <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)]">
-                  <Zap className="h-4 w-4 sm:h-5 sm:w-5" />
-                </div>
-                <p className="font-display text-sm sm:text-base font-bold text-[var(--color-ink)]">
-                  Engineered Reliability
-                </p>
-                <p className="text-[11px] sm:text-xs text-[var(--color-mute)] leading-relaxed">
-                  Specialized in high-cling BOPP tapes, strapping rolls, POF/PVC shrink films, and protective wrap.
-                </p>
-              </div>
+              <Link
+                href="/about-us"
+                className="group mt-7 inline-flex w-fit items-center gap-3 rounded-full bg-[var(--color-ink-3)] px-5 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-steel)]"
+              >
+                Discover our story
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+              </Link>
             </div>
+          </div>
 
-            {/* 4 Stats Metrics Row */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 pt-2 sm:pt-4">
-              {about.stats && about.stats.map((s) => (
-                <div key={s.label} className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-[var(--color-line)] text-center shadow-sm hover:border-[var(--color-amber)]/40 hover:shadow-md transition-all duration-300">
-                  <div className="font-display text-xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--color-amber-dark)]">{s.value}</div>
-                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[var(--color-mute)] mt-1">{s.label}</div>
+          {about.stats?.length > 0 && (
+            <div className="mt-5 grid grid-cols-2 overflow-hidden rounded-[1.5rem] border border-[var(--color-line)] bg-white sm:grid-cols-4">
+              {about.stats.slice(0, 4).map((stat, index) => (
+                <div
+                  key={`${stat.label}-${index}`}
+                  className="relative px-5 py-5 text-center sm:px-6 sm:py-6"
+                >
+                  {index > 0 && (
+                    <span className="absolute left-0 top-1/2 hidden h-10 w-px -translate-y-1/2 bg-[var(--color-line)] sm:block" aria-hidden="true" />
+                  )}
+                  {index > 1 && (
+                    <span className="absolute inset-x-5 top-0 h-px bg-[var(--color-line)] sm:hidden" aria-hidden="true" />
+                  )}
+                  <p className="font-display text-2xl font-extrabold leading-none tracking-tight text-[var(--color-ink-3)] sm:text-3xl">
+                    {stat.value}
+                  </p>
+                  <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.13em] text-[var(--color-mute)] sm:text-xs">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </div>
-
-            {/* Link to Full About Us Page */}
-            <div className="pt-2">
-              <Link
-                href="/about-us"
-                className="group inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[var(--color-amber-dark)] hover:text-[var(--color-ink)] transition-colors duration-300"
-              >
-                <span>Explore our full manufacturing journey</span>
-                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </motion.div>
-
-        </div>
+          )}
+        </motion.div>
       </div>
     </section>
   );

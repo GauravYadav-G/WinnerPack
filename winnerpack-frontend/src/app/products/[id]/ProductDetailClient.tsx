@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowRight, Loader2, CheckCircle2, HelpCircle, ChevronDown } from "lucide-react";
 import { productCategories } from "../../../data";
 import { Eyebrow } from "@/components/ui/primitives";
@@ -9,7 +10,7 @@ import { Button } from "@/components/ui/Button";
 import CTABanner from "@/components/CTABanner";
 
 // Layout components
-import Navbar, { productHierarchy } from "@/components/Navbar";
+import Navbar, { plasticStretchFilmItems as STRETCH_FILM_ITEMS, productHierarchy } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -318,9 +319,6 @@ function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
         <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
           Frequently Asked Questions (FAQ)
         </h2>
-        <p className="text-xs sm:text-sm text-[var(--color-mute)] hidden sm:block">
-          Find comprehensive answers to common questions about materials, customization, standards, and packaging applications.
-        </p>
       </div>
 
       <div className="space-y-3 pt-2">
@@ -447,20 +445,6 @@ function getSubcategoryImages(sub: any, parentProduct: any) {
   return images;
 }
 
-const STRETCH_FILM_ITEMS = [
-  { name: "Mini Stretch Wrap Rolls", slug: "mini-stretch-wrap-rolls" },
-  { name: "Manual Stretch Film", slug: "manual-stretch-film" },
-  { name: "Machine Stretch Film", slug: "machine-stretch-film" },
-  { name: "Cling Film", slug: "cling-film" },
-  { name: "Silage Stretch Film & Bale Wrap", slug: "silage-stretch-film" },
-  { name: "Pre Stretch Film", slug: "pre-stretch-film" },
-  { name: "VCI Stretch Film", slug: "vci-stretch-film" },
-  { name: "Oxy Fade Stretch Wrap", slug: "oxy-fade-stretch-wrap" },
-  { name: "Coreless Stretch Film", slug: "coreless-stretch-film" },
-  { name: "Biodegradable Stretch Wrap", slug: "biodegradable-stretch-wrap" },
-  { name: "Recycled Stretch Wrap", slug: "recycled-stretch-wrap" },
-];
-
 function SubcategoryCardImageGallery({ images, title }: { images: string[]; title: string; categoryName?: string }) {
   const currentImg = images[0] || "/images/products/specialty-pouches/image.png";
 
@@ -478,18 +462,20 @@ function SubcategoryCardImageGallery({ images, title }: { images: string[]; titl
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
 
+  const isNavbarProduct = productHierarchy.some((category) =>
+    category.subcategories.some(
+      (subcategory) =>
+        subcategory.slug === id ||
+        subcategory.items.some((item) => item.slug === id)
+    )
+  ) || STRETCH_FILM_ITEMS.some((item) => item.slug === id);
+  if (!isNavbarProduct) notFound();
+
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [img, setImg] = useState<string>("");
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-
-  // Update page title
-  useEffect(() => {
-    if (product?.title) {
-      document.title = `${product.title} | WinnerPack`;
-    }
-  }, [product]);
 
   // Maps navbar subcategory slugs → actual product ID in fallback-data
   const aliasMap: Record<string, string> = {
@@ -651,14 +637,17 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     );
   }
 
+  const isStretchFilmRoute =
+    id === "plastic-stretch-film" ||
+    product.id === "plastic-stretch-film" ||
+    STRETCH_FILM_ITEMS.some((item) => item.slug === id || item.slug === product.id);
+
   const currentHierarchyCategory =
-    productHierarchy.find(
-      (hierarchyCategory) =>
-        hierarchyCategory.id === product.category ||
-        hierarchyCategory.catSlug === product.category
-    ) ||
-    productHierarchy.find((h) =>
-      h.subcategories.some(
+    (isStretchFilmRoute
+      ? productHierarchy.find((hierarchyCategory) => hierarchyCategory.id === "film-products")
+      : null) ||
+    productHierarchy.find((hierarchyCategory) =>
+      hierarchyCategory.subcategories.some(
         (sub) =>
           sub.slug === product.id ||
           sub.slug === id ||
@@ -666,17 +655,19 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           sub.items.some((it) => it.slug === product.id || it.slug === id)
       )
     ) ||
-    (STRETCH_FILM_ITEMS.some((st) => st.slug === product.id || st.slug === id)
-      ? productHierarchy.find((h) => h.id === "film-products")
-      : null) ||
+    productHierarchy.find(
+      (hierarchyCategory) =>
+        hierarchyCategory.id === product.category ||
+        hierarchyCategory.catSlug === product.category
+    ) ||
     (product.category === "pallet-wrapping" || product.category === "protective"
       ? productHierarchy.find((h) => h.id === "film-products")
       : null) ||
     productHierarchy[0];
 
   const categoryObj =
-    productCategories.find((c) => c.id === product.category) ||
     productCategories.find((c) => c.id === currentHierarchyCategory?.id) ||
+    productCategories.find((c) => c.id === product.category) ||
     productCategories[0];
   const category = categoryObj?.title || "Film Products";
 
@@ -757,7 +748,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               eyebrow="Product Line"
               title={product.title}
               intro={product.blurb}
-              align="center"
+              align="left"
             />
 
             {/* 2. PROMINENT SUBCATEGORY / IN-PAGE VARIANTS SECTION */}
@@ -765,17 +756,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               <section id="variants" className="bg-slate-50 py-10 sm:py-14 md:py-16 border-b border-[var(--color-line)]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                   <div className="mb-8 sm:mb-10 text-center max-w-2xl mx-auto">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] mb-1.5 block">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] mb-1.5 block">
                       {isFilmProduct ? "Industrial Line Navigation" : "Product Variations & Specifications"}
                     </span>
                     <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-ink)] font-display tracking-tight">
                       {isFilmProduct ? "Explore Industrial Line Options" : "Available Formats & Types"}
                     </h2>
-                    <p className="mt-2 text-xs sm:text-sm text-slate-600">
-                      {isFilmProduct
-                        ? "Select a dedicated category line to inspect full sub-product specifications."
-                        : `All variations and specifications available under ${product.title}.`}
-                    </p>
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 items-stretch">
@@ -803,7 +789,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                 </Link>
 
                                 {sub.blurb && (
-                                  <p className="hidden sm:block mt-1 sm:mt-2 text-[11px] sm:text-sm text-slate-600 leading-relaxed font-sans font-normal">
+                                  <p className="hidden sm:block mt-1 sm:mt-2 text-sm text-slate-600 leading-relaxed font-sans font-normal">
                                     {sub.blurb}
                                   </p>
                                 )}
@@ -823,7 +809,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                               <div className="mt-2 pt-2 sm:mt-5 sm:pt-4 border-t border-slate-100 flex items-center justify-between gap-1 sm:gap-2">
                                 <Link
                                   href={`/products/${subSlug}`}
-                                  className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] sm:text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors min-h-[28px] sm:min-h-[40px]"
+                                  className="inline-flex items-center gap-1 text-sm font-bold text-[var(--color-ink)] sm:text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors min-h-[28px] sm:min-h-[40px]"
                                 >
                                   <span>Explore range</span>
                                   <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber-dark)]" />
@@ -884,7 +870,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                   {sub.applications.map((app: string, idx: number) => (
                                     <span
                                       key={idx}
-                                      className="inline-block px-2 py-0.5 rounded-md bg-slate-100 text-[11px] font-medium text-slate-600"
+                                      className="inline-block px-2 py-0.5 rounded-md bg-slate-100 text-xs font-medium text-slate-600"
                                     >
                                       {app}
                                     </span>
@@ -974,14 +960,14 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               eyebrow={category}
               title={product.title}
               intro={product.blurb}
-              align="center"
+              align="left"
             >
-              <div className="hidden sm:flex flex-row items-center justify-center gap-3 pt-2 w-auto">
+              <div className="hidden sm:flex flex-row items-center justify-start gap-3 pt-2 w-auto">
                 <Button type="button" onClick={() => setIsInquiryOpen(true)} variant="secondary" iconRight className="rounded-xl px-5 py-3 text-sm font-extrabold shadow-lg shadow-black/20 justify-center min-h-[44px]">
-                  Request a quote
+                  Request a Quote
                 </Button>
                 <a href="#product-specifications" className="rounded-xl border border-white/20 px-5 py-3 text-sm font-bold text-white transition hover:border-white hover:bg-white/10 text-center flex items-center justify-center min-h-[44px]">
-                  View specifications
+                  View Specifications
                 </a>
               </div>
             </PageHeader>
@@ -995,7 +981,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   <aside className="w-full lg:hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-mist)] p-4 shadow-2xs">
                     <div className="flex items-center justify-between gap-4">
                       <div>
-                        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--color-amber-dark)]">Product range</p>
+                        <p className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-amber-dark)]">Product range</p>
                         <h2 className="mt-0.5 font-display text-base font-extrabold text-[var(--color-ink)]">{category}</h2>
                       </div>
                       <div className="flex items-center gap-2">
@@ -1015,7 +1001,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       <div className="mt-4 pt-4 border-t border-[var(--color-line)] space-y-4 max-h-[350px] overflow-y-auto scrollbar-none pr-1">
                         {currentHierarchyCategory && (
                           <div className="space-y-2">
-                            <span className="block text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
+                            <span className="block text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)]">
                               {currentHierarchyCategory.title}
                             </span>
                             <div className="grid grid-cols-2 gap-1.5">
@@ -1027,8 +1013,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                     href={`/products/${subcat.slug}`}
                                     onClick={() => setIsMobileNavOpen(false)}
                                     className={`px-2.5 py-1.5 rounded-lg text-xs font-bold font-display truncate transition-colors ${isActive
-                                        ? "bg-[var(--color-blue-deep)] text-white"
-                                        : "bg-white text-[var(--color-ink)] border border-[var(--color-line)] hover:bg-slate-50"
+                                      ? "bg-[var(--color-blue-deep)] text-white"
+                                      : "bg-white text-[var(--color-ink)] border border-[var(--color-line)] hover:bg-slate-50"
                                       }`}
                                   >
                                     {subcat.title}
@@ -1040,7 +1026,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                             {/* Mobile Stretch Film Related Fields */}
                             {(product.id === "plastic-stretch-film" || id === "plastic-stretch-film" || STRETCH_FILM_ITEMS.some((st) => st.slug === product.id || st.slug === id)) && (
                               <div className="mt-3 pt-2.5 border-t border-slate-200">
-                                <span className="block text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] mb-1.5">
+                                <span className="block text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] mb-1.5">
                                   Plastic Stretch Film Options
                                 </span>
                                 <div className="grid grid-cols-2 gap-1.5">
@@ -1051,11 +1037,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                         key={st.slug}
                                         href={`/products/${st.slug}`}
                                         onClick={() => setIsMobileNavOpen(false)}
-                                        className={`px-2 py-1 rounded text-[11px] font-medium font-sans truncate transition-colors ${
-                                          isStActive
+                                        className={`px-2 py-1 rounded text-xs font-medium font-sans truncate transition-colors ${isStActive
                                             ? "bg-[var(--color-blue-deep)] text-white font-bold"
                                             : "bg-white text-slate-700 border border-slate-200"
-                                        }`}
+                                          }`}
                                       >
                                         {st.name}
                                       </Link>
@@ -1080,108 +1065,107 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                     <nav className="space-y-6">
                       {currentHierarchyCategory && (
-                          <div className="space-y-2.5">
-                            {/* Main Category Header (Navbar Tier 1) */}
-                            <span className="block text-[11px] font-mono font-black uppercase tracking-wider text-[var(--color-amber-dark)]">
-                              {currentHierarchyCategory.title}
-                            </span>
+                        <div className="space-y-2.5">
+                          {/* Main Category Header (Navbar Tier 1) */}
+                          <span className="block text-xs font-mono font-black uppercase tracking-wider text-[var(--color-amber-dark)]">
+                            {currentHierarchyCategory.title}
+                          </span>
 
-                            {/* Subcategories (Navbar Tier 2) */}
-                            <div className="space-y-3 pl-1.5 border-l-2 border-[var(--color-line)]">
-                              {currentHierarchyCategory.subcategories.map((subcat) => {
-                                const isStretchOption = STRETCH_FILM_ITEMS.some((st) => st.slug === product.id || st.slug === id);
-                                const isDirectSubcat =
-                                  subcat.slug === product.id ||
-                                  subcat.slug === id ||
-                                  subcat.id === product.id ||
-                                  subcat.title.toLowerCase() === product.title.toLowerCase();
+                          {/* Subcategories (Navbar Tier 2) */}
+                          <div className="space-y-3 pl-1.5 border-l-2 border-[var(--color-line)]">
+                            {currentHierarchyCategory.subcategories.map((subcat) => {
+                              const isStretchOption = STRETCH_FILM_ITEMS.some((st) => st.slug === product.id || st.slug === id);
+                              const isDirectSubcat =
+                                subcat.slug === product.id ||
+                                subcat.slug === id ||
+                                subcat.id === product.id ||
+                                subcat.title.toLowerCase() === product.title.toLowerCase();
 
-                                const isCurrentSubcat =
-                                  isDirectSubcat ||
-                                  subcat.items.some(
-                                    (it) =>
-                                      it.slug === product.id ||
-                                      it.slug === id ||
-                                      it.name.toLowerCase().trim() === product.title.toLowerCase().trim()
-                                  ) ||
-                                  (subcat.slug === "packaging-films" && (isStretchOption || product.id === "plastic-stretch-film" || id === "plastic-stretch-film"));
+                              const isCurrentSubcat =
+                                isDirectSubcat ||
+                                subcat.items.some(
+                                  (it) =>
+                                    it.slug === product.id ||
+                                    it.slug === id ||
+                                    it.name.toLowerCase().trim() === product.title.toLowerCase().trim()
+                                ) ||
+                                (subcat.slug === "packaging-films" && (isStretchOption || product.id === "plastic-stretch-film" || id === "plastic-stretch-film"));
 
-                                return (
-                                  <div key={subcat.id} className="space-y-1 pl-2">
-                                    <Link
-                                      href={`/products/${subcat.slug}`}
-                                      className={`flex items-center justify-between py-0.5 text-xs sm:text-[13px] font-bold font-display tracking-tight transition-colors ${isDirectSubcat
-                                          ? "text-[var(--color-ink)] font-black"
-                                          : isCurrentSubcat
-                                            ? "text-[var(--color-blue-deep)] font-extrabold"
-                                            : "text-[var(--color-ink)] hover:text-[var(--color-amber-dark)]"
-                                        }`}
-                                    >
-                                      <span>{subcat.title}</span>
-                                      {isDirectSubcat && (
-                                        <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] shrink-0 ml-1.5" />
-                                      )}
-                                    </Link>
+                              return (
+                                <div key={subcat.id} className="space-y-1 pl-2">
+                                  <Link
+                                    href={`/products/${subcat.slug}`}
+                                    className={`flex items-center justify-between py-0.5 text-xs sm:text-[13px] font-bold font-display tracking-tight transition-colors ${isDirectSubcat
+                                      ? "text-[var(--color-ink)] font-black"
+                                      : isCurrentSubcat
+                                        ? "text-[var(--color-blue-deep)] font-extrabold"
+                                        : "text-[var(--color-ink)] hover:text-[var(--color-amber-dark)]"
+                                      }`}
+                                  >
+                                    <span>{subcat.title}</span>
+                                    {isDirectSubcat && (
+                                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] shrink-0 ml-1.5" />
+                                    )}
+                                  </Link>
 
-                                    {/* Specific Product Items (Navbar Tier 3) */}
-                                    <ul className="space-y-1 pl-1">
-                                      {subcat.items.map((item) => {
-                                        const isStretchFilmItem = item.slug === "plastic-stretch-film";
-                                        const isDirectItem =
-                                          item.slug === product.id ||
-                                          item.slug === id ||
-                                          item.name.toLowerCase().trim() === product.title.toLowerCase().trim();
-                                        const isActive = isDirectItem || (isStretchFilmItem && isStretchOption);
+                                  {/* Specific Product Items (Navbar Tier 3) */}
+                                  <ul className="space-y-1 pl-1">
+                                    {subcat.items.map((item) => {
+                                      const isStretchFilmItem = item.slug === "plastic-stretch-film";
+                                      const isDirectItem =
+                                        item.slug === product.id ||
+                                        item.slug === id ||
+                                        item.name.toLowerCase().trim() === product.title.toLowerCase().trim();
+                                      const isActive = isDirectItem || (isStretchFilmItem && isStretchOption);
 
-                                        return (
-                                          <li key={item.name} className="space-y-0.5">
-                                            <Link
-                                              href={`/products/${item.slug}`}
-                                              className={`flex items-center justify-between py-0.5 px-1.5 rounded-md text-xs font-sans transition-colors ${isActive
-                                                  ? "font-extrabold text-[var(--color-ink)]"
-                                                  : "text-[var(--color-mute)] hover:text-[var(--color-ink)]"
-                                                }`}
-                                            >
-                                              <span className="truncate">{item.name}</span>
-                                              {isActive && (
-                                                <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] shrink-0 ml-1.5" />
-                                              )}
-                                            </Link>
-
-                                            {/* When inside Plastic Stretch Film: LOAD ITS RELATED FIELDS */}
-                                            {isStretchFilmItem && (isDirectItem || isStretchOption || product.id === "plastic-stretch-film" || id === "plastic-stretch-film") && (
-                                              <ul className="space-y-0.5 pl-2.5 my-1 py-0.5 border-l-2 border-[var(--color-amber)]/60">
-                                                {STRETCH_FILM_ITEMS.map((st) => {
-                                                  const isStActive = st.slug === product.id || st.slug === id;
-                                                  return (
-                                                    <li key={st.slug}>
-                                                      <Link
-                                                        href={`/products/${st.slug}`}
-                                                        className={`flex items-center justify-between py-0.5 px-1.5 rounded text-[11px] font-sans transition-colors ${
-                                                          isStActive
-                                                            ? "font-extrabold text-[var(--color-blue)] bg-blue-50/80"
-                                                            : "text-slate-500 hover:text-[var(--color-ink)] hover:bg-slate-100/70"
-                                                        }`}
-                                                      >
-                                                        <span className="truncate">{st.name}</span>
-                                                        {isStActive && (
-                                                          <span className="h-1 w-1 rounded-full bg-[var(--color-blue)] shrink-0 ml-1.5" />
-                                                        )}
-                                                      </Link>
-                                                    </li>
-                                                  );
-                                                })}
-                                              </ul>
+                                      return (
+                                        <li key={item.name} className="space-y-0.5">
+                                          <Link
+                                            href={`/products/${item.slug}`}
+                                            className={`flex items-center justify-between py-0.5 px-1.5 rounded-md text-xs font-sans transition-colors ${isActive
+                                              ? "font-extrabold text-[var(--color-ink)]"
+                                              : "text-[var(--color-mute)] hover:text-[var(--color-ink)]"
+                                              }`}
+                                          >
+                                            <span className="truncate">{item.name}</span>
+                                            {isActive && (
+                                              <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-amber-dark)] shrink-0 ml-1.5" />
                                             )}
-                                          </li>
-                                        );
-                                      })}
-                                    </ul>
-                                  </div>
-                                );
-                              })}
-                            </div>
+                                          </Link>
+
+                                          {/* When inside Plastic Stretch Film: LOAD ITS RELATED FIELDS */}
+                                          {isStretchFilmItem && (isDirectItem || isStretchOption || product.id === "plastic-stretch-film" || id === "plastic-stretch-film") && (
+                                            <ul className="space-y-0.5 pl-2.5 my-1 py-0.5 border-l-2 border-[var(--color-amber)]/60">
+                                              {STRETCH_FILM_ITEMS.map((st) => {
+                                                const isStActive = st.slug === product.id || st.slug === id;
+                                                return (
+                                                  <li key={st.slug}>
+                                                    <Link
+                                                      href={`/products/${st.slug}`}
+                                                      className={`flex items-center justify-between py-0.5 px-1.5 rounded text-xs font-sans transition-colors ${isStActive
+                                                          ? "font-extrabold text-[var(--color-blue)] bg-blue-50/80"
+                                                          : "text-slate-500 hover:text-[var(--color-ink)] hover:bg-slate-100/70"
+                                                        }`}
+                                                    >
+                                                      <span className="truncate">{st.name}</span>
+                                                      {isStActive && (
+                                                        <span className="h-1 w-1 rounded-full bg-[var(--color-blue)] shrink-0 ml-1.5" />
+                                                      )}
+                                                    </Link>
+                                                  </li>
+                                                );
+                                              })}
+                                            </ul>
+                                          )}
+                                        </li>
+                                      );
+                                    })}
+                                  </ul>
+                                </div>
+                              );
+                            })}
                           </div>
+                        </div>
                       )}
                     </nav>
                   </aside>
@@ -1308,9 +1292,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                               Available Types & Specifications
                             </h2>
                           </div>
-                          <p className="text-xs sm:text-sm text-slate-600 pl-3.5">
-                            Explore specific material grades, core dimensions, and application variants available under {product.title}.
-                          </p>
                         </div>
 
                         <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6 pt-1 items-stretch">
@@ -1332,7 +1313,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                     </h3>
 
                                     {sub.subtitle && (
-                                      <p className="text-[10px] sm:text-xs font-semibold text-[var(--color-amber-dark)] mt-0.5 sm:mt-1 line-clamp-1 sm:line-clamp-none">
+                                      <p className="text-xs font-semibold text-[var(--color-amber-dark)] mt-0.5 sm:mt-1 line-clamp-1 sm:line-clamp-none">
                                         {sub.subtitle}
                                       </p>
                                     )}
@@ -1346,7 +1327,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                     {sub.specs && (
                                       <div className="mt-3.5 pt-3 border-t border-slate-100 space-y-1.5 hidden sm:block">
                                         {Object.entries(sub.specs).slice(0, 5).map(([lbl, val]: any) => (
-                                          <div key={lbl} className="flex items-start justify-between gap-2 text-[11px] sm:text-xs">
+                                          <div key={lbl} className="flex items-start justify-between gap-2 text-xs">
                                             <span className="font-semibold text-slate-900 shrink-0">{lbl}:</span>
                                             <span className="font-medium text-slate-600 text-right leading-tight">{String(val)}</span>
                                           </div>
@@ -1359,7 +1340,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                         {sub.applications.map((app: string, idx: number) => (
                                           <span
                                             key={idx}
-                                            className="inline-block px-2 py-0.5 rounded-md bg-slate-100 text-[10px] sm:text-[11px] font-medium text-slate-600"
+                                            className="inline-block px-2 py-0.5 rounded-md bg-slate-100 text-xs font-medium text-slate-600"
                                           >
                                             {app}
                                           </span>
@@ -1372,14 +1353,14 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                     <button
                                       type="button"
                                       onClick={() => setIsInquiryOpen(true)}
-                                      className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-[var(--color-amber-dark)] hover:text-[var(--color-amber)] transition-colors min-h-[30px] sm:min-h-[32px] cursor-pointer"
+                                      className="inline-flex items-center gap-1 text-xs font-bold text-[var(--color-amber-dark)] hover:text-[var(--color-amber)] transition-colors min-h-[30px] sm:min-h-[32px] cursor-pointer"
                                     >
                                       <span>Inquire</span>
                                       <ArrowRight className="h-3 w-3" />
                                     </button>
                                     <Link
                                       href={`/contact?sku=${product.id}&title=${encodeURIComponent(`${product.title} - ${sub.title}`)}`}
-                                      className="inline-flex items-center justify-center rounded-full bg-[var(--color-amber-soft)] px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold text-[var(--color-amber-dark)] hover:bg-[var(--color-amber)] hover:text-white transition-all shadow-2xs"
+                                      className="inline-flex items-center justify-center rounded-full bg-[var(--color-amber-soft)] px-2.5 sm:px-3 py-0.5 sm:py-1 text-xs font-bold text-[var(--color-amber-dark)] hover:bg-[var(--color-amber)] hover:text-white transition-all shadow-2xs"
                                     >
                                       Quote
                                     </Link>

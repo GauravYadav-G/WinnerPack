@@ -1,4 +1,2 @@
-import IndustrialActionClient from "./IndustrialActionClient";
-export default function IndustrialActionPage() {
-  return <IndustrialActionClient />;
-}
+import { redirect } from "next/navigation";
+export default function Page(){ redirect("/admin/website/applications"); }

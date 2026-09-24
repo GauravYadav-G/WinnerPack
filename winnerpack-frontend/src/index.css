@@ -4,6 +4,7 @@
   --font-display: var(--font-display-sora), var(--font-display-space), system-ui, sans-serif;
   --font-sans: var(--font-sans), system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
+  --container-8xl: 90rem;
 
   /* Brand — Exact Logo Deep Purple (#170d49) & Vibrant Orange (#fe8220) Theme */
   --color-ink: #0d072c;
@@ -95,6 +96,34 @@ html {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* ─── Floating Widget Pulse Animation ─── */
+/* Uses transform + opacity only (both are GPU-composited, zero paint cost)    */
+/* This fixes the Lighthouse "Avoid non-composited animations" warning that    */
+/* previously flagged a box-shadow pulse animation.                             */
+@keyframes action-pulse-scale {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  60% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+
+.action-pulse-ring {
+  background: rgba(230, 140, 30, 0.55);
+  animation: action-pulse-scale 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
 }
 
 /* ─── Unified Responsive Proportional Container ─── */

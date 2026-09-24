@@ -1,3 +1,4 @@
+import { defaultSolutions } from '@/lib/site-defaults';
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { apiFetch } from "@/lib/api";
@@ -142,56 +143,7 @@ const modernIcons = [
   TechnicalSupportIcon
 ];
 
-const defaultSolutionsData = [
-  {
-    slot: "01",
-    question: "Custom Dimensions",
-    solution: "Tailored Sizes & Gauges",
-    challenge: "Custom widths, thicknesses, and roll lengths manufactured to match your exact manual or automated wrapping machinery."
-  },
-  {
-    slot: "02",
-    question: "Reliable Strength",
-    solution: "Tear & Puncture Resistance",
-    challenge: "Engineered multi-layer films that deliver high load containment and secure pallets during warehouse storage and transit."
-  },
-  {
-    slot: "03",
-    question: "High Volume Output",
-    solution: "Bulk Manufacturing Capacity",
-    challenge: "Modern high-speed extrusion lines equipped to consistently fulfill large-scale recurring factory and distributor orders."
-  },
-  {
-    slot: "04",
-    question: "Direct Manufacturer",
-    solution: "Factory-Direct Competitive Pricing",
-    challenge: "Transparent pricing directly from the manufacturing unit, helping you reduce overall packaging costs per unit."
-  },
-  {
-    slot: "05",
-    question: "On-Time Dispatch",
-    solution: "Reliable Delivery & Ready Stock",
-    challenge: "Maintained safety stock and planned dispatch schedules to ensure your packaging materials arrive without factory downtime."
-  },
-  {
-    slot: "06",
-    question: "Brand Visibility",
-    solution: "Custom Printing & Branded Tapes",
-    challenge: "Custom logo printing, colored tapes, and barcode labels to elevate product presentation and protect against tampering."
-  },
-  {
-    slot: "07",
-    question: "Sustainable Solutions",
-    solution: "100% Recyclable Materials",
-    challenge: "Environmentally conscious polyethylene formulations and down-gauged films that minimize overall plastic usage."
-  },
-  {
-    slot: "08",
-    question: "Expert Guidance",
-    solution: "Packaging Consultation & Samples",
-    challenge: "Dedicated packaging assistance and trial samples to help you choose the right film, strap, or tape grade for your goods."
-  },
-];
+const defaultSolutionsData = defaultSolutions;
 
 export default function Journey() {
   const [solutionsList, setSolutionsList] = useState<any[]>(defaultSolutionsData);
@@ -227,17 +179,13 @@ export default function Journey() {
 
         {/* Centered Section Header */}
         <div className="mb-10 sm:mb-14 md:mb-16 max-w-4xl mx-auto text-center flex flex-col items-center">
-          <span className="text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2.5">
-            PACKAGING SOLUTIONS & CAPABILITIES
+          <span className="text-xs font-bold tracking-[0.18em] text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2.5">
+            Packaging Solutions & Capabilities
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug sm:leading-[1.15] tracking-tight text-[var(--color-ink)] text-balance">
             Reliable Packaging Solutions Built for Your Business
           </h2>
           <div className="mt-3.5 sm:mt-4 h-1 sm:h-1.5 w-14 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
-
-          <p className="mt-3 sm:mt-4 text-xs sm:text-base md:text-lg text-[var(--color-mute)] leading-relaxed font-normal max-w-2xl text-balance">
-            From high-performance stretch films to custom printed tapes, we deliver dependable materials made for real factory and warehouse operations.
-          </p>
         </div>
 
         {/* Modern Bento / Capability Grid — 2 in a row on mobile, 4 Columns on Desktop */}
@@ -264,14 +212,14 @@ export default function Journey() {
                       <IconComponent className="h-4.5 w-4.5 sm:h-5 sm:w-5 md:h-5.5 md:w-5.5" />
                     </div>
 
-                    <span className="font-mono text-[10px] sm:text-xs font-bold text-slate-300 tracking-wider transition-colors duration-300 group-hover:text-[var(--color-amber-dark)]">
+                    <span className="font-mono text-xs font-bold text-slate-300 tracking-wider transition-colors duration-300 group-hover:text-[var(--color-amber-dark)]">
                       /{item.slot || `0${index + 1}`}
                     </span>
                   </div>
 
                   {/* Heading 1: Category / Context Eyebrow */}
                   {item.question && (
-                    <span className="block text-[8.5px] sm:text-[10px] md:text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] mb-1 sm:mb-1.5 opacity-90 leading-tight">
+                    <span className="block text-xs font-mono font-bold tracking-wider text-[var(--color-amber-dark)] mb-1 sm:mb-1.5 opacity-90 leading-tight">
                       {item.question}
                     </span>
                   )}
@@ -283,7 +231,7 @@ export default function Journey() {
 
                   {/* Operational Value Description (Properly Fills & Balances the Card) */}
                   {item.challenge && (
-                    <p className="text-[10px] sm:text-xs md:text-[13px] text-slate-500 leading-relaxed font-normal">
+                    <p className="text-sm text-slate-500 leading-relaxed font-normal">
                       {item.challenge}
                     </p>
                   )}

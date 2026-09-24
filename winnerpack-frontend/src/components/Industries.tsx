@@ -1,5 +1,6 @@
 "use client";
 
+import { defaultIndustries } from '@/lib/site-defaults';
 import { useEffect, useState } from "react";
 import { apiFetch } from "@/lib/api";
 
@@ -8,14 +9,13 @@ interface Industry {
   image: string;
 }
 
-const defaultIndustriesList: Industry[] = [
-  { name: "Food & FMCG", image: "/images/desktop/industries/food_fmcg_industry.png" },
-  { name: "Pharma & Healthcare", image: "/images/desktop/industries/pharma_industry.png" },
-  { name: "E-Commerce & Logistics", image: "/images/desktop/industries/ecommerce_logistics_industry.png" },
-  { name: "Automobile & Engineering", image: "/images/desktop/industries/automobile_industry.png" },
-  { name: "Electronics & Electricals", image: "/images/desktop/industries/electronics_industry.png" },
-  { name: "Stationery & Corporate", image: "/images/desktop/industries/stationery_industry.png" },
-];
+const defaultIndustriesList = defaultIndustries;
+
+/** Convert local static image paths to their .webp equivalent */
+function toWebP(src: string): string {
+  if (!src || src.startsWith("http://") || src.startsWith("https://")) return src;
+  return src.replace(/\.(png|jpe?g)$/i, ".webp");
+}
 
 export default function Industries() {
   const [industriesList, setIndustriesList] = useState<Industry[]>(defaultIndustriesList);
@@ -39,43 +39,58 @@ export default function Industries() {
   }, []);
 
   return (
-    <section id="industries" className="relative overflow-hidden bg-[var(--color-bone)] py-16 md:py-24 border-b border-[var(--color-line)]">
-      {/* Background Atmosphere */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[var(--color-amber)]/5 blur-3xl pointer-events-none" />
+    <section
+      id="industries"
+      className="relative w-full overflow-hidden bg-[#f8f7f4] bg-cover bg-center bg-no-repeat bg-fixed py-16 md:py-12 border-b border-[#e5dfd2]"
+      style={{ backgroundImage: "url('/images/backgrounds/industries-background.webp')" }}
+    >
+      {/* White veil keeps the heading and industry cards readable over the fixed image. */}
+      <div className="pointer-events-none absolute inset-0 bg-white/50" aria-hidden="true" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+      {/* Background Atmosphere */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[#fe8220]/5 blur-3xl pointer-events-none" />
+
+      <div className="relative mx-auto max-w-8xl px-4 sm:px-6 md:px-8">
 
         {/* Centered Section Header */}
         <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto flex flex-col items-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono mb-2">
+          <span className="text-xs font-bold tracking-widest text-[#d4630a] font-mono mb-2">
             Target Applications
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] tracking-tight text-[var(--color-ink)] text-balance">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] tracking-tight text-[#0d072c] text-balance">
             Industries We Serve
           </h2>
-          <div className="mt-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] mx-auto" />
+          <div className="mt-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-[#fe8220] to-[#ffa048] mx-auto" />
         </div>
 
         {/* Industry Cards Grid */}
-        <div className="grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-6" data-reveal>
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 md:grid-cols-3 lg:grid-cols-6" data-reveal>
           {industriesList.map((ind) => (
             <div
               key={ind.name}
-              className="group relative overflow-hidden rounded-2xl border border-[var(--color-line)] hover:border-[var(--color-amber)]/40 bg-slate-950 aspect-[16/11] md:aspect-[4/5] shadow-md transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer select-none"
+              className="group relative overflow-hidden rounded-2xl border border-[#e5dfd2] hover:border-[#fe8220]/40 bg-slate-950 aspect-[4/5] sm:aspect-[4/5] md:aspect-[5/6] shadow-md transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer select-none"
               data-hover
             >
-              {/* Background Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
-                style={{ backgroundImage: `url('${ind.image}')` }}
-              />
+              {/* Industry Image — uses picture for WebP with PNG fallback */}
+              <picture className="absolute inset-0 h-full w-full">
+                <source srcSet={toWebP(ind.image)} type="image/webp" />
+                <img
+                  src={ind.image}
+                  alt={`${ind.name} packaging solutions`}
+                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                  width={360}
+                  height={450}
+                />
+              </picture>
 
-              {/* Dark Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
+              {/* Dark Overlay Gradient — focused at the bottom for readability while keeping the subject uncropped & vivid */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 via-40% to-transparent transition-opacity duration-500 group-hover:opacity-90" />
 
               {/* Text Overlay */}
-              <div className="absolute inset-x-0 bottom-0 p-4 text-center z-10">
-                <h3 className="font-display text-xs sm:text-sm md:text-base font-extrabold tracking-tight text-white drop-shadow-md group-hover:text-[var(--color-amber)] transition-colors duration-300">
+              <div className="absolute inset-x-0 bottom-0 p-3 sm:p-3.5 md:p-4 text-center z-10">
+                <h3 className="font-display text-xs sm:text-sm md:text-base font-extrabold tracking-tight text-white drop-shadow-md group-hover:text-[#fe8220] transition-colors duration-300">
                   {ind.name}
                 </h3>
               </div>

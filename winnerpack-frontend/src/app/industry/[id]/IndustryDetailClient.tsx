@@ -14,14 +14,25 @@ import ScrollProgress from "@/components/ScrollProgress";
 import PageWrapper from "@/components/PageWrapper";
 import CTABanner from "@/components/CTABanner";
 import OptimizedImage from '@/components/OptimizedImage';
+import { productHierarchy } from "@/components/Navbar";
 
 export default function IndustryDetailClient({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
   const industry = industryVerticals.find((ind) => ind.id === id) || industryVerticals[0];
 
   // Fetch linked recommended products from single structured product source
-  const recommendedProducts = initialProducts.filter((p) =>
-    industry.recommendedProductIds.includes(p.id)
+  const navbarProductSlugs = new Set(
+    productHierarchy.flatMap((category) =>
+      category.subcategories.flatMap((subcategory) => [
+        subcategory.slug,
+        ...subcategory.items.map((item) => item.slug),
+      ])
+    )
+  );
+  const recommendedProducts = initialProducts.filter(
+    (product) =>
+      navbarProductSlugs.has(product.id) &&
+      industry.recommendedProductIds.includes(product.id)
   );
 
   return (
@@ -46,7 +57,7 @@ export default function IndustryDetailClient({ params }: { params: Promise<{ id:
           <Container className="relative z-10">
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              
+
               {/* Left Column: Outcome Headline */}
               <div className="lg:col-span-7 space-y-5">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/12 backdrop-blur-md text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber)]">
@@ -88,13 +99,13 @@ export default function IndustryDetailClient({ params }: { params: Promise<{ id:
               <div className="lg:col-span-5 relative">
                 <div className="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl aspect-[4/3] bg-slate-950">
                   <OptimizedImage
-  src={industry.image}
-  alt={industry.name}
-  className="h-full w-full object-cover"
-/>
+                    src={industry.image}
+                    alt={industry.name}
+                    className="h-full w-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 text-white">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber)] block">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber)] block">
                       In-Use Deployment
                     </span>
                     <span className="text-xs sm:text-sm font-bold text-slate-200 mt-0.5 block">
@@ -112,7 +123,7 @@ export default function IndustryDetailClient({ params }: { params: Promise<{ id:
         <section className="py-16 sm:py-20 bg-white border-b border-[var(--color-line)]">
           <Container>
             <div className="max-w-4xl mx-auto space-y-10">
-              
+
               {/* Packaging Challenge Statement */}
               <div className="p-6 sm:p-8 rounded-3xl bg-[var(--color-mist)] border border-[var(--color-line)] space-y-3 shadow-xs">
                 <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-rose-600">
@@ -163,9 +174,6 @@ export default function IndustryDetailClient({ params }: { params: Promise<{ id:
               <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--color-ink)]">
                 Winner Pack Products Specified for {industry.name}
               </h2>
-              <p className="text-xs sm:text-sm text-[var(--color-mute)]">
-                These materials are pre-tested and formulated to match the line speeds and transit stresses of this vertical.
-              </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -177,16 +185,16 @@ export default function IndustryDetailClient({ params }: { params: Promise<{ id:
                   <div>
                     <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-[var(--color-bone)] mb-4">
                       <OptimizedImage
-  src={prod.image}
-  alt={prod.title}
-  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-/>
+                        src={prod.image}
+                        alt={prod.title}
+                        className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
 
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] block">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] block">
                       {prod.tag}
                     </span>
-                    
+
                     <h4 className="font-display text-base font-bold text-[var(--color-ink)] mt-1 group-hover:text-[var(--color-amber-dark)] transition-colors">
                       {prod.title}
                     </h4>

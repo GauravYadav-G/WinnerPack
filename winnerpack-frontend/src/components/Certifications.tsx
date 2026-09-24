@@ -1,53 +1,11 @@
 "use client";
 
+import { defaultCertifications } from '@/lib/site-defaults';
 import { motion } from "framer-motion";
 import OptimizedImage from "@/components/OptimizedImage";
 
-interface CertificationItem {
-  id: string;
-  name: string;
-  authority: string;
-  imageSrc: string;
-}
 
-const certificationsList: CertificationItem[] = [
-  {
-    id: "gst",
-    name: "GST Registered",
-    authority: "Govt. of India",
-    imageSrc: "/certifications/gst_nation_tax_market.png",
-  },
-  {
-    id: "msme",
-    name: "MSME Certified",
-    authority: "Ministry of MSME",
-    imageSrc: "/certifications/msme_official.svg",
-  },
-  {
-    id: "iso-9001",
-    name: "ISO 9001:2015",
-    authority: "Quality Management",
-    imageSrc: "/certifications/iso_official.svg",
-  },
-  {
-    id: "rohs",
-    name: "RoHS Compliant",
-    authority: "Hazardous Substance Free",
-    imageSrc: "/certifications/rohs_official.svg",
-  },
-  {
-    id: "cte",
-    name: "CTE (Pollution NOC)",
-    authority: "Consent to Establish",
-    imageSrc: "/certifications/cpcb_official.svg",
-  },
-  {
-    id: "cto",
-    name: "CTO (UP Pollution)",
-    authority: "UPPCB Consent to Operate",
-    imageSrc: "/certifications/uppcb_cto.png",
-  },
-];
+const certificationsList = defaultCertifications;
 
 export default function Certifications() {
   return (
@@ -65,17 +23,13 @@ export default function Certifications() {
 
         {/* Centered Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16">
-          <span className="text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2">
-            GOVERNMENT & QUALITY COMPLIANCE
+          <span className="text-xs font-bold tracking-[0.18em] text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2">
+            Government & Quality Compliance
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-snug sm:leading-[1.15]">
             Certified Standards You Can Trust
           </h2>
           <div className="mt-3.5 sm:mt-4 h-1 sm:h-1.5 w-14 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
-
-          <p className="mt-3 sm:mt-4 text-xs sm:text-base text-[var(--color-mute)] leading-relaxed font-normal max-w-2xl text-balance">
-            Our manufacturing operations, quality management, and environmental protocols operate under strict national and international statutory certifications.
-          </p>
         </div>
 
         {/* Modern 6-Column Architectural Certification Cards */}
@@ -100,10 +54,10 @@ export default function Certifications() {
 
               {/* Title & Authority Subtitle */}
               <div className="mt-3 pt-2.5 border-t border-[var(--color-line)]/60">
-                <h3 className="font-display text-xs sm:text-[13px] font-bold text-[var(--color-ink)] leading-snug group-hover:text-[var(--color-blue-deep)] transition-colors">
+                <h3 className="font-display text-sm font-bold text-[var(--color-ink)] leading-snug group-hover:text-[var(--color-blue-deep)] transition-colors">
                   {item.name}
                 </h3>
-                <p className="text-[10px] sm:text-[11px] text-[var(--color-mute)] font-medium mt-0.5 truncate">
+                <p className="text-xs text-[var(--color-mute)] font-medium mt-0.5 truncate">
                   {item.authority}
                 </p>
               </div>

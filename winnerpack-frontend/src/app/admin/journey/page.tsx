@@ -1,5 +1,2 @@
-import Client from "./JourneyClient";
-export const dynamic = "force-dynamic";
-export default function Page() {
-  return <Client />;
-}
+import { redirect } from "next/navigation";
+export default function Page(){ redirect("/admin/website/solutions"); }

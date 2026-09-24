@@ -15,6 +15,20 @@ const links = [
   { label: "Contact Us", href: "/contact" }
 ];
 
+export const plasticStretchFilmItems = [
+  { name: "Mini Stretch Wrap Rolls", slug: "mini-stretch-wrap-rolls" },
+  { name: "Manual Stretch Film", slug: "manual-stretch-film" },
+  { name: "Machine Stretch Film", slug: "machine-stretch-film" },
+  { name: "Cling Film", slug: "cling-film" },
+  { name: "Silage Stretch Film & Bale Wrap", slug: "silage-stretch-film" },
+  { name: "Pre Stretch Film", slug: "pre-stretch-film" },
+  { name: "VCI Stretch Film", slug: "vci-stretch-film" },
+  { name: "Oxy Fade Stretch Wrap", slug: "oxy-fade-stretch-wrap" },
+  { name: "Coreless Stretch Film", slug: "coreless-stretch-film" },
+  { name: "Biodegradable Stretch Wrap", slug: "biodegradable-stretch-wrap" },
+  { name: "Recycled Stretch Wrap", slug: "recycled-stretch-wrap" },
+];
+
 // Complete 3-Tier Hierarchy with 11 specified Film Products order
 export const productHierarchy = [
   {
@@ -300,27 +314,27 @@ export default function Navbar() {
   return (
     <>
       {/* ── TOP BAR (Sticwell Style) ── */}
-      <div className="bg-[var(--color-ink)] text-white/70 text-[10px] sm:text-[11px] md:text-xs py-2 border-b border-white/5 relative z-50">
+      <div className="bg-[var(--color-ink)] text-white text-[10px] sm:text-[11px] md:text-xs py-2 border-b border-white/10 relative z-50">
         <div className="max-w-[1536px] mx-auto px-3 sm:px-4 md:px-6 lg:px-8 flex justify-between items-center">
           {/* Left: Contact Info */}
           <div className="flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-            <a href="mailto:info@winnerpack.in" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
+            <a href="mailto:info@winnerpack.in" className="flex items-center gap-1.5 text-white font-medium hover:text-[var(--color-amber)] transition-colors">
               <Mail className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber)] shrink-0" />
-              <span className="hidden min-[400px]:inline">info@winnerpack.in</span>
-              <span className="min-[400px]:hidden">Email</span>
+              <span className="hidden min-[400px]:inline text-white">info@winnerpack.in</span>
+              <span className="min-[400px]:hidden text-white">Email</span>
             </a>
-            <a href="tel:+918595072187" className="flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
+            <a href="tel:+918595072187" className="flex items-center gap-1.5 text-white font-medium hover:text-[var(--color-amber)] transition-colors">
               <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber)] shrink-0" />
-              <span className="font-mono">+91 85950 72187</span>
+              <span className="font-mono text-white tracking-wide">+91 85950 72187</span>
             </a>
-            <a href="tel:+917428770999" className="hidden md:flex items-center gap-1.5 hover:text-[var(--color-amber)] transition-colors">
+            <a href="tel:+917428770999" className="hidden md:flex items-center gap-1.5 text-white font-medium hover:text-[var(--color-amber)] transition-colors">
               <Phone className="h-3.5 w-3.5 text-[var(--color-amber)] shrink-0" />
-              <span className="font-mono">+91 74287 70999</span>
+              <span className="font-mono text-white tracking-wide">+91 74287 70999</span>
             </a>
           </div>
 
           {/* Right: Timing / Info */}
-          <div className="hidden sm:flex items-center gap-1.5 shrink-0">
+          <div className="hidden sm:flex items-center gap-1.5 shrink-0 text-white/90 font-medium">
             <Clock className="h-3.5 w-3.5 text-[var(--color-amber)] shrink-0" />
             <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
           </div>
@@ -338,9 +352,11 @@ export default function Navbar() {
             {/* Logo & Brand */}
             <Link href="/" className="flex items-center gap-2.5 sm:gap-3 lg:gap-3.5 group shrink-0" data-hover>
               <OptimizedImage
-                src={"/logo.png"}
+                src={"/logo.webp"}
                 alt="Winner Pack Logo"
                 className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                width={56}
+                height={56}
               />
               <div className="leading-tight flex flex-col">
                 <div className="font-display text-base sm:text-lg lg:text-xl xl:text-2xl font-black tracking-tight text-[var(--color-ink)] leading-none">

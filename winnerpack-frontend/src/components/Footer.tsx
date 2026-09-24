@@ -1,24 +1,13 @@
 "use client";
 
+import { defaultFooter } from '@/lib/site-defaults';
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import OptimizedImage from '@/components/OptimizedImage';
 import { apiFetch } from "@/lib/api";
 
-const defaultFooterData = {
-  name: "Winner Pack Technologies",
-  legalName: "Winner Pack Technologies Pvt. Ltd.",
-  phone: "+91 85950 72187",
-  phone2: "+91 74287 70999",
-  email: "info@winnerpack.in",
-  address: "Winner Pack Technologies Pvt. Ltd. Plot No. 8, B.S.T. Industrial Park, Village Dasna, Ghaziabad, Uttar Pradesh, 201015",
-  description: "Winner Pack Technologies Pvt. Ltd. is a manufacturer and supplier of environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply quality stretch films, strapping rolls, shrink films, and protective packaging solutions to industrial businesses across diverse sectors.",
-  linkedin: "https://www.linkedin.com/company/winnerpacktechnologies/",
-  whatsapp: "918595072187",
-  instagram: "https://www.instagram.com/winnerpacktechnologiespvtltd/",
-  facebook: "https://www.facebook.com/winnerpackindia",
-};
+const defaultFooterData = defaultFooter;
 
 export default function Footer() {
   const [footerData, setFooterData] = useState(defaultFooterData);
@@ -58,12 +47,14 @@ export default function Footer() {
                 src={"/logo.png"}
                 alt="Winner Pack Logo"
                 className="h-12 w-auto object-contain"
+                width={48}
+                height={48}
               />
               <div className="leading-tight flex flex-col">
                 <div className="font-display text-lg sm:text-xl font-black tracking-tight text-white leading-none">
                   Winner Pack
                 </div>
-                <div className="font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-amber)] mt-1 text-right">
+                <div className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-amber)] mt-1 text-right">
                   Technologies Pvt Ltd
                 </div>
               </div>
@@ -215,7 +206,7 @@ export default function Footer() {
         </div>
 
         {/* Footer End */}
-        <div className="relative mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] sm:text-xs text-white/40 tracking-wider">
+        <div className="relative mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/40 tracking-wider">
           <div className="text-center md:text-left">
             © {new Date().getFullYear()} All Rights Reserved · {footerData.legalName}
           </div>

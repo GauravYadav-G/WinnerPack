@@ -11,7 +11,7 @@
  * dev where the proxy is still available.
  */
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_BASE = (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
 
 /**
  * Wrapper around fetch() that:
@@ -20,16 +20,23 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "";
  *    cross-origin between Vercel and Railway)
  */
 export function apiFetch(path: string, init: RequestInit = {}): Promise<Response> {
+  const signal =
+    init.signal ??
+    (typeof AbortSignal !== "undefined" && "timeout" in AbortSignal
+      ? AbortSignal.timeout(1500)
+      : undefined);
+
   return fetch(`${API_BASE}${path}`, {
     ...init,
+    signal,
     credentials: "include", // required for cross-origin cookie auth
   });
 }
 
 /**
  * Robust inquiry submission:
- * 1. Tries same-origin /api/inquiries (saves to DB and notifies).
- * 2. Falls back directly to FormSubmit API (info@winnerpack.in) if backend is unreachable.
+ * Uses the same-origin proxy, which saves to the backend or falls back to email.
+ * Reports success only after the server confirms acceptance.
  */
 export async function submitInquiryForm(payload: {
   name: string;
@@ -50,49 +57,16 @@ export async function submitInquiryForm(payload: {
     message: payload.message || "N/A",
   };
 
-  const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
-
-  // 1. Direct browser delivery to info@winnerpack.in via FormSubmit API
-  let emailSent = false;
   try {
-    const directRes = await fetch("https://formsubmit.co/ajax/info@winnerpack.in", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        _subject: `New Lead Inquiry: ${bodyData.name} - ${bodyData.company}`,
-        _template: "table",
-        _captcha: "false",
-        "Customer Name": bodyData.name,
-        "Company": bodyData.company,
-        "Email": bodyData.email,
-        "Phone": bodyData.phone,
-        "Product / Inquiry": bodyData.skuProfile,
-        "Quantity / Volume": bodyData.lineSpeed,
-        "Message": bodyData.message,
-        "Date & Time": `${timestamp} IST`,
-      }),
-    });
-    const result = await directRes.json();
-    if (directRes.ok && (result?.success === "true" || result?.success === true)) {
-      emailSent = true;
-    }
-  } catch (directErr) {
-    console.warn("Direct FormSubmit dispatch error:", directErr);
-  }
-
-  // 2. Also save to internal database for Admin Dashboard
-  try {
-    fetch("/api/inquiries", {
+    const response = await fetch("/api/inquiries", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(bodyData),
-    }).catch(() => {});
-  } catch {}
-
-  // If direct send succeeded or proxy succeeds, return true
-  return emailSent || true;
+    });
+    if (!response.ok) return false;
+    const result = await response.json();
+    return result?.success !== false && result?.success !== "false" && !result?.error;
+  } catch {
+    return false;
+  }
 }
-

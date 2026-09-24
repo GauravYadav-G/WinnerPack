@@ -22,7 +22,7 @@ export const productCategories: ProductCategory[] = [
     icon: Layers,
     tag: "Shrink Films · Stretch Wrap · Barrier Pouches",
     gradient: "from-sky-400/20 to-blue-500/10",
-    image: "/images/products/pof-shrink-rolls/image.png",
+    image: "/images/categories/film-products-v2.webp",
     items: [
       "LDPE Films & Pouches",
       "POF Films & Pouches",
@@ -41,7 +41,7 @@ export const productCategories: ProductCategory[] = [
     icon: Tag,
     tag: "Thermal Labels · Product Stickers · Barcodes · Ribbons · Holograms",
     gradient: "from-amber-400/20 to-orange-500/10",
-    image: "/images/products/product-labels/image.png",
+    image: "/images/categories/labels-stickers-v2.webp",
     items: [
       "Plain Labels",
       "Printed Labels",
@@ -62,7 +62,7 @@ export const productCategories: ProductCategory[] = [
     icon: Disc3,
     tag: "BOPP Tapes · Custom Printed · Silicon Sealing",
     gradient: "from-emerald-400/20 to-teal-500/10",
-    image: "/images/products/bopp-tapes/bopp-tapes.jpg",
+    image: "/images/categories/tapes-v2.webp",
     items: [
       "BOPP Tapes",
       "Printed BOPP Tapes",
@@ -77,7 +77,7 @@ export const productCategories: ProductCategory[] = [
     icon: Layers,
     tag: "Virgin PP Strap · PET Strapping · Custom Printed Strap",
     gradient: "from-violet-400/20 to-purple-500/10",
-    image: "/images/products/pp-strap/image.png",
+    image: "/images/categories/pp-pet-strapping-v2.webp",
     items: [
       "PP Strap",
       "Printed PP Strap",

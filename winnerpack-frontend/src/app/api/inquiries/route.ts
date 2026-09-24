@@ -8,11 +8,16 @@
 
 import { NextRequest, NextResponse } from "next/server";
 
-const BACKEND = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const BACKEND = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000").replace(/\/$/, "");
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+    if (!body || ![body.name, body.email, body.phone].every(
+      (value) => typeof value === "string" && value.trim().length > 0
+    )) {
+      return NextResponse.json({ error: "Name, email and phone are required" }, { status: 400 });
+    }
 
     // 1. Try forwarding to Express backend
     try {
@@ -21,6 +26,9 @@ export async function POST(req: NextRequest) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
+      if (res.status >= 400 && res.status < 500) {
+        return NextResponse.json({ error: "Inquiry was rejected" }, { status: res.status });
+      }
       if (res.ok) {
         const data = await res.json();
         return NextResponse.json(data, { status: res.status });
@@ -56,7 +64,10 @@ export async function POST(req: NextRequest) {
     });
 
     const data = await formSubmitRes.json();
-    return NextResponse.json({ success: true, ...data }, { status: 200 });
+    if (!formSubmitRes.ok || (data?.success !== true && data?.success !== "true")) {
+      return NextResponse.json({ error: "Failed to submit inquiry" }, { status: 502 });
+    }
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (err: any) {
     console.error("[/api/inquiries] Error:", err);
     return NextResponse.json(

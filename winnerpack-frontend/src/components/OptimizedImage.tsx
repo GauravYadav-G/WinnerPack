@@ -1,35 +1,19 @@
 'use client';
 /**
  * OptimizedImage
- * ---------------------------------------
- * Drop-in replacement for <img> when the image path comes from a
- * database/API at runtime (product.image, item.image, post.image, etc.)
- * — the cases optimize-images.js and find-img-tags.js couldn't handle
- * automatically because the path isn't known until the page renders.
- *
- * What it does:
- *   - Computes the matching /optimized/... WebP path for any given
- *     local image path (mirrors exactly what optimize-images.js writes)
- *   - If that optimized file 404s (e.g. a newer upload that hasn't been
- *     run through the optimizer yet), it automatically falls back to
- *     the original image instead of showing a broken image icon
- *   - Leaves external URLs (http://, https://) untouched
- *
- * USAGE — replace this:
- *   <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
- *
- * With this:
- *   <OptimizedImage src={item.image} alt={item.title} className="h-full w-full object-cover" />
- *
- * Then add this import once at the top of the file:
- *   import OptimizedImage from '@/components/OptimizedImage';
- *   (adjust the import path to wherever you save this file)
+ * Drop-in <img> wrapper. Since all product images have been bulk-converted to
+ * WebP (via scripts/bulk-convert-products.mjs), this component swaps local
+ * .png/.jpg paths to their .webp siblings for smaller payloads.
+ * External URLs and paths already ending in .webp are passed through unchanged.
  */
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-function getOptimizedSrc(_src?: string): string | null {
-  return null;
+/** Swap a local image extension to .webp; leave external URLs and .webp alone */
+function toWebP(src: string): string {
+  if (!src) return src;
+  if (src.startsWith('http://') || src.startsWith('https://')) return src;
+  return src.replace(/\.(png|jpe?g)$/i, '.webp');
 }
 
 type Props = {
@@ -38,30 +22,34 @@ type Props = {
   className?: string;
   width?: number;
   height?: number;
+  loading?: 'lazy' | 'eager';
+  fetchPriority?: 'high' | 'low' | 'auto';
 };
 
-export default function OptimizedImage({ src, alt, className }: Props) {
-  const optimizedSrc = getOptimizedSrc(src);
-  const [useFallback, setUseFallback] = useState(!optimizedSrc);
+export default function OptimizedImage({
+  src,
+  alt,
+  className,
+  width,
+  height,
+  loading = 'lazy',
+  fetchPriority,
+}: Props) {
+  const [failed, setFailed] = useState(false);
 
-  useEffect(() => {
-    setUseFallback(!optimizedSrc);
-  }, [optimizedSrc]);
-
-  const finalSrc = useFallback || !optimizedSrc ? src : optimizedSrc;
-
-  if (!finalSrc) return null;
+  if (!src) return null;
 
   return (
     <img
-      src={finalSrc}
+      src={failed ? src : toWebP(src)}
       alt={alt}
       className={className}
-      loading="lazy"
+      loading={loading}
       decoding="async"
-      onError={() => {
-        if (!useFallback) setUseFallback(true);
-      }}
+      width={width}
+      height={height}
+      fetchPriority={fetchPriority}
+      onError={() => setFailed(true)}
     />
   );
 }

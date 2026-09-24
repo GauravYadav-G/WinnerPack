@@ -121,26 +121,29 @@ export const COMPANY = {
   hours: "Mon - Sat: 9:00 AM - 6:00 PM"
 };
 
-/**
- * TODO: UNVERIFIED — none of the specific figures below (lead times, MOQ
- * counts, PCR content, multi-city field service team) appear anywhere.
- * The one thing that IS verified is that PP strap colors are subject to
- * MOQ (stated on the real PP/PET strap page) — but no number is given
- * there, so "1 pallet / 48 rolls" is invented. Replace with real answers
- * from the company rather than publishing specific numbers no one can
- * back up if a customer holds you to them.
- */
 export const FAQS = [
   {
-    title: "What is your typical lead time for custom printed tapes?",
-    content: "TODO: confirm actual lead time with production/sales before publishing a specific day count."
+    title: "How do I request a quote or inquire about products?",
+    content: "You can submit your requirements through our contact form, email us directly at info@winnerpack.in, or reach us via phone or WhatsApp. Please share details such as product type, dimensions, and approximate quantities so our team can provide an accurate quotation."
   },
   {
-    title: "Do you have Minimum Order Quantities (MOQs)?",
-    content: "MOQs apply to some product lines — for example, non-standard PP strap colors are subject to meeting an MOQ. TODO: confirm exact MOQ figures per product line before publishing specific numbers." // VERIFIED that MOQs exist for strap colors; specific figures TODO
+    title: "Can I order customized sizes and specifications?",
+    content: "Yes, we support customization across various packaging materials. You can specify parameters such as roll width, length, thickness, and core size to match your operational equipment and packaging process."
   },
   {
-    title: "Are your films and strapping recyclable?",
-    content: "TODO: confirm recyclability claims and whether PCR (post-consumer recycled) content options actually exist before publishing — this wasn't found on the live site."
+    title: "Can I request product samples before placing an order?",
+    content: "Yes, material samples can be arranged upon request so you can test quality, strength, and compatibility with your machinery or application before confirming a bulk order."
+  },
+  {
+    title: "How soon can I expect a response to my inquiry?",
+    content: "Our team reviews all incoming inquiries promptly and aims to respond with the necessary product details and pricing within one business day."
+  },
+  {
+    title: "What details should I provide to get an accurate price estimate?",
+    content: "To help us provide the most relevant pricing, please share the product category you are interested in, desired dimensions or thickness (microns), intended use or load requirements, and estimated volume."
+  },
+  {
+    title: "Can your team help recommend the right packaging material for our needs?",
+    content: "Yes, if you need assistance selecting the most appropriate packaging material, our team can guide you based on your product weight, storage conditions, and handling requirements."
   }
 ];

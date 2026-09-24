@@ -173,10 +173,10 @@ export default function BlogPost() {
             <Reveal>
               <div className="overflow-hidden rounded-3xl border border-[var(--color-line)] shadow-lift">
                 <OptimizedImage
-  src={post.image}
-  alt={post.title}
-  className="aspect-[16/9] w-full object-cover"
-/>
+                  src={post.image}
+                  alt={post.title}
+                  className="aspect-[16/9] w-full object-cover"
+                />
               </div>
             </Reveal>
           </Container>

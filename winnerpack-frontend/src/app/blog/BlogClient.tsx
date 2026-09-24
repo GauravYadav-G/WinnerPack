@@ -75,16 +75,10 @@ export default function Blog() {
 
       <PageWrapper className="relative">
         <PageHeader
-          eyebrow="Insights"
-          title={
-            <>
-              Notes from the <br />
-              packaging floor.
-            </>
-          }
-          intro="Practical engineering notes on materials, quality standards, sustainability and the economics of industrial packaging — written by the people who make it."
+          title="Blog & Insights"
+          eyebrow="Notes from the packaging floor."
           crumbs={[{ label: "Home", to: "/" }, { label: "Blog" }]}
-          align="center"
+          align="left"
         />
 
         {/* Background textures */}
@@ -98,10 +92,10 @@ export default function Blog() {
                 <div className="grid lg:grid-cols-12">
                   <div className="relative aspect-[16/10] overflow-hidden lg:col-span-7 lg:aspect-auto">
                     <OptimizedImage
-  src={featured.image}
-  alt={featured.title}
-  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-/>
+                      src={featured.image}
+                      alt={featured.title}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                    />
                   </div>
                   <div className="flex flex-col justify-center p-8 sm:p-10 lg:col-span-5 lg:p-12">
                     <div className="flex items-center gap-3 text-xs font-mono text-[var(--color-blue)]">

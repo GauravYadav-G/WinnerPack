@@ -19,9 +19,9 @@ export default function CTABanner() {
           >
 
 
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] tracking-tight text-[var(--color-ink)] text-balance">
-              Tell us your line speed. <br />
-              We&apos;ll spec the right roll, film, and strapping roll.
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-extrabold leading-[1.15] tracking-tight text-[var(--color-ink)] text-balance">
+              Tell Us Your Line Speed. <br />
+              We&apos;ll Spec the Right Roll, Film, and Strapping Roll.
             </h2>
 
             <p className="max-w-xl text-sm sm:text-base md:text-lg text-[var(--color-mute)] font-normal leading-relaxed">
@@ -50,8 +50,8 @@ export default function CTABanner() {
                   <Mail className="h-5 w-5" />
                 </div>
                 <div className="text-left">
-                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--color-mute)] group-hover:text-[var(--color-amber-dark)] transition-colors">
-                    Email sales desk
+                  <div className="font-mono text-xs font-bold tracking-widest text-[var(--color-mute)] group-hover:text-[var(--color-amber-dark)] transition-colors">
+                    Email Sales Desk
                   </div>
                   <div className="font-display text-sm sm:text-base font-bold">info@winnerpack.in</div>
                 </div>
@@ -70,8 +70,8 @@ export default function CTABanner() {
                   <Phone className="h-5 w-5" />
                 </div>
                 <div className="text-left">
-                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--color-mute)] group-hover:text-[var(--color-amber-dark)] transition-colors">
-                    Call engineering
+                  <div className="font-mono text-xs font-bold tracking-widest text-[var(--color-mute)] group-hover:text-[var(--color-amber-dark)] transition-colors">
+                    Call Engineering
                   </div>
                   <div className="font-display text-xs sm:text-sm font-bold">+91 85950 72187 / +91 74287 70999</div>
                 </div>

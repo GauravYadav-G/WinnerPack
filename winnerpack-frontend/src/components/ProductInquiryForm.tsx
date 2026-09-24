@@ -145,7 +145,7 @@ export default function ProductInquiryForm() {
 
             {/* Direct Contact Footer */}
             <div className="mt-8 sm:mt-12 pt-6 border-t border-[var(--color-line)]">
-              <span className="block text-[9.5px] sm:text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--color-mute)] mb-2">
+              <span className="block text-xs font-mono font-bold uppercase tracking-widest text-[var(--color-mute)] mb-2">
                 DIRECT TECHNICAL DESK
               </span>
               <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-mono text-[var(--color-ink)] font-semibold">
@@ -174,13 +174,13 @@ export default function ProductInquiryForm() {
                   <CheckCircle2 className="h-6 w-6 sm:h-8 sm:w-8" />
                 </div>
                 <div className="space-y-1.5 sm:space-y-2">
-                  <span className="text-[10.5px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[var(--color-amber-dark)]">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-[var(--color-amber-dark)]">
                     CONFIRMATION
                   </span>
                   <h3 className="font-display text-xl sm:text-3xl font-extrabold text-[var(--color-ink)]">
                     Inquiry Received.
                   </h3>
-                  <p className="text-xs sm:text-base text-[var(--color-mute)] leading-relaxed max-w-lg">
+                  <p className="text-sm sm:text-base text-[var(--color-mute)] leading-relaxed max-w-lg">
                     Thank you. Our technical application engineering team will review your specifications and dispatch an indicative spec sheet within one business day.
                   </p>
                 </div>
@@ -202,11 +202,13 @@ export default function ProductInquiryForm() {
 
                   {/* ROW 1: NAME */}
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-0.5 sm:gap-4 items-baseline">
-                    <label className="sm:col-span-3 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    <label htmlFor="inquiry-name" className="sm:col-span-3 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
                       NAME
                     </label>
                     <div className="sm:col-span-9">
                       <input
+                        id="inquiry-name"
+                        autoComplete="name"
                         type="text"
                         required
                         placeholder="Your full name"
@@ -220,11 +222,13 @@ export default function ProductInquiryForm() {
 
                   {/* ROW 2: EMAIL */}
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-0.5 sm:gap-4 items-baseline">
-                    <label className="sm:col-span-3 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    <label htmlFor="inquiry-email" className="sm:col-span-3 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
                       EMAIL
                     </label>
                     <div className="sm:col-span-9">
                       <input
+                        id="inquiry-email"
+                        autoComplete="email"
                         type="email"
                         required
                         placeholder="name@company.com"
@@ -238,12 +242,15 @@ export default function ProductInquiryForm() {
 
                   {/* ROW 3: PHONE */}
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-0.5 sm:gap-4 items-baseline">
-                    <label className="sm:col-span-3 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    <label htmlFor="inquiry-phone" className="sm:col-span-3 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
                       PHONE
                     </label>
                     <div className="sm:col-span-9">
                       <input
+                        id="inquiry-phone"
+                        autoComplete="tel"
                         type="tel"
+                        required
                         placeholder="+91 Mobile or direct contact"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -255,11 +262,13 @@ export default function ProductInquiryForm() {
 
                   {/* ROW 4: COMPANY */}
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-0.5 sm:gap-4 items-baseline">
-                    <label className="sm:col-span-3 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    <label htmlFor="inquiry-company" className="sm:col-span-3 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
                       COMPANY
                     </label>
                     <div className="sm:col-span-9">
                       <input
+                        id="inquiry-company"
+                        autoComplete="organization"
                         type="text"
                         placeholder="Studio, company, or venture"
                         value={formData.companyName}
@@ -272,12 +281,15 @@ export default function ProductInquiryForm() {
 
                   {/* ROW 5: CATEGORY (Custom Clean Dropdown) */}
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-center sm:items-baseline">
-                    <label className="sm:col-span-3 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    <span id="inquiry-category-label" className="sm:col-span-3 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
                       CATEGORY
-                    </label>
+                    </span>
                     <div ref={categoryRef} className={`sm:col-span-9 relative ${openDropdown === "category" ? "z-50" : "z-20"}`}>
                       <button
                         type="button"
+                        aria-labelledby="inquiry-category-label"
+                        aria-haspopup="listbox"
+                        aria-expanded={openDropdown === "category"}
                         onClick={() => setOpenDropdown(openDropdown === "category" ? null : "category")}
                         className="w-full flex items-center justify-between bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] py-2 text-left text-sm sm:text-base md:text-lg text-[var(--color-ink)] font-medium transition-colors cursor-pointer min-h-[40px]"
                       >
@@ -299,7 +311,7 @@ export default function ProductInquiryForm() {
                                 key={cat.id}
                                 type="button"
                                 onClick={() => handleCategorySelect(cat.id)}
-                                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium transition-all ${
+                                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-sm font-medium transition-all ${
                                   isSelected
                                     ? "bg-amber-500/10 text-[var(--color-amber-dark)] font-bold"
                                     : "text-[var(--color-ink)] hover:bg-slate-50 active:bg-slate-100"
@@ -317,12 +329,15 @@ export default function ProductInquiryForm() {
 
                   {/* ROW 6: PRODUCT (Custom Clean Dropdown with Subcategories) */}
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-center sm:items-baseline">
-                    <label className="sm:col-span-3 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    <span id="inquiry-product-label" className="sm:col-span-3 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
                       PRODUCT
-                    </label>
+                    </span>
                     <div ref={productRef} className={`sm:col-span-9 relative ${openDropdown === "product" ? "z-50" : "z-10"}`}>
                       <button
                         type="button"
+                        aria-labelledby="inquiry-product-label"
+                        aria-haspopup="listbox"
+                        aria-expanded={openDropdown === "product"}
                         onClick={() => setOpenDropdown(openDropdown === "product" ? null : "product")}
                         className="w-full flex items-center justify-between bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] py-2 text-left text-sm sm:text-base md:text-lg text-[var(--color-ink)] font-medium transition-colors cursor-pointer min-h-[40px]"
                       >
@@ -341,7 +356,7 @@ export default function ProductInquiryForm() {
                             if (sub.items && sub.items.length > 0) {
                               return (
                                 <div key={sub.id} className="py-2 first:pt-1 last:pb-1">
-                                  <span className="block px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] bg-amber-500/10 rounded-lg mb-1">
+                                  <span className="block px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-amber-dark)] bg-amber-500/10 rounded-lg mb-1">
                                     {sub.title}
                                   </span>
                                   <div className="space-y-0.5 mt-1">
@@ -352,7 +367,7 @@ export default function ProductInquiryForm() {
                                           key={item.slug}
                                           type="button"
                                           onClick={() => handleProductSelect(item.name)}
-                                          className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left text-xs sm:text-sm font-medium transition-all ${
+                                          className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left text-sm font-medium transition-all ${
                                             isSelected
                                               ? "bg-[var(--color-blue-deep)] text-white font-semibold shadow-xs"
                                               : "text-[var(--color-ink)] hover:bg-slate-50 active:bg-slate-100"
@@ -373,7 +388,7 @@ export default function ProductInquiryForm() {
                                 <button
                                   type="button"
                                   onClick={() => handleProductSelect(sub.title)}
-                                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left text-xs sm:text-sm font-medium transition-all ${
+                                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left text-sm font-medium transition-all ${
                                     isSelected
                                       ? "bg-[var(--color-blue-deep)] text-white font-semibold shadow-xs"
                                       : "text-[var(--color-ink)] hover:bg-slate-50 active:bg-slate-100"
@@ -392,12 +407,15 @@ export default function ProductInquiryForm() {
 
                   {/* ROW 7: QUANTITY (Custom Clean Dropdown) */}
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-center sm:items-baseline">
-                    <label className="sm:col-span-3 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    <span id="inquiry-quantity-label" className="sm:col-span-3 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
                       QUANTITY
-                    </label>
+                    </span>
                     <div ref={quantityRef} className={`sm:col-span-9 relative ${openDropdown === "quantity" ? "z-50" : "z-0"}`}>
                       <button
                         type="button"
+                        aria-labelledby="inquiry-quantity-label"
+                        aria-haspopup="listbox"
+                        aria-expanded={openDropdown === "quantity"}
                         onClick={() => setOpenDropdown(openDropdown === "quantity" ? null : "quantity")}
                         className="w-full flex items-center justify-between bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] py-2 text-left text-sm sm:text-base md:text-lg text-[var(--color-ink)] font-medium transition-colors cursor-pointer min-h-[40px]"
                       >
@@ -421,7 +439,7 @@ export default function ProductInquiryForm() {
                                 key={i}
                                 type="button"
                                 onClick={() => handleVolumeSelect(vol)}
-                                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium transition-all ${
+                                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-sm font-medium transition-all ${
                                   isSelected
                                     ? "bg-amber-500/10 text-[var(--color-amber-dark)] font-bold"
                                     : "text-[var(--color-ink)] hover:bg-slate-50 active:bg-slate-100"
@@ -439,11 +457,12 @@ export default function ProductInquiryForm() {
 
                   {/* ROW 8: MESSAGE */}
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-0.5 sm:gap-4 items-baseline">
-                    <label className="sm:col-span-3 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
+                    <label htmlFor="inquiry-message" className="sm:col-span-3 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)]">
                       MESSAGE
                     </label>
                     <div className="sm:col-span-9">
                       <textarea
+                        id="inquiry-message"
                         rows={2}
                         placeholder="What are you building, and what should it become?"
                         value={formData.notes}
@@ -456,14 +475,14 @@ export default function ProductInquiryForm() {
 
                   {/* ROW 9: SUBMIT */}
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-center pt-2 sm:pt-4">
-                    <label className="sm:col-span-3 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-mute)] hidden sm:block">
+                    <span className="sm:col-span-3 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-mute)] hidden sm:block">
                       SUBMIT
-                    </label>
+                    </span>
                     <div className="sm:col-span-9">
                       <button
                         type="submit"
                         disabled={loading}
-                        className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-[var(--color-blue-deep)] text-white px-7 sm:px-10 py-3 sm:py-3.5 text-xs sm:text-xs font-mono font-bold uppercase tracking-[0.16em] transition-all duration-300 hover:bg-[var(--color-amber-dark)] hover:shadow-lg hover:shadow-amber-500/20 active:scale-[0.98] disabled:opacity-50 cursor-pointer text-center"
+                        className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-[var(--color-blue-deep)] text-white px-7 sm:px-10 py-3 sm:py-3.5 text-sm font-mono font-bold uppercase tracking-[0.12em] transition-all duration-300 hover:bg-[var(--color-amber-dark)] hover:shadow-lg hover:shadow-amber-500/20 active:scale-[0.98] disabled:opacity-50 cursor-pointer text-center"
                       >
                         {loading ? "SENDING..." : "SEND INQUIRY"}
                       </button>

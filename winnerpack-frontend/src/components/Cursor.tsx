@@ -5,7 +5,7 @@ export default function Cursor() {
   const [hidden, setHidden] = useState(true);
   const [hover, setHover] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
-  
+
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
   const sx = useSpring(x, { stiffness: 400, damping: 35, mass: 0.5 });

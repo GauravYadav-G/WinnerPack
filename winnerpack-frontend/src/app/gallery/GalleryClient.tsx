@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageWrapper from "@/components/PageWrapper";
 import CTABanner from "@/components/CTABanner";
 import FloatingWidgets from "@/components/FloatingWidgets";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
-import OptimizedImage from '@/components/OptimizedImage';
+import OptimizedImage from "@/components/OptimizedImage";
 import { apiFetch } from "@/lib/api";
 
 interface GalleryItem {
@@ -19,391 +19,236 @@ interface GalleryItem {
   position?: string;
 }
 
-// 1. Top Hero: Uncropped Winner Pack Team Office Celebration Photo
-const mainHeroImage: GalleryItem = {
-  id: 1,
-  image: "/images/gallery/team_office_celebration.jpg",
-  title: "Winner Pack Team Celebration",
-  position: "object-[center_35%]"
+const DEFAULTS = {
+  mainHero: { id: 1, image: "/images/gallery/team_office_celebration.jpg", title: "Winner Pack Team Celebration", position: "object-[center_35%]" },
+  portraits: [
+    { id: 2, image: "/images/gallery/team_rafting_expedition.jpg", title: "Team Rafting Expedition" },
+    { id: 7, image: "/images/gallery/team_river_beach.jpg", title: "Team River Beach Gathering" },
+    { id: 9, image: "/images/gallery/new_gallery_2.png", title: "Winner Pack Team Tour Group Photo" },
+  ],
+  landscapes: [
+    { id: 3, image: "/images/gallery/gallery_plant_converting.jpg", title: "Pouch Converting & Slitting Hall" },
+    { id: 4, image: "/images/gallery/gallery_office_reception.jpg", title: "Winner Pack Corporate Reception" },
+    { id: 5, image: "/images/gallery/gallery_extrusion_tower.jpg", title: "Multilayer Blown Film Extrusion Tower" },
+    { id: 6, image: "/images/gallery/gallery_factory_hall.jpg", title: "Manufacturing Machinery Hall Overview" },
+    { id: 10, image: "/images/gallery/new_gallery_1.png", title: "Team on Tour — Inside the Bus", position: "object-left" },
+    { id: 8, image: "/images/gallery/gallery_slitting_machine.jpg", title: "Automatic High-Speed Slitting Machine" },
+    { id: 11, image: "/images/gallery/factory_building_facade.jpg", title: "Winner Pack Technologies Factory Headquarters" },
+  ],
 };
 
-// Block 1: Left Portrait 1 + Right Stacked Landscapes
-const portraitImage1: GalleryItem = {
-  id: 2,
-  image: "/images/gallery/team_rafting_expedition.jpg",
-  title: "Team Rafting Expedition",
-};
-
-const block1Landscapes: GalleryItem[] = [
-  {
-    id: 3,
-    image: "/images/gallery/gallery_plant_converting.jpg",
-    title: "Pouch Converting & Slitting Hall",
-  },
-  {
-    id: 4,
-    image: "/images/gallery/gallery_office_reception.jpg",
-    title: "Winner Pack Corporate Reception",
-  },
+const cardLayouts = [
+  "sm:col-span-2 lg:col-span-8 aspect-[16/10] lg:aspect-[16/9]",
+  "lg:col-span-4 aspect-[4/3] lg:aspect-auto",
+  "lg:col-span-4 aspect-[4/3]",
+  "lg:col-span-4 aspect-[4/3]",
+  "lg:col-span-4 aspect-[4/3]",
+  "lg:col-span-6 aspect-[16/10]",
+  "lg:col-span-6 aspect-[16/10]",
+  "lg:col-span-4 aspect-[4/3]",
+  "lg:col-span-4 aspect-[4/3]",
+  "lg:col-span-4 aspect-[4/3]",
+  "sm:col-span-2 lg:col-span-12 aspect-[16/10] sm:aspect-[16/8]",
 ];
-
-// Block 2: Left Stacked Landscapes + Right Portrait 2
-const block2Landscapes: GalleryItem[] = [
-  {
-    id: 5,
-    image: "/images/gallery/gallery_extrusion_tower.jpg",
-    title: "Multilayer Blown Film Extrusion Tower",
-  },
-  {
-    id: 6,
-    image: "/images/gallery/gallery_factory_hall.jpg",
-    title: "Manufacturing Machinery Hall Overview",
-  },
-];
-
-const portraitImage2: GalleryItem = {
-  id: 7,
-  image: "/images/gallery/team_river_beach.jpg",
-  title: "Team River Beach Gathering",
-};
-
-// Block 3: Team Tour Photos — Portrait (Left) + Landscape (Right)
-const portraitImage3: GalleryItem = {
-  id: 9,
-  image: "/images/gallery/new_gallery_2.png",
-  title: "Winner Pack Team Tour Group Photo",
-};
-
-const block3Landscapes: GalleryItem[] = [
-  {
-    id: 10,
-    image: "/images/gallery/new_gallery_1.png",
-    title: "Team on Tour — Inside the Bus",
-    position: "object-left", // Forces left-alignment to prevent cropping the left side
-  },
-];
-
-// Bottom Closing Banners
-const bottomBannerImage: GalleryItem = {
-  id: 8,
-  image: "/images/gallery/gallery_slitting_machine.jpg",
-  title: "Automatic High-Speed Slitting Machine",
-};
-
-const facadeBannerImage: GalleryItem = {
-  id: 11,
-  image: "/images/gallery/factory_building_facade.jpg",
-  title: "Winner Pack Technologies Pvt. Ltd. — Factory Headquarters",
-};
 
 export default function GalleryClient() {
-  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const reduceMotion = useReducedMotion();
+  const [mainHero, setMainHero] = useState<GalleryItem>(DEFAULTS.mainHero);
+  const [portraits, setPortraits] = useState<GalleryItem[]>(DEFAULTS.portraits);
+  const [landscapes, setLandscapes] = useState<GalleryItem[]>(DEFAULTS.landscapes);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  // DB States
-  const [mainHero, setMainHero] = useState<GalleryItem>(mainHeroImage);
-  const [portrait1, setPortrait1] = useState<GalleryItem>(portraitImage1);
-  const [b1Landscapes, setB1Landscapes] = useState<GalleryItem[]>(block1Landscapes);
-  const [b2Landscapes, setB2Landscapes] = useState<GalleryItem[]>(block2Landscapes);
-  const [portrait2, setPortrait2] = useState<GalleryItem>(portraitImage2);
-  const [portrait3, setPortrait3] = useState<GalleryItem>(portraitImage3);
-  const [b3Landscapes, setB3Landscapes] = useState<GalleryItem[]>(block3Landscapes);
-  const [bottomBanner, setBottomBanner] = useState<GalleryItem>(bottomBannerImage);
-  const [facadeBanner, setFacadeBanner] = useState<GalleryItem>(facadeBannerImage);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
 
-  // Fetch dynamic gallery content from DB if active
   useEffect(() => {
-    async function fetchGallery() {
+    async function loadGallery() {
       try {
-        const res = await apiFetch("/api/content?key=gallery");
-        if (res.ok) {
-          const result = await res.json();
-          const content = result?.data || result;
-          if (content) {
-            if (content.mainHero) setMainHero(content.mainHero);
-            if (Array.isArray(content.portraits)) {
-              if (content.portraits[0]) setPortrait1(content.portraits[0]);
-              if (content.portraits[1]) setPortrait2(content.portraits[1]);
-              if (content.portraits[2]) setPortrait3(content.portraits[2]);
-            }
-            if (Array.isArray(content.landscapes)) {
-              const l = content.landscapes;
-              // Map landscapes to layout blocks dynamically
-              if (l[0] && l[1]) setB1Landscapes([l[0], l[1]]);
-              else if (l[0]) setB1Landscapes([l[0]]);
-
-              if (l[2] && l[3]) setB2Landscapes([l[2], l[3]]);
-              else if (l[2]) setB2Landscapes([l[2]]);
-
-              if (l[4] && l[5]) setB3Landscapes([l[4], l[5]]);
-              else if (l[4]) setB3Landscapes([l[4]]);
-
-              if (l[6]) setBottomBanner(l[6]);
-              if (l[7]) setFacadeBanner(l[7]);
-            }
-          }
-        }
-      } catch (err) {
-        console.warn("Could not load gallery from DB, using defaults:", err);
+        const response = await apiFetch("/api/content?key=gallery");
+        if (!response.ok) return;
+        const result = await response.json();
+        const content = result?.data || result;
+        if (!content) return;
+        if (content.mainHero) setMainHero(content.mainHero);
+        if (Array.isArray(content.portraits) && content.portraits.length) setPortraits(content.portraits);
+        if (Array.isArray(content.landscapes) && content.landscapes.length) setLandscapes(content.landscapes);
+      } catch {
+        // Use the local gallery when the content service is unavailable.
       }
     }
-    fetchGallery();
+    loadGallery();
   }, []);
 
-  // Auto-close image preview modal on page scroll
+  const galleryItems = useMemo(
+    () => [mainHero, ...portraits, ...landscapes].filter((item) => item?.image),
+    [mainHero, portraits, landscapes]
+  );
+
   useEffect(() => {
-    if (!selectedImage) return;
-
-    const handleScroll = () => {
-      setSelectedImage(null);
+    if (selectedIndex === null) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedIndex(null);
+      if (event.key === "ArrowRight") setSelectedIndex((current) => current === null ? null : (current + 1) % galleryItems.length);
+      if (event.key === "ArrowLeft") setSelectedIndex((current) => current === null ? null : (current - 1 + galleryItems.length) % galleryItems.length);
     };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [galleryItems.length, selectedIndex]);
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [selectedImage]);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+
+    // Horizontal swipe threshold: 40px, predominantly horizontal
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
+      if (deltaX < 0) {
+        // Swiped left -> Next photo
+        setSelectedIndex((current) => (current === null ? null : (current + 1) % galleryItems.length));
+      } else {
+        // Swiped right -> Previous photo
+        setSelectedIndex((current) => (current === null ? null : (current - 1 + galleryItems.length) % galleryItems.length));
+      }
+    } else if (deltaY > 80 && Math.abs(deltaY) > Math.abs(deltaX) * 1.5) {
+      // Swiped down significantly -> Dismiss preview
+      setSelectedIndex(null);
+    }
+
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
+  const selectedImage = selectedIndex === null ? null : galleryItems[selectedIndex];
 
   return (
-    <div className="min-h-screen bg-[#fafafb] text-[var(--color-text)]">
+    <div className="min-h-screen bg-[var(--color-bone)] text-[var(--color-text)]">
       <Navbar />
-
       <PageWrapper>
         <PageHeader
-          eyebrow="Gallery"
           title="Gallery"
-          intro="A glimpse into our work culture, manufacturing environment, and team activities."
+          eyebrow="Manufacturing Facilities, Materials & Team"
           crumbs={[{ label: "Home", to: "/" }, { label: "Gallery" }]}
-          align="center"
+          align="left"
         />
 
-        {/* Dynamic Visual Collage Gallery Section (Stretched max-w-[1536px]) */}
-        <section className="py-10 md:py-16 bg-white">
-          <div className="mx-auto max-w-[1536px] px-4 sm:px-6 md:px-10 lg:px-12 space-y-8 md:space-y-12">
-
-            {/* 1. TOP HERO: Full-Width Uncropped Main Office Team Photo */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              onClick={() => setSelectedImage(mainHero)}
-              className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 transition-all duration-500 cursor-pointer w-full select-none"
-            >
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9.5] overflow-hidden bg-[var(--color-bone)] flex items-center justify-center">
-                <OptimizedImage
-  src={mainHero.image}
-  alt={mainHero.title ?? "Gallery image"}
-  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${mainHero.position || "object-[center_35%]"}`}
-/>
-              </div>
-            </motion.div>
-
-            {/* 2. COLLAGE BLOCK A: Single Full-Width Portrait 1 (Left) + 2 Stacked Landscapes (Right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
-
-              {/* Left Column: Full-Width Single Portrait 1 */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                onClick={() => setSelectedImage(portrait1)}
-                className="lg:col-span-5 group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none h-full"
-              >
-                <div className="relative w-full h-full min-h-[360px] sm:min-h-[460px] aspect-[3/4] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
-                  <OptimizedImage
-  src={portrait1.image}
-  alt={portrait1.title ?? "Gallery image"}
-  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${portrait1.position || "object-center"}`}
-/>
-                </div>
-              </motion.div>
-
-              {/* Right Column: 2 Stacked Landscape Plant Photos */}
-              <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-6 justify-between">
-                {b1Landscapes.map((item, idx) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.15 * (idx + 1) }}
-                    onClick={() => setSelectedImage(item)}
-                    className="group relative flex-1 overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none"
-                  >
-                    <div className="relative w-full h-full min-h-[190px] sm:min-h-[220px] aspect-[16/10] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
-                      <OptimizedImage
-  src={item.image}
-  alt={item.title ?? "Gallery image"}
-  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${item.position || "object-center"}`}
-/>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
+        <section className="bg-[var(--color-bone)] py-8 sm:py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-3.5 sm:px-6 md:px-8">
+            <div className="mb-5 sm:mb-10 flex justify-end">
+              <p className="max-w-md text-xs sm:text-sm leading-relaxed text-[var(--color-mute)] sm:text-right">
+                <span className="sm:hidden">Tap any photo to view in full screen. Swipe left or right to browse.</span>
+                <span className="hidden sm:inline">Select any image to open the full view. Use the arrow keys to browse the collection.</span>
+              </p>
             </div>
 
-            {/* 3. COLLAGE BLOCK B: 2 Stacked Landscapes (Left) + Single Full-Width Portrait 2 (Right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
-
-              {/* Left Column: 2 Stacked Landscape Plant Photos */}
-              <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-6 justify-between order-2 lg:order-1">
-                {b2Landscapes.map((item, idx) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.15 * (idx + 1) }}
-                    onClick={() => setSelectedImage(item)}
-                    className="group relative flex-1 overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none"
-                  >
-                    <div className="relative w-full h-full min-h-[190px] sm:min-h-[220px] aspect-[16/10] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
-                      <OptimizedImage
-  src={item.image}
-  alt={item.title ?? "Gallery image"}
-  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${item.position || "object-center"}`}
-/>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Right Column: Full-Width Single Portrait 2 */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                onClick={() => setSelectedImage(portrait2)}
-                className="lg:col-span-5 group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none h-full order-1 lg:order-2"
-              >
-                <div className="relative w-full h-full min-h-[360px] sm:min-h-[460px] aspect-[3/4] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
+            <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-12">
+              {galleryItems.map((item, index) => (
+                <motion.button
+                  key={`${item.id}-${index}`}
+                  type="button"
+                  initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+                  whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-6%" }}
+                  transition={{ duration: 0.4, delay: Math.min(index * 0.035, 0.18) }}
+                  onClick={() => setSelectedIndex(index)}
+                  className={`group relative min-h-[12.5rem] sm:min-h-[15rem] md:min-h-[17rem] overflow-hidden rounded-xl sm:rounded-2xl border border-[var(--color-line)] bg-white text-left shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-amber)]/50 hover:shadow-xl active:scale-[0.99] touch-manipulation focus-visible:ring-2 focus-visible:ring-[var(--color-amber)] ${cardLayouts[index % cardLayouts.length]}`}
+                  aria-label={`Open ${item.title ?? "gallery image"}`}
+                >
                   <OptimizedImage
-  src={portrait2.image}
-  alt={portrait2.title ?? "Gallery image"}
-  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${portrait2.position || "object-center"}`}
-/>
-                </div>
-              </motion.div>
+                    src={item.image}
+                    alt={item.title ?? "Winner Pack gallery"}
+                    className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 ${item.position || "object-center"}`}
+                  />
 
+                  {/* Expand Icon */}
+                  <span className="absolute right-3 top-3 sm:right-4 sm:top-4 grid h-8 w-8 sm:h-9 sm:w-9 place-items-center rounded-full border border-white/30 bg-[var(--color-blue-deep)]/60 text-white backdrop-blur-sm transition-all duration-200 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 group-hover:bg-white group-hover:text-[var(--color-blue-deep)] group-focus-visible:opacity-100 shadow-sm">
+                    <Maximize2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                  </span>
+                </motion.button>
+              ))}
             </div>
-
-            {/* 4. COLLAGE BLOCK C: Team Tour Portrait (Left) + Bus Interior Landscape (Right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
-
-              {/* Left Column: Team Tour Portrait */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                onClick={() => setSelectedImage(portrait3)}
-                className="lg:col-span-5 group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none h-full"
-              >
-                <div className="relative w-full h-full min-h-[360px] sm:min-h-[460px] aspect-[3/4] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
-                  <OptimizedImage
-  src={portrait3.image}
-  alt={portrait3.title ?? "Gallery image"}
-  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${portrait3.position || "object-center"}`}
-/>
-                </div>
-              </motion.div>
-
-              {/* Right Column: Bus Interior Landscape */}
-              <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-6 justify-between">
-                {b3Landscapes.map((item, idx) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.15 * (idx + 1) }}
-                    onClick={() => setSelectedImage(item)}
-                    className="group relative flex-1 overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 hover:-translate-y-1.5 transition-all duration-500 cursor-pointer w-full flex flex-col select-none"
-                  >
-                    <div className="relative w-full h-full min-h-[360px] sm:min-h-[460px] aspect-[16/10] lg:aspect-auto overflow-hidden bg-[var(--color-bone)]">
-                      <OptimizedImage
-  src={item.image}
-  alt={item.title ?? "Gallery image"}
-  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${item.position || "object-center"}`}
-/>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-            </div>
-
-            {/* 5. BOTTOM BANNER: Slitting Machine + HQ Facade */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                onClick={() => setSelectedImage(bottomBanner)}
-                className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 transition-all duration-500 cursor-pointer w-full select-none"
-              >
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-[var(--color-bone)] flex items-center justify-center">
-                  <OptimizedImage
-  src={bottomBanner.image}
-  alt={bottomBanner.title ?? "Gallery image"}
-  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${bottomBanner.position || "object-center"}`}
-/>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.35 }}
-                onClick={() => setSelectedImage(facadeBanner)}
-                className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-[var(--color-line)] shadow-md hover:shadow-2xl hover:border-[var(--color-amber)]/50 transition-all duration-500 cursor-pointer w-full select-none"
-              >
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-[var(--color-bone)] flex items-center justify-center">
-                  <OptimizedImage
-  src={facadeBanner.image}
-  alt={facadeBanner.title ?? "Gallery image"}
-  className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${facadeBanner.position || "object-center"}`}
-/>
-                </div>
-              </motion.div>
-            </div>
-
           </div>
         </section>
         <CTABanner />
       </PageWrapper>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Preview Modal with Touch Gestures */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedImage && selectedIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-slate-900/60 backdrop-blur-md"
+            role="dialog"
+            aria-modal="true"
+            aria-label={selectedImage.title ?? "Gallery preview"}
+            onClick={() => setSelectedIndex(null)}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-[var(--color-blue-deep)]/95 p-3 sm:p-8 backdrop-blur-md select-none"
           >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative max-w-5xl w-full max-h-[90vh] bg-white border border-[var(--color-line)] rounded-3xl p-4 sm:p-6 lg:p-7 shadow-2xl overflow-hidden flex flex-col items-center justify-center text-[var(--color-ink)]"
+            {/* Close Button with generous touch target */}
+            <button
+              type="button"
+              onClick={() => setSelectedIndex(null)}
+              className="absolute right-3 top-3 sm:right-8 sm:top-8 z-30 grid h-11 w-11 sm:h-10 sm:w-10 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white hover:text-[var(--color-blue-deep)] active:scale-95 shadow-lg"
+              aria-label="Close image preview"
             >
-              {/* Close Button Top Right */}
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 z-20 h-9 w-9 rounded-full bg-white/90 border border-[var(--color-line)] text-[var(--color-ink)] flex items-center justify-center hover:bg-[var(--color-amber)] hover:border-[var(--color-amber)] hover:text-white transition-all duration-300 shadow-md cursor-pointer shrink-0"
-                aria-label="Close modal"
-              >
-                <X className="h-4.5 w-4.5" />
-              </button>
+              <X className="h-5 w-5" />
+            </button>
 
-              {/* Ultra-Clean Framed Image Viewer */}
-              <div className="relative w-full flex-1 bg-[var(--color-bone)] rounded-2xl border border-[var(--color-line)] flex items-center justify-center overflow-hidden p-4 sm:p-6 md:p-8 min-h-[340px] max-h-[75vh] shadow-inner">
+            {/* Prev Image Button */}
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                setSelectedIndex((selectedIndex - 1 + galleryItems.length) % galleryItems.length);
+              }}
+              className="absolute left-2 sm:left-8 top-1/2 z-30 grid h-11 w-11 sm:h-10 sm:w-10 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white hover:text-[var(--color-blue-deep)] active:scale-95 shadow-lg"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+
+            {/* Next Image Button */}
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                setSelectedIndex((selectedIndex + 1) % galleryItems.length);
+              }}
+              className="absolute right-2 sm:right-8 top-1/2 z-30 grid h-11 w-11 sm:h-10 sm:w-10 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white hover:text-[var(--color-blue-deep)] active:scale-95 shadow-lg"
+              aria-label="Next image"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
+            {/* Lightbox Image Container */}
+            <motion.figure
+              key={`${selectedImage.id}-${selectedIndex}`}
+              initial={reduceMotion ? false : { opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              onClick={(event) => event.stopPropagation()}
+              className="flex max-h-[92vh] sm:max-h-[88vh] w-full max-w-5xl flex-col rounded-2xl bg-white p-2.5 sm:p-5 shadow-2xl"
+            >
+              <div className="flex min-h-0 flex-1 items-center justify-center overflow-hidden rounded-xl bg-[var(--color-bone)]">
                 <OptimizedImage
-  src={selectedImage.image}
-  alt="Gallery Image Preview"
-  className="max-h-full max-w-full object-contain rounded-xl shadow-md border border-[var(--color-line)] bg-white p-2 transition-transform duration-300"
-/>
+                  src={selectedImage.image}
+                  alt={selectedImage.title ?? "Gallery image preview"}
+                  className="max-h-[80vh] sm:max-h-[82vh] w-auto max-w-full object-contain"
+                />
               </div>
-
-            </motion.div>
+            </motion.figure>
           </motion.div>
         )}
       </AnimatePresence>

@@ -16,6 +16,7 @@ import { cn } from "@/utils/cn";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useIsTouch } from "@/hooks";
+import { notFound } from "next/navigation";
 
 // Layout components
 import Navbar from "@/components/Navbar";
@@ -42,6 +43,7 @@ const SUBCAT_IMAGES: Record<string, string> = {
   "ldpe-bags": "/images/products/ldpe-bags/pe-garbage-bags.jpg",
   "bopp-films": "/images/products/bopp-films-pouches/bopp-rolls.jpg",
   "pvc-shrink-films": "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
+  "plastic-stretch-film": "/images/products/stretch-film/image.webp",
 
   // Labels & Stickers
   "plain-labels": "/images/products/plain-labels/plain-labels.jpg",
@@ -225,7 +227,7 @@ function SubcategoryCard({
         <div className="mt-2.5 pt-2 sm:mt-5 sm:pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
           <Link
             href={`/products/${subcat.slug}`}
-            className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-bold text-[var(--color-ink)] sm:text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors min-h-[32px] sm:min-h-[40px]"
+            className="inline-flex items-center gap-1 text-sm font-bold text-[var(--color-ink)] sm:text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors min-h-[32px] sm:min-h-[40px]"
           >
             <span>Explore range</span>
             <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber-dark)]" />
@@ -250,7 +252,12 @@ export default function CategoryClient({
   const { slug } = use(params);
 
   const hierarchyCategory = productHierarchy.find((c) => c.id === slug || c.catSlug === slug);
-  const currentCategory = productCategories.find((c) => c.id === slug) || productCategories[0];
+  if (!hierarchyCategory) notFound();
+
+  const navbarCategories = productCategories.filter((category) =>
+    productHierarchy.some((navCategory) => navCategory.id === category.id)
+  );
+  const currentCategory = productCategories.find((c) => c.id === hierarchyCategory?.id) ?? productCategories[0];
 
   return (
     <div className="min-h-screen bg-[var(--color-bone)] text-[var(--color-text)]">
@@ -268,7 +275,7 @@ export default function CategoryClient({
             { label: "Products", to: "/products" },
             { label: hierarchyCategory?.title ?? currentCategory.title },
           ]}
-          align="center"
+          align="left"
         />
 
         <Section className="pt-6 sm:pt-10 pb-12 sm:pb-16 bg-transparent">
@@ -286,7 +293,7 @@ export default function CategoryClient({
 
               {/* Horizontal Scrollable Category Pills with Touch Momentum */}
               <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none w-full sm:w-auto -mx-4 px-4 sm:mx-0 sm:px-0 touch-pan-x">
-                {productCategories.map((cat) => {
+                {navbarCategories.map((cat) => {
                   const isActive = cat.id === currentCategory.id;
                   return (
                     <Link

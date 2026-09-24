@@ -1,5 +1,6 @@
 "use client";
 
+import { defaultPartners } from '@/lib/site-defaults';
 import { apiFetch } from "@/lib/api";
 import { useEffect, useState } from "react";
 import OptimizedImage from '@/components/OptimizedImage';
@@ -11,22 +12,7 @@ interface BrandItem {
   website?: string;
 }
 
-const DEFAULT_BRANDS: BrandItem[] = [
-  { name: "Lava", logo: "/Brand_logo/lava.png" },
-  { name: "Vivo", logo: "/Brand_logo/vivo.png" },
-  { name: "Noise", logo: "/Brand_logo/noise.png" },
-  { name: "boAt", logo: "/Brand_logo/boat.png" },
-  { name: "Fire-Boltt", logo: "/Brand_logo/firebolt.png" },
-  { name: "Milton", logo: "/Brand_logo/milton.png" },
-  { name: "Luxor", logo: "/Brand_logo/luxor.png" },
-  { name: "Ai+", logo: "/Brand_logo/aiplus.png" },
-  { name: "Bosch", logo: "/Brand_logo/bosch.svg" },
-  { name: "IKIO Technologies", logo: "/Brand_logo/ikio.png" },
-  { name: "LRIPL", logo: "/Brand_logo/lripl.png" },
-  { name: "Anmol", logo: "/Brand_logo/anmol.png" },
-  { name: "CI Automotive", logo: "/Brand_logo/ci-automotive.png" },
-  { name: "Bhagwati Products", logo: "/Brand_logo/bhagwati-products.png" },
-];
+const DEFAULT_BRANDS = defaultPartners;
 
 export default function ClientLogoStrip() {
   const [partnerHeader, setPartnerHeader] = useState({
@@ -67,11 +53,11 @@ export default function ClientLogoStrip() {
 
         {/* Centered Minimal Header with large typography */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-16">
-          <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.16em] text-[var(--color-amber-dark)] mb-2.5 sm:mb-3">
-            {partnerHeader.tag || "OUR PARTNERS"}
+          <span className="text-xs font-mono font-bold tracking-[0.16em] text-[var(--color-amber-dark)] mb-2.5 sm:mb-3">
+            {partnerHeader.tag || "Our Partners"}
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-snug sm:leading-[1.15] text-balance">
-            {partnerHeader.title || "We work with the best partners"}
+            {partnerHeader.title || "We Work With the Best Partners"}
           </h2>
           <div className="mt-4 sm:mt-5 h-1.5 w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
         </div>
@@ -91,11 +77,10 @@ export default function ClientLogoStrip() {
                 <OptimizedImage
                   src={brand.logo}
                   alt={brand.name}
-                  className={`w-auto h-auto object-contain transition-transform duration-300 ${
-                    isCI
+                  className={`w-auto h-auto object-contain transition-transform duration-300 ${isCI
                       ? "max-h-11 sm:max-h-14 md:max-h-15 max-w-[135px] sm:max-w-[170px] scale-110 sm:scale-115 group-hover:scale-120"
                       : "max-h-9 sm:max-h-12 md:max-h-13 max-w-[130px] sm:max-w-[165px] group-hover:scale-105"
-                  }`}
+                    }`}
                 />
               </div>
             );

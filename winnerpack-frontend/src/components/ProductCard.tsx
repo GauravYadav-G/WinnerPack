@@ -36,6 +36,7 @@ export const PRODUCT_IMAGE_MAP: Record<string, string> = {
   "bopp-films": "/images/products/bopp-films-pouches/bopp-rolls.jpg",
   "pvc-shrink-films": "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
   "stretch-film": "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
+  "plastic-stretch-film": "/images/products/stretch-film/image.webp",
 
   // Labels & Stickers
   "plain-labels": "/images/products/plain-labels/plain-labels.jpg",
@@ -167,7 +168,7 @@ export function ProductCard({ product }: ProductCardProps) {
             />
           )}
 
-          <span className="absolute bottom-2 left-2.5 sm:bottom-3 sm:left-4 font-mono text-[9px] sm:text-xs font-bold uppercase tracking-widest text-white px-2.5 py-1 rounded-md bg-slate-950/60 backdrop-blur-xs shadow-xs">
+          <span className="absolute bottom-2 left-2.5 sm:bottom-3 sm:left-4 font-mono text-xs font-bold uppercase tracking-widest text-white px-2.5 py-1 rounded-md bg-slate-950/60 backdrop-blur-xs shadow-xs">
             {categoryName}
           </span>
         </div>
@@ -181,7 +182,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </h3>
           </Link>
           {blurb && (
-            <p className="mt-1 sm:mt-2 text-[11px] sm:text-sm text-slate-600 leading-relaxed font-sans font-normal line-clamp-2 sm:line-clamp-none">
+            <p className="mt-1 sm:mt-2 text-sm text-slate-600 leading-relaxed font-sans font-normal line-clamp-2 sm:line-clamp-none">
               {blurb}
             </p>
           )}
@@ -201,14 +202,14 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="mt-3 pt-2.5 sm:mt-5 sm:pt-4 border-t border-slate-100 flex items-center justify-between">
           <Link
             href={`/products/${slug}`}
-            className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-bold text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors"
+            className="inline-flex items-center gap-1 text-sm font-bold text-[var(--color-blue)] hover:text-[var(--color-blue-2)] transition-colors"
           >
             <span>View</span>
             <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
           </Link>
           <Link
             href={`/contact?sku=${slug}&title=${encodeURIComponent(name)}`}
-            className="inline-flex items-center justify-center rounded-full bg-[var(--color-blue-soft)] px-3 py-1 sm:px-4 sm:py-1.5 text-[11px] sm:text-xs font-bold text-[var(--color-blue)] hover:bg-[var(--color-blue)] hover:text-white transition-all shadow-2xs"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--color-blue-soft)] px-3 py-1 sm:px-4 sm:py-1.5 text-xs font-bold text-[var(--color-blue)] hover:bg-[var(--color-blue)] hover:text-white transition-all shadow-2xs"
           >
             Quote
           </Link>

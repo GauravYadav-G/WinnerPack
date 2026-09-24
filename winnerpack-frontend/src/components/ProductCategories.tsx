@@ -6,8 +6,12 @@ import { productCategories } from "../data";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import OptimizedImage from '@/components/OptimizedImage';
+import { productHierarchy } from "@/components/Navbar";
 
 export default function ProductCategories() {
+  const navbarCategories = productCategories.filter((category) =>
+    productHierarchy.some((navCategory) => navCategory.id === category.id)
+  );
   const [activeCatIndex, setActiveCatIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -28,23 +32,23 @@ export default function ProductCategories() {
         "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
         "/images/products/pharma-grade-poly/pharma-grade-poly-rolls.jpg",
         "/images/products/cross-linked-pof/cross-linked-pof-rolls.jpg",
-        "/images/products/stretch-film/machine-stretch-film.jpg",
-        "/images/products/stretch-film/pre-stretch-film.jpg"
+        "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
+        "/images/products/milk-packaging-film/milk-packaging-film.jpg"
       ],
       slot2: [
         "/images/products/cross-linked-pof/cross-linked-pof.jpg",
         "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-rolls.jpg",
         "/images/products/adhesive-lamination-film/adhesive-lamination-film-rolls.jpg",
         "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
-        "/images/products/stretch-film/silage-stretch-film.jpg",
-        "/images/products/stretch-film/vci-stretch-film.jpg"
+        "/images/products/low-tunnel-film/low-tunnel-film.webp",
+        "/images/products/mulch-film/mulch-film.webp"
       ],
       slot3: [
         "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
         "/images/products/cross-linked-pof/cross-linked-pof-rolls.jpg",
         "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.jpg",
-        "/images/products/stretch-film/biodegradable-stretch-wrap.jpg",
-        "/images/products/stretch-film/coreless-stretch-film.jpg",
+        "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.jpg",
+        "/images/products/low-tunnel-film/low-tunnel-film.webp",
         "/images/products/ldpe-shrink-film/image.png"
       ],
       slot4: [
@@ -53,7 +57,7 @@ export default function ProductCategories() {
         "/images/products/smp-packaging-film/smp-packaging-film.jpg",
         "/images/products/pharma-grade-poly/pharma-grade-poly.png",
         "/images/products/soft-loop-handle-bags/soft-loop-handle-bags.jpg",
-        "/images/products/stretch-film/recycled-stretch-wrap.jpg"
+        "/images/products/ice-bags/ice-bags.webp"
       ]
     },
     // 1: Labels & Stickers
@@ -94,7 +98,7 @@ export default function ProductCategories() {
     // 2: Tapes Division
     {
       label: "Tapes Division Showcase",
-      link: "/product-category/tape-products",
+      link: "/product-category/tapes",
       slot1: [
         "/images/products/bopp-tapes/bopp-tapes.jpg",
         "/images/products/bopp-tapes/manual-dispenser-bopp-tapes.jpg",
@@ -113,7 +117,7 @@ export default function ProductCategories() {
     // 3: PP & PET Strapping
     {
       label: "PP & PET Strapping Showcase",
-      link: "/product-category/strapping-products",
+      link: "/product-category/pp-strap",
       slot1: [
         "/images/products/pp-strap/applications/app-1.png",
         "/images/products/pp-strap/applications/app-2.png",
@@ -160,7 +164,7 @@ export default function ProductCategories() {
     if (isPaused) return;
 
     const timer = setInterval(() => {
-      setActiveCatIndex((prevIndex) => (prevIndex + 1) % productCategories.length);
+      setActiveCatIndex((prevIndex) => (prevIndex + 1) % navbarCategories.length);
     }, 7000);
 
     return () => clearInterval(timer);
@@ -210,7 +214,7 @@ export default function ProductCategories() {
 
         {/* Centered Executive Header */}
         <div className="text-center mb-6 sm:mb-12 flex flex-col items-center">
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2">
+          <span className="text-xs font-bold tracking-widest text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2">
             Industrial Range & Showcase
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-tight text-balance">
@@ -221,7 +225,7 @@ export default function ProductCategories() {
 
         {/* 4 TOP-LEVEL B2B CATEGORIES CARDS (2x2 GRID ON MOBILE, 4 COLUMNS ON DESKTOP) */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8 mb-6 sm:mb-10 md:mb-12">
-          {productCategories.map((cat, i) => {
+          {navbarCategories.map((cat, i) => {
             const isActive = activeCatIndex === i;
             return (
               <motion.div
@@ -250,7 +254,7 @@ export default function ProductCategories() {
                     />
 
                     <div
-                      className={`absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 transition-all duration-300 px-2.5 sm:px-4 py-1 sm:py-2 rounded-full bg-white/95 backdrop-blur-md text-[var(--color-ink)] text-[10px] sm:text-xs font-bold shadow-lg flex items-center gap-1 sm:gap-1.5 whitespace-nowrap border border-white/40 ${isActive
+                      className={`absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 transition-all duration-300 px-2.5 sm:px-4 py-1 sm:py-2 rounded-full bg-white/95 backdrop-blur-md text-[var(--color-ink)] text-xs font-bold shadow-lg flex items-center gap-1 sm:gap-1.5 whitespace-nowrap border border-white/40 ${isActive
                         ? "translate-y-0 opacity-100"
                         : "translate-y-2 sm:translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
                         }`}
@@ -265,7 +269,7 @@ export default function ProductCategories() {
                       }`}
                   >
                     <h3
-                      className={`font-display text-xs sm:text-base font-bold tracking-tight transition-colors duration-300 leading-tight ${isActive ? "text-[var(--color-amber-dark)] font-extrabold" : "text-[var(--color-ink)] group-hover:text-[var(--color-amber-dark)]"
+                      className={`font-display text-sm sm:text-base font-bold tracking-tight transition-colors duration-300 leading-tight ${isActive ? "text-[var(--color-amber-dark)] font-extrabold" : "text-[var(--color-ink)] group-hover:text-[var(--color-amber-dark)]"
                         }`}
                     >
                       {cat.title}
@@ -386,7 +390,7 @@ export default function ProductCategories() {
         <div className="mt-8 sm:mt-14 flex justify-center">
           <Link
             href="/products"
-            className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-amber)] px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-bold text-white shadow-lg sm:shadow-xl shadow-[var(--color-amber)]/25 transition-all duration-300 hover:bg-[var(--color-amber-dark)] hover:shadow-2xl hover:scale-105"
+            className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-amber)] px-6 sm:px-8 py-3 sm:py-4 text-sm font-bold text-white shadow-lg sm:shadow-xl shadow-[var(--color-amber)]/25 transition-all duration-300 hover:bg-[var(--color-amber-dark)] hover:shadow-2xl hover:scale-105"
             data-hover
           >
             <span className="relative z-10">View All Products Catalog</span>
@@ -398,4 +402,3 @@ export default function ProductCategories() {
     </section>
   );
 }
-
