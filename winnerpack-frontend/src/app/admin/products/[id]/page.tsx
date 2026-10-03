@@ -1,7 +1,7 @@
 "use client";
 
 import { apiFetch } from "@/lib/api";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
@@ -15,17 +15,118 @@ import {
   Layers,
   Sliders,
   CheckCircle2,
-  Grid,
-  Tag,
   Package,
-  ShieldCheck,
   Eye,
   Sparkles,
-  X
+  HelpCircle,
+  Globe,
+  Truck,
+  ChevronRight,
+  AlertCircle
 } from "lucide-react";
-import { initialProducts } from "@/lib/fallback-data";
 import TiptapEditor from "@/components/TiptapEditor";
-import OptimizedImage from '@/components/OptimizedImage';
+import OptimizedImage from "@/components/OptimizedImage";
+
+import SpecsMapEditor from "@/components/admin/SpecsMapEditor";
+import FaqListEditor from "@/components/admin/FaqListEditor";
+import SubVariantsEditor from "@/components/admin/SubVariantsEditor";
+import { productHierarchy, plasticStretchFilmItems } from "@/components/Navbar";
+import { extractProductFaqsFromContent, stripStructuredProductSections } from "@/utils/product-content";
+
+// Helper to resolve 3-tier hierarchy path from Navbar
+function resolveNavbarHierarchy(productId: string, currentCategory?: string, currentSubId?: string) {
+  // If subCategoryId already provided, check if it matches in productHierarchy
+  if (currentSubId) {
+    for (const cat of productHierarchy) {
+      const sub = cat.subcategories.find((s) => s.id === currentSubId || s.slug === currentSubId);
+      if (sub) {
+        const item = sub.items?.find((itm) => itm.slug === productId);
+        return {
+          category: cat.id === "pp-strap" ? "others" : cat.id,
+          subCategoryId: sub.id,
+          distributionItemId: item?.slug || "",
+          distributionItemTitle: item?.name || "",
+        };
+      }
+    }
+  }
+
+  // Check matching Tier 3 items
+  for (const cat of productHierarchy) {
+    for (const sub of cat.subcategories) {
+      const item = sub.items?.find((itm) => itm.slug === productId);
+      if (item) {
+        return {
+          category: cat.id === "pp-strap" ? "others" : cat.id,
+          subCategoryId: sub.id,
+          distributionItemId: item.slug,
+          distributionItemTitle: item.name,
+        };
+      }
+    }
+  }
+
+  // Check stretch film varieties (part of Packaging Films -> Plastic Stretch Film)
+  const stretchItem = plasticStretchFilmItems.find((itm) => itm.slug === productId);
+  if (stretchItem) {
+    return {
+      category: "film-products",
+      subCategoryId: "packaging-films",
+      distributionItemId: stretchItem.slug,
+      distributionItemTitle: stretchItem.name,
+    };
+  }
+
+  // Check matching Tier 2 subcategories
+  for (const cat of productHierarchy) {
+    const sub = cat.subcategories.find((s) => s.id === productId || s.slug === productId);
+    if (sub) {
+      return {
+        category: cat.id === "pp-strap" ? "others" : cat.id,
+        subCategoryId: sub.id,
+        distributionItemId: "",
+        distributionItemTitle: "",
+      };
+    }
+  }
+
+  // Fallback based on category
+  const targetCatId = currentCategory === "others" ? "pp-strap" : (currentCategory || "film-products");
+  const cat = productHierarchy.find((c) => c.id === targetCatId || c.catSlug === targetCatId) || productHierarchy[0];
+  return {
+    category: cat.id === "pp-strap" ? "others" : cat.id,
+    subCategoryId: cat.subcategories[0]?.id || "",
+    distributionItemId: "",
+    distributionItemTitle: "",
+  };
+}
+
+type TabKey =
+  | "general"
+  | "overview"
+  | "media"
+  | "specs"
+  | "subvariants"
+  | "faqs"
+  | "seo";
+
+const PRESET_PRODUCT_IMAGES = [
+  { name: "POF Shrink Rolls", url: "/images/products/pof-shrink-rolls/image.webp" },
+  { name: "LDPE Bottle Wrap", url: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.webp" },
+  { name: "Cross-Linked POF", url: "/images/products/cross-linked-pof/cross-linked-pof.webp" },
+  { name: "Non-Cross-Linked POF", url: "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.webp" },
+  { name: "Adhesive Lamination", url: "/images/products/adhesive-lamination-film/adhesive-lamination-film.webp" },
+  { name: "Plain Standup Pouches", url: "/images/products/plain-standup-pouches/plain-standup-pouches.webp" },
+  { name: "Manual Stretch Film", url: "/images/products/stretch-film/image.webp" },
+  { name: "Plain Chromo Labels", url: "/images/products/plain-labels/plain-labels.webp" },
+  { name: "Flexo Printed Labels", url: "/images/products/printed-labels/flexo-digital-printed-labels.webp" },
+  { name: "Barcode Labels", url: "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.webp" },
+  { name: "Security Hologram", url: "/images/products/hologram-stickers/hologram-stickers.webp" },
+  { name: "BOPP Sealing Tape", url: "/images/products/bopp-tapes/bopp-tapes.webp" },
+  { name: "Custom Logo Tape", url: "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.webp" },
+  { name: "PP Strapping Roll", url: "/images/products/pp-strap/image.webp" },
+  { name: "PET Pallet Strap", url: "/images/products/pet-strap/image.webp" },
+];
 
 export default function ProductDetailEditorPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -37,214 +138,226 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
   const [saving, setSaving] = useState(false);
   const [editorMode, setEditorMode] = useState<"tiptap" | "markdown">("tiptap");
   const [splitPreview, setSplitPreview] = useState(true);
-  const [activeTab, setActiveTab] = useState<
-    "basic" | "applications" | "specs" | "yieldMatrix" | "options" | "subcategories" | "features"
-  >("basic");
+  const [activeTab, setActiveTab] = useState<TabKey>("general");
+  // The public slug is editable; the persisted id remains the update lookup key.
+  const [persistedId, setPersistedId] = useState(isNew ? "" : id);
+  const [notice, setNotice] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   // Form State
   const [formData, setFormData] = useState<any>({
     id: isNew ? "" : id,
     title: "",
     category: "film-products",
-    tag: "Standard",
+    subCategoryId: "packaging-films",
+    distributionItemId: "",
+    distributionItemTitle: "",
+    tag: "Standard Grade",
+    blurb: "",
     longDesc: "",
-    image: "/images/products/pof-shrink-rolls/image.png",
+    image: "/images/products/pof-shrink-rolls/image.webp",
     gallery: [],
     specs: {},
-    options: {
-      widths: [],
-      thicknesses: [],
-      colors: []
-    },
-    thicknessLengthMatrix: [],
     subCategories: [],
     features: [],
-    applications: []
+    applications: [],
+    faqs: [],
+    status: "published",
+    moq: "10 Rolls / 500 Kg",
+    leadTime: "24–48 Hours",
+    lineSpeed: "Up to 120 Packs/Min",
+    seo: {
+      metaTitle: "",
+      metaDescription: "",
+      keywords: []
+    }
   });
 
-  // Application Slots (4 Slots)
-  const [applicationSlots, setApplicationSlots] = useState<any[]>([
-    {
-      slotId: 1,
-      title: "Application Slot 1: Primary Industrial Packaging",
-      image: "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      description: "High-speed automated packaging, bundling, and pallet wrapping."
-    },
-    {
-      slotId: 2,
-      title: "Application Slot 2: Retail & Consumer Goods",
-      image: "/images/desktop/portfolio/product_app_warehouse_dispatch.png",
-      description: "Crystal clear display packaging for retail products and multi-packs."
-    },
-    {
-      slotId: 3,
-      title: "Application Slot 3: Warehouse & Transport",
-      image: "/images/desktop/portfolio/showcase_printed_custom_tapes.png",
-      description: "Tamper-evident carton sealing and heavy load unitization during transit."
-    },
-    {
-      slotId: 4,
-      title: "Application Slot 4: Logistics & Export Bundling",
-      image: "/images/desktop/portfolio/gallery_labels_stickers.png",
-      description: "Weather-resistant protective bundling for overseas sea and air dispatch."
-    }
-  ]);
-
-  // Technical Specs Key-Value array state for easy editing
-  const [specsList, setSpecsList] = useState<{ key: string; value: string }[]>([]);
-
   useEffect(() => {
-    if (isNew) return;
+    if (isNew) {
+      const defaultHierarchy = resolveNavbarHierarchy("new", "film-products");
+      setFormData((prev: any) => ({
+        ...prev,
+        category: defaultHierarchy.category,
+        subCategoryId: defaultHierarchy.subCategoryId,
+        distributionItemId: defaultHierarchy.distributionItemId,
+        distributionItemTitle: defaultHierarchy.distributionItemTitle,
+      }));
+      return;
+    }
 
     setLoading(true);
     apiFetch(`/api/products/${id}`)
       .then((res) => {
-        if (!res.ok) throw new Error("Not found");
+        if (!res.ok) throw new Error(res.status === 404 ? "This product no longer exists in the database." : "Could not load this product from the database.");
         return res.json();
       })
       .then((data) => {
-        const fallback = initialProducts.find((p) => p.id === (data.id || id));
-        if (!Array.isArray(data.thicknessLengthMatrix) || data.thicknessLengthMatrix.length === 0) {
-          data.thicknessLengthMatrix = fallback?.thicknessLengthMatrix || [
-            { micron: "12", gauge: "48", meters: "2,500", feet: "8,200" },
-            { micron: "15", gauge: "60", meters: "2,000", feet: "6,560" },
-            { micron: "19", gauge: "75", meters: "1,500", feet: "4,920" },
-            { micron: "25", gauge: "100", meters: "1,000", feet: "3,280" }
-          ];
-        }
+        setPersistedId(data.id || id);
+        const hierarchyInfo = resolveNavbarHierarchy(data.id || id, data.category, data.subCategoryId);
 
-        if (!Array.isArray(data.subCategories) || data.subCategories.length === 0) {
-          data.subCategories = fallback?.subCategories || [];
-        }
+        const normalizedCategory = data.category === "pp-strap"
+          ? "others"
+          : data.category || hierarchyInfo.category || "film-products";
 
-        if (!Array.isArray(data.features) || data.features.length === 0) {
-          data.features = (fallback as any)?.features || [
-            "High tensile strength and puncture resistance",
-            "Consistent thickness and gauge control across every roll",
-            "100% recyclable prime grade polymer resin formulation",
-            "ISO 9001:2015 quality certified batch manufacturing"
-          ];
-        }
+        const subCategoryId = data.subCategoryId || hierarchyInfo.subCategoryId;
+        const distributionItemId = data.distributionItemId || hierarchyInfo.distributionItemId;
+        const distributionItemTitle = data.distributionItemTitle || hierarchyInfo.distributionItemTitle;
 
-        if (!data.options || (Object.keys(data.options).length === 0)) {
-          data.options = fallback?.options || {
-            widths: ["300 mm", "450 mm", "500 mm", "1000 mm"],
-            thicknesses: ["15 Micron", "19 Micron", "25 Micron", "30 Micron"],
-            colors: ["Ultra Clear Glass", "Opaque White", "Jet Black"]
-          };
-        }
+        const subCategories = Array.isArray(data.subCategories) ? data.subCategories : [];
 
-        if (!Array.isArray(data.whatsIncluded) || data.whatsIncluded.length === 0) {
-          data.whatsIncluded = (fallback as any)?.whatsIncluded || [
-            "FDA & WHO-GMP Compliant",
-            "Zero Downtime Tolerance",
-            "Full Traceability COA",
-            "High Tensile Guarantee",
-            "Custom Gauge Options",
-            "Engineering Support"
-          ];
-        }
+        const faqs = Array.isArray(data.faqs) && data.faqs.length > 0
+          ? data.faqs
+          : extractProductFaqsFromContent(data.longDesc);
 
-        setFormData(data);
+        const seo = data.seo || {
+          metaTitle: `${data.title || "Product"} | WinnerPack Technologies`,
+          metaDescription: data.blurb || "Industrial packaging material with ISO certified batch quality.",
+          keywords: [data.title, normalizedCategory, data.tag].filter(Boolean)
+        };
 
-        // Convert specs object to array
-        if (data.specs && typeof data.specs === "object") {
-          const list = Object.entries(data.specs).map(([key, value]) => ({
-            key,
-            value: String(value)
-          }));
-          setSpecsList(list);
-        } else {
-          setSpecsList([]);
-        }
+        setFormData({
+          ...data,
+          longDesc: stripStructuredProductSections(data.longDesc),
+          category: normalizedCategory,
+          subCategoryId,
+          distributionItemId,
+          distributionItemTitle,
+          subCategories,
+          faqs,
+          seo,
+          status: data.status || "published",
+          moq: data.moq || "10 Rolls / 500 Kg",
+          leadTime: data.leadTime || "24–48 Hours",
+          lineSpeed: data.lineSpeed || "Up to 120 Packs/Min"
+        });
 
-        // Initialize application slots from data if present
-        if (Array.isArray(data.applicationSlots) && data.applicationSlots.length > 0) {
-          setApplicationSlots(data.applicationSlots);
-        } else {
-          setApplicationSlots([
-            { slotId: 1, title: `${data.title || "Product"} Primary Application`, image: `/images/products/${data.id}/applications/app-1.png`, description: `Primary high-performance application for ${data.title || "this product"}.` },
-            { slotId: 2, title: `${data.title || "Product"} Industrial Line`, image: `/images/products/${data.id}/applications/app-2.png`, description: `Automated line throughput and processing with ${data.title || "this product"}.` },
-            { slotId: 3, title: `${data.title || "Product"} Warehouse & Transport`, image: `/images/products/${data.id}/applications/app-3.png`, description: `Pallet unitization and heavy load transit with ${data.title || "this product"}.` },
-            { slotId: 4, title: `${data.title || "Product"} Export Packaging`, image: `/images/products/${data.id}/applications/app-4.png`, description: `Export weather protection and bundling for ${data.title || "this product"}.` },
-          ]);
-        }
       })
-      .catch(() => {
-        // Fallback to client initialProducts
-        const fallback = initialProducts.find((p) => p.id === id);
-        if (fallback) {
-          if (!Array.isArray(fallback.thicknessLengthMatrix) || fallback.thicknessLengthMatrix.length === 0) {
-            (fallback as any).thicknessLengthMatrix = [
-              { micron: "12", gauge: "48", meters: "2,500", feet: "8,200" },
-              { micron: "15", gauge: "60", meters: "2,000", feet: "6,560" },
-              { micron: "19", gauge: "75", meters: "1,500", feet: "4,920" },
-              { micron: "25", gauge: "100", meters: "1,000", feet: "3,280" }
-            ];
-          }
-          setFormData(fallback);
-          if (fallback.specs && typeof fallback.specs === "object") {
-            const list = Object.entries(fallback.specs).map(([key, value]) => ({
-              key,
-              value: String(value)
-            }));
-            setSpecsList(list);
-          }
-          if (Array.isArray((fallback as any).subCategories)) {
-            const derived = (fallback as any).subCategories.slice(0, 4).map((sub: any, idx: number) => ({
-              slotId: idx + 1,
-              title: sub.title || `Application Slot ${idx + 1}`,
-              image: sub.image || `/images/products/${fallback.id}/applications/app-${idx + 1}.png`,
-              description: sub.blurb || `Industrial application for ${sub.title}`
-            }));
-            setApplicationSlots(derived);
-          }
-        }
+      .catch((error) => {
+        setNotice({ type: "error", text: error instanceof Error ? error.message : "Could not load this product." });
       })
       .finally(() => setLoading(false));
   }, [id, isNew]);
 
-  // Handle Spec Array Update
-  const handleSpecChange = (index: number, field: "key" | "value", val: string) => {
-    const updated = [...specsList];
-    updated[index][field] = val;
-    setSpecsList(updated);
+  // ─── 3-TIER NAVBAR TAXONOMY COMPUTED HOOKS ──────────────────────────
+  const activeCategoryObj = useMemo(() => {
+    const catId = formData.category === "others" ? "pp-strap" : (formData.category || "film-products");
+    return productHierarchy.find((c) => c.id === catId || c.catSlug === catId) || productHierarchy[0];
+  }, [formData.category]);
+
+  const availableSubcategories = useMemo(() => {
+    return activeCategoryObj?.subcategories || [];
+  }, [activeCategoryObj]);
+
+  const activeSubcategoryObj = useMemo(() => {
+    if (!activeCategoryObj) return null;
+    return (
+      activeCategoryObj.subcategories.find(
+        (s) => s.id === formData.subCategoryId || s.slug === formData.subCategoryId
+      ) || activeCategoryObj.subcategories[0]
+    );
+  }, [activeCategoryObj, formData.subCategoryId]);
+
+  const availableDistributionItems = useMemo(() => {
+    return activeSubcategoryObj?.items || [];
+  }, [activeSubcategoryObj]);
+
+  const activeDistributionItem = useMemo(() => {
+    if (!formData.distributionItemId) return null;
+    return availableDistributionItems.find(
+      (itm) => itm.slug === formData.distributionItemId
+    ) || null;
+  }, [availableDistributionItems, formData.distributionItemId]);
+
+  const handleCategoryChange = (newCat: string) => {
+    const targetCatId = newCat === "others" ? "pp-strap" : newCat;
+    const catObj = productHierarchy.find((c) => c.id === targetCatId || c.catSlug === targetCatId) || productHierarchy[0];
+    const firstSub = catObj.subcategories[0];
+    setFormData({
+      ...formData,
+      category: newCat,
+      subCategoryId: firstSub?.id || "",
+      distributionItemId: "",
+      distributionItemTitle: "",
+    });
   };
 
-  const handleAddSpecRow = () => {
-    setSpecsList((prev) => [...prev, { key: "New Property", value: "Standard Spec Value" }]);
+  const handleSubcategoryChange = (newSubId: string) => {
+    setFormData({
+      ...formData,
+      subCategoryId: newSubId,
+      distributionItemId: "",
+      distributionItemTitle: "",
+    });
   };
 
-  const handleRemoveSpecRow = (index: number) => {
-    setSpecsList((prev) => prev.filter((_, i) => i !== index));
-  };
-
-  // Handle Application Slot Update
-  const handleSlotChange = (index: number, field: string, val: string) => {
-    const updated = [...applicationSlots];
-    updated[index] = { ...updated[index], [field]: val };
-    setApplicationSlots(updated);
-  };
-
-  // Save Product Changes
-  const handleSave = async () => {
-    setSaving(true);
-    try {
-      // Reconstruct specs object
-      const specsObj: Record<string, string> = {};
-      specsList.forEach((item) => {
-        if (item.key.trim()) {
-          specsObj[item.key.trim()] = item.value;
-        }
-      });
-
-      const payload = {
+  const handleDistributionItemChange = (itemSlug: string) => {
+    if (!itemSlug) {
+      setFormData({
         ...formData,
-        specs: specsObj,
-        applicationSlots: applicationSlots
+        distributionItemId: "",
+        distributionItemTitle: "",
+      });
+      return;
+    }
+    const itm = availableDistributionItems.find((i) => i.slug === itemSlug);
+    if (itm) {
+      setFormData({
+        ...formData,
+        distributionItemId: itm.slug,
+        distributionItemTitle: itm.name,
+        title: isNew || !formData.title || formData.title === "New SKU Draft" ? itm.name : formData.title,
+        id: isNew || !formData.id ? itm.slug : formData.id,
+      });
+    }
+  };
+
+  const handleApplyDistributionItemIdentity = () => {
+    if (!activeDistributionItem) return;
+    setFormData({
+      ...formData,
+      title: activeDistributionItem.name,
+      id: isNew ? activeDistributionItem.slug : formData.id,
+    });
+    setNotice({
+      type: "success",
+      text: `Applied "${activeDistributionItem.name}" to product title and slug.`,
+    });
+  };
+
+  // Global Keyboard Shortcut: Cmd+S / Ctrl+S to save
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s") {
+        e.preventDefault();
+        handleSave();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  });
+
+  const handleSave = async () => {
+    if (!formData.title?.trim()) {
+      setNotice({ type: "error", text: "Product title is required." });
+      return;
+    }
+
+    setSaving(true);
+    setNotice(null);
+    try {
+      const {
+        applicationSlots: _legacyApplicationSlots,
+        thicknessLengthMatrix: _legacyMatrix,
+        options: _legacyOptions,
+        ...productData
+      } = formData;
+      const payload = {
+        ...productData,
+        longDesc: stripStructuredProductSections(productData.longDesc),
+        category: formData.category === "others" ? "others" : formData.category,
       };
 
-      const url = isNew ? "/api/products" : `/api/products/${formData.id}`;
+      const url = isNew ? "/api/products" : `/api/products/${persistedId}`;
       const method = isNew ? "POST" : "PUT";
 
       const res = await apiFetch(url, {
@@ -253,317 +366,584 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
         body: JSON.stringify(payload)
       });
 
-      if (res.ok) {
-        alert(`Product "${formData.title}" saved successfully!`);
-        if (isNew) {
-          router.push(`/admin/products/${formData.id || id}`);
-        }
-      } else {
-        alert("Failed to save product changes.");
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || "Failed to save product.");
       }
-    } catch (err) {
-      console.error(err);
-      alert("Error occurred while saving product.");
+
+      const saved = await res.json();
+      setPersistedId(saved.id || formData.id);
+      setNotice({ type: "success", text: `Product "${saved.title || formData.title}" saved and published live!` });
+      if (isNew && saved.id) {
+        router.replace(`/admin/products/${saved.id}`);
+      }
+    } catch (err: any) {
+      setNotice({ type: "error", text: err.message || "Failed to save product." });
     } finally {
       setSaving(false);
     }
   };
 
-
+  const tabs = [
+    { id: "general", label: "General & Commercial", icon: Package },
+    { id: "overview", label: "Overview & Description", icon: Sparkles },
+    { id: "media", label: "Media & Gallery", icon: ImageIcon },
+    { id: "specs", label: `Tech Specs (${Object.keys(formData.specs || {}).length})`, icon: TableIcon },
+    { id: "subvariants", label: `Sub-Variants (${formData.subCategories?.length || 0})`, icon: Sliders },
+    { id: "faqs", label: `FAQs (${formData.faqs?.length || 0})`, icon: HelpCircle },
+    { id: "seo", label: "Search & SEO", icon: Globe },
+  ];
 
   if (loading) {
     return (
-      <div className="py-24 text-center text-xs font-mono uppercase tracking-widest text-slate-500">
-        Loading Product Specifications & Application Slots...
+      <div className="py-24 text-center text-xs font-mono uppercase tracking-widest text-slate-400">
+        Loading Detailed Product Specification Workspace...
       </div>
     );
   }
 
   return (
-    <div className="space-y-8 w-full font-sans pb-16 text-[#0F1721]">
-      
-      {/* 1. TOP TOOLBAR & HEADER */}
-      <div className="rounded-[32px] bg-white p-6 sm:p-8 border border-[#e5dfd2] shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
+    <div className="space-y-6 w-full font-sans pb-24 text-slate-900 max-w-7xl mx-auto">
+      {/* ── 1. TOP STICKY TOOLBAR & HEADER ── */}
+      <div className="rounded-2xl bg-white p-5 border border-slate-200/90 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
           <Link
             href="/admin/products"
-            className="h-11 w-11 rounded-2xl border border-[#e5dfd2] bg-[#f8f7f4] flex items-center justify-center text-[#120a3b] hover:bg-[#fff5eb] hover:text-[#fe8220] transition shrink-0"
-            title="Back to Product Catalog"
+            className="h-9 w-9 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition shrink-0"
+            title="Back to Products Catalog"
           >
-            <ArrowLeft className="h-5 w-5" />
+            <ArrowLeft className="h-4 w-4" />
           </Link>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-[#fff5eb] text-[#fe8220] border border-[#fe8220]/30 px-2.5 py-0.5 rounded-full">
-                {formData.category || "film-products"}
+              <span
+                className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${
+                  formData.category === "film-products"
+                    ? "bg-sky-50 text-sky-700 border-sky-200"
+                    : formData.category === "label-sticker-products"
+                    ? "bg-amber-50 text-amber-700 border-amber-200"
+                    : formData.category === "tapes"
+                    ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                    : "bg-violet-50 text-violet-700 border-violet-200"
+                }`}
+              >
+                {formData.category === "others" ? "Others (Strapping)" : formData.category}
               </span>
-              <span className="text-[10px] font-mono text-slate-400">ID: {formData.id}</span>
+              <span className="text-[10px] font-mono text-slate-400">
+                {isNew ? "New SKU Draft" : `ID: ${formData.id}`}
+              </span>
             </div>
-            <h1 className="text-2xl font-black text-[#120a3b] font-display mt-0.5">
-              {isNew ? "Create New Product SKU" : `Editing: ${formData.title}`}
+            <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-display tracking-tight mt-0.5">
+              {isNew ? "Create New Product SKU" : formData.title || "Product Editor"}
             </h1>
           </div>
         </div>
 
         {/* Top Right Actions */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2.5 shrink-0 flex-wrap">
+          {/* Status selector */}
+          <select
+            value={formData.status || "published"}
+            onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+            className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-700 focus:border-[#fe8220] focus:outline-none cursor-pointer"
+          >
+            <option value="published">Status: Published</option>
+            <option value="draft">Status: Draft</option>
+            <option value="archived">Status: Archived</option>
+          </select>
+
           {!isNew && (
             <a
               href={`/products/${formData.id}`}
               target="_blank"
-              rel="noopener noreferrer"
-              className="h-10 w-10 rounded-2xl bg-white border border-[#e5dfd2] flex items-center justify-center text-[#120a3b] hover:bg-[#fff5eb] hover:text-[#fe8220] transition shadow-2xs"
-              title="Preview Public Page"
+              rel="noreferrer"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition shadow-2xs"
+              title="Preview Live on Website"
             >
-              <ExternalLink className="h-4.5 w-4.5" />
+              <ExternalLink className="h-4 w-4" />
             </a>
           )}
 
           <button
+            type="button"
             onClick={() => setSplitPreview(!splitPreview)}
-            className={`flex items-center gap-2 rounded-2xl border px-4 py-2.5 text-xs font-extrabold transition cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-bold transition cursor-pointer ${
               splitPreview
-                ? "bg-[#120a3b] text-amber-400 border-[#120a3b] shadow-md"
-                : "bg-white text-slate-700 border-[#e5dfd2] hover:bg-[#fff5eb] hover:text-[#fe8220]"
+                ? "bg-[#120a3b] text-amber-300 border-[#120a3b] shadow-2xs"
+                : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
             }`}
           >
-            <Eye className="h-4 w-4 text-[#fe8220]" />
-            <span>{splitPreview ? "Hide Split Live Inspector" : "Split Live Inspector"}</span>
+            <Eye className="h-3.5 w-3.5 text-[#fe8220]" />
+            <span className="hidden sm:inline">{splitPreview ? "Hide Preview" : "Split Live Preview"}</span>
           </button>
 
           <button
+            type="button"
             onClick={handleSave}
             disabled={saving}
-            className="flex items-center gap-2 rounded-2xl bg-[#fe8220] px-6 py-2.5 text-xs font-extrabold text-white shadow-lg shadow-orange-500/25 hover:bg-[#d4630a] transition cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-[#fe8220] px-4 py-2 text-xs font-bold text-slate-950 shadow-xs hover:bg-[#ffa048] active:scale-98 transition cursor-pointer"
           >
-            <Save className="h-4 w-4 text-white" />
-            <span>{saving ? "Saving Changes..." : "Save Product Data"}</span>
+            <Save className="h-3.5 w-3.5" />
+            <span>{saving ? "Saving..." : "Save Changes"}</span>
           </button>
         </div>
       </div>
 
-      {/* 2. EDITOR NAVIGATION TABS */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 border-b border-[#e5dfd2]">
-        {[
-          { id: "basic", label: "Basic Info & Gallery", icon: ImageIcon },
-          { id: "applications", label: "Application Image Slots (4 Slots)", icon: Layers },
-          { id: "specs", label: "Technical Specs Table", icon: TableIcon },
-          { id: "yieldMatrix", label: "Thickness Yield Matrix", icon: Grid },
-          { id: "options", label: "Widths, Thickness & Colors", icon: Tag },
-          { id: "subcategories", label: "Subcategory Variants", icon: Sliders },
-          { id: "features", label: "Features & Applications", icon: CheckCircle2 },
-        ].map((tab) => {
+      {notice && (
+        <div
+          role="status"
+          className={`flex items-center justify-between rounded-xl px-4 py-3 text-xs font-semibold ${
+            notice.type === "success"
+              ? "bg-emerald-50 text-emerald-800 border border-emerald-200"
+              : "bg-rose-50 text-rose-800 border border-rose-200"
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            {notice.type === "success" ? <CheckCircle2 className="h-4 w-4" /> : <AlertCircle className="h-4 w-4" />}
+            <span>{notice.text}</span>
+          </div>
+          <button onClick={() => setNotice(null)} className="underline hover:opacity-80 cursor-pointer">
+            Dismiss
+          </button>
+        </div>
+      )}
+
+      {/* ── 2. WORKSPACE TABS STRIP ── */}
+      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 border-b border-slate-200">
+        {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
           return (
             <button
               key={tab.id}
+              type="button"
               onClick={() => setActiveTab(tab.id as any)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-extrabold transition shrink-0 cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition shrink-0 cursor-pointer ${
                 isActive
-                  ? "bg-[#120a3b] text-white shadow-md"
-                  : "bg-white text-[#5A6473] border border-[#e5dfd2] hover:bg-[#fff5eb] hover:text-[#fe8220]"
+                  ? "bg-[#120a3b] text-white shadow-2xs"
+                  : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 hover:text-slate-900"
               }`}
             >
-              <Icon className="h-4 w-4" />
+              <Icon className="h-3.5 w-3.5" />
               <span>{tab.label}</span>
             </button>
           );
         })}
       </div>
 
-      {/* 3. TAB CONTENT EDITORS */}
-      <div className="w-full space-y-6">
-          
-          {/* TAB 1: BASIC DETAILS & MEDIA */}
-        {activeTab === "basic" && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Form Fields (8/12) */}
-            <div className="lg:col-span-8 space-y-6 rounded-[32px] bg-white p-8 border border-[#e5dfd2] shadow-xs">
-              <h2 className="text-base font-bold text-[#120a3b] font-display border-b border-[#e5dfd2] pb-3">
-                General Product Information
-              </h2>
+      {/* ── 3. WORKSPACE EDITOR GRID WITH OPTIONAL SPLIT PREVIEW ── */}
+      <div className={`grid grid-cols-1 ${splitPreview ? "lg:grid-cols-12" : ""} gap-6 items-start`}>
+
+        {/* Main Editor Surface */}
+        <div className={splitPreview ? "lg:col-span-8 space-y-6" : "space-y-6"}>
+
+          {/* ── TAB 1: GENERAL & COMMERCIAL ── */}
+          {activeTab === "general" && (
+            <div className="rounded-2xl bg-white p-6 border border-slate-200/90 shadow-2xs space-y-5">
+              <div className="border-b border-slate-100 pb-3">
+                <h2 className="text-sm font-bold text-slate-900">General Product Information</h2>
+                <p className="text-xs text-slate-500">Core identity, primary categorization, and commercial order specs.</p>
+              </div>
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
-                    Product Title *
-                  </label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Product Title *</label>
                   <input
                     type="text"
                     required
                     value={formData.title || ""}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                     placeholder="e.g. POF Shrink Film Rolls"
-                    className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-3 text-sm font-semibold text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                    className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs font-bold text-slate-900 focus:border-[#fe8220] focus:outline-none"
                   />
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {/* ── 3-TIER NAVBAR TAXONOMY & FURTHER DISTRIBUTION ── */}
+                <div className="rounded-2xl border border-amber-200/90 bg-gradient-to-br from-amber-50/50 via-white to-orange-50/30 p-5 space-y-4 shadow-2xs">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-200/60 pb-3">
+                    <div className="flex items-center gap-2.5">
+                      <div className="h-8 w-8 rounded-xl bg-amber-500/10 border border-amber-300 flex items-center justify-center text-amber-700">
+                        <Layers className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
+                            Navbar Hierarchy & Further Distribution
+                          </h3>
+                          <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-900 text-amber-300">
+                            Source: Navbar.tsx
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-500">
+                          Directly connects this product SKU to Tier 1 (Pillar) → Tier 2 (Subcategory) → Tier 3 (Distribution Line).
+                        </p>
+                      </div>
+                    </div>
+
+                    {activeDistributionItem && (
+                      <button
+                        type="button"
+                        onClick={handleApplyDistributionItemIdentity}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-amber-300 text-amber-800 hover:bg-amber-50 text-[11px] font-bold shadow-2xs transition cursor-pointer self-start sm:self-auto shrink-0"
+                        title="Auto-fill Title & Slug from the selected Navbar Distribution Item"
+                      >
+                        <Sparkles className="h-3.5 w-3.5 text-[#fe8220]" />
+                        <span>Use Item Title & Slug</span>
+                      </button>
+                    )}
+                  </div>
+
+                  {/* 3 Dropdown Columns: Tier 1, Tier 2, Tier 3 */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                    {/* Tier 1: Category */}
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-700 mb-1 flex items-center justify-between">
+                        <span>1. Category (Pillar) *</span>
+                        <span className="text-[10px] font-mono text-slate-400">Tier 1</span>
+                      </label>
+                      <select
+                        value={formData.category === "others" ? "others" : (formData.category || "film-products")}
+                        onChange={(e) => handleCategoryChange(e.target.value)}
+                        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-bold text-slate-900 focus:border-[#fe8220] focus:ring-1 focus:ring-[#fe8220] focus:outline-none cursor-pointer shadow-2xs"
+                      >
+                        <option value="film-products">Film Products</option>
+                        <option value="label-sticker-products">Labels & Stickers</option>
+                        <option value="tapes">Industrial Tapes</option>
+                        <option value="others">Others (Strapping & Misc)</option>
+                      </select>
+                    </div>
+
+                    {/* Tier 2: Subcategory */}
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-700 mb-1 flex items-center justify-between">
+                        <span>2. Subcategory ({availableSubcategories.length}) *</span>
+                        <span className="text-[10px] font-mono text-slate-400">Tier 2</span>
+                      </label>
+                      <select
+                        value={formData.subCategoryId || availableSubcategories[0]?.id || ""}
+                        onChange={(e) => handleSubcategoryChange(e.target.value)}
+                        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-bold text-slate-900 focus:border-[#fe8220] focus:ring-1 focus:ring-[#fe8220] focus:outline-none cursor-pointer shadow-2xs"
+                      >
+                        {availableSubcategories.map((sub) => (
+                          <option key={sub.id} value={sub.id}>
+                            {sub.title} ({sub.items?.length || 0} distribution items)
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Tier 3: Further Distribution Item */}
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-700 mb-1 flex items-center justify-between">
+                        <span>3. Further Distribution Item</span>
+                        <span className="text-[10px] font-mono text-amber-600 font-bold">
+                          {availableDistributionItems.length} lines
+                        </span>
+                      </label>
+                      <select
+                        value={formData.distributionItemId || ""}
+                        onChange={(e) => handleDistributionItemChange(e.target.value)}
+                        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-900 focus:border-[#fe8220] focus:ring-1 focus:ring-[#fe8220] focus:outline-none cursor-pointer shadow-2xs"
+                      >
+                        <option value="">-- General / Broad Subcategory SKU --</option>
+                        {availableDistributionItems.map((itm) => (
+                          <option key={itm.slug} value={itm.slug}>
+                            {itm.name} ({itm.slug})
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Visual Breadcrumb Navigation Strip */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-amber-200/60 bg-white/70 rounded-xl px-3.5 py-2.5">
+                    <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                      <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">
+                        Navbar Breadcrumb:
+                      </span>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200 font-bold text-[11px]">
+                        {activeCategoryObj?.title}
+                      </span>
+                      <ChevronRight className="h-3 w-3 text-slate-400" />
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200 font-bold text-[11px]">
+                        {activeSubcategoryObj?.title || formData.subCategoryId}
+                      </span>
+                      {formData.distributionItemTitle ? (
+                        <>
+                          <ChevronRight className="h-3 w-3 text-slate-400" />
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#120a3b] text-amber-300 font-bold text-[11px] shadow-2xs">
+                            <Sparkles className="h-2.5 w-2.5 text-[#fe8220]" />
+                            {formData.distributionItemTitle}
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <ChevronRight className="h-3 w-3 text-slate-400" />
+                          <span className="text-[11px] font-mono text-slate-500 italic">
+                            (General Subcategory Level)
+                          </span>
+                        </>
+                      )}
+                    </div>
+
+                    {formData.distributionItemId && (
+                      <a
+                        href={`/products/${formData.distributionItemId}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-[#fe8220] hover:text-[#e06c10] hover:underline"
+                      >
+                        <span>Preview Distribution SKU Page</span>
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* Identification & Badge Row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
-                      Product ID (Slug) *
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Product URL Slug / Unique ID *
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.id || ""}
                       onChange={(e) => setFormData({ ...formData, id: e.target.value })}
-                      placeholder="e.g. pof-shrink-rolls"
-                      className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-mono text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                      placeholder="e.g. plastic-stretch-film"
+                      className="w-full rounded-xl border border-slate-200 px-3 py-2 text-xs font-mono text-slate-800 focus:border-[#fe8220] focus:outline-none"
                     />
+                    <p className="text-[10px] text-slate-400 mt-1">
+                      Live route: <span className="font-mono text-slate-600">/products/{formData.id || "slug"}</span>
+                    </p>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
-                      Category *
-                    </label>
-                    <select
-                      value={formData.category || "film-products"}
-                      onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                      className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#fe8220] focus:outline-none"
-                    >
-                      <option value="film-products">Film Products</option>
-                      <option value="label-sticker-products">Labels & Stickers</option>
-                      <option value="tapes">Industrial Tapes</option>
-                      <option value="pp-strap">Others</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
-                      Tag / Grade
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Tag / Grade Badge
                     </label>
                     <input
                       type="text"
                       value={formData.tag || ""}
                       onChange={(e) => setFormData({ ...formData, tag: e.target.value })}
-                      placeholder="e.g. Premium Grade"
-                      className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                      placeholder="e.g. Heavy Duty Virgin Resin"
+                      className="w-full rounded-xl border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-800 focus:border-[#fe8220] focus:outline-none"
                     />
+                    <p className="text-[10px] text-slate-400 mt-1">
+                      Prominently shown as an eyebrow pill on cards & live detail page.
+                    </p>
                   </div>
                 </div>
 
-
-
                 <div>
-                  <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] mb-1">
-                    Short Blurb / Summary *
-                  </label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Short Product Blurb / Excerpt *</label>
                   <textarea
                     rows={2}
-                    required
                     value={formData.blurb || ""}
                     onChange={(e) => setFormData({ ...formData, blurb: e.target.value })}
-                    placeholder="Brief overview summary of the product..."
-                    className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-3 text-xs font-medium text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                    placeholder="Concise technical summary displayed on catalog cards..."
+                    className="w-full rounded-xl border border-slate-200 p-3 text-xs text-slate-800 focus:border-[#fe8220] focus:outline-none leading-relaxed"
                   />
                 </div>
 
-                <div>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2 pb-2 border-b border-[#e5dfd2]">
-                    <label className="block text-xs font-mono font-bold uppercase text-[#120a3b] flex items-center gap-1.5">
-                      <Sparkles className="h-3.5 w-3.5 text-[#fe8220]" />
-                      Product Overview Description (Tiptap Rich-Text Editor)
-                    </label>
+                {/* Commercial Specifications */}
+                <div className="pt-3 border-t border-slate-100">
+                  <h3 className="text-xs font-bold text-slate-900 mb-3 flex items-center gap-1.5">
+                    <Truck className="h-3.5 w-3.5 text-[#fe8220]" />
+                    Commercial & Operational Parameters
+                  </h3>
 
-                    <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl shrink-0">
-                      <button
-                        type="button"
-                        onClick={() => setEditorMode("tiptap")}
-                        className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition cursor-pointer ${
-                          editorMode === "tiptap"
-                            ? "bg-[#120a3b] text-amber-400 shadow-xs"
-                            : "text-slate-600 hover:text-slate-900"
-                        }`}
-                      >
-                        Tiptap Visual Editor
-                      </button>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-600 mb-1">Minimum Order Qty (MOQ)</label>
+                      <input
+                        type="text"
+                        value={formData.moq || ""}
+                        onChange={(e) => setFormData({ ...formData, moq: e.target.value })}
+                        placeholder="e.g. 10 Rolls / 500 Kg"
+                        className="w-full rounded-xl border border-slate-200 px-3 py-2 text-xs font-mono text-slate-800 focus:border-[#fe8220] focus:outline-none"
+                      />
+                    </div>
 
-                      <button
-                        type="button"
-                        onClick={() => setEditorMode("markdown")}
-                        className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition cursor-pointer ${
-                          editorMode === "markdown"
-                            ? "bg-[#120a3b] text-amber-400 shadow-xs"
-                            : "text-slate-600 hover:text-slate-900"
-                        }`}
-                      >
-                        Raw Markdown
-                      </button>
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-600 mb-1">Dispatch Lead Time</label>
+                      <input
+                        type="text"
+                        value={formData.leadTime || ""}
+                        onChange={(e) => setFormData({ ...formData, leadTime: e.target.value })}
+                        placeholder="e.g. 24–48 Hours"
+                        className="w-full rounded-xl border border-slate-200 px-3 py-2 text-xs font-mono text-slate-800 focus:border-[#fe8220] focus:outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-600 mb-1">Line Speed Suitability</label>
+                      <input
+                        type="text"
+                        value={formData.lineSpeed || ""}
+                        onChange={(e) => setFormData({ ...formData, lineSpeed: e.target.value })}
+                        placeholder="e.g. Up to 120 Packs/Min"
+                        className="w-full rounded-xl border border-slate-200 px-3 py-2 text-xs font-mono text-slate-800 focus:border-[#fe8220] focus:outline-none"
+                      />
                     </div>
                   </div>
-
-                  {editorMode === "tiptap" ? (
-                    <TiptapEditor
-                      content={formData.longDesc || ""}
-                      onChange={(html) => setFormData((prev: any) => ({ ...prev, longDesc: html }))}
-                    />
-                  ) : (
-                    <textarea
-                      rows={10}
-                      value={formData.longDesc || ""}
-                      onChange={(e) => setFormData({ ...formData, longDesc: e.target.value })}
-                      placeholder="Full detailed specifications, key features, and material composition..."
-                      className="w-full rounded-2xl border border-[#e5dfd2] p-4 text-xs font-mono text-slate-900 focus:border-[#fe8220] focus:outline-none leading-relaxed"
-                    />
-                  )}
                 </div>
               </div>
             </div>
+          )}
 
-            {/* Media & Image Thumbnails (4/12) */}
-            <div className="lg:col-span-4 space-y-6">
-              <div className="rounded-[32px] bg-white p-7 border border-[#e5dfd2] shadow-xs space-y-4">
-                <h3 className="text-xs font-mono font-bold uppercase text-[#120a3b] flex items-center gap-2">
-                  <ImageIcon className="h-4 w-4 text-[#fe8220]" />
-                  Main Product Hero Image
-                </h3>
-
+          {/* ── TAB 2: OVERVIEW & RICH DESCRIPTION ── */}
+          {activeTab === "overview" && (
+            <div className="rounded-2xl bg-white p-6 border border-slate-200/90 shadow-2xs space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
                 <div>
-                  <label className="block text-[10px] font-mono text-slate-500 mb-1">Hero Image URL</label>
-                  <input
-                    type="text"
-                    value={formData.image || ""}
-                    onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                    className="w-full rounded-2xl border border-[#e5dfd2] px-3 py-2 text-xs font-mono focus:border-[#fe8220] focus:outline-none"
-                  />
+                  <h2 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                    <Sparkles className="h-4 w-4 text-[#fe8220]" />
+                    Product Overview & Detailed Engineering Specification
+                  </h2>
+                  <p className="text-xs text-slate-500">Rich formatted markdown/HTML displayed on the main product view.</p>
                 </div>
 
-                <div className="relative aspect-[16/10] w-full rounded-2xl border border-[#e5dfd2] bg-[#f8f7f4] overflow-hidden p-3 flex items-center justify-center">
-                  {formData.image ? (
-                    <OptimizedImage
-  src={formData.image}
-  alt="Thumbnail Preview"
-  className="h-full w-full object-contain"
-/>
-                  ) : (
-                    <span className="text-xs text-slate-400 font-mono">No Image Provided</span>
-                  )}
+                <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
+                  <button
+                    type="button"
+                    onClick={() => setEditorMode("tiptap")}
+                    className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition cursor-pointer ${
+                      editorMode === "tiptap"
+                        ? "bg-[#120a3b] text-amber-300 shadow-2xs"
+                        : "text-slate-600 hover:text-slate-900"
+                    }`}
+                  >
+                    TipTap WYSIWYG
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEditorMode("markdown")}
+                    className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition cursor-pointer ${
+                      editorMode === "markdown"
+                        ? "bg-[#120a3b] text-amber-300 shadow-2xs"
+                        : "text-slate-600 hover:text-slate-900"
+                    }`}
+                  >
+                    Raw Markdown
+                  </button>
                 </div>
               </div>
 
-              {/* Multi-Image Gallery List */}
-              <div className="rounded-[32px] bg-white p-7 border border-[#e5dfd2] shadow-xs space-y-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xs font-mono font-bold uppercase text-[#120a3b]">
-                    Gallery Images ({formData.gallery?.length || 0})
-                  </h3>
+              {editorMode === "tiptap" ? (
+                <TiptapEditor
+                  content={formData.longDesc || ""}
+                  onChange={(html) => setFormData((prev: any) => ({ ...prev, longDesc: html }))}
+                />
+              ) : (
+                <textarea
+                  rows={14}
+                  value={formData.longDesc || ""}
+                  onChange={(e) => setFormData({ ...formData, longDesc: e.target.value })}
+                  placeholder="Detailed technical specifications, processing capabilities, and material chemistry..."
+                  className="w-full rounded-xl border border-slate-200 p-4 text-xs font-mono text-slate-900 focus:border-[#fe8220] focus:outline-none leading-relaxed"
+                />
+              )}
+            </div>
+          )}
+
+          {/* ── TAB 3: MEDIA & GALLERY STUDIO ── */}
+          {activeTab === "media" && (
+            <div className="space-y-6">
+              {/* Primary Image */}
+              <div className="rounded-2xl bg-white p-6 border border-slate-200/90 shadow-2xs space-y-4">
+                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <ImageIcon className="h-4 w-4 text-[#fe8220]" />
+                  Primary Product Hero Image
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                  <div className="md:col-span-8 space-y-3">
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-600 mb-1">Hero Image Path / URL</label>
+                      <input
+                        type="text"
+                        value={formData.image || ""}
+                        onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                        placeholder="/images/products/..."
+                        className="w-full rounded-xl border border-slate-200 px-3 py-2 text-xs font-mono focus:border-[#fe8220] focus:outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <span className="text-[10px] font-bold uppercase text-slate-400 block mb-1.5 font-mono">
+                        Instant Preset Selectors
+                      </span>
+                      <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto">
+                        {PRESET_PRODUCT_IMAGES.map((preset) => (
+                          <button
+                            key={preset.url}
+                            type="button"
+                            onClick={() => setFormData({ ...formData, image: preset.url })}
+                            className={`px-2 py-0.5 rounded-md text-[10px] border transition cursor-pointer ${
+                              formData.image === preset.url
+                                ? "bg-amber-50 text-amber-800 border-amber-300 font-bold"
+                                : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100"
+                            }`}
+                          >
+                            {preset.name}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="md:col-span-4">
+                    <div className="relative aspect-square rounded-xl border border-slate-200 bg-slate-50 overflow-hidden flex items-center justify-center p-2">
+                      {formData.image ? (
+                        <OptimizedImage
+                          src={formData.image}
+                          alt="Primary Thumbnail"
+                          className="h-full w-full object-contain"
+                        />
+                      ) : (
+                        <span className="text-xs text-slate-400 font-mono">No Image</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Multi-Image Gallery */}
+              <div className="rounded-2xl bg-white p-6 border border-slate-200/90 shadow-2xs space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <div>
+                    <h3 className="text-sm font-bold text-slate-900">
+                      Product Gallery ({formData.gallery?.length || 0} Images)
+                    </h3>
+                    <p className="text-xs text-slate-500">Additional detail shots and machine setup photos.</p>
+                  </div>
                   <button
+                    type="button"
                     onClick={() => {
                       const updated = [...(formData.gallery || []), ""];
                       setFormData({ ...formData, gallery: updated });
                     }}
-                    className="text-[10px] font-mono font-bold text-[#fe8220] hover:underline"
+                    className="inline-flex items-center gap-1 rounded-xl bg-slate-900 px-3 py-1.5 text-xs font-bold text-white hover:bg-slate-800 transition cursor-pointer"
                   >
-                    + Add Image
+                    <Plus className="h-3.5 w-3.5" />
+                    <span>Add Gallery Image</span>
                   </button>
                 </div>
 
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {(formData.gallery || []).map((imgUrl: string, gIdx: number) => (
-                    <div key={gIdx} className="flex items-center gap-2">
+                    <div key={gIdx} className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-slate-50/50">
+                      <div className="h-10 w-10 rounded-lg overflow-hidden bg-white border border-slate-200 shrink-0">
+                        {imgUrl ? (
+                          <OptimizedImage src={imgUrl} alt={`Gallery ${gIdx + 1}`} className="h-full w-full object-cover" />
+                        ) : (
+                          <div className="h-full w-full flex items-center justify-center text-[10px] text-slate-300 font-mono">
+                            N/A
+                          </div>
+                        )}
+                      </div>
                       <input
                         type="text"
                         value={imgUrl}
@@ -573,1012 +953,228 @@ export default function ProductDetailEditorPage({ params }: { params: Promise<{ 
                           setFormData({ ...formData, gallery: updated });
                         }}
                         placeholder="/images/products/..."
-                        className="flex-1 rounded-xl border border-[#e5dfd2] px-3 py-1.5 text-xs font-mono focus:border-[#fe8220] focus:outline-none"
+                        className="flex-1 rounded-lg border border-slate-200 px-2.5 py-1 text-xs font-mono focus:border-[#fe8220] focus:outline-none bg-white"
                       />
                       <button
+                        type="button"
                         onClick={() => {
                           const updated = (formData.gallery || []).filter((_: any, i: number) => i !== gIdx);
                           setFormData({ ...formData, gallery: updated });
                         }}
-                        className="p-1.5 text-red-500 hover:text-red-700"
-                      >
-                        <Trash2 className="h-3.5 w-3.5" />
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-          </div>
-        )}
-
-        {/* ── TAB 2: APPLICATION IMAGE SLOTS (4 SLOTS) ── */}
-        {activeTab === "applications" && (
-          <div className="space-y-6">
-            <div className="rounded-[32px] bg-white p-8 border border-[#e5dfd2] shadow-xs space-y-2">
-              <h2 className="text-xl font-black text-[#120a3b] font-display flex items-center gap-2">
-                <Layers className="h-5 w-5 text-[#fe8220]" />
-                Application Image Slots (4 Slot Architecture)
-              </h2>
-              <p className="text-xs text-[#5A6473] font-medium">
-                Configure the 4 image slots and application descriptions displayed on the public product showcase page.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {applicationSlots.map((slot, idx) => (
-                <div key={idx} className="rounded-[28px] bg-white p-7 border border-[#e5dfd2] shadow-xs space-y-4 hover:border-[#fe8220] transition duration-200">
-                  <div className="flex items-center justify-between border-b border-[#e5dfd2] pb-3">
-                    <span className="text-xs font-mono font-bold uppercase text-[#120a3b]">
-                      Slot {idx + 1} Configuration
-                    </span>
-                    <span className="text-[10px] font-mono font-bold bg-[#fff5eb] text-[#fe8220] px-2.5 py-0.5 rounded-full border border-[#fe8220]/30">
-                      Slot #{idx + 1}
-                    </span>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono font-bold text-[#120a3b] mb-1">
-                      Slot Title
-                    </label>
-                    <input
-                      type="text"
-                      value={slot.title || ""}
-                      onChange={(e) => handleSlotChange(idx, "title", e.target.value)}
-                      placeholder="e.g. High-Speed Pallet Wrapping"
-                      className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#fe8220] focus:outline-none"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono font-bold text-[#120a3b] mb-1">
-                      Image URL
-                    </label>
-                    <input
-                      type="text"
-                      value={slot.image || ""}
-                      onChange={(e) => handleSlotChange(idx, "image", e.target.value)}
-                      placeholder="/images/desktop/portfolio/product_app_pallet_wrapping.png"
-                      className="w-full rounded-2xl border border-[#e5dfd2] px-4 py-2 text-xs font-mono text-slate-900 focus:border-[#fe8220] focus:outline-none"
-                    />
-                  </div>
-
-                  {/* Slot Image Preview */}
-                  <div className="relative aspect-[16/9] w-full rounded-2xl border border-[#e5dfd2] bg-[#f8f7f4] overflow-hidden p-3 flex items-center justify-center">
-                    {slot.image ? (
-                      <OptimizedImage
-  src={slot.image}
-  alt={slot.title}
-  className="h-full w-full object-cover rounded-xl"
-/>
-                    ) : (
-                      <span className="text-xs text-slate-400 font-mono">No Slot Image</span>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono font-bold text-[#120a3b] mb-1">
-                      Application Description / Blurb
-                    </label>
-                    <textarea
-                      rows={3}
-                      value={slot.description || ""}
-                      onChange={(e) => handleSlotChange(idx, "description", e.target.value)}
-                      placeholder="Description of how this product is applied in industrial manufacturing..."
-                      className="w-full rounded-2xl border border-[#e5dfd2] p-3 text-xs font-medium text-slate-900 focus:border-[#fe8220] focus:outline-none"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* ── TAB 3: TECHNICAL SPECIFICATIONS TABLE EDITOR ── */}
-        {activeTab === "specs" && (
-          <div className="space-y-6">
-            <div className="rounded-[32px] bg-white p-8 border border-[#e5dfd2] shadow-xs space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-xl font-black text-[#120a3b] font-display flex items-center gap-2">
-                    <TableIcon className="h-5 w-5 text-[#fe8220]" />
-                    Technical Specifications Table Editor
-                  </h2>
-                  <p className="text-xs text-[#5A6473] font-medium mt-0.5">
-                    Define technical parameters (micron, tensile strength, roll width, temperature resistance) shown on website tables.
-                  </p>
-                </div>
-
-                <button
-                  onClick={handleAddSpecRow}
-                  className="flex items-center gap-2 rounded-full bg-[#120a3b] px-4 py-2 text-xs font-extrabold text-white shadow-xs hover:bg-[#120a3b]/90 transition cursor-pointer shrink-0"
-                >
-                  <Plus className="h-4 w-4 text-[#fe8220]" />
-                  <span>Add Spec Row</span>
-                </button>
-              </div>
-
-              {specsList.length === 0 ? (
-                <div className="py-12 text-center text-xs font-mono text-slate-400 rounded-2xl border border-dashed border-[#e5dfd2] bg-[#f8f7f4]">
-                  No technical specification rows added yet. Click "Add Spec Row" above.
-                </div>
-              ) : (
-                <div className="overflow-hidden rounded-2xl border border-[#e5dfd2]">
-                  <table className="w-full text-left text-xs">
-                    <thead>
-                      <tr className="border-b border-[#e5dfd2] bg-[#f8f7f4] font-mono text-[10px] uppercase text-[#5A6473]">
-                        <th className="p-4 font-bold w-1/3">Property / Parameter Name</th>
-                        <th className="p-4 font-bold">Standard Specification Value</th>
-                        <th className="p-4 font-bold text-right w-20">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-[#e5dfd2]/60">
-                      {specsList.map((item, index) => (
-                        <tr key={index} className="hover:bg-[#fff5eb]/40 transition">
-                          <td className="p-3">
-                            <input
-                              type="text"
-                              value={item.key}
-                              onChange={(e) => handleSpecChange(index, "key", e.target.value)}
-                              placeholder="e.g. Tensile Strength"
-                              className="w-full rounded-xl border border-[#e5dfd2] px-3 py-2 text-xs font-bold text-[#120a3b] focus:border-[#fe8220] focus:outline-none"
-                            />
-                          </td>
-                          <td className="p-3">
-                            <input
-                              type="text"
-                              value={item.value}
-                              onChange={(e) => handleSpecChange(index, "value", e.target.value)}
-                              placeholder="e.g. ≥ 140 MPa (MD) / ≥ 130 MPa (TD)"
-                              className="w-full rounded-xl border border-[#e5dfd2] px-3 py-2 text-xs font-mono text-slate-800 focus:border-[#fe8220] focus:outline-none"
-                            />
-                          </td>
-                          <td className="p-3 text-right">
-                            <button
-                              onClick={() => handleRemoveSpecRow(index)}
-                              className="p-2 rounded-xl border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 transition cursor-pointer"
-                              title="Delete Row"
-                            >
-                              <Trash2 className="h-4 w-4" />
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* ── TAB 4: THICKNESS YIELD MATRIX ── */}
-        {activeTab === "yieldMatrix" && (
-          <div className="space-y-6">
-            <div className="rounded-[32px] bg-white p-8 border border-[#e5dfd2] shadow-xs space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-xl font-black text-[#120a3b] font-display flex items-center gap-2">
-                    <Grid className="h-5 w-5 text-[#fe8220]" />
-                    Thickness & Length Standard Roll Yield Matrix
-                  </h2>
-                  <p className="text-xs text-[#5A6473] font-medium mt-0.5">
-                    Standard roll conversion matrix for Micron (µm), Gauge, Meters, and Feet yield.
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => {
-                    const current = formData.thicknessLengthMatrix || [];
-                    setFormData({
-                      ...formData,
-                      thicknessLengthMatrix: [
-                        ...current,
-                        { micron: "15 µm", gauge: "60 Gauge", meters: "1,500 m", feet: "4,920 ft" }
-                      ]
-                    });
-                  }}
-                  className="flex items-center gap-2 rounded-full bg-[#120a3b] px-4 py-2 text-xs font-extrabold text-white hover:bg-[#120a3b]/90 transition cursor-pointer shrink-0"
-                >
-                  <Plus className="h-4 w-4 text-[#fe8220]" />
-                  <span>Add Matrix Row</span>
-                </button>
-              </div>
-
-              {(!formData.thicknessLengthMatrix || formData.thicknessLengthMatrix.length === 0) ? (
-                <div className="py-12 text-center text-xs font-mono text-slate-400 rounded-2xl border border-dashed border-[#e5dfd2] bg-[#f8f7f4]">
-                  No yield matrix configured. Click "Add Matrix Row" to add roll specifications.
-                </div>
-              ) : (
-                <div className="overflow-hidden rounded-2xl border border-[#e5dfd2]">
-                  <table className="w-full text-left text-xs">
-                    <thead>
-                      <tr className="border-b border-[#e5dfd2] bg-[#f8f7f4] font-mono text-[10px] uppercase text-[#5A6473]">
-                        <th className="p-4 font-bold">Micron (µm)</th>
-                        <th className="p-4 font-bold">Gauge</th>
-                        <th className="p-4 font-bold">Meters Yield</th>
-                        <th className="p-4 font-bold">Feet Yield</th>
-                        <th className="p-4 font-bold text-right w-20">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-[#e5dfd2]/60">
-                      {formData.thicknessLengthMatrix.map((row: any, rIdx: number) => (
-                        <tr key={rIdx} className="hover:bg-[#fff5eb]/40 transition">
-                          <td className="p-3">
-                            <input
-                              type="text"
-                              value={row.micron || ""}
-                              onChange={(e) => {
-                                const updated = [...formData.thicknessLengthMatrix];
-                                updated[rIdx].micron = e.target.value;
-                                setFormData({ ...formData, thicknessLengthMatrix: updated });
-                              }}
-                              placeholder="15 µm"
-                              className="w-full rounded-xl border border-[#e5dfd2] px-3 py-2 text-xs font-bold text-[#fe8220] font-mono"
-                            />
-                          </td>
-                          <td className="p-3">
-                            <input
-                              type="text"
-                              value={row.gauge || ""}
-                              onChange={(e) => {
-                                const updated = [...formData.thicknessLengthMatrix];
-                                updated[rIdx].gauge = e.target.value;
-                                setFormData({ ...formData, thicknessLengthMatrix: updated });
-                              }}
-                              placeholder="60 Gauge"
-                              className="w-full rounded-xl border border-[#e5dfd2] px-3 py-2 text-xs font-mono"
-                            />
-                          </td>
-                          <td className="p-3">
-                            <input
-                              type="text"
-                              value={row.meters || ""}
-                              onChange={(e) => {
-                                const updated = [...formData.thicknessLengthMatrix];
-                                updated[rIdx].meters = e.target.value;
-                                setFormData({ ...formData, thicknessLengthMatrix: updated });
-                              }}
-                              placeholder="1,500 m"
-                              className="w-full rounded-xl border border-[#e5dfd2] px-3 py-2 text-xs font-bold text-[#120a3b] font-mono"
-                            />
-                          </td>
-                          <td className="p-3">
-                            <input
-                              type="text"
-                              value={row.feet || ""}
-                              onChange={(e) => {
-                                const updated = [...formData.thicknessLengthMatrix];
-                                updated[rIdx].feet = e.target.value;
-                                setFormData({ ...formData, thicknessLengthMatrix: updated });
-                              }}
-                              placeholder="4,920 ft"
-                              className="w-full rounded-xl border border-[#e5dfd2] px-3 py-2 text-xs font-mono"
-                            />
-                          </td>
-                          <td className="p-3 text-right">
-                            <button
-                              onClick={() => {
-                                const updated = formData.thicknessLengthMatrix.filter((_: any, i: number) => i !== rIdx);
-                                setFormData({ ...formData, thicknessLengthMatrix: updated });
-                              }}
-                              className="p-2 rounded-xl border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 transition cursor-pointer"
-                            >
-                              <Trash2 className="h-4 w-4" />
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* ── TAB 5: OPTIONS (WIDTHS, THICKNESSES, COLORS) ── */}
-        {activeTab === "options" && (
-          <div className="space-y-6">
-            <div className="rounded-[32px] bg-white p-8 border border-[#e5dfd2] shadow-xs space-y-6">
-              <h2 className="text-xl font-black text-[#120a3b] font-display flex items-center gap-2">
-                <Tag className="h-5 w-5 text-[#fe8220]" />
-                Product Specification Option Arrays
-              </h2>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                {/* Available Widths */}
-                <div className="rounded-2xl border border-[#e5dfd2] p-5 bg-[#f8f7f4] space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-mono font-bold uppercase text-[#120a3b]">Widths</h3>
-                    <button
-                      onClick={() => {
-                        const current = formData.options?.widths || [];
-                        setFormData({
-                          ...formData,
-                          options: { ...formData.options, widths: [...current, "12mm"] }
-                        });
-                      }}
-                      className="text-[10px] font-mono font-bold text-[#fe8220] hover:underline"
-                    >
-                      + Add Width
-                    </button>
-                  </div>
-                  <div className="space-y-2">
-                    {(formData.options?.widths || []).map((w: string, idx: number) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <input
-                          type="text"
-                          value={w}
-                          onChange={(e) => {
-                            const updated = [...(formData.options?.widths || [])];
-                            updated[idx] = e.target.value;
-                            setFormData({
-                              ...formData,
-                              options: { ...formData.options, widths: updated }
-                            });
-                          }}
-                          className="flex-1 rounded-xl border border-[#e5dfd2] px-3 py-1.5 text-xs font-semibold"
-                        />
-                        <button
-                          onClick={() => {
-                            const updated = (formData.options?.widths || []).filter((_: any, i: number) => i !== idx);
-                            setFormData({
-                              ...formData,
-                              options: { ...formData.options, widths: updated }
-                            });
-                          }}
-                          className="text-red-500 hover:text-red-700"
-                        >
-                          <Trash2 className="h-3.5 w-3.5" />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Available Thicknesses */}
-                <div className="rounded-2xl border border-[#e5dfd2] p-5 bg-[#f8f7f4] space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-mono font-bold uppercase text-[#120a3b]">Thicknesses</h3>
-                    <button
-                      onClick={() => {
-                        const current = formData.options?.thicknesses || [];
-                        setFormData({
-                          ...formData,
-                          options: { ...formData.options, thicknesses: [...current, "15 Micron"] }
-                        });
-                      }}
-                      className="text-[10px] font-mono font-bold text-[#fe8220] hover:underline"
-                    >
-                      + Add Thickness
-                    </button>
-                  </div>
-                  <div className="space-y-2">
-                    {(formData.options?.thicknesses || []).map((t: string, idx: number) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <input
-                          type="text"
-                          value={t}
-                          onChange={(e) => {
-                            const updated = [...(formData.options?.thicknesses || [])];
-                            updated[idx] = e.target.value;
-                            setFormData({
-                              ...formData,
-                              options: { ...formData.options, thicknesses: updated }
-                            });
-                          }}
-                          className="flex-1 rounded-xl border border-[#e5dfd2] px-3 py-1.5 text-xs font-semibold"
-                        />
-                        <button
-                          onClick={() => {
-                            const updated = (formData.options?.thicknesses || []).filter((_: any, i: number) => i !== idx);
-                            setFormData({
-                              ...formData,
-                              options: { ...formData.options, thicknesses: updated }
-                            });
-                          }}
-                          className="text-red-500 hover:text-red-700"
-                        >
-                          <Trash2 className="h-3.5 w-3.5" />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Available Colors */}
-                <div className="rounded-2xl border border-[#e5dfd2] p-5 bg-[#f8f7f4] space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-mono font-bold uppercase text-[#120a3b]">Colors</h3>
-                    <button
-                      onClick={() => {
-                        const current = formData.options?.colors || [];
-                        setFormData({
-                          ...formData,
-                          options: { ...formData.options, colors: [...current, "Transparent"] }
-                        });
-                      }}
-                      className="text-[10px] font-mono font-bold text-[#fe8220] hover:underline"
-                    >
-                      + Add Color
-                    </button>
-                  </div>
-                  <div className="space-y-2">
-                    {(formData.options?.colors || []).map((c: string, idx: number) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <input
-                          type="text"
-                          value={c}
-                          onChange={(e) => {
-                            const updated = [...(formData.options?.colors || [])];
-                            updated[idx] = e.target.value;
-                            setFormData({
-                              ...formData,
-                              options: { ...formData.options, colors: updated }
-                            });
-                          }}
-                          className="flex-1 rounded-xl border border-[#e5dfd2] px-3 py-1.5 text-xs font-semibold"
-                        />
-                        <button
-                          onClick={() => {
-                            const updated = (formData.options?.colors || []).filter((_: any, i: number) => i !== idx);
-                            setFormData({
-                              ...formData,
-                              options: { ...formData.options, colors: updated }
-                            });
-                          }}
-                          className="text-red-500 hover:text-red-700"
-                        >
-                          <Trash2 className="h-3.5 w-3.5" />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* ── TAB 6: SUBCATEGORY VARIANTS FULL EDITOR ── */}
-        {activeTab === "subcategories" && (
-          <div className="space-y-6">
-            <div className="rounded-[32px] bg-white p-8 border border-[#e5dfd2] shadow-xs space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-xl font-black text-[#120a3b] font-display flex items-center gap-2">
-                    <Sliders className="h-5 w-5 text-[#fe8220]" />
-                    Subcategory Grade Variants ({formData.subCategories?.length || 0} Defined)
-                  </h2>
-                  <p className="text-xs text-[#5A6473] font-medium mt-0.5">
-                    Define dedicated sub-products, material grades, or specialized variants under this main SKU.
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => {
-                    const current = formData.subCategories || [];
-                    const newSub = {
-                      id: `sub-${Date.now()}`,
-                      title: "New Sub-Variant Grade",
-                      subtitle: "Specialized Grade",
-                      blurb: "Detailed description of this sub-category variant...",
-                      image: "/images/products/pof-shrink-rolls/image.png",
-                      specs: {
-                        "Material Grade": "High Grade Polyolefin",
-                        "Application": "Industrial Packaging"
-                      },
-                      applications: ["Pallet Wrapping", "Carton Sealing"]
-                    };
-                    setFormData({ ...formData, subCategories: [...current, newSub] });
-                  }}
-                  className="flex items-center gap-2 rounded-full bg-[#120a3b] px-4 py-2 text-xs font-extrabold text-white hover:bg-[#120a3b]/90 transition cursor-pointer shrink-0"
-                >
-                  <Plus className="h-4 w-4 text-[#fe8220]" />
-                  <span>Add Subcategory Variant</span>
-                </button>
-              </div>
-
-              {(!formData.subCategories || formData.subCategories.length === 0) ? (
-                <div className="py-12 text-center text-xs font-mono text-slate-400 rounded-2xl border border-dashed border-[#e5dfd2] bg-[#f8f7f4]">
-                  Standard standalone SKU without subcategories. Click "Add Subcategory Variant" above to define variants.
-                </div>
-              ) : (
-                <div className="space-y-6">
-                  {formData.subCategories.map((sub: any, subIdx: number) => (
-                    <div key={subIdx} className="rounded-3xl border border-[#e5dfd2] p-6 bg-white space-y-4 hover:border-[#fe8220] transition">
-                      <div className="flex items-center justify-between border-b border-[#e5dfd2] pb-3">
-                        <div className="flex items-center gap-3">
-                          <span className="text-xs font-mono font-bold uppercase bg-[#120a3b] text-white px-3 py-1 rounded-full">
-                            Variant #{subIdx + 1}
-                          </span>
-                          <input
-                            type="text"
-                            value={sub.title || ""}
-                            onChange={(e) => {
-                              const updated = [...formData.subCategories];
-                              updated[subIdx].title = e.target.value;
-                              setFormData({ ...formData, subCategories: updated });
-                            }}
-                            placeholder="Variant Title"
-                            className="text-sm font-bold text-[#120a3b] rounded-xl border border-[#e5dfd2] px-3 py-1 font-display"
-                          />
-                        </div>
-                        <button
-                          onClick={() => {
-                            const updated = formData.subCategories.filter((_: any, i: number) => i !== subIdx);
-                            setFormData({ ...formData, subCategories: updated });
-                          }}
-                          className="p-2 rounded-xl border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 transition cursor-pointer"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </button>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
-                        {/* Left Column: Subcategory Image Preview (4/12) */}
-                        <div className="md:col-span-4 space-y-1.5">
-                          <label className="block text-[10px] font-mono font-bold uppercase text-slate-500">
-                            Variant Image Preview
-                          </label>
-                          <div className="relative aspect-[16/10] w-full rounded-2xl border border-[#e5dfd2] bg-slate-900 overflow-hidden shadow-xs group flex items-center justify-center">
-                            {sub.image ? (
-                              <OptimizedImage
-  src={sub.image}
-  alt={sub.title || "Subcategory Preview"}
-  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-/>
-                            ) : (
-                              <span className="text-[10px] font-mono text-slate-400">No Image Provided</span>
-                            )}
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-2">
-                              <span className="text-[9px] font-mono text-white font-bold truncate">{sub.image || "No Path"}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Right Column: Subtitle, Image URL Input & Summary Blurb (8/12) */}
-                        <div className="md:col-span-8 space-y-3">
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <div>
-                              <label className="block text-[10px] font-mono font-bold uppercase text-slate-500 mb-1">Subtitle / Grade Tag</label>
-                              <input
-                                type="text"
-                                value={sub.subtitle || ""}
-                                onChange={(e) => {
-                                  const updated = [...formData.subCategories];
-                                  updated[subIdx].subtitle = e.target.value;
-                                  setFormData({ ...formData, subCategories: updated });
-                                }}
-                                placeholder="e.g. Premium Grade"
-                                className="w-full rounded-xl border border-[#e5dfd2] px-3 py-2 text-xs font-semibold text-slate-900 focus:border-[#fe8220] focus:outline-none"
-                              />
-                            </div>
-
-                            <div>
-                              <label className="block text-[10px] font-mono font-bold uppercase text-slate-500 mb-1">Variant Image URL</label>
-                              <input
-                                type="text"
-                                value={sub.image || ""}
-                                onChange={(e) => {
-                                  const updated = [...formData.subCategories];
-                                  updated[subIdx].image = e.target.value;
-                                  setFormData({ ...formData, subCategories: updated });
-                                }}
-                                placeholder="/images/products/..."
-                                className="w-full rounded-xl border border-[#e5dfd2] px-3 py-2 text-xs font-mono text-slate-900 focus:border-[#fe8220] focus:outline-none"
-                              />
-                            </div>
-                          </div>
-
-                          <div>
-                            <label className="block text-[10px] font-mono font-bold uppercase text-slate-500 mb-1">Variant Summary Blurb</label>
-                            <textarea
-                              rows={2}
-                              value={sub.blurb || ""}
-                              onChange={(e) => {
-                                const updated = [...formData.subCategories];
-                                updated[subIdx].blurb = e.target.value;
-                                setFormData({ ...formData, subCategories: updated });
-                              }}
-                              placeholder="Brief summary of variant properties..."
-                              className="w-full rounded-xl border border-[#e5dfd2] p-3 text-xs text-slate-900 focus:border-[#fe8220] focus:outline-none"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* TAB 7: FEATURES, GUARANTEES & APPLICATIONS */}
-        {activeTab === "features" && (
-          <div className="space-y-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Features / USPs */}
-              <div className="rounded-[32px] bg-white p-8 border border-[#e5dfd2] shadow-xs space-y-6">
-                <h2 className="text-xl font-black text-[#120a3b] font-display flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-[#fe8220]" />
-                  Key Product Highlights & USPs
-                </h2>
-                
-                <div className="space-y-3">
-                  {(formData.features || []).map((feat: string, idx: number) => (
-                    <div key={idx} className="flex items-center gap-3">
-                      <input
-                        type="text"
-                        value={feat}
-                        onChange={(e) => {
-                          const updated = [...(formData.features || [])];
-                          updated[idx] = e.target.value;
-                          setFormData({ ...formData, features: updated });
-                        }}
-                        className="flex-1 rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-semibold text-slate-800 focus:border-[#fe8220] focus:outline-none"
-                      />
-                      <button
-                        onClick={() => {
-                          const updated = (formData.features || []).filter((_: any, i: number) => i !== idx);
-                          setFormData({ ...formData, features: updated });
-                        }}
-                        className="p-2.5 rounded-xl border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 cursor-pointer"
+                        className="p-1.5 text-slate-400 hover:text-rose-600 transition"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>
                     </div>
                   ))}
-
-                  <button
-                    onClick={() => setFormData({ ...formData, features: [...(formData.features || []), "New Key Feature USP Point"] })}
-                    className="flex items-center gap-2 rounded-full bg-[#120a3b] px-4 py-2 text-xs font-extrabold text-white hover:bg-[#120a3b]/90 transition cursor-pointer"
-                  >
-                    <Plus className="h-4 w-4 text-[#fe8220]" />
-                    <span>Add Feature Point</span>
-                  </button>
                 </div>
               </div>
+            </div>
+          )}
 
-              {/* Target Industry Applications */}
-              <div className="rounded-[32px] bg-white p-8 border border-[#e5dfd2] shadow-xs space-y-6">
-                <h2 className="text-xl font-black text-[#120a3b] font-display flex items-center gap-2">
-                  <Package className="h-5 w-5 text-[#fe8220]" />
-                  Target Industry Applications
+          {/* ── TAB 4: TECHNICAL SPECS MAP ── */}
+          {activeTab === "specs" && (
+            <SpecsMapEditor
+              value={formData.specs || {}}
+              onChange={(specs) => setFormData({ ...formData, specs })}
+            />
+          )}
+
+          {/* ── TAB 5: SUB-VARIANTS MANAGER ── */}
+          {activeTab === "subvariants" && (
+            <SubVariantsEditor
+              value={formData.subCategories || []}
+              onChange={(subVariants) => setFormData({ ...formData, subCategories: subVariants })}
+            />
+          )}
+
+          {/* ── TAB 8: PRODUCT FAQS ACCORDION ── */}
+          {activeTab === "faqs" && (
+            <FaqListEditor
+              value={formData.faqs || []}
+              onChange={(faqs) => setFormData({ ...formData, faqs })}
+            />
+          )}
+
+          {/* ── TAB 9: GOOGLE SEO & METADATA ── */}
+          {activeTab === "seo" && (
+            <div className="rounded-2xl bg-white p-6 border border-slate-200/90 shadow-2xs space-y-4">
+              <div className="border-b border-slate-100 pb-3">
+                <h2 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                  <Globe className="h-4 w-4 text-[#fe8220]" />
+                  Google Search Engine Optimization (SEO)
                 </h2>
-                
-                <div className="space-y-3">
-                  {(formData.applications || []).map((app: string, idx: number) => (
-                    <div key={idx} className="flex items-center gap-3">
-                      <input
-                        type="text"
-                        value={app}
-                        onChange={(e) => {
-                          const updated = [...(formData.applications || [])];
-                          updated[idx] = e.target.value;
-                          setFormData({ ...formData, applications: updated });
-                        }}
-                        className="flex-1 rounded-2xl border border-[#e5dfd2] px-4 py-2.5 text-xs font-semibold text-slate-800 focus:border-[#fe8220] focus:outline-none"
-                      />
-                      <button
-                        onClick={() => {
-                          const updated = (formData.applications || []).filter((_: any, i: number) => i !== idx);
-                          setFormData({ ...formData, applications: updated });
-                        }}
-                        className="p-2.5 rounded-xl border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 cursor-pointer"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </button>
-                    </div>
-                  ))}
-
-                  <button
-                    onClick={() => setFormData({ ...formData, applications: [...(formData.applications || []), "E-Commerce Fulfillment"] })}
-                    className="flex items-center gap-2 rounded-full bg-[#120a3b] px-4 py-2 text-xs font-extrabold text-white hover:bg-[#120a3b]/90 transition cursor-pointer"
-                  >
-                    <Plus className="h-4 w-4 text-[#fe8220]" />
-                    <span>Add Application Tag</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* What's Included & Quality Guarantees Badges Card */}
-            <div className="rounded-[32px] bg-white p-8 border border-[#e5dfd2] shadow-xs space-y-6">
-              <div className="flex items-center justify-between border-b border-[#e5dfd2] pb-4">
-                <div>
-                  <h2 className="text-xl font-black text-[#120a3b] font-display flex items-center gap-2">
-                    <ShieldCheck className="h-5 w-5 text-[#fe8220]" />
-                    What's Included & Quality Guarantees ({formData.whatsIncluded?.length || 0} Badges)
-                  </h2>
-                  <p className="text-xs text-[#5A6473] font-medium mt-0.5">
-                    Define quality assurance badges and included guarantees shown on the product detail page.
-                  </p>
-                </div>
-
-                <span className="text-[10px] font-mono font-bold text-[#fe8220] bg-[#fff5eb] border border-[#fe8220]/30 px-3 py-1 rounded-full shrink-0">
-                  ISO Verified
-                </span>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {(formData.whatsIncluded || []).map((item: string, idx: number) => (
-                  <div key={idx} className="flex items-center gap-3 bg-[#f8f7f4] p-3 rounded-2xl border border-[#e5dfd2]">
-                    <ShieldCheck className="h-4 w-4 text-[#fe8220] shrink-0" />
-                    <input
-                      type="text"
-                      value={item}
-                      onChange={(e) => {
-                        const updated = [...(formData.whatsIncluded || [])];
-                        updated[idx] = e.target.value;
-                        setFormData({ ...formData, whatsIncluded: updated });
-                      }}
-                      placeholder="e.g. FDA & WHO-GMP Compliant"
-                      className="flex-1 bg-white rounded-xl border border-[#e5dfd2] px-3 py-2 text-xs font-bold text-[#120a3b] focus:border-[#fe8220] focus:outline-none"
-                    />
-                    <button
-                      onClick={() => {
-                        const updated = (formData.whatsIncluded || []).filter((_: any, i: number) => i !== idx);
-                        setFormData({ ...formData, whatsIncluded: updated });
-                      }}
-                      className="p-2 rounded-xl border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 cursor-pointer"
-                    >
-                      <Trash2 className="h-3.5 w-3.5" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-
-              <button
-                onClick={() => setFormData({ ...formData, whatsIncluded: [...(formData.whatsIncluded || []), "New ISO Quality Guarantee"] })}
-                className="flex items-center gap-2 rounded-full bg-[#120a3b] px-4 py-2 text-xs font-extrabold text-white hover:bg-[#120a3b]/90 transition cursor-pointer"
-              >
-                <Plus className="h-4 w-4 text-[#fe8220]" />
-                <span>Add Guarantee Badge</span>
-              </button>
-            </div>
-          </div>
-        )}
-        {/* End Left Editor Column */}
-
-      {/* ── FLOATING SLIDE-OVER SIDE WINDOW INSPECTOR ── */}
-      {splitPreview && (
-        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4">
-          {/* Backdrop Overlay */}
-          <div
-            onClick={() => setSplitPreview(false)}
-            className="absolute inset-0 bg-slate-950/50 backdrop-blur-xs z-0 cursor-pointer"
-          />
-
-          {/* Centered Modal Dialog Content Panel */}
-          <div className="relative w-full max-w-3xl bg-white border border-[#e5dfd2] rounded-[32px] h-full max-h-[85vh] shadow-2xl z-10 flex flex-col font-sans overflow-hidden">
-            
-            {/* Inspector Top Bar */}
-            <div className="flex items-center justify-between border-b border-[#e5dfd2] p-5 bg-white shrink-0">
-              <div className="flex items-center gap-3">
-                <span className="p-2.5 rounded-2xl bg-[#120a3b] text-amber-400 shadow-md">
-                  <Eye className="h-5 w-5" />
-                </span>
-                <div>
-                  <h3 className="text-base font-extrabold text-[#120a3b] font-display">
-                    Live Component Inspector
-                  </h3>
-                  <p className="text-xs text-slate-500 font-mono">
-                    Real-Time Side Window Preview
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full animate-pulse">
-                  LIVE SYNC
-                </span>
-                <button
-                  onClick={() => setSplitPreview(false)}
-                  className="p-2 rounded-2xl border border-slate-200 text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition cursor-pointer"
-                  title="Close Inspector Window"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Inspector Scrollable Body */}
-            <div className="flex-1 overflow-y-auto p-6 space-y-6 no-scrollbar bg-slate-50/50">
-              
-              {/* 1. Header & Quick Metrics Component */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-4 space-y-3 shadow-xs">
-                <div className="flex flex-wrap items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-wider text-slate-500">
-                  <span className="rounded bg-slate-100 border border-slate-200 px-2 py-0.5 text-slate-700">
-                    {formData.tag || formData.category || "GRADE"}
-                  </span>
-                  <span>•</span>
-                  <span>SKU: WP-{(formData.id || "SKU").toUpperCase()}</span>
-                </div>
-
-                <h2 className="text-xl font-black text-[#120a3b] font-display leading-snug">
-                  {formData.title || "Product Title"}
-                </h2>
-
-                <p className="text-xs text-slate-600 leading-relaxed font-sans">
-                  {formData.blurb || "Product summary description blurb..."}
+                <p className="text-xs text-slate-500">
+                  Custom meta title, description snippet, and target search keywords for organic search indexing.
                 </p>
-
-                {/* 4 Metric Badges */}
-                <div className="grid grid-cols-4 gap-1.5 pt-1">
-                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-2 text-center">
-                    <div className="text-[8px] font-mono font-bold uppercase text-slate-400">DISPATCH</div>
-                    <div className="text-[9px] font-extrabold text-[#120a3b]">24-48 HR</div>
-                  </div>
-                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-2 text-center">
-                    <div className="text-[8px] font-mono font-bold uppercase text-slate-400">QC</div>
-                    <div className="text-[9px] font-extrabold text-[#120a3b]">ISO 9001</div>
-                  </div>
-                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-2 text-center">
-                    <div className="text-[8px] font-mono font-bold uppercase text-slate-400">PLANT</div>
-                    <div className="text-[9px] font-extrabold text-[#120a3b]">100% In-House</div>
-                  </div>
-                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-2 text-center">
-                    <div className="text-[8px] font-mono font-bold uppercase text-slate-400">BATCH</div>
-                    <div className="text-[9px] font-extrabold text-[#120a3b]">COA Batch</div>
-                  </div>
-                </div>
               </div>
 
-              {/* 2. Hero Image & Gallery Component */}
-              <div className="space-y-2">
-                <div className="text-[10px] font-mono font-bold uppercase text-slate-500 flex items-center justify-between">
-                  <span>Hero & Gallery Preview</span>
-                  <span>{formData.gallery?.length || 0} Gallery Photos</span>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Meta Title</label>
+                  <input
+                    type="text"
+                    value={formData.seo?.metaTitle || ""}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        seo: { ...(formData.seo || {}), metaTitle: e.target.value },
+                      })
+                    }
+                    placeholder="e.g. POF Shrink Film Rolls Manufacturer | WinnerPack"
+                    className="w-full rounded-xl border border-slate-200 px-3.5 py-2 text-xs font-semibold text-slate-900 focus:border-[#fe8220] focus:outline-none"
+                  />
+                  <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                    <span>Target length: 50–60 characters</span>
+                    <span className="font-mono">{(formData.seo?.metaTitle || "").length} / 60</span>
+                  </div>
                 </div>
-                <div className="aspect-[16/10] rounded-2xl border border-slate-200 bg-slate-900 overflow-hidden relative flex items-center justify-center">
-                  {formData.image ? (
-                    <OptimizedImage
-  src={formData.image}
-  alt={formData.title}
-  className="h-full w-full object-cover"
-/>
-                  ) : (
-                    <span className="text-xs font-mono text-slate-400">No Image</span>
-                  )}
-                </div>
-              </div>
 
-              {/* 3. Tiptap Product Overview Description Component */}
-              <div className="space-y-2 pt-2 border-t border-slate-200">
-                <div className="text-[10px] font-mono font-bold uppercase text-[#120a3b] flex items-center justify-between">
-                  <span>Product Overview (Tiptap Rich Text)</span>
-                  <span className="text-[#fe8220]">LIVE HTML</span>
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Meta Description</label>
+                  <textarea
+                    rows={3}
+                    value={formData.seo?.metaDescription || ""}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        seo: { ...(formData.seo || {}), metaDescription: e.target.value },
+                      })
+                    }
+                    placeholder="Compelling search excerpt describing specifications and factory direct supply..."
+                    className="w-full rounded-xl border border-slate-200 p-3 text-xs text-slate-800 focus:border-[#fe8220] focus:outline-none leading-relaxed"
+                  />
+                  <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                    <span>Target length: 140–160 characters</span>
+                    <span className="font-mono">{(formData.seo?.metaDescription || "").length} / 160</span>
+                  </div>
                 </div>
-                <div
-                  className="prose rounded-2xl border border-slate-200 bg-white p-4 max-h-60 overflow-y-auto w-full text-slate-800 text-xs leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: formData.longDesc || "<p class='text-slate-400 font-mono'>No overview text entered.</p>" }}
-                />
-              </div>
 
-              {/* 4. What's Included & Quality Guarantees Component */}
-              <div className="space-y-2 pt-2 border-t border-slate-200">
-                <div className="text-[10px] font-mono font-bold uppercase text-[#120a3b] flex items-center justify-between">
-                  <span>What's Included & Quality Guarantees</span>
-                  <span>{formData.whatsIncluded?.length || 0} Badges</span>
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Keywords Tag Pills</label>
+                  <input
+                    type="text"
+                    value={(formData.seo?.keywords || []).join(", ")}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        seo: {
+                          ...(formData.seo || {}),
+                          keywords: e.target.value.split(",").map((s: string) => s.trim()).filter(Boolean),
+                        },
+                      })
+                    }
+                    placeholder="e.g. shrink film, POF roll, industrial packaging"
+                    className="w-full rounded-xl border border-slate-200 px-3.5 py-2 text-xs text-slate-800 focus:border-[#fe8220] focus:outline-none"
+                  />
                 </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {(formData.whatsIncluded || []).map((item: string, idx: number) => (
-                    <div key={idx} className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white p-2.5 text-[11px] font-bold text-[#120a3b]">
-                      <ShieldCheck className="h-3.5 w-3.5 text-[#fe8220] shrink-0" />
-                      <span className="truncate">{item}</span>
+
+                {/* Live Google Search Result Card */}
+                <div className="pt-3 border-t border-slate-100">
+                  <h3 className="text-xs font-bold text-slate-700 mb-2">Live Google SERP Card Preview</h3>
+                  <div className="rounded-xl border border-slate-200 p-4 bg-slate-50/50 space-y-1">
+                    <div className="text-[11px] text-slate-600 flex items-center gap-1 font-mono">
+                      <span>https://winnerpack.in</span>
+                      <ChevronRight className="h-3 w-3 text-slate-400" />
+                      <span>products</span>
+                      <ChevronRight className="h-3 w-3 text-slate-400" />
+                      <span className="text-slate-800 font-semibold">{formData.id}</span>
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* 5. Specifications Table Component */}
-              <div className="space-y-2 pt-2 border-t border-slate-200">
-                <div className="text-[10px] font-mono font-bold uppercase text-[#120a3b]">
-                  Technical Specs Table ({specsList.length} Rows)
-                </div>
-                {specsList.length === 0 ? (
-                  <div className="text-[10px] font-mono text-slate-400 italic">No specs entered.</div>
-                ) : (
-                  <div className="overflow-hidden rounded-xl border border-slate-200 text-[10px]">
-                    <table className="w-full text-left">
-                      <thead className="bg-slate-100 font-mono text-slate-600">
-                        <tr>
-                          <th className="p-2 border-b">Specification</th>
-                          <th className="p-2 border-b">Value</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-100 bg-white font-medium text-slate-800">
-                        {specsList.map((s, idx) => (
-                          <tr key={idx}>
-                            <td className="p-2 text-slate-500 font-mono">{s.key}</td>
-                            <td className="p-2 font-bold">{s.value}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-              </div>
-
-              {/* 6. Yield Matrix Table Component */}
-              <div className="space-y-2 pt-2 border-t border-slate-200">
-                <div className="text-[10px] font-mono font-bold uppercase text-[#120a3b]">
-                  Yield Matrix Table ({formData.thicknessLengthMatrix?.length || 0} Rows)
-                </div>
-                {(formData.thicknessLengthMatrix || []).length > 0 && (
-                  <div className="overflow-hidden rounded-xl border border-slate-200 text-[10px]">
-                    <table className="w-full text-left">
-                      <thead className="bg-slate-100 font-mono text-slate-600">
-                        <tr>
-                          <th className="p-1.5 border-b">Micron</th>
-                          <th className="p-1.5 border-b">Gauge</th>
-                          <th className="p-1.5 border-b">Meters</th>
-                          <th className="p-1.5 border-b">Feet</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-100 bg-white font-mono text-slate-800">
-                        {(formData.thicknessLengthMatrix || []).slice(0, 4).map((row: any, idx: number) => (
-                          <tr key={idx}>
-                            <td className="p-1.5 font-bold">{row.micron}</td>
-                            <td className="p-1.5 text-slate-500">{row.gauge}</td>
-                            <td className="p-1.5 text-slate-500">{row.meters}</td>
-                            <td className="p-1.5 text-slate-500">{row.feet}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-              </div>
-
-              {/* 7. Application Image Slots Component */}
-              <div className="space-y-2 pt-2 border-t border-slate-200">
-                <div className="text-[10px] font-mono font-bold uppercase text-[#120a3b]">
-                  Application Slots (4 Slots)
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {applicationSlots.slice(0, 4).map((slot: any, idx: number) => (
-                    <div key={idx} className="rounded-xl border border-slate-200 bg-white p-2 space-y-1">
-                      <div className="aspect-[4/3] rounded-lg bg-slate-900 overflow-hidden">
-                        {slot.image ? (
-                          <OptimizedImage
-  src={slot.image}
-  alt={slot.title}
-  className="h-full w-full object-cover"
-/>
-                        ) : (
-                          <span className="text-[9px] font-mono text-slate-500 flex items-center justify-center h-full">No Slot</span>
-                        )}
-                      </div>
-                      <div className="text-[9px] font-bold text-[#120a3b] truncate">{slot.title}</div>
+                    <div className="text-sm font-bold text-blue-800 hover:underline line-clamp-1">
+                      {formData.seo?.metaTitle || `${formData.title} | WinnerPack Technologies`}
                     </div>
-                  ))}
+                    <div className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                      {formData.seo?.metaDescription || formData.blurb || "Explore specifications and sample rolls..."}
+                    </div>
+                  </div>
                 </div>
               </div>
-
             </div>
+          )}
+        </div>
 
-            {/* Inspector Bottom Footer Bar */}
-            <div className="border-t border-[#e5dfd2] p-4 bg-white flex items-center justify-between shrink-0 text-xs">
-              <span className="font-mono text-slate-500 text-[11px]">Real-time preview synchronized with editor</span>
-              <button
-                onClick={() => setSplitPreview(false)}
-                className="rounded-xl bg-[#120a3b] px-4 py-2 text-xs font-bold text-white hover:bg-[#fe8220] transition cursor-pointer"
-              >
-                Close Inspector
-              </button>
+        {/* ── 4. RIGHT COLUMN: SPLIT LIVE INSPECTOR PANEL ── */}
+        {splitPreview && (
+          <div className="lg:col-span-4 space-y-4 sticky top-6">
+            <div className="rounded-2xl bg-white p-5 border border-slate-200/90 shadow-2xs space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5 font-display">
+                  <Eye className="h-3.5 w-3.5 text-[#fe8220]" />
+                  Live Website Card Simulation
+                </span>
+                {!isNew && (
+                  <a
+                    href={`/products/${formData.id}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[11px] font-bold text-[#fe8220] hover:underline flex items-center gap-1"
+                  >
+                    View Page <ExternalLink className="h-3 w-3" />
+                  </a>
+                )}
+              </div>
+
+              {/* Card visual mock */}
+              <div className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-xs">
+                <div className="relative aspect-[16/10] bg-slate-100 overflow-hidden">
+                  {formData.image && (
+                    <OptimizedImage
+                      src={formData.image}
+                      alt={formData.title}
+                      className="h-full w-full object-cover"
+                    />
+                  )}
+                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                    <span className="rounded-md bg-slate-900/85 backdrop-blur-xs px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider">
+                      {formData.category}
+                    </span>
+                    <span className="rounded-md bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700 border border-emerald-200">
+                      {formData.status || "Published"}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-4 space-y-2">
+                  <span className="text-[10px] font-mono font-bold uppercase text-amber-600 block">
+                    {formData.tag || "Standard"}
+                  </span>
+                  <h3 className="text-sm font-bold text-slate-900 line-clamp-1">{formData.title || "Product Title"}</h3>
+                  <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                    {formData.blurb || "No short description provided."}
+                  </p>
+
+                  <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-2 text-[10px] font-mono text-slate-500">
+                    <div>
+                      <span className="text-slate-400 block">MOQ:</span>
+                      <span className="font-bold text-slate-700">{formData.moq || "10 Rolls"}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 block">Lead Time:</span>
+                      <span className="font-bold text-slate-700">{formData.leadTime || "24–48h"}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Product content stats */}
+              <div className="rounded-xl border border-slate-100 bg-slate-50/80 p-3 text-xs space-y-1.5">
+                <div className="flex justify-between text-slate-600 font-medium">
+                  <span>Subcategory Variants:</span>
+                  <span className="font-bold text-slate-900 font-mono">
+                    {formData.subCategories?.length || 0}
+                  </span>
+                </div>
+                <div className="flex justify-between text-slate-600 font-medium">
+                  <span>Product FAQs:</span>
+                  <span className="font-bold text-slate-900 font-mono">
+                    {formData.faqs?.length || 0}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-
-    </div>
+        )}
+      </div>
     </div>
   );
 }

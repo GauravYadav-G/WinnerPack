@@ -11,7 +11,7 @@ export default function PageWrapper({ children, className, ...props }: PageWrapp
 
   return (
     <motion.main
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: shouldReduceMotion ? 0 : 0.4, ease: [0.16, 1, 0.3, 1] }}
       className={className}

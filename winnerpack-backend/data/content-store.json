@@ -1,0 +1,802 @@
+{
+  "homepage": {
+    "slides": [
+      {
+        "id": "ad",
+        "tag": "01 / INFRASTRUCTURE",
+        "title": "Tailored Specs. Direct Dispatch.",
+        "heading": "Tailored Specs. Direct Dispatch.",
+        "subtitle": "Precision-extruded packaging materials designed for maximum load retention and line throughput.",
+        "description": "Precision-extruded packaging materials designed for maximum load retention and line throughput.",
+        "image": "/images/desktop/hero-slider/slide-1.webp",
+        "desktopMediaUrl": "/images/desktop/hero-slider/slide-1.webp",
+        "mobileMediaUrl": "/images/mobile/hero-slider/slide-1.avif"
+      },
+      {
+        "id": "capacity",
+        "tag": "02 / CAPACITY",
+        "title": "12,000+ Tons Annually",
+        "heading": "12,000+ Tons Annually",
+        "subtitle": "Dual-plant automated capacity ensures consistent thickness and high-speed delivery for heavy industrial loads.",
+        "description": "Dual-plant automated capacity ensures consistent thickness and high-speed delivery for heavy industrial loads.",
+        "image": "/images/desktop/hero-slider/slide-2.webp",
+        "desktopMediaUrl": "/images/desktop/hero-slider/slide-2.webp",
+        "mobileMediaUrl": "/images/desktop/hero-slider/slide-2.webp"
+      },
+      {
+        "id": "quality",
+        "tag": "03 / QUALITY",
+        "title": "ISO 9001:2015 Standards",
+        "heading": "ISO 9001:2015 Standards",
+        "subtitle": "Process-controlled extrusion runs with strict tensile testing and batch traceability on every dispatch.",
+        "description": "Process-controlled extrusion runs with strict tensile testing and batch traceability on every dispatch.",
+        "image": "/images/desktop/hero-slider/slide-3.webp",
+        "desktopMediaUrl": "/images/desktop/hero-slider/slide-3.webp",
+        "mobileMediaUrl": "/images/desktop/hero-slider/slide-3.webp"
+      },
+      {
+        "id": "automation",
+        "tag": "04 / PERFORMANCE",
+        "title": "End-to-End Solutions",
+        "heading": "End-to-End Solutions",
+        "subtitle": "Syncing high-tensile strapping, stretch wrap, and tapes to maximize line efficiency and lower total cost-per-pallet.",
+        "description": "Syncing high-tensile strapping, stretch wrap, and tapes to maximize line efficiency and lower total cost-per-pallet.",
+        "image": "/images/desktop/hero-slider/slide-4.webp",
+        "desktopMediaUrl": "/images/desktop/hero-slider/slide-4.webp",
+        "mobileMediaUrl": "/images/desktop/hero-slider/slide-4.webp"
+      }
+    ],
+    "rightBanner": "/images/desktop/hero-slider/right-banner.webp",
+    "mobileRightBanner": "/images/desktop/hero-slider/right-banner.webp",
+    "about": {
+      "tagline": "Pioneering B2B Industrial Packaging & Labeling Solutions",
+      "para1": "Winner Pack Technologies Pvt. Ltd. supplies environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply premium quality solutions tailored to your operational needs.",
+      "para2": "We specialize in engineered industrial packaging materials and end-to-end solutions, serving a diverse spectrum of manufacturing and supply chain sectors.",
+      "image1": "/images/desktop/about/about_factory_floor_v2.webp",
+      "image2": "/images/desktop/about/about_hero_factory.webp",
+      "stats": [
+        {
+          "value": "8+",
+          "label": "Years in business"
+        },
+        {
+          "value": "4",
+          "label": "Product categories"
+        },
+        {
+          "value": "20+",
+          "label": "Product lines"
+        },
+        {
+          "value": "100%",
+          "label": "Customer commitment"
+        }
+      ]
+    },
+    "usps": [
+      {
+        "title": "Custom Specifications",
+        "text": "We manufacture to your exact width, gauge, and formulation requirements — ensuring the right fit for your production line.",
+        "icon": "Tag",
+        "bgImage": "/images/desktop/why-choose-us/custom_specifications.webp"
+      },
+      {
+        "title": "Consistent Roll Quality",
+        "text": "Our strapping rolls are manufactured to maintain uniform straightness and tension, enabling smooth operation on automated packaging lines.",
+        "icon": "Layers",
+        "bgImage": "/images/desktop/why-choose-us/roll_quality.webp"
+      },
+      {
+        "title": "Superior Film Performance",
+        "text": "Our stretch films are formulated for maximum load-holding force and cling retention with optimized material usage per pallet.",
+        "icon": "Disc3",
+        "bgImage": "/images/desktop/why-choose-us/film_performance.webp"
+      },
+      {
+        "title": "In-House Quality Testing",
+        "text": "Every batch undergoes rigorous elongation, tensile strength, and adhesive performance testing before dispatch.",
+        "icon": "Shield",
+        "bgImage": "/images/desktop/why-choose-us/quality_testing.webp"
+      },
+      {
+        "title": "Eco-Friendly Options",
+        "text": "We offer recyclable and biodegradable packaging alternatives to support your sustainability and compliance goals.",
+        "icon": "Leaf",
+        "bgImage": "/images/desktop/why-choose-us/eco_friendly.webp"
+      },
+      {
+        "title": "Direct Manufacturer Supply",
+        "text": "No distributor markups. We manufacture, warehouse, and dispatch directly to optimize operations and reduce procurement costs.",
+        "icon": "Globe2",
+        "bgImage": "/images/desktop/why-choose-us/direct_supply.webp"
+      }
+    ],
+    "clients": [
+      {
+        "name": "Lava",
+        "logo": "/Brand_logo/lava.webp"
+      },
+      {
+        "name": "Vivo",
+        "logo": "/Brand_logo/vivo.webp"
+      },
+      {
+        "name": "Noise",
+        "logo": "/Brand_logo/noise.webp"
+      },
+      {
+        "name": "Fire-Boltt",
+        "logo": "/Brand_logo/firebolt.webp"
+      },
+      {
+        "name": "Anmol",
+        "logo": "/Brand_logo/anmol.webp"
+      },
+      {
+        "name": "CI Automotive",
+        "logo": "/Brand_logo/ci-automotive.webp"
+      },
+      {
+        "name": "Bhagwati Products",
+        "logo": "/Brand_logo/bhagwati-products.webp"
+      }
+    ],
+    "steps": [
+      {
+        "n": "01",
+        "phase": "Discovery",
+        "title": "Tell us your line.",
+        "body": "Share your SKU, payload profile and dispatch rhythm. Our team scopes the right strapping, shrink film or courier packaging for your operation.",
+        "deliverable": "Requirement scoping"
+      },
+      {
+        "n": "02",
+        "phase": "Sample",
+        "title": "Material in your hands.",
+        "body": "We share a sample of the exact gauge, width and grade — PP/PET strap, shrink film or bubble roll — so you can test it before committing.",
+        "deliverable": "Sample dispatch"
+      },
+      {
+        "n": "03",
+        "phase": "Trial",
+        "title": "Line qualification.",
+        "body": "For strapping, shrink wrapping and packaging workflows, our team helps test and tune material performance against your throughput.",
+        "deliverable": "Material qualification support"
+      },
+      {
+        "n": "04",
+        "phase": "Order",
+        "title": "Confirmed pricing.",
+        "body": "We quote based on your volume and material spec, and confirm terms before production and delivery are scheduled.",
+        "deliverable": "Quote & confirmation"
+      },
+      {
+        "n": "05",
+        "phase": "Dispatch",
+        "title": "Scheduled delivery.",
+        "body": "Orders are dispatched from our manufacturing facility and delivered to your site as per the agreed timeframe.",
+        "deliverable": "Scheduled delivery"
+      },
+      {
+        "n": "06",
+        "phase": "Support",
+        "title": "Ongoing service.",
+        "body": "We stay on for direct supply of strap rolls, films, packaging tools, and ongoing technical material optimization.",
+        "deliverable": "Service & repeat supply"
+      }
+    ],
+    "industries": [
+      {
+        "name": "Electronics",
+        "image": "/images/desktop/industries/electronics_industry.webp"
+      },
+      {
+        "name": "Cosmetics",
+        "image": "/images/desktop/industries/cosmetics_industry.webp"
+      },
+      {
+        "name": "Food & FMCG",
+        "image": "/images/desktop/industries/food_fmcg_industry.webp"
+      },
+      {
+        "name": "Automobile",
+        "image": "/images/desktop/industries/automobile_industry.webp"
+      },
+      {
+        "name": "Stationery",
+        "image": "/images/desktop/industries/stationery_industry.webp"
+      },
+      {
+        "name": "E-commerce & Logistics",
+        "image": "/images/desktop/industries/ecommerce_logistics_industry.webp"
+      }
+    ]
+  },
+  "industries": {
+    "industries": [
+      {
+        "name": "Food & FMCG",
+        "image": "/images/desktop/industries/food_fmcg_industry.webp"
+      },
+      {
+        "name": "Pharma & Healthcare",
+        "image": "/images/desktop/industries/pharma_industry.webp"
+      },
+      {
+        "name": "E-Commerce & Logistics",
+        "image": "/images/desktop/industries/ecommerce_logistics_industry.webp"
+      },
+      {
+        "name": "Automobile & Engineering",
+        "image": "/images/desktop/industries/automobile_industry.webp"
+      },
+      {
+        "name": "Electronics & Electricals",
+        "image": "/images/desktop/industries/electronics_industry.webp"
+      },
+      {
+        "name": "Stationery & Corporate",
+        "image": "/images/desktop/industries/stationery_industry.webp"
+      }
+    ]
+  },
+  "applications": {
+    "slides": [
+      {
+        "id": "action-die-ring-bubble",
+        "image": "/images/desktop/portfolio/action_die_ring_bubble.webp"
+      },
+      {
+        "id": "stretch-pallet-wrapping",
+        "image": "/images/desktop/portfolio/showcase_stretch_pallet_wrapping.webp"
+      },
+      {
+        "id": "action-polymer-granules-hopper",
+        "image": "/images/desktop/portfolio/action_polymer_granules_hopper.webp"
+      },
+      {
+        "id": "pp-strapping-action",
+        "image": "/images/desktop/portfolio/gallery_pp_strapping.webp"
+      },
+      {
+        "id": "action-factory-plant-overview",
+        "image": "/images/desktop/portfolio/action_factory_plant_overview.webp"
+      },
+      {
+        "id": "heavy-ldpe-bags",
+        "image": "/images/desktop/portfolio/showcase_heavy_duty_ldpe_bags.webp"
+      },
+      {
+        "id": "action-extrusion-tower-blue",
+        "image": "/images/desktop/portfolio/action_extrusion_tower_blue.webp"
+      },
+      {
+        "id": "action-roll-rewinding-slitting",
+        "image": "/images/desktop/portfolio/action_roll_rewinding_slitting.webp"
+      }
+    ]
+  },
+  "partners_materials_certs": {
+    "partners": [
+      {
+        "name": "Lava",
+        "logo": "/Brand_logo/lava.webp"
+      },
+      {
+        "name": "Vivo",
+        "logo": "/Brand_logo/vivo.webp"
+      },
+      {
+        "name": "Noise",
+        "logo": "/Brand_logo/noise.webp"
+      },
+      {
+        "name": "boAt",
+        "logo": "/Brand_logo/boat.webp"
+      },
+      {
+        "name": "Fire-Boltt",
+        "logo": "/Brand_logo/firebolt.webp"
+      },
+      {
+        "name": "Milton",
+        "logo": "/Brand_logo/milton.webp"
+      },
+      {
+        "name": "Luxor",
+        "logo": "/Brand_logo/luxor.webp"
+      },
+      {
+        "name": "Ai+",
+        "logo": "/Brand_logo/aiplus.webp"
+      },
+      {
+        "name": "Bosch",
+        "logo": "/Brand_logo/bosch.svg"
+      },
+      {
+        "name": "IKIO Technologies",
+        "logo": "/Brand_logo/ikio.webp"
+      },
+      {
+        "name": "LRIPL",
+        "logo": "/Brand_logo/lripl.webp"
+      },
+      {
+        "name": "Anmol",
+        "logo": "/Brand_logo/anmol.webp"
+      },
+      {
+        "name": "CI Automotive",
+        "logo": "/Brand_logo/ci-automotive.webp"
+      },
+      {
+        "name": "Bhagwati Products",
+        "logo": "/Brand_logo/bhagwati-products.webp"
+      }
+    ],
+    "certs": [
+      {
+        "id": "gst",
+        "name": "GST Registered",
+        "authority": "Govt. of India",
+        "imageSrc": "/certifications/gst_nation_tax_market.webp"
+      },
+      {
+        "id": "msme",
+        "name": "MSME Certified",
+        "authority": "Ministry of MSME",
+        "imageSrc": "/certifications/msme_official.svg"
+      },
+      {
+        "id": "iso-9001",
+        "name": "ISO 9001:2015",
+        "authority": "Quality Management",
+        "imageSrc": "/certifications/iso_official.svg"
+      },
+      {
+        "id": "rohs",
+        "name": "RoHS Compliant",
+        "authority": "Hazardous Substance Free",
+        "imageSrc": "/certifications/rohs_official.svg"
+      },
+      {
+        "id": "cte",
+        "name": "CTE (Pollution NOC)",
+        "authority": "Consent to Establish",
+        "imageSrc": "/certifications/cpcb_official.svg"
+      },
+      {
+        "id": "cto",
+        "name": "CTO (UP Pollution)",
+        "authority": "UPPCB Consent to Operate",
+        "imageSrc": "/certifications/uppcb_cto.webp"
+      }
+    ]
+  },
+  "certifications": {
+    "certifications": [
+      {
+        "id": "gst",
+        "name": "GST Registered",
+        "authority": "Govt. of India",
+        "imageSrc": "/certifications/gst_nation_tax_market.webp"
+      },
+      {
+        "id": "msme",
+        "name": "MSME Certified",
+        "authority": "Ministry of MSME",
+        "imageSrc": "/certifications/msme_official.svg"
+      },
+      {
+        "id": "iso-9001",
+        "name": "ISO 9001:2015",
+        "authority": "Quality Management",
+        "imageSrc": "/certifications/iso_official.svg"
+      },
+      {
+        "id": "rohs",
+        "name": "RoHS Compliant",
+        "authority": "Hazardous Substance Free",
+        "imageSrc": "/certifications/rohs_official.svg"
+      },
+      {
+        "id": "cte",
+        "name": "CTE (Pollution NOC)",
+        "authority": "Consent to Establish",
+        "imageSrc": "/certifications/cpcb_official.svg"
+      },
+      {
+        "id": "cto",
+        "name": "CTO (UP Pollution)",
+        "authority": "UPPCB Consent to Operate",
+        "imageSrc": "/certifications/uppcb_cto.webp"
+      }
+    ]
+  },
+  "about_us": {
+    "header": {
+      "title": "About Us",
+      "eyebrow": "Built to Hold Industry Together.",
+      "coverImage": "/images/desktop/about/about_factory_floor_v2.webp"
+    },
+    "whoWeAre": {
+      "tag": "Who We Are",
+      "heading": "Practical Packaging Solutions, Built Around Real Operations.",
+      "para1": "Winner Pack Technologies Pvt. Ltd. supplies and manufactures packaging materials for industrial businesses across diverse sectors.",
+      "para2": "Our range includes strapping rolls, shrink and stretch films, tapes, courier bags, labels, and protective packaging—supported by responsive coordination and clear technical specifications.",
+      "checkpoints": [
+        "Material selection support",
+        "Custom specification guidance",
+        "Reliable dispatch coordination",
+        "Quality-focused supply"
+      ],
+      "image": "/images/desktop/about/about_factory_floor_v2.webp",
+      "badgeTag": "Winner Pack Technologies",
+      "badgeTitle": "Manufacturing and Supply Capability You Can Depend On."
+    },
+    "metrics": [
+      {
+        "value": "2018",
+        "label": "Our journey began"
+      },
+      {
+        "value": "20+",
+        "label": "Specialized product lines"
+      }
+    ],
+    "guides": {
+      "mission": {
+        "tag": "Our Mission",
+        "title": "Deliver Precision Packaging Materials With Transparent Specifications and Responsive Customer Support."
+      },
+      "vision": {
+        "tag": "Our Vision",
+        "title": "Be the Trusted Packaging Partner Behind Efficient, Reliable, and Sustainable Supply Chains."
+      }
+    },
+    "capabilities": {
+      "tag": "Operational Capability",
+      "heading": "From Requirement to Reliable Dispatch.",
+      "description": "We connect material selection, converting, quality oversight, and supply coordination so each solution fits the application, machinery, load, and delivery conditions.",
+      "image": "/images/desktop/about/film_slitting_operator_v2.webp",
+      "items": [
+        "Application-led material guidance",
+        "Precision converting and finishing",
+        "Quality checks and batch consistency",
+        "Responsive inventory and dispatch support"
+      ]
+    }
+  },
+  "page_about-us": {
+    "header": {
+      "title": "About Us",
+      "eyebrow": "Built to Hold Industry Together.",
+      "coverImage": "/images/desktop/about/about_factory_floor_v2.webp"
+    },
+    "whoWeAre": {
+      "tag": "Who We Are",
+      "heading": "Practical Packaging Solutions, Built Around Real Operations.",
+      "para1": "Winner Pack Technologies Pvt. Ltd. supplies and manufactures packaging materials for industrial businesses across diverse sectors.",
+      "para2": "Our range includes strapping rolls, shrink and stretch films, tapes, courier bags, labels, and protective packaging—supported by responsive coordination and clear technical specifications.",
+      "checkpoints": [
+        "Material selection support",
+        "Custom specification guidance",
+        "Reliable dispatch coordination",
+        "Quality-focused supply"
+      ],
+      "image": "/images/desktop/about/about_factory_floor_v2.webp",
+      "badgeTag": "Winner Pack Technologies",
+      "badgeTitle": "Manufacturing and Supply Capability You Can Depend On."
+    },
+    "metrics": [
+      {
+        "value": "2018",
+        "label": "Our journey began"
+      },
+      {
+        "value": "20+",
+        "label": "Specialized product lines"
+      }
+    ],
+    "guides": {
+      "mission": {
+        "tag": "Our Mission",
+        "title": "Deliver Precision Packaging Materials With Transparent Specifications and Responsive Customer Support."
+      },
+      "vision": {
+        "tag": "Our Vision",
+        "title": "Be the Trusted Packaging Partner Behind Efficient, Reliable, and Sustainable Supply Chains."
+      }
+    },
+    "capabilities": {
+      "tag": "Operational Capability",
+      "heading": "From Requirement to Reliable Dispatch.",
+      "description": "We connect material selection, converting, quality oversight, and supply coordination so each solution fits the application, machinery, load, and delivery conditions.",
+      "image": "/images/desktop/about/film_slitting_operator_v2.webp",
+      "items": [
+        "Application-led material guidance",
+        "Precision converting and finishing",
+        "Quality checks and batch consistency",
+        "Responsive inventory and dispatch support"
+      ]
+    }
+  },
+  "contact_page": {
+    "header": {
+      "tag": "Contact",
+      "title": "Request specifications &\nindicative pricing.",
+      "description": "Send us your load, line speed and deadline. Our engineers respond within one business day with a tailored quotation — no call centres, no scripts."
+    },
+    "details": {
+      "address": "Winner Pack Technologies Pvt. Ltd. Plot No. 8, B.S.T. Industrial Park, Village Dasna, Ghaziabad, Uttar Pradesh, 201015",
+      "phone": "+91 85950 72187",
+      "phone2": "+91 74287 70999",
+      "email": "info@winnerpack.in",
+      "salesEmail": "sales@winnerpack.in",
+      "hours": "Mon – Sat: 9:00 AM – 7:00 PM IST",
+      "whatsapp": "918595072187",
+      "mapsUrl": "https://maps.google.com/maps?q=Plot%20No.%208,%20B.S.T.%20Industrial%20Park,%20Dasna,%20Ghaziabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    },
+    "faqs": [
+      {
+        "question": "What is your typical quotation turnaround time?",
+        "answer": "We share technical recommendations and initial pricing within one business day. For urgent operational shutdowns, call our direct line at +91 85950 72187 for priority assessment."
+      },
+      {
+        "question": "Do you supply production samples before commercial orders?",
+        "answer": "Yes. We offer sample rolls and trail quantities across films, strapping, and tapes so your quality team can test tensile load, elongation, and machine compatibility before volume sign-off."
+      },
+      {
+        "question": "Can products be manufactured to non-standard widths and thicknesses?",
+        "answer": "Absolutely. We supply tailored widths, custom micron gauges, core sizes, and roll lengths across all product lines to fit your exact manual or automated equipment."
+      },
+      {
+        "question": "Which geographic regions do you deliver to?",
+        "answer": "We supply industrial accounts across Delhi-NCR, Haryana, Uttar Pradesh, and pan-India through dedicated freight partners with scheduled dispatches."
+      },
+      {
+        "question": "What compliance certificates are provided with shipments?",
+        "answer": "We supply Certificate of Analysis (COA), RoHS compliance, and batch-wise specification sheets upon request with commercial shipments."
+      }
+    ]
+  },
+  "page_contact": {
+    "header": {
+      "tag": "Contact",
+      "title": "Request specifications &\nindicative pricing.",
+      "description": "Send us your load, line speed and deadline. Our engineers respond within one business day with a tailored quotation — no call centres, no scripts."
+    },
+    "details": {
+      "address": "Winner Pack Technologies Pvt. Ltd. Plot No. 8, B.S.T. Industrial Park, Village Dasna, Ghaziabad, Uttar Pradesh, 201015",
+      "phone": "+91 85950 72187",
+      "phone2": "+91 74287 70999",
+      "email": "info@winnerpack.in",
+      "salesEmail": "sales@winnerpack.in",
+      "hours": "Mon – Sat: 9:00 AM – 7:00 PM IST",
+      "whatsapp": "918595072187",
+      "mapsUrl": "https://maps.google.com/maps?q=Plot%20No.%208,%20B.S.T.%20Industrial%20Park,%20Dasna,%20Ghaziabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    },
+    "faqs": [
+      {
+        "question": "What is your typical quotation turnaround time?",
+        "answer": "We share technical recommendations and initial pricing within one business day. For urgent operational shutdowns, call our direct line at +91 85950 72187 for priority assessment."
+      },
+      {
+        "question": "Do you supply production samples before commercial orders?",
+        "answer": "Yes. We offer sample rolls and trail quantities across films, strapping, and tapes so your quality team can test tensile load, elongation, and machine compatibility before volume sign-off."
+      },
+      {
+        "question": "Can products be manufactured to non-standard widths and thicknesses?",
+        "answer": "Absolutely. We supply tailored widths, custom micron gauges, core sizes, and roll lengths across all product lines to fit your exact manual or automated equipment."
+      },
+      {
+        "question": "Which geographic regions do you deliver to?",
+        "answer": "We supply industrial accounts across Delhi-NCR, Haryana, Uttar Pradesh, and pan-India through dedicated freight partners with scheduled dispatches."
+      },
+      {
+        "question": "What compliance certificates are provided with shipments?",
+        "answer": "We supply Certificate of Analysis (COA), RoHS compliance, and batch-wise specification sheets upon request with commercial shipments."
+      }
+    ]
+  },
+  "gallery": {
+    "mainHero": {
+      "id": 1,
+      "image": "/images/gallery/team_office_celebration.webp",
+      "title": "Winner Pack Team Celebration",
+      "position": "object-[center_35%]"
+    },
+    "portraits": [
+      {
+        "id": 2,
+        "image": "/images/gallery/team_rafting_expedition.webp",
+        "title": "Team Rafting Expedition"
+      },
+      {
+        "id": 7,
+        "image": "/images/gallery/team_river_beach.webp",
+        "title": "Team River Beach Gathering"
+      },
+      {
+        "id": 9,
+        "image": "/images/gallery/new_gallery_2.webp",
+        "title": "Winner Pack Team Tour Group Photo"
+      }
+    ],
+    "landscapes": [
+      {
+        "id": 3,
+        "image": "/images/gallery/gallery_plant_converting.webp",
+        "title": "Pouch Converting & Slitting Hall"
+      },
+      {
+        "id": 4,
+        "image": "/images/gallery/gallery_office_reception.webp",
+        "title": "Winner Pack Corporate Reception"
+      },
+      {
+        "id": 5,
+        "image": "/images/gallery/gallery_extrusion_tower.webp",
+        "title": "Multilayer Blown Film Extrusion Tower"
+      },
+      {
+        "id": 6,
+        "image": "/images/gallery/gallery_factory_hall.webp",
+        "title": "Manufacturing Machinery Hall Overview"
+      },
+      {
+        "id": 10,
+        "image": "/images/gallery/new_gallery_1.webp",
+        "title": "Team on Tour — Inside the Bus",
+        "position": "object-left"
+      },
+      {
+        "id": 8,
+        "image": "/images/gallery/gallery_slitting_machine.webp",
+        "title": "Automatic High-Speed Slitting Machine"
+      },
+      {
+        "id": 11,
+        "image": "/images/gallery/factory_building_facade.webp",
+        "title": "Winner Pack Technologies Factory Headquarters"
+      }
+    ]
+  },
+  "page_gallery": {
+    "mainHero": {
+      "id": 1,
+      "image": "/images/gallery/team_office_celebration.webp",
+      "title": "Winner Pack Team Celebration",
+      "position": "object-[center_35%]"
+    },
+    "portraits": [
+      {
+        "id": 2,
+        "image": "/images/gallery/team_rafting_expedition.webp",
+        "title": "Team Rafting Expedition"
+      },
+      {
+        "id": 7,
+        "image": "/images/gallery/team_river_beach.webp",
+        "title": "Team River Beach Gathering"
+      },
+      {
+        "id": 9,
+        "image": "/images/gallery/new_gallery_2.webp",
+        "title": "Winner Pack Team Tour Group Photo"
+      }
+    ],
+    "landscapes": [
+      {
+        "id": 3,
+        "image": "/images/gallery/gallery_plant_converting.webp",
+        "title": "Pouch Converting & Slitting Hall"
+      },
+      {
+        "id": 4,
+        "image": "/images/gallery/gallery_office_reception.webp",
+        "title": "Winner Pack Corporate Reception"
+      },
+      {
+        "id": 5,
+        "image": "/images/gallery/gallery_extrusion_tower.webp",
+        "title": "Multilayer Blown Film Extrusion Tower"
+      },
+      {
+        "id": 6,
+        "image": "/images/gallery/gallery_factory_hall.webp",
+        "title": "Manufacturing Machinery Hall Overview"
+      },
+      {
+        "id": 10,
+        "image": "/images/gallery/new_gallery_1.webp",
+        "title": "Team on Tour — Inside the Bus",
+        "position": "object-left"
+      },
+      {
+        "id": 8,
+        "image": "/images/gallery/gallery_slitting_machine.webp",
+        "title": "Automatic High-Speed Slitting Machine"
+      },
+      {
+        "id": 11,
+        "image": "/images/gallery/factory_building_facade.webp",
+        "title": "Winner Pack Technologies Factory Headquarters"
+      }
+    ]
+  },
+  "footer": {
+    "name": "Winner Pack Technologies",
+    "legalName": "Winner Pack Technologies Pvt. Ltd.",
+    "phone": "+91 85950 72187",
+    "phone2": "+91 74287 70999",
+    "email": "info@winnerpack.in",
+    "address": "Winner Pack Technologies Pvt. Ltd. Plot No. 8, B.S.T. Industrial Park, Village Dasna, Ghaziabad, Uttar Pradesh, 201015",
+    "description": "Winner Pack Technologies Pvt. Ltd. is a manufacturer and supplier of environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply quality stretch films, strapping rolls, shrink films, and protective packaging solutions to industrial businesses across diverse sectors.",
+    "linkedin": "https://www.linkedin.com/company/winnerpacktechnologies/",
+    "whatsapp": "918595072187",
+    "instagram": "https://www.instagram.com/winnerpacktechnologiespvtltd/",
+    "facebook": "https://www.facebook.com/winnerpackindia"
+  },
+  "global": {
+    "ticker": {
+      "enabled": true,
+      "text": "Mon – Sat: 9:00 AM – 7:00 PM IST",
+      "phone": "+91 85950 72187",
+      "phone2": "+91 74287 70999",
+      "email": "info@winnerpack.in"
+    },
+    "footer": {
+      "name": "Winner Pack Technologies",
+      "legalName": "Winner Pack Technologies Pvt. Ltd.",
+      "phone": "+91 85950 72187",
+      "phone2": "+91 74287 70999",
+      "email": "info@winnerpack.in",
+      "address": "Winner Pack Technologies Pvt. Ltd. Plot No. 8, B.S.T. Industrial Park, Village Dasna, Ghaziabad, Uttar Pradesh, 201015",
+      "description": "Winner Pack Technologies Pvt. Ltd. is a manufacturer and supplier of environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply quality stretch films, strapping rolls, shrink films, and protective packaging solutions to industrial businesses across diverse sectors.",
+      "linkedin": "https://www.linkedin.com/company/winnerpacktechnologies/",
+      "whatsapp": "918595072187",
+      "instagram": "https://www.instagram.com/winnerpacktechnologiespvtltd/",
+      "facebook": "https://www.facebook.com/winnerpackindia"
+    },
+    "floating": {
+      "linkedin": "https://www.linkedin.com/company/winnerpacktechnologies/",
+      "facebook": "https://www.facebook.com/winnerpackindia",
+      "instagram": "https://www.instagram.com/winnerpacktechnologiespvtltd/",
+      "whatsapp": "918595072187",
+      "prompt": "Hello Winner Pack team, I would like to inquire about industrial packaging materials.",
+      "showWhatsApp": true
+    }
+  },
+  "page_global": {
+    "ticker": {
+      "enabled": true,
+      "text": "Mon – Sat: 9:00 AM – 7:00 PM IST",
+      "phone": "+91 85950 72187",
+      "phone2": "+91 74287 70999",
+      "email": "info@winnerpack.in"
+    },
+    "footer": {
+      "name": "Winner Pack Technologies",
+      "legalName": "Winner Pack Technologies Pvt. Ltd.",
+      "phone": "+91 85950 72187",
+      "phone2": "+91 74287 70999",
+      "email": "info@winnerpack.in",
+      "address": "Winner Pack Technologies Pvt. Ltd. Plot No. 8, B.S.T. Industrial Park, Village Dasna, Ghaziabad, Uttar Pradesh, 201015",
+      "description": "Winner Pack Technologies Pvt. Ltd. is a manufacturer and supplier of environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply quality stretch films, strapping rolls, shrink films, and protective packaging solutions to industrial businesses across diverse sectors.",
+      "linkedin": "https://www.linkedin.com/company/winnerpacktechnologies/",
+      "whatsapp": "918595072187",
+      "instagram": "https://www.instagram.com/winnerpacktechnologiespvtltd/",
+      "facebook": "https://www.facebook.com/winnerpackindia"
+    },
+    "floating": {
+      "linkedin": "https://www.linkedin.com/company/winnerpacktechnologies/",
+      "facebook": "https://www.facebook.com/winnerpackindia",
+      "instagram": "https://www.instagram.com/winnerpacktechnologiespvtltd/",
+      "whatsapp": "918595072187",
+      "prompt": "Hello Winner Pack team, I would like to inquire about industrial packaging materials.",
+      "showWhatsApp": true
+    }
+  }
+}

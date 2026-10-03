@@ -4,8 +4,10 @@
   "description": "Express + Mongoose backend for Winner Pack Technologies",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev": "tsx watch src/server.ts",
     "seed": "ts-node src/seed.ts",
+    "db:backfill-products": "ts-node src/backfill-products.ts",
+    "db:sync-content": "ts-node src/sync-content.ts",
     "build": "tsc",
     "start": "node dist/server.js",
     "test": "npm run build && node --test tests/*.test.cjs"
@@ -13,11 +15,10 @@
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
-    "express": "^4.21.2",
+    "express": "^4.22.3",
     "mongoose": "^8.9.5",
     "multer": "^1.4.5-lts.1",
-    "nodemailer": "^9.0.4",
-    "sharp": "^0.35.3"
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.8",
@@ -25,8 +26,7 @@
     "@types/express": "^5.0.0",
     "@types/multer": "^1.4.12",
     "@types/node": "^22.10.7",
-    "@types/nodemailer": "^8.0.1",
-    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.23.15",
     "typescript": "^5.7.3"
   }
 }

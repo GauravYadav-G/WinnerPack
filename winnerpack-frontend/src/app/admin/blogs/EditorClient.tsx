@@ -35,10 +35,10 @@ interface Article {
 }
 
 const PRESET_IMAGES = [
-  { name: "Pallet Wrapping", url: "/images/desktop/journey/solution_pallet_wrapping.png" },
-  { name: "Team Bus Interior", url: "/images/gallery/new_gallery_1.png" },
-  { name: "Team Group Outdoor", url: "/images/gallery/new_gallery_2.png" },
-  { name: "Factory HQ Building", url: "/images/gallery/factory_building_facade.jpg" },
+  { name: "Pallet Wrapping", url: "/images/desktop/journey/solution_pallet_wrapping.webp" },
+  { name: "Team Bus Interior", url: "/images/gallery/new_gallery_1.webp" },
+  { name: "Team Group Outdoor", url: "/images/gallery/new_gallery_2.webp" },
+  { name: "Factory HQ Building", url: "/images/gallery/factory_building_facade.webp" },
 ];
 
 export default function EditorClient() {
@@ -50,6 +50,7 @@ export default function EditorClient() {
   const [submitting, setSubmitting] = useState(false);
   const [showSeoDetails, setShowSeoDetails] = useState(true);
   const [showSeoModal, setShowSeoModal] = useState(false);
+  const [loadError, setLoadError] = useState('');
 
   // Date format conversion helper
   const toInputDate = (dbDateStr: string) => {
@@ -84,7 +85,7 @@ export default function EditorClient() {
     featured: false,
     excerpt: "",
     body: "",
-    image: "/images/desktop/journey/solution_pallet_wrapping.png",
+    image: "/images/desktop/journey/solution_pallet_wrapping.webp",
     slug: "",
     canonicalUrl: "",
     metaKeywords: "",
@@ -94,22 +95,19 @@ export default function EditorClient() {
   // Fetch article if in Edit mode
   useEffect(() => {
     if (!id) return;
+    const articleId = id;
     async function loadArticle() {
       setLoading(true);
+      setLoadError('');
       try {
-        const res = await apiFetch("/api/articles");
-        if (res.ok) {
-          const list: Article[] = await res.json();
-          const found = list.find((a) => a._id === id);
-          if (found) {
-            setFormData(found);
-          } else {
-            alert("Article not found.");
-            router.push("/admin/blogs");
-          }
+        const res = await apiFetch(`/api/articles/${encodeURIComponent(articleId)}`, { cache: 'no-store' });
+        if (!res.ok) {
+          const payload = await res.json().catch(() => ({}));
+          throw new Error(payload.error || `Could not load article (${res.status}).`);
         }
+        setFormData(await res.json());
       } catch (err) {
-        console.error(err);
+        setLoadError(err instanceof Error ? err.message : 'Could not load this article.');
       } finally {
         setLoading(false);
       }
@@ -161,15 +159,13 @@ export default function EditorClient() {
         body: JSON.stringify(id ? { _id: id, ...payload } : payload),
       });
 
-      if (res.ok) {
-        router.push("/admin/blogs");
-      } else {
+      if (!res.ok) {
         const errData = await res.json();
-        alert(`Error saving article: ${errData.error || "Unknown error"}`);
+        throw new Error(errData.error || "Could not save the article.");
       }
+      router.push("/admin/blogs");
     } catch (err) {
-      console.error(err);
-      alert("An unexpected error occurred while saving.");
+      alert(err instanceof Error ? err.message : "An unexpected error occurred while saving.");
     } finally {
       setSubmitting(false);
     }
@@ -298,6 +294,23 @@ export default function EditorClient() {
     return (
       <div className="py-20 text-center text-xs font-mono uppercase tracking-widest text-slate-400">
         Loading Article Content...
+      </div>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <div className="mx-auto max-w-xl rounded-2xl border border-rose-200 bg-rose-50 p-8 text-center">
+        <AlertCircle className="mx-auto h-8 w-8 text-rose-500" />
+        <h1 className="mt-3 text-lg font-bold text-rose-900">Could not open this article</h1>
+        <p className="mt-2 text-sm text-rose-700">{loadError}</p>
+        <button
+          type="button"
+          onClick={() => router.push('/admin/blogs')}
+          className="mt-5 rounded-xl bg-rose-700 px-4 py-2 text-xs font-bold text-white hover:bg-rose-800"
+        >
+          Back to articles
+        </button>
       </div>
     );
   }
@@ -470,7 +483,7 @@ export default function EditorClient() {
             required
             value={formData.image || ""}
             onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-            placeholder="Image URL path (e.g. /images/gallery/new_gallery_1.png)"
+            placeholder="Image URL path (e.g. /images/gallery/new_gallery_1.webp)"
             className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs font-mono text-slate-800 focus:border-amber-500 focus:outline-none"
           />
 

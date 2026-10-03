@@ -17,17 +17,37 @@ const iconMap: Record<string, any> = {
 
 const defaultUsps = fallbackData.usps;
 
-export default function WhyChooseUs() {
-  const [uspsList, setUspsList] = useState<any[]>(defaultUsps);
+export default function WhyChooseUs({ previewData }: { previewData?: any } = {}) {
+  const [uspsList, setUspsList] = useState<any[]>(Array.isArray(previewData?.usps) ? previewData.usps : defaultUsps);
+  const [header, setHeader] = useState({
+    eyebrow: previewData?.eyebrow ?? 'Why WinnerPack',
+    title: previewData?.title ?? 'Six Reasons Procurement Teams Renew Our Contract Every Year',
+  });
 
   useEffect(() => {
+    if (previewData) {
+      setHeader({
+        eyebrow: previewData.eyebrow ?? '',
+        title: previewData.title ?? '',
+      });
+      if (Array.isArray(previewData.usps)) {
+        setUspsList(previewData.usps);
+      }
+      return;
+    }
     fetchContent("homepage")
       .then((data) => {
-        if (data && data !== fallbackData && Array.isArray(data.usps) && data.usps.length > 0) {
+        if (data?.whyHeader) {
+          setHeader({
+            eyebrow: data.whyHeader.eyebrow ?? 'Why WinnerPack',
+            title: data.whyHeader.title ?? 'Six Reasons Procurement Teams Renew Our Contract Every Year',
+          });
+        }
+        if (data && Array.isArray(data.usps)) {
           // Merge bgImages from defaultUsps into fetched data
           const merged = data.usps.map((u: any, i: number) => ({
             ...u,
-            bgImage: defaultUsps[i]?.bgImage || "",
+            bgImage: u.bgImage ?? defaultUsps[i]?.bgImage ?? "",
           }));
           setUspsList(merged);
         }
@@ -35,7 +55,7 @@ export default function WhyChooseUs() {
       .catch(() => {
         // Backend offline — fall back gracefully to default usps content
       });
-  }, []);
+  }, [previewData]);
 
   return (
     <section id="why" className="relative overflow-hidden bg-white py-16 md:py-24 border-b border-[var(--color-line)]">
@@ -44,10 +64,10 @@ export default function WhyChooseUs() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <div className="mb-12 md:mb-16 text-center max-w-4xl mx-auto flex flex-col items-center">
           <span className="text-xs font-bold tracking-widest text-[var(--color-amber-dark)] font-mono mb-2">
-            Why WinnerPack
+            {header.eyebrow}
           </span>
           <h2 className="font-display text-2xl font-extrabold leading-[1.15] tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-5xl text-balance">
-            Six Reasons Procurement Teams Renew Our Contract Every Year
+            {header.title}
           </h2>
           <div className="mt-4 h-1.5 w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
         </div>
@@ -84,7 +104,7 @@ export default function WhyChooseUs() {
                 <Plus className="absolute right-4 top-4 md:right-7 md:top-7 h-4 w-4 md:h-5 md:w-5 text-[var(--color-line-2)] transition-all duration-500 group-hover:rotate-45 group-hover:text-[var(--color-amber)]" />
 
                 <div className="relative mb-4 md:mb-7 flex items-center gap-3 md:gap-4">
-                  <div className="font-mono text-xs font-bold text-[var(--color-line-2)] transition-colors group-hover:text-[var(--color-amber)]">
+                  <div className="font-mono text-xs font-bold text-[#706879] transition-colors group-hover:text-[var(--color-amber)]">
                     0{i + 1}
                   </div>
                   <div className="h-px flex-1 bg-[var(--color-line-2)] transition-colors group-hover:bg-white/20" />

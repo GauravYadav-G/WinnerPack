@@ -46,7 +46,7 @@ export default function IndustryDetailClient({ params }: { params: Promise<{ id:
         <section className="relative overflow-hidden min-h-[260px] sm:min-h-[300px] md:min-h-[340px] flex items-center justify-center py-12 md:py-16 lg:py-20 bg-[var(--color-blue-deep)] border-b border-white/10 text-white">
           <div className="absolute inset-0 z-0">
             <OptimizedImage
-              src="/images/header-bg.png"
+              src="/images/header-bg.webp"
               alt="Industry Manufacturing Background"
               className="w-full h-full object-cover object-center scale-100 opacity-75"
             />

@@ -14,15 +14,24 @@ interface BrandItem {
 
 const DEFAULT_BRANDS = defaultPartners;
 
-export default function ClientLogoStrip() {
+export default function ClientLogoStrip({ previewData }: { previewData?: any } = {}) {
   const [partnerHeader, setPartnerHeader] = useState({
-    tag: "OUR PARTNERS",
-    title: "We work with the best partners",
+    tag: previewData?.partnerHeader?.tag ?? "OUR PARTNERS",
+    title: previewData?.partnerHeader?.title ?? "We work with the best partners",
   });
 
-  const [brands, setBrands] = useState<BrandItem[]>(DEFAULT_BRANDS);
+  const [brands, setBrands] = useState<BrandItem[]>(Array.isArray(previewData?.partners) ? previewData.partners : DEFAULT_BRANDS);
 
   useEffect(() => {
+    if (previewData) {
+      if (previewData.partnerHeader) {
+        setPartnerHeader((prev) => ({ ...prev, ...previewData.partnerHeader }));
+      }
+      if (Array.isArray(previewData.partners)) {
+        setBrands(previewData.partners);
+      }
+      return;
+    }
     async function loadPartners() {
       try {
         const res = await apiFetch("/api/content?key=partners_materials_certs");
@@ -31,7 +40,7 @@ export default function ClientLogoStrip() {
           if (doc.partnerHeader) {
             setPartnerHeader((prev) => ({ ...prev, ...doc.partnerHeader }));
           }
-          if (Array.isArray(doc.partners) && doc.partners.length > 0) {
+          if (Array.isArray(doc.partners)) {
             setBrands(doc.partners);
           }
         }
@@ -40,7 +49,7 @@ export default function ClientLogoStrip() {
       }
     }
     loadPartners();
-  }, []);
+  }, [previewData]);
 
   return (
     <section id="clients" className="relative overflow-hidden bg-[var(--color-bone)] py-12 sm:py-18 lg:py-24 border-t border-b border-[var(--color-line)]">
@@ -54,10 +63,10 @@ export default function ClientLogoStrip() {
         {/* Centered Minimal Header with large typography */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-16">
           <span className="text-xs font-mono font-bold tracking-[0.16em] text-[var(--color-amber-dark)] mb-2.5 sm:mb-3">
-            {partnerHeader.tag || "Our Partners"}
+            {partnerHeader.tag}
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-snug sm:leading-[1.15] text-balance">
-            {partnerHeader.title || "We Work With the Best Partners"}
+            {partnerHeader.title}
           </h2>
           <div className="mt-4 sm:mt-5 h-1.5 w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
         </div>

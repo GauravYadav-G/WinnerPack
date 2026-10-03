@@ -7,14 +7,48 @@ import { cn } from "../utils/cn";
 import OptimizedImage from '@/components/OptimizedImage';
 
 
+import { apiFetch } from '@/lib/api';
+
 const applicationSlides = defaultApplications;
 
-export default function ProductApplicationsSlider() {
+export default function ProductApplicationsSlider({ previewData }: { previewData?: any } = {}) {
+  const [slidesList, setSlidesList] = useState<any[]>(Array.isArray(previewData?.slides) ? previewData.slides : defaultApplications);
+  const [header, setHeader] = useState({
+    eyebrow: previewData?.eyebrow ?? 'Real-World Applications',
+    title: previewData?.title ?? 'Materials in Industrial Action',
+  });
   const [activeIndex, setActiveIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(1200);
   const touchStartX = useRef<number | null>(null);
 
-  const total = applicationSlides.length;
+  useEffect(() => {
+    if (previewData) {
+      setHeader({
+        eyebrow: previewData.eyebrow ?? '',
+        title: previewData.title ?? '',
+      });
+      if (Array.isArray(previewData.slides)) {
+        setSlidesList(previewData.slides);
+      }
+      return;
+    }
+    apiFetch("/api/content?key=applications")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && Array.isArray(data.slides)) {
+          setSlidesList(data.slides);
+        }
+        if (data) {
+          setHeader({
+            eyebrow: data.eyebrow ?? 'Real-World Applications',
+            title: data.title ?? 'Materials in Industrial Action',
+          });
+        }
+      })
+      .catch(() => {});
+  }, [previewData]);
+
+  const total = slidesList.length || 1;
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -33,15 +67,22 @@ export default function ProductApplicationsSlider() {
 
   // Auto-scroll timer
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 3200);
-    return () => clearInterval(interval);
+    let interval: ReturnType<typeof setInterval> | undefined;
+    const start = window.setTimeout(() => {
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        interval = setInterval(nextSlide, 3200);
+      }
+    }, 20_000);
+    return () => {
+      window.clearTimeout(start);
+      if (interval) clearInterval(interval);
+    };
   }, [nextSlide]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
+
 
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null) return;
@@ -75,10 +116,10 @@ export default function ProductApplicationsSlider() {
         {/* Centered Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-16">
           <span className="text-xs font-bold tracking-widest text-[var(--color-amber-dark)] font-mono">
-            Real-World Applications
+            {header.eyebrow}
           </span>
           <h2 className="mt-3 font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-[1.15]">
-            Materials in Industrial Action
+            {header.title}
           </h2>
           <div className="mt-4 h-1.5 w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
         </div>
@@ -86,7 +127,7 @@ export default function ProductApplicationsSlider() {
         {/* ── CAROUSEL STAGE (Pure Borderless Full-Cover Images with Side Navigation) ── */}
         <div className="relative">
           <div className="relative h-[440px] sm:h-[500px] md:h-[550px] lg:h-[590px] w-full flex items-center justify-center overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)]">
-            {applicationSlides.map((slide, i) => {
+            {slidesList.map((slide, i) => {
               let offset = i - activeIndex;
               if (offset > total / 2) offset -= total;
               if (offset < -total / 2) offset += total;
@@ -155,10 +196,10 @@ export default function ProductApplicationsSlider() {
               onClick={() => setActiveIndex(index)}
               aria-label={`Go to slide ${index + 1}`}
               className={cn(
-                "h-2.5 rounded-full transition-all duration-300 cursor-pointer",
+                "relative h-6 min-w-6 rounded-full transition-all duration-300 cursor-pointer before:absolute before:left-1/2 before:top-1/2 before:h-2.5 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:content-['']",
                 index === activeIndex
-                  ? "w-8 bg-[var(--color-amber)]"
-                  : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                  ? "w-8 before:w-8 before:bg-[var(--color-amber)]"
+                  : "w-6 before:w-2.5 before:bg-slate-300 hover:before:bg-slate-400"
               )}
             />
           ))}

@@ -131,8 +131,8 @@ export const industryVerticals: IndustryVertical[] = [
       { title: "Optimized Material Cost", desc: "High-yield stretch films and lightweight mailers optimized for dimensional weight efficiency." },
       { title: "Compatible with Automated Lines", desc: "Smooth-unwind tapes and films designed for compatibility with carton sealing lines." }
     ],
-    recommendedProductIds: ["bopp-tapes", "poly-courier-bags", "manual-stretch-film", "corrugated-boxes"],
-    image: "/images/desktop/industries/ecommerce_logistics_industry.png"
+    recommendedProductIds: ["bopp-tapes", "poly-courier-bags", "manual-stretch-film", "plastic-stretch-film"],
+    image: "/images/desktop/industries/ecommerce_logistics_industry.webp"
   },
   {
     id: "automotive-engineering",
@@ -145,8 +145,8 @@ export const industryVerticals: IndustryVertical[] = [
       { title: "Surface Protection", desc: "EPE foam rolls and edge protectors providing cushioning and surface protection on export crates." },
       { title: "Batch Traceability", desc: "Batch-tested tensile strength with Certificate of Analysis (COA) per dispatch." }
     ],
-    recommendedProductIds: ["pet-strap", "pp-strap", "epe-foam-rolls", "edge-protector"],
-    image: "/images/desktop/industries/automobile_industry.png"
+    recommendedProductIds: ["pet-strap", "pp-strap", "machine-stretch-film", "bopp-tapes"],
+    image: "/images/desktop/industries/automobile_industry.webp"
   },
   {
     id: "food-fmcg",
@@ -160,7 +160,7 @@ export const industryVerticals: IndustryVertical[] = [
       { title: "Pallet Load Stability", desc: "Machine stretch film delivering reliable load containment for palletised beverage and FMCG products." }
     ],
     recommendedProductIds: ["pof-shrink-rolls", "ldpe-shrink-rolls", "machine-stretch-film", "printed-bopp-tapes"],
-    image: "/images/desktop/industries/food_fmcg_industry.png"
+    image: "/images/desktop/industries/food_fmcg_industry.webp"
   },
   {
     id: "pharma-healthcare",
@@ -174,7 +174,7 @@ export const industryVerticals: IndustryVertical[] = [
       { title: "Hygiene-Safe Materials", desc: "Packaging materials manufactured under controlled, dust-free production conditions." }
     ],
     recommendedProductIds: ["thermal-labels", "barcode-labels", "pvc-shrink-rolls", "specialty-pouches"],
-    image: "/images/desktop/industries/pharma_industry.png"
+    image: "/images/desktop/industries/pharma_industry.webp"
   },
   {
     id: "electronics-electricals",
@@ -187,8 +187,8 @@ export const industryVerticals: IndustryVertical[] = [
       { title: "Impact Cushioning", desc: "Bubble rolls and corrugated edge protectors providing shock absorption for fragile goods." },
       { title: "Secure Pallet Wrap", desc: "Cast and blown stretch films providing reliable load containment for heavy appliance pallets." }
     ],
-    recommendedProductIds: ["specialty-pouches", "bubble-roll", "edge-protector", "machine-stretch-film"],
-    image: "/images/desktop/industries/electronics_industry.png"
+    recommendedProductIds: ["specialty-pouches", "antistatic-poly-bags", "plastic-stretch-film", "machine-stretch-film"],
+    image: "/images/desktop/industries/electronics_industry.webp"
   },
   {
     id: "stationery-corporate",
@@ -201,7 +201,7 @@ export const industryVerticals: IndustryVertical[] = [
       { title: "High Burst Factor Boxes", desc: "Heavy-duty 3-ply and 5-ply corrugated boxes preventing box crush under stacking." },
       { title: "Moisture Protection", desc: "POF shrink wrap bundling paper reams against ambient humidity." }
     ],
-    recommendedProductIds: ["printed-bopp-tapes", "corrugated-boxes", "printed-pp-strap", "pof-shrink-rolls"],
-    image: "/images/desktop/industries/stationery_industry.png"
+    recommendedProductIds: ["printed-bopp-tapes", "bopp-tapes", "printed-pp-strap", "pof-shrink-rolls"],
+    image: "/images/desktop/industries/stationery_industry.webp"
   }
 ];

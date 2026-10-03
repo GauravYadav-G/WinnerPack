@@ -42,7 +42,7 @@ export function getRelatedPosts(currentSlug: string, category: string) {
 }
 
 export const IMAGES = {
-  aboutFactory: "/images/desktop/about/about_factory_production.png",
+  aboutFactory: "/images/desktop/about/about_factory_production.webp",
 };
 
 /**

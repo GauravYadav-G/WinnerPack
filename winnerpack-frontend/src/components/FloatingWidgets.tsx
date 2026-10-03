@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { X, MessageCircle } from "lucide-react";
+import { apiFetch } from '@/lib/api';
+import { defaultGlobal } from '@/lib/site-defaults';
 
 // Verified WhatsApp glyph
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -15,25 +17,25 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
     </svg>
   );
 }
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
     </svg>
   );
 }
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
     </svg>
   );
@@ -98,13 +100,44 @@ function ActionButton({
   );
 }
 
-export default function FloatingWidgets() {
+export default function FloatingWidgets({ previewData }: { previewData?: any } = {}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [waHovered, setWaHovered] = useState(false);
   const [liHovered, setLiHovered] = useState(false);
-  const [igHovered, setIgHovered] = useState(false);
   const [fbHovered, setFbHovered] = useState(false);
+  const [igHovered, setIgHovered] = useState(false);
+  const [config, setConfig] = useState(previewData ?? { ...defaultGlobal.footer, ...defaultGlobal.floating });
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (previewData !== undefined) {
+      setConfig(previewData);
+      return;
+    }
+    Promise.all([
+      apiFetch('/api/content?key=global', { cache: 'no-store' }),
+      apiFetch('/api/content?key=footer', { cache: 'no-store' }),
+    ])
+      .then(async ([globalResponse, footerResponse]) => ({
+        global: globalResponse.ok ? await globalResponse.json() : null,
+        footer: footerResponse.ok ? await footerResponse.json() : null,
+      }))
+      .then(({ global, footer }) => {
+        setConfig({
+          ...defaultGlobal.footer,
+          ...(global?.footer ?? {}),
+          ...(footer ?? {}),
+          ...defaultGlobal.floating,
+          ...(global?.floating ?? {}),
+        });
+      })
+      .catch(() => {});
+  }, [previewData]);
+
+  const whatsapp = config.whatsapp ?? config.whatsappNumber ?? '';
+  const prompt = config.prompt ?? config.whatsappPrompt ?? '';
+  const actions = [config.linkedin, config.facebook, config.instagram, config.showWhatsApp !== false ? whatsapp : ''].filter(Boolean);
+  const actionCount = actions.length;
 
   // Close speed dial when clicking outside
   useEffect(() => {
@@ -131,10 +164,10 @@ export default function FloatingWidgets() {
               transition={{ duration: 0.2, ease: "easeOut" }}
               className="flex flex-col items-end gap-2.5"
             >
-              {/* LinkedIn Floating Icon */}
+              {config.linkedin && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 }}>
                 <ActionButton
-                  href="https://www.linkedin.com/company/winnerpacktechnologies/"
+                  href={config.linkedin}
                   label="Follow on LinkedIn"
                   from="#0A66C2"
                   to="#004182"
@@ -143,14 +176,15 @@ export default function FloatingWidgets() {
                   onHoverStart={() => setLiHovered(true)}
                   onHoverEnd={() => setLiHovered(false)}
                 >
-                  <LinkedInIcon className="relative z-10 h-5 w-5 drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
+                  <LinkedInIcon className="relative z-10 h-5 w-5" />
                 </ActionButton>
               </motion.div>
+              )}
 
-              {/* Facebook Floating Icon */}
+              {config.facebook && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }}>
                 <ActionButton
-                  href="https://www.facebook.com/winnerpackindia"
+                  href={config.facebook}
                   label="Follow on Facebook"
                   from="#1877F2"
                   to="#0B52B7"
@@ -159,14 +193,15 @@ export default function FloatingWidgets() {
                   onHoverStart={() => setFbHovered(true)}
                   onHoverEnd={() => setFbHovered(false)}
                 >
-                  <FacebookIcon className="relative z-10 h-5 w-5 drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
+                  <FacebookIcon className="relative z-10 h-5 w-5" />
                 </ActionButton>
               </motion.div>
+              )}
 
-              {/* Instagram Floating Icon */}
+              {config.instagram && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.04 }}>
                 <ActionButton
-                  href="https://www.instagram.com/winnerpacktechnologiespvtltd/"
+                  href={config.instagram}
                   label="Follow on Instagram"
                   from="#833AB4"
                   to="#E1306C"
@@ -175,14 +210,15 @@ export default function FloatingWidgets() {
                   onHoverStart={() => setIgHovered(true)}
                   onHoverEnd={() => setIgHovered(false)}
                 >
-                  <InstagramIcon className="relative z-10 h-5 w-5 drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
+                  <InstagramIcon className="relative z-10 h-5 w-5" />
                 </ActionButton>
               </motion.div>
+              )}
 
-              {/* WhatsApp Floating Icon */}
+              {config.showWhatsApp !== false && whatsapp && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0 }}>
                 <ActionButton
-                  href="https://wa.me/918595072187"
+                  href={`https://wa.me/${String(whatsapp).replace(/[^\d]/g, '')}${prompt ? `?text=${encodeURIComponent(prompt)}` : ''}`}
                   label="WhatsApp Support"
                   from="#2DDB6E"
                   to="#0F9D6E"
@@ -194,6 +230,7 @@ export default function FloatingWidgets() {
                   <WhatsAppIcon className="relative z-10 h-5 w-5 md:h-6 md:w-6 drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
                 </ActionButton>
               </motion.div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
@@ -202,7 +239,7 @@ export default function FloatingWidgets() {
         <button
           type="button"
           onClick={() => setIsExpanded(!isExpanded)}
-          aria-label={isExpanded ? "Close social links" : "Connect with us"}
+          aria-label={isExpanded ? "Close quick actions" : `Connect with us, ${actionCount} quick actions`}
           className="relative flex h-12 w-12 md:h-14 md:w-14 shrink-0 items-center justify-center rounded-full text-white outline-none transition-transform active:scale-95 shadow-xl bg-gradient-to-r from-[var(--color-blue-deep)] via-[var(--color-blue)] to-[var(--color-amber-dark)] cursor-pointer"
           style={{
             boxShadow: "0 10px 25px -5px rgba(10,22,40,0.4), inset 0 1px 0 rgba(255,255,255,0.3)",
@@ -227,8 +264,8 @@ export default function FloatingWidgets() {
             ) : (
               <div className="relative flex items-center justify-center">
                 <MessageCircle className="h-6 w-6 text-white drop-shadow-sm" />
-                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[var(--color-amber)] text-[9px] font-black text-[var(--color-blue-deep)] shadow-xs">
-                  4
+                <span aria-hidden="true" className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[var(--color-amber)] text-[9px] font-black text-[var(--color-blue-deep)] shadow-xs">
+                  {actionCount}
                 </span>
               </div>
             )}

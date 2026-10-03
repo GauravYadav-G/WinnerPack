@@ -7,11 +7,11 @@ export const initialProducts = [
     tag: "Plain",
     blurb: "Paper labels which can be affixed to containers or products for clear item information. Available in custom colors and specifications.",
     longDesc: "We provide paper labels which can be affixed to a container or products, on which information about the product or items is mentioned. Available in colours, these paper labels can also be customized as per the requirement.\n\n### Key Product Features:\n- **Versatile Substrates**: Premium Chromo paper, art paper, and direct thermal paper grades.\n- **Custom Color Options**: Available in vibrant solid colors for inventory tint coding and identification.\n- **High Tack Permanent Adhesive**: Formulated with hot-melt pressure-sensitive adhesive that bonds to corrugated, plastic, glass, and wood.\n- **Printer Compatibility**: Works seamlessly with thermal transfer and flexographic desktop barcode printers.\n- **Custom Sizing & Die-Cutting**: Custom roll widths, core sizes (1-inch & 3-inch), and die-cut shapes on demand.",
-    image: "/images/products/plain-labels/plain-labels.jpg",
+    image: "/images/products/plain-labels/plain-labels.webp",
     gallery: [
-      "/images/products/plain-labels/plain-labels.jpg",
-      "/images/products/plain-labels/plain-chromo-labels.jpg",
-      "/images/products/plain-thermal-transfer-labels/plain-thermal-transfer-labels.jpg"
+      "/images/products/plain-labels/plain-labels.webp",
+      "/images/products/plain-labels/plain-chromo-labels.webp",
+      "/images/products/plain-thermal-transfer-labels/plain-thermal-transfer-labels.webp"
     ],
     specs: {
       "Material Type": "Premium Chromo / Art Paper / Thermal Stock",
@@ -35,7 +35,7 @@ export const initialProducts = [
         title: "Plain Chromo Paper Labels",
         subtitle: "White & Solid Colored Unprinted Roll Labels for Packaging",
         blurb: "High-quality unprinted chromo paper label rolls with permanent adhesive backing. Designed for clear product identification, warehouse bin marking, and color-coded carton labeling.",
-        image: "/images/products/plain-labels/plain-chromo-labels.jpg",
+        image: "/images/products/plain-labels/plain-chromo-labels.webp",
         specs: {
           "Face Paper": "80 GSM Semi-Gloss Chromo Paper",
           "Adhesive": "High Tack Permanent Rubber Base Glue",
@@ -49,7 +49,7 @@ export const initialProducts = [
         title: "Plain Thermal Transfer Labels",
         subtitle: "Ribbon-Compatible White Transfer Stickers for Barcode Printers",
         blurb: "Smooth surface white paper labels optimized for wax and wax-resin thermal ribbon printing. Delivers sharp barcode print edges and durable text readability.",
-        image: "/images/products/plain-thermal-transfer-labels/plain-thermal-transfer-labels.jpg",
+        image: "/images/products/plain-thermal-transfer-labels/plain-thermal-transfer-labels.webp",
         specs: {
           "Face Stock": "Premium Thermal Transfer Paper",
           "Ribbon Match": "Wax / Wax-Resin Thermal Ribbon",
@@ -74,10 +74,10 @@ export const initialProducts = [
     tag: "Printed",
     blurb: "Printed labels are custom labels made as per customer requirements using digital, flexographic, and wide format printing.",
     longDesc: "Printed labels are custom labels which are made as per customer requirements. And are printed through various methods like digital printing, flexographic printing, and wide format printing. All these have different results of printing.\n\n### Key Product Features:\n- **Multi-Method High-Resolution Printing**: Printed using digital printing for short runs, flexographic printing for high volumes, and wide format printing for large labels.\n- **Custom Branding & Graphics**: Up to 8-color UV ink printing with crisp typography, QR codes, and photo-realistic graphics.\n- **Surface Protective Coatings**: Glossy UV lamination, matte top-coat, and scratch-resistant varnishes.\n- **Food & Pharma Grade Inks**: Non-toxic, low-odor inks compliant with FDA indirect food contact guidelines.\n- **Automatic Applicator Ready**: Precision gap die-cutting and winding directions for high-speed automatic label application machines.",
-    image: "/images/products/printed-labels/flexo-digital-printed-labels.jpg",
+    image: "/images/products/printed-labels/flexo-digital-printed-labels.webp",
     gallery: [
-      "/images/products/printed-labels/flexo-digital-printed-labels.jpg",
-      "/images/products/wide-format-printed-labels/wide-format-printed-labels.jpg"
+      "/images/products/printed-labels/flexo-digital-printed-labels.webp",
+      "/images/products/wide-format-printed-labels/wide-format-printed-labels.webp"
     ],
     specs: {
       "Print Methods": "Digital / Flexographic / Wide Format Printing",
@@ -101,7 +101,7 @@ export const initialProducts = [
         title: "Flexographic & Digital Printed Labels",
         subtitle: "High-Volume & Short-Run Custom Product Branding Stickers",
         blurb: "Custom roll labels printed via flexography for mass production or digital printing for short-run SKU variations. Delivers vibrant color accuracy, photo quality detail, and durable surface protection.",
-        image: "/images/products/printed-labels/flexo-digital-printed-labels.jpg",
+        image: "/images/products/printed-labels/flexo-digital-printed-labels.webp",
         specs: {
           "Printing Process": "8-Color Flexo Press / HP Indigo Digital",
           "Special Effects": "Hot Foil Stamping / Spot UV Varnish / Embossing",
@@ -115,7 +115,7 @@ export const initialProducts = [
         title: "Wide Format & Promotional Labels",
         subtitle: "Large Format Vinyl Stickers & High-Impact Promotional Labels",
         blurb: "Large format printed labels produced on wide-format inkjet presses. Ideal for equipment rating plates, promotional window graphics, drum labels, and outdoor weatherproof branding stickers.",
-        image: "/images/products/wide-format-printed-labels/wide-format-printed-labels.jpg",
+        image: "/images/products/wide-format-printed-labels/wide-format-printed-labels.webp",
         specs: {
           "Printing Process": "Eco-Solvent / UV Wide Format Printing",
           "Substrate": "Heavy-Duty Vinyl / Polypropylene (PP)",
@@ -140,10 +140,10 @@ export const initialProducts = [
     tag: "Barcode",
     blurb: "Barcode labels provide regulatory information on product tracking, order delivery, transport details, and quality control across all manufacture and distribution phases.",
     longDesc: "Barcode labels are those which provide regulatory information on product tracking and identification, such as order, delivery and transport details, are an essential feature of our product tracking and management systems; they provide for the scanning of incoming and outgoing products and quality control across all phases of manufacture and distribution providing full supply chain visibility when used in conjunction with all stakeholders.\n\n### Key Product Features:\n- **Full Supply Chain Visibility**: Enables instant 1D/2D scanning of incoming and outgoing freight, batch tracking, and quality control.\n- **High Scannability Rate**: Crisp edge definition ensures 99.9%+ read rates under 1D laser and 2D matrix optical scanners.\n- **Extreme Durability**: Resistant to smudge, friction, chemical solvents, and logistics transit abrasion.\n- **Regulatory Compliance**: Meets GS1, ISO/IEC 15416, and global logistics transport labeling standards.\n- **Universal Printer Compatibility**: Works with Zebra, TSC, Honeywell, SATO, and Citizen thermal transfer printers.",
-    image: "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.jpg",
+    image: "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.webp",
     gallery: [
-      "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.jpg",
-      "/images/products/gs1-data-matrix-barcode-labels/gs1-data-matrix-barcode-labels.jpg"
+      "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.webp",
+      "/images/products/gs1-data-matrix-barcode-labels/gs1-data-matrix-barcode-labels.webp"
     ],
     specs: {
       "Barcode Standards": "EAN-13, Code 128, QR Code, Data Matrix, GS1-128",
@@ -167,7 +167,7 @@ export const initialProducts = [
         title: "Thermal Transfer Barcode Labels",
         subtitle: "Smudge-Proof Paper & Synthetic Barcode Labels for Warehousing",
         blurb: "Precision die-cut thermal transfer barcode label rolls engineered for high-density 1D and 2D barcode printing using wax or wax-resin ribbons. Guarantees 99.9% optical scanner read rates across supply chain logistics.",
-        image: "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.jpg",
+        image: "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.webp",
         specs: {
           "Stock Base": "White Semi-Gloss Chromo Paper / Synthetic PET",
           "Printing Ribbon": "Wax / Resin Ribbon Compatible",
@@ -181,7 +181,7 @@ export const initialProducts = [
         title: "GS1 & Data Matrix Barcode Labels",
         subtitle: "Regulatory Traceability & Serialization Stickers for Pharma & Retail",
         blurb: "High-resolution pre-printed or blank barcode labels formatted to strict GS1-128 and 2D Data Matrix serialization standards. Provides complete batch traceability, expiration date tracking, and quality control auditing.",
-        image: "/images/products/gs1-data-matrix-barcode-labels/gs1-data-matrix-barcode-labels.jpg",
+        image: "/images/products/gs1-data-matrix-barcode-labels/gs1-data-matrix-barcode-labels.webp",
         specs: {
           "Symbology": "GS1 DataMatrix / QR Code / Code 39 / EAN-13",
           "Verification Standard": "ISO/IEC 15415 Grade A Verification",
@@ -206,10 +206,10 @@ export const initialProducts = [
     tag: "Product",
     blurb: "Product labels are any material attached to a product or container to identify contents, brand, manufacturer, and distributor information.",
     longDesc: "Product labels are any piece of material attached to a product to identify it, or to a container to identify its contents. Information that is directly written on a product can also be considered a label. Product labels don’t necessarily contain information on the item, and may also include other information, including but not limited to the brand, manufacturer, and distributor.\n\n### Key Product Features:\n- **Comprehensive Product Identification**: Displays brand logo, ingredient list, usage directions, manufacturer, and distributor details.\n- **Premium Substrate Options**: Clear PP film, white BOPP, metallic foil paper, and textured craft paper.\n- **Moisture & Oil Resistance**: Formulated to withstand condensation, oils, and refrigeration without peeling or smudging.\n- **Custom Die-Cut Shapes**: Circle, oval, rectangular, and intricate custom contour die-cuts for retail jars and bottles.\n- **Strong Adhesive Bonding**: Pressure-sensitive adhesive engineered for permanent bonding to glass, plastic, metal, and cardboard.",
-    image: "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.jpg",
+    image: "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.webp",
     gallery: [
-      "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.jpg",
-      "/images/products/jar-bottle-product-labels/jar-bottle-product-labels.jpg"
+      "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.webp",
+      "/images/products/jar-bottle-product-labels/jar-bottle-product-labels.webp"
     ],
     specs: {
       "Substrates Available": "Clear BOPP / White PP Film / Metallic PET / Chromo Paper",
@@ -233,7 +233,7 @@ export const initialProducts = [
         title: "Clear & Metallic Product Labels",
         subtitle: "Transparent BOPP & Metallic Foil Labels for Premium Packaging",
         blurb: "Crystal-clear 'no label look' transparent polypropylene stickers and metallic foil embossed labels. Provides luxury shelf presentation for perfume bottles, glass jars, and premium cosmetic containers.",
-        image: "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.jpg",
+        image: "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.webp",
         specs: {
           "Material Base": "Ultra-Clear 50 Micron BOPP Film / Metallic Silver PET",
           "Adhesive": "Water-Clear Non-Yellowing Acrylic Glue",
@@ -247,7 +247,7 @@ export const initialProducts = [
         title: "Jar & Bottle Product Labels",
         subtitle: "Waterproof & Oil-Resistant Labels for Food, Beverage & Pharma Containers",
         blurb: "Waterproof and oil-resistant product labels engineered for glass, PET, and HDPE bottles. Withstands cold storage condensation, grease, and rough handling without peeling or color fading.",
-        image: "/images/products/jar-bottle-product-labels/jar-bottle-product-labels.jpg",
+        image: "/images/products/jar-bottle-product-labels/jar-bottle-product-labels.webp",
         specs: {
           "Substrate": "Synthetic White PP / Water-Resistant Art Paper",
           "Oil Barrier": "Special oil and chemical resistant top-coat",
@@ -272,10 +272,10 @@ export const initialProducts = [
     tag: "Self Adhesive",
     blurb: "Pressure sensitive labels made of three layers: release liner, adhesive layer, and face material. Sticks without wetting or glue application.",
     longDesc: "Self-adhesive labels (also known as pressure sensitive labels) are made by printing onto construction of three layers: a release liner (backing paper), a layer of adhesive and the face material. A self-adhesive label is a small piece of paper designed to be affixed to any surface such as paper, plastic, wood, glass or metal typically by the action of layer of adhesive on the front or back of the label. It sticks without wetting or application of glue to the product.\n\n### Key Product Features:\n- **3-Layer Sandwich Structure**: Face material, pressure-sensitive adhesive layer, and siliconized release liner.\n- **Instant Pressure Bonding**: Sticks instantly upon light contact without heat, water activation, or glue application.\n- **Universal Surface Adhesion**: Bonds securely to paper, plastic, wood, glass, polished metal, and textured cardboard.\n- **High Tack & Shear Strength**: Formulated with permanent acrylic or hot-melt adhesive that resists environmental peeling.\n- **Automatic Machine Dispensing**: Precision die-cut with consistent gap spacing for high-speed automatic labeling equipment.",
-    image: "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
+    image: "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.webp",
     gallery: [
-      "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
-      "/images/products/film-self-adhesive-labels/film-self-adhesive-labels.jpg"
+      "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.webp",
+      "/images/products/film-self-adhesive-labels/film-self-adhesive-labels.webp"
     ],
     specs: {
       "Structure": "3-Layer Sandwich (Face Material + Adhesive + Release Liner)",
@@ -299,7 +299,7 @@ export const initialProducts = [
         title: "Paper Self-Adhesive Labels",
         subtitle: "Chromo & Art Paper Pressure-Sensitive Sticker Rolls",
         blurb: "Versatile 3-layer paper self-adhesive labels featuring high-tack permanent adhesive on glassine liner. Delivers instant bonding over cardboard boxes, paper bags, and dry packaging containers.",
-        image: "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
+        image: "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.webp",
         specs: {
           "Face Stock": "80 GSM Semi-Gloss Chromo Paper",
           "Adhesive": "Pressure Sensitive Hot-Melt Rubber Base Glue",
@@ -313,7 +313,7 @@ export const initialProducts = [
         title: "Film Self-Adhesive Labels",
         subtitle: "Waterproof Polypropylene & Vinyl Pressure-Sensitive Stickers",
         blurb: "Heavy-duty synthetic film self-adhesive labels (BOPP, PE, Vinyl) engineered for extreme weather, moisture, oil, and outdoor UV exposure without peeling or tearing.",
-        image: "/images/products/film-self-adhesive-labels/film-self-adhesive-labels.jpg",
+        image: "/images/products/film-self-adhesive-labels/film-self-adhesive-labels.webp",
         specs: {
           "Face Stock": "60 Micron White / Clear Polypropylene Film",
           "Adhesive": "Waterproof Permanent Acrylic Emulsion Glue",
@@ -338,12 +338,12 @@ export const initialProducts = [
     tag: "Thermal Printing Ribbons",
     blurb: "Thermal transfer ribbons use heat to transfer durable ink onto labels and other materials, providing resistance to fading, moisture, and abrasion.",
     longDesc: "Thermal transfer ribbons are used in thermal transfer printing to transfer ink onto labels or other materials using heat. Thermal transfer printing provides greater resistance to fading, moisture and abrasion compared with direct thermal printing.\n\n### Types of Ribbons:\n- **Wax Ribbons**: Economical and suitable for paper materials.\n- **Wax/Resin Ribbons**: Provide greater durability and moderate resistance.\n- **Resin Ribbons**: Designed for synthetic materials and harsh environments.\n\n### Key Product Features:\n- **Long-Lasting Print Quality**: Delivers sharp, durable text and barcodes for reliable identification.\n- **Material Compatibility**: Ribbon grades available for paper, coated labels, and synthetic films.\n- **Environmental Resistance**: Offers strong resistance to fading, moisture, and abrasion.\n- **Printer Ready**: Compatible with common desktop and industrial thermal transfer printers.",
-    image: "/images/products/thermal-transfer-ribbons/thermal-transfer-ribbons.jpg",
+    image: "/images/products/thermal-transfer-ribbons/thermal-transfer-ribbons.webp",
     gallery: [
-      "/images/products/thermal-transfer-ribbons/thermal-transfer-ribbons.jpg",
-      "/images/products/wax-ribbons/wax-ribbons.jpg",
-      "/images/products/wax-resin-ribbons/wax-resin-ribbons.jpg",
-      "/images/products/resin-ribbons/resin-ribbons.jpg"
+      "/images/products/thermal-transfer-ribbons/thermal-transfer-ribbons.webp",
+      "/images/products/wax-ribbons/wax-ribbons.webp",
+      "/images/products/wax-resin-ribbons/wax-resin-ribbons.webp",
+      "/images/products/resin-ribbons/resin-ribbons.webp"
     ],
     specs: {
       "Ribbon Types": "Wax / Wax-Resin / Resin",
@@ -364,7 +364,7 @@ export const initialProducts = [
         title: "Wax Ribbons",
         subtitle: "Economical Thermal Transfer Ribbons for Paper Labels",
         blurb: "Cost-effective wax ribbons that produce clear, high-contrast prints on paper label materials.",
-        image: "/images/products/wax-ribbons/wax-ribbons.jpg",
+        image: "/images/products/wax-ribbons/wax-ribbons.webp",
         applications: ["Shipping labels", "Retail price labels", "Warehouse cartons"],
       },
       {
@@ -372,7 +372,7 @@ export const initialProducts = [
         title: "Wax/Resin Ribbons",
         subtitle: "Durable Thermal Transfer Ribbons for Coated Labels",
         blurb: "Wax/resin ribbons balance print quality, durability, and moderate resistance for demanding label applications.",
-        image: "/images/products/wax-resin-ribbons/wax-resin-ribbons.jpg",
+        image: "/images/products/wax-resin-ribbons/wax-resin-ribbons.webp",
         applications: ["Product labels", "Inventory labels", "Cold-storage labels"],
       },
       {
@@ -380,7 +380,7 @@ export const initialProducts = [
         title: "Resin Ribbons",
         subtitle: "High-Resistance Thermal Transfer Ribbons for Synthetic Labels",
         blurb: "High-performance resin ribbons designed for synthetic materials and harsh environments requiring maximum durability.",
-        image: "/images/products/resin-ribbons/resin-ribbons.jpg",
+        image: "/images/products/resin-ribbons/resin-ribbons.webp",
         applications: ["Chemical drum labels", "Electronics labels", "Outdoor asset labels"],
       },
     ],
@@ -399,9 +399,9 @@ export const initialProducts = [
     tag: "Tamper-Evident Security Labels",
     blurb: "Tamper-evident labels provide visible signs of tampering if someone attempts to remove or alter them.",
     longDesc: "Tamper-evident labels are designed to provide visible signs of tampering if someone attempts to remove or alter them.\n\nThey are commonly used on products, packaging and documents to indicate whether an item has been opened or interfered with.\n\n### Key Product Features:\n- **Visible Tamper Indication**: Helps clearly identify attempted removal, opening, or alteration.\n- **Product and Packaging Protection**: Supports confidence in product integrity from dispatch to delivery.\n- **Document Security**: Helps protect confidential files, certificates, and sensitive materials.\n- **Customizable Designs**: Available in custom sizes, shapes, colors, and printed branding.",
-    image: "/images/products/tamper-evident-stickers/tamper-evident-stickers.jpg",
+    image: "/images/products/tamper-evident-stickers/tamper-evident-stickers.webp",
     gallery: [
-      "/images/products/tamper-evident-stickers/tamper-evident-stickers.jpg"
+      "/images/products/tamper-evident-stickers/tamper-evident-stickers.webp"
     ],
     specs: {
       "Security Function": "Visible indication of removal, opening, or alteration",
@@ -431,9 +431,9 @@ export const initialProducts = [
     tag: "Tamper-Evident Security Labels",
     blurb: "Security void labels show visible evidence of tampering by leaving a VOID message or similar pattern when removed.",
     longDesc: "Security void labels are designed to show visible evidence of tampering. When the label is removed, it leaves behind a \"VOID\" message or similar pattern.\n\nThey are commonly used for product seals, warranty seals and protection of sensitive documents.\n\n### Key Product Features:\n- **Clear Tamper Evidence**: A visible VOID message or patterned residue appears once the label is lifted.\n- **Reliable Protection**: Helps discourage unauthorized access and provides an immediate visual tampering check.\n- **Customizable Formats**: Available in custom sizes, shapes, colors, and printed branding.\n- **Versatile Applications**: Suitable for product packaging, warranty protection, and confidential documents.",
-    image: "/images/products/security-void-stickers/security-void-stickers.jpg",
+    image: "/images/products/security-void-stickers/security-void-stickers.webp",
     gallery: [
-      "/images/products/security-void-stickers/security-void-stickers.jpg"
+      "/images/products/security-void-stickers/security-void-stickers.webp"
     ],
     specs: {
       "Tamper Indication": "VOID message / patterned residue on removal",
@@ -463,14 +463,14 @@ export const initialProducts = [
     tag: "Security Holograms",
     blurb: "Holographic labels provide attractive visual effects along with difficult-to-replicate security features for brand protection and authentication.",
     longDesc: "Holographic labels are available in different types and provide attractive visual effects along with security features. High-quality holographic labels are difficult to replicate and can provide strong security features.\n\n### Available Hologram Types:\n- **2D / 3D Holograms**: Multi-dimensional visual effects that enhance product presentation and authentication.\n- **Dot Matrix Holograms**: High-resolution holograms with precise text, logos, and micro-details.\n- **Flip-Flop Holograms**: Designs that change between two images when viewed from different angles.\n- **Kinetic Holograms**: Dynamic movement effects that create a distinctive visual identity.\n- **E-Beam Holograms**: Electron-beam mastered holograms for fine-detail security applications.\n\n### Key Product Features:\n- **Strong Anti-Counterfeit Protection**: Difficult-to-replicate holographic effects help safeguard genuine products.\n- **Custom Brand Integration**: Add logos, serial numbers, QR codes, and bespoke security artwork.\n- **Premium Visual Appeal**: Iridescent finishes create a striking shelf presence across product packaging.\n- **Durable Adhesive Options**: Available with permanent adhesives for paper, plastic, glass, and metal surfaces.",
-    image: "/images/products/hologram-stickers/hologram-stickers.jpg",
+    image: "/images/products/hologram-stickers/hologram-stickers.webp",
     gallery: [
-      "/images/products/hologram-stickers/hologram-stickers.jpg",
-      "/images/products/2d-3d-holograms/2d-3d-holograms.jpg",
-      "/images/products/dot-matrix-holograms/dot-matrix-holograms.jpg",
-      "/images/products/flip-flop-holograms/flip-flop-holograms.jpg",
-      "/images/products/kinetic-holograms/kinetic-holograms.jpg",
-      "/images/products/e-beam-holograms/e-beam-holograms.jpg"
+      "/images/products/hologram-stickers/hologram-stickers.webp",
+      "/images/products/2d-3d-holograms/2d-3d-holograms.webp",
+      "/images/products/dot-matrix-holograms/dot-matrix-holograms.webp",
+      "/images/products/flip-flop-holograms/flip-flop-holograms.webp",
+      "/images/products/kinetic-holograms/kinetic-holograms.webp",
+      "/images/products/e-beam-holograms/e-beam-holograms.webp"
     ],
     specs: {
       "Hologram Types": "2D / 3D / Dot Matrix / Flip-Flop / Kinetic / E-Beam",
@@ -491,7 +491,7 @@ export const initialProducts = [
         title: "2D / 3D Holograms",
         subtitle: "Multi-Dimensional Security Labels",
         blurb: "Visually distinctive 2D and 3D holograms that combine premium presentation with product authentication.",
-        image: "/images/products/2d-3d-holograms/2d-3d-holograms.jpg",
+        image: "/images/products/2d-3d-holograms/2d-3d-holograms.webp",
         applications: ["Branded product packaging", "Warranty seals", "Authentication labels"],
       },
       {
@@ -499,7 +499,7 @@ export const initialProducts = [
         title: "Dot Matrix Holograms",
         subtitle: "Fine-Detail Holographic Security Labels",
         blurb: "Precision holograms with sharp text, logos, and micro-details for high-security branding.",
-        image: "/images/products/dot-matrix-holograms/dot-matrix-holograms.jpg",
+        image: "/images/products/dot-matrix-holograms/dot-matrix-holograms.webp",
         applications: ["Pharmaceutical packaging", "Certificates", "High-value product seals"],
       },
       {
@@ -507,7 +507,7 @@ export const initialProducts = [
         title: "Flip-Flop Holograms",
         subtitle: "Angle-Change Visual Authentication Labels",
         blurb: "Holograms that switch between two visuals as the viewing angle changes, making verification easy.",
-        image: "/images/products/flip-flop-holograms/flip-flop-holograms.jpg",
+        image: "/images/products/flip-flop-holograms/flip-flop-holograms.webp",
         applications: ["Retail packaging", "Promotional labels", "Brand authentication"],
       },
       {
@@ -515,7 +515,7 @@ export const initialProducts = [
         title: "Kinetic Holograms",
         subtitle: "Dynamic Motion-Effect Holographic Labels",
         blurb: "Dynamic holographic patterns that create movement effects and provide a distinctive security marker.",
-        image: "/images/products/kinetic-holograms/kinetic-holograms.jpg",
+        image: "/images/products/kinetic-holograms/kinetic-holograms.webp",
         applications: ["Premium consumer products", "Gift packaging", "Tamper-evident seals"],
       },
       {
@@ -523,7 +523,7 @@ export const initialProducts = [
         title: "E-Beam Holograms",
         subtitle: "Electron-Beam Mastered Security Labels",
         blurb: "Fine-detail holograms engineered for sophisticated brand-protection and security applications.",
-        image: "/images/products/e-beam-holograms/e-beam-holograms.jpg",
+        image: "/images/products/e-beam-holograms/e-beam-holograms.webp",
         applications: ["Government documents", "Electronics", "High-security packaging"],
       },
     ],
@@ -542,10 +542,10 @@ export const initialProducts = [
     tag: "Thermal",
     blurb: "Thermal labels printed via direct thermal or thermal transfer heat processes to apply imagery or writing to specially-treated surfaces.",
     longDesc: "Thermal labels can refer to labels printed via one of two processes that use heat to apply imagery or writing to specially-treated surfaces. Direct thermal labels utilize heat-sensitive chemical coatings that react directly with thermal printheads without ink ribbons, while thermal transfer labels use heat to melt wax or resin ribbon ink onto label stock for long-lasting readability.\n\n### Key Product Features:\n- **Dual Thermal Printing Compatibility**: Available in Direct Thermal (ribbonless) and Thermal Transfer (ribbon-required) grades.\n- **Ribbonless Cost Efficiency**: Direct thermal labels eliminate ribbon costs for high-volume shipping, courier, and weight scale printing.\n- **High Heat Sensitivity**: Coated with high-sensitivity thermographic chemical layer for sharp, high-contrast text and barcodes.\n- **Moisture & Scratch Top-Coat**: Top-coated direct thermal paper shields prints from moisture, mild friction, and light grease.\n- **Core Options**: Standard 1-inch and 3-inch cardboard cores compatible with desktop and industrial thermal printers.",
-    image: "/images/products/direct-thermal-labels/direct-thermal-labels.jpg",
+    image: "/images/products/direct-thermal-labels/direct-thermal-labels.webp",
     gallery: [
-      "/images/products/direct-thermal-labels/direct-thermal-labels.jpg",
-      "/images/products/thermal-transfer-paper-labels/thermal-transfer-paper-labels.jpg"
+      "/images/products/direct-thermal-labels/direct-thermal-labels.webp",
+      "/images/products/thermal-transfer-paper-labels/thermal-transfer-paper-labels.webp"
     ],
     specs: {
       "Printing Processes": "Direct Thermal (Ribbonless) / Thermal Transfer (Ribbon Required)",
@@ -569,7 +569,7 @@ export const initialProducts = [
         title: "Direct Thermal Labels",
         subtitle: "Ribbonless Heat-Sensitive Shipping & Courier Sticker Rolls",
         blurb: "Coated with a heat-sensitive layer that turns black when exposed to thermal printheads. Eliminates ink ribbon costs, perfect for high-speed e-commerce shipping labels, courier waybills, and weight scale tags.",
-        image: "/images/products/direct-thermal-labels/direct-thermal-labels.jpg",
+        image: "/images/products/direct-thermal-labels/direct-thermal-labels.webp",
         specs: {
           "Printing Tech": "Direct Thermal (Zero Ribbon Needed)",
           "Paper Coating": "Top-Coated Thermal Sensitive Paper",
@@ -583,7 +583,7 @@ export const initialProducts = [
         title: "Thermal Transfer Labels",
         subtitle: "Wax/Resin Ribbon-Printed Long-Life Barcode & Inventory Labels",
         blurb: "Smooth surface thermal transfer paper label rolls designed for thermal transfer printers using wax or wax-resin ribbons. Produces ultra-durable, smudge-proof barcodes and text for long-term warehouse storage.",
-        image: "/images/products/thermal-transfer-paper-labels/thermal-transfer-paper-labels.jpg",
+        image: "/images/products/thermal-transfer-paper-labels/thermal-transfer-paper-labels.webp",
         specs: {
           "Printing Tech": "Thermal Transfer (Requires Wax/Resin Ribbon)",
           "Face Paper": "Premium Matte/Semi-Gloss Chromo Paper",
@@ -688,12 +688,12 @@ Consulting with a packaging expert ensures the chosen film meets both functional
 
 #### 10. Are Packaging Films suitable for food packaging?
 Yes, many packaging films are specifically designed for food applications. They adhere to international food safety standards, including FDA and EU certifications, ensuring they are safe for direct contact with consumables. Barrier films, in particular, are highly recommended for extending shelf life and maintaining the quality of food products.`,
-    image: "/images/products/ldpe-shrink-rolls/image.png",
+    image: "/images/products/ldpe-shrink-rolls/image.webp",
     gallery: [
-      "/images/products/ldpe-shrink-rolls/image.png",
-      "/images/products/ldpe-films-pouches/applications/app-1.png",
-      "/images/products/ldpe-films-pouches/applications/app-2.png",
-      "/images/products/ldpe-films-pouches/applications/app-3.png",
+      "/images/products/ldpe-shrink-rolls/image.webp",
+      "/images/products/ldpe-films-pouches/applications/app-1.webp",
+      "/images/products/ldpe-films-pouches/applications/app-2.webp",
+      "/images/products/ldpe-films-pouches/applications/app-3.webp",
     ],
     specs: {
       "Thickness Range": "20 Micron to 200 Micron",
@@ -717,7 +717,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "LDPE Shrink Film",
         subtitle: "Heavy-Duty Collation Shrink Rolls for Bottle & Can Bundling",
         blurb: "Heavy-gauge LDPE collation shrink film engineered for heat-shrink bundling of beverage bottles, cans, glass jars, and heavy industrial products with high holding force and puncture resistance.",
-        image: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
+        image: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.webp",
         specs: {
           "Cost Savings": "Significant Cost savings vs Corrugated Box Packaging",
           "Disposal": "Ease of post usage disposal",
@@ -731,7 +731,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "PE Liners And Garbage Bags",
         subtitle: "Heavy-Duty Bin Liners & Industrial Drum Liners",
         blurb: "Heavy-duty polyethylene bin liners, box liners, and industrial drum liners designed with reinforced bottom seals to prevent leaks and tears during waste and material disposal.",
-        image: "/images/products/ldpe-bags/pe-garbage-bags.jpg",
+        image: "/images/products/ldpe-bags/pe-garbage-bags.webp",
         specs: {
           "Handling": "Ideal for Handling Bulk Packing Dry Materials",
           "Widths Available": "250 mm – 2400 mm",
@@ -745,7 +745,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "Plastic Stretch Film",
         subtitle: "High Elastic Pallet Wrap & Bundling Film",
         blurb: "Multi-layer co-extruded stretch wrap film providing high elongation and puncture resistance to securely bundle and wrap pallet loads during transit and storage.",
-        image: "/images/products/machine-stretch-film/machine-stretch-film.jpg",
+        image: "/images/products/machine-stretch-film/machine-stretch-film.webp",
         specs: {
           "Protection": "Protection Against Dust / Dirt",
           "Waterproofing": "Helps make packaging waterproof when wrapped around paper containers",
@@ -759,7 +759,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "Collation Shrink Film",
         subtitle: "Multi-Pack Secondary Packaging Film for Bottles & Cans",
         blurb: "Engineered collation shrink film designed specifically for secondary multi-pack bundling of beverages, dairy bottles, and retail canned products on high-speed continuous shrink wrappers.",
-        image: "/images/products/collation-shrink-film/collation-shrink-film.jpg",
+        image: "/images/products/collation-shrink-film/collation-shrink-film.webp",
         specs: {
           "Cost Savings": "Cost Effective compared to corrugated boxes",
           "Eco Footprint": "Lower Carbon footprint",
@@ -784,13 +784,13 @@ Yes, many packaging films are specifically designed for food applications. They 
     tag: "LDPE Film",
     blurb: "LDPE film (Low Density Polyethylene) engineered in customized resin blends for specific industrial and retail packaging applications, featuring high holding force, fast packaging speed, and superior impact strength.",
     longDesc: "LDPE film is an abbreviation for Low Density Polyethylene film. There are a variety of this type of film to cater to different applications in the market. What works for one application will not work for others. A few examples of resins which work only for specific LDPE plastic film applications are – dry cleaner bags, bread bags, paper towel overwrap, and shipping sacks.\n\n### Key Product Features:\n- **Broad Thickness Range**: Thickness available ranging from 30 Micron to 200 Micron.\n- **Customizable Widths**: Width can be customized ranging from 200 mm to 48 inches (1220 mm).\n- **High Holding Force**: Delivers high load containment and pallet/bundle stabilization.\n- **Fast Packaging Speed**: High melt strength and good drawdown ability for high-speed automated lines.\n- **High Tensile & Impact Strength**: Superior resistance against heavy impact drops and sharp puncture risks.\n- **Good Tear Resistance**: Prevents tear propagation during multi-city transit and warehouse handling.\n- **Enhanced Visual Appearance**: High-gloss surface finish and great optical transparency for retail presentation.",
-    image: "/images/products/ldpe-shrink-rolls/image.png",
+    image: "/images/products/ldpe-shrink-rolls/image.webp",
     gallery: [
-      "/images/products/ldpe-shrink-rolls/image.png",
-      "/images/products/ldpe-films-pouches/applications/app-1.png",
-      "/images/products/ldpe-films-pouches/applications/app-2.png",
-      "/images/products/ldpe-films-pouches/applications/app-3.png",
-      "/images/products/ldpe-films-pouches/applications/app-4.png"
+      "/images/products/ldpe-shrink-rolls/image.webp",
+      "/images/products/ldpe-films-pouches/applications/app-1.webp",
+      "/images/products/ldpe-films-pouches/applications/app-2.webp",
+      "/images/products/ldpe-films-pouches/applications/app-3.webp",
+      "/images/products/ldpe-films-pouches/applications/app-4.webp"
     ],
     specs: {
       "Thickness Range": "30 Micron to 200 Micron",
@@ -814,7 +814,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "LDPE Shrink Film",
         subtitle: "Heavy-Duty Collation Shrink Rolls for Bottle & Can Bundling",
         blurb: "Heavy-gauge LDPE collation shrink film engineered for heat-shrink bundling of beverage bottles, cans, glass jars, and heavy industrial products with high holding force and puncture resistance.",
-        image: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
+        image: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.webp",
         specs: {
           "Shrink Temperature": "160°C to 200°C Thermal Tunnel",
           "Thickness Range": "50 Micron to 150 Micron",
@@ -828,7 +828,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "Standard Normal LDPE Film",
         subtitle: "High-Gloss Protective Sheeting & Packaging Rolls",
         blurb: "Standard non-shrink LDPE tubing and sheeting rolls used for general protective wrapping, paper towel overwrap, furniture covers, and industrial liner applications with high clarity and fast line speed.",
-        image: "/images/products/ldpe-films-pouches/applications/app-1.png",
+        image: "/images/products/ldpe-films-pouches/applications/app-1.webp",
         specs: {
           "Format Types": "Tubing / Single Wound Sheeting / Centerfolded",
           "Thickness Range": "30 Micron to 100 Micron",
@@ -842,7 +842,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "LDPE Pouches & Bags",
         subtitle: "Heavy-Duty Shipping Sacks & Pre-Cut Industrial Bags",
         blurb: "Custom size LDPE gusseted pouches, bread bags, heavy-duty shipping sacks, and industrial trash liners fabricated with high bottom seal integrity and impact tear resistance.",
-        image: "/images/products/ldpe-films-pouches/applications/app-3.png",
+        image: "/images/products/ldpe-films-pouches/applications/app-3.webp",
         specs: {
           "Format Availability": "Gusseted Bags / Flat Pouches / Perforated Roll Bags",
           "Bottom Seal": "High Thermal Impulse Weld Strength",
@@ -860,93 +860,7 @@ Yes, many packaging films are specifically designed for food applications. They 
     applications: ["Beverage bottle collation packaging", "Paper towel & textile overwrap", "Heavy industrial shipping sacks", "Bread & food pouches"],
     visualGradients: "from-sky-400 to-blue-500",
   },
-  {
-    id: "pof-films-pouches",
-    title: "POF Films & Pouches",
-    category: "film-products",
-    tag: "POF Shrink",
-    blurb: "POF Shrink Rolls/Pouch shrink film is a polymer plastic film that shrinks tightly over covered products when heat is applied. Ideal for wrapping food, gift baskets, boxes, toys, books, and retail multipacks.",
-    longDesc: "POF (Polyolefin) Shrink Rolls & Pouches are manufactured from multi-layer co-extruded polymer plastic film. When heat is applied, it shrinks tightly and uniformly over whatever item it covers. Common applications include wrapping food products, gift baskets, retail product boxes, toys, books, stationery, and pharmaceuticals.\n\n### Key Material Features:\n- **Excellent Transparency & Gloss**: Enhances shelf appeal with 93%+ crystal-clear optical reflection.\n- **Superior Heat Resistance**: Resists burn-through on high-speed L-sealers and shrink tunnels.\n- **Good Stiffness & Dimensional Stability**: Maintains tight pack structure without tearing or slacking over time.\n- **Balanced MD/TD Shrink Properties**: Uniform bi-axial shrinkage preventing product distortion.\n- **Extremely Strong Sealing**: High seal wire strength preventing seal ruptures during rough transit.\n- **Wide Temperature Range Performance**: Functions flawlessly in freezing cold storage and hot warehouse environments.\n- **NO 'Dog Ears'**: Smooth, tight corner shrinkage eliminating excess loose film corners.\n- **Non-Stick Sealing**: Clean release from sealing wires and L-bar cutter blades with zero residue buildup.",
-    image: "/images/products/pof-shrink-rolls/image.png",
-    gallery: [
-      "/images/products/pof-shrink-rolls/image.png",
-      "/images/products/pof-films-pouches/applications/app-1.png",
-      "/images/products/pof-films-pouches/applications/app-2.png",
-      "/images/products/pof-films-pouches/applications/app-3.png",
-      "/images/products/pof-films-pouches/applications/app-4.png"
-    ],
-    specs: {
-      "Material Structure": "5-Layer Co-extruded Polyolefin (POF)",
-      "Shrink Ratio": "62% MD / 60% TD Bi-axial",
-      "Sealing Temperature": "140°C - 180°C",
-      "Clarity Level": "93% High Gloss Optical Clarity",
-      "Corner Shrink": "Dog-Ear Free Smooth Shrinkage",
-      "Blade Release": "Non-Stick Clean Release Wire Performance",
-    },
-    thicknessLengthMatrix: [
-      { micron: "12", gauge: "50", meters: "1,665", feet: "5,250" },
-      { micron: "15", gauge: "60", meters: "1,332", feet: "4,375" },
-      { micron: "19", gauge: "75", meters: "1,067", feet: "3,500" },
-      { micron: "25", gauge: "100", meters: "800", feet: "2,625" },
-      { micron: "30", gauge: "120", meters: "666", feet: "2,186" },
-    ],
-    subCategories: [
-      {
-        id: "cross-linked-pof",
-        title: "Cross-Linked POF Shrink Film",
-        subtitle: "High Tensile Irradiated Polyolefin for Heavy & Sharp Edged Products",
-        blurb: "Irradiated cross-linked POF film engineered with enhanced polymer chain bonds. Delivers superior puncture resistance, ultra-strong seal wire welds, zero burn-through, and exceptional performance on high-speed automatic L-sealers.",
-        image: "/images/products/cross-linked-pof/cross-linked-pof.jpg",
-        specs: {
-          "Polymer Link": "Irradiated Cross-Linked Structure",
-          "Puncture Resistance": "Superior Puncture & Tear Resistance",
-          "Sealing Window": "Ultra-Wide Hot Knife Sealing Range",
-          "Burn-Through Tolerance": "Zero Burn-Through on Extended Tunnels",
-          "Available Thicknesses": "12, 15, 19, 25 Micron",
-        },
-        applications: ["Heavy retail box bundling", "Sharp-edged hardware packaging", "High-speed automatic L-sealers", "Frozen food multipacks"],
-      },
-      {
-        id: "non-cross-linked-pof-film",
-        title: "Non-Cross-Linked POF Shrink Film",
-        subtitle: "Standard 5-Layer Co-Extruded Polyolefin Rolls for General Retail Packaging",
-        blurb: "Standard 5-layer co-extruded POF shrink rolls (centerfolded and single wound). Offers outstanding optical clarity, soft-shrink capability for flexible items, low-temperature activation, and cost-effective everyday wrapping.",
-        image: "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
-        specs: {
-          "Format Availability": "Centerfolded (CF) / Single Wound (SW) Rolls",
-          "Shrink Temp Activation": "135°C Low Temperature Soft Shrink",
-          "Optics Rating": "94% Glass-Clear Display Clarity",
-          "Recyclability": "100% Recyclable Category 7 Polymer",
-          "Available Thicknesses": "15, 19, 25, 30 Micron",
-        },
-        applications: ["Food & bakery product wrapping", "Gift baskets & cosmetics packs", "Books, stationery & toy boxes", "General retail multipacks"],
-      },
-      /*
-      {
-        id: "pof-shrink-pouches",
-        title: "POF Shrink Pouches",
-        subtitle: "Pre-Cut Sealed Shrink Bags & Envelopes for Fast Manual & Semi-Auto Packaging",
-        blurb: "Pre-cut three-side sealed POF shrink pouches and bags ready for instant item insertion. Eliminates film slitting waste, speeds up manual packing, and provides a tight, wrinkle-free shrink finish around individual products.",
-        image: "/images/products/pof-films-pouches/applications/app-4.png",
-        specs: {
-          "Format Style": "Pre-Cut 3-Side Sealed Pouches / Bags",
-          "Sealing Convenience": "Instant Manual / Impulse Bar Sealing",
-          "Clarity Level": "Ultra-High Gloss Display Transparency",
-          "Waste Reduction": "Zero Roll Slitting Off-Cut Waste",
-          "Available Sizes": "Custom Widths & Heights on Order",
-        },
-        applications: ["Individual gift basket wrapping", "Book & album shrink sealing", "Soap & cosmetic jar pouches", "Software & DVD box sealing"],
-      }
-      */
-    ],
-    options: {
-      widths: ["200 mm", "300 mm", "450 mm", "600 mm", "750 mm"],
-      thicknesses: ["12 Micron (50G)", "15 Micron (60G)", "19 Micron (75G)", "25 Micron (100G)", "30 Micron (120G)"],
-      colors: ["Ultra Clear Glass Finish"],
-    },
-    applications: ["Food & Bakery wrapping", "Gift baskets & cosmetic boxes", "Toys, books & stationery multipacks", "Pharmaceutical bottle shrink wrap"],
-    visualGradients: "from-sky-400 to-blue-500",
-  },
+  
   {
     id: "coloured-films-pouches",
     title: "Coloured Films & Pouches",
@@ -954,13 +868,13 @@ Yes, many packaging films are specifically designed for food applications. They 
     tag: "Coloured Film",
     blurb: "High-visibility tint-coloured and opaque specialty PE/CPE plastic films and pre-formed pouches engineered for UV barrier protection, garment packaging, privacy shipping, and color-coded inventory tracking.",
     longDesc: "Coloured Films & Pouches are manufactured from high-grade polyethylene (PE) and cast polyethylene (CPE) resins blended with food-safe masterbatch pigments. Available in semi-transparent frosted finishes, vibrant color tints, and 100% opaque milky white shades. Designed to protect light-sensitive goods, conceal package contents for secure logistics, provide silky soft-touch garment protection, and enable instant warehouse color-code sorting.\n\n### Key Product Features:\n- **Food-Safe Masterbatch Pigments**: Formulated with REACH & FDA-compliant color concentrates.\n- **Superior UV & Light Barrier**: Protects light-sensitive contents from photo-degradation and fading.\n- **Silky Soft-Touch CPE Texture**: CPE film provides a smooth, elegant frosted surface that prevents scratch marks on premium apparel.\n- **High Opacity & Privacy Protection**: Opaque milky white and black films ensure total privacy during parcel transit.\n- **High Tensile & Tear Strength**: Co-extruded structure delivers excellent puncture resistance across sharp edges.\n- **Versatile Sealing Formats**: Compatible with automatic impulse sealers, zip-lock sliders, and self-adhesive sealing strips.",
-    image: "/images/products/coloured-films-pouches/image.png",
+    image: "/images/products/coloured-films-pouches/image.webp",
     gallery: [
-      "/images/products/coloured-films-pouches/image.png",
-      "/images/products/coloured-films-pouches/applications/app-1.png",
-      "/images/products/coloured-films-pouches/applications/app-2.png",
-      "/images/products/coloured-films-pouches/applications/app-3.png",
-      "/images/products/coloured-films-pouches/applications/app-4.png"
+      "/images/products/coloured-films-pouches/image.webp",
+      "/images/products/coloured-films-pouches/applications/app-1.webp",
+      "/images/products/coloured-films-pouches/applications/app-2.webp",
+      "/images/products/coloured-films-pouches/applications/app-3.webp",
+      "/images/products/coloured-films-pouches/applications/app-4.webp"
     ],
     specs: {
       "Material Base": "Cast Polyethylene (CPE) / LDPE / LLDPE",
@@ -984,7 +898,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "CPE Pouches (Cast Polyethylene)",
         subtitle: "Silky Soft-Touch Frosted Zipper & Flap Pouches for Apparel & Accessories",
         blurb: "Cast Polyethylene (CPE) pouches featuring a signature silky soft-touch frosted surface, zip-lock slider closures, and high tear resistance. Ideal for packaging luxury garments, mobile accessories, cosmetics, and electronics without scratching delicate surfaces.",
-        image: "/images/products/coloured-films-pouches/applications/app-1.png",
+        image: "/images/products/coloured-films-pouches/applications/app-1.webp",
         specs: {
           "Material Type": "100% Cast Polyethylene (CPE)",
           "Surface Finish": "Silky Soft-Touch Semi-Transparent Frosted",
@@ -999,7 +913,7 @@ Yes, many packaging films are specifically designed for food applications. They 
         title: "Milky White Pouches & Films",
         subtitle: "100% Opaque White Light-Barrier Rolls, Milk Pouches & Privacy Packaging",
         blurb: "Heavy-duty opaque white masterbatch LDPE/LLDPE rolls, liquid milk pouches, and security courier bags. Delivers complete opacity, high light barrier performance, and superior puncture resistance for dairy, pharmaceuticals, and privacy logistics.",
-        image: "/images/products/ldpe-shrink-rolls/image.png",
+        image: "/images/products/ldpe-shrink-rolls/image.webp",
         specs: {
           "Opacity Level": "100% Solid Opaque Milky White Finish",
           "Barrier Properties": "High UV & Light Reflection Barrier",
@@ -1018,322 +932,7 @@ Yes, many packaging films are specifically designed for food applications. They 
     applications: ["Apparel & garment frosted zipper pouches", "Liquid milk & dairy pouch packaging", "Privacy e-commerce shipping bags", "Warehouse lot color identification"],
     visualGradients: "from-sky-400 to-blue-500",
   },
-  {
-    id: "bopp-films-pouches",
-    title: "BOPP Films & Pouches",
-    category: "film-products",
-    tag: "BOPP Film",
-    blurb: "Biaxially Oriented Polypropylene (BOPP) crystal-clear packaging film rolls and self-adhesive pre-cut pouches engineered for superior moisture barrier, food grade protection, and high-speed flow wrap packaging.",
-    longDesc: "BOPP (Biaxially Oriented Polypropylene) Films & Pouches are manufactured by stretching polypropylene film in both machine direction (MD) and transverse direction (TD). This bi-axial orientation provides outstanding mechanical strength, glass-like optical clarity, excellent moisture barrier, and high dimensional stability. Widely used for food packaging (bakery, snacks, confectionery), garment display pouches, flower wrapping, cigarette packs, and high-resolution gravure printed laminations.\n\n### Key Product Features:\n- **Crystal Clear Transparency & High Gloss**: Enhances retail shelf appeal with 95%+ optical clarity.\n- **Superior Moisture & Aroma Barrier**: Keeps food items crisp and aromatic by preventing moisture ingress.\n- **Excellent Tensile Strength**: High tensile modulus prevents stretching during high-speed VFFS/HFFS flow wrapping.\n- **Printable Surface Finish**: Excellent ink adhesion for up to 10-color flexographic and rotogravure printing.\n- **Heat Sealable Grades**: Available in heat-sealable co-extruded structures for airtight pouch welds.\n- **Variety of Finishes**: Plain transparent, matte finish, metallized barrier, and pearlized white options.",
-    image: "/images/products/bopp-films-pouches/image.png",
-    gallery: [
-      "/images/products/bopp-films-pouches/image.png",
-      "/images/products/bopp-films-pouches/applications/app-1.png",
-      "/images/products/bopp-films-pouches/applications/app-2.png",
-      "/images/products/bopp-films-pouches/applications/app-3.png",
-      "/images/products/bopp-films-pouches/applications/app-4.png"
-    ],
-    specs: {
-      "Film Structure": "Biaxially Oriented Polypropylene (BOPP)",
-      "Barrier Properties": "Superior Water Vapor & Aroma Protection",
-      "Surface Clarity": "95%+ Optical Gloss Reflection",
-      "Available Finishes": "Clear / Metallized / Matte / Pearlized White",
-      "Heat Sealability": "Dual-Side Heat Sealable Co-extrusion",
-      "Printing Grade": "Rotogravure & Flexo Compatible",
-    },
-    thicknessLengthMatrix: [
-      { micron: "12", gauge: "48", meters: "2,500", feet: "8,200" },
-      { micron: "15", gauge: "60", meters: "2,000", feet: "6,560" },
-      { micron: "20", gauge: "80", meters: "1,500", feet: "4,920" },
-      { micron: "25", gauge: "100", meters: "1,200", feet: "3,936" },
-      { micron: "30", gauge: "120", meters: "1,000", feet: "3,280" },
-      { micron: "40", gauge: "160", meters: "750", feet: "2,460" },
-    ],
-    subCategories: [
-      {
-        id: "bopp-rolls",
-        title: "BOPP Film Rolls (Plain, Printed & Metallized)",
-        subtitle: "High-Speed Flow Wrap Rolls, Lamination Sheeting & Thermal Rolls",
-        blurb: "Continuous BOPP film rolls available in single wound (SW) and centerfolded (CF) formats. Offered in crystal clear, metallized barrier, matte finish, and custom rotogravure printed options for automated VFFS and HFFS packaging machinery.",
-        image: "/images/products/bopp-films-pouches/bopp-rolls.jpg",
-        specs: {
-          "Format Types": "Single Wound (SW) / Centerfolded (CF) Slit Rolls",
-          "Machine Speed Compatibility": "High Speed VFFS / HFFS Packaging Lines",
-          "Metallized Option": "Vacuum Metallized Aluminum Barrier Grade",
-          "Lamination Grades": "Thermal Dry Lamination & Extrusion Lamination Base",
-          "Available Thicknesses": "12, 15, 18, 20, 25, 30, 40 Micron",
-        },
-        applications: ["Snack & biscuit flow wrapping", "Confectionery & candy overwrap", "Print lamination for carton boxes", "Flower & gift hamper wrapping"],
-      },
-      {
-        id: "bopp-pouches",
-        title: "BOPP Pouches & Bags (Self-Adhesive & Header)",
-        subtitle: "Pre-Cut Glass-Clear Display Bags with Peel & Seal Tape Strip",
-        blurb: "Pre-formed BOPP bags featuring peel-and-seal self-adhesive tape strips, header punch holes for retail hanger displays, and side gussets. Provides crystal-clear product visibility for garments, stationery, cards, and bakery items.",
-        image: "/images/products/bopp-films-pouches/bopp-pouches.jpg",
-        specs: {
-          "Bag Formats": "Self-Adhesive Tape Bags / Euro Slot Header Pouches / Flap Bags",
-          "Sealing Method": "Peel & Seal Resealable / Permanent Adhesive Strip",
-          "Display Clarity": "Ultra-Clear Glass Transparency for Retail Shelves",
-          "Header Reinforcement": "White Pearlized Plastic Header with Punch Hole",
-          "Available Thicknesses": "25 Micron, 30 Micron, 40 Micron, 50 Micron",
-        },
-        applications: ["Shirt, garment & hosiery display packaging", "Greeting cards, notebook & stationery bags", "Bakery & cookie retail pouches", "Hardware & cutlery retail display packs"],
-      }
-    ],
-    options: {
-      widths: ["150 mm", "300 mm", "500 mm", "750 mm", "1000 mm"],
-      thicknesses: ["12 Micron (48G)", "15 Micron (60G)", "20 Micron (80G)", "25 Micron (100G)", "30 Micron (120G)", "40 Micron (160G)"],
-      colors: ["Glass Clear", "Metallized Silver", "Matte White", "Pearlized Opaque"],
-    },
-    applications: ["Snack & bakery food packaging", "Garment & hosiery display self-adhesive pouches", "Confectionery overwrap", "Laminated flexible pouches"],
-    visualGradients: "from-sky-400 to-blue-500",
-  },
-  {
-    id: "pvc-shrink-rolls-pouches",
-    title: "PVC Shrink Rolls & Pouches",
-    category: "film-products",
-    tag: "PVC Shrink",
-    blurb: "Low-temperature heat shrink PVC tubular rolls, custom pre-cut pouches, tamper-evident neck bands, and full-body shrink sleeve packaging engineered for tight contour fitting and high gloss clarity.",
-    longDesc: "PVC (Polyvinyl Chloride) Shrink Rolls & Pouches offer exceptional clarity, high gloss, and low-temperature shrink activation (80°C to 120°C). Unlike other polymer shrink films, PVC shrinks smoothly around irregular shapes and sharp bottle contours without burning or slacking over time. Widely specified for jar cap tamper-evident neck bands, promotional duo-pack bundling, beverage bottle shrink sleeve labels, and pre-cut box packaging pouches.\n\n### Key Product Features:\n- **Low Temperature Shrink Activation**: Activates at lower tunnel temperatures (80°C–120°C), saving energy and protecting heat-sensitive products.\n- **Controlled Bi-Axial & Transverse Shrinkage**: High TD shrink (up to 55%) ensures snug, wrinkle-free fitting over contoured bottles and jars.\n- **High Gloss Glass-Like Transparency**: Delivers premium retail presentation and vibrant graphic display.\n- **Tamper-Evident Safety Protection**: Ideal for neck bands and cap seals that provide clear visual evidence of product opening.\n- **High Film Stiffness & Durability**: Maintains rigid shape memory and protective barrier against dust, moisture, and handling scratches.\n- **Seamless Tubular & Pouch Formats**: Available in continuous seamless tubing rolls, centerfolded rolls, and pre-cut bottom-sealed pouches.",
-    image: "/images/products/pvc-shrink-rolls/image.png",
-    gallery: [
-      "/images/products/pvc-shrink-rolls/image.png",
-      "/images/products/pvc-shrink-rolls-pouches/applications/app-1.png",
-      "/images/products/pvc-shrink-rolls-pouches/applications/app-2.png",
-      "/images/products/pvc-shrink-rolls-pouches/applications/app-1.png"
-    ],
-    specs: {
-      "Material Structure": "Polyvinyl Chloride (PVC) Shrink Formulation",
-      "Shrink Activation Temp": "80°C - 120°C Low Temperature Tunnel",
-      "Shrink Ratio": "10%-15% MD / 45%-55% TD Transverse",
-      "Optical Finish": "95%+ Glass Gloss Transparency",
-      "Tamper Evidence": "100% Tamper-Evident Neck & Cap Seal",
-      "Format Types": "Seamless Tubing Rolls / Centerfolded / Pre-cut Pouches",
-    },
-    thicknessLengthMatrix: [
-      { micron: "25", gauge: "100", meters: "1,200", feet: "3,936" },
-      { micron: "30", gauge: "120", meters: "1,000", feet: "3,280" },
-      { micron: "35", gauge: "140", meters: "850", feet: "2,788" },
-      { micron: "40", gauge: "160", meters: "750", feet: "2,460" },
-      { micron: "50", gauge: "200", meters: "600", feet: "1,968" },
-      { micron: "60", gauge: "240", meters: "500", feet: "1,640" },
-    ],
-    subCategories: [
-      {
-        id: "pvc-shrink-rolls",
-        title: "PVC Shrink Rolls (Tubular & Lay-Flat Rolls)",
-        subtitle: "Seamless Tubing & Centerfolded Rolls for Automated Shrink Machinery",
-        blurb: "Continuous seamless PVC tubular rolls, centerfolded (CF) rolls, and single wound (SW) sheeting. Engineered for fast low-temperature shrink tunnels, promotional twin-pack bundling, and automated box overwrapping.",
-        image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
-        specs: {
-          "Format Availability": "Seamless Tubular Rolls / Centerfolded (CF) / Single Wound (SW)",
-          "Shrink Temperature": "80°C - 110°C Fast Shrink Response",
-          "Machine Speed Compatibility": "Automatic & Semi-Automatic L-Sealers",
-          "Tear Perforations": "Optional longitudinal & transverse tear lines",
-          "Available Thicknesses": "25, 30, 35, 40, 50, 60 Micron",
-        },
-        applications: ["Promotional duo-pack & buy-1-get-1 bundling", "Box overwrap & gift hamper packaging", "Industrial component protective shrink wrapping", "Continuous bottle sleeve feeding"],
-      },
-      {
-        id: "pvc-shrink-pouches-sleeves",
-        title: "PVC Shrink Pouches & Pre-Cut Sleeves",
-        subtitle: "Pre-Cut Neck Bands, Cap Seals & Tamper-Evident Shrink Bags",
-        blurb: "Custom pre-cut bottom-sealed PVC pouches, tamper-evident neck bands, and printed full-body shrink sleeve labels. Designed for instant manual application over bottle caps, jars, pharmaceutical containers, and retail boxes.",
-        image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.jpg",
-        specs: {
-          "Bag Formats": "Pre-Cut 3-Side Sealed Bags / Tubular Cut Sleeves / Perforated Bands",
-          "Tamper Proofing": "Tamper-Evident Cap & Neck Perforation Lines",
-          "Printing Grade": "Reverse Printed Rotogravure & Flexo Graphics",
-          "Shrink Fit Integrity": "Tight Wrinkle-Free Fit over Irregular Curves",
-          "Available Thicknesses": "30 Micron, 35 Micron, 40 Micron, 50 Micron",
-        },
-        applications: ["Jar & bottle cap tamper-evident neck bands", "Pharmaceutical bottle security seals", "Pre-cut retail box shrink pouches", "Beverage bottle shrink sleeve labels"],
-      }
-    ],
-    options: {
-      widths: ["50 mm", "100 mm", "250 mm", "400 mm", "600 mm"],
-      thicknesses: ["25 Micron (100G)", "30 Micron (120G)", "35 Micron (140G)", "40 Micron (160G)", "50 Micron (200G)", "60 Micron (240G)"],
-      colors: ["Glass Clear", "High Gloss Amber", "Custom Printed Shrink Graphics"],
-    },
-    applications: ["Jar cap tamper-evident neck bands", "Pharmaceutical bottle security seals", "Promotional duo packs & buy-1-get-1 bundling", "Pre-cut retail box shrink pouches"],
-    visualGradients: "from-sky-400 to-blue-500",
-  },
-  {
-    id: "stretch-film",
-    title: "Stretch Film",
-    category: "film-products",
-    tag: "Stretch Film",
-    blurb: "High-cling LLDPE pallet stretch wrap available in dedicated Manual Grade (Hand Wrap) and Machine Grade (Power Pre-Stretch) configurations.",
-    longDesc: "5-layer cast LLDPE stretch film engineered for maximum load containment, puncture resistance, and zero-residue cling. Available in both **Manual Grade** (lightweight hand rolls with 3-inch cores) and **Machine Grade** (heavy-duty 15 kg machine rolls supporting up to 300% power pre-stretch on automated turntable and orbital wrappers).\n\n### Key Product Features:\n- **5-Layer Cast Co-Extrusion**: Formulated with 100% prime LLDPE resins for high tensile strength and puncture resistance.\n- **High Cling & Zero Residue**: Formulated with 1-side tackiness that clings tightly to itself without leaving sticky residue on cargo.\n- **Up to 300% Power Pre-Stretch**: Machine grade rolls stretch up to 300% on automated machinery, reducing per-pallet wrapping costs.\n- **Puncture & Tear Resistant**: Protects palletized loads from sharp carton corners, timber splinters, and transit vibration.\n- **Superior Load Retention & Holding Force**: Holds heavy multi-tiered pallets intact during multi-city freight transport.\n- **Manual & Machine Formats**: Available in lightweight 2.4 kg hand rolls and 15 kg heavy machine wrapping rolls.",
-    image: "/images/products/stretch-film/image.png",
-    gallery: [
-      "/images/products/stretch-film/image.png",
-      "/images/products/stretch-film/applications/app-1.png",
-      "/images/products/stretch-film/applications/app-2.png",
-      "/images/products/stretch-film/applications/app-3.png",
-      "/images/products/stretch-film/applications/app-4.png"
-    ],
-    specs: {
-      "Primary Polymer": "5-Layer Co-extruded LLDPE",
-      "Sub-Grades Available": "Manual Grade (Hand Wrap) & Machine Grade (Power Pre-Stretch)",
-      "Pre-Stretch Elongation": "Up to 300% (Machine Grade)",
-      "Cling Property": "100% Residue-Free High Cling Formulation",
-    },
-    thicknessLengthMatrix: [
-      { micron: "12", gauge: "48", meters: "2,500", feet: "8,200" },
-      { micron: "15", gauge: "60", meters: "2,000", feet: "6,560" },
-      { micron: "19", gauge: "75", meters: "1,500", feet: "4,920" },
-      { micron: "23", gauge: "90", meters: "1,200", feet: "3,936" },
-      { micron: "25", gauge: "100", meters: "1,000", feet: "3,280" },
-      { micron: "29", gauge: "116", meters: "850", feet: "2,788" },
-    ],
-    subCategories: [
-      {
-        id: "manual-grade",
-        title: "Manual Grade Stretch Film",
-        subtitle: "Hand-Wrapping Roll Format for Warehouse Staff",
-        blurb: "Lightweight, pre-stretched hand wrapping film engineered to reduce worker fatigue while delivering high puncture resistance over sharp carton edges.",
-        image: "/images/products/manual-stretch-film/manual-stretch-film.png",
-        specs: {
-          "Stretch Limit": "Up to 150% manual pull",
-          "Cling Index": "One-sided tackiness (zero residue)",
-          "Core Standard": "3-inch heavy cardboard core",
-          "Standard Roll Weight": "2.4 kg / roll",
-          "Available Thicknesses": "12 Micron (Pre-stretch), 15 Micron, 19 Micron",
-          "Standard Widths": "450 mm, 500 mm",
-          "Color Options": "Ultra Clear Tint, Opaque Jet Black",
-        },
-        applications: ["Manual warehouse pallet wrapping", "Irregular shaped load binding", "Dust & moisture proof parcel wrapping"],
-      },
-      {
-        id: "machine-grade",
-        title: "Machine Grade Stretch Film",
-        subtitle: "Power Pre-Stretch Rolls for Automated Turntables & Arms",
-        blurb: "Cast co-extruded machine stretch film designed for 250% to 300% power pre-stretch on automated turntable and arm wrappers. Offers low-noise unwind and high dart impact strength.",
-        image: "/images/products/machine-stretch-film/machine-stretch-film.jpg",
-        specs: {
-          "Pre-Stretch Capability": "250% - 300% power pre-stretch yield",
-          "Standard Roll Weight": "15 kg machine roll",
-          "Core Type": "Reinforced heavy-duty machine core",
-          "Dart Impact Rating": "High puncture & tear resistance threshold",
-          "Available Thicknesses": "23 Micron, 25 Micron, 29 Micron",
-          "Standard Widths": "500 mm machine rolls",
-          "Color Options": "Crystal Clear, Opaque Black",
-        },
-        applications: ["High-speed automated turntable wrappers", "Heavy export cargo pallet stabilization", "High-volume logistics centers"],
-      }
-    ],
-    options: {
-      widths: ["Hand Roll (450mm - 500mm)", "Machine Roll (500mm standard)"],
-      thicknesses: ["12 Micron", "15 Micron", "23 Micron", "29 Micron"],
-      colors: ["Crystal Clear", "Opaque Jet Black"],
-    },
-    applications: ["Manual warehouse pallet wrapping", "Automatic turntable pallet wrapping lines", "Heavy export cargo stabilization"],
-    visualGradients: "from-sky-400 to-blue-500",
-  },
-  {
-    id: "lamination-films-pouches",
-    title: "Lamination PE Film",
-    category: "film-products",
-    tag: "Lamination PE",
-    blurb: "Lamination PE film is a versatile and indispensable component in the realm of packaging solutions. This high-quality film, made from polyethylene, exhibits exceptional clarity, strength, and flexibility.",
-    longDesc: `Lamination PE film is a versatile and indispensable component in the realm of packaging solutions. This high-quality film, made from polyethylene, exhibits exceptional clarity, strength, and flexibility. Lamination PE film is available as laminated and stretch film options, and is widely used as a packaging film and plastic film in various industries. It is commonly utilized as a protective layer, enhancing the durability and visual appeal of various products.
-
-The lamination process involves bonding the film to surfaces such as paper, cardboard, or other materials to provide an added layer of protection against moisture, dirt, and wear. The process can involve combining polyethylene films with other materials such as biaxially oriented polypropylene, polypropylene, or sheets to enhance specific properties. Anti static properties are also important for packaging sensitive electronics and medical products. This enables businesses across industries to safeguard their goods during handling, storage, and transportation.
-
-With its wide range of applications, including packaging for food, pharmaceuticals, textiles, and industrial products, lamination PE film also finds use in beverage packaging, containers, and labels, as well as being suitable for frequently thermoformed packaging and custom polyethylene film products. Its versatility, strength, and reliable barrier properties make it an indispensable choice for businesses seeking optimal packaging solutions in the B2B sector. Linear low density polyethylene and ultra high molecular weight options are available for specialized needs.
-
-Our company’s capabilities include producing a wide range of polyethylene films and plastic films for various industries, establishing us as a leading company and distributor in the market.
-
-### Properties of PE Film
-The unique properties of PE film make it an indispensable material for a wide range of uses. Known for its excellent chemical resistance and electrical insulation, PE film is also oil-resistant and waterproof, providing robust protection for packaged goods. Its low density means it is nearly non-absorbent and can float on water, adding to its versatility in various applications.
-
-PE film is available in different forms, primarily low density polyethylene (LDPE) and high density polyethylene (HDPE). LDPE is softer, more flexible, and highly transparent, making it suitable for applications where clarity and flexibility are important. In contrast, HDPE offers greater strength and higher heat resistance, making it ideal for more demanding packaging and industrial uses. The structure of PE film, composed of repeated methylene units, can be tailored during production to achieve specific mechanical properties and thicknesses, ensuring the right balance of durability and performance for each application. Whether used in transparent packaging, industrial sheeting, or protective covers, PE film’s adaptability and reliability make it a preferred choice in many industries.
-
-### Lamination PE Film Manufacturer
-A lamination PE film manufacturer plays a pivotal role in delivering high-quality PE films tailored for a variety of packaging applications. Utilizing advanced extrusion and lamination technologies, these manufacturers produce a diverse range of film products, including barrier films, stretch films, and protective films, each designed to meet the specific needs of industries such as food packaging, medical packaging, and industrial packaging.
-
-Manufacturers of PE film products are committed to stringent quality control, ensuring that every roll provides superior moisture barrier, abrasion resistance, and high heat resistance. This attention to detail makes their films suitable for demanding environments in sectors like automotive, aerospace, electronics, and consumer markets. By offering custom plastic products and solutions, lamination PE film manufacturers enable companies to develop innovative packaging products that enhance product safety, extend shelf life, and improve overall performance. Their expertise supports a wide array of commercial applications, from pharmaceutical and medical packaging to industrial and retail packaging, making them essential partners for businesses seeking reliable and effective packaging solutions.
-
-At WinnerPack, we take immense pride in being the leading manufacturer of PE lamination Film, catering to the diverse needs of businesses across industries. With our unwavering commitment to excellence, we have established ourselves as the best choice for all your lamination film requirements. Our capabilities extend to producing innovative flexible packaging films, and we are a trusted distributor for clients across various industries, ensuring reliable supply and service.
-
-We offer a comprehensive range of PE lamination films, including high-quality film lamination options, to meet your specific packaging needs.
-
-### Benefits of PE Lamination Roll:
-Here are some benefits of using PE lamination roll:
-- Enhanced durability and protection for products.
-- Reliable barrier against moisture, oxygen, and contaminants.
-- Versatile and customizable for various packaging needs.
-- Improved product appearance and visual appeal.
-- Extended shelf life for perishable goods.
-- Compatibility with different lamination techniques.
-- Ease of use and efficient production workflows.
-- Wide range of thickness options for customization.
-- Cost-effective solution for packaging requirements.
-- Compliant with industry standards and regulations.`,
-    image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
-    gallery: [
-      "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
-      "/images/desktop/about/blown_film_tower.png",
-      "/images/products/lamination-films-pouches/applications/app-3.png",
-      "/images/desktop/portfolio/showcase_printed_custom_tapes.png"
-    ],
-    specs: {
-      "Material Type": "Virgin Low-Density Polyethylene (LDPE) & HDPE Polymers",
-      "Available Widths": "Up to 2.25 Meters (2250 mm)",
-      "Thickness Range": "18 Micron to 300 Micron",
-      "Available Colours": "Natural Transparent, White Opaque (Custom colors on request)",
-      "Lamination Process": "Heat & Press Lamination, Adhesive & Extrusion Bonding",
-      "Barrier Protection": "Moisture, Oil, Oxygen, Dirt & Abrasion Resistance",
-    },
-    thicknessLengthMatrix: [
-      { micron: "18 - 20", gauge: "80", meters: "1,500", feet: "4,920" },
-      { micron: "37.5 - 40", gauge: "160", meters: "750", feet: "2,460" },
-      { micron: "50", gauge: "200", meters: "600", feet: "1,968" },
-      { micron: "100", gauge: "400", meters: "300", feet: "984" },
-      { micron: "150", gauge: "600", meters: "200", feet: "656" },
-      { micron: "300", gauge: "1200", meters: "100", feet: "328" },
-    ],
-    subCategories: [
-      {
-        id: "adhesive-lamination-film",
-        title: "Adhesive Lamination Film",
-        subtitle: "Used for Lamination to Polyester | Widths up to 2.25 Meters",
-        blurb: "Used for lamination to polyester with exceptional clarity, strength, and flexibility. Available in widths up to 2.25 meters and thickness range from 18 to 300 microns in Natural and White opaque finishes.",
-        image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
-        specs: {
-          "Primary Use": "Used for lamination to polyester",
-          "Widths Available": "Available in widths upto 2.25 meters",
-          "Thickness Range": "18 - 300 microns",
-          "Colours": "Natural, White opaque (Other colours available on request)",
-          "Applications": "Seeds Packaging, Pesticide Packaging, Dairy Products, Vacuum Pouches, Condom Packaging etc.",
-        },
-        applications: ["Seeds Packaging", "Pesticide Packaging", "Dairy Products", "Vacuum Pouches", "Condom Packaging"],
-      },
-      {
-        id: "pharma-grade-poly",
-        title: "Pharma Grade Poly",
-        subtitle: "Heat & Press Lamination to Aluminum Foil for Strip Tablets",
-        blurb: "Pharma Grade Poly is used for Heat and Press Lamination to Aluminum Foil for further packing of strip tablets in the pharmaceutical industry. Other applications include lidding application, cable wrap, and extrusion lamination.",
-        image: "/images/products/pharma-grade-poly/pharma-grade-poly.jpg",
-        specs: {
-          "Primary Application": "Heat and Press Lamination to Aluminum Foil",
-          "Target Use": "Further packing of strip tablets in pharmaceutical industry",
-          "Other Applications": "Lidding Application, Cable Wrap, Extrusion Lamination",
-          "Standard Thicknesses": "20 Micron, 37.5 Micron, 40 Micron, 50 Micron",
-        },
-        applications: ["Pharmaceutical Strip Tablets", "Aluminum Foil Heat Lamination", "Lidding Application", "Cable Wrap", "Extrusion Lamination"],
-      }
-    ],
-    options: {
-      widths: ["Up to 2.25 Meters", "500 mm", "750 mm", "1000 mm", "1500 mm", "2250 mm"],
-      thicknesses: ["18 Micron", "20 Micron", "37.5 Micron", "40 Micron", "50 Micron", "100 Micron", "150 Micron", "300 Micron"],
-      colors: ["Natural Transparent", "White Opaque", "Silver Foil Laminated", "Custom Tint"],
-    },
-    applications: ["Seeds Packaging", "Pesticide Packaging", "Dairy Products", "Vacuum Pouches", "Condom Packaging", "Pharma Strip Tablets", "Lidding & Cable Wrap"],
-    visualGradients: "from-sky-400 to-blue-500",
-  },
+  
   {
     id: "adhesive-lamination-film",
     title: "Adhesive Lamination Film",
@@ -1407,11 +1006,11 @@ Adhesive Lamination Film refers to a multilayered material created by bonding tw
 
 #### 5. Is Adhesive Lamination Film food-safe?
 Yes. Adhesive Lamination Films designed for food packaging are manufactured in compliance with international food safety standards (such as US FDA 21 CFR and EU regulations). Approved adhesives and virgin resins ensure safety for direct or indirect food contact.`,
-    image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
+    image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.webp",
     gallery: [
-      "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
-      "/images/desktop/about/blown_film_tower.png",
-      "/images/products/lamination-films-pouches/applications/app-3.png"
+      "/images/products/adhesive-lamination-film/adhesive-lamination-film.webp",
+      "/images/desktop/about/blown_film_tower.webp",
+      "/images/products/lamination-films-pouches/applications/app-3.webp"
     ],
     specs: {
       "Primary Substrate": "Used for lamination to polyester (PET), BOPP & foil",
@@ -1497,11 +1096,11 @@ Yes. Engineered with HALS UV stabilizers, thermal NIR barriers, and anti-fog dro
 
 #### 10. How do I choose the right Agricultural Film for my farm?
 Consider your crop type, regional climate (high UV vs cold), application method (mulching, greenhouse, or low tunnel), and expected lifespan, or contact our engineering team for customized recommendations.`,
-    image: "/images/desktop/journey/solution_pcr_eco_film.png",
+    image: "/images/desktop/journey/solution_pcr_eco_film.webp",
     gallery: [
-      "/images/desktop/journey/solution_pcr_eco_film.png",
-      "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
+      "/images/desktop/journey/solution_pcr_eco_film.webp",
+      "/images/desktop/about/blown_film_tower.webp",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.webp",
     ],
     specs: {
       "Thickness Range": "20 Micron to 200 Micron",
@@ -1525,7 +1124,7 @@ Consider your crop type, regional climate (high UV vs cold), application method 
         title: "Plastic Mulching Film",
         subtitle: "Silver-Black & Opaque UV Stabilized Crop Protection Mulch",
         blurb: "High-grade silver-black and black polyethylene mulching film designed to reflect sunlight, suppress weeds, conserve soil moisture, and prevent soil erosion.",
-        image: "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
+        image: "/images/products/plastic-mulching-film/plastic-mulching-film.webp",
         specs: {
           "Soil Temperature": "Increases soil warmth for early crop germination",
           "Germination & Growth": "Speeds up germination & crop cultivation cycles",
@@ -1540,7 +1139,7 @@ Consider your crop type, regional climate (high UV vs cold), application method 
         title: "Low Tunnel Film",
         subtitle: "Perforated Micro-Climate Sheeting for Early Crop Protection",
         blurb: "Clear high-clarity low tunnel protective sheeting designed for row crop installation, providing frost protection and accelerated seed germination.",
-        image: "/images/products/low-tunnel-film/low-tunnel-film.jpg",
+        image: "/images/products/low-tunnel-film/low-tunnel-film.webp",
         specs: {
           "Climate Protection": "Helps protect row crops against harsh climate variations",
           "Pest Barrier": "Protects plants from insects & airborne vectors",
@@ -1555,7 +1154,7 @@ Consider your crop type, regional climate (high UV vs cold), application method 
         title: "Mulch Film",
         subtitle: "Embossed Polyethylene Soil Temperature Control Film",
         blurb: "Embossed and smooth agricultural mulch film rolls optimized for drip irrigation compatibility, weed control, and crop root stabilization.",
-        image: "/images/products/mulch-film/mulch-film.jpg",
+        image: "/images/products/mulch-film/mulch-film.webp",
         specs: {
           "Weedicide Savings": "Colored film blocks light, stopping weed growth & chemical costs",
           "Moisture Retention": "Keeps root zone moist, reducing irrigation requirements",
@@ -1660,11 +1259,11 @@ Standard films last one growing season, while thicker, UV-stabilized films can p
 
 #### 10. Is Plastic Mulching Film suitable for organic farming?
 Standard polyethylene mulch is synthetic, but certified biodegradable mulching films complying with organic farming standards can be used as a sustainable alternative.`,
-    image: "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
+    image: "/images/products/plastic-mulching-film/plastic-mulching-film.webp",
     gallery: [
-      "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
-      "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png"
+      "/images/products/plastic-mulching-film/plastic-mulching-film.webp",
+      "/images/desktop/about/blown_film_tower.webp",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.webp"
     ],
     specs: {
       "Thickness Range": "15 Micron (1 Season), 25-30 Micron (2-3 Seasons), 50 Micron (Orchards)",
@@ -1759,10 +1358,10 @@ Premium UV-stabilized films last 12 to 24 months, while standard light-gauge opt
 
 #### 10. Is Low Tunnel Film reusable?
 Yes. When handled carefully, cleaned after harvest, inspected for minor punctures, and stored in a shaded area away from direct sunlight, thicker low tunnel films can be reused across multiple seasons.`,
-    image: "/images/products/low-tunnel-film/low-tunnel-film.jpg",
+    image: "/images/products/low-tunnel-film/low-tunnel-film.webp",
     gallery: [
-      "/images/products/low-tunnel-film/low-tunnel-film.jpg",
-      "/images/desktop/about/blown_film_tower.png"
+      "/images/products/low-tunnel-film/low-tunnel-film.webp",
+      "/images/desktop/about/blown_film_tower.webp"
     ],
     specs: {
       "Thickness Range": "50–150 Micron (Custom Available)",
@@ -1858,10 +1457,10 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
 - **Climate**: Black for cold regions; Silver/White for hot climates.
 - **Crop Duration**: 15–20 Micron for single-season crops; 20–30 Micron for 2–3 season crops; 50+ Micron for orchard trees.
 - **Sustainability**: Choose biodegradable options for zero-retrieval labor.`,
-    image: "/images/products/mulch-film/mulch-film.jpg",
+    image: "/images/products/mulch-film/mulch-film.webp",
     gallery: [
-      "/images/products/mulch-film/mulch-film.jpg",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png"
+      "/images/products/mulch-film/mulch-film.webp",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.webp"
     ],
     specs: {
       "Thickness Range": "15-20 Micron (1 Season), 20-30 Micron (2-3 Seasons), 50+ Micron (Orchards)",
@@ -1891,12 +1490,12 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "Compostable",
     blurb: "Certified 100% biodegradable and home-compostable PLA and PBAT bio-resin packaging films, carry bags, and eco-friendly security courier mailer pouches.",
     longDesc: "Compostable Films & Pouches are manufactured from renewable plant starch, PLA (Polylactic Acid), and PBAT (Polybutyrate Adipate Terephthalate) bio-polymers. Certified under EN 13432 and ISO 17088 standards, these eco-friendly films completely disintegrate into organic natural humus, CO₂, and water within 90 to 180 days under composting conditions, leaving zero microplastics, heavy metals, or toxic residues.\n\n### Key Product Features:\n- **100% Certified Biodegradable & Compostable**: Complies with EN 13432, ASTM D6400, and ISO 17088 standards.\n- **Zero Microplastics & Toxic Residue**: Breaks down entirely into natural organic soil nutrients.\n- **High Tensile & Tear Strength**: PBAT blending provides flexibility and drop impact strength comparable to traditional LDPE.\n- **Eco-Friendly Water-Based Inks**: Printable using non-toxic water-based eco inks for green brand messaging.\n- **Excellent Shelf Life Integrity**: Maintains full physical strength for up to 12 months under dry indoor warehouse storage.\n- **Rolls & Pouch Formats**: Available in continuous bio-extrusion rolls, D-cut carry bags, garment bags, and self-adhesive courier mailers.",
-    image: "/images/desktop/journey/solution_pcr_eco_film.png",
+    image: "/images/desktop/journey/solution_pcr_eco_film.webp",
     gallery: [
-      "/images/desktop/journey/solution_pcr_eco_film.png",
-      "/images/desktop/about/blown_film_tower.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/products/compostable-films-pouches/applications/app-4.png"
+      "/images/desktop/journey/solution_pcr_eco_film.webp",
+      "/images/desktop/about/blown_film_tower.webp",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.webp",
+      "/images/products/compostable-films-pouches/applications/app-4.webp"
     ],
     specs: {
       "Bio Polymer Resin": "PBAT + PLA + Cornstarch Blend",
@@ -1920,7 +1519,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Compostable Film Rolls",
         subtitle: "PBAT/PLA Eco Sheeting & Tubing Rolls for Packaging Lines",
         blurb: "Continuous bio-based PBAT and PLA compostable film rolls available in single wound sheeting and tubular tubing. Ideal for eco-friendly shrink overwrapping, agricultural mulch, and automated bag making machinery.",
-        image: "/images/desktop/journey/solution_pcr_eco_film.png",
+        image: "/images/desktop/journey/solution_pcr_eco_film.webp",
         specs: {
           "Format Types": "Single Wound Sheeting / Tubular Tubing / Centerfolded",
           "Bio Degradable Rate": "100% Home & Industrial Compostable",
@@ -1935,7 +1534,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Compostable Pouches & Bags",
         subtitle: "100% Home & Industrial Biodegradable Courier & Retail Bags",
         blurb: "Pre-formed bio compostable bags featuring self-adhesive permanent seal mailer flaps, D-cut handles, and zipper closures. Designed for sustainable e-commerce shipping, retail apparel packaging, and organic waste collection.",
-        image: "/images/products/compostable-films-pouches/applications/app-4.png",
+        image: "/images/products/compostable-films-pouches/applications/app-4.webp",
         specs: {
           "Bag Styles": "Self-Adhesive Courier Mailers / D-Cut Carry Bags / Garment Bags",
           "Sealing Strip": "High Tack Permanent Eco Adhesive Flap Tape",
@@ -1963,11 +1562,11 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "PP STRAP",
     blurb: "High-tensile virgin polypropylene (PP) strapping rolls engineered for automated, semi-automated, and manual carton reinforcement and light bundle tying.",
     longDesc: "Polypropylene (PP) Strapping is manufactured from 100% virgin PP resin extruded with a diamond-embossed surface texture. Engineered for high friction weld joint efficiency (up to 80%) on automatic and semi-automatic strapping machines, it provides reliable carton reinforcement, pallet binding, and bundle unitization without producing dust on welding heads.\n\n### Key Product Features:\n- **High Friction-Weld Joint Strength**: Delivers up to 80% joint strength on heat-sealing and friction-weld strapping tools.\n- **Smooth Machine Runnability**: Precision camber control ensures jam-free feeding in high-speed automatic arch machines.\n- **Embossed Surface Grip**: Diamond knurled embossing enhances strap stiffness and seal clip grip.\n- **Split & Crack Resistant**: Formulated to withstand sharp carton edges without splitting longitudinal fibers.\n- **Lightweight & Recyclable**: 100% recyclable thermoplastic material designed for economic B2B packaging.",
-    image: "/images/products/pp-strap/image.png",
+    image: "/images/products/pp-strap/image.webp",
     gallery: [
-      "/images/products/pp-strap/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/gallery_pp_strapping.png"
+      "/images/products/pp-strap/image.webp",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.webp",
+      "/images/desktop/portfolio/gallery_pp_strapping.webp"
     ],
     specs: {
       "Material Grade": "100% Virgin Polypropylene (PP)",
@@ -1991,7 +1590,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Automatic Machine PP Strap Rolls",
         subtitle: "Precision Camber Fully Automatic Arch Strapping Rolls",
         blurb: "High-grade virgin PP strapping engineered for ultra-fast feeding in fully automatic arch strapping machines. Features tight width tolerance and zero curvature camber for jam-free operation.",
-        image: "/images/products/pp-strap/image.png",
+        image: "/images/products/pp-strap/image.webp",
         specs: {
           "Format": "Continuous Machine Coil Roll",
           "Machine Speed": "Up to 60 straps/minute arch speed",
@@ -2005,7 +1604,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Manual & Semi-Auto PP Strap Rolls",
         subtitle: "Hand Tool & Semi-Automatic Friction Weld Strap Rolls",
         blurb: "Versatile PP strapping rolls formulated for manual hand tensioners, battery friction-weld tools, and tabletop semi-automatic strapping machines. Provides economic box reinforcement.",
-        image: "/images/products/pp-strap/applications/app-1.png",
+        image: "/images/products/pp-strap/applications/app-1.webp",
         specs: {
           "Format": "200mm Cardboard Core Hand Coil",
           "Sealing Method": "Metal Clip / Heat Seal / Friction Weld",
@@ -2030,11 +1629,11 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "PRINTED PP",
     blurb: "Custom corporate logo printed polypropylene strapping rolls for brand promotion, dispatch security, and pilferage prevention.",
     longDesc: "Printed PP Strap combines structural box reinforcement with custom corporate logo branding. Printed with high-bonding UV inks, it acts as a tamper-evident security seal on shipping cartons and pallet lots, preventing unauthorized box tampering and theft during logistics transport.\n\n### Key Product Features:\n- **Custom Corporate Logo Printing**: Crisp 1-color or 2-color ink printing of brand name, website, or security warning.\n- **Anti-Pilferage Security Seal**: Instant visual indication if strapping band is cut or tampered with during freight transit.\n- **High-Bonding Ink**: UV cured inks resist friction rub-off and machine roller wear.\n- **Virgin PP Durability**: High tensile break strength with 80% friction weld joint efficiency.\n- **Custom Print Repetition**: Standard 300mm to 500mm logo print repeat cycle.",
-    image: "/images/products/printed-pp-strap/image.png",
+    image: "/images/products/printed-pp-strap/image.webp",
     gallery: [
-      "/images/products/printed-pp-strap/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/gallery_pp_strapping.png"
+      "/images/products/printed-pp-strap/image.webp",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.webp",
+      "/images/desktop/portfolio/gallery_pp_strapping.webp"
     ],
     specs: {
       "Print Capabilities": "Custom Corporate Logos & Security Warnings",
@@ -2057,7 +1656,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Corporate Branded PP Strap",
         subtitle: "Custom Logo & Company Name Printed Strapping Rolls",
         blurb: "Polypropylene strapping customized with high-impact corporate logos and brand names. Transforms ordinary shipping boxes into mobile marketing billboards while securing cargo.",
-        image: "/images/products/printed-pp-strap/image.png",
+        image: "/images/products/printed-pp-strap/image.webp",
         specs: {
           "Ink Color Options": "Red, Blue, Black, Green on White/Yellow Base",
           "Repeat Distance": "300mm logo spacing",
@@ -2071,7 +1670,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Security & Warning Printed PP Strap",
         subtitle: "Pre-Printed Anti-Pilferage & Tamper Caution Strapping Rolls",
         blurb: "Pre-printed with high-visibility security warnings (e.g. 'SECURITY SEAL - DO NOT ACCEPT IF BROKEN'). Prevents theft and tampering in high-risk transit routes.",
-        image: "/images/products/printed-pp-strap/applications/app-1.png",
+        image: "/images/products/printed-pp-strap/applications/app-1.webp",
         specs: {
           "Pre-Printed Text": "'SECURITY SEAL' / 'FRAGILE' / 'CHECK WEIGHT'",
           "Base Colors": "Safety Yellow / Signal Red",
@@ -2096,11 +1695,11 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "COLORED PP",
     blurb: "High-opacity vibrant colored polypropylene strapping rolls for instant warehouse lot identification, destination color-coding, and cargo sorting.",
     longDesc: "Colored PP Strap is extruded using high-opacity masterbatch color pigments in red, yellow, blue, green, and black shades. Designed for large distribution centers and export hubs to enable instant visual color-code sorting, pallet batch grouping, and dispatch routing while providing high-tensile box reinforcement.\n\n### Key Product Features:\n- **Vibrant Color Masterbatch Pigments**: Color-fast opaque masterbatch resists UV fading and warehouse handling friction.\n- **Instant Visual Logistics Sorting**: Speeds up cargo dispatch categorization and inventory lot identification.\n- **Consistent Width & Thickness**: Strict tolerance (+/- 0.05 mm) prevents machine jamming during packaging runs.\n- **High Breaking Strength**: Formulated to hold up to 200 kg tensile load per strap band.\n- **Eco-Friendly Recyclable PP**: Fully recyclable polypropylene resin matching green supply chain standards.",
-    image: "/images/products/colored-pp-strap/image.png",
+    image: "/images/products/colored-pp-strap/image.webp",
     gallery: [
-      "/images/products/colored-pp-strap/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/gallery_pp_strapping.png"
+      "/images/products/colored-pp-strap/image.webp",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.webp",
+      "/images/desktop/portfolio/gallery_pp_strapping.webp"
     ],
     specs: {
       "Pigmentation Style": "High Opacity Color Masterbatch",
@@ -2124,7 +1723,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Primary Color Identification PP Straps",
         subtitle: "Signal Red, Safety Yellow & Ocean Blue Strapping Rolls",
         blurb: "Bright primary colored strapping rolls designed for high-visibility warehouse batching and quick destination sorting in distribution hubs.",
-        image: "/images/products/colored-pp-strap/image.png",
+        image: "/images/products/colored-pp-strap/image.webp",
         specs: {
           "Colors Available": "Signal Red, Safety Yellow, Ocean Blue",
           "Widths": "12mm, 15mm",
@@ -2138,7 +1737,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Heavy-Duty Colored Packaging Straps",
         subtitle: "15mm & 19mm Heavy Masterbatch Strapping Rolls for Heavy Pallets",
         blurb: "Heavy-gauge colored PP strapping formulated with extra thickness (0.80mm to 0.90mm) for heavy industrial box and pallet unitization.",
-        image: "/images/products/colored-pp-strap/applications/app-2.png",
+        image: "/images/products/colored-pp-strap/applications/app-2.webp",
         specs: {
           "Colors Available": "Grass Green, Jet Black, Industrial Orange",
           "Widths": "15mm, 19mm",
@@ -2163,11 +1762,11 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "PET STRAP",
     blurb: "Heavy-duty extruded polyester (PET) strapping bands engineered to replace steel strapping for high-tension pallet stabilization, timber, metals, and export shipping.",
     longDesc: "Polyester (PET) Strapping is the heavy-duty industrial alternative to steel strapping. Manufactured from high-density polyethylene terephthalate, PET strap offers extreme tensile strength (up to 900 kg break load), superior tension retention over long transits, high elastic shock recovery, and 100% rust-free safety. Ideal for securing heavy metal coils, timber lumber, brick kilns, and export palletized cargo.\n\n### Key Product Features:\n- **Steel Strap Alternative**: Matches steel strap break strength while being 80% lighter and safer to handle without sharp edges.\n- **Superior Retention Tension**: Retains structural tension over long transit times and temperature fluctuations without slacking.\n- **Elastic Shock Recovery**: Absorbs heavy impact drops and cargo settling during multi-modal sea freight.\n- **100% Weather & Rust Proof**: Eliminates rust stains on timber, stone, and metal products stored outdoors.\n- **Friction & Battery Tool Compatible**: Formulated for seamless operation with battery-powered pneumatic and manual tensioning tools.",
-    image: "/images/products/pet-strap/image.png",
+    image: "/images/products/pet-strap/image.webp",
     gallery: [
-      "/images/products/pet-strap/image.png",
-      "/images/desktop/portfolio/product_app_pallet_wrapping.png",
-      "/images/desktop/portfolio/gallery_pp_strapping.png"
+      "/images/products/pet-strap/image.webp",
+      "/images/desktop/portfolio/product_app_pallet_wrapping.webp",
+      "/images/desktop/portfolio/gallery_pp_strapping.webp"
     ],
     specs: {
       "Material Structure": "High-Density Extruded Polyester (PET)",
@@ -2191,7 +1790,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Standard Industrial PET Strap",
         subtitle: "12mm & 15mm Embossed Green Polyester Strapping Rolls",
         blurb: "Embossed green PET strapping engineered for standard industrial pallet unitization. Designed for battery-powered friction weld tools and pneumatic tensioners.",
-        image: "/images/products/pet-strap/image.png",
+        image: "/images/products/pet-strap/image.webp",
         specs: {
           "Width Options": "12mm, 15mm",
           "Thickness": "0.60mm, 0.70mm",
@@ -2205,7 +1804,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Extra Heavy Export PET Strap",
         subtitle: "16mm, 19mm & 25mm High-Tensile PET Strapping for Metals & Lumber",
         blurb: "Heavy-gauge high-tensile PET strapping bands designed to replace 19mm and 32mm steel straps on heavy timber, steel coils, concrete blocks, and export cargo sea containers.",
-        image: "/images/products/pet-strap/applications/app-1.png",
+        image: "/images/products/pet-strap/applications/app-1.webp",
         specs: {
           "Width Options": "16mm, 19mm, 25mm",
           "Thickness": "0.80mm to 1.20mm Heavy",
@@ -2225,144 +1824,6 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   },
 
   // --- PROTECTIVE PACKAGING ---
-  {
-    id: "bubble-roll",
-    title: "Bubble Roll & Pouches",
-    category: "pp-strap",
-    tag: "Bubble",
-    blurb: "Used to cushion fragile glassware, electronics, and precision components. Air-bubble protective wrapping rolls.",
-    longDesc: "Cushioning bubble wrap rolls made from 100% virgin LDPE. Designed with heavy air sealing to prevent air leak. Ideal for fragile glassware, artwork, instruments, and electronics protection.",
-    image: "/images/products/bubble-roll/image.png",
-    gallery: ["/images/products/bubble-roll/image.png"],
-    specs: {
-      "Bubble Size": "10mm bubble diameter",
-      "Material Base": "Virgin LDPE (Recyclable)",
-      "Standard Width": "1.0m / 1.5m",
-      "Anti-static option": "Pink ESD additives available",
-    },
-    options: {
-      widths: ["1.0m x 50m", "1.5m x 50m"],
-      thicknesses: ["50 GSM", "80 GSM"],
-      colors: ["Translucent Clear", "Anti-static Pink"],
-    },
-    applications: ["Glass packaging cushioning", "Electronics wrapping", "Fragile retail box packing"],
-    visualGradients: "from-rose-400 to-pink-500",
-  },
-  {
-    id: "epe-foam-rolls",
-    title: "EPE Foam Rolls",
-    category: "film-products",
-    tag: "EPE Foam",
-    blurb: "Used to shield painted metal parts and glass plates from surface scratches. Closed-cell polyethylene cushioning sheets.",
-    longDesc: "Non-crosslinked, closed-cell EPE foam sheets providing premium cushioning and shock absorption. Prevents scratch marks on painted surfaces, sheet metal components, electronics, and glass plates.",
-    image: "/images/products/epe-foam-rolls/image.png",
-    gallery: ["/images/products/epe-foam-rolls/image.png"],
-    specs: {
-      "Structure Style": "Closed-cell non-crosslinked foam",
-      "Density": "20 kg/m³ average",
-      "Scratch Shield": "100% scratch free protection",
-      "Thermal Insulation": "Good thermal insulation limits",
-    },
-    options: {
-      widths: ["1.0m x 100m"],
-      thicknesses: ["1 mm", "2 mm", "5 mm", "10 mm"],
-      colors: ["Cream White"],
-    },
-    applications: ["Automotive body sheet metal wrapping", "Precision electronics cushioning", "Premium furniture corner protector"],
-    visualGradients: "from-rose-400 to-pink-500",
-  },
-  {
-    id: "air-bags",
-    title: "Air Bags",
-    category: "film-products",
-    tag: "Air Bag",
-    blurb: "Used to fill voids and brace pallets inside shipping containers to prevent cargo shifting. Inflatable container dunnage bags.",
-    longDesc: "Heavy-duty inflatable dunnage air bags designed to brace cargo inside shipping containers. Prevents shifts and collisions during sea and rail transits, filling lateral voids between pallets.",
-    image: "/images/products/air-bags/image.png",
-    gallery: ["/images/products/air-bags/image.png"],
-    specs: {
-      "Working Pressure": "Max 0.2 Bar",
-      "Inner Liner": "Multi-layer co-extruded PE",
-      "Outer Shell": "Heavy Kraft Paper / Woven Polypropylene",
-      "Valve Style": "Quick-inflator high speed valve",
-    },
-    options: {
-      widths: ["90 x 120 cm", "90 x 180 cm", "120 x 240 cm"],
-      thicknesses: ["PP Woven Single Shift", "Kraft Paper 2-Ply"],
-      colors: ["Brown Kraft", "White Poly"],
-    },
-    applications: ["Sea container cargo bracing", "Truck trailer pallet lock", "Rail cargo void filler"],
-    visualGradients: "from-rose-400 to-pink-500",
-  },
-  {
-    id: "corrugated-boxes",
-    title: "Corrugated Boxes",
-    category: "film-products",
-    tag: "Box",
-    blurb: "Used to pack e-commerce parcels and stack warehouse stock securely. 3-ply, 5-ply, and 7-ply kraft board boxes.",
-    longDesc: "High compression strength corrugated shipping boxes. Custom engineered flute patterns offer extreme load resistance under stacking storage. Clean printing finish for warehouse tracking codes.",
-    image: "/images/products/corrugated-boxes/image.png",
-    gallery: ["/images/products/corrugated-boxes/image.png"],
-    specs: {
-      "Compressive Limit": "380 kg stacking weight",
-      "Bursting strength": "14.5 kg/cm²",
-      "GSM Specification": "180 GSM Top Kraft / 150 GSM flutes",
-      "Joint assembly": "Heavy-duty wire stitched / Glued seam",
-    },
-    options: {
-      widths: ["Small (30x20x20cm)", "Medium (45x30x30cm)", "Large (60x40x40cm)"],
-      thicknesses: ["3-Ply Single Wall", "5-Ply Double Wall", "7-Ply Heavy Duty"],
-      colors: ["Kraft Brown", "Bleached White"],
-    },
-    applications: ["E-commerce warehouse dispatches", "Heavy components shipment", "Product retail box stacking"],
-    visualGradients: "from-rose-400 to-pink-500",
-  },
-  {
-    id: "corrugated-rolls",
-    title: "Corrugated Rolls",
-    category: "film-products",
-    tag: "Roll",
-    blurb: "Used to wrap metal pipes, furniture parts, and large machinery columns. Flexible single-face paper rolls.",
-    longDesc: "Single face corrugated wrapping paper in rolls. Highly flexible structure allows wrapping around irregular shape industrial parts, furniture legs, and metallic items to protect them from dents.",
-    image: "/images/products/corrugated-rolls/image.png",
-    gallery: ["/images/products/corrugated-rolls/image.png"],
-    specs: {
-      "Paper Composition": "120 GSM linear board / 100 GSM flute",
-      "Flute density": "45 flutes/foot",
-      "Roll Length": "15 meters standard",
-      "Roll Weight": "25 kg average",
-    },
-    options: {
-      widths: ["1.0m", "1.2m", "1.5m"],
-      thicknesses: ["2-ply Single Face"],
-      colors: ["Natural Brown"],
-    },
-    applications: ["Industrial metal gear wrapping", "Moving and packing surface wrap", "Glass panel interleaving wrap"],
-    visualGradients: "from-rose-400 to-pink-500",
-  },
-  {
-    id: "edge-protector",
-    title: "Edge Protector",
-    category: "film-products",
-    tag: "Edge",
-    blurb: "Used to reinforce vertical pallet corners and prevent straps from cutting into boxes. Laminated paperboard corner boards.",
-    longDesc: "L-shaped laminated paperboard edge protectors. Reinforces pallet vertical stack integrity, prevents strap cutting damage on carton corners, and locks columns of boxes during strapping.",
-    image: "/images/products/edge-protector/image.png",
-    gallery: ["/images/products/edge-protector/image.png"],
-    specs: {
-      "Material composition": "Multi-layer laminated paperboard",
-      "Thickness Tolerance": "+/- 0.2 mm",
-      "Flexural Strength": "High compression tolerance",
-      "Water barrier": "Slight moisture repellent coating",
-    },
-    options: {
-      widths: ["50x50 mm", "75x75 mm"],
-      thicknesses: ["3 mm", "4 mm", "5 mm"],
-      colors: ["Kraft Brown"],
-    },
-    applications: ["Pallet vertical stacking reinforcement", "Box corner protectors under strap tension", "Export bundle packaging stabilization"],
-    visualGradients: "from-rose-400 to-pink-500",
-  },
 
   // --- TAPES ---
   {
@@ -2372,11 +1833,11 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "BOPP",
     blurb: "High-tack Biaxially Oriented Polypropylene (BOPP) self-adhesive carton sealing tapes engineered for manual handheld dispensers and automated box sealing machines.",
     longDesc: "BOPP Tapes are manufactured from high-tensile Biaxially Oriented Polypropylene film coated with water-based pressure-sensitive acrylic adhesive. Extruded under strict caliper control, these tapes provide instant tack, high shear strength, and split resistance over corrugated carton flaps, preventing box opening failures during transit.\n\n### Key Product Features:\n- **High Tack Pressure-Sensitive Adhesive**: Water-based acrylic adhesive bonds instantly to recycled and kraft cardboard.\n- **High Tensile Base Film**: Bi-axial film orientation prevents snapping under high manual or automated tensioning.\n- **Moisture & Temperature Resistance**: Resists aging, yellowing, UV light exposure, and humidity fluctuations.\n- **Manual & Machine Roll Lengths**: Available in 50m/100m manual hand rolls and 650m/1000m industrial machine rolls.\n- **Smooth & Low-Noise Unwind**: Formulated for quiet, smooth unwinding on high-speed conveyor sealing lines.",
-    image: "/images/products/bopp-tapes/bopp-tapes.jpg",
+    image: "/images/products/bopp-tapes/bopp-tapes.webp",
     gallery: [
-      "/images/products/bopp-tapes/bopp-tapes.jpg",
-      "/images/products/bopp-tapes/manual-dispenser-bopp-tapes.jpg",
-      "/images/products/bopp-tapes/automated-machine-roll-bopp-tapes.jpg"
+      "/images/products/bopp-tapes/bopp-tapes.webp",
+      "/images/products/bopp-tapes/manual-dispenser-bopp-tapes.webp",
+      "/images/products/bopp-tapes/automated-machine-roll-bopp-tapes.webp"
     ],
     specs: {
       "Film Structure": "Biaxially Oriented Polypropylene (BOPP) Film",
@@ -2400,7 +1861,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Manual Hand-Dispenser BOPP Tapes",
         subtitle: "48mm x 65m / 100m Hand Rolls for Warehouse Carton Sealing",
         blurb: "Lightweight, smooth-unwind BOPP self-adhesive tape rolls designed for handheld tape gun dispensers. Ideal for fast warehouse packing, e-commerce box sealing, and retail parcel dispatch.",
-        image: "/images/products/bopp-tapes/manual-dispenser-bopp-tapes.jpg",
+        image: "/images/products/bopp-tapes/manual-dispenser-bopp-tapes.webp",
         specs: {
           "Widths Available": "48mm (2 Inch), 72mm (3 Inch)",
           "Roll Lengths": "50m, 65m, 100m Hand Rolls",
@@ -2414,7 +1875,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Automated Machine-Roll BOPP Tapes",
         subtitle: "48mm / 72mm x 650m / 1000m Industrial Sealing Machine Rolls",
         blurb: "Heavy-duty continuous long-length BOPP tape rolls engineered for fully automated top-and-bottom carton sealing machines. Reduces roll changeover downtime on high-volume conveyor lines.",
-        image: "/images/products/bopp-tapes/automated-machine-roll-bopp-tapes.jpg",
+        image: "/images/products/bopp-tapes/automated-machine-roll-bopp-tapes.webp",
         specs: {
           "Widths Available": "48mm (2 Inch), 72mm (3 Inch)",
           "Roll Lengths": "650m, 1000m Industrial Machine Rolls",
@@ -2439,9 +1900,9 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "Printed",
     blurb: "Custom corporate logo printed BOPP packaging tapes engineered for brand identification, tamper-evident security sealing, and anti-pilferage dispatch protection.",
     longDesc: "Printed BOPP Tapes feature custom corporate logos, brand names, handling instructions, or tamper-evident security warnings printed underneath or over high-tack acrylic adhesive BOPP film. Serves as a dual-purpose solution that secures shipping cartons while building brand recognition and acting as a visible indicator against unauthorized box opening.\n\n### Key Product Features:\n- **High-Resolution Custom Branding**: Printed with up to 4-color UV-resistant inks with sharp logo reproduction.\n- **Anti-Pilferage Security Protection**: Instant visual evidence if carton tape is cut or replaced during transit.\n- **High Bond Strength**: Premium acrylic glue bonds permanently to corrugated paper, preventing tape lift-off.\n- **Abrasion & Rub-Off Resistant**: Printed inks are sealed under protective release top-coats to prevent ink smudging.\n- **Custom Warning Prints**: Pre-printed messages available (e.g. 'FRAGILE', 'HANDLE WITH CARE', 'DO NOT ACCEPT IF SEAL BROKEN').",
-    image: "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg",
+    image: "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.webp",
     gallery: [
-      "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg"
+      "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.webp"
     ],
     specs: {
       "Print Technology": "Reverse / Surface Printed UV Cured Inks (No Rub-Off)",
@@ -2465,7 +1926,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Custom Corporate Logo Printed Tapes",
         subtitle: "Brand Identity & Custom Artwork Packaging Tapes",
         blurb: "BOPP packaging tape customized with corporate logos, company graphics, and web addresses. Transforms shipping boxes into mobile marketing channels while securing box flaps.",
-        image: "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg",
+        image: "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.webp",
         specs: {
           "Ink Colors": "Up to 4 Custom Pantone Spot Colors",
           "Background Base": "Pure White / Crystal Clear / Kraft Brown",
@@ -2479,7 +1940,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Pre-Printed Warning & Security Tapes",
         subtitle: "Tamper-Evident Fragile & Security Caution Packaging Tapes",
         blurb: "Pre-printed with high-visibility warning text (e.g. 'FRAGILE - HANDLE WITH CARE', 'STOP IF SEAL IS BROKEN'). Prevents damage and theft during transit.",
-        image: "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg",
+        image: "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.webp",
         specs: {
           "Text Options": "'FRAGILE' / 'SECURITY SEAL' / 'HANDLE WITH CARE'",
           "Color Combination": "Red Text on White Base / Black Text on Yellow Base",
@@ -2504,9 +1965,9 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "Coloured",
     blurb: "Bright opaque colored BOPP self-adhesive packaging tapes engineered for inventory color classification, cargo batch sorting, and high-visibility parcel marking.",
     longDesc: "Coloured BOPP Tapes are manufactured by blending solid masterbatch color pigments into BOPP backing film, coated with high-tack acrylic adhesive. Designed for large distribution centers, fulfillment warehouses, and export logistics hubs to enable instant visual color-code sorting, cargo batching, and inventory routing.\n\n### Key Product Features:\n- **High Opacity Solid Masterbatch Colors**: Red, Yellow, Blue, Green, Orange, Black, and White solid colors.\n- **Instant Visual Inventory Sorting**: Speeds up warehouse parcel classification and cargo routing.\n- **High Tack Acrylic Bonding**: Adheres firmly to corrugated paper and stretch film without peeling.\n- **UV & Moisture Resistant**: Pigments and adhesives resist fading under warehouse lighting and moisture exposure.\n- **Standard Hand & Machine Roll Formats**: Available in 48mm x 65m hand rolls and long-length machine rolls.",
-    image: "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg",
+    image: "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.webp",
     gallery: [
-      "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg"
+      "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.webp"
     ],
     specs: {
       "Pigmentation Grade": "High Opacity Solid Block Masterbatch Color",
@@ -2530,7 +1991,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Primary Colored BOPP Tapes",
         subtitle: "Signal Red, Safety Yellow & Ocean Blue Packaging Tapes",
         blurb: "High-visibility primary colored BOPP tapes designed for quick warehouse lot identification, order priority color-coding, and parcel batching.",
-        image: "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg",
+        image: "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.webp",
         specs: {
           "Colors": "Signal Red, Safety Yellow, Ocean Blue",
           "Widths": "48mm (2 Inch)",
@@ -2544,7 +2005,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Secondary & Security Colored Tapes",
         subtitle: "Grass Green, Industrial Orange & Jet Black Tapes",
         blurb: "Solid secondary colored BOPP self-adhesive tapes for special inventory categorization, quality inspection marking, and confidential parcel sealing.",
-        image: "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg",
+        image: "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.webp",
         specs: {
           "Colors": "Grass Green, Industrial Orange, Jet Black",
           "Widths": "48mm (2 Inch), 72mm (3 Inch)",
@@ -2569,9 +2030,9 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
     tag: "Silicon",
     blurb: "Self-fusing silicone rubber sealing tapes and release-liner bag sealing tapes engineered for high-temperature pipe leak repair, electrical insulation, and reusable bag closures.",
     longDesc: "Silicon Sealing Tapes encompass self-fusing silicone rubber wrapping tapes and silicone release bag sealing tapes. Self-fusing silicone tapes fuse to themselves under tension without adhesive, forming an airtight, 100% waterproof seal capable of withstanding extreme temperatures (-50°C to +260°C) and high electrical voltage insulation.\n\n### Key Product Features:\n- **Self-Fusing Adhesive-Free Action**: Fuses permanently to itself within 24 hours under tension without sticky residues.\n- **Extreme Temperature Resistance**: Operates continuously from -50°C to +260°C without melting or hardening.\n- **High Electrical Dielectric Insulation**: Withstands up to 8,000 Volts per layer for electrical cable splicing.\n- **100% Waterproof & Pressure Tight**: Instantly seals leaking water pipes, hose connections, and air ducts under pressure.\n- **Weather & Chemical Proof**: Resistant to UV radiation, ozone, salt water, fuel, and industrial hydraulic fluids.",
-    image: "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg",
+    image: "/images/products/silicon-tapes/silicone-bag-sealing-tapes.webp",
     gallery: [
-      "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg"
+      "/images/products/silicon-tapes/silicone-bag-sealing-tapes.webp"
     ],
     specs: {
       "Operating Temperature": "-50°C to +260°C Continuous",
@@ -2595,7 +2056,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Self-Fusing Silicone Rubber Leak Tapes",
         subtitle: "Adhesive-Free Pipe & Electrical Insulation Repair Tapes",
         blurb: "Self-amalgamating silicone rubber tape that bonds to itself upon wrapping under tension. Provides an instant 100% waterproof emergency seal for leaking pipes, automotive radiator hoses, and high-voltage electrical cable splices.",
-        image: "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg",
+        image: "/images/products/silicon-tapes/silicone-bag-sealing-tapes.webp",
         specs: {
           "Widths": "25mm (1 Inch), 50mm (2 Inch)",
           "Thickness": "0.5mm, 1.0mm",
@@ -2609,7 +2070,7 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
         title: "Silicone Bag Sealing Tapes",
         subtitle: "Peel-and-Seal Reusable Bag Closure Tapes",
         blurb: "Polyester-backed silicone release liner tapes designed for sealing plastic mailers, OPP bags, and courier pouches with reusable peel-and-seal functionality.",
-        image: "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg",
+        image: "/images/products/silicon-tapes/silicone-bag-sealing-tapes.webp",
         specs: {
           "Substrate": "Mylar / PET film with silicone release coating",
           "Adhesive": "Solvent acrylic / Synthetic rubber glue",
@@ -2704,9 +2165,9 @@ The stretch capacity of manual stretch film typically ranges from 100% to 150%. 
 
 #### 10. Is manual stretch film suitable for both small and large items?
 Yes, manual stretch film is highly versatile and can be used for both small items and bulkier loads. For larger items or palletized goods, pairing manual film with a hand dispenser ensures proper tension and load stability.`,
-    image: "/images/products/manual-stretch-film/manual-stretch-film.png",
+    image: "/images/products/manual-stretch-film/manual-stretch-film.webp",
     gallery: [
-      "/images/products/manual-stretch-film/manual-stretch-film.png"
+      "/images/products/manual-stretch-film/manual-stretch-film.webp"
     ],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
@@ -2818,9 +2279,9 @@ Yes, most machine stretch films are recyclable as they are made of polyethylene 
 
 #### 10. Can machine stretch film be customized for specific machinery?
 Yes, WinnerPack provides custom machine stretch film formulations, widths, roll weights, and colors tailored to match your specific automatic stretch wrapper machinery and load stability parameters.`,
-    image: "/images/products/machine-stretch-film/machine-stretch-film.jpg",
+    image: "/images/products/machine-stretch-film/machine-stretch-film.webp",
     gallery: [
-      "/images/products/machine-stretch-film/machine-stretch-film.jpg"
+      "/images/products/machine-stretch-film/machine-stretch-film.webp"
     ],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
@@ -2849,52 +2310,8 @@ Yes, WinnerPack provides custom machine stretch film formulations, widths, roll 
     ],
     visualGradients: "from-yellow-400 to-amber-500",
   },
-  {
-    id: "pallet-cover",
-    title: "Pallet Cover",
-    category: "film-products",
-    tag: "Pallet Cover",
-    blurb: "Used to protect stacked pallets from dust, moisture, and rain. Heavy-gauge LDPE pallet hood covers.",
-    longDesc: "Gusseted LDPE pallet bags. Slipped over stacked pallets before stretch wrapping to provide complete 5-side moisture, dust, and rain protection for outdoor warehousing.",
-    image: "/images/products/pallet-cover/image.png",
-    gallery: ["/images/products/pallet-cover/image.png"],
-    specs: {
-      "Material Style": "Gusseted LDPE Hood bag",
-      "Dust protection": "100% dust proof shield",
-      "Water barrier": "Waterproof LDPE surface",
-      "Format": "Pre-cut bags on roll",
-    },
-    options: {
-      widths: ["Standard Pallet (1200x1000x1500mm)", "Extended Pallet (1200x1000x2000mm)"],
-      thicknesses: ["80 Micron", "100 Micron", "120 Micron"],
-      colors: ["Translucent Clear", "Opaque Black"],
-    },
-    applications: ["Outdoor pallet warehousing protection", "Chemical bulk bag covers", "Rain proof cargo shipping preparation"],
-    visualGradients: "from-yellow-400 to-amber-500",
-  },
-  {
-    id: "pallet-liner",
-    title: "Pallet Liner",
-    category: "film-products",
-    tag: "Pallet Liner",
-    blurb: "Used to protect bottom box layers from pallet nail punctures and rising moisture. Anti-slip bottom liner sheets.",
-    longDesc: "Placed on the wooden pallet base before stacking cartons. Protects bottom carton layers from nail punctures, splinters, moisture rising from wet wooden blocks, and slippage during cargo transit.",
-    image: "/images/products/pallet-liner/image.png",
-    gallery: ["/images/products/pallet-liner/image.png"],
-    specs: {
-      "Composition": "Heavy Kraft Cardboard / Corrugated plastic profile",
-      "Slip Rating": "High slip-resistant surface coating",
-      "Standard size": "1200 x 1000 mm",
-      "Waterproofing": "Poly-laminated water barrier options",
-    },
-    options: {
-      widths: ["1200 x 1000 mm"],
-      thicknesses: ["350 GSM Paperboard", "3mm Corrugated plastic"],
-      colors: ["Kraft Brown", "Grey plastic"],
-    },
-    applications: ["Pallet bottom layer board", "Stack stabilization interleaving", "Carton moisture barrier protector"],
-    visualGradients: "from-yellow-400 to-amber-500",
-  },
+  
+  
   {
     id: "pof-shrink-film",
     title: "POF Shrink Film",
@@ -2950,11 +2367,11 @@ Standard thicknesses include 12 Micron (50 Gauge), 15 Micron (60 Gauge), 19 Micr
 
 #### 10. Is POF Shrink Film recyclable?
 Yes. POF is 100% recyclable under category #4 (LDPE/PP) soft plastic recycling programs.`,
-    image: "/images/products/pof-shrink-rolls/image.png",
+    image: "/images/products/pof-shrink-rolls/image.webp",
     gallery: [
-      "/images/products/pof-shrink-rolls/image.png",
-      "/images/products/pof-films-pouches/applications/app-1.png",
-      "/images/products/pof-films-pouches/applications/app-2.png",
+      "/images/products/pof-shrink-rolls/image.webp",
+      "/images/products/pof-films-pouches/applications/app-1.webp",
+      "/images/products/pof-films-pouches/applications/app-2.webp",
     ],
     specs: {
       "Polymer Structure": "5-Layer Co-Extruded Polyolefin (POF)",
@@ -2977,7 +2394,7 @@ Yes. POF is 100% recyclable under category #4 (LDPE/PP) soft plastic recycling p
         title: "Cross-Linked POF Film",
         subtitle: "Irradiated High Tensile Polyolefin Rolls",
         blurb: "Irradiated cross-linked POF shrink film engineered with enhanced polymer chain bonds for extreme puncture resistance and high-speed automated L-sealer performance.",
-        image: "/images/products/cross-linked-pof/cross-linked-pof.jpg",
+        image: "/images/products/cross-linked-pof/cross-linked-pof.webp",
         specs: {
           "Polymer Structure": "Irradiated Cross-Linked Polyolefin (E-Beam)",
           "Puncture Resistance": "Extreme Sharp Edge & Heavy Box Impact Strength",
@@ -2991,7 +2408,7 @@ Yes. POF is 100% recyclable under category #4 (LDPE/PP) soft plastic recycling p
         title: "Non-Cross-Linked POF Film",
         subtitle: "Standard 5-Layer Soft Shrink Polyolefin",
         blurb: "Standard 5-layer co-extruded POF shrink rolls offering outstanding optical clarity, soft-shrink capability, and low-temperature activation for retail goods.",
-        image: "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
+        image: "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.webp",
         specs: {
           "Polymer Structure": "Standard 5-Layer Co-Extruded LLDPE / PP",
           "Shrink Force": "Soft-Shrink Activation (Prevents Box Warping)",
@@ -3000,22 +2417,6 @@ Yes. POF is 100% recyclable under category #4 (LDPE/PP) soft plastic recycling p
           "Applications": "Bakery Items, Books, Cosmetics & Retail Multipacks",
         },
       },
-      /*
-      {
-        id: "pof-shrink-pouches",
-        title: "POF Shrink Pouches",
-        subtitle: "Pre-Cut Sealed Polyolefin Shrink Bags",
-        blurb: "Pre-cut three-side sealed POF shrink pouches ready for instant item insertion, eliminating roll slitting off-cut waste and accelerating manual packing.",
-        image: "/images/products/pof-films-pouches/applications/app-4.png",
-        specs: {
-          "Format Style": "Pre-Cut 3-Side Factory Sealed Polyolefin Bags",
-          "Waste Reduction": "Zero Roll Off-Cut Scrap or Slitting Waste",
-          "Sealing Method": "Tabletop Impulse Sealer / Hand Heat Gun",
-          "Clarity & Strength": "93% Glass-Clear Optics with Reinforced Side Welds",
-          "Applications": "Gift Baskets, Photo Albums, Artisanal Soaps & Stationery",
-        },
-      },
-      */
     ],
     options: { widths: ["200mm", "300mm", "450mm", "600mm"], thicknesses: ["12 Micron", "15 Micron", "19 Micron", "25 Micron"], colors: ["Ultra Clear Glass Finish"] },
     applications: ["Food & bakery packaging", "Gift basket & cosmetic boxes", "Toys, books & stationery packs"],
@@ -3076,10 +2477,10 @@ It remains soft, flexible, and crack-resistant down to -40°C, making it ideal f
 
 #### 10. Is Cross-Linked POF recyclable?
 Yes. It is 100% recyclable under soft polyolefin plastic recycling streams.`,
-    image: "/images/products/cross-linked-pof/cross-linked-pof.jpg",
+    image: "/images/products/cross-linked-pof/cross-linked-pof.webp",
     gallery: [
-      "/images/products/cross-linked-pof/cross-linked-pof.jpg",
-      "/images/products/cross-linked-pof/cross-linked-pof-rolls.jpg"
+      "/images/products/cross-linked-pof/cross-linked-pof.webp",
+      "/images/products/cross-linked-pof/cross-linked-pof-rolls.webp"
     ],
     specs: {
       "Polymer Structure": "Irradiated Cross-Linked Polyolefin",
@@ -3155,10 +2556,10 @@ Yes, it seals cleanly with tabletop impulse bar sealers, L-bar sealers, and auto
 
 #### 10. Is Non-Cross-Linked POF recyclable?
 Yes, 100% recyclable under soft plastic (#4 PE/PP) recycling streams.`,
-    image: "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
+    image: "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.webp",
     gallery: [
-      "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
-      "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-rolls.jpg"
+      "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.webp",
+      "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-rolls.webp"
     ],
     specs: {
       "Polymer Structure": "5-Layer Co-Extruded Polyolefin (LLDPE/PP)",
@@ -3177,79 +2578,7 @@ Yes, 100% recyclable under soft plastic (#4 PE/PP) recycling streams.`,
     applications: ["Food & bakery product wrapping", "Gift baskets & cosmetic packs", "Books & stationery boxes"],
     visualGradients: "from-sky-400 to-blue-500",
   },
-  {
-    id: "pof-shrink-pouches",
-    title: "POF Shrink Pouches",
-    category: "film-products",
-    tag: "POF Bags",
-    blurb: "Pre-cut three-side sealed POF shrink pouches ready for instant item insertion, eliminating roll slitting off-cut waste and accelerating manual packing.",
-    longDesc: `POF Shrink Pouches are pre-fabricated 3-side sealed shrink bags engineered to streamline manual and semi-automatic packing operations. Instead of unwinding centerfolded film rolls, operators simply slide the product into the pre-cut pouch and seal the open fourth side using a tabletop impulse wire sealer before passing the item through a shrink tunnel.
-
-WinnerPack POF Shrink Pouches eliminate scrap film waste, cut down labor setup time, and deliver consistent, professional crystal-clear shrink packaging for individual items, gift sets, and books.
-
-### Key Advantages of Pre-Cut Pouches
-- **Zero Off-Cut Waste**: Pre-cut dimensions eliminate film scrap and trimming waste generated by roll sealers.
-- **Fast & Easy Packing**: Operators slide products directly into the open bag opening for rapid processing.
-- **High-Gloss Clarity**: Provides 93%+ glass-clear transparency to highlight product colors and branding.
-- **Strong 3-Side Seals**: Factory-sealed side welds ensure pouches do not burst during heat tunnel shrinking.
-- **Food Safe & Recyclable**: 100% FDA compliant for food contact and 100% recyclable polyolefin material.
-
-### Applications
-- Individual gift baskets, luxury cosmetics & perfume sets
-- Books, photo albums, notebooks & printed stationery
-- Artisanal soaps, candles & craft items
-- Bakery items, trayless confectioneries & gift packs
-- Retail electronic accessories & small hardware parts
-
-### Frequently Asked Questions (FAQ)
-
-#### 1. What are POF Shrink Pouches?
-POF Shrink Pouches are pre-cut polyolefin shrink bags sealed on three sides with one open end for easy product insertion prior to sealing and heat shrinking.
-
-#### 2. What are the benefits of using POF Pouches over film rolls?
-Pouches eliminate the need for roll mounting and trim cutting, significantly reducing labor time and film material waste in manual or small-batch packaging operations.
-
-#### 3. How are POF Shrink Pouches sealed and shrunk?
-The item is placed inside the pouch, the open end is sealed using a tabletop impulse heat sealer, and the pouch is passed through a thermal shrink tunnel (or shrunk using a hot air gun).
-
-#### 4. Are POF Shrink Pouches safe for food packaging?
-Yes. WinnerPack POF Shrink Pouches are made from 100% food-grade virgin polyolefin resins, fully compliant with FDA and EU food safety standards.
-
-#### 5. Do POF Pouches burst during shrinking?
-No. Factory side welds are engineered with high seal strength to withstand internal air expansion during heat tunnel passage.
-
-#### 6. What sizes are available for POF Shrink Pouches?
-Available in standard pre-cut sizes such as 100x150mm, 150x200mm, 200x300mm, 300x400mm, and custom dimensions tailored to customer product sizes.
-
-#### 7. What film thickness is used for POF Pouches?
-Standard pouch thicknesses include 15 Micron (60 Gauge) and 19 Micron (75 Gauge).
-
-#### 8. Can POF Pouches be shrunk with a hand-held heat gun?
-Yes! They can be shrunk using portable hot air guns for small-scale operations or low-volume packing stations.
-
-#### 9. Does the film leave cloudy marks after shrinking?
-No. WinnerPack POF pouches shrink with crystal-clear transparency, high gloss, and no haze.
-
-#### 10. Are POF Shrink Pouches recyclable?
-Yes. They are 100% recyclable under soft plastic (#4 PE/PP) recycling programs.`,
-    image: "/images/products/pof-films-pouches/applications/app-4.png",
-    gallery: ["/images/products/pof-films-pouches/applications/app-4.png"],
-    specs: {
-      "Format Style": "Pre-Cut 3-Side Sealed Polyolefin Bags",
-      "Sealing Method": "Tabletop Impulse Bar Sealer / L-Bar",
-      "Optical Clarity": "93% Glass-Clear High Gloss Finish",
-      "Shrink Activation": "140°C to 175°C Heat Tunnel or Heat Gun",
-      "Food Contact Safety": "FDA 21 CFR & EU Certified Food Grade",
-      "Recyclability": "100% Recyclable Polyolefin",
-    },
-    thicknessLengthMatrix: [
-      { micron: "15", gauge: "60", meters: "Custom", feet: "Custom" },
-      { micron: "19", gauge: "75", meters: "Custom", feet: "Custom" },
-    ],
-    options: { widths: ["100x150mm", "150x200mm", "200x300mm", "300x400mm"], thicknesses: ["15 Micron", "19 Micron"], colors: ["Glass Clear"] },
-    applications: ["Individual gift basket wrapping", "Book & album shrink sealing", "Soap & cosmetic jar pouches"],
-    visualGradients: "from-sky-400 to-blue-500",
-  },
+  
   {
     id: "lamination-pe-film",
     title: "Lamination PE Film",
@@ -3312,10 +2641,10 @@ Yes. Rolls receive double-sided or single-sided corona treatment (42+ dynes/cm) 
 
 #### 10. Is Lamination PE Film recyclable?
 Yes, Polyethylene (PE) is 100% recyclable under soft plastic (#4 LDPE / #2 HDPE) recycling streams.`,
-    image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
+    image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.webp",
     gallery: [
-      "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
-      "/images/products/adhesive-lamination-film/adhesive-lamination-film-rolls.jpg"
+      "/images/products/adhesive-lamination-film/adhesive-lamination-film.webp",
+      "/images/products/adhesive-lamination-film/adhesive-lamination-film-rolls.webp"
     ],
     specs: {
       "Substrate Base": "Prime Virgin LDPE / LLDPE / HDPE Resin",
@@ -3338,7 +2667,7 @@ Yes, Polyethylene (PE) is 100% recyclable under soft plastic (#4 LDPE / #2 HDPE)
         title: "Adhesive Lamination Film",
         subtitle: "High Bond Corona Treated Poly",
         blurb: "Corona treated polyethylene film engineered for high bond adhesive lamination to polyester (PET), BOPP, and foil.",
-        image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.jpg",
+        image: "/images/products/adhesive-lamination-film/adhesive-lamination-film.webp",
         specs: {
           "Primary Use": "Used for lamination to polyester (PET)",
           "Available Widths": "Up to 2.25 Meters (2250 mm)",
@@ -3352,7 +2681,7 @@ Yes, Polyethylene (PE) is 100% recyclable under soft plastic (#4 LDPE / #2 HDPE)
         title: "Pharma Grade Poly",
         subtitle: "Ultra-Clean Barrier Poly Sheeting",
         blurb: "Cleanroom manufactured PE film for heat and press lamination to aluminum foil for pharmaceutical tablet strip packaging.",
-        image: "/images/products/pharma-grade-poly/pharma-grade-poly.jpg",
+        image: "/images/products/pharma-grade-poly/pharma-grade-poly.webp",
         specs: {
           "Primary Use": "Heat & press lamination to aluminum foil for tablet strips",
           "Other Uses": "Container lidding, cable wrap, extrusion lamination",
@@ -3453,10 +2782,10 @@ Available in Natural Ultra-Clear and Opaque White.
 
 #### 10. Is Pharma Grade Poly recyclable?
 Yes, it is 100% recyclable under soft plastic (#4 PE) recycling programs.`,
-    image: "/images/products/pharma-grade-poly/pharma-grade-poly.jpg",
+    image: "/images/products/pharma-grade-poly/pharma-grade-poly.webp",
     gallery: [
-      "/images/products/pharma-grade-poly/pharma-grade-poly.jpg",
-      "/images/products/pharma-grade-poly/pharma-grade-poly-rolls.jpg"
+      "/images/products/pharma-grade-poly/pharma-grade-poly.webp",
+      "/images/products/pharma-grade-poly/pharma-grade-poly-rolls.webp"
     ],
     specs: {
       "Manufacturing Standard": "cGMP / ISO Class 8 Cleanroom Extrusion",
@@ -3546,8 +2875,8 @@ Made from renewable plant resins (PLA/PBAT/starch) instead of petroleum, they na
 
 #### 10. Are Biodegradable Films cost-effective compared to conventional plastics?
 Higher mechanical strength allows thinner film gauges, offsetting raw material costs while saving businesses long-term waste management fees.`,
-    image: "/images/desktop/journey/solution_pcr_eco_film.png",
-    gallery: ["/images/desktop/journey/solution_pcr_eco_film.png"],
+    image: "/images/desktop/journey/solution_pcr_eco_film.webp",
+    gallery: ["/images/desktop/journey/solution_pcr_eco_film.webp"],
     specs: {
       "Material Composition": "PBAT + PLA + Plant Starch Bio-Polymer Blend",
       "Certification Standard": "ASTM D6400 & EN 13432 Certified Compostable",
@@ -3567,7 +2896,7 @@ Higher mechanical strength allows thinner film gauges, offsetting raw material c
         title: "Bio Degradable Mulch Film",
         subtitle: "Soil Compostable Mulch Sheeting",
         blurb: "Higher mechanical strength compared to regular films allowing reduced thickness to offset raw material cost. Meets ASTM D6400 and EN 13432 requirements.",
-        image: "/images/products/bio-degradable-mulch-film/bio-degradable-mulch-film.jpg",
+        image: "/images/products/bio-degradable-mulch-film/bio-degradable-mulch-film.webp",
         specs: {
           "Certification": "Meets ASTM D6400 & EN 13432 Compostability Standards",
           "Mechanical Strength": "Higher tensile strength allows thinner gauge thickness",
@@ -3581,7 +2910,7 @@ Higher mechanical strength allows thinner film gauges, offsetting raw material c
         title: "Biodegradable Shrink Film",
         subtitle: "Compostable Overwrap Shrink Rolls",
         blurb: "Eco-friendly POF/PBAT heat shrink rolls engineered for sustainable retail overwrapping, meeting ASTM D6400 and EN 13432 requirements.",
-        image: "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.jpg",
+        image: "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.webp",
         specs: {
           "Certification": "Meets ASTM D6400 & EN 13432 Compostability Standards",
           "Optical Finish": "High-clarity gloss transparency for retail goods",
@@ -3595,7 +2924,7 @@ Higher mechanical strength allows thinner film gauges, offsetting raw material c
         title: "Biodegradable Shopping Bag",
         subtitle: "Eco Retail Carry Bags",
         blurb: "D-cut and W-cut compostable retail carry bags printed with water-based eco flexo inks, meeting ASTM D6400 and EN 13432 requirements.",
-        image: "/images/products/biodegradable-shopping-bag/biodegradable-shopping-bag.jpg",
+        image: "/images/products/biodegradable-shopping-bag/biodegradable-shopping-bag.webp",
         specs: {
           "Certification": "Meets ASTM D6400 & EN 13432 Compostability Standards",
           "Carry Formats": "D-Cut, Loop Handle, and W-Cut Grocery Bags",
@@ -3674,8 +3003,8 @@ No! Unlike traditional plastic mulch, it does not require removal or disposal. S
 
 #### 10. What factors should I consider when selecting a Bio-Degradable Mulch Film?
 Match the film’s field lifespan to your crop growth duration, consider local soil temperature/microbial activity, choose adequate gauge thickness, and verify ASTM D6400 / EN 13432 certifications.`,
-    image: "/images/products/bio-degradable-mulch-film/bio-degradable-mulch-film.jpg",
-    gallery: ["/images/products/bio-degradable-mulch-film/bio-degradable-mulch-film.jpg"],
+    image: "/images/products/bio-degradable-mulch-film/bio-degradable-mulch-film.webp",
+    gallery: ["/images/products/bio-degradable-mulch-film/bio-degradable-mulch-film.webp"],
     specs: {
       "Compostability Standards": "Meets ASTM D6400, EN 13432 & EN 17033",
       "Mechanical Performance": "High Tensile Strength allowing reduced gauge thickness",
@@ -3762,8 +3091,8 @@ Yes! Formulated for high tensile tear resistance, bi-axial shrink memory, and cr
 
 #### 10. What factors should I consider when choosing Biodegradable Shrink Film?
 Evaluate your required seal strength, equipment compatibility (L-bar vs tunnel speed), disposal pathway (composting vs landfill), and ASTM D6400 / EN 13432 compliance.`,
-    image: "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.jpg",
-    gallery: ["/images/products/biodegradable-shrink-film/biodegradable-shrink-film.jpg"],
+    image: "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.webp",
+    gallery: ["/images/products/biodegradable-shrink-film/biodegradable-shrink-film.webp"],
     specs: {
       "Compostability Certification": "Meets ASTM D6400 & EN 13432 Standards",
       "Decomposition Rate": "Laboratory Verified 20.8% within 183 Days (Landfill)",
@@ -3844,8 +3173,8 @@ Yes! Customized with your logo and design patterns using eco-friendly water-base
 
 #### 10. Are Biodegradable Shopping Bags compostable at home?
 Yes, bio-bags manufactured from natural starch and PBAT blends are suitable for home composting alongside kitchen food waste.`,
-    image: "/images/products/biodegradable-shopping-bag/biodegradable-shopping-bag.jpg",
-    gallery: ["/images/products/biodegradable-shopping-bag/biodegradable-shopping-bag.jpg"],
+    image: "/images/products/biodegradable-shopping-bag/biodegradable-shopping-bag.webp",
+    gallery: ["/images/products/biodegradable-shopping-bag/biodegradable-shopping-bag.webp"],
     specs: {
       "Compostability Certification": "Meets ASTM D6400 & EN 13432 Requirements",
       "Material Composition": "PLA + PBAT + Renewable Plant Starch Blend",
@@ -3866,33 +3195,7 @@ Yes, bio-bags manufactured from natural starch and PBAT blends are suitable for 
     applications: ["Supermarket & organic grocery retail", "Apparel & fashion store carry bags", "Food waste & kitchen compostable bags"],
     visualGradients: "from-emerald-500 to-teal-700",
   },
-  {
-    id: "compostable-pouches",
-    title: "Compostable Pouches",
-    category: "film-products",
-    tag: "Eco Mailer",
-    blurb: "100% Home compostable self-adhesive courier mailers and zipper pouches for sustainable e-commerce shipping. Meets ASTM D6400 and EN 13432.",
-    longDesc: `Compostable Pouches feature a permanent high-tack adhesive flap tape that seals security parcels reliably while breaking down into natural soil humus in compost bins. 
-
-Compliant with ASTM D6400 and EN 13432 standards, our compostable shipping mailers provide e-commerce brands with a zero-waste packaging solution.
-
-### Key Product Specifications
-- **ASTM D6400 & EN 13432 Certified**: 100% home compostable parcel mailers.
-- **High-Tack Security Flap**: Tamper-evident permanent adhesive closure.
-- **Waterproof & Tear Resistant**: Protects inner goods against rain, dirt, and transit abrasion.`,
-    image: "/images/products/compostable-films-pouches/applications/app-4.png",
-    gallery: ["/images/products/compostable-films-pouches/applications/app-4.png"],
-    specs: {
-      "Compostability Certification": "Meets ASTM D6400 & EN 13432 Requirements",
-      "Adhesive Flap": "Permanent High-Tack Eco Adhesive Strip",
-      "Surface Finish": "Silky Soft-Touch Matte Texture",
-      "Protection": "100% Waterproof & High Puncture Resistance",
-    },
-    thicknessLengthMatrix: [{ micron: "50", gauge: "200", meters: "Custom", feet: "Custom" }],
-    options: { widths: ["6x9 inch", "10x12 inch", "12x16 inch"], thicknesses: ["50 Micron", "60 Micron"], colors: ["Matte Black", "Off-White", "Leaf Green"] },
-    applications: ["Sustainable e-commerce courier shipping", "Apparel brand mailers", "Eco subscription box packaging"],
-    visualGradients: "from-emerald-500 to-teal-700",
-  },
+  
   {
     id: "flexible-laminates",
     title: "Flexible Laminate Rolls & Pouches",
@@ -3954,8 +3257,8 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
 - **Rotogravure Printing**: Up to 9-color HD precision printing for large volume runs.
 - **Digital Printing**: High-definition quick turnaround printing for short runs.
 - **Reverse Surface Printing**: Traps inks between film layers for scuff-proof durability.`,
-    image: "/images/products/food-packaging-laminates/food-packaging-laminates.jpg",
-    gallery: ["/images/products/food-packaging-laminates/food-packaging-laminates.jpg"],
+    image: "/images/products/food-packaging-laminates/food-packaging-laminates.webp",
+    gallery: ["/images/products/food-packaging-laminates/food-packaging-laminates.webp"],
     specs: {
       "Material Substrates": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
       "Format Styles": "Roll Stock & Pre-Formed Pouches (Standup, 3-Side Seal, Zipper)",
@@ -3974,7 +3277,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Agro Chemical Laminates",
         subtitle: "Pesticide & Chemical Foil Laminates",
         blurb: "100% Food Grade certified aluminum foil and polymer laminates engineered for chemical resistance against pesticides and liquid fertilizers.",
-        image: "/images/products/agro-chemical-laminates/agro-chemical-laminates.jpg",
+        image: "/images/products/agro-chemical-laminates/agro-chemical-laminates.webp",
         specs: {
           "Raw Material": "100% Food Grade Certified Raw Material",
           "Substrates": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
@@ -3987,7 +3290,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Plain Standup Pouches",
         subtitle: "Premium Metallocene Sealing Pouches",
         blurb: "Suitable for 100g to 1kg pack sizes. Premium Metallocene Poly provides best sealing for pickles, Gulab Jamun, Mango Milk Shake, and dry fruits.",
-        image: "/images/products/plain-standup-pouches/plain-standup-pouches.jpg",
+        image: "/images/products/plain-standup-pouches/plain-standup-pouches.webp",
         specs: {
           "Pack Sizes": "Suitable for Pack Sizes from 100 gm to 1 kg",
           "Product Range": "Pack Pickle, Gulab Jamun, Mango Milk Shake, Dry Fruits",
@@ -4000,7 +3303,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Lidding Foils And Laminates",
         subtitle: "Universal Cup & Tray Lidding Foils",
         blurb: "100% Food Grade Foil + Poly or PET + Poly laminates engineered for universal sealing to PS, PP, PET, APET, CPET, and PVC containers.",
-        image: "/images/products/lidding-foils-laminates/lidding-foils-laminates.jpg",
+        image: "/images/products/lidding-foils-laminates/lidding-foils-laminates.webp",
         specs: {
           "Raw Material": "Made from 100% Food Grade certified raw material",
           "Laminate Structure": "Available in Foil + Poly or PET + Poly Laminates",
@@ -4013,7 +3316,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Wrap Around Labels",
         subtitle: "Automated Roll-Fed Bottle Labels",
         blurb: "38 to 50 Micron BOPP wrap-around labels replacing PVC shrink labels to save automation labor costs on beverage bottle lines.",
-        image: "/images/products/wrap-around-labels/wrap-around-labels.jpg",
+        image: "/images/products/wrap-around-labels/wrap-around-labels.webp",
         specs: {
           "Replacement": "Used in replacement of PVC Shrink Labels",
           "Labor Savings": "Labor Savings since process will be automated",
@@ -4026,7 +3329,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Laminated Pouch India",
         subtitle: "Embossed & Matt Finish Barrier Bags",
         blurb: "Custom pre-formed barrier pouches available with Embossing and Matt Finish for premium shelf appeal.",
-        image: "/images/products/laminated-pouch-india/laminated-pouch-india.jpg",
+        image: "/images/products/laminated-pouch-india/laminated-pouch-india.webp",
         specs: {
           "Finish Option 1": "Embossing (Tactile 3D textured finish)",
           "Finish Option 2": "Matt Finish (Silky non-glare coating)",
@@ -4039,7 +3342,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Polyester Laminated Roll",
         subtitle: "HD Rotogravure Printed Polyester Rolls",
         blurb: "Polyester laminated rolls in various colors, thicknesses, and sizes with fine rotogravure printing finish.",
-        image: "/images/products/polyester-laminated-roll/polyester-laminated-roll.jpg",
+        image: "/images/products/polyester-laminated-roll/polyester-laminated-roll.webp",
         specs: {
           "Customization": "Available in different colors, thickness, sizes & specs",
           "Printing Process": "Rotogravure printing process for good finishing",
@@ -4052,7 +3355,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Multi Coloured Laminated Roll",
         subtitle: "100% Food Grade Superior Printed Rolls",
         blurb: "High-definition multi-colored barrier laminate rolls made from 100% Food Grade materials at cost-effective prices.",
-        image: "/images/products/multi-coloured-laminated-roll/multi-coloured-laminated-roll.jpg",
+        image: "/images/products/multi-coloured-laminated-roll/multi-coloured-laminated-roll.webp",
         specs: {
           "Raw Material": "100% Food Grade Material used",
           "Quality Standard": "Superior quality at par with industry standards",
@@ -4065,7 +3368,7 @@ Evaluate product sensitivity to oxygen/light, required shelf life, heat-sealing 
         title: "Food Packaging Laminates In Pouch And Roll Form",
         subtitle: "Multi-Substrate Food Barrier Packaging",
         blurb: "100% Food Grade certified roll stock and pre-formed pouches (Center Seal, 3-Side Seal, Standup, Zipper) using PET, Met PET, BOPP, Foil, and PE.",
-        image: "/images/products/food-packaging-laminates/food-packaging-laminates.jpg",
+        image: "/images/products/food-packaging-laminates/food-packaging-laminates.webp",
         specs: {
           "Raw Material": "Made from 100% Food Grade certified raw material",
           "Substrates": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
@@ -4137,8 +3440,8 @@ Yes! Formulated with leak-proof hermetic seals, high puncture resistance, and so
 
 #### 10. What industries commonly use Agro Chemical Laminates?
 Fertilizer & Pesticide Manufacturers, Agricultural Chemical Suppliers, Herbicides & Fungicide Producers, Soil Conditioner Manufacturers, and Seed Treatment Chemical Packagers.`,
-    image: "/images/products/agro-chemical-laminates/agro-chemical-laminates.jpg",
-    gallery: ["/images/products/agro-chemical-laminates/agro-chemical-laminates.jpg"],
+    image: "/images/products/agro-chemical-laminates/agro-chemical-laminates.webp",
+    gallery: ["/images/products/agro-chemical-laminates/agro-chemical-laminates.webp"],
     specs: {
       "Food Grade Certification": "Made from 100% Food Grade Certified Raw Material",
       "Substrates Available": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
@@ -4224,8 +3527,8 @@ Resealable Zippers, Dispensing Spouts, Precision Tear Notches, and Permanent Hea
 
 #### 10. How do I choose the right size and material for my product?
 Consider product type (dry vs liquid/viscous), required volume (100g to 1kg capacity), shelf-life expectations, and sealing equipment parameters.`,
-    image: "/images/products/plain-standup-pouches/plain-standup-pouches.jpg",
-    gallery: ["/images/products/plain-standup-pouches/plain-standup-pouches.jpg"],
+    image: "/images/products/plain-standup-pouches/plain-standup-pouches.webp",
+    gallery: ["/images/products/plain-standup-pouches/plain-standup-pouches.webp"],
     specs: {
       "Pack Capacity Range": "Suitable for Pack Sizes from 100 gm to 1 kg",
       "Product Compatibility": "Pickle, Gulab Jamun, Mango Milk Shake, Dry Fruits",
@@ -4304,8 +3607,8 @@ Yes! Formulated with heat-sealable lacquers that bond permanently to container r
 
 #### 9. Are Lidding Foils recyclable or eco-friendly?
 Yes! Recyclable mono-material PET/PE options and aluminum recovery programs support corporate sustainability goals.`,
-    image: "/images/products/lidding-foils-laminates/lidding-foils-laminates.jpg",
-    gallery: ["/images/products/lidding-foils-laminates/lidding-foils-laminates.jpg"],
+    image: "/images/products/lidding-foils-laminates/lidding-foils-laminates.webp",
+    gallery: ["/images/products/lidding-foils-laminates/lidding-foils-laminates.webp"],
     specs: {
       "Food Grade Certification": "Made from 100% Food Grade Certified Raw Material",
       "Structure Options": "Foil + Poly or PET + Poly Laminates",
@@ -4382,8 +3685,8 @@ Their 360-degree coverage ensures brand logos and graphics are visible from any 
 
 #### 10. Are Wrap Around Labels eco-friendly or recyclable?
 Yes! Mono-material BOPP labels are fully recyclable alongside PET/PE bottle streams and can be supplied with eco-friendly adhesives.`,
-    image: "/images/products/wrap-around-labels/wrap-around-labels.jpg",
-    gallery: ["/images/products/wrap-around-labels/wrap-around-labels.jpg"],
+    image: "/images/products/wrap-around-labels/wrap-around-labels.webp",
+    gallery: ["/images/products/wrap-around-labels/wrap-around-labels.webp"],
     specs: {
       "Thickness Range": "Available in Thickness Range of 38 – 50 Micron",
       "Cost Advantage": "Labor Savings since process will be automated (Replaces PVC Shrink)",
@@ -4459,8 +3762,8 @@ Yes! Their lightweight nature reduces shipping costs, while superior barrier con
 
 #### 10. Can Laminated Pouches be used for non-food products?
 Absolutely! Widely used for cosmetics, medical supplies, household cleaners, electronic components, and document protection.`,
-    image: "/images/products/laminated-pouch-india/laminated-pouch-india.jpg",
-    gallery: ["/images/products/laminated-pouch-india/laminated-pouch-india.jpg"],
+    image: "/images/products/laminated-pouch-india/laminated-pouch-india.webp",
+    gallery: ["/images/products/laminated-pouch-india/laminated-pouch-india.webp"],
     specs: {
       "Food Safety Standard": "100% Food Grade Certified Waterproof Material",
       "Surface Treatments": "Embossing & Matt Finish Brand Printing Methods",
@@ -4538,8 +3841,8 @@ Standard flexible packaging thicknesses range from **12 Micron to 50 Micron** (p
 
 #### 9. How does polyester lamination improve packaging durability?
 The PET layer provides high tensile strength and puncture resistance, preventing tearing during high-speed filling, shipping, and handling.`,
-    image: "/images/products/polyester-laminated-roll/polyester-laminated-roll.jpg",
-    gallery: ["/images/products/polyester-laminated-roll/polyester-laminated-roll.jpg"],
+    image: "/images/products/polyester-laminated-roll/polyester-laminated-roll.webp",
+    gallery: ["/images/products/polyester-laminated-roll/polyester-laminated-roll.webp"],
     specs: {
       "Substrate Combinations": "Polyester LDPE, Metallized PET, BOPP, Alu-Foil & CPP",
       "Printing Technology": "High-Definition Rotogravure Process for Fine Finishing",
@@ -4622,8 +3925,8 @@ We offer sustainable options utilizing recyclable mono-polymer structures and pa
 
 #### 10. What are common applications for these rolls?
 Snack and confectionery packaging, liquid pouches for milk and juices, healthcare sachets, and durable outdoor document lamination.`,
-    image: "/images/products/multi-coloured-laminated-roll/multi-coloured-laminated-roll.jpg",
-    gallery: ["/images/products/multi-coloured-laminated-roll/multi-coloured-laminated-roll.jpg"],
+    image: "/images/products/multi-coloured-laminated-roll/multi-coloured-laminated-roll.webp",
+    gallery: ["/images/products/multi-coloured-laminated-roll/multi-coloured-laminated-roll.webp"],
     specs: {
       "Raw Material Standard": "100% Food Grade Material from Decades-Established Vendors",
       "Quality & Pricing": "Superior Quality at Par with Industry Standards at Cost-Effective Prices",
@@ -4710,8 +4013,8 @@ Yes! We offer mono-material polyethylene (PE/PE) and recyclable BOPP films desig
 
 #### 10. How do I choose the right laminate material for my food product?
 Selection depends on food consistency (dry, liquid, viscous, frozen), shelf-life target, environmental storage conditions (humidity/temp), and machinery filling speeds.`,
-    image: "/images/products/food-packaging-laminates/food-packaging-laminates.jpg",
-    gallery: ["/images/products/food-packaging-laminates/food-packaging-laminates.jpg"],
+    image: "/images/products/food-packaging-laminates/food-packaging-laminates.webp",
+    gallery: ["/images/products/food-packaging-laminates/food-packaging-laminates.webp"],
     specs: {
       "Food Safety Certification": "Made from 100% Food Grade Certified Raw Material",
       "Substrates Available": "PET, Met PET, BOPP, HS-BOPP, Alu-Foil, CPP, PE",
@@ -4793,8 +4096,8 @@ Vibrant 8-color prints enhance brand recognition and shelf appeal, distinguishin
 
 #### 10. Can printed PE films be used for food packaging?
 Yes! Made from 100% virgin food-grade resins compliant with FDA, EU, BRC, and GMP food safety regulations.`,
-    image: "/images/products/water-packaging-film/water-packaging-film.jpg",
-    gallery: ["/images/products/water-packaging-film/water-packaging-film.jpg"],
+    image: "/images/products/water-packaging-film/water-packaging-film.webp",
+    gallery: ["/images/products/water-packaging-film/water-packaging-film.webp"],
     specs: {
       "Film Structure": "100% Virgin 3-Layer Co-Extruded PE Film",
       "Sealing Polymer": "Metallocene Poly for Best Possible Seal Strength",
@@ -4809,7 +4112,7 @@ Yes! Made from 100% virgin food-grade resins compliant with FDA, EU, BRC, and GM
         title: "Milk Pouch & Milk Packaging Film",
         subtitle: "Liquid Milk Pouch Film Rolls",
         blurb: "100% virgin 3-layer co-extruded black/white PE film rolls featuring Metallocene sealing and 8-color deep freeze printing.",
-        image: "/images/products/milk-packaging-film/milk-packaging-film.jpg",
+        image: "/images/products/milk-packaging-film/milk-packaging-film.webp",
         specs: {
           "Film Structure": "100% Virgin 3-Layer PE Films (White/Black Co-ex)",
           "Masterbatch": "White Masterbatch from Multinationals Only",
@@ -4822,7 +4125,7 @@ Yes! Made from 100% virgin food-grade resins compliant with FDA, EU, BRC, and GM
         title: "Ghee Vanaspati Packaging Film",
         subtitle: "High Barrier Ghee & Oil Film",
         blurb: "Heavy-duty 3-layer virgin PE film rolls for ghee, vanaspati, and edible oils using Metallocene for leak-proof hot oil seals.",
-        image: "/images/products/ghee-packaging-film/ghee-packaging-film.jpg",
+        image: "/images/products/ghee-packaging-film/ghee-packaging-film.webp",
         specs: {
           "Film Structure": "100% Virgin 3-Layer PE Films",
           "Masterbatch Options": "White or Yellow Masterbatch (Multinational Grade)",
@@ -4835,7 +4138,7 @@ Yes! Made from 100% virgin food-grade resins compliant with FDA, EU, BRC, and GM
         title: "SMP Packaging Film",
         subtitle: "Skimmed Milk Powder Bulk Bags",
         blurb: "Heavy-gauge 3-layer virgin PE film rolls for skimmed milk powder (SMP) 25kg bulk bags and dry dairy ingredients.",
-        image: "/images/products/smp-packaging-film/smp-packaging-film.jpg",
+        image: "/images/products/smp-packaging-film/smp-packaging-film.webp",
         specs: {
           "Film Structure": "100% Virgin 3-Layer PE Films",
           "Masterbatch": "White Masterbatch Purchased Only from Multinationals",
@@ -4848,7 +4151,7 @@ Yes! Made from 100% virgin food-grade resins compliant with FDA, EU, BRC, and GM
         title: "Water Packaging Film",
         subtitle: "Purified Water Pouch Sheeting",
         blurb: "High-clarity 100% virgin LDPE printed film rolls with high tear and puncture resistance, easily passing pouch drop tests.",
-        image: "/images/products/water-packaging-film/water-packaging-film.jpg",
+        image: "/images/products/water-packaging-film/water-packaging-film.webp",
         specs: {
           "Seal Strength": "High Hot-Tack Impulse Sealing",
           "Puncture Resistance": "High Puncture Resistant Capability",
@@ -4922,8 +4225,8 @@ Printed via HD Flexographic or Rotogravure processes with up to 8 colors using f
 
 #### 10. How are environmental concerns being addressed?
 Through the adoption of 100% recyclable monolayer PE films, down-gauging film thickness without sacrificing strength, and supporting local plastic collection initiatives.`,
-    image: "/images/products/milk-packaging-film/milk-packaging-film.jpg",
-    gallery: ["/images/products/milk-packaging-film/milk-packaging-film.jpg"],
+    image: "/images/products/milk-packaging-film/milk-packaging-film.webp",
+    gallery: ["/images/products/milk-packaging-film/milk-packaging-film.webp"],
     specs: {
       "Pouch Volume Capacities": "250 ml, 500 ml (Half Liter), 1 Liter & 2 Liter Milk Bags",
       "Thickness Range": "50 Micron to 80 Micron (Customizable)",
@@ -4989,8 +4292,8 @@ Yes! We offer mono-material PE films that facilitate easy recycling in standard 
 
 #### 10. How does flexible packaging compare to rigid containers for Ghee and Vanaspati?
 Flexible pouches are lighter, require significantly less storage space, lower freight emissions, and offer equal barrier protection at a fraction of the packaging cost.`,
-    image: "/images/products/ghee-packaging-film/ghee-packaging-film.jpg",
-    gallery: ["/images/products/ghee-packaging-film/ghee-packaging-film.jpg"],
+    image: "/images/products/ghee-packaging-film/ghee-packaging-film.webp",
+    gallery: ["/images/products/ghee-packaging-film/ghee-packaging-film.webp"],
     specs: {
       "Capacity Range": "Suitable for Ghee Packaging from 200 ml up to 5 Liters",
       "Thickness Range": "50 Microns to 200 Microns (Customizable)",
@@ -5060,8 +4363,8 @@ Yes! Monolayer PE film structures are 100% recyclable in standard polyethylene r
 
 #### 10. How does SMP packaging film contribute to product shelf life and quality?
 By blocking moisture, oxygen, and UV light, these films preserve the solubility, taste, and nutritional value of skimmed milk powder over extended storage periods.`,
-    image: "/images/products/smp-packaging-film/smp-packaging-film.jpg",
-    gallery: ["/images/products/smp-packaging-film/smp-packaging-film.jpg"],
+    image: "/images/products/smp-packaging-film/smp-packaging-film.webp",
+    gallery: ["/images/products/smp-packaging-film/smp-packaging-film.webp"],
     specs: {
       "Film Structure": "100% Virgin Multilayer PE Films (White Masterbatch)",
       "Sealing Technology": "Metallocene Poly for Ultra-Strong Powder Bag Seals",
@@ -5128,8 +4431,8 @@ It is extremely cost-effective, lightweight, space-efficient, easy to transport,
 
 #### 10. Do you offer biodegradable water pouch film?
 Yes! Eco-friendly recyclable monolayer LDPE films as well as certified biodegradable film options are available upon request.`,
-    image: "/images/products/water-packaging-film/water-packaging-film.jpg",
-    gallery: ["/images/products/water-packaging-film/water-packaging-film.jpg"],
+    image: "/images/products/water-packaging-film/water-packaging-film.webp",
+    gallery: ["/images/products/water-packaging-film/water-packaging-film.webp"],
     specs: {
       "Material Grade": "100% Prime Virgin Food-Grade LDPE",
       "Thickness Range": "20 Microns to 120 Microns (Customizable)",
@@ -5141,21 +4444,6 @@ Yes! Eco-friendly recyclable monolayer LDPE films as well as certified biodegrad
     options: { widths: ["325mm Standard", "450mm"], thicknesses: ["20 Micron", "55 Micron", "80 Micron", "120 Micron"], colors: ["Clear HD Printed", "Blue Tint"] },
     applications: ["200ml & 500ml mineral water drinking pouches", "Commercial 1L to 5L water packaging", "Event & emergency relief drinking water supply"],
     visualGradients: "from-sky-400 to-blue-500",
-  },
-  {
-    id: "sustainable-stretch-wrap",
-    title: "Sustainable Stretch Wrap",
-    category: "film-products",
-    tag: "Eco Stretch",
-    blurb: "30%+ Post-Consumer Recycled (PCR) content pallet stretch film rolls delivering high load holding force with reduced virgin plastic footprint.",
-    longDesc: "Sustainable Stretch Wrap incorporates certified PCR resin without sacrificing pre-stretch performance or puncture resistance, helping warehouses meet corporate ESG sustainability metrics.",
-    image: "/images/products/stretch-film/image.png",
-    gallery: ["/images/products/stretch-film/image.png"],
-    specs: { "PCR Content": "30%+ Certified Post-Consumer Recycled Poly", "Pre-Stretch": "Up to 250% Pre-Stretch Capability", "Thickness": "17 to 23 Micron" },
-    thicknessLengthMatrix: [{ micron: "20", gauge: "80", meters: "300", feet: "984" }],
-    options: { widths: ["500mm"], thicknesses: ["17 Micron", "20 Micron", "23 Micron"], colors: ["Translucent Eco Tint"] },
-    applications: ["Green warehouse pallet wrapping", "Sustainable logistics unitization", "Corporate ESG packaging compliance"],
-    visualGradients: "from-yellow-400 to-amber-500",
   },
   {
     id: "mini-stretch-wrap-rolls",
@@ -5236,8 +4524,8 @@ Yes, mini stretch wrap rolls are an economical solution for small-scale needs. D
 
 #### 10. How does mini stretch wrap help in preventing damage during storage or shipping?
 Mini stretch wrap's elasticity and cling properties ensure tight bundling, reducing the risk of items shifting during transit or handling. It provides a protective layer that minimizes exposure to dust, moisture, and scratches while keeping products securely in place.`,
-    image: "/images/products/mini-stretch-wrap-rolls/mini-stretch-wrap.jpg",
-    gallery: ["/images/products/mini-stretch-wrap-rolls/mini-stretch-wrap.jpg"],
+    image: "/images/products/mini-stretch-wrap-rolls/mini-stretch-wrap.webp",
+    gallery: ["/images/products/mini-stretch-wrap-rolls/mini-stretch-wrap.webp"],
     specs: {
       "Width": "50 MM / 100 MM / 150 MM (Can be customised as per requirement)",
       "Thickness": "10 Micron onwards",
@@ -5333,8 +4621,8 @@ Due to their branched molecular structure, LDPE bags stretch significantly under
 
 #### 10. Where can I buy LDPE bags in bulk or wholesale?
 WinnerPack manufactures and exports LDPE bags directly in bulk quantities, delivering international quality standards across global markets including USA, Europe, Australia, and Asia.`,
-    image: "/images/products/ldpe-bags/pe-garbage-bags.jpg",
-    gallery: ["/images/products/ldpe-bags/pe-garbage-bags.jpg"],
+    image: "/images/products/ldpe-bags/pe-garbage-bags.webp",
+    gallery: ["/images/products/ldpe-bags/pe-garbage-bags.webp"],
     specs: {
       "Material Grade": "100% Prime Virgin Food-Grade LDPE Resin",
       "Bag Style Variants": "Antistatic, Biohazard, Ice, Mailer, D-Cut, Hanger Hook, Soft Loop",
@@ -5402,7 +4690,7 @@ Antistatic poly bags should conform to international ESD standards such as ANSI/
 
 #### 10. Where can I purchase antistatic poly bags in bulk?
 Antistatic poly bags can be sourced in bulk from specialized packaging suppliers like WinnerPack (Tilak Polypack), offering international standard compliance and custom operational sizing.`,
-        image: "/images/products/antistatic-poly-bags/antistatic-poly-bags.jpg",
+        image: "/images/products/antistatic-poly-bags/antistatic-poly-bags.webp",
         specs: {
           "Width": "100 mm Onwards",
           "Height": "200 mm Onwards",
@@ -5465,7 +4753,7 @@ Biohazard bags are single-use products. Once filled, they must be securely seale
 
 #### 8. Can biohazard bags be used for non-medical hazardous waste?
 While specifically designed for medical and biological waste, they may be used for non-medical hazardous waste if instructed by regulatory authorities.`,
-        image: "/images/products/biohazard-bags/biohazard-bags.jpg",
+        image: "/images/products/biohazard-bags/biohazard-bags.webp",
         specs: {
           "Material": "High Grade HM-HDPE / LLDPE",
           "Applications": "Infectious Waste, Specimen & Chemo Drug Transport",
@@ -5527,7 +4815,7 @@ Purchasable in bulk or wholesale through packaging manufacturers like WinnerPack
 
 #### 10. How do black refuse sacks compare to clear or colored refuse bags?
 Black refuse sacks conceal contents for discretion, clear bags allow visual inspection for recycling or security, and colored bags assist in waste segregation.`,
-        image: "/images/products/black-refuse-sacks/black-refuse-sacks.jpg",
+        image: "/images/products/black-refuse-sacks/black-refuse-sacks.webp",
         specs: {
           "Material": "High-Density Polyethylene (HDPE) / Low-Density Polyethylene (LDPE)",
           "Strength Rating": "Ultra Heavy Duty / Extreme Tensile Strength",
@@ -5592,7 +4880,7 @@ Bulk pricing varies depending on size, gauge, and order volume. Purchasing in bu
 
 #### 10. Where can I buy clear polythene packing bags in India?
 You can buy high-quality clear polythene packing bags directly from WinnerPack (Tilak Polypack), a trusted manufacturer offering bulk supply and fast nationwide delivery.`,
-        image: "/images/products/clear-polythene-packing-bags/clear-polythene-packing-bags.jpg",
+        image: "/images/products/clear-polythene-packing-bags/clear-polythene-packing-bags.webp",
         specs: {
           "Material": "High-Quality Low-Density Polyethylene (LDPE)",
           "Compliance": "FDA & USDA Approved Food Safe",
@@ -5661,7 +4949,7 @@ Absolutedly. They are engineered to handle the demands of commercial ice plants,
 
 #### 9. How should ice bags be stored to prevent damage?
 Store in a cool, dry environment away from direct sunlight in their original packaging to prevent dust exposure and maintain long-term film integrity.`,
-        image: "/images/products/ice-bags/ice-bags.jpg",
+        image: "/images/products/ice-bags/ice-bags.webp",
         specs: {
           "Film Structure": "100% Virgin 3-Layer Heavy-Gauge Metallocene LDPE",
           "Ice Capacities": "5 lbs (1.2 Mil), 8 lbs (1.4 Mil), 10 lbs (1.4 Mil), 20 lbs (1.75 Mil), 50 lbs (3.0 Mil)",
@@ -5721,7 +5009,7 @@ Widely specified across Retail & Fashion Boutiques, E-commerce, Supermarkets, Ex
 
 #### 9. What is the difference between D-cut and W-cut plastic bags?
 D-cut bags feature a smooth "D" die-cut punch handle for sleek retail presentation, whereas W-cut (vest/t-shirt) bags have extended loop side handles designed for grocery volume carrying.`,
-        image: "/images/products/plastic-dcut-bags/plastic-dcut-bags.jpg",
+        image: "/images/products/plastic-dcut-bags/plastic-dcut-bags.webp",
         specs: {
           "Material Options": "HDPE (High Density) & LDPE (Low Density) Polyethylene",
           "Handle Integration": "Heat-Sealed Reinforced D-Cut Die-Cut Handles",
@@ -5781,7 +5069,7 @@ Clear bags maximize garment visibility for retail display, whereas opaque bags (
 
 #### 9. Are these bags suitable for packaging delicate or high-end garments?
 Yes, premium virgin film grades ensure smooth, non-scratching surfaces that preserve delicate silk, wool, and luxury garments safely.`,
-        image: "/images/products/polythene-clothing-packing-bags/polythene-clothing-packing-bags.jpg",
+        image: "/images/products/polythene-clothing-packing-bags/polythene-clothing-packing-bags.webp",
         specs: {
           "Closure System": "Peel 'n' Seal Resealable Adhesive Flap Strip",
           "Material Options": "Crystal-Clear Polypropylene (PP) & Polyethylene (PE)",
@@ -5845,7 +5133,7 @@ Yes, up to 8-color rotogravure surface printing is available for company logos, 
 
 #### 9. What industries commonly use grip seal bags?
 Widely used across Food & Beverage, Hardware & Electronics, Pharmaceuticals & Healthcare, E-Commerce, and Retail Display.`,
-        image: "/images/products/grip-seal-bags/grip-seal-bags.jpg",
+        image: "/images/products/grip-seal-bags/grip-seal-bags.webp",
         specs: {
           "Size Range": "Min 100 mm × 200 mm to Max 600 mm × 600 mm",
           "Thickness Options": "30 µm (2 mil) to 100 µm (4 mil+)",
@@ -5909,7 +5197,7 @@ Yes, poly mailer bags are the industry-standard packaging for online fashion bra
 
 #### 10. What industries use mailing poly bags?
 Ecommerce stores, courier/logistics providers, apparel manufacturers, financial institutions (document mailing), and wholesale distributors.`,
-        image: "/images/products/poly-mailer-bags/poly-mailer-bags.jpg",
+        image: "/images/products/poly-mailer-bags/poly-mailer-bags.webp",
         specs: {
           "Material": "Co-Extruded LDPE Plastic Film (Multi-Layer Durability)",
           "Closure Type": "Permanent Self-Adhesive Peel & Seal Strip (Tamper-Evident)",
@@ -5972,7 +5260,7 @@ They elevate visual merchandising, allow customers to inspect items easily, and 
 
 #### 10. Are these bags suitable for wholesale and B2B packaging requirements?
 Yes, supplied in commercial wholesale quantities for manufacturers, exporters, and retail packaging distributors worldwide.`,
-        image: "/images/products/plastic-bags-hanger-hook/plastic-bags-hanger-hook.jpg",
+        image: "/images/products/plastic-bags-hanger-hook/plastic-bags-hanger-hook.webp",
         specs: {
           "Material Options": "High-Clarity Virgin LDPE (Low Density) / PP (Polypropylene)",
           "Closure Mechanism": "Resealable Heavy-Duty Ziplock Track",
@@ -6032,7 +5320,7 @@ Yes, they are the preferred choice for premium retail shopping, luxury product p
 
 #### 9. How do soft loop handle bags compare to plastic or paper bags?
 Unlike paper bags, soft loop bags are moisture-proof and tear-resistant. Compared to basic plastic bags, they offer a far higher aesthetic standard and greater carrying comfort.`,
-        image: "/images/products/soft-loop-handle-bags/soft-loop-handle-bags.jpg",
+        image: "/images/products/soft-loop-handle-bags/soft-loop-handle-bags.webp",
         specs: {
           "Handle Construction": "Thermally Welded Reinforced Soft Poly Loop Handles",
           "Material Options": "Premium LDPE, MDPE & HDPE Polyethylene Films",
@@ -6092,7 +5380,7 @@ Capacities span 1-4 Gal (personal), 13 Gal (kitchen), 32-33 Gal (office), and 40
 
 #### 9. What industries commonly use plastic drawstring bags?
 Healthcare & Clinics, Hospitality & Hotels, Commercial Sanitation, Retail & Sports Apparel, and Event Promotion.`,
-        image: "/images/products/plastic-drawstring-bags/plastic-drawstring-bags.jpg",
+        image: "/images/products/plastic-drawstring-bags/plastic-drawstring-bags.webp",
         specs: {
           "Closure Mechanism": "Integrated Cinching Polyethylene Drawstring Tape",
           "Material Options": "LLDPE (Linear Low-Density PE, 90% Recyclable) / HDPE",
@@ -6108,21 +5396,7 @@ Healthcare & Clinics, Hospitality & Hotels, Commercial Sanitation, Retail & Spor
     applications: ["Electronics ESD shielding", "Healthcare & biohazard waste containment", "Garment display, ecommerce mailers & retail carrying bags"],
     visualGradients: "from-sky-400 to-blue-500",
   },
-  {
-    id: "heavy-duty-shipping-sacks",
-    title: "Heavy-Duty Shipping Sacks",
-    category: "film-products",
-    tag: "Shipping Sacks",
-    blurb: "Extra heavy-duty 150 to 200 micron LDPE/LLDPE sacks engineered for bulk chemical resin, fertilizer, and construction material transport.",
-    longDesc: "Heavy-Duty Shipping Sacks deliver extreme puncture resistance and drop impact weld strength, replacing paper multi-wall sacks for moisture-sensitive bulk industrial materials.",
-    image: "/images/products/ldpe-films-pouches/applications/app-3.png",
-    gallery: ["/images/products/ldpe-films-pouches/applications/app-3.png"],
-    specs: { "Thickness Range": "150 Micron to 200 Micron", "Bottom Seal": "Double Thermal Weld Seam", "Bag Format": "Open Mouth / Valve Sacks" },
-    thicknessLengthMatrix: [{ micron: "150", gauge: "600", meters: "Custom", feet: "Custom" }, { micron: "200", gauge: "800", meters: "Custom", feet: "Custom" }],
-    options: { widths: ["450x750mm", "500x850mm"], thicknesses: ["150 Micron", "180 Micron", "200 Micron"], colors: ["White / Black Co-ex", "Natural Clear"] },
-    applications: ["Plastic resin pellet 25kg sacks", "Chemical & fertilizer shipping sacks", "Construction sand & compound bags"],
-    visualGradients: "from-sky-400 to-blue-500",
-  },
+  
   {
     id: "bopp-films",
     title: "BOPP Films",
@@ -6175,8 +5449,8 @@ Our BOPP films achieve 95%+ light transmission — a glass-like, crystal-clear a
 
 #### 10. What is the moisture barrier performance of BOPP film?
 BOPP films provide an excellent Moisture Vapor Transmission Rate (MVTR) barrier, protecting dry food, bakery products, and pharmaceutical items from humidity and ambient moisture during storage and transport.`,
-    image: "/images/products/bopp-films-pouches/image.png",
-    gallery: ["/images/products/bopp-films-pouches/image.png"],
+    image: "/images/products/bopp-films-pouches/image.webp",
+    gallery: ["/images/products/bopp-films-pouches/image.webp"],
     specs: {
       "Film Technology": "Bi-Axial Orientation (Machine + Transverse Direction Stretch)",
       "Optical Clarity": "95%+ Ultra Clear Transmission",
@@ -6191,7 +5465,7 @@ BOPP films provide an excellent Moisture Vapor Transmission Rate (MVTR) barrier,
         title: "BOPP Rolls",
         subtitle: "Plain & Heat-Sealable BOPP Sheeting Rolls",
         blurb: "High-clarity plain and corona-treated BOPP film rolls for flexographic printing, thermal lamination, and food overwrapping applications.",
-        image: "/images/products/bopp-films-pouches/bopp-rolls.jpg",
+        image: "/images/products/bopp-films-pouches/bopp-rolls.webp",
         specs: {
           "Roll Formats": "Plain, Corona-Treated & Heat-Sealable Co-Extruded",
           "Thickness Range": "15 Micron to 40 Micron",
@@ -6204,7 +5478,7 @@ BOPP films provide an excellent Moisture Vapor Transmission Rate (MVTR) barrier,
         title: "BOPP Pouches",
         subtitle: "Clear Retail Display & Header Card Pouches",
         blurb: "Glass-clear BOPP pouches with self-adhesive tape seal flaps or heat-sealed closures for high-visibility retail and garment display packaging.",
-        image: "/images/products/bopp-films-pouches/bopp-pouches.jpg",
+        image: "/images/products/bopp-films-pouches/bopp-pouches.webp",
         specs: {
           "Clarity": "Glass-Clear 95%+ Optical Transparency",
           "Closure Types": "Self-Adhesive Tape Flap or Heat Seal",
@@ -6277,8 +5551,8 @@ Yes. Plain and printed BOPP rolls are widely used for decorative flower bouquet 
 
 #### 10. What industries typically use BOPP film rolls?
 Food & bakery, pharmaceutical, printing & lamination, gift packaging, FMCG consumer goods, and adhesive tape manufacturing are the primary industries using BOPP film rolls.`,
-    image: "/images/products/bopp-films-pouches/image.png",
-    gallery: ["/images/products/bopp-films-pouches/image.png"],
+    image: "/images/products/bopp-films-pouches/image.webp",
+    gallery: ["/images/products/bopp-films-pouches/image.webp"],
     specs: {
       "Roll Formats": "Plain, Corona-Treated & Heat-Sealable Co-Extruded",
       "Thickness Range": "15 Micron to 40 Micron",
@@ -6347,8 +5621,8 @@ Garments, hosiery, socks, greeting cards, stationery, dry snacks, confectionery,
 
 #### 10. How do BOPP pouches compare to ordinary PE or LDPE bags?
 BOPP pouches are significantly stiffer, clearer, and more rigid than PE or LDPE bags, giving products a premium presentation finish. They are not stretchable like LDPE, making them ideal for clean-edged, shape-retaining retail display.`,
-    image: "/images/products/bopp-films-pouches/bopp-pouches.jpg",
-    gallery: ["/images/products/bopp-films-pouches/bopp-pouches.jpg"],
+    image: "/images/products/bopp-films-pouches/bopp-pouches.webp",
+    gallery: ["/images/products/bopp-films-pouches/bopp-pouches.webp"],
     specs: {
       "Optical Clarity": "95%+ Glass-Clear Transparency",
       "Closure Options": "Self-Adhesive Tape Seal or Heat-Sealed",
@@ -6413,8 +5687,8 @@ Standard thickness ranges from **30 Micron to 50 Micron**, in widths from 100mm 
 
 #### 10. What industries use PVC shrink film the most?
 Cosmetics, pharmaceuticals, FMCG consumer goods, food & beverage multipacking, and retail display packaging are the primary industries using PVC shrink rolls and pouches.`,
-    image: "/images/products/pvc-shrink-rolls-pouches/image.png",
-    gallery: ["/images/products/pvc-shrink-rolls-pouches/image.png"],
+    image: "/images/products/pvc-shrink-rolls-pouches/image.webp",
+    gallery: ["/images/products/pvc-shrink-rolls-pouches/image.webp"],
     specs: {
       "Shrink Technology": "PVC Heat Shrink (40%–50% TD Shrink Ratio)",
       "Activation Temperature": "100°C to 130°C Low-Temperature Heat Tunnel",
@@ -6429,7 +5703,7 @@ Cosmetics, pharmaceuticals, FMCG consumer goods, food & beverage multipacking, a
         title: "PVC Shrink Rolls",
         subtitle: "Centerfolded & Single-Wound PVC Shrink Rolls",
         blurb: "High-gloss PVC shrink film rolls in centerfolded or single-wound formats for L-bar sealers and shrink tunnels.",
-        image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
+        image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.webp",
         specs: {
           "Roll Formats": "Centerfolded (CF) & Single-Wound (SW) Layflat",
           "Shrink Activation": "40–50% TD Shrink at 110°C–130°C",
@@ -6442,7 +5716,7 @@ Cosmetics, pharmaceuticals, FMCG consumer goods, food & beverage multipacking, a
         title: "PVC Shrink Pouches",
         subtitle: "Pre-Formed Open-End PVC Shrink Pouches",
         blurb: "Pre-formed open-end PVC shrink pouches for manual or semi-automatic product loading before heat tunnel sealing.",
-        image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.jpg",
+        image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.webp",
         specs: {
           "Pouch Format": "Pre-Formed Open-End for Manual/Semi-Auto Loading",
           "Shrink Performance": "Tight Conforming Shrink on All Product Profiles",
@@ -6511,8 +5785,8 @@ Yes. Once heat-activated, the tight shrink seal immediately shows visible tamper
 
 #### 10. Are PVC shrink rolls compatible with standard L-bar sealing machines?
 Yes. Our centerfolded PVC shrink rolls are engineered for smooth operation on standard L-bar sealing machines with heat shrink tunnels, at widths and thicknesses that suit most common machines.`,
-    image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
-    gallery: ["/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg"],
+    image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.webp",
+    gallery: ["/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.webp"],
     specs: {
       "Roll Formats": "Centerfolded (CF) & Single-Wound (SW) Layflat",
       "Shrink Ratio": "40%–50% Transverse Direction (TD) Shrinkage",
@@ -6580,8 +5854,8 @@ Cosmetics, personal care products, gift sets, pharmaceutical over-the-counter it
 
 #### 10. Do PVC shrink pouches provide tamper-evident protection?
 Yes. Once heat-activated, the PVC shrink pouch forms a tight, conforming seal around the product that visibly distorts or tears if tampered with, providing effective tamper-evident protection for retail and pharmaceutical packaging.`,
-    image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.jpg",
-    gallery: ["/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.jpg"],
+    image: "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.webp",
+    gallery: ["/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.webp"],
     specs: {
       "Pouch Format": "Pre-Formed Open-End for Manual/Semi-Auto Loading",
       "Shrink Performance": "40%–50% TD Shrinkage — Tight Conforming Wrap",
@@ -6592,21 +5866,6 @@ Yes. Once heat-activated, the PVC shrink pouch forms a tight, conforming seal ar
     thicknessLengthMatrix: [{ micron: "30", gauge: "120", meters: "Custom", feet: "Custom" }, { micron: "40", gauge: "160", meters: "Custom", feet: "Custom" }],
     options: { widths: ["Custom width to fit product"], thicknesses: ["30 Micron", "40 Micron", "50 Micron"], colors: ["Crystal Clear", "Custom Printed"] },
     applications: ["Cosmetics & personal care product wrapping", "Pharmaceutical over-the-counter packaging", "Gift sets, toys & consumer goods multipacks"],
-    visualGradients: "from-sky-400 to-blue-500",
-  },
-  {
-    id: "pvc-heat-shrink-tubing",
-    title: "PVC Heat Shrink Tubing",
-    category: "film-products",
-    tag: "PVC Tubing",
-    blurb: "Continuous layflat PVC heat shrink tubing for battery pack insulation, busbar electrical jacketing, and long object bundling.",
-    longDesc: "PVC Heat Shrink Tubing slips over cylindrical battery cells, metal pipes, or tool handles, shrinking tightly upon heating to form a tough protective jacket.",
-    image: "/images/products/pvc-shrink-rolls-pouches/image.png",
-    gallery: ["/images/products/pvc-shrink-rolls-pouches/image.png"],
-    specs: { "Dielectric Strength": "High Electrical Insulation Rating", "Layflat Width": "15mm to 300mm", "Shrink Activation": "100°C Air Gun / Tunnel" },
-    thicknessLengthMatrix: [{ micron: "70", gauge: "280", meters: "500", feet: "1,640" }],
-    options: { widths: ["20mm", "50mm", "100mm", "200mm"], thicknesses: ["70 Micron", "100 Micron"], colors: ["Blue", "Black", "Clear", "Red"] },
-    applications: ["Lithium battery pack shrink jacketing", "Busbar & capacitor insulation", "Curtain rod & pipe protective tubing"],
     visualGradients: "from-sky-400 to-blue-500",
   },
   {
@@ -6690,9 +5949,9 @@ Yes, LDPE Shrink Film performs well in moderate-high temperature requirements. H
 
 #### 10. Can LDPE Shrink Film be customized in size and color?
 Absolutely. LDPE Shrink Film can be produced in custom sizes, colors, and even with printed branding to meet specific packaging needs. From vibrant colored films for brand differentiation to bespoke dimensions for unique product requirements, customization options ensure ideal compatibility and enhanced market appeal.`,
-    image: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
+    image: "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.webp",
     gallery: [
-      "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg"
+      "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.webp"
     ],
     specs: {
       "Material Composition": "LDPE (Low-Density Polyethylene)",
@@ -6796,9 +6055,9 @@ Yes, PE Liners and Garbage Bags can be customized to align with specific brandin
 
 #### 10. Are PE Liners and Garbage Bags suitable for both commercial and household use?
 Absolutely, PE Liners and Garbage Bags are versatile products suitable for a range of settings, whether in households for daily waste or commercial establishments requiring multi-purpose waste solutions. Different grades and specifications are available to address varied customer requirements.`,
-    image: "/images/products/ldpe-bags/pe-garbage-bags.jpg",
+    image: "/images/products/ldpe-bags/pe-garbage-bags.webp",
     gallery: [
-      "/images/products/ldpe-bags/pe-garbage-bags.jpg"
+      "/images/products/ldpe-bags/pe-garbage-bags.webp"
     ],
     specs: {
       "Width Range": "250 mm – 2,400 mm",
@@ -6882,11 +6141,11 @@ Yes, VCI Stretch Film releases Vapor Corrosion Inhibitor molecules that form a p
 
 #### 10. Does WinnerPack offer eco-friendly stretch film options?
 Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for reduced environmental impact), Coreless Stretch Film (eliminates paper core waste), and Recycled Stretch Wrap (40% Post Industrial / Post Consumer recycled content).`,
-    image: "/images/products/stretch-film/image.png",
+    image: "/images/products/stretch-film/image.webp",
     gallery: [
-      "/images/products/stretch-film/image.png",
-      "/images/products/ldpe-films-pouches/applications/app-1.png",
-      "/images/products/ldpe-films-pouches/applications/app-2.png",
+      "/images/products/stretch-film/image.webp",
+      "/images/products/ldpe-films-pouches/applications/app-1.webp",
+      "/images/products/ldpe-films-pouches/applications/app-2.webp",
     ],
     specs: {
       "Dust / Dirt Protection": "Yes",
@@ -6906,7 +6165,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Mini Stretch Wrap Rolls",
         subtitle: "Compact bundling rolls for small items",
         blurb: "Mini Stretch Wrap Films are ideal for wrapping small items that need to be kept handy. The compact size makes bundling and collating small items quick and easy.",
-        image: "/images/products/mini-stretch-wrap-rolls/mini-stretch-wrap.jpg",
+        image: "/images/products/mini-stretch-wrap-rolls/mini-stretch-wrap.webp",
         specs: {
           "Ideal For": "Bundling and collating small items",
           "Format": "Compact Mini Rolls",
@@ -6919,7 +6178,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Manual Stretch Film",
         subtitle: "Hand-applied pallet and bundle wrap",
         blurb: "Manual hand stretch film with excellent clarity for cost-effective pallet protection — more economical than straps and provides resistance to water and liquids.",
-        image: "/images/products/manual-stretch-film/manual-stretch-film.png",
+        image: "/images/products/manual-stretch-film/manual-stretch-film.webp",
         specs: {
           "Clarity": "Excellent",
           "Cost vs Straps": "Lower cost of packing compared to straps",
@@ -6933,7 +6192,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Machine Stretch Film",
         subtitle: "High-speed automated pallet wrap",
         blurb: "Machine grade stretch films designed for automated pallet wrapping. Available in widths from 150 mm to 1000 mm and thicknesses from 17 micron onwards, ideal for high-speed machines where film is pre-stretched before application.",
-        image: "/images/products/machine-stretch-film/machine-stretch-film.jpg",
+        image: "/images/products/machine-stretch-film/machine-stretch-film.webp",
         specs: {
           "Available Widths": "150 mm to 1000 mm",
           "Starting Thickness": "17 Micron onwards",
@@ -6947,7 +6206,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Cling Film",
         subtitle: "Food-grade catering and food packaging film",
         blurb: "Cling film is mainly used for packing food products and catering use, made from only virgin food-grade raw material with special additives imported from Europe. Available from 10 microns.",
-        image: "/images/products/cling-film/cling-film.png",
+        image: "/images/products/cling-film/cling-film.webp",
         specs: {
           "Material": "Virgin food-grade polyethylene",
           "Additives Origin": "Imported from Europe",
@@ -6961,7 +6220,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Silage Stretch Film & Bale Wrap",
         subtitle: "Agricultural bale wrap with UV protection",
         blurb: "High-tack silage wrap with excellent mechanical properties including tensile strength and puncture resistance, stabilized against UV damage with low oxygen and water permeability.",
-        image: "/images/products/silage-stretch-film/silage-stretch-film.jpg",
+        image: "/images/products/silage-stretch-film/silage-stretch-film.webp",
         specs: {
           "Tensile Strength": "Good Mechanical Properties",
           "Tack Level": "High level of tack",
@@ -6975,7 +6234,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Pre Stretch Film",
         subtitle: "Pre-stretched for reduced film usage",
         blurb: "Pre-stretch is the process that allows the stretch film to be stretched before (pre) being applied to a load. A multi-layer stretch film made to be thinner and stronger than standard stretch film.",
-        image: "/images/products/pre-stretch-film/pre-stretch-film.jpg",
+        image: "/images/products/pre-stretch-film/pre-stretch-film.webp",
         specs: {
           "Process": "Pre-stretched before application",
           "Construction": "Multi-layer film",
@@ -6989,7 +6248,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "VCI Stretch Film",
         subtitle: "Rust and corrosion protection for metal",
         blurb: "VCI Stretch Film helps in protection of metal objects from rust by releasing Vapor Corrosion Inhibitor molecules that form a protective molecular layer on metal surfaces.",
-        image: "/images/products/vci-stretch-film/vci-stretch-film.jpg",
+        image: "/images/products/vci-stretch-film/vci-stretch-film.webp",
         specs: {
           "Active Agent": "VCI — Vapor Corrosion Inhibitor",
           "Protection": "Prevents rust and corrosion on metal surfaces",
@@ -7003,7 +6262,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Oxy Fade Stretch Wrap",
         subtitle: "Reduced-plastic film with oxygen barrier",
         blurb: "Oxy Fade Stretch Wrap delivers up to 50% less plastic waste with an oxygen barrier layer for protection against oxidation, durable construction, and multiple size options.",
-        image: "/images/products/oxy-fade-stretch-wrap/oxy-fade-stretch-wrap.jpg",
+        image: "/images/products/oxy-fade-stretch-wrap/oxy-fade-stretch-wrap.webp",
         specs: {
           "Plastic Waste Reduction": "Up to 50% less plastic waste",
           "Barrier Layer": "Oxygen barrier against oxidation",
@@ -7017,7 +6276,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Coreless Stretch Film",
         subtitle: "100% cost-used, zero-core waste film",
         blurb: "Coreless stretch film is an economical and efficient way to secure heavy loads. With no added paper cores, you save on costs while reducing your carbon footprint. Pre-stretching increases film strength and reduces amount of film needed per load.",
-        image: "/images/products/coreless-stretch-film/coreless-stretch-film.jpg",
+        image: "/images/products/coreless-stretch-film/coreless-stretch-film.webp",
         specs: {
           "Core": "Coreless — No Paper Core Waste",
           "Cost Efficiency": "100% of cost is used — no core disposal cost",
@@ -7031,7 +6290,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Biodegradable Stretch Wrap",
         subtitle: "Eco-friendly high-strength pallet film",
         blurb: "Biodegradable stretch wrap minimizes environmental impact while ensuring optimal protection for your products. Guaranteed roll length, incredibly durable film construction, and secure wrapping.",
-        image: "/images/products/biodegradable-stretch-wrap/biodegradable-stretch-wrap.jpg",
+        image: "/images/products/biodegradable-stretch-wrap/biodegradable-stretch-wrap.webp",
         specs: {
           "Formula": "Biodegradable",
           "Environmental Impact": "Minimized vs standard stretch film",
@@ -7045,7 +6304,7 @@ Yes, WinnerPack offers Biodegradable Stretch Wrap (biodegradable formula for red
         title: "Recycled Stretch Wrap",
         subtitle: "40% recycled content sustainable stretch film",
         blurb: "Recycled Stretch Wrap is made with 40% Post Industrial / Post Consumer recycled content. High-performance, durable, easy to use, and secure fit — reducing environmental impact with sustainable packaging.",
-        image: "/images/products/recycled-stretch-wrap/recycled-stretch-wrap.jpg",
+        image: "/images/products/recycled-stretch-wrap/recycled-stretch-wrap.webp",
         specs: {
           "Recycled Content": "40% Post Industrial / Post Consumer",
           "Performance": "High-performance and durable",
@@ -7123,8 +6382,8 @@ Rolls typically range from 300 mm to 600 mm (12 inches to 24 inches) in width an
 #### 10. What are the differences between regular cling film and stretch film?
 - **Cling Film**: Thinner (10–25 Micron), highly flexible with self-adhesive cling, primarily designed for food wrapping and light packaging.
 - **Stretch Film**: Thicker (12–29 Micron), engineered for heavy pallet load containment and industrial bundling using manual or machine wrappers.`,
-    image: "/images/products/cling-film/cling-film.png",
-    gallery: ["/images/products/cling-film/cling-film.png"],
+    image: "/images/products/cling-film/cling-film.webp",
+    gallery: ["/images/products/cling-film/cling-film.webp"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
@@ -7238,8 +6497,8 @@ When correctly applied with sufficient overlapping layers, silage stretch film p
 - **UV-Stabilized**: Engineered for up to 12 months direct sunlight exposure.
 - **Puncture Resistant**: Built to withstand sharp, dry forage stems and rough mechanical handling.
 - **Tack & Cling Formula**: Formulated for high outdoor cling in varying weather conditions.`,
-    image: "/images/products/silage-stretch-film/silage-stretch-film.jpg",
-    gallery: ["/images/products/silage-stretch-film/silage-stretch-film.jpg"],
+    image: "/images/products/silage-stretch-film/silage-stretch-film.webp",
+    gallery: ["/images/products/silage-stretch-film/silage-stretch-film.webp"],
     specs: {
       "Width Options": "250 mm / 500 mm / 750 mm (Custom Available)",
       "Thickness Range": "23 Micron / 29 Micron (25–35 Micron Customizable)",
@@ -7333,8 +6592,8 @@ Standard sizes include Hand Rolls (430 mm × 9 Micron × 500m) and Machine Rolls
 
 #### 10. How does pre-stretch film improve load stability during shipping and storage?
 Pre-stretch film is engineered to deliver consistent tension and cling, preventing load shifting during transit. Its advanced elasticity and tear resistance protect packages from external impacts, ensuring safe delivery and stable storage conditions.`,
-    image: "/images/products/pre-stretch-film/pre-stretch-film.jpg",
-    gallery: ["/images/products/pre-stretch-film/pre-stretch-film.jpg"],
+    image: "/images/products/pre-stretch-film/pre-stretch-film.webp",
+    gallery: ["/images/products/pre-stretch-film/pre-stretch-film.webp"],
     specs: {
       "Hand Roll Size": "430 × 450 mm × 9 Micron × 500 Meter",
       "Machine Roll Size": "430 × 450 mm × 9 Micron × 1500 Meter",
@@ -7431,8 +6690,8 @@ Regular stretch film provides physical protection against dust and scratches but
 - Cost-effective for long-term storage and export transit
 - Easy to apply and remove without residue
 - Transparent for effortless visual inspection`,
-    image: "/images/products/vci-stretch-film/vci-stretch-film.jpg",
-    gallery: ["/images/products/vci-stretch-film/vci-stretch-film.jpg"],
+    image: "/images/products/vci-stretch-film/vci-stretch-film.webp",
+    gallery: ["/images/products/vci-stretch-film/vci-stretch-film.webp"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
@@ -7520,8 +6779,8 @@ Yes, Oxy Fade Stretch Wrap is manufactured from 100% recyclable polyethylene mat
 
 #### 10. Can custom logo printing or private branding be applied?
 Yes, WinnerPack provides private labeling, custom roll lengths, and custom brand printing options for B2B buyers and bulk distributors.`,
-    image: "/images/products/oxy-fade-stretch-wrap/oxy-fade-stretch-wrap.jpg",
-    gallery: ["/images/products/oxy-fade-stretch-wrap/oxy-fade-stretch-wrap.jpg"],
+    image: "/images/products/oxy-fade-stretch-wrap/oxy-fade-stretch-wrap.webp",
+    gallery: ["/images/products/oxy-fade-stretch-wrap/oxy-fade-stretch-wrap.webp"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
@@ -7608,8 +6867,8 @@ Yes, coreless stretch film eliminates the price of paper core manufacturing and 
 
 #### 10. Can coreless stretch film be recycled?
 Yes, 100% of the coreless stretch film is recyclable polyethylene (LLDPE) soft plastic, making waste management simple and clean.`,
-    image: "/images/products/coreless-stretch-film/coreless-stretch-film.jpg",
-    gallery: ["/images/products/coreless-stretch-film/coreless-stretch-film.jpg"],
+    image: "/images/products/coreless-stretch-film/coreless-stretch-film.webp",
+    gallery: ["/images/products/coreless-stretch-film/coreless-stretch-film.webp"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
@@ -7689,8 +6948,8 @@ No. The biodegradation process requires exposure to microbial landfill or soil e
 
 #### 10. Is Biodegradable Stretch Wrap cost-effective?
 Yes, WinnerPack offers competitive B2B wholesale pricing, allowing companies to transition to sustainable packaging without incurring excessive costs.`,
-    image: "/images/products/biodegradable-stretch-wrap/biodegradable-stretch-wrap.jpg",
-    gallery: ["/images/products/biodegradable-stretch-wrap/biodegradable-stretch-wrap.jpg"],
+    image: "/images/products/biodegradable-stretch-wrap/biodegradable-stretch-wrap.webp",
+    gallery: ["/images/products/biodegradable-stretch-wrap/biodegradable-stretch-wrap.webp"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
@@ -7766,8 +7025,8 @@ Available in Natural Clear, Opaque White, Blue Tint, and Black Opaque. Core IDs 
 
 #### 10. How does Recycled Stretch Wrap help lower corporate carbon footprints?
 By utilizing 40% recycled resin, the production process consumes significantly less energy and crude oil compared to virgin plastic manufacturing, directly lowering Scope 3 supply chain carbon emissions.`,
-    image: "/images/products/recycled-stretch-wrap/recycled-stretch-wrap.jpg",
-    gallery: ["/images/products/recycled-stretch-wrap/recycled-stretch-wrap.jpg"],
+    image: "/images/products/recycled-stretch-wrap/recycled-stretch-wrap.webp",
+    gallery: ["/images/products/recycled-stretch-wrap/recycled-stretch-wrap.webp"],
     specs: {
       "Protection Against Dust / Dirt": "Yes",
       "Waterproof Packaging": "Helps make packaging waterproof when wrapped around paper containers",
@@ -7859,8 +7118,8 @@ Yes. Manufactured from 100% recyclable Low-Density Polyethylene (LDPE), post-use
 
 #### 10. How do I choose the right thickness for Collation Shrink Film?
 Thickness depends on bundle weight: lighter multi-packs require 30–60 Micron, while heavy beverage bottle bundles require 70–150 Micron. WinnerPack specialists assist in selecting the optimal gauge for your wrapping machinery.`,
-    image: "/images/products/collation-shrink-film/collation-shrink-film.jpg",
-    gallery: ["/images/products/collation-shrink-film/collation-shrink-film.jpg"],
+    image: "/images/products/collation-shrink-film/collation-shrink-film.webp",
+    gallery: ["/images/products/collation-shrink-film/collation-shrink-film.webp"],
     specs: {
       "Width": "100 mm – 1500 mm",
       "Thickness": "30 – 150 Micron",
@@ -7898,7 +7157,7 @@ export const initialArticles = [
     featured: true,
     slug: "pp-vs-pet-strap-framework",
     body: "Polypropylene (PP) and Polyester (PET) straps serve distinct purposes in industrial packaging. While PP strap is highly elastic and suited for light-to-medium bundles that expand/contract, PET strap offers superior tension retention and impact resistance, replacing steel strapping for heavy palletized loads.",
-    image: "/images/desktop/portfolio/quality_featured.png",
+    image: "/images/desktop/portfolio/quality_featured.webp",
   },
   {
     tag: "Sustainability",
@@ -7909,7 +7168,7 @@ export const initialArticles = [
     featured: false,
     slug: "mono-material-recyclable-films",
     body: "Multi-layer packaging has traditionally combined different plastic types, making them impossible to recycle together. Our latest mono-material LDPE and POF shrink/stretch films provide the same barrier properties and tensile strength while remaining fully compatible with standard single-stream recycling loops, allowing your buyers to meet strict plastic waste compliance.",
-    image: "/images/desktop/portfolio/sustainability_featured.png",
+    image: "/images/desktop/portfolio/sustainability_featured.webp",
   },
   {
     tag: "Operations",
@@ -7920,7 +7179,7 @@ export const initialArticles = [
     featured: false,
     slug: "on-time-dispatch-playbook-2025",
     body: "At Winner Pack, delivery is a key product feature. By coordinating Dasna plants with localized distribution hubs, pre-staging high-volume SKU inventory, and setting automated carrier assignment workflows linked directly to buyer WhatsApp alerts, we sustained a 98.4% rolling on-time delivery rate. Here is our operational playbook.",
-    image: "/images/desktop/portfolio/dispatch_featured.png",
+    image: "/images/desktop/portfolio/dispatch_featured.webp",
   },
 ];
 
@@ -7932,9 +7191,9 @@ const defaultSlides = [
     heading: "Tailored Specs. Direct Dispatch.",
     subtitle: "Precision-extruded packaging materials designed for maximum load retention and line throughput.",
     description: "Precision-extruded packaging materials designed for maximum load retention and line throughput.",
-    image: "/images/desktop/hero-slider/slide-1.png",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-1.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-1.png",
+    image: "/images/desktop/hero-slider/slide-1.webp",
+    desktopMediaUrl: "/images/desktop/hero-slider/slide-1.webp",
+    mobileMediaUrl: "/images/mobile/hero-slider/slide-1.avif",
   },
   {
     id: "capacity",
@@ -7943,9 +7202,9 @@ const defaultSlides = [
     heading: "12,000+ Tons Annually",
     subtitle: "Dual-plant automated capacity ensures consistent thickness and high-speed delivery for heavy industrial loads.",
     description: "Dual-plant automated capacity ensures consistent thickness and high-speed delivery for heavy industrial loads.",
-    image: "/images/desktop/hero-slider/slide-2.png",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-2.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-2.png",
+    image: "/images/desktop/hero-slider/slide-2.webp",
+    desktopMediaUrl: "/images/desktop/hero-slider/slide-2.webp",
+    mobileMediaUrl: "/images/desktop/hero-slider/slide-2.webp",
   },
   {
     id: "quality",
@@ -7954,9 +7213,9 @@ const defaultSlides = [
     heading: "ISO 9001:2015 Standards",
     subtitle: "Process-controlled extrusion runs with strict tensile testing and batch traceability on every dispatch.",
     description: "Process-controlled extrusion runs with strict tensile testing and batch traceability on every dispatch.",
-    image: "/images/desktop/hero-slider/slide-3.png",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-3.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-3.png",
+    image: "/images/desktop/hero-slider/slide-3.webp",
+    desktopMediaUrl: "/images/desktop/hero-slider/slide-3.webp",
+    mobileMediaUrl: "/images/desktop/hero-slider/slide-3.webp",
   },
   {
     id: "automation",
@@ -7965,19 +7224,21 @@ const defaultSlides = [
     heading: "End-to-End Solutions",
     subtitle: "Syncing high-tensile strapping, stretch wrap, and tapes to maximize line efficiency and lower total cost-per-pallet.",
     description: "Syncing high-tensile strapping, stretch wrap, and tapes to maximize line efficiency and lower total cost-per-pallet.",
-    image: "/images/desktop/hero-slider/slide-4.png",
-    desktopMediaUrl: "/images/desktop/hero-slider/slide-4.png",
-    mobileMediaUrl: "/images/mobile/hero-slider/slide-4.png",
+    image: "/images/desktop/hero-slider/slide-4.webp",
+    desktopMediaUrl: "/images/desktop/hero-slider/slide-4.webp",
+    mobileMediaUrl: "/images/desktop/hero-slider/slide-4.webp",
   }
 ];
 
-const defaultRightBanner = "/images/desktop/hero-slider/right-banner.png";
-const defaultMobileRightBanner = "/images/mobile/hero-slider/right-banner.png";
+const defaultRightBanner = "/images/desktop/hero-slider/right-banner.webp";
+const defaultMobileRightBanner = "/images/desktop/hero-slider/right-banner.webp";
 
 const defaultAbout = {
   tagline: "Pioneering B2B Industrial Packaging & Labeling Solutions",
   para1: "Winner Pack Technologies Pvt. Ltd. supplies environment-friendly secondary and tertiary packaging materials. Guided by our motto \"We Serve To Deserve\", we supply premium quality solutions tailored to your operational needs.",
-  para2: "We specialize in BOPP tapes, strapping rolls, shrink films, and protective packaging, serving various key industrial sectors including food, cosmetics, pharmaceuticals, and retail logistics.",
+  para2: "We specialize in engineered industrial packaging materials and end-to-end solutions, serving a diverse spectrum of manufacturing and supply chain sectors.",
+  image1: "/images/desktop/about/about_factory_floor_v2.webp",
+  image2: "/images/desktop/about/about_hero_factory.webp",
   stats: [
     { value: "8+", label: "Years in business" },
     { value: "4", label: "Product categories" },
@@ -8026,13 +7287,13 @@ const defaultUsps = [
 ];
 
 const defaultClients = [
-  { name: "Lava", logo: "/Brand_logo/lava.png" },
-  { name: "Vivo", logo: "/Brand_logo/vivo.png" },
-  { name: "Noise", logo: "/Brand_logo/noise.png" },
-  { name: "Fire-Boltt", logo: "/Brand_logo/firebolt.png" },
-  { name: "Anmol", logo: "/Brand_logo/anmol.png" },
-  { name: "CI Automotive", logo: "/Brand_logo/ci-automotive.png" },
-  { name: "Bhagwati Products", logo: "/Brand_logo/bhagwati-products.png" }
+  { name: "Lava", logo: "/Brand_logo/lava.webp" },
+  { name: "Vivo", logo: "/Brand_logo/vivo.webp" },
+  { name: "Noise", logo: "/Brand_logo/noise.webp" },
+  { name: "Fire-Boltt", logo: "/Brand_logo/firebolt.webp" },
+  { name: "Anmol", logo: "/Brand_logo/anmol.webp" },
+  { name: "CI Automotive", logo: "/Brand_logo/ci-automotive.webp" },
+  { name: "Bhagwati Products", logo: "/Brand_logo/bhagwati-products.webp" }
 ];
 
 const defaultSteps = [
@@ -8081,12 +7342,12 @@ const defaultSteps = [
 ];
 
 const defaultIndustries = [
-  { name: "Electronics", image: "/images/desktop/industries/electronics_industry.png" },
-  { name: "Cosmetics", image: "/images/desktop/industries/cosmetics_industry.png" },
-  { name: "Food & FMCG", image: "/images/desktop/industries/food_fmcg_industry.png" },
-  { name: "Automobile", image: "/images/desktop/industries/automobile_industry.png" },
-  { name: "Stationery", image: "/images/desktop/industries/stationery_industry.png" },
-  { name: "E-commerce & Logistics", image: "/images/desktop/industries/ecommerce_logistics_industry.png" }
+  { name: "Electronics", image: "/images/desktop/industries/electronics_industry.webp" },
+  { name: "Cosmetics", image: "/images/desktop/industries/cosmetics_industry.webp" },
+  { name: "Food & FMCG", image: "/images/desktop/industries/food_fmcg_industry.webp" },
+  { name: "Automobile", image: "/images/desktop/industries/automobile_industry.webp" },
+  { name: "Stationery", image: "/images/desktop/industries/stationery_industry.webp" },
+  { name: "E-commerce & Logistics", image: "/images/desktop/industries/ecommerce_logistics_industry.webp" }
 ];
 
 export const fallbackData = {

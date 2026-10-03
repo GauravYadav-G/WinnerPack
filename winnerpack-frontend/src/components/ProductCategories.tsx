@@ -7,13 +7,43 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import OptimizedImage from '@/components/OptimizedImage';
 import { productHierarchy } from "@/components/Navbar";
+import { apiFetch } from "@/lib/api";
 
-export default function ProductCategories() {
+export default function ProductCategories({ previewData }: { previewData?: any } = {}) {
   const navbarCategories = productCategories.filter((category) =>
     productHierarchy.some((navCategory) => navCategory.id === category.id)
   );
+  const [header, setHeader] = useState({
+    eyebrow: previewData?.eyebrow ?? previewData?.categoriesHeader?.tag ?? "Industrial Range & Showcase",
+    title: previewData?.title ?? previewData?.categoriesHeader?.title ?? "Product Gallery",
+    description: previewData?.description ?? previewData?.categoriesHeader?.description ?? "",
+  });
+
+  useEffect(() => {
+    if (previewData) {
+      setHeader({
+        eyebrow: previewData.eyebrow ?? previewData.categoriesHeader?.tag ?? "",
+        title: previewData.title ?? previewData.categoriesHeader?.title ?? "",
+        description: previewData.description ?? previewData.categoriesHeader?.description ?? "",
+      });
+      return;
+    }
+    apiFetch('/api/content?key=homepage', { cache: 'no-store' })
+      .then((response) => response.ok ? response.json() : null)
+      .then((content) => {
+        if (!content?.categoriesHeader) return;
+        setHeader({
+          eyebrow: content.categoriesHeader.tag ?? "Industrial Range & Showcase",
+          title: content.categoriesHeader.title ?? "Product Gallery",
+          description: content.categoriesHeader.description ?? "",
+        });
+      })
+      .catch(() => {});
+  }, [previewData]);
+
   const [activeCatIndex, setActiveCatIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+
 
   // Independent shuffle indexes for each of the 4 cards
   const [slot1Idx, setSlot1Idx] = useState(0);
@@ -28,35 +58,35 @@ export default function ProductCategories() {
       label: "Film Products Showcase",
       link: "/product-category/film-products",
       slot1: [
-        "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.jpg",
-        "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.jpg",
-        "/images/products/pharma-grade-poly/pharma-grade-poly-rolls.jpg",
-        "/images/products/cross-linked-pof/cross-linked-pof-rolls.jpg",
-        "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
-        "/images/products/milk-packaging-film/milk-packaging-film.jpg"
+        "/images/products/ldpe-shrink-film/ldpe-bottle-wrap.webp",
+        "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-rolls.webp",
+        "/images/products/pharma-grade-poly/pharma-grade-poly-rolls.webp",
+        "/images/products/cross-linked-pof/cross-linked-pof-rolls.webp",
+        "/images/products/plastic-mulching-film/plastic-mulching-film.webp",
+        "/images/products/milk-packaging-film/milk-packaging-film.webp"
       ],
       slot2: [
-        "/images/products/cross-linked-pof/cross-linked-pof.jpg",
-        "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-rolls.jpg",
-        "/images/products/adhesive-lamination-film/adhesive-lamination-film-rolls.jpg",
-        "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.jpg",
+        "/images/products/cross-linked-pof/cross-linked-pof.webp",
+        "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-rolls.webp",
+        "/images/products/adhesive-lamination-film/adhesive-lamination-film-rolls.webp",
+        "/images/products/non-cross-linked-pof-film/non-cross-linked-pof-film.webp",
         "/images/products/low-tunnel-film/low-tunnel-film.webp",
         "/images/products/mulch-film/mulch-film.webp"
       ],
       slot3: [
-        "/images/products/plastic-mulching-film/plastic-mulching-film.jpg",
-        "/images/products/cross-linked-pof/cross-linked-pof-rolls.jpg",
-        "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.jpg",
-        "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.jpg",
+        "/images/products/plastic-mulching-film/plastic-mulching-film.webp",
+        "/images/products/cross-linked-pof/cross-linked-pof-rolls.webp",
+        "/images/products/pvc-shrink-rolls-pouches/pvc-shrink-pouches.webp",
+        "/images/products/biodegradable-shrink-film/biodegradable-shrink-film.webp",
         "/images/products/low-tunnel-film/low-tunnel-film.webp",
-        "/images/products/ldpe-shrink-film/image.png"
+        "/images/products/ldpe-shrink-film/image.webp"
       ],
       slot4: [
-        "/images/products/milk-packaging-film/milk-packaging-film.jpg",
-        "/images/products/water-packaging-film/water-packaging-film.jpg",
-        "/images/products/smp-packaging-film/smp-packaging-film.jpg",
-        "/images/products/pharma-grade-poly/pharma-grade-poly.png",
-        "/images/products/soft-loop-handle-bags/soft-loop-handle-bags.jpg",
+        "/images/products/milk-packaging-film/milk-packaging-film.webp",
+        "/images/products/water-packaging-film/water-packaging-film.webp",
+        "/images/products/smp-packaging-film/smp-packaging-film.webp",
+        "/images/products/pharma-grade-poly/pharma-grade-poly.webp",
+        "/images/products/soft-loop-handle-bags/soft-loop-handle-bags.webp",
         "/images/products/ice-bags/ice-bags.webp"
       ]
     },
@@ -65,34 +95,34 @@ export default function ProductCategories() {
       label: "Labels & Stickers Showcase",
       link: "/product-category/label-sticker-products",
       slot1: [
-        "/images/products/printed-labels/flexo-digital-printed-labels.jpg",
-        "/images/products/plain-labels/plain-labels.jpg",
-        "/images/products/plain-labels/plain-chromo-labels.jpg",
-        "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.jpg",
-        "/images/products/wide-format-printed-labels/wide-format-printed-labels.jpg",
-        "/images/products/plain-thermal-transfer-labels/plain-thermal-transfer-labels.jpg"
+        "/images/products/printed-labels/flexo-digital-printed-labels.webp",
+        "/images/products/plain-labels/plain-labels.webp",
+        "/images/products/plain-labels/plain-chromo-labels.webp",
+        "/images/products/paper-self-adhesive-labels/paper-self-adhesive-labels.webp",
+        "/images/products/wide-format-printed-labels/wide-format-printed-labels.webp",
+        "/images/products/plain-thermal-transfer-labels/plain-thermal-transfer-labels.webp"
       ],
       slot2: [
-        "/images/products/thermal-transfer-ribbons/thermal-transfer-ribbons.jpg",
-        "/images/products/wax-resin-ribbons/wax-resin-ribbons.jpg",
-        "/images/products/resin-ribbons/resin-ribbons.jpg",
-        "/images/products/wax-ribbons/wax-ribbons.jpg",
-        "/images/products/wrap-around-labels/wrap-around-labels.jpg"
+        "/images/products/thermal-transfer-ribbons/thermal-transfer-ribbons.webp",
+        "/images/products/wax-resin-ribbons/wax-resin-ribbons.webp",
+        "/images/products/resin-ribbons/resin-ribbons.webp",
+        "/images/products/wax-ribbons/wax-ribbons.webp",
+        "/images/products/wrap-around-labels/wrap-around-labels.webp"
       ],
       slot3: [
-        "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.jpg",
-        "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.jpg",
-        "/images/products/jar-bottle-product-labels/jar-bottle-product-labels.jpg",
-        "/images/products/gs1-data-matrix-barcode-labels/gs1-data-matrix-barcode-labels.jpg",
-        "/images/products/film-self-adhesive-labels/film-self-adhesive-labels.jpg"
+        "/images/products/clear-metallic-product-labels/clear-metallic-product-labels.webp",
+        "/images/products/thermal-transfer-barcode-labels/thermal-transfer-barcode-labels.webp",
+        "/images/products/jar-bottle-product-labels/jar-bottle-product-labels.webp",
+        "/images/products/gs1-data-matrix-barcode-labels/gs1-data-matrix-barcode-labels.webp",
+        "/images/products/film-self-adhesive-labels/film-self-adhesive-labels.webp"
       ],
       slot4: [
-        "/images/products/hologram-stickers/hologram-stickers.jpg",
-        "/images/products/2d-3d-holograms/2d-3d-holograms.jpg",
-        "/images/products/direct-thermal-labels/direct-thermal-labels.jpg",
-        "/images/products/tamper-evident-stickers/tamper-evident-stickers.jpg",
-        "/images/products/security-void-stickers/security-void-stickers.jpg",
-        "/images/products/thermal-transfer-paper-labels/thermal-transfer-paper-labels.jpg"
+        "/images/products/hologram-stickers/hologram-stickers.webp",
+        "/images/products/2d-3d-holograms/2d-3d-holograms.webp",
+        "/images/products/direct-thermal-labels/direct-thermal-labels.webp",
+        "/images/products/tamper-evident-stickers/tamper-evident-stickers.webp",
+        "/images/products/security-void-stickers/security-void-stickers.webp",
+        "/images/products/thermal-transfer-paper-labels/thermal-transfer-paper-labels.webp"
       ]
     },
     // 2: Tapes Division
@@ -100,18 +130,18 @@ export default function ProductCategories() {
       label: "Tapes Division Showcase",
       link: "/product-category/tapes",
       slot1: [
-        "/images/products/bopp-tapes/bopp-tapes.jpg",
-        "/images/products/bopp-tapes/manual-dispenser-bopp-tapes.jpg",
-        "/images/products/bopp-tapes/automated-machine-roll-bopp-tapes.jpg"
+        "/images/products/bopp-tapes/bopp-tapes.webp",
+        "/images/products/bopp-tapes/manual-dispenser-bopp-tapes.webp",
+        "/images/products/bopp-tapes/automated-machine-roll-bopp-tapes.webp"
       ],
       slot2: [
-        "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.jpg"
+        "/images/products/printed-bopp-tapes/preprinted-warning-security-tapes.webp"
       ],
       slot3: [
-        "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.jpg"
+        "/images/products/coloured-bopp-tapes/secondary-security-colored-tapes.webp"
       ],
       slot4: [
-        "/images/products/silicon-tapes/silicone-bag-sealing-tapes.jpg"
+        "/images/products/silicon-tapes/silicone-bag-sealing-tapes.webp"
       ]
     },
     // 3: PP & PET Strapping
@@ -119,82 +149,77 @@ export default function ProductCategories() {
       label: "PP & PET Strapping Showcase",
       link: "/product-category/pp-strap",
       slot1: [
-        "/images/products/pp-strap/applications/app-1.png",
-        "/images/products/pp-strap/applications/app-2.png",
-        "/images/products/pp-strap/applications/app-3.png",
-        "/images/products/pp-strap/applications/app-4.png",
-        "/images/products/pp-strap/image.png"
+        "/images/products/pp-strap/applications/app-1.webp",
+        "/images/products/pp-strap/applications/app-2.webp",
+        "/images/products/pp-strap/applications/app-3.webp",
+        "/images/products/pp-strap/applications/app-4.webp",
+        "/images/products/pp-strap/image.webp"
       ],
       slot2: [
-        "/images/products/pet-strap/applications/app-1.png",
-        "/images/products/pet-strap/applications/app-2.png",
-        "/images/products/pet-strap/applications/app-3.png",
-        "/images/products/pet-strap/applications/app-4.png",
-        "/images/products/pet-strap/image.png"
+        "/images/products/pet-strap/applications/app-1.webp",
+        "/images/products/pet-strap/applications/app-2.webp",
+        "/images/products/pet-strap/applications/app-3.webp",
+        "/images/products/pet-strap/applications/app-4.webp",
+        "/images/products/pet-strap/image.webp"
       ],
       slot3: [
-        "/images/products/printed-pp-strap/applications/app-1.png",
-        "/images/products/printed-pp-strap/applications/app-2.png",
-        "/images/products/printed-pp-strap/applications/app-3.png",
-        "/images/products/printed-pp-strap/applications/app-4.png",
-        "/images/products/printed-pp-strap/image.png"
+        "/images/products/printed-pp-strap/applications/app-1.webp",
+        "/images/products/printed-pp-strap/applications/app-2.webp",
+        "/images/products/printed-pp-strap/applications/app-3.webp",
+        "/images/products/printed-pp-strap/applications/app-4.webp",
+        "/images/products/printed-pp-strap/image.webp"
       ],
       slot4: [
-        "/images/products/colored-pp-strap/applications/app-1.png",
-        "/images/products/colored-pp-strap/applications/app-2.png",
-        "/images/products/colored-pp-strap/applications/app-3.png",
-        "/images/products/colored-pp-strap/applications/app-4.png",
-        "/images/products/colored-pp-strap/image.png"
+        "/images/products/colored-pp-strap/applications/app-1.webp",
+        "/images/products/colored-pp-strap/applications/app-2.webp",
+        "/images/products/colored-pp-strap/applications/app-3.webp",
+        "/images/products/colored-pp-strap/applications/app-4.webp",
+        "/images/products/colored-pp-strap/image.webp"
       ]
     }
   ];
 
   const currentShowcase = categoryShowcase[activeCatIndex] || categoryShowcase[0];
 
-  // Randomize initial starting images on every page reload
-  useEffect(() => {
-    setSlot1Idx(Math.floor(Math.random() * 20));
-    setSlot2Idx(Math.floor(Math.random() * 20));
-    setSlot3Idx(Math.floor(Math.random() * 20));
-    setSlot4Idx(Math.floor(Math.random() * 20));
-  }, []);
-
   // 7-second automatic rotation loop across product categories
   useEffect(() => {
     if (isPaused) return;
-
-    const timer = setInterval(() => {
-      setActiveCatIndex((prevIndex) => (prevIndex + 1) % navbarCategories.length);
-    }, 7000);
-
-    return () => clearInterval(timer);
+    let interval: ReturnType<typeof setInterval> | undefined;
+    const start = window.setTimeout(() => {
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        interval = setInterval(() => {
+          setActiveCatIndex((prevIndex) => (prevIndex + 1) % navbarCategories.length);
+        }, 7000);
+      }
+    }, 20_000);
+    return () => {
+      window.clearTimeout(start);
+      if (interval) clearInterval(interval);
+    };
   }, [isPaused]);
 
   // Periodic image shuffling within cards of the active category (staggered for organic feeling)
   useEffect(() => {
     if (isPaused) return;
 
-    const shuffleInterval1 = setInterval(() => {
-      setSlot1Idx((prev) => (prev + 1) % (currentShowcase.slot1.length || 1));
-    }, 3800);
-
-    const shuffleInterval2 = setInterval(() => {
-      setSlot2Idx((prev) => (prev + 1) % (currentShowcase.slot2.length || 1));
-    }, 4400);
-
-    const shuffleInterval3 = setInterval(() => {
-      setSlot3Idx((prev) => (prev + 1) % (currentShowcase.slot3.length || 1));
-    }, 4100);
-
-    const shuffleInterval4 = setInterval(() => {
-      setSlot4Idx((prev) => (prev + 1) % (currentShowcase.slot4.length || 1));
-    }, 4700);
+    let shuffleInterval1: ReturnType<typeof setInterval> | undefined;
+    let shuffleInterval2: ReturnType<typeof setInterval> | undefined;
+    let shuffleInterval3: ReturnType<typeof setInterval> | undefined;
+    let shuffleInterval4: ReturnType<typeof setInterval> | undefined;
+    const start = window.setTimeout(() => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      shuffleInterval1 = setInterval(() => setSlot1Idx((prev) => (prev + 1) % (currentShowcase.slot1.length || 1)), 3800);
+      shuffleInterval2 = setInterval(() => setSlot2Idx((prev) => (prev + 1) % (currentShowcase.slot2.length || 1)), 4400);
+      shuffleInterval3 = setInterval(() => setSlot3Idx((prev) => (prev + 1) % (currentShowcase.slot3.length || 1)), 4100);
+      shuffleInterval4 = setInterval(() => setSlot4Idx((prev) => (prev + 1) % (currentShowcase.slot4.length || 1)), 4700);
+    }, 20_000);
 
     return () => {
-      clearInterval(shuffleInterval1);
-      clearInterval(shuffleInterval2);
-      clearInterval(shuffleInterval3);
-      clearInterval(shuffleInterval4);
+      window.clearTimeout(start);
+      if (shuffleInterval1) clearInterval(shuffleInterval1);
+      if (shuffleInterval2) clearInterval(shuffleInterval2);
+      if (shuffleInterval3) clearInterval(shuffleInterval3);
+      if (shuffleInterval4) clearInterval(shuffleInterval4);
     };
   }, [activeCatIndex, currentShowcase, isPaused]);
 
@@ -215,11 +240,16 @@ export default function ProductCategories() {
         {/* Centered Executive Header */}
         <div className="text-center mb-6 sm:mb-12 flex flex-col items-center">
           <span className="text-xs font-bold tracking-widest text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2">
-            Industrial Range & Showcase
+            {header.eyebrow}
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-tight text-balance">
-            Product Gallery
+            {header.title}
           </h2>
+          {header.description && (
+            <p className="mt-3 max-w-2xl text-sm sm:text-base text-[var(--color-mute)] leading-relaxed">
+              {header.description}
+            </p>
+          )}
           <div className="mt-3 sm:mt-4 h-1 sm:h-1.5 w-12 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
         </div>
 
@@ -251,6 +281,7 @@ export default function ProductCategories() {
                       src={cat.image}
                       alt={cat.title}
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                      sizes="(max-width: 1023px) 50vw, 25vw"
                     />
 
                     <div
@@ -304,6 +335,7 @@ export default function ProductCategories() {
                   src={img1}
                   alt={currentShowcase.label}
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 639px) 100vw, 50vw"
                 />
               </motion.div>
             </AnimatePresence>
@@ -329,6 +361,7 @@ export default function ProductCategories() {
                   src={img2}
                   alt={currentShowcase.label}
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 639px) 100vw, 50vw"
                 />
               </motion.div>
             </AnimatePresence>
@@ -354,6 +387,7 @@ export default function ProductCategories() {
                   src={img3}
                   alt={currentShowcase.label}
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 639px) 100vw, 50vw"
                 />
               </motion.div>
             </AnimatePresence>
@@ -379,6 +413,7 @@ export default function ProductCategories() {
                   src={img4}
                   alt={currentShowcase.label}
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 639px) 100vw, 50vw"
                 />
               </motion.div>
             </AnimatePresence>
@@ -390,7 +425,7 @@ export default function ProductCategories() {
         <div className="mt-8 sm:mt-14 flex justify-center">
           <Link
             href="/products"
-            className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-amber)] px-6 sm:px-8 py-3 sm:py-4 text-sm font-bold text-white shadow-lg sm:shadow-xl shadow-[var(--color-amber)]/25 transition-all duration-300 hover:bg-[var(--color-amber-dark)] hover:shadow-2xl hover:scale-105"
+            className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-amber)] px-6 sm:px-8 py-3 sm:py-4 text-sm font-bold text-[var(--color-ink)] shadow-lg sm:shadow-xl shadow-[var(--color-amber)]/25 transition-all duration-300 hover:bg-[var(--color-amber-dark)] hover:text-white hover:shadow-2xl hover:scale-105"
             data-hover
           >
             <span className="relative z-10">View All Products Catalog</span>

@@ -9,10 +9,18 @@ import contentRouter from "./routes/content";
 import inquiriesRouter from "./routes/inquiries";
 import productsRouter from "./routes/products";
 import uploadRouter from "./routes/upload";
+import categoriesRouter from "./routes/categories";
+import databaseRouter from "./routes/database";
+
+try {
+  process.loadEnvFile?.();
+} catch (_) {}
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
+const allowedFrontendOrigins = FRONTEND_URL.split(",").map((origin) => origin.trim()).filter(Boolean);
+const isDevelopment = process.env.NODE_ENV !== "production";
 
 // Preserve the original HTTPS protocol when deployed behind a reverse proxy.
 app.set("trust proxy", 1);
@@ -22,7 +30,17 @@ app.set("trust proxy", 1);
 // CORS: allow frontend origin with credentials so cross-origin cookies work
 app.use(
   cors({
-    origin: FRONTEND_URL,
+    origin(origin, callback) {
+      const isLocalDevelopmentOrigin =
+        isDevelopment && /^http:\/\/(?:localhost|127\.0\.0\.1):\d+$/.test(origin || "");
+
+      if (!origin || allowedFrontendOrigins.includes(origin) || isLocalDevelopmentOrigin) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error(`Origin ${origin} is not allowed by CORS`));
+    },
     credentials: true, // required for SameSite=None cookies cross-origin
   })
 );
@@ -47,7 +65,9 @@ app.use("/api/articles", articlesRouter);
 app.use("/api/content", contentRouter);
 app.use("/api/inquiries", inquiriesRouter);
 app.use("/api/products", productsRouter);
+app.use("/api/categories", categoriesRouter);
 app.use("/api/upload", uploadRouter);
+app.use("/api/database", databaseRouter);
 
 // ─── Health check ─────────────────────────────────────────────────────────────
 
@@ -59,7 +79,7 @@ app.get("/health", (_req, res) => {
 
 app.listen(PORT, () => {
   console.log(`winnerpack-backend listening on port ${PORT}`);
-  console.log(`CORS allowed origin: ${FRONTEND_URL}`);
+  console.log(`CORS allowed origins: ${allowedFrontendOrigins.join(", ")}`);
 });
 
 export default app;

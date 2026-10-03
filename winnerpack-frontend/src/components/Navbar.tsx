@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Menu, X, Phone, Mail, Clock, ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "../utils/cn";
 import OptimizedImage from '@/components/OptimizedImage';
+import { apiFetch } from '@/lib/api';
 
 const links = [
   { label: "Home", href: "/" },
@@ -54,7 +55,6 @@ export const productHierarchy = [
         items: [
           { name: "Cross-Linked POF Film", slug: "cross-linked-pof" },
           { name: "Non-Cross-Linked POF Film", slug: "non-cross-linked-pof-film" },
-          // { name: "POF Shrink Pouches", slug: "pof-shrink-pouches" },
         ]
       },
       {
@@ -157,134 +157,50 @@ export const productHierarchy = [
     title: "Labels & Stickers",
     catSlug: "label-sticker-products",
     subcategories: [
-      {
-        id: "plain-labels",
-        title: "Plain Labels",
-        slug: "plain-labels",
-        items: []
-      },
-      {
-        id: "printed-labels",
-        title: "Printed Labels",
-        slug: "printed-labels",
-        items: []
-      },
-      {
-        id: "barcode-labels",
-        title: "Barcode Labels",
-        slug: "barcode-labels",
-        items: []
-      },
-      {
-        id: "product-labels",
-        title: "Product Labels",
-        slug: "product-labels",
-        items: []
-      },
-      {
-        id: "self-adhesive-labels",
-        title: "Self Adhesive Labels",
-        slug: "self-adhesive-labels",
-        items: []
-      },
-      {
-        id: "thermal-labels",
-        title: "Thermal Labels",
-        slug: "thermal-labels",
-        items: []
-      },
-      {
-        id: "hologram-stickers",
-        title: "Hologram Stickers",
-        slug: "hologram-stickers",
-        items: []
-      },
-      {
-        id: "security-void-stickers",
-        title: "Security Void Stickers",
-        slug: "security-void-stickers",
-        items: []
-      },
-      {
-        id: "tamper-evident-stickers",
-        title: "Tamper-Evident Stickers",
-        slug: "tamper-evident-stickers",
-        items: []
-      },
-      {
-        id: "thermal-transfer-ribbons",
-        title: "Thermal Transfer Ribbons",
-        slug: "thermal-transfer-ribbons",
-        items: []
-      },
-    ]
+      { id: "plain-labels", title: "Plain Labels", slug: "plain-labels", items: [] },
+      { id: "printed-labels", title: "Printed Labels", slug: "printed-labels", items: [] },
+      { id: "barcode-labels", title: "Barcode Labels", slug: "barcode-labels", items: [] },
+      { id: "product-labels", title: "Product Labels", slug: "product-labels", items: [] },
+      { id: "self-adhesive-labels", title: "Self Adhesive Labels", slug: "self-adhesive-labels", items: [] },
+      { id: "thermal-labels", title: "Thermal Labels", slug: "thermal-labels", items: [] },
+      { id: "hologram-stickers", title: "Hologram Stickers", slug: "hologram-stickers", items: [] },
+      { id: "security-void-stickers", title: "Security Void Stickers", slug: "security-void-stickers", items: [] },
+      { id: "tamper-evident-stickers", title: "Tamper-Evident Stickers", slug: "tamper-evident-stickers", items: [] },
+      { id: "thermal-transfer-ribbons", title: "Thermal Transfer Ribbons", slug: "thermal-transfer-ribbons", items: [] },
+    ],
   },
   {
     id: "tapes",
     title: "Tapes",
     catSlug: "tapes",
     subcategories: [
-      {
-        id: "bopp-tapes",
-        title: "BOPP Tapes",
-        slug: "bopp-tapes",
-        items: []
-      },
-      {
-        id: "printed-tapes",
-        title: "Printed BOPP Tapes",
-        slug: "printed-bopp-tapes",
-        items: []
-      },
-      {
-        id: "colored-tapes",
-        title: "Coloured BOPP Tapes",
-        slug: "coloured-bopp-tapes",
-        items: []
-      },
-      {
-        id: "silicon-tapes",
-        title: "Silicon Tapes",
-        slug: "silicon-tapes",
-        items: []
-      },
-    ]
+      { id: "bopp-tapes", title: "BOPP Tapes", slug: "bopp-tapes", items: [] },
+      { id: "printed-bopp-tapes", title: "Printed BOPP Tapes", slug: "printed-bopp-tapes", items: [] },
+      { id: "coloured-bopp-tapes", title: "Coloured BOPP Tapes", slug: "coloured-bopp-tapes", items: [] },
+      { id: "silicon-tapes", title: "Silicon Tapes", slug: "silicon-tapes", items: [] },
+    ],
   },
   {
     id: "pp-strap",
     title: "Others",
     catSlug: "pp-strap",
     subcategories: [
-      {
-        id: "pp-strap-main",
-        title: "PP Strap",
-        slug: "pp-strap",
-        items: []
-      },
-      {
-        id: "printed-pp-strap",
-        title: "Printed PP Strap",
-        slug: "printed-pp-strap",
-        items: []
-      },
-      {
-        id: "colored-pp-strap",
-        title: "Colored PP Strap",
-        slug: "colored-pp-strap",
-        items: []
-      },
-      {
-        id: "pet-strap",
-        title: "PET Strap",
-        slug: "pet-strap",
-        items: []
-      },
-    ]
-  }
+      { id: "pp-strap-main", title: "PP Strap", slug: "pp-strap", items: [] },
+      { id: "printed-pp-strap", title: "Printed PP Strap", slug: "printed-pp-strap", items: [] },
+      { id: "colored-pp-strap", title: "Colored PP Strap", slug: "colored-pp-strap", items: [] },
+      { id: "pet-strap", title: "PET Strap", slug: "pet-strap", items: [] },
+    ],
+  },
 ];
 
-export default function Navbar() {
+export default function Navbar({ previewData }: { previewData?: any } = {}) {
   const pathname = usePathname();
+  const [tickerData, setTickerData] = useState<any>(previewData || null);
+  const tickerEmail = tickerData?.email || "info@winnerpack.in";
+  const tickerPhone = tickerData?.phone || "+91 85950 72187";
+  const tickerPhone2 = tickerData?.phone2 || "+91 74287 70999";
+  const tickerPhoneHref = tickerPhone.replace(/[^\d+]/g, "");
+  const tickerPhone2Href = tickerPhone2.replace(/[^\d+]/g, "");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isProductsHovered, setIsProductsHovered] = useState(false);
@@ -294,6 +210,33 @@ export default function Navbar() {
   const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
   const [mobileActiveCatId, setMobileActiveCatId] = useState<string>("film-products");
   const [mobileExpandedSubCatId, setMobileExpandedSubCatId] = useState<string | null>(null);
+  const [navHierarchy, setNavHierarchy] = useState(productHierarchy);
+
+  useEffect(() => {
+    if (previewData) {
+      setTickerData(previewData);
+      return;
+    }
+    let active = true;
+    apiFetch("/api/content?key=global", { cache: "no-store" })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((content) => {
+        if (active && content?.ticker) setTickerData(content.ticker);
+      })
+      .catch(() => {});
+    return () => { active = false; };
+  }, [previewData]);
+
+  useEffect(() => {
+    let active = true;
+    apiFetch("/api/categories", { cache: "no-store" })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((categories) => {
+        if (active && Array.isArray(categories)) setNavHierarchy(categories);
+      })
+      .catch(() => {});
+    return () => { active = false; };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -314,32 +257,32 @@ export default function Navbar() {
   return (
     <>
       {/* ── TOP BAR (Sticwell Style) ── */}
-      <div className="bg-[var(--color-ink)] text-white text-[10px] sm:text-[11px] md:text-xs py-2 border-b border-white/10 relative z-50">
+      {tickerData?.enabled !== false && <div className="bg-[var(--color-ink)] text-white text-[10px] sm:text-[11px] md:text-xs py-2 border-b border-white/10 relative z-50">
         <div className="max-w-[1536px] mx-auto px-3 sm:px-4 md:px-6 lg:px-8 flex justify-between items-center">
           {/* Left: Contact Info */}
           <div className="flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-            <a href="mailto:info@winnerpack.in" className="flex items-center gap-1.5 text-white font-medium hover:text-[var(--color-amber)] transition-colors">
+            <a href={`mailto:${tickerEmail}`} className="flex items-center gap-1.5 text-white font-medium hover:text-[var(--color-amber)] transition-colors">
               <Mail className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber)] shrink-0" />
-              <span className="hidden min-[400px]:inline text-white">info@winnerpack.in</span>
+              <span className="hidden min-[400px]:inline text-white">{tickerEmail}</span>
               <span className="min-[400px]:hidden text-white">Email</span>
             </a>
-            <a href="tel:+918595072187" className="flex items-center gap-1.5 text-white font-medium hover:text-[var(--color-amber)] transition-colors">
+            <a href={`tel:${tickerPhoneHref}`} className="flex items-center gap-1.5 text-white font-medium hover:text-[var(--color-amber)] transition-colors">
               <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--color-amber)] shrink-0" />
-              <span className="font-mono text-white tracking-wide">+91 85950 72187</span>
+              <span className="font-mono text-white tracking-wide">{tickerPhone}</span>
             </a>
-            <a href="tel:+917428770999" className="hidden md:flex items-center gap-1.5 text-white font-medium hover:text-[var(--color-amber)] transition-colors">
+            <a href={`tel:${tickerPhone2Href}`} className="hidden md:flex items-center gap-1.5 text-white font-medium hover:text-[var(--color-amber)] transition-colors">
               <Phone className="h-3.5 w-3.5 text-[var(--color-amber)] shrink-0" />
-              <span className="font-mono text-white tracking-wide">+91 74287 70999</span>
+              <span className="font-mono text-white tracking-wide">{tickerPhone2}</span>
             </a>
           </div>
 
           {/* Right: Timing / Info */}
           <div className="hidden sm:flex items-center gap-1.5 shrink-0 text-white/90 font-medium">
             <Clock className="h-3.5 w-3.5 text-[var(--color-amber)] shrink-0" />
-            <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+            <span>{tickerData?.text || "Mon - Sat: 9:00 AM - 6:00 PM"}</span>
           </div>
         </div>
-      </div>
+      </div>}
 
       {/* ── MAIN NAVBAR ── */}
       <div className="h-[72px] sm:h-[76px] lg:h-[80px] relative z-40">
@@ -357,6 +300,7 @@ export default function Navbar() {
                 className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 width={56}
                 height={56}
+                sizes="56px"
               />
               <div className="leading-tight flex flex-col">
                 <div className="font-display text-base sm:text-lg lg:text-xl xl:text-2xl font-black tracking-tight text-[var(--color-ink)] leading-none">
@@ -391,8 +335,8 @@ export default function Navbar() {
                         className={cn(
                           "inline-flex items-center gap-1 text-[13px] lg:text-sm font-semibold tracking-wide px-2.5 lg:px-3.5 py-2.5 rounded-md transition-all duration-200",
                           isActive || isProductsHovered
-                            ? "text-[var(--color-amber)] bg-amber-50/50"
-                            : "text-[var(--color-ink)] hover:text-[var(--color-amber)] hover:bg-amber-50/30"
+                            ? "text-[var(--color-amber-dark)] bg-amber-50/50"
+                            : "text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] hover:bg-amber-50/30"
                         )}
                         data-hover
                       >
@@ -410,7 +354,7 @@ export default function Navbar() {
                           {/* ── TIER 1: 4 Main Categories Menu ── */}
                           <div className="w-56 lg:w-60 bg-[#120a3b] text-white shadow-2xl rounded-xl border border-white/10 overflow-hidden py-1 z-30 shrink-0">
                             <div className="divide-y divide-white/5">
-                              {productHierarchy.map((category) => {
+                              {navHierarchy.map((category) => {
                                 const isCurrentActive = activeCatId === category.id;
                                 return (
                                   <div
@@ -447,7 +391,7 @@ export default function Navbar() {
 
                           {/* ── TIER 2: Subcategories Menu (Opens on Hovering a Category) ── */}
                           {(() => {
-                            const currentCategory = productHierarchy.find((c) => c.id === activeCatId);
+                            const currentCategory = navHierarchy.find((c) => c.id === activeCatId);
                             if (!currentCategory || !currentCategory.subcategories || currentCategory.subcategories.length === 0) {
                               return null;
                             }
@@ -500,7 +444,7 @@ export default function Navbar() {
 
                           {/* ── TIER 3: Specific Product Types Menu (Opens on Hovering a Subcategory) ── */}
                           {(() => {
-                            const currentCategory = productHierarchy.find((c) => c.id === activeCatId);
+                            const currentCategory = navHierarchy.find((c) => c.id === activeCatId);
                             if (!currentCategory) return null;
                             const currentSubCat = currentCategory.subcategories.find((s) => s.id === activeSubCatId);
                             if (!currentSubCat || !currentSubCat.items || currentSubCat.items.length === 0) {
@@ -548,8 +492,8 @@ export default function Navbar() {
                       className={cn(
                         "text-[13px] lg:text-sm font-semibold tracking-wide px-2.5 lg:px-3.5 py-2.5 rounded-md transition-all duration-200",
                         isActive
-                          ? "text-[var(--color-amber)] bg-amber-50/50"
-                          : "text-[var(--color-ink)] hover:text-[var(--color-amber)] hover:bg-amber-50/30"
+                          ? "text-[var(--color-amber-dark)] bg-amber-50/50"
+                          : "text-[var(--color-ink)] hover:text-[var(--color-amber-dark)] hover:bg-amber-50/30"
                       )}
                       data-hover
                     >
@@ -624,7 +568,7 @@ export default function Navbar() {
 
                               {/* Tier 1: Main Category Switcher Pills */}
                               <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none touch-pan-x -mx-1 px-1">
-                                {productHierarchy.map((cat) => {
+                                {navHierarchy.map((cat) => {
                                   const isActiveCat = cat.id === mobileActiveCatId || cat.catSlug === mobileActiveCatId;
                                   return (
                                     <button
@@ -649,9 +593,13 @@ export default function Navbar() {
 
                               {/* Selected Category Content */}
                               {(() => {
-                                const selectedCat = productHierarchy.find(
+                                const selectedCat = navHierarchy.find(
                                   (c) => c.id === mobileActiveCatId || c.catSlug === mobileActiveCatId
-                                ) || productHierarchy[0];
+                                ) || navHierarchy[0];
+
+                                if (!selectedCat) {
+                                  return <p className="px-2 py-3 text-xs text-slate-500">No product categories are currently published.</p>;
+                                }
 
                                 return (
                                   <div className="space-y-3 pt-1">

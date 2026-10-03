@@ -1,20 +1,5 @@
 'use client';
-/**
- * OptimizedImage
- * Drop-in <img> wrapper. Since all product images have been bulk-converted to
- * WebP (via scripts/bulk-convert-products.mjs), this component swaps local
- * .png/.jpg paths to their .webp siblings for smaller payloads.
- * External URLs and paths already ending in .webp are passed through unchanged.
- */
-
-import { useState } from 'react';
-
-/** Swap a local image extension to .webp; leave external URLs and .webp alone */
-function toWebP(src: string): string {
-  if (!src) return src;
-  if (src.startsWith('http://') || src.startsWith('https://')) return src;
-  return src.replace(/\.(png|jpe?g)$/i, '.webp');
-}
+/** Responsive image wrapper for canonical asset URLs. */
 
 type Props = {
   src?: string;
@@ -24,7 +9,16 @@ type Props = {
   height?: number;
   loading?: 'lazy' | 'eager';
   fetchPriority?: 'high' | 'low' | 'auto';
+  sizes?: string;
+  quality?: number;
+  mobileSrc?: string;
 };
+
+const RESPONSIVE_WIDTHS = [256, 320, 384, 420, 640, 768, 1024, 1280, 1536, 1920];
+
+function optimizedUrl(src: string, width: number, quality: number) {
+  return `/_next/image?url=${encodeURIComponent(src)}&w=${width}&q=${quality}`;
+}
 
 export default function OptimizedImage({
   src,
@@ -34,14 +28,25 @@ export default function OptimizedImage({
   height,
   loading = 'lazy',
   fetchPriority,
+  sizes = '(max-width: 640px) 100vw, 50vw',
+  quality = 72,
+  mobileSrc,
 }: Props) {
-  const [failed, setFailed] = useState(false);
-
   if (!src) return null;
 
-  return (
+  const resolvedSrc = src;
+  const canOptimize =
+    resolvedSrc.startsWith('/') &&
+    /\.(?:avif|webp|png|jpe?g)(?:[?#]|$)/i.test(resolvedSrc);
+  const desktopSrcSet = canOptimize
+    ? RESPONSIVE_WIDTHS.map((candidate) => `${optimizedUrl(resolvedSrc, candidate, quality)} ${candidate}w`).join(', ')
+    : undefined;
+
+  const image = (
     <img
-      src={failed ? src : toWebP(src)}
+      src={resolvedSrc}
+      srcSet={desktopSrcSet}
+      sizes={canOptimize ? sizes : undefined}
       alt={alt}
       className={className}
       loading={loading}
@@ -49,7 +54,15 @@ export default function OptimizedImage({
       width={width}
       height={height}
       fetchPriority={fetchPriority}
-      onError={() => setFailed(true)}
     />
+  );
+
+  if (!mobileSrc) return image;
+
+  return (
+    <picture className="contents">
+      <source media="(max-width: 639px)" srcSet={mobileSrc} />
+      {image}
+    </picture>
   );
 }

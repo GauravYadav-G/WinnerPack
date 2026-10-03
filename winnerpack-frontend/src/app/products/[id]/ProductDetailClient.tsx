@@ -18,287 +18,22 @@ import PageWrapper from "@/components/PageWrapper";
 import { PageHeader } from "@/components/ui/PageHeader";
 
 import { apiFetch } from "@/lib/api";
-import { marked } from "marked";
+import { renderSafeMarkdown } from "@/utils/markdown";
 import { initialProducts } from "@/lib/fallback-data";
 import OptimizedImage from '@/components/OptimizedImage';
 import ProductInquiryModal from "@/components/ProductInquiryModal";
 import { PRODUCT_IMAGE_MAP } from "@/components/ProductCard";
-
-function extractFaqs(longDesc?: string) {
-  if (!longDesc) return [];
-  const faqPatterns = [
-    "### Frequently Asked Questions",
-    "### FAQ",
-    "#### 1. What",
-    "#### 1. "
-  ];
-  let startIdx = -1;
-  for (const pattern of faqPatterns) {
-    const idx = longDesc.indexOf(pattern);
-    if (idx !== -1 && (startIdx === -1 || idx < startIdx)) {
-      startIdx = idx;
-    }
-  }
-  if (startIdx === -1) return [];
-
-  const faqText = longDesc.substring(startIdx);
-  const regex = /####\s*(\d+\.\s*[^?\n]+\??)\n+([\s\S]*?)(?=(####\s*\d+\.|$))/g;
-  const faqs: { question: string; answer: string }[] = [];
-  let match;
-  while ((match = regex.exec(faqText)) !== null) {
-    faqs.push({
-      question: match[1].trim(),
-      answer: match[2].trim(),
-    });
-  }
-  return faqs;
-}
-
-function getLongDescWithoutFaq(longDesc?: string) {
-  if (!longDesc) return "";
-  const faqPatterns = [
-    "### Frequently Asked Questions",
-    "### FAQ",
-    "#### 1. What",
-    "#### 1. "
-  ];
-  let earliestIdx = -1;
-  for (const pattern of faqPatterns) {
-    const idx = longDesc.indexOf(pattern);
-    if (idx !== -1 && (earliestIdx === -1 || idx < earliestIdx)) {
-      earliestIdx = idx;
-    }
-  }
-  if (earliestIdx === -1) return longDesc;
-  return longDesc.substring(0, earliestIdx).trim();
-}
+import { extractProductFaqsFromContent, stripStructuredProductSections } from "@/utils/product-content";
 
 type ProductFaq = { question: string; answer: string };
 
-const LABEL_PRODUCT_FAQS: Record<string, ProductFaq[]> = {
-  "plain-labels": [
-    { question: "Which surfaces can plain labels be used on?", answer: "Suitability depends on the face material, adhesive, surface energy, application temperature, and service conditions. A sample test on the final container is recommended before production." },
-    { question: "Can plain labels be thermal-transfer printed?", answer: "Yes, when a thermal-transfer-compatible paper or film stock is selected and it is matched to the correct ribbon and printer settings." },
-  ],
-  "printed-labels": [
-    { question: "Which printing method is suitable for my label?", answer: "Digital printing is commonly used for short runs and variable artwork; flexographic printing is generally more efficient for repeat, higher-volume work. The choice also depends on the material, colours, and finishing required." },
-    { question: "What should be confirmed before printing?", answer: "Confirm the application surface, label size, artwork, adhesive, finish, and expected storage or handling conditions. A production proof or sample helps validate the result." },
-  ],
-  "barcode-labels": [
-    { question: "How do I select a barcode label material?", answer: "Choose it around the scanning environment, print process, surface, and expected handling. GS1 notes that barcode size, placement, and print quality depend on where the code will be scanned." },
-    { question: "Should barcode labels be verified?", answer: "For critical retail, logistics, or healthcare use, a verifier can assess printed-symbol quality against the applicable ISO/IEC and GS1 requirements." },
-  ],
-  "product-labels": [
-    { question: "What information can a product label carry?", answer: "Product labels can carry branding, product name, ingredients or instructions, batch information, barcodes, QR codes, and mandatory declarations where applicable." },
-    { question: "How is the right adhesive selected?", answer: "The adhesive should be selected for the actual surface and conditions. Glass and PET behave differently from low-surface-energy plastics such as PE and PP, so application testing is important." },
-  ],
-  "self-adhesive-labels": [
-    { question: "What is a self-adhesive label?", answer: "It is a pressure-sensitive construction comprising a face material, adhesive, and release liner. It bonds when pressure is applied, without heat or solvent activation." },
-    { question: "Can self-adhesive labels be used on PE or PP containers?", answer: "They can, but the adhesive must be matched to the low-surface-energy substrate and the application conditions. Trial application is recommended." },
-  ],
-  "thermal-labels": [
-    { question: "What is the difference between direct thermal and thermal transfer?", answer: "Direct thermal media darkens when heated and does not use a ribbon. Thermal transfer uses a heated ribbon to form the image and is generally chosen when longer image life or a wider range of materials is needed." },
-    { question: "When is direct thermal not suitable?", answer: "It is less suitable where the printed image will face extended heat, light, or abrasion exposure, because the heat-sensitive material can darken or lose readability." },
-  ],
-  "thermal-transfer-ribbons": [
-    { question: "Which ribbon grade should I choose?", answer: "Wax is often selected for economical paper-label printing; wax/resin offers a balance of print durability and versatility; resin is used where greater resistance is needed on compatible synthetic materials. Always test the ribbon with the chosen label stock." },
-    { question: "Why does ribbon orientation matter?", answer: "Thermal-transfer printers require either coated-side-in or coated-side-out ribbon. The required orientation is determined by the printer mechanism." },
-  ],
-  "tamper-evident-stickers": [
-    { question: "What does tamper-evident mean?", answer: "It means the label is designed to show evidence of attempted removal, opening, or alteration. It is an indication feature, not a guarantee that tampering cannot occur." },
-    { question: "How should a tamper-evident label be specified?", answer: "Specify the application surface, label size, required indication effect, adhesive, temperature range, and whether the seal must bridge a closure. Validate the construction with an application trial." },
-  ],
-  "security-void-stickers": [
-    { question: "How do VOID labels work?", answer: "When removal is attempted, a VOID message or pattern becomes visible in the label, on the surface, or both, depending on the selected construction." },
-    { question: "Can a VOID label be reused?", answer: "A properly selected VOID construction is intended to make removal evident and discourage reuse, but the exact result depends on the surface, adhesive, dwell time, and label material." },
-  ],
-  "hologram-stickers": [
-    { question: "What can a hologram label help with?", answer: "A hologram can provide an overt visual authentication feature and add brand distinction. Higher-security programmes may combine it with serialisation, QR codes, or other physical and digital controls." },
-    { question: "Are hologram labels automatically tamper-evident?", answer: "No. Tamper evidence is a separate label construction or feature. It should be specified when the label must show attempted removal." },
-  ],
-};
-
-const LABEL_PRODUCT_TECHNICAL_FAQS: Record<string, ProductFaq[]> = {
-  "plain-labels": [
-    { question: "What information is needed for a quotation?", answer: "Provide label width and height, shape, face material preference, adhesive requirement, roll core, labels per roll, printer type, and the application surface." },
-    { question: "Why is an application trial important?", answer: "Bond strength can change with surface energy, contamination, texture, temperature, curvature, and dwell time. A trial on representative containers helps confirm the construction." },
-  ],
-  "printed-labels": [
-    { question: "Can labels include variable data?", answer: "Yes. Batch numbers, dates, serial numbers, and codes can be handled through a suitable print workflow, subject to the selected process and artwork requirements." },
-    { question: "Can a label be made for curved containers?", answer: "Yes, but curvature, label size, material stiffness, and adhesive selection should be evaluated. Small-diameter containers may require a construction designed to resist edge lift." },
-  ],
-  "barcode-labels": [
-    { question: "Why do quiet zones matter?", answer: "Quiet zones are clear areas around a barcode that help scanners identify the symbol. GS1 guidance treats them as a required element of barcode design." },
-    { question: "Which barcode colours scan most reliably?", answer: "High contrast is important. GS1 identifies dark bars on a light background—commonly black on white—as the preferred combination for reliable scanning." },
-  ],
-  "product-labels": [
-    { question: "Can labels be applied to refrigerated or frozen packs?", answer: "Yes, with a construction designed for the application temperature and moisture conditions. The container must be at the specified application temperature when the label is applied." },
-    { question: "What causes label lifting or flagging?", answer: "Common causes include unsuitable adhesive, low-surface-energy plastics, contamination, inadequate application pressure, tight container curvature, or applying outside the recommended temperature range." },
-  ],
-  "self-adhesive-labels": [
-    { question: "What is the difference between application and service temperature?", answer: "Application temperature is the temperature at which the label is applied. Service temperature is the range the applied label can experience afterward; both should be checked when selecting adhesive." },
-    { question: "Can label material be recycled with the package?", answer: "It depends on the full package and local recycling stream. Material and adhesive choices should be reviewed with the package design and recycling requirements rather than assumed." },
-  ],
-  "thermal-labels": [
-    { question: "How should thermal label life be selected?", answer: "Start with required readability period, light exposure, heat, moisture, abrasion, chemical exposure, and label substrate. Longer or harsher use often requires thermal-transfer media and a matched ribbon." },
-    { question: "Do printer settings affect barcode quality?", answer: "Yes. Print speed, darkness, resolution, media, and ribbon matching all affect sharpness and scan performance. Test and verify printed codes at the intended operating settings." },
-  ],
-  "thermal-transfer-ribbons": [
-    { question: "What must be matched with a thermal-transfer ribbon?", answer: "Match the ribbon grade, width, ink orientation, core, printer type, label face material, print speed, and required resistance. Compatibility testing is essential." },
-    { question: "Do resin ribbons always give better results?", answer: "Not necessarily. Resin is selected for applications needing higher resistance on compatible materials, but it may require different print energy and is not automatically the best choice for every paper label." },
-  ],
-  "tamper-evident-stickers": [
-    { question: "Are tamper-evident labels tamper-proof?", answer: "No. They provide visible evidence of interference. For high-consequence applications, they should be part of a broader security approach rather than the sole control." },
-    { question: "What should be checked before use?", answer: "Check surface cleanliness, label application pressure, dwell time, expected removal pattern, and the final substrate. Manufacturer guidance for VOID materials commonly calls for pretesting." },
-  ],
-  "security-void-stickers": [
-    { question: "What affects the VOID pattern after removal?", answer: "The indication depends on the exact label construction, application surface, adhesion, pressure, dwell time, and removal conditions. It should be tested on the actual pack or document." },
-    { question: "Can VOID labels be used on textured or contaminated surfaces?", answer: "Performance may be reduced where the adhesive cannot form a sufficient bond. Clean, dry, representative-surface testing is important before production." },
-  ],
-  "hologram-stickers": [
-    { question: "Which hologram effect should be selected?", answer: "Choose the effect based on the intended verification method, viewing conditions, brand artwork, label size, and security requirement. A supplier proof helps assess both appearance and authentication usability." },
-    { question: "Can holograms be combined with digital authentication?", answer: "Yes. Security programmes often combine an overt optical feature with serial numbers, QR codes, or track-and-trace systems, so physical and digital checks support each other." },
-  ],
-};
-
-function getProductFaqs(product: { id?: string; longDesc?: string }): ProductFaq[] {
-  const embeddedFaqs = extractFaqs(product.longDesc);
-  if (embeddedFaqs.length > 0) return embeddedFaqs;
-  const id = product.id ?? "";
-  return [...(LABEL_PRODUCT_FAQS[id] ?? []), ...(LABEL_PRODUCT_TECHNICAL_FAQS[id] ?? [])];
+function getProductFaqs(product: { id?: string; longDesc?: string; faqs?: ProductFaq[] }): ProductFaq[] {
+  if (Array.isArray(product.faqs) && product.faqs.length > 0) return product.faqs;
+  return extractProductFaqsFromContent(product.longDesc);
 }
 
-const LABEL_PRODUCT_DETAILS: Record<string, string> = {
-  "plain-labels": `### Plain Labels: selection before specification
-
-Plain labels are commonly used where variable information, identification, pricing, or handling instructions need to be added later. The correct construction is selected from the application rather than from appearance alone: face material, adhesive, surface, application temperature, and the time the label must remain readable all matter.
-
-Paper face stocks are a practical option for many general-purpose indoor applications. Filmic materials may be considered when greater resistance to moisture, abrasion, or chemical exposure is required. The adhesive must be compatible with the actual package surface; PET and glass behave differently from PE and PP containers.
-
-### What to confirm
-
-- Final container or substrate, including whether it is curved, textured, cold, or likely to be contaminated.
-- Printing method, roll core, label direction, size, and labels per roll.
-- Required readability period and handling conditions.
-- A representative application test before production.
-
-### References
-
-- [Avery Dennison: adhesive selection and surface considerations](https://label.averydennison.com/content/dam/averydennison/lpm-responsive/asia-pacific/en-sa/documents/customer-tools/psg-pcg/asean/pcg-asean-2024.pdf)
-- [Zebra: paper and synthetic label-material selection](https://www.zebra.com/content/dam/zebra_dam/en/guide/portfolio/zebra-certified-supplies-guide-selector-en-us.pdf)`,
-  "printed-labels": `### Printed labels: artwork, process, and application
-
-Printed labels combine the label construction with fixed product artwork. Digital printing is useful for short runs, versioned artwork, and variable campaigns. Flexographic printing is commonly used for repeat work where a stable design and higher volumes justify the setup. The right process depends on run length, colours, finishing, material, and application method.
-
-Good artwork alone does not guarantee label performance. The construction must also suit the container surface and conditions. Adhesive selection is especially important for low-surface-energy plastics, curved containers, and packs exposed to cold or moisture.
-
-### Production checks
-
-- Confirm final die-line, bleed, barcode area, and mandatory copy before approval.
-- Approve a proof or physical sample on the intended container.
-- Define the finish only where it supports a real need, such as scuff resistance or a specific visual effect.
-
-### References
-
-- [Avery Dennison: paper and film label applications](https://label.averydennison.com/ap/en_sa/home/products/paper.html)
-- [Avery Dennison: adhesive selection guide](https://label.averydennison.com/content/dam/averydennison/lpm-responsive/asia-pacific/en-sa/documents/customer-tools/psg-pcg/asean/pcg-asean-2024.pdf)`,
-  "barcode-labels": `### Barcode labels: designed for the scan environment
-
-A barcode label should be designed for the point where it will be scanned: retail POS, warehouse, transport, healthcare, or internal inventory. Symbol type, size, contrast, placement, quiet zones, and print quality all affect scan reliability.
-
-For most applications, dark bars or modules on a light background provide the strongest contrast. Quiet zones must remain clear of text, graphics, cut lines, and packaging edges. Where a barcode is business-critical, it should be verified on the finished label—not only checked in the artwork file.
-
-### Practical checks
-
-- Select the barcode symbology for the actual scanning use case.
-- Preserve required quiet zones through printing, trimming, varnishing, and application.
-- Test representative labels with the scanners used in the operation.
-
-### References
-
-- [GS1: barcode selection, colour, and print-quality guidance](https://www.gs1.org/standards/barcodes/10-steps-to-barcode-your-product/english)
-- [GS1: 2D barcode quiet-zone guidance](https://ref.gs1.org/sme-guidance/2d-barcode-creation-and-printing-playbook/1.0.1/)`,
-  "product-labels": `### Product labels: match the label to the pack
-
-Product labels carry brand, product, regulatory, and variable information. Their performance is determined by the package surface and the conditions from application through use. Glass, PET, HDPE, LDPE, PP, coated carton, and metal may require different adhesive behaviour.
-
-Specify whether the label is applied manually or automatically, the container shape, the application temperature, and likely exposure to moisture, oil, refrigeration, abrasion, or sunlight. These inputs are more useful than choosing material solely by appearance.
-
-### Recommended specification inputs
-
-- Container material and surface finish.
-- Label dimensions, label position, and curvature.
-- Application temperature and expected service conditions.
-- Artwork, print method, finish, and any barcode or variable data.
-
-### References
-
-- [Avery Dennison: adhesive selection by surface and temperature](https://label.averydennison.com/content/dam/averydennison/lpm-responsive/asia-pacific/en-sa/documents/customer-tools/psg-pcg/asean/pcg-asean-2024.pdf)
-- [Zebra: label materials and application considerations](https://www.zebra.com/us/en/products/supplies/labels-tags.html)`,
-  "self-adhesive-labels": `### Self-adhesive labels: construction matters
-
-Self-adhesive labels are pressure-sensitive constructions made from a face material, adhesive, and release liner. Pressure activates the bond during application, but final adhesion develops according to the selected adhesive and the surface conditions.
-
-The selection should separate application temperature from service temperature. A label may be expected to perform in cold storage after application, for example, but still require the pack to be within an appropriate temperature range when the label is first applied. Low-surface-energy plastics such as PE and PP should be specifically identified at the enquiry stage.
-
-### References
-
-- [Avery Dennison: adhesive selection and surface energy](https://label.averydennison.com/content/dam/averydennison/lpm-responsive/asia-pacific/en-sa/documents/customer-tools/psg-pcg/asean/pcg-asean-2024.pdf)
-- [Avery Dennison: paper and film label materials](https://label.averydennison.com/eu/en/home/products/paper-labels/ad-rdx-for-paper-and-film-labels.html)`,
-  "thermal-labels": `### Thermal labels: choose the print technology first
-
-Direct thermal labels form an image when a heat-sensitive surface passes under the printhead; no ribbon is used. They are typically considered when label life is shorter and exposure to heat, light, or abrasion is limited. Thermal transfer printing uses a heated ribbon to transfer ink to the label and is selected when more durable printing or a broader choice of label materials is needed.
-
-Media, ribbon, printer resolution, print speed, and darkness settings work together. A barcode that looks acceptable to the eye may still be unsuitable for the scanner or environmental conditions it will face.
-
-### References
-
-- [Zebra: direct thermal vs. thermal transfer](https://prod-www.zebra.com/us/en/resource-library/faq/difference-between-direct-thermal-and-thermal-transfer-printing.html)
-- [Zebra: thermal label selection factors](https://www.zebra.com/ap/en/resource-library/faq/what-are-thermal-labels.html)`,
-  "thermal-transfer-ribbons": `### Thermal transfer ribbons: match ribbon, media, and printer
-
-Thermal transfer ribbons transfer ink to the label when heated by the printhead. Wax, wax/resin, and resin formulations are used for different balances of cost, print quality, and resistance. The receiving label material, printer mechanism, print speed, and environmental requirements determine the suitable grade.
-
-Wax is often used for general paper applications. Wax/resin is used where more resistance is required across compatible papers and films. Resin grades are commonly selected for synthetic materials and demanding exposure conditions, but they need suitable media and printer settings.
-
-### References
-
-- [Ricoh: thermal-transfer ribbon applications and matching](https://www.ricoh.com/products/thermal-transfer-ribbon)
-- [Ricoh: ribbon construction and resistance factors](https://awshosted.rei.ricoh.com/support-downloads/technical-support/technical-support-thermal-ttr)`,
-  "tamper-evident-stickers": `### Tamper-evident stickers: evidence, not absolute prevention
-
-Tamper-evident labels are designed to reveal attempted removal or opening through a visible indication such as destruction, a pattern, or a message. They are useful for seals on packaging, documents, and assets, but they are not a substitute for a complete security programme where consequences of tampering are high.
-
-The intended indication must be tested on the actual surface. Adhesion can be affected by surface energy, contamination, texture, application pressure, temperature, and dwell time. Specify whether the label needs to bridge a closure, leave an indication, or become non-reusable after removal.
-
-### References
-
-- [3M: tamper-indicating label material and application guidance](https://multimedia.3m.com/mws/media/99634O/7866-data-page.pdf)
-- [3M: VOID polyester label material](https://www.3m.com/3M/en_US/p/dc/v000238674/)`,
-  "security-void-stickers": `### Security VOID stickers: validate the indication on the real surface
-
-Security VOID stickers are tamper-indicating labels designed to reveal a VOID message or pattern when removal is attempted. The visible effect may appear in the facestock, on the substrate, or both, depending on the construction.
-
-VOID performance is dependent on the bond formed with the substrate. Low-surface-energy, contaminated, or heavily textured surfaces can reduce the expected result. The surface should be clean and dry, the label should receive sufficient application pressure, and testing should follow the recommended dwell time for the selected construction.
-
-### References
-
-- [3M: VOID label material 7381/7866 data sheet](https://multimedia.3m.com/mws/media/2396585O/3m-tamper-indicating-label-material-7381-7866.pdf)
-- [3M: tamper-evident label-material range](https://www.3m.com/3M/en_US/p/dc/v000238674/)`,
-  "hologram-stickers": `### Hologram stickers: visible authentication as one layer
-
-Hologram stickers provide an overt optical feature that can support quick visual authentication and differentiate genuine packaging or documents. 2D/3D, dot-matrix, flip-flop, kinetic, and other effects should be chosen around the intended verification method, artwork, label size, and production requirements.
-
-For stronger protection, a holographic feature can be combined with serialisation, QR codes, tamper-evident construction, or track-and-trace processes. A hologram alone should not be presented as an absolute anti-counterfeit guarantee; the appropriate level of protection depends on the risk and how verification will be performed.
-
-### References
-
-- [Holostik: security hologram and anti-counterfeiting features](https://www.holostik.com/anti-counterfeiting-solutions-security-holograms-ovds/)
-- [Holostik: physical and digital product authentication](https://www.holostik.com/phygital-authentication-making-counterfeiting-virtually-impossible/)`,
-};
-
 function getProductDetailContent(product: { id?: string; longDesc?: string }) {
-  return LABEL_PRODUCT_DETAILS[product.id ?? ""] ?? getLongDescWithoutFaq(product.longDesc);
+  return stripStructuredProductSections(product.longDesc);
 }
 
 function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) {
@@ -357,7 +92,7 @@ function FaqSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
                 <div className="px-4 pb-5 sm:px-5 sm:pb-6 pt-2 text-xs sm:text-sm text-[var(--color-mute)] leading-relaxed border-t border-slate-100 font-sans">
                   <div
                     className="space-y-2 [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_li]:text-xs [&_li]:sm:text-sm [&_strong]:text-[var(--color-ink)]"
-                    dangerouslySetInnerHTML={{ __html: marked.parse(faq.answer) as string }}
+                    dangerouslySetInnerHTML={{ __html: renderSafeMarkdown(faq.answer) }}
                   />
                 </div>
               )}
@@ -387,7 +122,7 @@ function getSubcategoryImages(sub: any, parentProduct: any) {
   const images: string[] = [];
 
   const addImg = (img?: string) => {
-    if (img && typeof img === "string" && !img.includes("/stretch-film/image.png") && !images.includes(img)) {
+    if (img && typeof img === "string" && img !== "/images/products/stretch-film/image.webp" && !images.includes(img)) {
       images.push(img);
     }
   };
@@ -438,7 +173,7 @@ function getSubcategoryImages(sub: any, parentProduct: any) {
       sub.image ||
       PRODUCT_IMAGE_MAP[parentProduct?.id] ||
       parentProduct?.image ||
-      "/images/products/specialty-pouches/image.png"
+      "/images/products/specialty-pouches/image.webp"
     );
   }
 
@@ -446,7 +181,7 @@ function getSubcategoryImages(sub: any, parentProduct: any) {
 }
 
 function SubcategoryCardImageGallery({ images, title }: { images: string[]; title: string; categoryName?: string }) {
-  const currentImg = images[0] || "/images/products/specialty-pouches/image.png";
+  const currentImg = images[0] || "/images/products/specialty-pouches/image.webp";
 
   return (
     <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
@@ -487,7 +222,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     "biodegradable-films": "biodegradable-films",
     "flexible-laminates": "flexible-laminates",
     "printed-pe-films": "printed-pe-films",
-    "stretch-film": "stretch-film",
+    "stretch-film": "plastic-stretch-film",
     "ldpe-bags": "ldpe-bags",
     "bopp-films": "bopp-films",
     "pvc-shrink-films": "pvc-shrink-films",
@@ -519,25 +254,22 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     const controller = new AbortController();
 
     setLoading(true);
-    apiFetch(`/api/products/${targetId}`, { signal: controller.signal })
+    apiFetch(`/api/products/${targetId}`, { signal: controller.signal, cache: "no-store" })
       .then(async (productResponse) => {
+        if (productResponse.status === 404) {
+          if (!controller.signal.aborted) {
+            setProduct(null);
+            setLoading(false);
+          }
+          return null;
+        }
         if (!productResponse.ok) throw new Error("Product not found");
         return productResponse.json();
       })
       .then((data) => {
-        if (controller.signal.aborted) return;
-        const fallback = initialProducts.find((p) => p.id === targetId || p.id === id);
-        const mappedImg = PRODUCT_IMAGE_MAP[targetId] || PRODUCT_IMAGE_MAP[id] || PRODUCT_IMAGE_MAP[data?.id];
-        const mergedData = {
-          ...data,
-          image: mappedImg || data.image,
-          gallery: mappedImg ? [mappedImg, ...(data.gallery || [])] : data.gallery,
-          subCategories: (Array.isArray(data.subCategories) && data.subCategories.length > 0)
-            ? data.subCategories
-            : fallback?.subCategories || [],
-        };
-        setProduct(mergedData);
-        setImg(mappedImg || data.gallery?.[0] || data.image || "");
+        if (controller.signal.aborted || !data) return;
+        setProduct(data);
+        setImg(data.gallery?.[0] || data.image || "");
 
         setLoading(false);
       })
@@ -563,8 +295,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 gallery: sub.gallery || [mappedSubImg || parentWithSub.image],
                 specs: sub.specs || parentWithSub.specs,
                 applications: sub.applications || parentWithSub.applications,
-                thicknessLengthMatrix: parentWithSub.thicknessLengthMatrix,
-                options: parentWithSub.options,
               } as any;
             }
           }
@@ -680,9 +410,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     product.id === "pof-shrink-film" ||
     product.id === "packaging-films" ||
     product.id === "plastic-stretch-film" ||
-    product.id === "stretch-film" ||
     STRETCH_FILM_ITEMS.some((st) => st.slug === product.id || st.slug === id) ||
-    product.id === "lamination-films-pouches" ||
     product.id === "lamination-pe-film" ||
     product.id === "film-products"
   );
@@ -691,7 +419,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     : undefined;
   const directProductFaqs = getProductFaqs(product);
   const productFaqs = directProductFaqs.length > 0 ? directProductFaqs : (labelParent ? getProductFaqs(labelParent) : []);
-  const productDetailContent = LABEL_PRODUCT_DETAILS[product.id] ?? (labelParent ? getProductDetailContent(labelParent) : getProductDetailContent(product));
+  const directProductDetailContent = getProductDetailContent(product);
+  const productDetailContent = directProductDetailContent || (labelParent ? getProductDetailContent(labelParent) : "");
 
   const specs = product.specs ? Object.entries(product.specs).map(([label, value]: any) => ({
     label,
@@ -711,9 +440,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     "packaging-films",
     "pof-shrink-film",
     "plastic-stretch-film",
-    "stretch-film",
     "lamination-pe-film",
-    "lamination-films-pouches",
     "agricultural-films",
     "biodegradable-films",
     "flexible-laminates",
@@ -724,7 +451,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     "pvc-shrink-films",
     "film-products",
     "ldpe-films-pouches",
-    "pof-films-pouches",
     "coloured-films-pouches"
   ]);
 
@@ -920,7 +646,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 {product.longDesc ? (
                   <div
                     className="space-y-3.5 text-sm sm:text-base text-[var(--color-mute)] leading-relaxed [&_p]:text-sm [&_p]:sm:text-base [&_p]:text-[var(--color-mute)] [&_p]:leading-relaxed [&_p]:my-1.5 [&_h2]:font-display [&_h2]:text-xl [&_h2]:sm:text-2xl [&_h2]:font-extrabold [&_h2]:text-[var(--color-ink)] [&_h2]:mt-4 [&_h2]:mb-2 [&_h2]:pt-3 [&_h2]:border-t [&_h2]:border-[var(--color-line)] [&_h3]:font-display [&_h3]:text-base [&_h3]:sm:text-lg [&_h3]:font-bold [&_h3]:text-[var(--color-ink)] [&_h3]:mt-4 [&_h3]:mb-1.5 [&_h3]:pt-2 [&_h3]:border-t [&_h3]:border-[var(--color-line)] [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1.5 [&_ul]:my-2.5 [&_li]:text-xs [&_li]:sm:text-sm [&_li]:text-[var(--color-ink)] [&_li]:marker:text-[var(--color-amber-dark)] [&_li]:marker:font-bold [&_li_p]:my-0 [&_li_p]:inline [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-1.5 [&_ol]:my-2.5"
-                    dangerouslySetInnerHTML={{ __html: marked.parse(productDetailContent) as string }}
+                    dangerouslySetInnerHTML={{ __html: renderSafeMarkdown(productDetailContent) }}
                   />
                 ) : (
                   <p>{product.blurb}</p>
@@ -1006,7 +732,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                             </span>
                             <div className="grid grid-cols-2 gap-1.5">
                               {currentHierarchyCategory.subcategories.map((subcat) => {
-                                const isActive = subcat.slug === product.id || subcat.slug === id;
+                                const isStretchOption = STRETCH_FILM_ITEMS.some((st) => st.slug === product.id || st.slug === id);
+                                const isActive = subcat.slug === product.id || subcat.slug === id || (subcat.slug === "plastic-stretch-film" && isStretchOption);
                                 return (
                                   <Link
                                     key={subcat.id}
@@ -1089,7 +816,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                     it.slug === id ||
                                     it.name.toLowerCase().trim() === product.title.toLowerCase().trim()
                                 ) ||
-                                (subcat.slug === "packaging-films" && (isStretchOption || product.id === "plastic-stretch-film" || id === "plastic-stretch-film"));
+                                (subcat.slug === "plastic-stretch-film" && (isStretchOption || product.id === "plastic-stretch-film" || id === "plastic-stretch-film"));
 
                               return (
                                 <div key={subcat.id} className="space-y-1 pl-2">
@@ -1111,12 +838,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                   {/* Specific Product Items (Navbar Tier 3) */}
                                   <ul className="space-y-1 pl-1">
                                     {subcat.items.map((item) => {
-                                      const isStretchFilmItem = item.slug === "plastic-stretch-film";
                                       const isDirectItem =
                                         item.slug === product.id ||
                                         item.slug === id ||
                                         item.name.toLowerCase().trim() === product.title.toLowerCase().trim();
-                                      const isActive = isDirectItem || (isStretchFilmItem && isStretchOption);
+                                      const isActive = isDirectItem;
 
                                       return (
                                         <li key={item.name} className="space-y-0.5">
@@ -1133,24 +859,20 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                             )}
                                           </Link>
 
-                                          {/* When inside Plastic Stretch Film: LOAD ITS RELATED FIELDS */}
-                                          {isStretchFilmItem && (isDirectItem || isStretchOption || product.id === "plastic-stretch-film" || id === "plastic-stretch-film") && (
-                                            <ul className="space-y-0.5 pl-2.5 my-1 py-0.5 border-l-2 border-[var(--color-amber)]/60">
+                                          {/* If Plastic Stretch Film is active, show its 11 sub-options nested under it */}
+                                          {item.slug === "plastic-stretch-film" && (isDirectItem || STRETCH_FILM_ITEMS.some((st) => st.slug === product.id || st.slug === id)) && (
+                                            <ul className="space-y-0.5 pl-3 border-l-2 border-slate-200 ml-2 my-1">
                                               {STRETCH_FILM_ITEMS.map((st) => {
                                                 const isStActive = st.slug === product.id || st.slug === id;
                                                 return (
                                                   <li key={st.slug}>
                                                     <Link
                                                       href={`/products/${st.slug}`}
-                                                      className={`flex items-center justify-between py-0.5 px-1.5 rounded text-xs font-sans transition-colors ${isStActive
-                                                          ? "font-extrabold text-[var(--color-blue)] bg-blue-50/80"
-                                                          : "text-slate-500 hover:text-[var(--color-ink)] hover:bg-slate-100/70"
-                                                        }`}
+                                                      className={`block py-0.5 px-1 rounded text-[11px] font-sans truncate transition-colors ${
+                                                        isStActive ? "font-bold text-[var(--color-blue-deep)]" : "text-slate-500 hover:text-slate-800"
+                                                      }`}
                                                     >
-                                                      <span className="truncate">{st.name}</span>
-                                                      {isStActive && (
-                                                        <span className="h-1 w-1 rounded-full bg-[var(--color-blue)] shrink-0 ml-1.5" />
-                                                      )}
+                                                      {st.name}
                                                     </Link>
                                                   </li>
                                                 );
@@ -1177,7 +899,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     <div className="w-full max-w-full overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white shadow-sm">
                       <div className="aspect-[3/2] w-full overflow-hidden bg-white">
                         <OptimizedImage
-                          src={img || product.image || "/images/products/specialty-pouches/image.png"}
+                          src={img || product.image || "/images/products/specialty-pouches/image.webp"}
                           alt={product.title}
                           className="w-full h-full object-cover object-center transition-all duration-300"
                         />
@@ -1195,7 +917,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       {product.longDesc && (
                         <div
                           className="space-y-3.5 text-sm sm:text-base text-[var(--color-mute)] leading-relaxed [&_p]:text-sm [&_p]:sm:text-base [&_p]:text-[var(--color-mute)] [&_p]:leading-relaxed [&_p]:my-1.5 [&_h2]:font-display [&_h2]:text-xl [&_h2]:sm:text-2xl [&_h2]:font-extrabold [&_h2]:text-[var(--color-ink)] [&_h2]:mt-4 [&_h2]:mb-2 [&_h2]:pt-3 [&_h2]:border-t [&_h2]:border-[var(--color-line)] [&_h3]:font-display [&_h3]:text-base [&_h3]:sm:text-lg [&_h3]:font-bold [&_h3]:text-[var(--color-ink)] [&_h3]:mt-4 [&_h3]:mb-1.5 [&_h3]:pt-2 [&_h3]:border-t [&_h3]:border-[var(--color-line)] [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1.5 [&_ul]:my-2.5 [&_li]:text-xs [&_li]:sm:text-sm [&_li]:text-[var(--color-ink)] [&_li]:marker:text-[var(--color-amber-dark)] [&_li]:marker:font-bold [&_li_p]:my-0 [&_li_p]:inline [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-1.5 [&_ol]:my-2.5"
-                          dangerouslySetInnerHTML={{ __html: marked.parse(productDetailContent) as string }}
+                          dangerouslySetInnerHTML={{ __html: renderSafeMarkdown(productDetailContent) }}
                         />
                       )}
                     </div>
@@ -1253,27 +975,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                                   <td className="px-3 py-2.5 sm:px-4 sm:py-3 text-[var(--color-mute)] align-top break-words">{s.value}</td>
                                 </tr>
                               ))}
-                              {product.options?.widths && (
-                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${specs.length % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
-                                  }`}>
-                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top break-words">Available Widths</td>
-                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 text-[var(--color-mute)] align-top break-words">{product.options.widths.join(" · ")}</td>
-                                </tr>
-                              )}
-                              {product.options?.thicknesses && (
-                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${(specs.length + (product.options?.widths ? 1 : 0)) % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
-                                  }`}>
-                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top break-words">Thickness Options</td>
-                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 text-[var(--color-mute)] align-top break-words">{product.options.thicknesses.join(" · ")}</td>
-                                </tr>
-                              )}
-                              {product.options?.colors && (
-                                <tr className={`border-b border-[var(--color-line)] last:border-b-0 hover:bg-[var(--color-amber)]/5 ${(specs.length + (product.options?.widths ? 1 : 0) + (product.options?.thicknesses ? 1 : 0)) % 2 === 0 ? "bg-white" : "bg-[var(--color-mist)]"
-                                  }`}>
-                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 font-bold text-[var(--color-ink)] border-r border-[var(--color-line)] align-top break-words">Colors Available</td>
-                                  <td className="px-3 py-2.5 sm:px-4 sm:py-3 text-[var(--color-mute)] align-top break-words">{product.options.colors.join(" · ")}</td>
-                                </tr>
-                              )}
                             </tbody>
                           </table>
                         </div>

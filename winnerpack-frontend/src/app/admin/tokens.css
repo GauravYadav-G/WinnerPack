@@ -1,0 +1,149 @@
+/* ==========================================================================
+   WINNERPACK ADMIN — DESIGN TOKENS
+   Single source of truth for color, type, space, radius, shadow and motion.
+   Consumed by admin.css. Nothing renders from this file directly — every
+   token maps to an existing class so the upgrade is purely visual.
+   ========================================================================== */
+
+:root {
+  /* ── Brand (WinnerPack Industrial Energetic Orange) ───────────────────── */
+  --admin-brand: #fe8220;
+  --admin-brand-hover: #ff933b;
+  --admin-brand-active: #ea6e0b;
+  --admin-brand-soft: #fff4eb;
+  --admin-brand-subtle: rgba(254, 130, 32, 0.08);
+  --admin-brand-border: rgba(254, 130, 32, 0.28);
+  --admin-brand-ring: rgba(254, 130, 32, 0.22);
+  --admin-brand-glow: 0 0 20px rgba(254, 130, 32, 0.28);
+
+  /* ── Ink / Navy (Deep Executive Industrial Obsidian) ─────────────────── */
+  --admin-navy: #120a3b;
+  --admin-navy-dark: #09061c;
+  --admin-navy-mid: #1c1150;
+  --admin-navy-light: #28196e;
+
+  /* ── Surfaces (Warm-Neutral, Layered Precision) ───────────────────────── */
+  --admin-bg: #f7f7fb;
+  --admin-surface: #ffffff;
+  --admin-surface-2: #faf9fd;
+  --admin-surface-3: #f2f0f8;
+  --admin-surface-hover: #f8f6fc;
+  --admin-surface-sunken: #f3f1f7;
+  --admin-surface-glass: rgba(255, 255, 255, 0.85);
+
+  /* ── Borders (Hairline, High-Precision Separation) ───────────────────── */
+  --admin-border: #e6e3f0;
+  --admin-border-subtle: #f0edf6;
+  --admin-border-strong: #d5cfdf;
+  --admin-border-focus: #fe8220;
+
+  /* ── Text / Typography ────────────────────────────────────────────────── */
+  --admin-ink: #140d33;
+  --admin-ink-2: #3d3559;
+  --admin-muted: #6f688a;
+  --admin-faint: #9c95b3;
+
+  /* ── Semantic status (Emerald, Rose, Blue, Violet, Amber) ─────────────── */
+  --admin-emerald: #10b981;
+  --admin-emerald-soft: #ecfdf5;
+  --admin-emerald-border: #a7f3d0;
+  --admin-emerald-ink: #047857;
+
+  --admin-rose: #e11d48;
+  --admin-rose-soft: #fff1f2;
+  --admin-rose-border: #fecdd3;
+  --admin-rose-ink: #be123c;
+
+  --admin-blue: #3b82f6;
+  --admin-blue-soft: #eff6ff;
+  --admin-blue-border: #bfdbfe;
+  --admin-blue-ink: #1d4ed8;
+
+  --admin-violet: #7c3aed;
+  --admin-violet-soft: #f5f3ff;
+  --admin-violet-border: #ddd6fe;
+  --admin-violet-ink: #6d28d9;
+
+  --admin-amber: #f59e0b;
+  --admin-amber-soft: #fffbeb;
+  --admin-amber-border: #fde68a;
+  --admin-amber-ink: #b45309;
+
+  /* ── Radius scale ─────────────────────────────────────────────────────── */
+  --admin-radius-xs: 6px;
+  --admin-radius-sm: 8px;
+  --admin-radius: 12px;
+  --admin-radius-md: 14px;
+  --admin-radius-lg: 18px;
+  --admin-radius-xl: 24px;
+  --admin-radius-pill: 999px;
+
+  /* ── Elevation & Diffusion (Linear/Vercel Ambient Multi-Stop) ────────── */
+  --admin-shadow-xs: 0 1px 2px rgba(18, 10, 59, 0.04);
+  --admin-shadow-sm: 0 1px 3px rgba(18, 10, 59, 0.05), 0 1px 2px -1px rgba(18, 10, 59, 0.04);
+  --admin-shadow-md: 0 4px 10px -1px rgba(18, 10, 59, 0.06), 0 2px 4px -1px rgba(18, 10, 59, 0.04);
+  --admin-shadow-lg: 0 12px 24px -4px rgba(18, 10, 59, 0.08), 0 4px 8px -2px rgba(18, 10, 59, 0.04);
+  --admin-shadow-pop: 0 24px 48px -8px rgba(11, 7, 34, 0.16), 0 12px 20px -6px rgba(11, 7, 34, 0.1);
+  --admin-shadow-brand: 0 4px 14px 0 rgba(254, 130, 32, 0.28);
+  --admin-ring: 0 0 0 3px var(--admin-brand-ring);
+  --admin-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.85);
+
+  /* ── Backdrop & Blur ──────────────────────────────────────────────────── */
+  --admin-backdrop: blur(16px) saturate(180%);
+
+  /* ── Motion ───────────────────────────────────────────────────────────── */
+  --admin-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --admin-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --admin-dur-fast: 0.12s;
+  --admin-dur: 0.18s;
+  --admin-dur-slow: 0.3s;
+
+  /* ── Type ─────────────────────────────────────────────────────────────── */
+  --admin-font: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif);
+  --admin-font-display: var(--font-display, var(--admin-font));
+  --admin-font-mono: var(--font-mono, ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace);
+
+  /* ── Layout metrics ───────────────────────────────────────────────────── */
+  --admin-sidebar-w: 260px;
+  --admin-sidebar-w-rail: 72px;
+  --admin-topbar-h: 64px;
+  --admin-content-max: 1480px;
+}
+
+/* ==========================================================================
+   DARK THEME — opt in with data-theme="dark" on any ancestor.
+   Keeps brand + semantic hues, inverts the surface ladder only.
+   ========================================================================== */
+[data-theme='dark'] .admin-shell,
+.admin-shell[data-theme='dark'] {
+  --admin-bg: #090615;
+  --admin-surface: #120d28;
+  --admin-surface-2: #181234;
+  --admin-surface-3: #201844;
+  --admin-surface-hover: #1b143c;
+  --admin-surface-sunken: #0c081e;
+  --admin-surface-glass: rgba(18, 13, 40, 0.88);
+
+  --admin-border: #261f44;
+  --admin-border-subtle: #1e1838;
+  --admin-border-strong: #362d5e;
+
+  --admin-ink: #f5f2fe;
+  --admin-ink-2: #cdc7e5;
+  --admin-muted: #958eb6;
+  --admin-faint: #6c648d;
+
+  --admin-emerald-soft: rgba(16, 185, 129, 0.14);
+  --admin-rose-soft: rgba(225, 29, 72, 0.14);
+  --admin-blue-soft: rgba(59, 130, 246, 0.14);
+  --admin-violet-soft: rgba(124, 58, 237, 0.16);
+  --admin-amber-soft: rgba(245, 158, 11, 0.14);
+  --admin-brand-soft: rgba(254, 130, 32, 0.15);
+
+  --admin-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --admin-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.35);
+  --admin-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5), 0 16px 32px rgba(0, 0, 0, 0.45);
+  --admin-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.55), 0 30px 60px rgba(0, 0, 0, 0.6);
+  --admin-shadow-pop: 0 24px 50px rgba(0, 0, 0, 0.65), 0 12px 20px rgba(0, 0, 0, 0.5);
+  --admin-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}

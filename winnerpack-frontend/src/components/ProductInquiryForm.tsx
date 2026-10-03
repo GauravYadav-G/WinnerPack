@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { CheckCircle2, ChevronDown, Check } from "lucide-react";
-import { submitInquiryForm } from "@/lib/api";
+import { apiFetch, submitInquiryForm } from "@/lib/api";
 import { productHierarchy } from "@/components/Navbar";
 
 const volumeOptions = [
@@ -13,10 +13,16 @@ const volumeOptions = [
   "Custom Project / One-Time Consignment"
 ];
 
-export default function ProductInquiryForm() {
+export default function ProductInquiryForm({ previewData }: { previewData?: any } = {}) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [contact, setContact] = useState({
+    headline: previewData?.headline ?? 'The inquiry.',
+    description: previewData?.description ?? 'Tell us where you are now and where you want the work to go. Share your packaging specifications, payload requirements, or custom consignment volume.',
+    email: previewData?.email ?? 'info@winnerpack.in',
+    phone1: previewData?.phone1 ?? '+91 85950 72187',
+  });
 
   const [selectedCategory, setSelectedCategory] = useState<string>("film-products");
 
@@ -37,6 +43,21 @@ export default function ProductInquiryForm() {
     monthlyVolume: "",
     notes: "",
   });
+
+  useEffect(() => {
+    if (previewData) {
+      setContact((current) => ({ ...current, ...previewData }));
+      return;
+    }
+    apiFetch('/api/content?key=homepage', { cache: 'no-store' })
+      .then((response) => response.ok ? response.json() : null)
+      .then((content) => {
+        if (content?.inquiryContact) {
+          setContact((current) => ({ ...current, ...content.inquiryContact }));
+        }
+      })
+      .catch(() => {});
+  }, [previewData]);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -133,13 +154,12 @@ export default function ProductInquiryForm() {
             <div>
               {/* Massive Brand Display Title */}
               <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold text-[var(--color-ink)] tracking-tight leading-[1.02] mb-4 sm:mb-6">
-                The <br className="hidden sm:inline" />
-                inquiry<span className="text-[var(--color-amber)]">.</span>
+                {contact.headline}
               </h2>
 
               {/* Narrative Subtext */}
               <p className="text-sm sm:text-base md:text-lg text-[var(--color-mute)] font-normal leading-relaxed max-w-md">
-                Tell us where you are now and where you want the work to go. Share your packaging specifications, payload requirements, or custom consignment volume.
+                {contact.description}
               </p>
             </div>
 
@@ -150,17 +170,17 @@ export default function ProductInquiryForm() {
               </span>
               <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-mono text-[var(--color-ink)] font-semibold">
                 <a
-                  href="mailto:info@winnerpack.in"
+                  href={`mailto:${contact.email}`}
                   className="hover:text-[var(--color-amber-dark)] transition-colors underline underline-offset-4 decoration-[var(--color-line-2)] hover:decoration-[var(--color-amber)]"
                 >
-                  info@winnerpack.in
+                  {contact.email}
                 </a>
                 <span className="text-[var(--color-line-2)]">/</span>
                 <a
-                  href="tel:+918595072187"
+                  href={`tel:${contact.phone1.replace(/[^+\d]/g, '')}`}
                   className="hover:text-[var(--color-amber-dark)] transition-colors underline underline-offset-4 decoration-[var(--color-line-2)] hover:decoration-[var(--color-amber)]"
                 >
-                  +91 85950 72187
+                  {contact.phone1}
                 </a>
               </div>
             </div>
@@ -287,13 +307,13 @@ export default function ProductInquiryForm() {
                     <div ref={categoryRef} className={`sm:col-span-9 relative ${openDropdown === "category" ? "z-50" : "z-20"}`}>
                       <button
                         type="button"
-                        aria-labelledby="inquiry-category-label"
+                        aria-labelledby="inquiry-category-label inquiry-category-value"
                         aria-haspopup="listbox"
                         aria-expanded={openDropdown === "category"}
                         onClick={() => setOpenDropdown(openDropdown === "category" ? null : "category")}
                         className="w-full flex items-center justify-between bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] py-2 text-left text-sm sm:text-base md:text-lg text-[var(--color-ink)] font-medium transition-colors cursor-pointer min-h-[40px]"
                       >
-                        <span className="truncate">{formData.category || "Select Category"}</span>
+                        <span id="inquiry-category-value" className="truncate">{formData.category || "Select Category"}</span>
                         <ChevronDown
                           className={`h-4 w-4 sm:h-5 sm:w-5 text-[var(--color-mute)] transition-transform duration-200 shrink-0 ml-2 ${
                             openDropdown === "category" ? "rotate-180 text-[var(--color-amber-dark)]" : ""
@@ -335,13 +355,13 @@ export default function ProductInquiryForm() {
                     <div ref={productRef} className={`sm:col-span-9 relative ${openDropdown === "product" ? "z-50" : "z-10"}`}>
                       <button
                         type="button"
-                        aria-labelledby="inquiry-product-label"
+                        aria-labelledby="inquiry-product-label inquiry-product-value"
                         aria-haspopup="listbox"
                         aria-expanded={openDropdown === "product"}
                         onClick={() => setOpenDropdown(openDropdown === "product" ? null : "product")}
                         className="w-full flex items-center justify-between bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] py-2 text-left text-sm sm:text-base md:text-lg text-[var(--color-ink)] font-medium transition-colors cursor-pointer min-h-[40px]"
                       >
-                        <span className="truncate">{formData.productInterest || "Select specific product"}</span>
+                        <span id="inquiry-product-value" className="truncate">{formData.productInterest || "Select specific product"}</span>
                         <ChevronDown
                           className={`h-4 w-4 sm:h-5 sm:w-5 text-[var(--color-mute)] transition-transform duration-200 shrink-0 ml-2 ${
                             openDropdown === "product" ? "rotate-180 text-[var(--color-amber-dark)]" : ""
@@ -413,13 +433,13 @@ export default function ProductInquiryForm() {
                     <div ref={quantityRef} className={`sm:col-span-9 relative ${openDropdown === "quantity" ? "z-50" : "z-0"}`}>
                       <button
                         type="button"
-                        aria-labelledby="inquiry-quantity-label"
+                        aria-labelledby="inquiry-quantity-label inquiry-quantity-value"
                         aria-haspopup="listbox"
                         aria-expanded={openDropdown === "quantity"}
                         onClick={() => setOpenDropdown(openDropdown === "quantity" ? null : "quantity")}
                         className="w-full flex items-center justify-between bg-transparent border-b border-[var(--color-line)] focus:border-[var(--color-amber)] py-2 text-left text-sm sm:text-base md:text-lg text-[var(--color-ink)] font-medium transition-colors cursor-pointer min-h-[40px]"
                       >
-                        <span className={formData.monthlyVolume ? "text-[var(--color-ink)]" : "text-[var(--color-mute)]/70 truncate"}>
+                        <span id="inquiry-quantity-value" className={formData.monthlyVolume ? "text-[var(--color-ink)]" : "text-[var(--color-mute)] truncate"}>
                           {formData.monthlyVolume || "Select Quantity / Monthly Volume"}
                         </span>
                         <ChevronDown

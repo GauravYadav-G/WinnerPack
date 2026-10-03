@@ -2,6 +2,7 @@ import IndustryDetailClient from "./IndustryDetailClient";
 import { industryVerticals } from "@/data";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { createPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
@@ -11,13 +12,16 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     return {
       title: "Industry Applications | Winner Pack Technologies",
       description: "Industrial B2B packaging solutions tailored for Indian manufacturing plants.",
+      robots: { index: false, follow: false },
     };
   }
 
-  return {
+  return createPageMetadata({
     title: `${industry.name} Packaging Solutions | Winner Pack Tech`,
     description: `${industry.heroHeadline}. Explore recommended packaging materials, buyer outcomes, and technical spec sheets.`,
-  };
+    path: `/industry/${industry.id}`,
+    image: industry.image,
+  });
 }
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {

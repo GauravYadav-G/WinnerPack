@@ -3,6 +3,7 @@
 import { defaultIndustries } from '@/lib/site-defaults';
 import { useEffect, useState } from "react";
 import { apiFetch } from "@/lib/api";
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface Industry {
   name: string;
@@ -11,32 +12,44 @@ interface Industry {
 
 const defaultIndustriesList = defaultIndustries;
 
-/** Convert local static image paths to their .webp equivalent */
-function toWebP(src: string): string {
-  if (!src || src.startsWith("http://") || src.startsWith("https://")) return src;
-  return src.replace(/\.(png|jpe?g)$/i, ".webp");
-}
-
-export default function Industries() {
-  const [industriesList, setIndustriesList] = useState<Industry[]>(defaultIndustriesList);
+export default function Industries({ previewData }: { previewData?: any } = {}) {
+  const [industriesList, setIndustriesList] = useState<Industry[]>(Array.isArray(previewData?.industries) ? previewData.industries : defaultIndustriesList);
+  const [header, setHeader] = useState({
+    eyebrow: previewData?.eyebrow ?? 'Target Applications',
+    title: previewData?.title ?? 'Industries We Serve',
+  });
 
   useEffect(() => {
+    if (previewData) {
+      setHeader({
+        eyebrow: previewData.eyebrow ?? '',
+        title: previewData.title ?? '',
+      });
+      if (Array.isArray(previewData.industries)) {
+        setIndustriesList(previewData.industries);
+      }
+      return;
+    }
     async function loadIndustriesData() {
       try {
         const res = await apiFetch("/api/content?key=industries");
         if (res.ok) {
           const result = await res.json();
           const content = result?.data ?? result;
-          if (Array.isArray(content?.industries) && content.industries.length > 0) {
+          if (Array.isArray(content?.industries)) {
             setIndustriesList(content.industries);
           }
+          setHeader({
+            eyebrow: content?.eyebrow ?? 'Target Applications',
+            title: content?.title ?? 'Industries We Serve',
+          });
         }
       } catch (err) {
         console.warn("Could not load industries from DB, using defaults:", err);
       }
     }
     loadIndustriesData();
-  }, []);
+  }, [previewData]);
 
   return (
     <section
@@ -55,10 +68,10 @@ export default function Industries() {
         {/* Centered Section Header */}
         <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto flex flex-col items-center">
           <span className="text-xs font-bold tracking-widest text-[#d4630a] font-mono mb-2">
-            Target Applications
+            {header.eyebrow}
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] tracking-tight text-[#0d072c] text-balance">
-            Industries We Serve
+            {header.title}
           </h2>
           <div className="mt-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-[#fe8220] to-[#ffa048] mx-auto" />
         </div>
@@ -71,19 +84,16 @@ export default function Industries() {
               className="group relative overflow-hidden rounded-2xl border border-[#e5dfd2] hover:border-[#fe8220]/40 bg-slate-950 aspect-[4/5] sm:aspect-[4/5] md:aspect-[5/6] shadow-md transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer select-none"
               data-hover
             >
-              {/* Industry Image — uses picture for WebP with PNG fallback */}
-              <picture className="absolute inset-0 h-full w-full">
-                <source srcSet={toWebP(ind.image)} type="image/webp" />
-                <img
-                  src={ind.image}
-                  alt={`${ind.name} packaging solutions`}
-                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                  width={360}
-                  height={450}
-                />
-              </picture>
+              <OptimizedImage
+                src={ind.image}
+                alt={`${ind.name} packaging solutions`}
+                className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy"
+                width={360}
+                height={450}
+                sizes="(max-width: 767px) 50vw, (max-width: 1023px) 33vw, 17vw"
+                quality={70}
+              />
 
               {/* Dark Overlay Gradient — focused at the bottom for readability while keeping the subject uncropped & vivid */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 via-40% to-transparent transition-opacity duration-500 group-hover:opacity-90" />

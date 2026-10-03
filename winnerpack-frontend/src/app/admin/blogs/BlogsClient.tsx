@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { FileText, Plus, Search, Edit, Trash2, Globe, Calendar, Check, AlertCircle } from "lucide-react";
 import Link from "next/link";
 import OptimizedImage from '@/components/OptimizedImage';
+import { notify } from '@/components/admin/AdminToaster';
 
 interface Article {
   _id?: string;
@@ -31,12 +32,12 @@ export default function BlogsClient() {
     setLoading(true);
     try {
       const res = await apiFetch("/api/articles");
-      if (res.ok) {
-        const data = await res.json();
-        setArticles(Array.isArray(data) ? data : []);
-      }
+      if (!res.ok) throw new Error(`Could not load articles (${res.status}).`);
+      const data = await res.json();
+      if (!Array.isArray(data)) throw new Error("The article service returned an invalid response.");
+      setArticles(data);
     } catch (err) {
-      console.error(err);
+      notify('Could not load articles', 'error', err instanceof Error ? err.message : 'Please try again.');
     } finally {
       setLoading(false);
     }
@@ -47,20 +48,27 @@ export default function BlogsClient() {
   }, []);
 
   const handleDelete = async (art: Article) => {
+    if (!art._id) {
+      notify('This article cannot be deleted', 'error', 'It is fallback content and has no database id.');
+      return;
+    }
     if (!confirm(`Delete article "${art.title}"?`)) return;
     try {
       const res = await apiFetch(`/api/articles?id=${art._id}`, { method: "DELETE" });
-      if (res.ok) {
-        setArticles((prev) => prev.filter((a) => a._id !== art._id));
+      if (!res.ok) {
+        const payload = await res.json().catch(() => ({}));
+        throw new Error(payload.error || `Delete failed (${res.status}).`);
       }
+      setArticles((prev) => prev.filter((a) => a._id !== art._id));
+      notify('Article deleted', 'success', art.title);
     } catch (err) {
-      console.error(err);
+      notify('Could not delete article', 'error', err instanceof Error ? err.message : 'Please try again.');
     }
   };
 
   const filteredArticles = articles.filter((a) =>
-    a.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    a.tag.toLowerCase().includes(searchQuery.toLowerCase())
+    (a.title || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+    (a.tag || '').toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -136,7 +144,7 @@ export default function BlogsClient() {
                     <td className="py-4 px-6">
                       <div className="h-12 w-16 rounded-lg border border-slate-200 overflow-hidden bg-slate-100 flex-shrink-0">
                         <OptimizedImage
-  src={art.image || "/images/desktop/journey/solution_pallet_wrapping.png"}
+  src={art.image || "/images/desktop/journey/solution_pallet_wrapping.webp"}
   alt={art.title}
   className="h-full w-full object-cover"
 />
@@ -233,7 +241,14 @@ export default function BlogsClient() {
                         )}
 
                         <Link
-                          href={`/admin/blogs/edit/${art._id}`}
+                          href={art._id ? `/admin/blogs/edit/${art._id}` : '#'}
+                          aria-disabled={!art._id}
+                          onClick={(event) => {
+                            if (!art._id) {
+                              event.preventDefault();
+                              notify('This article is read-only', 'info', 'Database fallback content cannot be edited.');
+                            }
+                          }}
                           className="p-2 rounded-lg border border-slate-200 bg-white text-slate-700 hover:border-[#fe8220] hover:text-[#fe8220] transition"
                           title="Edit article in full-screen Composer"
                         >

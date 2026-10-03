@@ -1,26 +1,74 @@
 import type { Metadata } from "next";
 import Client from "./ProductDetailClient";
 import { initialProducts } from "@/lib/fallback-data";
+import { createPageMetadata } from "@/lib/seo";
+
+type SeoProduct = {
+  id?: string;
+  title?: string;
+  blurb?: string;
+  image?: string;
+  status?: string;
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    keywords?: string[];
+  };
+};
+
+function findFallbackProduct(id: string): SeoProduct | null {
+  const direct = initialProducts.find((product) => product.id === id);
+  if (direct) return direct;
+
+  for (const parent of initialProducts) {
+    const nested = parent.subCategories?.find((item: any) => item.id === id || item.slug === id);
+    if (nested) return nested;
+  }
+  return null;
+}
+
+async function loadProduct(id: string): Promise<{ product: SeoProduct | null; unavailable: boolean }> {
+  const apiBase = (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
+  if (!apiBase) return { product: null, unavailable: true };
+
+  try {
+    const response = await fetch(`${apiBase}/api/products/${encodeURIComponent(id)}`, {
+      next: { revalidate: 300 },
+      signal: AbortSignal.timeout(5000),
+    });
+    if (response.ok) return { product: await response.json(), unavailable: false };
+    if (response.status === 404) return { product: null, unavailable: false };
+    return { product: null, unavailable: true };
+  } catch {
+    return { product: null, unavailable: true };
+  }
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
+  const lookup = await loadProduct(id);
+  const product = lookup.product || (lookup.unavailable ? findFallbackProduct(id) : null);
 
-  let found = initialProducts.find((p) => p.id === id);
-  if (!found) {
-    const parentWithSub = initialProducts.find((p) =>
-      p.subCategories?.some((s: any) => s.id === id || s.slug === id)
-    );
-    if (parentWithSub && parentWithSub.subCategories) {
-      found = parentWithSub.subCategories.find((s: any) => s.id === id || s.slug === id) as any;
-    }
+  if (!product) {
+    return {
+      title: "Product Not Found | WinnerPack",
+      robots: { index: false, follow: false },
+    };
   }
 
-  const title = found?.title || id.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-  const description = found?.blurb || `Explore high-performance ${title} manufactured by WinnerPack with ISO-certified quality and global delivery.`;
-
+  const title = product.seo?.metaTitle || `${product.title} | WinnerPack`;
+  const description = product.seo?.metaDescription || product.blurb || "WinnerPack industrial packaging product information.";
   return {
-    title: `${title} | WinnerPack`,
-    description,
+    ...createPageMetadata({
+      title,
+      description,
+      path: `/products/${id}`,
+      image: product.image,
+    }),
+    keywords: product.seo?.keywords,
+    robots: product.status && product.status !== "published"
+      ? { index: false, follow: false }
+      : undefined,
   };
 }
 

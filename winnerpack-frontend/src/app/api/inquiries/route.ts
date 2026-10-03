@@ -10,13 +10,28 @@ import { NextRequest, NextResponse } from "next/server";
 
 const BACKEND = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000").replace(/\/$/, "");
 
+function cleanString(value: unknown, maxLength: number): string {
+  return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
-    if (!body || ![body.name, body.email, body.phone].every(
-      (value) => typeof value === "string" && value.trim().length > 0
-    )) {
-      return NextResponse.json({ error: "Name, email and phone are required" }, { status: 400 });
+    const input = await req.json();
+    const body = {
+      name: cleanString(input?.name, 120),
+      email: cleanString(input?.email, 254).toLowerCase(),
+      phone: cleanString(input?.phone, 40),
+      company: cleanString(input?.company, 160),
+      skuProfile: cleanString(input?.skuProfile, 160),
+      lineSpeed: cleanString(input?.lineSpeed, 120),
+      message: cleanString(input?.message, 5_000),
+    };
+    if (
+      body.name.length < 2 ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email) ||
+      !/^[+\d][\d\s().-]{6,39}$/.test(body.phone)
+    ) {
+      return NextResponse.json({ error: "Enter a valid name, email address and phone number." }, { status: 400 });
     }
 
     // 1. Try forwarding to Express backend
@@ -49,16 +64,16 @@ export async function POST(req: NextRequest) {
         Referer: "https://winnerpack.in",
       },
       body: JSON.stringify({
-        _subject: `New Lead Inquiry: ${body.name || body.fullName || "Website Visitor"} - ${body.company || body.companyName || "Direct"}`,
+          _subject: `New Lead Inquiry: ${body.name || "Website Visitor"} - ${body.company || "Direct"}`,
         _template: "table",
         _captcha: "false",
-        "Customer Name": body.name || body.fullName || "N/A",
-        "Company": body.company || body.companyName || "N/A",
+          "Customer Name": body.name || "N/A",
+          "Company": body.company || "N/A",
         "Email": body.email,
         "Phone": body.phone,
-        "Product / Inquiry": body.skuProfile || body.productInterest || "General Inquiry",
-        "Quantity / Volume": body.lineSpeed || body.monthlyVolume || "Not Specified",
-        "Message": body.message || body.notes || "N/A",
+          "Product / Inquiry": body.skuProfile || "General Inquiry",
+          "Quantity / Volume": body.lineSpeed || "Not Specified",
+          "Message": body.message || "N/A",
         "Date & Time": `${timestamp} IST`,
       }),
     });

@@ -37,7 +37,7 @@ export function PageHeader({
       {!isLight && (
         <div className="absolute inset-0 z-0 overflow-hidden">
           <OptimizedImage
-            src="/images/header-bg.png"
+            src="/images/header-bg.webp"
             alt="WinnerPack Header Background"
             className="w-full h-full object-cover object-center scale-100 opacity-75"
           />

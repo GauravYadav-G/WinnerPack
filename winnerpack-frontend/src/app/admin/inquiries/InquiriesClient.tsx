@@ -15,6 +15,8 @@ import {
   Download
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { notify } from "@/components/admin/AdminToaster";
+import { downloadCsv, matchesQuery } from "@/lib/admin/utils";
 
 interface Inquiry {
   _id?: string;
@@ -33,20 +35,25 @@ interface Inquiry {
 export default function InquiriesClient() {
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [selectedInquiry, setSelectedInquiry] = useState<Inquiry | null>(null);
 
   const fetchInquiries = async () => {
     setLoading(true);
+    setLoadError("");
     try {
       const res = await apiFetch("/api/inquiries");
-      if (res.ok) {
-        const data = await res.json();
-        setInquiries(Array.isArray(data) ? data : []);
-      }
-    } catch (err) {
-      console.error("Failed to fetch inquiries:", err);
+      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+      const data = await res.json();
+      setInquiries(Array.isArray(data) ? data : []);
+    } catch (err: any) {
+      // Bug fix: failures used to be swallowed by console.error, leaving a
+      // permanently empty table with no explanation for the operator.
+      const message = err?.message || "Could not load inquiries.";
+      setLoadError(message);
+      notify("Could not load inquiries", "error", message);
     } finally {
       setLoading(false);
     }
@@ -57,75 +64,94 @@ export default function InquiriesClient() {
   }, []);
 
   const handleUpdateStatus = async (inquiryId: string, newStatus: "Pending" | "Contacted" | "Completed") => {
+    // Bug fix: records without an _id produced PATCH /api/inquiries/ (404).
+    if (!inquiryId) {
+      notify("This record has no database id", "error", "Reload the lead list and try again.");
+      return;
+    }
+
+    const previous = inquiries;
+    // Optimistic update so the select feels instant…
+    setInquiries((prev) =>
+      prev.map((i) => ((i._id === inquiryId || i.id === inquiryId) ? { ...i, status: newStatus } : i))
+    );
+    if (selectedInquiry && (selectedInquiry._id === inquiryId || selectedInquiry.id === inquiryId)) {
+      setSelectedInquiry((prev) => (prev ? { ...prev, status: newStatus } : null));
+    }
+
     try {
       const res = await apiFetch(`/api/inquiries/${inquiryId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: newStatus }),
       });
-      if (res.ok) {
-        setInquiries((prev) =>
-          prev.map((i) => ((i._id === inquiryId || i.id === inquiryId) ? { ...i, status: newStatus } : i))
-        );
-        if (selectedInquiry && (selectedInquiry._id === inquiryId || selectedInquiry.id === inquiryId)) {
-          setSelectedInquiry((prev) => (prev ? { ...prev, status: newStatus } : null));
-        }
+      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+      notify(`Lead marked ${newStatus}`, "success");
+    } catch (err: any) {
+      // …and roll back when the server rejects it.
+      setInquiries(previous);
+      if (selectedInquiry && (selectedInquiry._id === inquiryId || selectedInquiry.id === inquiryId)) {
+        const original = previous.find((i) => i._id === inquiryId || i.id === inquiryId);
+        setSelectedInquiry(original ? { ...original } : selectedInquiry);
       }
-    } catch (err) {
-      console.error("Failed to update status:", err);
+      notify("Status update failed", "error", err?.message || "The change was not saved.");
     }
   };
 
   const handleDelete = async (inquiryId: string, name: string) => {
+    if (!inquiryId) {
+      notify("This record has no database id", "error", "Reload the lead list and try again.");
+      return;
+    }
     if (!confirm(`Delete inquiry from "${name}" permanently?`)) return;
     try {
       const res = await apiFetch(`/api/inquiries/${inquiryId}`, {
         method: "DELETE"
       });
-      if (res.ok) {
-        setInquiries((prev) => prev.filter((i) => i._id !== inquiryId && i.id !== inquiryId));
-        if (selectedInquiry && (selectedInquiry._id === inquiryId || selectedInquiry.id === inquiryId)) {
-          setSelectedInquiry(null);
-        }
+      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+      setInquiries((prev) => prev.filter((i) => i._id !== inquiryId && i.id !== inquiryId));
+      if (selectedInquiry && (selectedInquiry._id === inquiryId || selectedInquiry.id === inquiryId)) {
+        setSelectedInquiry(null);
       }
-    } catch (err) {
-      console.error("Failed to delete inquiry:", err);
+      notify("Inquiry deleted", "success", `Lead from ${name} was removed.`);
+    } catch (err: any) {
+      notify("Delete failed", "error", err?.message || "The lead is still in the database.");
     }
   };
 
-  // Export leads to CSV
+  // Export leads to CSV (UTF-8 BOM + proper escaping so Excel opens it cleanly)
   const handleExportCSV = () => {
-    if (inquiries.length === 0) return alert("No inquiries to export.");
+    if (inquiries.length === 0) {
+      notify("Nothing to export", "info", "There are no inquiries in the current view.");
+      return;
+    }
     const headers = ["Date", "Name", "Company", "Email", "Phone", "Target SKU", "Line Speed", "Status", "Message"];
     const rows = inquiries.map((i) => [
-      i.createdAt ? new Date(i.createdAt).toLocaleDateString() : "",
-      `"${i.name || ""}"`,
-      `"${i.company || ""}"`,
-      `"${i.email || ""}"`,
-      `"${i.phone || ""}"`,
-      `"${i.skuProfile || ""}"`,
-      `"${i.lineSpeed || ""}"`,
-      `"${i.status || "Pending"}"`,
-      `"${(i.message || "").replace(/"/g, '""')}"`
+      i.createdAt ? new Date(i.createdAt).toLocaleDateString("en-IN") : "",
+      i.name || "",
+      i.company || "",
+      i.email || "",
+      i.phone || "",
+      i.skuProfile || "",
+      i.lineSpeed || "",
+      i.status || "Pending",
+      i.message || "",
     ]);
-
-    const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map((e) => e.join(","))].join("\n");
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `winnerpack_inquiries_${new Date().toISOString().slice(0, 10)}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    downloadCsv(`winnerpack_inquiries_${new Date().toISOString().slice(0, 10)}.csv`, headers, rows);
+    notify(`Exported ${rows.length} leads`, "success", "CSV downloaded with UTF-8 encoding.");
   };
 
   const filteredInquiries = inquiries.filter((inq) => {
+    // Bug fix: the previous filter dereferenced .toLowerCase() on optional
+    // fields, so a single legacy record without a name crashed the whole page.
     const matchesSearch =
-      inq.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      inq.company?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      inq.email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      inq.phone?.includes(searchQuery) ||
-      inq.skuProfile?.toLowerCase().includes(searchQuery.toLowerCase());
+      !searchQuery ||
+      matchesQuery(inq.name, searchQuery) ||
+      matchesQuery(inq.company, searchQuery) ||
+      matchesQuery(inq.email, searchQuery) ||
+      matchesQuery(inq.phone, searchQuery) ||
+      matchesQuery(inq.skuProfile, searchQuery) ||
+      matchesQuery(inq.message, searchQuery);
 
     const matchesStatus =
       statusFilter === "all" ||
@@ -241,13 +267,50 @@ export default function InquiriesClient() {
 
       {/* Inquiries Table */}
       {loading ? (
-        <div className="py-20 text-center text-xs font-mono uppercase tracking-widest text-slate-400">
-          Loading Inquiries CRM Data...
+        <div className="rounded-[28px] border border-slate-200/90 bg-white p-4 space-y-3">
+          {[0, 1, 2, 3, 4].map((row) => (
+            <div key={row} className="admin-skeleton h-11 w-full" />
+          ))}
+          <p className="text-center text-[11px] font-mono uppercase tracking-widest text-slate-400 pt-1">
+            Loading inquiries…
+          </p>
+        </div>
+      ) : loadError ? (
+        <div className="py-14 text-center rounded-[28px] border border-rose-200 bg-rose-50/60 p-8 space-y-3">
+          <Inbox className="h-9 w-9 text-rose-300 mx-auto" />
+          <p className="text-sm font-bold text-rose-800">Could not load inquiries</p>
+          <p className="text-xs text-rose-600">{loadError}</p>
+          <button
+            type="button"
+            onClick={() => void fetchInquiries()}
+            className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-rose-600 px-4 py-2 text-xs font-bold text-white hover:bg-rose-700 transition"
+          >
+            Try again
+          </button>
         </div>
       ) : filteredInquiries.length === 0 ? (
         <div className="py-16 text-center rounded-[28px] border border-slate-200 bg-white p-8 space-y-3">
           <Inbox className="h-10 w-10 text-slate-300 mx-auto" />
-          <p className="text-sm font-bold text-slate-800">No Inquiries Found</p>
+          <p className="text-sm font-bold text-slate-800">
+            {inquiries.length === 0 ? "No Inquiries Yet" : "No Matches For Your Filters"}
+          </p>
+          <p className="text-xs text-slate-500 max-w-sm mx-auto">
+            {inquiries.length === 0
+              ? "Website quote requests will appear here the moment a buyer submits the contact form."
+              : "Try a different search term or switch the pipeline filter back to all submissions."}
+          </p>
+          {inquiries.length > 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                setSearchQuery("");
+                setStatusFilter("all");
+              }}
+              className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100 transition"
+            >
+              Clear filters
+            </button>
+          )}
         </div>
       ) : (
         <div className="rounded-[28px] border border-slate-200/90 bg-white overflow-hidden shadow-xs">
@@ -267,7 +330,7 @@ export default function InquiriesClient() {
                 return (
                   <tr key={targetId} className="hover:bg-slate-50/80 transition">
                     <td className="p-4 font-bold text-slate-900">
-                      <div>{inq.name}</div>
+                      <div>{inq.name || "Unnamed lead"}</div>
                       <div className="text-[10px] text-slate-400 font-mono font-normal flex items-center gap-1 mt-0.5">
                         <Mail className="h-3 w-3 text-slate-400" /> {inq.email}
                       </div>
@@ -358,7 +421,7 @@ export default function InquiriesClient() {
                     Lead Detail Inspection
                   </span>
                   <h2 className="text-lg font-bold text-slate-900 font-display mt-0.5">
-                    {selectedInquiry.name}
+                    {selectedInquiry.name || "Unnamed lead"}
                   </h2>
                 </div>
                 <button

@@ -20,20 +20,20 @@ interface GalleryItem {
 }
 
 const DEFAULTS = {
-  mainHero: { id: 1, image: "/images/gallery/team_office_celebration.jpg", title: "Winner Pack Team Celebration", position: "object-[center_35%]" },
+  mainHero: { id: 1, image: "/images/gallery/team_office_celebration.webp", title: "Winner Pack Team Celebration", position: "object-[center_35%]" },
   portraits: [
-    { id: 2, image: "/images/gallery/team_rafting_expedition.jpg", title: "Team Rafting Expedition" },
-    { id: 7, image: "/images/gallery/team_river_beach.jpg", title: "Team River Beach Gathering" },
-    { id: 9, image: "/images/gallery/new_gallery_2.png", title: "Winner Pack Team Tour Group Photo" },
+    { id: 2, image: "/images/gallery/team_rafting_expedition.webp", title: "Team Rafting Expedition" },
+    { id: 7, image: "/images/gallery/team_river_beach.webp", title: "Team River Beach Gathering" },
+    { id: 9, image: "/images/gallery/new_gallery_2.webp", title: "Winner Pack Team Tour Group Photo" },
   ],
   landscapes: [
-    { id: 3, image: "/images/gallery/gallery_plant_converting.jpg", title: "Pouch Converting & Slitting Hall" },
-    { id: 4, image: "/images/gallery/gallery_office_reception.jpg", title: "Winner Pack Corporate Reception" },
-    { id: 5, image: "/images/gallery/gallery_extrusion_tower.jpg", title: "Multilayer Blown Film Extrusion Tower" },
-    { id: 6, image: "/images/gallery/gallery_factory_hall.jpg", title: "Manufacturing Machinery Hall Overview" },
-    { id: 10, image: "/images/gallery/new_gallery_1.png", title: "Team on Tour — Inside the Bus", position: "object-left" },
-    { id: 8, image: "/images/gallery/gallery_slitting_machine.jpg", title: "Automatic High-Speed Slitting Machine" },
-    { id: 11, image: "/images/gallery/factory_building_facade.jpg", title: "Winner Pack Technologies Factory Headquarters" },
+    { id: 3, image: "/images/gallery/gallery_plant_converting.webp", title: "Pouch Converting & Slitting Hall" },
+    { id: 4, image: "/images/gallery/gallery_office_reception.webp", title: "Winner Pack Corporate Reception" },
+    { id: 5, image: "/images/gallery/gallery_extrusion_tower.webp", title: "Multilayer Blown Film Extrusion Tower" },
+    { id: 6, image: "/images/gallery/gallery_factory_hall.webp", title: "Manufacturing Machinery Hall Overview" },
+    { id: 10, image: "/images/gallery/new_gallery_1.webp", title: "Team on Tour — Inside the Bus", position: "object-left" },
+    { id: 8, image: "/images/gallery/gallery_slitting_machine.webp", title: "Automatic High-Speed Slitting Machine" },
+    { id: 11, image: "/images/gallery/factory_building_facade.webp", title: "Winner Pack Technologies Factory Headquarters" },
   ],
 };
 
@@ -51,17 +51,23 @@ const cardLayouts = [
   "sm:col-span-2 lg:col-span-12 aspect-[16/10] sm:aspect-[16/8]",
 ];
 
-export default function GalleryClient() {
+export default function GalleryClient({ previewData, embedded = false }: { previewData?: any; embedded?: boolean } = {}) {
   const reduceMotion = useReducedMotion();
-  const [mainHero, setMainHero] = useState<GalleryItem>(DEFAULTS.mainHero);
-  const [portraits, setPortraits] = useState<GalleryItem[]>(DEFAULTS.portraits);
-  const [landscapes, setLandscapes] = useState<GalleryItem[]>(DEFAULTS.landscapes);
+  const [mainHero, setMainHero] = useState<GalleryItem>(previewData?.mainHero || DEFAULTS.mainHero);
+  const [portraits, setPortraits] = useState<GalleryItem[]>(previewData?.portraits || DEFAULTS.portraits);
+  const [landscapes, setLandscapes] = useState<GalleryItem[]>(previewData?.landscapes || DEFAULTS.landscapes);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
 
   useEffect(() => {
+    if (previewData) {
+      setMainHero(previewData.mainHero || DEFAULTS.mainHero);
+      setPortraits(Array.isArray(previewData.portraits) ? previewData.portraits : DEFAULTS.portraits);
+      setLandscapes(Array.isArray(previewData.landscapes) ? previewData.landscapes : DEFAULTS.landscapes);
+      return;
+    }
     async function loadGallery() {
       try {
         const response = await apiFetch("/api/content?key=gallery");
@@ -77,7 +83,7 @@ export default function GalleryClient() {
       }
     }
     loadGallery();
-  }, []);
+  }, [previewData]);
 
   const galleryItems = useMemo(
     () => [mainHero, ...portraits, ...landscapes].filter((item) => item?.image),
@@ -132,7 +138,7 @@ export default function GalleryClient() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bone)] text-[var(--color-text)]">
-      <Navbar />
+      {!embedded && <Navbar />}
       <PageWrapper>
         <PageHeader
           title="Gallery"
@@ -253,8 +259,8 @@ export default function GalleryClient() {
         )}
       </AnimatePresence>
 
-      <Footer />
-      <FloatingWidgets />
+      {!embedded && <Footer />}
+      {!embedded && <FloatingWidgets />}
     </div>
   );
 }

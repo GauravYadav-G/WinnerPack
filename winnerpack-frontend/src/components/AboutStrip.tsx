@@ -8,10 +8,15 @@ import { ArrowUpRight, Leaf } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function AboutStrip() {
-  const [about, setAbout] = useState(defaultAbout);
+export default function AboutStrip({ previewData }: { previewData?: any } = {}) {
+  const [about, setAbout] = useState(previewData?.about ?? previewData ?? defaultAbout);
+  const aboutImage = about.image1 ?? "";
 
   useEffect(() => {
+    if (previewData) {
+      setAbout(previewData?.about ?? previewData);
+      return;
+    }
     fetchContent("homepage")
       .then((data) => {
         if (data.about) setAbout(data.about);
@@ -19,7 +24,7 @@ export default function AboutStrip() {
       .catch(() => {
         // Use local content when the CMS is unavailable.
       });
-  }, []);
+  }, [previewData]);
 
   return (
     <section
@@ -31,7 +36,7 @@ export default function AboutStrip() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <motion.header
-          initial={{ opacity: 0, y: 18 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -50,7 +55,7 @@ export default function AboutStrip() {
         </motion.header>
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
@@ -59,11 +64,15 @@ export default function AboutStrip() {
           <div className="grid gap-5 lg:grid-cols-12 lg:items-stretch">
             <div className="group relative min-h-[320px] overflow-hidden rounded-[1.75rem] bg-[var(--color-line)] sm:min-h-[390px] lg:col-span-7 lg:min-h-[410px] lg:rounded-[2rem]">
               <OptimizedImage
-                src={about.image1 || "/images/desktop/about/about_factory_floor_v2.webp"}
+                src={aboutImage}
                 alt="Winner Pack industrial packaging production facility"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]"
                 width={1448}
                 height={1086}
+                loading="lazy"
+                fetchPriority="low"
+                sizes="(max-width: 1023px) 100vw, 58vw"
+                quality={74}
               />
             </div>
 
@@ -79,7 +88,7 @@ export default function AboutStrip() {
                   “We Serve To Deserve”
                 </blockquote>
                 <p className="mt-5 max-w-md text-sm leading-7 text-[var(--color-mute)] sm:text-base">
-                  {about.para2 || "Premium secondary and tertiary packaging, developed around your operational requirements."}
+                  {about.para2}
                 </p>
                 <div className="mt-6 flex items-center gap-3 border-t border-[var(--color-line)] pt-5 text-sm font-semibold text-[var(--color-ink-3)]">
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[var(--color-amber-soft)] text-[var(--color-amber-dark)]">
@@ -101,7 +110,7 @@ export default function AboutStrip() {
 
           {about.stats?.length > 0 && (
             <div className="mt-5 grid grid-cols-2 overflow-hidden rounded-[1.5rem] border border-[var(--color-line)] bg-white sm:grid-cols-4">
-              {about.stats.slice(0, 4).map((stat, index) => (
+              {about.stats.slice(0, 4).map((stat: any, index: number) => (
                 <div
                   key={`${stat.label}-${index}`}
                   className="relative px-5 py-5 text-center sm:px-6 sm:py-6"

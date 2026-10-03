@@ -7,6 +7,10 @@ import { TableRow } from "@tiptap/extension-table-row";
 import { TableCell } from "@tiptap/extension-table-cell";
 import { TableHeader } from "@tiptap/extension-table-header";
 import { Image } from "@tiptap/extension-image";
+import LinkExtension from "@tiptap/extension-link";
+import UnderlineExtension from "@tiptap/extension-underline";
+import Placeholder from "@tiptap/extension-placeholder";
+import TextAlign from "@tiptap/extension-text-align";
 import { useEffect, useState } from "react";
 import {
   Bold,
@@ -30,7 +34,14 @@ import {
   Maximize2,
   Minimize2,
   Eraser,
-  FileCode
+  FileCode,
+  Link as LinkIcon,
+  Unlink,
+  Underline as UnderlineIcon,
+  AlignLeft,
+  AlignCenter,
+  AlignRight,
+  ImageOff,
 } from "lucide-react";
 
 import { marked } from "marked";
@@ -54,7 +65,13 @@ const parseMarkdownToHtml = (raw: string) => {
   }
 };
 
-export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
+const normalizeLink = (value: string) => {
+  const url = value.trim();
+  if (!url || /^(https?:\/\/|mailto:|tel:|\/|#)/i.test(url)) return url;
+  return `https://${url}`;
+};
+
+export default function TiptapEditor({ content, onChange, placeholder = "Start writing…" }: TiptapEditorProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [showTableMenu, setShowTableMenu] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -66,6 +83,8 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
+        link: false,
+        underline: false,
         heading: {
           levels: [1, 2, 3],
         },
@@ -78,7 +97,25 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
       TableHeader,
       Image.configure({
         allowBase64: true,
+        HTMLAttributes: {
+          loading: "lazy",
+          decoding: "async",
+        },
       }),
+      LinkExtension.configure({
+        autolink: true,
+        linkOnPaste: true,
+        openOnClick: false,
+        defaultProtocol: "https",
+        protocols: ["http", "https", "mailto", "tel"],
+        HTMLAttributes: {
+          target: "_blank",
+          rel: "noopener noreferrer nofollow",
+        },
+      }),
+      UnderlineExtension,
+      Placeholder.configure({ placeholder }),
+      TextAlign.configure({ types: ["heading", "paragraph"] }),
     ],
     content: parseMarkdownToHtml(content),
     immediatelyRender: false,
@@ -114,11 +151,27 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
   const wordCount = textContent.trim() ? textContent.trim().split(/\s+/).length : 0;
   const charCount = textContent.length;
 
-  const addImage = () => {
-    const url = window.prompt("Enter image URL:");
-    if (url) {
-      editor.chain().focus().setImage({ src: url }).run();
+  const setLink = () => {
+    const currentUrl = editor.getAttributes("link").href || "";
+    const value = window.prompt("Link URL (website, email, phone, anchor, or internal path):", currentUrl);
+    if (value === null) return;
+    const href = normalizeLink(value);
+    if (!href) {
+      editor.chain().focus().extendMarkRange("link").unsetLink().run();
+      return;
     }
+    editor.chain().focus().extendMarkRange("link").setLink({ href }).run();
+  };
+
+  const addOrEditImage = () => {
+    const selected = editor.isActive("image");
+    const current = selected ? editor.getAttributes("image") : {};
+    const src = window.prompt("Image URL or site asset path:", current.src || "");
+    if (!src?.trim()) return;
+    const alt = window.prompt("Alternative text for accessibility:", current.alt || "") ?? current.alt ?? "";
+    const title = window.prompt("Image title/caption (optional):", current.title || "") ?? current.title ?? "";
+    if (selected) editor.chain().focus().updateAttributes("image", { src: src.trim(), alt, title }).run();
+    else editor.chain().focus().setImage({ src: src.trim(), alt, title }).run();
   };
 
   const addTable = () => {
@@ -162,6 +215,20 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
           title="Italic (Ctrl+I)"
         >
           <Italic className="h-4 w-4" />
+        </button>
+
+        <button
+          type="button"
+          onClick={() => editor.chain().focus().toggleUnderline().run()}
+          className={`p-2 rounded-xl text-xs font-semibold transition cursor-pointer ${
+            editor.isActive("underline")
+              ? "bg-[#120a3b] text-amber-400 shadow-xs"
+              : "text-slate-700 hover:bg-slate-100"
+          }`}
+          title="Underline (Ctrl+U)"
+          aria-label="Underline"
+        >
+          <UnderlineIcon className="h-4 w-4" />
         </button>
 
         {/* Strikethrough */}
@@ -306,14 +373,72 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
 
         <div className="h-4 w-[1px] bg-slate-200 mx-1" />
 
+        {/* Hyperlinks */}
+        <button
+          type="button"
+          onClick={setLink}
+          className={`p-2 rounded-xl text-xs transition cursor-pointer ${
+            editor.isActive("link") ? "bg-[#120a3b] text-amber-400 shadow-xs" : "text-slate-700 hover:bg-slate-100"
+          }`}
+          title={editor.isActive("link") ? "Edit hyperlink" : "Add hyperlink"}
+          aria-label={editor.isActive("link") ? "Edit hyperlink" : "Add hyperlink"}
+        >
+          <LinkIcon className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => editor.chain().focus().extendMarkRange("link").unsetLink().run()}
+          disabled={!editor.isActive("link")}
+          className="p-2 rounded-xl text-xs text-slate-700 hover:bg-slate-100 transition disabled:cursor-not-allowed disabled:opacity-35"
+          title="Remove hyperlink"
+          aria-label="Remove hyperlink"
+        >
+          <Unlink className="h-4 w-4" />
+        </button>
+
+        <div className="h-4 w-[1px] bg-slate-200 mx-1" />
+
+        {/* Text alignment */}
+        {[
+          { align: "left", label: "Align left", icon: AlignLeft },
+          { align: "center", label: "Align center", icon: AlignCenter },
+          { align: "right", label: "Align right", icon: AlignRight },
+        ].map(({ align, label, icon: Icon }) => (
+          <button
+            key={align}
+            type="button"
+            onClick={() => editor.chain().focus().setTextAlign(align).run()}
+            className={`p-2 rounded-xl text-xs transition cursor-pointer ${
+              editor.isActive({ textAlign: align }) ? "bg-[#120a3b] text-amber-400 shadow-xs" : "text-slate-700 hover:bg-slate-100"
+            }`}
+            title={label}
+            aria-label={label}
+          >
+            <Icon className="h-4 w-4" />
+          </button>
+        ))}
+
+        <div className="h-4 w-[1px] bg-slate-200 mx-1" />
+
         {/* Add Image */}
         <button
           type="button"
-          onClick={addImage}
-          className="p-2 rounded-xl text-xs text-slate-700 hover:bg-slate-100 transition cursor-pointer"
-          title="Insert Image URL"
+          onClick={addOrEditImage}
+          className={`p-2 rounded-xl text-xs transition cursor-pointer ${editor.isActive("image") ? "bg-[#120a3b] text-amber-400" : "text-slate-700 hover:bg-slate-100"}`}
+          title={editor.isActive("image") ? "Edit selected image" : "Insert image"}
+          aria-label={editor.isActive("image") ? "Edit selected image" : "Insert image"}
         >
           <ImageIcon className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => editor.chain().focus().deleteSelection().run()}
+          disabled={!editor.isActive("image")}
+          className="p-2 rounded-xl text-xs text-slate-700 hover:bg-rose-50 hover:text-rose-600 transition disabled:cursor-not-allowed disabled:opacity-35"
+          title="Remove selected image"
+          aria-label="Remove selected image"
+        >
+          <ImageOff className="h-4 w-4" />
         </button>
 
         {/* Add Table Controls */}
@@ -546,6 +671,20 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
           .ProseMirror em {
             font-style: italic;
           }
+          .ProseMirror a {
+            color: #c85f0d;
+            text-decoration: underline;
+            text-decoration-thickness: 1.5px;
+            text-underline-offset: 3px;
+            cursor: pointer;
+          }
+          .ProseMirror p.is-editor-empty:first-child::before {
+            color: #94a3b8;
+            content: attr(data-placeholder);
+            float: left;
+            height: 0;
+            pointer-events: none;
+          }
           /* --- Copy Pasted Tables & Images Styles --- */
           .ProseMirror table {
             border-collapse: collapse !important;
@@ -573,6 +712,10 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
             border-radius: 0.75rem !important;
             margin: 1.5rem 0 !important;
             display: block !important;
+          }
+          .ProseMirror img.ProseMirror-selectednode {
+            outline: 3px solid rgba(254, 130, 32, 0.45);
+            outline-offset: 3px;
           }
         `}</style>
 

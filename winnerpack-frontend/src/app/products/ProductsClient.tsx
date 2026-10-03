@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { productCategories } from "@/data";
@@ -12,11 +13,30 @@ import ScrollProgress from "@/components/ScrollProgress";
 import PageWrapper from "@/components/PageWrapper";
 import CTABanner from "@/components/CTABanner";
 import OptimizedImage from "@/components/OptimizedImage";
+import { apiFetch } from "@/lib/api";
 
 export default function ProductsClient() {
-  const navbarCategories = productCategories.filter((category) =>
-    productHierarchy.some((navCategory) => navCategory.id === category.id)
-  );
+  const [navbarCategories, setNavbarCategories] = useState<any[]>([]);
+
+  useEffect(() => {
+    let active = true;
+    apiFetch("/api/categories", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("Category database unavailable");
+        return response.json();
+      })
+      .then((categories) => {
+        if (active && Array.isArray(categories)) setNavbarCategories(categories);
+      })
+      .catch(() => {
+        if (active) {
+          setNavbarCategories(productCategories.filter((category) =>
+            productHierarchy.some((navCategory) => navCategory.id === category.id)
+          ));
+        }
+      });
+    return () => { active = false; };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-[var(--color-text)]">

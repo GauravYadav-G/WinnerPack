@@ -3,11 +3,44 @@
 import { defaultCertifications } from '@/lib/site-defaults';
 import { motion } from "framer-motion";
 import OptimizedImage from "@/components/OptimizedImage";
-
+import { useEffect, useState } from "react";
+import { apiFetch } from "@/lib/api";
 
 const certificationsList = defaultCertifications;
 
-export default function Certifications() {
+export default function Certifications({ previewData }: { previewData?: any } = {}) {
+  const [list, setList] = useState<any[]>(Array.isArray(previewData?.certifications) ? previewData.certifications : certificationsList);
+  const [eyebrow, setEyebrow] = useState(previewData?.eyebrow ?? "Government & Quality Compliance");
+  const [title, setTitle] = useState(previewData?.title ?? "Certified Standards You Can Trust");
+
+  useEffect(() => {
+    if (previewData) {
+      if (Array.isArray(previewData.certifications)) {
+        setList(previewData.certifications);
+      }
+      if (previewData.eyebrow !== undefined) setEyebrow(previewData.eyebrow);
+      if (previewData.title !== undefined) setTitle(previewData.title);
+      return;
+    }
+
+    async function loadCertifications() {
+      try {
+        const res = await apiFetch("/api/content?key=certifications");
+        if (res.ok) {
+          const doc = await res.json();
+          if (Array.isArray(doc.certifications)) {
+            setList(doc.certifications);
+          }
+          if (doc.eyebrow !== undefined) setEyebrow(doc.eyebrow);
+          if (doc.title !== undefined) setTitle(doc.title);
+        }
+      } catch {
+        // Fall back to default certifications if network fails
+      }
+    }
+    loadCertifications();
+  }, [previewData]);
+
   return (
     <section
       id="certifications"
@@ -24,17 +57,17 @@ export default function Certifications() {
         {/* Centered Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16">
           <span className="text-xs font-bold tracking-[0.18em] text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2">
-            Government & Quality Compliance
+            {eyebrow}
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] leading-snug sm:leading-[1.15]">
-            Certified Standards You Can Trust
+            {title}
           </h2>
           <div className="mt-3.5 sm:mt-4 h-1 sm:h-1.5 w-14 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
         </div>
 
         {/* Modern 6-Column Architectural Certification Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-5">
-          {certificationsList.map((item, index) => (
+          {list.map((item: any, index: number) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 16 }}

@@ -2,14 +2,53 @@ import { Router, Request, Response } from "express";
 import { connectDB } from "../db";
 import { Inquiry, Product } from "../models";
 import { requireAuth } from "../middleware/auth";
+import { createRateLimit } from "../middleware/rate-limit";
 
 const router = Router();
+const inquiryRateLimit = createRateLimit({
+  windowMs: 60 * 60 * 1000,
+  max: 10,
+  message: "Too many inquiries. Please try again later.",
+});
+
+const LIMITS = {
+  name: 120,
+  email: 254,
+  phone: 40,
+  company: 160,
+  skuProfile: 160,
+  lineSpeed: 120,
+  message: 5_000,
+} as const;
+
+function cleanString(value: unknown, maxLength: number): string {
+  return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
+}
 
 // POST /api/inquiries — public; creates new inquiry (contact form)
-router.post("/", async (req: Request, res: Response): Promise<void> => {
+router.post("/", inquiryRateLimit, async (req: Request, res: Response): Promise<void> => {
   try {
+    const inquiryData = {
+      name: cleanString(req.body?.name, LIMITS.name),
+      email: cleanString(req.body?.email, LIMITS.email).toLowerCase(),
+      phone: cleanString(req.body?.phone, LIMITS.phone),
+      company: cleanString(req.body?.company, LIMITS.company) || "N/A",
+      skuProfile: cleanString(req.body?.skuProfile, LIMITS.skuProfile) || "General Inquiry",
+      lineSpeed: cleanString(req.body?.lineSpeed, LIMITS.lineSpeed) || "Not Specified",
+      message: cleanString(req.body?.message, LIMITS.message) || "N/A",
+    };
+
+    if (
+      inquiryData.name.length < 2 ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inquiryData.email) ||
+      !/^[+\d][\d\s().-]{6,39}$/.test(inquiryData.phone)
+    ) {
+      res.status(400).json({ error: "Enter a valid name, email address and phone number." });
+      return;
+    }
+
     await connectDB();
-    const newInquiry = await Inquiry.create(req.body);
+    const newInquiry = await Inquiry.create(inquiryData);
 
     // Look up product matching skuProfile if present
     let matchedProduct: any = null;
@@ -103,10 +142,20 @@ router.put("/", requireAuth, async (req: Request, res: Response): Promise<void> 
 // PATCH /api/inquiries/:id — protected; update inquiry (e.g. status change)
 router.patch("/:id", requireAuth, async (req: Request, res: Response): Promise<void> => {
   try {
+    const allowedStatuses = new Set(["Pending", "Contacted", "Quoted", "Completed", "Spam"]);
+    if (req.body.status !== undefined && !allowedStatuses.has(req.body.status)) {
+      res.status(400).json({ error: "Invalid inquiry status" });
+      return;
+    }
     await connectDB();
     const updated = await Inquiry.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
+      runValidators: true,
     });
+    if (!updated) {
+      res.status(404).json({ error: "Inquiry not found" });
+      return;
+    }
     res.json(updated);
   } catch (error: any) {
     res.status(500).json({ error: error.message });
@@ -124,7 +173,11 @@ router.delete("/", requireAuth, async (req: Request, res: Response): Promise<voi
     }
 
     await connectDB();
-    await Inquiry.findByIdAndDelete(id);
+    const deleted = await Inquiry.findByIdAndDelete(id);
+    if (!deleted) {
+      res.status(404).json({ error: "Inquiry not found" });
+      return;
+    }
     res.json({ success: true });
   } catch (error: any) {
     res.status(500).json({ error: error.message });
@@ -135,7 +188,11 @@ router.delete("/", requireAuth, async (req: Request, res: Response): Promise<voi
 router.delete("/:id", requireAuth, async (req: Request, res: Response): Promise<void> => {
   try {
     await connectDB();
-    await Inquiry.findByIdAndDelete(req.params.id);
+    const deleted = await Inquiry.findByIdAndDelete(req.params.id);
+    if (!deleted) {
+      res.status(404).json({ error: "Inquiry not found" });
+      return;
+    }
     res.json({ success: true });
   } catch (error: any) {
     res.status(500).json({ error: error.message });

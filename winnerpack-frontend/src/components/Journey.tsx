@@ -145,18 +145,38 @@ const modernIcons = [
 
 const defaultSolutionsData = defaultSolutions;
 
-export default function Journey() {
-  const [solutionsList, setSolutionsList] = useState<any[]>(defaultSolutionsData);
+export default function Journey({ previewData }: { previewData?: any } = {}) {
+  const [solutionsList, setSolutionsList] = useState<any[]>(Array.isArray(previewData?.solutionsData) ? previewData.solutionsData : defaultSolutionsData);
+  const [header, setHeader] = useState({
+    eyebrow: previewData?.eyebrow ?? 'Packaging Solutions & Capabilities',
+    title: previewData?.title ?? 'Reliable Packaging Solutions Built for Your Business',
+  });
 
   useEffect(() => {
+    if (previewData) {
+      setHeader({
+        eyebrow: previewData.eyebrow ?? '',
+        title: previewData.title ?? '',
+      });
+      if (Array.isArray(previewData.solutionsData)) {
+        setSolutionsList(previewData.solutionsData);
+      }
+      return;
+    }
     async function loadSolutionsData() {
       try {
         const res = await apiFetch("/api/content?key=homepage");
         if (res.ok) {
           const result = await res.json();
           const content = result?.data || result;
-          if (Array.isArray(content?.solutionsData) && content.solutionsData.length > 0) {
+          if (Array.isArray(content?.solutionsData)) {
             setSolutionsList(content.solutionsData);
+          }
+          if (content?.solutionsHeader) {
+            setHeader({
+              eyebrow: content.solutionsHeader.eyebrow ?? 'Packaging Solutions & Capabilities',
+              title: content.solutionsHeader.title ?? 'Reliable Packaging Solutions Built for Your Business',
+            });
           }
         }
       } catch (err) {
@@ -164,7 +184,7 @@ export default function Journey() {
       }
     }
     loadSolutionsData();
-  }, []);
+  }, [previewData]);
 
   return (
     <section id="solutions" className="relative overflow-hidden bg-[var(--color-bone)]/50 py-12 sm:py-16 md:py-20 lg:py-24 border-b border-[var(--color-line)]">
@@ -180,10 +200,10 @@ export default function Journey() {
         {/* Centered Section Header */}
         <div className="mb-10 sm:mb-14 md:mb-16 max-w-4xl mx-auto text-center flex flex-col items-center">
           <span className="text-xs font-bold tracking-[0.18em] text-[var(--color-amber-dark)] font-mono mb-1.5 sm:mb-2.5">
-            Packaging Solutions & Capabilities
+            {header.eyebrow}
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug sm:leading-[1.15] tracking-tight text-[var(--color-ink)] text-balance">
-            Reliable Packaging Solutions Built for Your Business
+            {header.title}
           </h2>
           <div className="mt-3.5 sm:mt-4 h-1 sm:h-1.5 w-14 sm:w-16 bg-gradient-to-r from-[var(--color-amber)] to-[var(--color-amber-2)] rounded-full mx-auto" />
         </div>

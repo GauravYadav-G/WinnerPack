@@ -23,7 +23,7 @@ export function apiFetch(path: string, init: RequestInit = {}): Promise<Response
   const signal =
     init.signal ??
     (typeof AbortSignal !== "undefined" && "timeout" in AbortSignal
-      ? AbortSignal.timeout(1500)
+      ? AbortSignal.timeout(10000)
       : undefined);
 
   return fetch(`${API_BASE}${path}`, {
