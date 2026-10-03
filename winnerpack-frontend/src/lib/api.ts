@@ -6,9 +6,10 @@
  * local development; on Vercel set it as an environment variable pointing
  * to your Railway backend URL.
  *
- * When NEXT_PUBLIC_API_URL is NOT set the helper falls back to "" (empty
- * string), which keeps relative-URL behaviour intact for local Next.js
- * dev where the proxy is still available.
+ * When NEXT_PUBLIC_API_URL is not set, public pages stay in fallback-only
+ * mode. Returning a synthetic unavailable response avoids sending requests to
+ * the Next.js deployment, where the Express routes do not exist, while still
+ * allowing callers to use their existing hardcoded fallback paths.
  */
 
 const API_BASE = (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
@@ -20,6 +21,16 @@ const API_BASE = (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
  *    cross-origin between Vercel and Railway)
  */
 export function apiFetch(path: string, init: RequestInit = {}): Promise<Response> {
+  if (!API_BASE) {
+    return Promise.resolve(
+      new Response(JSON.stringify({ error: "Backend API is not configured" }), {
+        status: 503,
+        statusText: "Service Unavailable",
+        headers: { "Content-Type": "application/json" },
+      })
+    );
+  }
+
   const signal =
     init.signal ??
     (typeof AbortSignal !== "undefined" && "timeout" in AbortSignal
