@@ -7147,41 +7147,7 @@ Thickness depends on bundle weight: lighter multi-packs require 30–60 Micron, 
 
 export const initialMachines = [];
 
-export const initialArticles = [
-  {
-    tag: "Engineering",
-    date: "Mar 2026",
-    title: "Choosing between PP and PET strap: a load-vs-cost framework",
-    excerpt: "A simple decision tree — based on 6 years of mill data — that helps procurement pick the right strap for the right load, without overspending.",
-    read: "6 min read",
-    featured: true,
-    slug: "pp-vs-pet-strap-framework",
-    body: "Polypropylene (PP) and Polyester (PET) straps serve distinct purposes in industrial packaging. While PP strap is highly elastic and suited for light-to-medium bundles that expand/contract, PET strap offers superior tension retention and impact resistance, replacing steel strapping for heavy palletized loads.",
-    image: "/images/desktop/portfolio/quality_featured.webp",
-  },
-  {
-    tag: "Sustainability",
-    date: "Feb 2026",
-    title: "Mono-material films and the road to recyclable e-commerce packaging",
-    excerpt: "Why multi-layer laminate plastics are a recycling nightmare and how new oriented films enable single-stream recycling compatibility.",
-    read: "8 min read",
-    featured: false,
-    slug: "mono-material-recyclable-films",
-    body: "Multi-layer packaging has traditionally combined different plastic types, making them impossible to recycle together. Our latest mono-material LDPE and POF shrink/stretch films provide the same barrier properties and tensile strength while remaining fully compatible with standard single-stream recycling loops, allowing your buyers to meet strict plastic waste compliance.",
-    image: "/images/desktop/portfolio/sustainability_featured.webp",
-  },
-  {
-    tag: "Operations",
-    date: "Jan 2026",
-    title: "How we hit 98.4% on-time dispatch in 2025 — a playbook",
-    excerpt: "A look inside Winner Pack's Dasna hub operations, vehicle coordination algorithms, and WhatsApp integrations.",
-    read: "5 min read",
-    featured: false,
-    slug: "on-time-dispatch-playbook-2025",
-    body: "At Winner Pack, delivery is a key product feature. By coordinating Dasna plants with localized distribution hubs, pre-staging high-volume SKU inventory, and setting automated carrier assignment workflows linked directly to buyer WhatsApp alerts, we sustained a 98.4% rolling on-time delivery rate. Here is our operational playbook.",
-    image: "/images/desktop/portfolio/dispatch_featured.webp",
-  },
-];
+export const initialArticles: any[] = [];
 
 const defaultSlides = [
   {
