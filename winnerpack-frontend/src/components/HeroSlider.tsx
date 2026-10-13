@@ -138,9 +138,6 @@ export default function HeroSlider({ previewData }: { previewData?: any } = {}) 
                 >
                   <OptimizedImage
                     src={src}
-                    mobileSrc={isFirst && /\/slide-1\.(?:png|jpe?g|webp)$/i.test(src)
-                      ? "/images/mobile/hero-slider/slide-1.avif"
-                      : undefined}
                     alt={`WinnerPack — ${activeSlide.heading || 'Engineered Packaging Solutions'}`}
                     className="h-full w-full object-cover object-center"
                     loading={isFirst ? "eager" : "lazy"}
