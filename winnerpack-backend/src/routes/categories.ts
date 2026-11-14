@@ -264,13 +264,13 @@ export const defaultCategories = [
     subcategories: [
       { id: "pp-strap-main", title: "PP Strap", slug: "pp-strap", image: "/images/products/pp-strap/image.webp", blurb: "Virgin polypropylene strapping for semi and fully automatic machines.", items: [] },
       { id: "printed-pp-strap", title: "Printed PP Strap", slug: "printed-pp-strap", image: "/images/products/printed-pp-strap/image.webp", blurb: "Company branded and security printed strapping rolls.", items: [] },
-      { id: "colored-pp-strap", title: "Colored PP Strap", slug: "colored-pp-strap", image: "/images/products/colored-pp-strap/image.webp", blurb: "Vibrant yellow, blue, green, and red strapping rolls.", items: [] },
+      { id: "colored-pp-strap", title: "Coloured PP Strap", slug: "colored-pp-strap", image: "/images/products/colored-pp-strap/image.webp", blurb: "Vibrant yellow, blue, green, and red strapping rolls.", items: [] },
       { id: "pet-strap", title: "PET Strap", slug: "pet-strap", image: "/images/products/pet-strap/image.webp", blurb: "Heavy duty polyester strap replacing steel band for pallet containment.", items: [] },
     ],
     items: [
       "PP Strap",
       "Printed PP Strap",
-      "Colored PP Strap",
+      "Coloured PP Strap",
       "PET Strap",
     ],
     seo: {

@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import HeroSlider from "../components/HeroSlider";
 import AboutStrip from "../components/AboutStrip";
 import Industries from "../components/Industries";
+import VideoReels from "../components/VideoReels";
 import ProductCategories from "../components/ProductCategories";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ProductApplicationsSlider from "../components/ProductApplicationsSlider";
@@ -39,6 +40,9 @@ export default function Page() {
 
         {/* 4. Industries We Serve strip */}
         <Industries />
+
+        {/* Video Reels Section (Inside WinnerPack) */}
+        <VideoReels />
 
         {/* 8. USP + stats row (+ Scroll Ticker) */}
         <WhyChooseUs />

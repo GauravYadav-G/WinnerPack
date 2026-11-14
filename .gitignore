@@ -7,6 +7,7 @@ winnerpack-frontend/node_modules/
 winnerpack-frontend/.env*.local
 winnerpack-frontend/next-env.d.ts
 winnerpack-frontend/tsconfig.tsbuildinfo
+winnerpack-frontend/public/video Smo/
 
 # ── winnerpack-backend ───────────────────────────────────────────────────────
 winnerpack-backend/node_modules/

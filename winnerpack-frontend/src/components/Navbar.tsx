@@ -187,7 +187,7 @@ export const productHierarchy = [
     subcategories: [
       { id: "pp-strap-main", title: "PP Strap", slug: "pp-strap", items: [] },
       { id: "printed-pp-strap", title: "Printed PP Strap", slug: "printed-pp-strap", items: [] },
-      { id: "colored-pp-strap", title: "Colored PP Strap", slug: "colored-pp-strap", items: [] },
+      { id: "colored-pp-strap", title: "Coloured PP Strap", slug: "colored-pp-strap", items: [] },
       { id: "pet-strap", title: "PET Strap", slug: "pet-strap", items: [] },
     ],
   },

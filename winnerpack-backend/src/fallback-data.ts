@@ -1690,11 +1690,11 @@ Certified biodegradable options decompose naturally in soil; standard polyethyle
   },
   {
     id: "colored-pp-strap",
-    title: "Colored PP Strap",
+    title: "Coloured PP Strap",
     category: "pp-strap",
     tag: "COLORED PP",
     blurb: "High-opacity vibrant colored polypropylene strapping rolls for instant warehouse lot identification, destination color-coding, and cargo sorting.",
-    longDesc: "Colored PP Strap is extruded using high-opacity masterbatch color pigments in red, yellow, blue, green, and black shades. Designed for large distribution centers and export hubs to enable instant visual color-code sorting, pallet batch grouping, and dispatch routing while providing high-tensile box reinforcement.\n\n### Key Product Features:\n- **Vibrant Color Masterbatch Pigments**: Color-fast opaque masterbatch resists UV fading and warehouse handling friction.\n- **Instant Visual Logistics Sorting**: Speeds up cargo dispatch categorization and inventory lot identification.\n- **Consistent Width & Thickness**: Strict tolerance (+/- 0.05 mm) prevents machine jamming during packaging runs.\n- **High Breaking Strength**: Formulated to hold up to 200 kg tensile load per strap band.\n- **Eco-Friendly Recyclable PP**: Fully recyclable polypropylene resin matching green supply chain standards.",
+    longDesc: "Coloured PP Strap is extruded using high-opacity masterbatch color pigments in red, yellow, blue, green, and black shades. Designed for large distribution centers and export hubs to enable instant visual color-code sorting, pallet batch grouping, and dispatch routing while providing high-tensile box reinforcement.\n\n### Key Product Features:\n- **Vibrant Color Masterbatch Pigments**: Color-fast opaque masterbatch resists UV fading and warehouse handling friction.\n- **Instant Visual Logistics Sorting**: Speeds up cargo dispatch categorization and inventory lot identification.\n- **Consistent Width & Thickness**: Strict tolerance (+/- 0.05 mm) prevents machine jamming during packaging runs.\n- **High Breaking Strength**: Formulated to hold up to 200 kg tensile load per strap band.\n- **Eco-Friendly Recyclable PP**: Fully recyclable polypropylene resin matching green supply chain standards.",
     image: "/images/products/colored-pp-strap/image.webp",
     gallery: [
       "/images/products/colored-pp-strap/image.webp",
@@ -4567,7 +4567,7 @@ Manufactured in a controlled clean environment to maintain strict hygiene standa
 - **Clear Polythene Packing Bags**: Economical transparent bags offering hygienic dust and moisture protection for retail display.
 - **Ice Bags**: 100% Virgin 3-Layer PE films formulated with **Metallocene Poly** for maximum seal strength in below-freezing temperatures, with 8-color deep freeze printing and D-Punch handles.
 - **Plastic D-Cut Bags**: HDPE and LDPE bags featuring die-cut handles for boutique retail display.
-- **Polythene Clothing Packing Bags**: Self-sealing clear garment bags popular among retail displayers and dry-cleaners.
+- **Polythene Clothing Packing Bags**: Self-sealing clear garment bags popular among retailers and dry-cleaners.
 - **Grip Seal Bags**: Reusable, food-safe click-lock zipper bags providing clear product visibility.
 - **Poly Mailer Bags**: Custom-printed white courier mailers providing an economical shipping solution over bulky boxes.
 - **Plastic Bags with Hanger Hook**: Zip lock garment bags with integrated hanging hooks for hosiery and apparel pegs.
@@ -4945,7 +4945,7 @@ Our ice bags are manufactured from recyclable polyethylene (LDPE Code 4). We als
 Yes, metallocene co-extrusion guarantees leak-resistant properties and reinforced seals that absorb heavy impact drops without bursting.
 
 #### 8. Are ice bags suitable for commercial and industrial use?
-Absolutedly. They are engineered to handle the demands of commercial ice plants, supermarkets, liquor stores, and catering logistics.
+Absolutely. They are engineered to handle the demands of commercial ice plants, supermarkets, liquor stores, and catering logistics.
 
 #### 9. How should ice bags be stored to prevent damage?
 Store in a cool, dry environment away from direct sunlight in their original packaging to prevent dust exposure and maintain long-term film integrity.`,
@@ -5059,7 +5059,7 @@ Yes, the resealable adhesive strip or zipper closure allows multiple reuses. The
 Yes, full custom flexographic printing is available for company branding, size charts, barcodes, and regulatory suffocation warning notices.
 
 #### 6. Do these bags offer protection against dust, moisture, and wrinkles?
-Absolutedly. The sealed plastic structure eliminates environmental exposure, while compression flushes out dead air to prevent clothing from shifting and wrinkling.
+Absolutely. The sealed plastic structure eliminates environmental exposure, while compression flushes out dead air to prevent clothing from shifting and wrinkling.
 
 #### 7. Are polythene clothing storage bags suitable for long-term storage?
 Yes, when stored in dry environments away from direct UV light, they shield garments in closets and warehouses for extended periods.
@@ -5178,7 +5178,7 @@ Ideal for shipping clothing, T-shirts, dresses, pants, bedding, accessories, doc
 Yes, multi-layer LDPE co-extruded film forms a 100% waterproof and dust-proof shield around package contents.
 
 #### 4. Are poly shipping bags durable for courier use?
-Absolutedly. They are engineered with high tear and puncture resistance to endure rough multi-city logistics and sorting equipment.
+Absolutely. They are engineered with high tear and puncture resistance to endure rough multi-city logistics and sorting equipment.
 
 #### 5. Do poly mailer bags come with adhesive sealing?
 Yes, they feature a high-tack permanent peel-and-seal strip that creates a tamper-evident closure without needing additional tape.
@@ -5778,7 +5778,7 @@ Yes. PVC shrink rolls can be pre-printed using flexographic inks before conversi
 Standard thickness ranges from **30 Micron to 50 Micron**, in widths from 200mm to 600mm, customizable to fit the product and sealing machine specifications.
 
 #### 8. What products are commonly wrapped using PVC shrink rolls?
-Cosmetics, perfume boxes, pharmaceutical cartons, software boxes, CD/DVD multipacks, stationary sets, and hardware tools are commonly wrapped using PVC shrink rolls.
+Cosmetics, perfume boxes, pharmaceutical cartons, software boxes, CD/DVD multipacks, stationery sets, and hardware tools are commonly wrapped using PVC shrink rolls.
 
 #### 9. Do PVC shrink rolls provide tamper-evidence?
 Yes. Once heat-activated, the tight shrink seal immediately shows visible tampering if the packaging is opened or disturbed, providing effective tamper-evident protection.
@@ -5819,7 +5819,7 @@ PVC shrink pouches are widely used in cosmetics, pharmaceuticals, and consumer g
 ### Applications
 - Cosmetics, personal care, and gift sets
 - Pharmaceutical over-the-counter product protection
-- Stationary, office supplies, and toys
+- Stationery, office supplies, and toys
 - Consumer electronics accessories
 - Food product small multipacks
 
@@ -6470,7 +6470,7 @@ Silage stretch film is a specialized agricultural film designed to securely wrap
 Silage stretch film is applied using a baling machine, which wraps silage bales in multiple layers of the film. This process creates an oxygen barrier, maintaining optimal conditions for anaerobic fermentation, which is essential for preserving the nutritional content of the feed.
 
 #### 3. What are the benefits of using silage stretch film for preserving silage?
-- **Preservational Excellence**: Creates an airtight seal, reducing spoilage and retaining feed value.
+- **Preservation Excellence**: Creates an airtight seal, reducing spoilage and retaining feed value.
 - **Weather Resistance**: Protects silage from moisture, UV rays, and extreme temperatures.
 - **Efficiency**: Streamlines agricultural processes by ensuring long-term forage preservation.
 - **Cost-Effective**: Reduces waste caused by spoilage, enhancing feed quality and livestock productivity.
@@ -7097,7 +7097,7 @@ While standard shrink film is thinner and meant for wrapping single items, Colla
 - **Waterproof Barrier**: Shields products from dust, rain, and moisture.
 
 #### 4. What types of products can be packed using Collation Shrink Film?
-Ideal for multi-packing water bottles, soft drink cans, food jars, tetra-paks, pharmaceutical bottles, personal care products, and household cleaning supplies.
+Ideal for multi-packing water bottles, soft drink cans, food jars, Tetra Paks, pharmaceutical bottles, personal care products, and household cleaning supplies.
 
 #### 5. Is Collation Shrink Film suitable for heavy-duty packaging?
 Yes. It is specifically formulated with high dart drop impact strength and tear resistance to handle heavy 6-pack, 12-pack, or 24-pack beverage loads.

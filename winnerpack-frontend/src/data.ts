@@ -81,7 +81,7 @@ export const productCategories: ProductCategory[] = [
     items: [
       "PP Strap",
       "Printed PP Strap",
-      "Colored PP Strap",
+      "Coloured PP Strap",
       "PET Strap",
     ],
   },

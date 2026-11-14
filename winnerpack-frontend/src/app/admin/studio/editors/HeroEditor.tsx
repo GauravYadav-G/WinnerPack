@@ -22,7 +22,7 @@ export default function HeroEditor({ data, onChange }: { data: any; onChange: (d
             id: `slide-${Date.now()}`,
             tag: 'INDUSTRIAL PACKAGING',
             heading: 'Engineered For Industrial Performance',
-            description: 'Direct manufacturer of precision stretch films, strapping rolls, and high-barrier barrier films.',
+            description: 'Direct manufacturer of precision stretch films, strapping rolls, and high-barrier films.',
             desktopMediaUrl: '/images/desktop/hero-slider/slide-1.webp',
             mobileMediaUrl: '/images/mobile/hero-slider/slide-1.avif',
           }}

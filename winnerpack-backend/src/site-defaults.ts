@@ -249,7 +249,7 @@ export const defaultContactPage = {
     },
     {
       question: "Do you supply production samples before commercial orders?",
-      answer: "Yes. We offer sample rolls and trail quantities across films, strapping, and tapes so your quality team can test tensile load, elongation, and machine compatibility before volume sign-off."
+      answer: "Yes. We offer sample rolls and trial quantities across films, strapping, and tapes so your quality team can test tensile load, elongation, and machine compatibility before volume sign-off."
     },
     {
       question: "Can products be manufactured to non-standard widths and thicknesses?",
@@ -301,4 +301,52 @@ export const defaultGlobal = {
     prompt: "Hello Winner Pack team, I would like to inquire about industrial packaging materials.",
     showWhatsApp: true,
   }
+};
+
+export const defaultVideoReels = {
+  eyebrow: "VIDEO REELS",
+  title: "Inside WinnerPack",
+  subtitle: "A quick look at our high-barrier films, automated production lines, and quality-tested industrial packaging.",
+  reels: [
+    {
+      id: "barrier-pouches",
+      title: "High-Barrier Packaging",
+      tag: "BARRIER FILMS",
+      subtitle: "Multi-layer barrier protection against moisture, oxygen, and UV degradation.",
+      videoSrc: "/videos/reels/barrier-pouches.mp4",
+      posterSrc: "/images/reels/barrier-pouches.webp",
+    },
+    {
+      id: "material-selection",
+      title: "Material Engineering",
+      tag: "PRECISION EXTRUSION",
+      subtitle: "Custom tensile formulations tailored to heavy-duty industrial handling.",
+      videoSrc: "/videos/reels/material-selection.mp4",
+      posterSrc: "/images/reels/material-selection.webp",
+    },
+    {
+      id: "electronics-protection",
+      title: "Electronics Protection",
+      tag: "ESD SAFE SOLUTIONS",
+      subtitle: "Electrostatic discharge prevention and sensitive component shielding.",
+      videoSrc: "/videos/reels/electronics-protection.mp4",
+      posterSrc: "/images/reels/electronics-protection.webp",
+    },
+    {
+      id: "collation-shrink-film",
+      title: "Collation Shrink Bundling",
+      tag: "SECONDARY WRAPPING",
+      subtitle: "High-integrity multi-pack bundling with puncture-resistant polymers.",
+      videoSrc: "/videos/reels/collation-shrink-film.mp4",
+      posterSrc: "/images/reels/collation-shrink-film.webp",
+    },
+    {
+      id: "secondary-packaging",
+      title: "Pallet Load Security",
+      tag: "TRANSIT INTEGRITY",
+      subtitle: "Zero-shift stabilization and weatherproofing for long-haul logistics.",
+      videoSrc: "/videos/reels/secondary-packaging.mp4",
+      posterSrc: "/images/reels/secondary-packaging.webp",
+    },
+  ],
 };
