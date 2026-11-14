@@ -149,8 +149,18 @@ function ReelCard({
   onHoverChange,
 }: ReelCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const hoverTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isUnmuted, setIsUnmuted] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  // Clean up any pending hover timer on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimerRef.current) {
+        clearTimeout(hoverTimerRef.current);
+      }
+    };
+  }, []);
 
   // Auto-play video continuously when near viewport, with guaranteed continuous loop restart
   useEffect(() => {
@@ -185,20 +195,29 @@ function ReelCard({
     };
   }, [isNearViewport, isUnmuted]);
 
-  // On hover: unmute audio and notify parent to pause auto-scroll
+  // On hover: pause auto-scroll immediately; only unmute audio after mouse sticks for 3 seconds
   const handleMouseEnter = () => {
     onHoverChange(true);
-    setIsUnmuted(true);
-    const video = videoRef.current;
-    if (video) {
-      video.muted = false;
-      video.volume = 1.0;
-      video.play().catch(() => {});
+    if (hoverTimerRef.current) {
+      clearTimeout(hoverTimerRef.current);
     }
+    hoverTimerRef.current = setTimeout(() => {
+      setIsUnmuted(true);
+      const video = videoRef.current;
+      if (video) {
+        video.muted = false;
+        video.volume = 1.0;
+        video.play().catch(() => {});
+      }
+    }, 3000);
   };
 
-  // On leave: mute audio and resume auto-scroll
+  // On leave: cancel 3-second timer, mute audio, and resume auto-scroll
   const handleMouseLeave = () => {
+    if (hoverTimerRef.current) {
+      clearTimeout(hoverTimerRef.current);
+      hoverTimerRef.current = null;
+    }
     onHoverChange(false);
     setIsUnmuted(false);
     const video = videoRef.current;
@@ -207,8 +226,12 @@ function ReelCard({
     }
   };
 
-  // Toggle on click for touch devices
+  // Toggle on click for touch devices or instant unmute
   const handleClick = () => {
+    if (hoverTimerRef.current) {
+      clearTimeout(hoverTimerRef.current);
+      hoverTimerRef.current = null;
+    }
     const video = videoRef.current;
     if (!video) return;
     const nextState = !isUnmuted;
